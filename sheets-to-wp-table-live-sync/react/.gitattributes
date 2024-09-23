@@ -1,0 +1,32 @@
+# Directories 
+/.wordpress-org export-ignore
+/.github export-ignore
+/.git
+/node_modules
+/react/node_modules
+/assets/src export-ignore
+/react/src
+/.wordpress-org
+/react/src export-ignore
+.wordpress-org
+.wordpress-org export-ignore
+
+# Files 
+.gitattributes export-ignore
+.gitignore export-ignore
+.babelrc export-ignore
+appsero.json export-ignore
+package.json export-ignore
+package-lock.json export-ignore
+proder.config.js export-ignore
+webpack.config.js export-ignore
+.distignore export-ignore
+.DS_Store export-ignore
+webpack.gutenberg.js export-ignore
+/react/.eslintrc
+/react/.prettierignore export-ignore
+/react/.tsconfig.json export-ignore
+.tsconfig.json export-ignore
+.prettierignore export-ignore
+.wordpress-org export-ignore
+phpcs.xml

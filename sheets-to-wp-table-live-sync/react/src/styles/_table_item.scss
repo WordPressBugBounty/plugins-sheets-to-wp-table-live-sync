@@ -1,0 +1,199 @@
+//Table Item Styles
+.table_info-action_box_wrapper {
+    padding-bottom: 21px;
+    border-bottom: 0.8px solid #e6e6e6;
+    margin-bottom: 32px;
+
+    .table_info-action_box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        position: relative;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .table-info-box {
+            margin-right: 10px;
+
+            .table-info {
+
+                .table-edit {
+                    width: auto;
+                }
+
+                .swptls-title {
+
+                    &.h4 {
+                        color: #1e1e1e;
+                        margin-bottom: 10px;
+                    }
+
+                    &.p {
+                        color: #666873;
+                        margin-bottom: 0;
+                    }
+                }
+
+                @media (max-width: 550.98px) {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    .swptls-title {
+                        &.h4 {
+                            margin-bottom: 0px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 550.98px) {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 100%;
+            }
+        }
+
+        .table-action-box {
+            display: flex;
+            grid-row-gap: 10px;
+            align-items: center;
+            padding-right: 20px;
+            justify-content: center;
+            grid-column-gap: 30px;
+
+            .btn-shortcode {
+                min-width: 190px;
+                transition: all 0.3s ease;
+
+                span {
+                    color: #666873;
+                    padding-right: 9px;
+                    margin-right: 9px;
+                    border-right: 1px solid #BBBDCA;
+                }
+
+                .icon {
+                    line-height: 0;
+                }
+
+                &:hover {
+                    color: #2BB885;
+                    border-color: #2BB885;
+                    box-shadow: none !important;
+
+                    span {
+                        color: #1E1E1E;
+                    }
+
+                    svg {
+
+                        path {
+                            fill: #2BB885;
+                        }
+                    }
+                }
+
+                &.btn-success {
+                    color: #fff;
+                    background-color: #2BB885;
+
+                    svg {
+
+                        path {
+                            fill: #fff;
+                        }
+                    }
+                }
+            }
+
+            .table-edit {
+                margin-right: 0;
+            }
+
+            .table-duplicate {
+                border: 0;
+                outline: 0;
+                cursor: pointer;
+                box-shadow: none;
+                background-color: transparent;
+                transition: all 0.3s ease;
+
+                svg {
+
+                    path {
+                        stroke: #7E8AA1;
+                        transition: all 0.3s ease;
+                    }
+                }
+
+                &:hover {
+                    transform: scale(1.1);
+
+                    svg {
+
+                        path {
+                            stroke: #AE64F9;
+                        }
+                    }
+                }
+            }
+
+            // Custom Tooltip 
+            .tooltip-wrapper {
+                position: relative;
+                display: inline-block;
+
+                .tooltip-content {
+                    visibility: hidden;
+                    color: #1E1E1E;
+                    font-size: 14px;
+                    border-radius: 6px;
+                    background-color: #fff;
+                    border: 1px solid #E3E5E9;
+                    box-shadow: 0px 4px 4px 0px rgba(90, 99, 107, 0.1490196078);
+                    text-align: center;
+                    padding: 5px;
+                    position: absolute;
+                    z-index: 1;
+                    bottom: -5px;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(100%);
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    white-space: nowrap;
+                }
+
+            }
+
+            .tooltip-wrapper:hover .tooltip-content {
+                visibility: visible;
+                opacity: 1;
+            }
+
+
+
+        }
+
+        @media (max-width: 550.98px) {
+            width: 100%;
+            flex-direction: column;
+
+            .table-action-box {
+                padding-right: 0;
+                grid-column-gap: 15px;
+            }
+        }
+    }
+}
+
+.add-neew-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
