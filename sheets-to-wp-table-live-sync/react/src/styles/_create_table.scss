@@ -1,6 +1,12 @@
 .gswpts_tables_container {
     margin-right: 20px;
 
+    // Checkbox disable 
+    input.flexsync-checkbox {
+        cursor: none;
+        pointer-events: none;
+    }
+
     &.swap-bottom-options {
         #bottom_options {
             #create_tables_paginate {

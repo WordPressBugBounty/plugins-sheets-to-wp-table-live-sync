@@ -26,7 +26,6 @@ class Products {
 	 */
 	public function __construct() {
 		add_action( 'wp_ajax_gswpts_product_fetch', [ $this, 'fetch_all' ] );
-		add_action( 'wp_ajax_nopriv_gswpts_product_fetch', [ $this, 'fetch_all' ] );
 	}
 
 	/**
@@ -41,9 +40,6 @@ class Products {
 				'message' => __( 'Invalid action', 'sheetstowptable' ),
 			]);
 		}
-
-		// $this->get_other_products();
-		// wp_die();
 
 		ob_start();
 		$this->get_other_products();

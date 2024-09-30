@@ -170,7 +170,7 @@ class Cache {
 		$sheet_mergedata = get_transient( 'gswpts_sheet_merged_' . $table_id . '' ) ? get_transient( 'gswpts_sheet_merged_' . $table_id . '' ) : null;
 
 		if ( ! $sheet_mergedata ) {
-			$sheet_mergedata = swptlspro()->helpers->get_merged_styles( $sheet_id, $sheet_gid );
+			$sheet_mergedata = swptls()->helpers->get_merged_styles( $sheet_id, $sheet_gid );
 
 			// Save sheet merge data to local storage.
 			$this->save_merged_styles( $table_id, $sheet_mergedata );
@@ -228,7 +228,7 @@ class Cache {
 		if ( ! $images_data ) {
 			$sheet_id = swptls()->helpers->get_sheet_id( $sheet_url );
 			$sheet_gid = swptls()->helpers->get_grid_id( $sheet_url );
-			$images_data = swptlspro()->helpers->get_images_data( $sheet_id, $sheet_gid );
+			$images_data = swptls()->helpers->get_images_data( $sheet_id, $sheet_gid );
 
 			// save sheet data to local storage.
 			$this->save_sheet_images( $table_id, $images_data );
@@ -254,7 +254,7 @@ class Cache {
 		if ( ! $link_data ) {
 			$sheet_id = swptls()->helpers->get_sheet_id( $sheet_url );
 			$sheet_gid = swptls()->helpers->get_grid_id( $sheet_url );
-			$link_data = swptlspro()->helpers->get_links_data( $sheet_id, $sheet_gid );
+			$link_data = swptls()->helpers->get_links_data( $sheet_id, $sheet_gid );
 
 			// save sheet data to local storage.
 			$this->save_sheet_link( $table_id, $link_data );

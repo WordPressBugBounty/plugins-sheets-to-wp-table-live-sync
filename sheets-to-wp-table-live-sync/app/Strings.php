@@ -96,6 +96,8 @@ class Strings {
 			'tooltip-46'  => __( 'You can easily highlight text for copy-paste', 'sheetstowptable' ),
 			'tooltip-47'  => __( 'You can effortlessly move the table horizontally (left-right).', 'sheetstowptable' ),
 
+			'tooltip-48'  => __( 'Allow checkbox to be loaded from sheets. You can use it to import checkox if you have them in Google Sheets.', 'sheetstowptable' ),
+
 			/**
 			 * AddNewTable.
 			 */
@@ -219,9 +221,6 @@ class Strings {
 			'doc-7'  => __('How do I find tutorials about using the plugin?', 'sheetstowptable'),
 			'doc-7-ans'  => __(
 				"Please visit our <a target='_blank' href='https://www.youtube.com/playlist?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube playlist</a>, where we post tutorials on how you can use different features of the plugin.",'sheetstowptable'),
-			'doc-8'  => __('The zero(0) values in my google spreadsheets are not being created in the table, there are blanks. How to fix?', 'sheetstowptable'),
-			'doc-8-ans'  => __(
-				"Google spreadsheets assumes zero (0) values to be empty or blank and returns empty strings in response, which do not appear in your table, thus instead of directly using a zero value, you can resolve it by using zero with double/single quotation or any 0 emoji. E.g. '0', 𝟶, 🅾",'sheetstowptable'),
 
 			'doc-9'  => __( 'How can I create a table from an imported XLSX file in google spreadsheets?', 'sheetstowptable' ),
 			'doc-9-ans'  => __(
@@ -401,6 +400,13 @@ class Strings {
 			'left-to-right'  => __( 'Table navigation mode (left-right)', 'sheetstowptable' ),
 
 			'import-links'  => __( 'Import links from sheet', 'sheetstowptable' ),
+
+			'import-checkbox'  => __( 'Import checkbox from sheet', 'sheetstowptable' ),
+			'specific-column'  => __( 'Enable sorting by specific columns in', 'sheetstowptable' ),
+			'sorting-ascending'  => __( 'Ascending', 'sheetstowptable' ),
+			'sorting-descending'  => __( 'Descending', 'sheetstowptable' ),
+			'sorting-checkbox-content'  => __( 'within the table', 'sheetstowptable' ),
+
 			'import-image'  => __( 'Import images from sheet', 'sheetstowptable' ),
 			'cache-table'  => __( 'Cache table for faster loading time', 'sheetstowptable' ),
 			'cell-formatting'  => __( 'Cell formatting style', 'sheetstowptable' ),
@@ -420,7 +426,10 @@ class Strings {
 			'5'  => __( '5', 'sheetstowptable' ),//phpcs:ignore
 			'1'  => __( '1', 'sheetstowptable' ),//phpcs:ignore
 			'-1'  => __( '-1', 'sheetstowptable' ),//phpcs:ignore
+			'limited-to-msg'  => __( 'The table is limited to 50 rows.', 'sheetstowptable' ),
+			'limited-to-msg-2'  => __( 'to show the full Google Sheet with awesome customizations.', 'sheetstowptable' ),
 
+			'upgrade-now'  => __( 'Upgrade Now →', 'sheetstowptable' ),
 			'table-height'  => __( 'Table height', 'sheetstowptable' ),
 
 			'default-height'  => __( 'Default height', 'sheetstowptable' ),

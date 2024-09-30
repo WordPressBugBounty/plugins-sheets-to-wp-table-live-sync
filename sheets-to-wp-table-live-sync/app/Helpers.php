@@ -191,7 +191,7 @@ class Helpers {
 			return new \WP_Error( 'feature_not_compatible', __( 'The feature is not compatible or something went wrong', 'sheetstowptable' ) );
 		}
 
-		$url = sprintf( 'https://script.google.com/macros/s/AKfycbwm2sIL6Y4kJDW0vBlreVtjONLbbEp983FU9zvi7rI1BX7Bge3a5bjXuMOsvxbDCqq9xg/exec?sheetID=%1$s&gID=%2$d&action=getMergedCells', $sheet_id, $gid );
+		$url = sprintf( 'https://script.google.com/macros/s/AKfycbzBVcMW-7v4avyTH4FJCrogXY8_-TMKBVCvikNRzIKrojHoXXc1zJc2-rJD7P30L6oGXQ/exec?sheetID=%1$s&gID=%2$d&action=getMergedCells', $sheet_id, $gid );
 
 		$response = wp_remote_get( $url );
 
@@ -204,6 +204,10 @@ class Helpers {
 
 		return 200 === $code ? json_decode( $body, true ) : $response;
 	}
+
+
+
+
 
 	/**
 	 * Loads data based on the condition.
@@ -264,6 +268,7 @@ class Helpers {
 			if ( $merged_support ) {
 				$response['sheet_merged_data'] = $get_merged_style();
 			}
+
 			if ( $table_img_support ) {
 				$response['sheet_images'] = $get_images_data();
 			}
@@ -312,6 +317,7 @@ class Helpers {
 		if ( $merged_support ) {
 			$response['sheet_merged_data'] = swptls()->cache->get_saved_merge_styles($table_id, $sheet_url);
 		}
+
 		if ( $table_img_support ) {
 			$response['sheet_images'] = swptls()->cache->get_saved_sheet_images($table_id, $sheet_url, $sheet_gid);
 		}
@@ -376,6 +382,44 @@ class Helpers {
 
 		return $filtered_cell_value;
 	}
+
+
+	/**
+	 * Transform checkbox values based on the sheet logic.
+	 *
+	 * @param  string $cell_value The cell value.
+	 * @return string
+	 */
+	public function transform_checkbox_values( $cell_value ) {
+		$class_name = '';
+		$is_checked = '';
+		$hidden_value = '0';
+
+		// Determine the values based on the cell value.
+		switch ( $cell_value ) {
+			case 'TRUE':
+				$class_name = 'checked';       // Add 'checked' class for true.
+				$is_checked = 'checked';       // Set the checkbox as checked.
+				$hidden_value = '1';           // Set hidden value to '1'.
+				break;
+			case 'FALSE':
+				$class_name = 'unchecked';     // Add 'unchecked' class for false.
+				$is_checked = '';              // Checkbox is not checked.
+				$hidden_value = '0';           // Set hidden value to '0'.
+				break;
+			default:
+				// For other values, return the cell value as is.
+				return $cell_value;
+		}
+
+		// Return the constructed HTML for the checkbox and hidden value.
+		return '<input type="checkbox" class="flexsync-checkbox flexsync-free ' . $class_name . '" ' . $is_checked . '>'
+			 . '<p style="visibility: hidden; display: none;">' . $hidden_value . '</p>';
+	}
+
+
+
+
 	// phpcs:ignore
 	/**
 	 * Transforms links to transform the link in to embeed text.
@@ -493,43 +537,6 @@ class Helpers {
 		return $string;
 	}
 
-	/**
-	 * Extract the text only from inside the brackets.
-	 *
-	 * @param string $string The string to extract text.
-	 */
-	public function extract_bracket_text( $string ) {
-		$text_outside = [];
-		$text_inside = [];
-		$string_length = strlen( $string );
-		$t = '';
-
-		for ( $i = 0; $i < $string_length; $i++ ) {
-			if ( '[' === $string[ $i ] ) {
-				$text_outside[] = $t;
-				$t = '';
-				$t1 = '';
-				$i++;
-				while ( ']' !== $string[ $i ] ) {
-					$t1 .= $string[ $i ];
-					$i++;
-				}
-				$text_inside[] = $t1;
-
-			} else {
-				if ( ']' !== $string[ $i ] ) {
-					$t .= $string[ $i ];
-				} else {
-					continue;
-				}
-			}
-		}
-		if ( '' !== $t ) {
-			$text_outside[] = $t;
-		}
-
-		return $text_inside;
-	}
 
 	/**
 	 * Get the images from google sheet
@@ -540,7 +547,7 @@ class Helpers {
 	 */
 	public function get_images_data( $sheet_id, $gid ) {
 		$rest_url = sprintf(
-			'https://script.google.com/macros/s/AKfycbwm2sIL6Y4kJDW0vBlreVtjONLbbEp983FU9zvi7rI1BX7Bge3a5bjXuMOsvxbDCqq9xg/exec?sheetID=%s&gID=%s&action=getImages',
+			'https://script.google.com/macros/s/AKfycbzBVcMW-7v4avyTH4FJCrogXY8_-TMKBVCvikNRzIKrojHoXXc1zJc2-rJD7P30L6oGXQ/exec?sheetID=%s&gID=%s&action=getImages',
 			$sheet_id,
 			$gid
 		);
@@ -561,7 +568,7 @@ class Helpers {
 	public function get_links_data( $sheet_id, $gid ) {
 
 		$rest_url = sprintf(
-			'https://script.google.com/macros/s/AKfycbwm2sIL6Y4kJDW0vBlreVtjONLbbEp983FU9zvi7rI1BX7Bge3a5bjXuMOsvxbDCqq9xg/exec?sheetID=%s&gID=%s&action=getLinks',
+			'https://script.google.com/macros/s/AKfycbzBVcMW-7v4avyTH4FJCrogXY8_-TMKBVCvikNRzIKrojHoXXc1zJc2-rJD7P30L6oGXQ/exec?sheetID=%s&gID=%s&action=getLinks',
 			$sheet_id,
 			$gid
 		);
@@ -597,6 +604,42 @@ class Helpers {
 
 		return $cell_data;
 	}
+
+
+	/**
+	 * Get organized checkbox data for each cell.
+	 *
+	 * @param string $index      The string index to pickup the images data.
+	 * @param array  $check_data The checkbox data retrieved from the sheet.
+	 * @param mixed  $cell_data   The current cell data.
+	 */
+	public function get_custom_checkbox_data( $index, $check_data, $cell_data ) {
+
+		if ( ! is_array( $check_data ) ) {
+			// Use true to return an associative array.
+			$check_data = json_decode( $check_data, true );
+
+			// If decoding fails, $check_data will be null.
+			if ( is_null( $check_data ) ) {
+				return $cell_data;
+			}
+		}
+
+		// Check if the specific index exists in the check_data array.
+		if ( isset( $check_data[ $index ] ) ) {
+			$status = $check_data[ $index ]['status'];
+			$is_checked = ( 'ctrue' === $status ) ? 'checked' : '';
+			$class_name = ( 'ctrue' === $status ) ? 'checked' : 'unchecked';
+			$hidden_value = ( 'ctrue' === $status ) ? '1' : '0';
+
+			 return '<input type="checkbox" class="flexsync-checkbox flexsync-free ' . $class_name . '" ' . $is_checked . '>'
+			 . '<p style="visibility: hidden; display: none;">' . $hidden_value . '</p>';
+
+		}
+
+		return $cell_data;
+	}
+
 
 	/**
 	 * Get sheets embeed link data for each cell.
@@ -681,6 +724,8 @@ class Helpers {
 		$description = isset($settings['table_description']) ? sanitize_text_field($settings['table_description']) : '';
 
 		$merged_support = ( isset($settings['merged_support']) && wp_validate_boolean($settings['merged_support']) ) ?? false;
+		$checkbox_support = ( isset($settings['checkbox_support']) && wp_validate_boolean($settings['checkbox_support']) ) ?? false;
+
 		$link_support = get_option('link_support_mode', 'smart_link');
 
 		$pagination_center = ( isset($theme_data['pagination_center']) && wp_validate_boolean($theme_data['pagination_center']) ) ?? false;
@@ -691,8 +736,6 @@ class Helpers {
 		if ( 'above' === $description_position && false !== $show_description ) {
 			$table .= sprintf('<p class="swptls-table-description%s" id="swptls-table-description">%s</p>', $show_description ? '' : ' hidden', $description );
 		}
-
-		// $table .= '<table id="create_tables" class="ui celled display table gswpts_tables" style="width:100%">';
 
 		$table .= '<table id="create_tables" class="ui celled display table gswpts_tables" style="width:100%;';
 
@@ -783,7 +826,8 @@ class Helpers {
 			for ( $j = 0; $j < $total_count; ++$j ) {
 				$cell_index = ( $j + 1 );
 				$c_index = "row_{$row_index}_col_{$j}";
-				$cell_data = ! empty($row_data[ $j ]) ? $row_data[ $j ] : '';
+
+				$cell_data = ( $row_data[ $j ] === '' ) ? '' : $row_data[ $j ];
 
 				if ( ! empty($table_data['sheet_images']) ) {
 					$cell_data = $this->get_organized_image_data($c_index, $table_data['sheet_images'], $cell_data);
@@ -795,7 +839,11 @@ class Helpers {
 					}
 				}
 
-				$cell_data = $this->transform_boolean_values($this->check_link_exists($cell_data, $settings));
+				if ( $checkbox_support ) {
+					$cell_data = $this->transform_checkbox_values($this->check_link_exists($cell_data, $settings));
+				} else {
+					$cell_data = $this->transform_boolean_values($this->check_link_exists($cell_data, $settings));
+				}
 
 				$is_hidden_column = isset($settings['hide_column']) && in_array($j, (array) $settings['hide_column']) ? 'hidden-column' : '';
 

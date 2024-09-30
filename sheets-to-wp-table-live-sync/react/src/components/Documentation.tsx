@@ -21,74 +21,72 @@ import '../styles/_documentation.scss';
 
 function Documentation() {
 	const supportModalRef = useRef();
-	const [ supportModal, setSupportleModal ] = useState( false );
-	const [ activeItems, setActiveItems ] = useState( [ 0 ] );
+	const [supportModal, setSupportleModal] = useState(false);
+	const [activeItems, setActiveItems] = useState([0]);
 
 	const faqs = [
-		{ question: getStrings( 'doc-1' ), answer: getStrings( 'doc-1-ans' ) },
-		{ question: getStrings( 'doc-2' ), answer: getStrings( 'doc-2-ans' ) },
-		{ question: getStrings( 'doc-3' ), answer: getStrings( 'doc-3-ans' ) },
-		{ question: getStrings( 'doc-4' ), answer: getStrings( 'doc-4-ans' ) },
-		{ question: getStrings( 'doc-5' ), answer: getStrings( 'doc-5-ans' ) },
-		{ question: getStrings( 'doc-6' ), answer: getStrings( 'doc-6-ans' ) },
-		{ question: getStrings( 'doc-8' ), answer: getStrings( 'doc-8-ans' ) },
-		{ question: getStrings( 'doc-7' ), answer: getStrings( 'doc-7-ans' ) },
-		{ question: getStrings( 'doc-9' ), answer: getStrings( 'doc-9-ans' ) },
+		{ question: getStrings('doc-1'), answer: getStrings('doc-1-ans') },
+		{ question: getStrings('doc-2'), answer: getStrings('doc-2-ans') },
+		{ question: getStrings('doc-3'), answer: getStrings('doc-3-ans') },
+		{ question: getStrings('doc-4'), answer: getStrings('doc-4-ans') },
+		{ question: getStrings('doc-5'), answer: getStrings('doc-5-ans') },
+		{ question: getStrings('doc-6'), answer: getStrings('doc-6-ans') },
+
+		{ question: getStrings('doc-7'), answer: getStrings('doc-7-ans') },
+		{ question: getStrings('doc-9'), answer: getStrings('doc-9-ans') },
 		// Add more FAQ items as needed
 	];
 
-	const handleToggle = ( index ) => {
+	const handleToggle = (index) => {
 		// console.log(index)
-		if ( activeItems.includes( index ) ) {
-			setActiveItems( activeItems.filter( ( item ) => item !== index ) );
+		if (activeItems.includes(index)) {
+			setActiveItems(activeItems.filter((item) => item !== index));
 		} else {
-			setActiveItems( [ ...activeItems, index ] );
+			setActiveItems([...activeItems, index]);
 		}
 	};
 
-	function AccordionItem( { index, isActive, faq } ) {
+	function AccordionItem({ index, isActive, faq }) {
 		return (
 			<Card
-				customClass={ `accordion-body ${ isActive ? 'active' : '' }` }
+				customClass={`accordion-body ${isActive ? 'active' : ''}`}
 			>
 				<div className="accordion-item">
 					<div
-						className={ `accordion-header ${
-							isActive ? 'active' : ''
-						}` }
-						onClick={ () => handleToggle( index ) }
+						className={`accordion-header ${isActive ? 'active' : ''
+							}`}
+						onClick={() => handleToggle(index)}
 					>
-						<h5 className="accordion-title">{ faq.question }</h5>
+						<h5 className="accordion-title">{faq.question}</h5>
 						<div
-							className={ `accordion-icon ${
-								isActive ? 'active' : ''
-							}` }
+							className={`accordion-icon ${isActive ? 'active' : ''
+								}`}
 						>
-							{ KeyboardArrowDown }
+							{KeyboardArrowDown}
 						</div>
 					</div>
 					<div className="accordion-body">
-						{ isActive && (
+						{isActive && (
 							// <p className='accordion-content'>{faq.answer}</p>
 							<div
 								className="acc-content"
-								style={ { lineHeight: '25px' } }
-								dangerouslySetInnerHTML={ {
+								style={{ lineHeight: '25px' }}
+								dangerouslySetInnerHTML={{
 									__html: faq.answer,
-								} }
+								}}
 							/>
-						) }
+						)}
 					</div>
 				</div>
 			</Card>
 		);
 	}
 
-	const handleCreateSupportPopup = ( e ) => {
+	const handleCreateSupportPopup = (e) => {
 		e.preventDefault();
-		setSupportleModal( true );
+		setSupportleModal(true);
 	};
-	const handleVisitSupportForum = ( e ) => {
+	const handleVisitSupportForum = (e) => {
 		e.preventDefault();
 		window.open(
 			'https://wordpress.org/support/plugin/sheets-to-wp-table-live-sync/',
@@ -96,8 +94,8 @@ function Documentation() {
 		);
 	};
 
-	const handleClosePopup = ( e ) => {
-		setSupportleModal( false );
+	const handleClosePopup = (e) => {
+		setSupportleModal(false);
 	};
 
 	/**
@@ -105,21 +103,21 @@ function Documentation() {
 	 *
 	 * @param  event
 	 */
-	function handleCancelOutside( event: MouseEvent ) {
+	function handleCancelOutside(event: MouseEvent) {
 		if (
 			supportModalRef.current &&
-			! supportModalRef.current.contains( event.target )
+			!supportModalRef.current.contains(event.target)
 		) {
 			handleClosePopup();
 		}
 	}
 
-	useEffect( () => {
-		document.addEventListener( 'mousedown', handleCancelOutside );
+	useEffect(() => {
+		document.addEventListener('mousedown', handleCancelOutside);
 		return () => {
-			document.removeEventListener( 'mousedown', handleCancelOutside );
+			document.removeEventListener('mousedown', handleCancelOutside);
 		};
-	}, [ handleCancelOutside ] );
+	}, [handleCancelOutside]);
 
 	return (
 		<Container customClass="documentation-page-wrap">
@@ -131,8 +129,8 @@ function Documentation() {
 							target="_blank"
 							className="single-doc-item"
 						></a>
-						{ book }
-						<h4>{ getStrings( 'documentation' ) }</h4>
+						{book}
+						<h4>{getStrings('documentation')}</h4>
 					</Card>
 				</Column>
 
@@ -143,8 +141,8 @@ function Documentation() {
 							target="_blank"
 							className="single-doc-item"
 						></a>
-						{ videoPlay }
-						<h4>{ getStrings( 'vt' ) }</h4>
+						{videoPlay}
+						<h4>{getStrings('vt')}</h4>
 					</Card>
 				</Column>
 
@@ -152,86 +150,86 @@ function Documentation() {
 					<a
 						className="documentation-contact"
 						href="#"
-						onClick={ ( e ) =>
+						onClick={(e) =>
 							isProActive()
-								? handleCreateSupportPopup( e )
-								: handleVisitSupportForum( e )
+								? handleCreateSupportPopup(e)
+								: handleVisitSupportForum(e)
 						}
 					>
-						{ support }
-						<h4>{ getStrings( 'need-help' ) }</h4>
-						<p>{ getStrings( 'prof-need-help' ) }</p>
+						{support}
+						<h4>{getStrings('need-help')}</h4>
+						<p>{getStrings('prof-need-help')}</p>
 					</a>
 				</Column>
 			</Row>
 
 			<CtaAdd />
 
-			{ /* Frequently Asked Questions*/ }
-			<Row middleXs={ true }>
+			{ /* Frequently Asked Questions*/}
+			<Row middleXs={true}>
 				<Column xs="12" sm="6" customClass="documentation-page">
-					<h2 className="fag-header">{ getStrings( 'faq' ) }</h2>
-					{ faqs.map( ( faq, index ) => (
+					<h2 className="fag-header">{getStrings('faq')}</h2>
+					{faqs.map((faq, index) => (
 						<AccordionItem
-							key={ index }
-							index={ index }
-							isActive={ activeItems.includes( index ) }
-							faq={ faq }
+							key={index}
+							index={index}
+							isActive={activeItems.includes(index)}
+							faq={faq}
 						/>
-					) ) }
+					))}
 				</Column>
 			</Row>
 
-			{ ! isProActive() && (
+			{!isProActive() && (
 				<Card>
-					<Row middleXs={ true }>
+					<Row middleXs={true}>
 						<Column xs="12" sm="6">
 							<div className="get-pro-promo">
-								<h2>{ getStrings( 'get-pro' ) }</h2>
-								<p>{ getStrings( 'get-plugin' ) }</p>
+								<h2>{getStrings('get-pro')}</h2>
+								<p>{getStrings('get-plugin')}</p>
 								<a
 									href="https://go.wppool.dev/KfVZ"
 									target="_blank"
 									className="unlock-features button"
 								>
-									{ getStrings( 'unlock-all' ) }
+									{getStrings('unlock-all')}
 								</a>
 								<p className="documention-list">
-									{ getStrings( 'link-supp' ) }
+									{getStrings('link-supp')}
 								</p>
 								<p className="documention-list">
-									{ getStrings( 'pre-built-sheet-style' ) }
+									{getStrings('pre-built-sheet-style')}
 								</p>
 								<p className="documention-list">
-									{ getStrings( 'hide-row-based-on' ) }
+									{getStrings('hide-row-based-on')}
 								</p>
 								<p className="documention-list">
-									{ getStrings( 'unlimited-fetch-from-gs' ) }
+									{getStrings('unlimited-fetch-from-gs')}
 								</p>
 							</div>
 						</Column>
 					</Row>
 				</Card>
-			) }
+			)}
 
-			{ supportModal && (
+			{supportModal && (
 				<GetSupport>
 					<div
 						className="create-support-modal-wrap modal-content manage-support-modal-content"
-						ref={ supportModalRef }
+						ref={supportModalRef}
 					>
 						<div
 							className="cross_sign"
-							onClick={ ( e ) => handleClosePopup( e ) }
+							onClick={(e) => handleClosePopup(e)}
 						>
-							{ Cross }
+							{Cross}
 						</div>
 						<div className="create-table-modal">
 							<SupportModel />
 						</div>
 					</div>
 				</GetSupport>
-			) }
+			)}
 		</Container>
 	);
 }

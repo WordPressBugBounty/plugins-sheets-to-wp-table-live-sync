@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.2
-Stable tag: 3.14.4
+Stable tag: 3.14.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,9 +49,9 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 * **Rows to Show Per Page:** Choose the number of table rows you want to display per page. 
 * **Table Title:** Enable this feature to show the table title in the h3 tag above the table in your website front-end. Rename your tables as you want. 
 * **Show Info Block:** Show Showing X to Y of Z entries block below the table. With this feature, you will get an idea of the data sequence of your table at a glance. The plugin also has an On/Off button on the backend for this feature. 
-* **Allow Sorting:** Sort all your elements with FlexTable. It allows data sorting on your table in the exact order you need. You can turn off the feature if you want your data not sorted.
+* **Allow Sorting:** Sort all your elements with Flex Table. It allows data sorting on your table in the exact order you need. You can turn off the feature if you want your data not sorted.
 * **Search Bar:** Find your data and related details specifically with the search bar. The search bar will help you to find any data easily and effortlessly. This feature also contains an On/Off button on the backend.
-* **Pagination Support:** FlexTable comes with in-built table pagination support. Order your data in a simple manner of sequential pages that are contextually connected.
+* **Pagination Support:** Flex Table comes with in-built table pagination support. Order your data in a simple manner of sequential pages that are contextually connected.
 * **Asynchronous Loading:** Enable this feature to load the table in the front end after loading all content with a pre-loader. This will help your website load fast. 
 * **Multisite Support:** With Google Sheets to WordPress Table Multisite support, share table sync features across your multisite network.
 
@@ -75,7 +75,7 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 * **Hide Row:** Hide your Google Sheets table rows based on your custom row selection. Hide those rows if you don’t want to show those secret rows in your table.
 * **Hide Cell:** Hide your Google Sheets cell data based on your custom cell selection.
 Optimized Loading: By enabling this feature, the table scripts will load only on the relevant pages/posts in your website where the table is added.
-* **24/7 VIP Support:** We have a dedicated and hardworking team. Get support anytime for any issues with FlexTable. Our support team will be there always.
+* **24/7 VIP Support:** We have a dedicated and hardworking team. Get support anytime for any issues with Flex Table. Our support team will be there always.
 
 👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get The PRO Version](https://go.wppool.dev/Hat0)
 
@@ -88,11 +88,11 @@ Optimized Loading: By enabling this feature, the table scripts will load only on
 >*FlexTable is an exceptional tool that efficiently accomplishes something that very few plugins can do. It allows you to seamlessly publish data from Google Sheets directly onto your website.* – By @francescag
 
 >**Highly Configurable and Clean UI**
->*FlexTable provides a bunch of options for synchronized a Google Sheet for display with the Datatable Javascript API. Our basic used case was covered by the free version, but many more configuration options are available for premium users. The familiar Datatable UI is great for showing information on a Google sheet to users.* - By @spiritsynaesthetic
+>*Flex Table provides a bunch of options for synchronized a Google Sheet for display with the Datatable Javascript API. Our basic used case was covered by the free version, but many more configuration options are available for premium users. The familiar Datatable UI is great for showing information on a Google sheet to users.* - By @spiritsynaesthetic
 
 The plugin supports sorting options, search bars, and swap options. Keep almost every kind of data safe and secure and manage them smoothly without any hassle. Sheet to WP Table Live Sync creates responsive data tables and makes powerful data administration. 
 
-It’s easy to install and will offer you the simplest settings to configure. With FlexTable, even a beginner can create a table on the backend by exporting data from any google sheet. 
+It’s easy to install and will offer you the simplest settings to configure. With Flex Table, even a beginner can create a table on the backend by exporting data from any google sheet. 
 
 After you set up a table, a shortcode is generated automatically. All you need to place the shortcode anywhere you want on your website. Table data will be displayed in a Google spreadsheet format in your dashboard. It doesn’t matter what type of data you would like to include, Sheet to WP Table Sync has support for almost everything you can think of!
 
@@ -123,7 +123,7 @@ If you like FlexTable, then consider checking out our other awesome projects:
 
 
 ## Privacy Policy 
-FlexTable uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
+Flex Table uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
 
 Appsero SDK **does not gather any data by default.** The SDK only starts gathering basic telemetry data **when a user allows it via the admin notice**. We collect the data to ensure a great user experience for all our users. 
 
@@ -137,13 +137,13 @@ Additionally read the WPPOOL [privacy policy](https://wppool.dev/privacy-policy/
 == Frequently Asked Questions ==
 
 = How to install and activate the plugin? =
-[Watch this video to learn how to install and activate the plugin in simple steps](https://youtu.be/OYPG_wWHnjc?rel=0)
+[Watch this video to learn how to install and activate the plugin in simple steps](https://www.youtube.com/watch?v=IkxD64CoNfw?rel=0)
 
 = How do I add a new table using the plugin? =
-[Watch the video to learn how to add a new table very easily with the plugin](https://youtu.be/wp7y9v2_4wY?rel=0)
+[Watch the video to learn how to add a new table very easily with the plugin](https://youtu.be/Un4ByhNpFRI?si=dWp6EnQlkjavFSau?rel=0)
 
 = How many rows can I sync with the Free version? =
-The free version allows sync of up to 30 rows from Google Sheets.
+The free version allows sync of up to 50 rows from Google Sheets.
 
 = How many tables can I create? =
 The Free version allows you to create up to 10 tables.
@@ -157,8 +157,8 @@ Yes, the plugin supports the most popular WP page builders - Elementor widget in
 = How to hide “Showing X of X entries” in pagination? =
 Go to the Display tab of the table settings block and disable the “Show Info block” setting.
 
-= Does FlexTable have any impact on page loading? =
-No. FlexTable is a very robust and fast plugin. It won’t impact your page loading. But sometimes it may take some time to load the page if the Asynchronous Loading feature is not On & the Google Sheet data is too big.
+= Does Flex Table have any impact on page loading? =
+No. Flex Table is a very robust and fast plugin. It won’t impact your page loading. But sometimes it may take some time to load the page if the Asynchronous Loading feature is not On & the Google Sheet data is too big.
 
 = “Plugin not working with a caching i.e Autoptimize plugin.” How to solve it? =
 This issue appears if you are excluding our plugin’s JS files from loading. Please uncheck the “Aggregate JS-files” option of Autoptimize to solve this issue.
@@ -174,6 +174,14 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 
 == Changelog ==
+
+= 3.14.6 - 29 September 2024 =
+* **Enhancement:** Improved SEO and decorations
+
+= 3.14.5 - 29 September 2024 =
+* **Enhancement:** You can now sync up to 50 rows with Google Sheets, instead of the previous limit of 30 rows.
+* **New: Checkbox functionality:** You can now display checkboxes directly in the frontend tables from the Google Sheets.
+* **Fix: Zero value handling:** You can now input zero (0) values directly into the table from the sheet. No more hassle!
 
 = 3.14.4 - 11 September 2024 =
 * **Fix:** Issue with JSON data export from the admin dashboard.

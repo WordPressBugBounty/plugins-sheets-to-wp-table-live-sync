@@ -308,18 +308,23 @@ function EditTable() {
 							values.table_settings.default_rows_per_page
 						),
 						dom,
-						// ordering: true,
 						ordering: values.table_settings.allow_sorting,
-						// order: values.table_settings.allow_sorting ? [[0, '']] : [],
+
 						order: values.table_settings.allow_sorting ? [] : [],
+						// order: [[2, 'desc']],
+						/* order: values.table_settings.allow_singleshort
+							? [[(values.table_settings.columnnumber ? values.table_settings.columnnumber - 1 : 0), values.table_settings.sorting_mode ? values.table_settings.sorting_mode : 'desc']]
+							: (values.table_settings.allow_sorting ? [] : []), */
+
 						lengthMenu: [
-							[1, 5, 10, 15, 30],
+							[1, 5, 10, 15, 30, 50],
 							[
 								getStrings('1'),
 								getStrings('5'),
 								getStrings('10'),
 								getStrings('15'),
 								getStrings('30'),
+								getStrings('50'),
 							],
 						],
 						language: {
@@ -1874,19 +1879,18 @@ function EditTable() {
 														</svg>
 													</span>
 													<span>
-														The table is limited to
-														30 rows.{' '}
+
+														{getStrings('limited-to-msg')}{' '}
 														<a
 															className="upgrade-now-btn-txt"
 															onClick={() =>
 																handleVisit()
 															}
 														>
-															Upgrade to Pro
+
+															{getStrings('upgrade-pro')}
 														</a>{' '}
-														to show the full Google
-														Sheet with awesome
-														customizations
+														{getStrings('limited-to-msg-2')}
 													</span>
 												</label>
 
@@ -1896,7 +1900,7 @@ function EditTable() {
 														handleVisit()
 													}
 												>
-													Upgrade Now →
+													{getStrings('upgrade-now')}
 												</button>
 											</div>
 										</>

@@ -126,7 +126,7 @@ namespace SWPTLS { //phpcs:ignore
 		 *
 		 * @var int The maximum number of tbody elements that can be generated.
 		 */
-		const TBODY_MAX = 30;
+		const TBODY_MAX = 50;
 
 		/**
 		 * Main Plugin Instance.

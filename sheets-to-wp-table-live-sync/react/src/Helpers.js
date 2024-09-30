@@ -76,6 +76,13 @@ export function getDefaultSettings() {
 		hide_on_mobile_cell: true,
 
 		import_styles: false,
+
+		checkbox_support: false,
+		allow_singleshort: false,
+		sorting_mode: 'desc',
+		columnnumber: '0',
+
+		
 		table_styles: false,
 		table_img_support: false,
 		table_link_support: false,
@@ -1666,14 +1673,13 @@ export function handleTableAppearance( settings ) {
 		selectElement.addEventListener( 'change', ( event ) => {
 			const selectedValue = event.target.value;
 
-			// Check if the user is not active and the selected value is '50', '100', or '-1'
+			// Check if the user is not active and the selected value is '100', or '-1'
 			if (
 				! isProActive() &&
-				( selectedValue === '50' ||
-					selectedValue === '100' ||
-					selectedValue === '-1' )
+				( selectedValue === '100' ||
+				  selectedValue === '-1' )
 			) {
-				// If the user is not pro and the selected value is '50', '100', or '-1', prevent the event
+				// If the user is not pro and the selected value is '100', or '-1', prevent the event
 				event.preventDefault();
 			} else {
 				// Otherwise, set the value of selectElement2 and dispatch the event
