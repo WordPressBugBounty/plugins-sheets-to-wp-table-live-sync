@@ -198,15 +198,17 @@ namespace SWPTLS { //phpcs:ignore
 				if ( $swptls_plugin && is_object( $swptls_plugin ) && method_exists( $swptls_plugin, 'set_campaign' ) ) {
 					try {
 						$campaign_image = SWPTLS_BASE_URL . 'lib/wppool/halloween.png';
-						$to = '2023-11-05';
-						$from = '2023-10-24';
-						$swptls_plugin->set_campaign( $campaign_image, $to, $from );
+						$to = '2024-11-05 16:00:00';
+						$from = '2024-10-21 16:00:00';
+						$cta_text = esc_html__( 'Grab Your Treat!', 'sheetstowptable' );
+						$swptls_plugin->set_campaign( $campaign_image, $to, $from, $cta_text );
 
 						 // Second Campaign.
 						 $new_campaign_image = SWPTLS_BASE_URL . 'lib/wppool/blackFriday.png';
 						 $new_to = '2023-11-27';
 						 $new_from = '2023-11-16';
-						 $swptls_plugin->set_campaign($new_campaign_image, $new_to, $new_from);
+						 $black_friday_cta = esc_html__( 'Black Friday Sale!', 'sheetstowptable' );
+						 $swptls_plugin->set_campaign( $new_campaign_image, $new_to, $new_from, $black_friday_cta );
 
 					} catch ( Exception $e ) {// phpcs:ignore
 						// phpcs:ignore
