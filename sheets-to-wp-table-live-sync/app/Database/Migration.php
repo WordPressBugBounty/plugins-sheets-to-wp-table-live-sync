@@ -54,13 +54,13 @@ class Migration {
 		$table   = $wpdb->prefix . 'gswpts_tables';
 
 		$sql = 'CREATE TABLE IF NOT EXISTS ' . $table . ' (
-            `id` INT(255) NOT NULL AUTO_INCREMENT,
-            `table_name` VARCHAR(512) DEFAULT NULL,
-            `source_url` LONGTEXT,
-            `source_type` VARCHAR(255),
-            `table_settings` LONGTEXT,
-            PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB ' . $collate . '';
+			`id` INT(255) NOT NULL AUTO_INCREMENT,
+			`table_name` VARCHAR(512) DEFAULT NULL,
+			`source_url` LONGTEXT,
+			`source_type` VARCHAR(255),
+			`table_settings` LONGTEXT,
+			PRIMARY KEY (`id`)
+		) ' . $collate;
 
 		include_once ABSPATH . 'wp-admin/includes/upgrade.php';
 		dbDelta( $sql );
@@ -77,13 +77,13 @@ class Migration {
 		$table   = $wpdb->prefix . 'gswpts_tabs';
 
 		$sql = 'CREATE TABLE IF NOT EXISTS ' . $table . ' (
-            `id` INT(255) NOT NULL AUTO_INCREMENT,
-            `tab_name` VARCHAR(512) NOT NULL,
-            `show_name` BOOLEAN,
-            `reverse_mode` BOOLEAN,
-            `tab_settings` LONGTEXT NOT NULL,
-            PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB ' . $collate . '';
+			`id` INT(255) NOT NULL AUTO_INCREMENT,
+			`tab_name` VARCHAR(512) NOT NULL,
+			`show_name` BOOLEAN,
+			`reverse_mode` BOOLEAN,
+			`tab_settings` LONGTEXT NOT NULL,
+			PRIMARY KEY (`id`)
+		) ' . $collate;
 
 		include_once ABSPATH . 'wp-admin/includes/upgrade.php';
 		dbDelta( $sql );

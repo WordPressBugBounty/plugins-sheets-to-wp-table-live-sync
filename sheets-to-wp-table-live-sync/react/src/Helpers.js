@@ -80,12 +80,16 @@ export function getDefaultSettings() {
 		checkbox_support: false,
 		allow_singleshort: false,
 		sorting_mode: 'desc',
-		columnnumber: '0',
+		columnnumber: '0', // sorting by column - feature are commented out for now
 
-		
 		table_styles: false,
 		table_img_support: false,
 		table_link_support: false,
+
+		table_view_mode: 'default-mode',
+		table_search_column: [],
+		search_by: 'search-by-typing',
+		enable_column_specific_search: false,
 
 		import_styles_theme_colors: {
 			'default-style': {
@@ -1676,8 +1680,7 @@ export function handleTableAppearance( settings ) {
 			// Check if the user is not active and the selected value is '100', or '-1'
 			if (
 				! isProActive() &&
-				( selectedValue === '100' ||
-				  selectedValue === '-1' )
+				( selectedValue === '100' || selectedValue === '-1' )
 			) {
 				// If the user is not pro and the selected value is '100', or '-1', prevent the event
 				event.preventDefault();

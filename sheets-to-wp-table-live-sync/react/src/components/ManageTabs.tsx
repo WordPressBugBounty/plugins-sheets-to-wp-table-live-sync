@@ -102,6 +102,8 @@ const ManageTabs = () => {
 
 			localStorage.setItem( 'second_active_tab', 'layout' );
 			localStorage.setItem( 'third_active_tab', 'columns' );
+
+			localStorage.setItem( 'forth_active_tab', 'conditional_view' );
 		}
 	}, [ window.location.hash ] );
 

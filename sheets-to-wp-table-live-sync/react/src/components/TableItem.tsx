@@ -22,7 +22,7 @@ function TableItem( {
 	const [ copySuccess, setCopySuccess ] = useState( false );
 	const [ deleteModal, setDeleteModal ] = useState< boolean >( false );
 
-	const handleCopyShortcode = async ( id ) => {
+	/* const handleCopyShortcode = async ( id ) => {
 		const shortcode = `[gswpts_table id="${ id }"]`;
 
 		try {
@@ -35,6 +35,46 @@ function TableItem( {
 			}, 1000 ); // 1000 milliseconds = 1 second
 		} catch ( err ) {
 			setCopySuccess( false );
+		}
+	}; */
+
+	const handleCopyShortcode = async ( id ) => {
+		// console.log(id);
+		const shortcode = `[gswpts_table id="${ id }"]`;
+		if ( navigator.clipboard && navigator.clipboard.writeText ) {
+			try {
+				await navigator.clipboard.writeText( shortcode );
+				setCopySuccess( true );
+				setTimeout( () => {
+					setCopySuccess( false );
+				}, 1000 );
+			} catch ( err ) {
+				console.error(
+					'Failed to copy text using clipboard API: ',
+					err
+				);
+				setCopySuccess( false );
+			}
+		} else {
+			// Fallback method for unsupported browsers
+			try {
+				const textArea = document.createElement( 'textarea' );
+				textArea.value = shortcode;
+				textArea.style.position = 'fixed';
+				textArea.style.opacity = '0';
+				document.body.appendChild( textArea );
+				textArea.select();
+				textArea.setSelectionRange( 0, textArea.value.length );
+				document.execCommand( 'copy' );
+				document.body.removeChild( textArea );
+				setCopySuccess( true );
+				setTimeout( () => {
+					setCopySuccess( false );
+				}, 1000 );
+			} catch ( err ) {
+				console.error( 'Fallback copy method failed: ', err );
+				setCopySuccess( false );
+			}
 		}
 	};
 

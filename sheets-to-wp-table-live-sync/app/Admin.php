@@ -130,6 +130,7 @@ class Admin {
 		$img_link_has_run = get_option('img_link_pro_support_has_run', 0);
 		$theme_data_update = get_option('theme_data_update', 0);
 		$swptls_pagination_data_migrate = get_option('swptls_pagination_data_migrate', 0);
+		$swptls_conditional_mode_migrate = get_option('swptls_conditional_mode_migrate', 0);
 
 		if ( 0 === $code_has_run ) {
 			if ( $wpdb->get_var("SHOW TABLES LIKE '$table'") === $table ) {//phpcs:ignore
@@ -454,8 +455,46 @@ class Admin {
 			update_option('swptls_pagination_data_migrate', 1);
 		}
 
-		// Old migration.
-		// Get the existing data from the database.
+		/**
+		 * Conditional mode migration.
+		 */
+		if ( 0 === $swptls_conditional_mode_migrate ) {
+			if ($wpdb->get_var("SHOW TABLES LIKE '$table'") === $table) { // phpcs:ignore
+				$rows = $wpdb->get_results("SELECT * FROM $table"); // phpcs:ignore
+				foreach ( $rows as $row ) {
+					$table_settings = json_decode($row->table_settings, true);
+
+					// Check if `table_view_mode` is missing and add it if necessary.
+					if ( ! isset($table_settings['table_view_mode']) ) {
+						$table_settings['table_view_mode'] = 'default-mode';
+					}
+					if ( ! isset($table_settings['table_search_column']) ) {
+						$table_settings['table_search_column'] = [];
+					}
+					if ( ! isset($table_settings['search_by']) ) {
+						$table_settings['search_by'] = 'search-by-typing';
+					}
+
+					// Additional default settings if needed ...
+					$new_settings = json_encode($table_settings);
+
+					// Update the row with the modified settings.
+					$wpdb->update(
+						$table,
+						[ 'table_settings' => $new_settings ],
+						[ 'id' => $row->id ],
+						[ '%s' ],
+						[ '%d' ]
+					);
+				}
+			}
+			update_option('swptls_conditional_mode_migrate', 1);
+		}
+
+		/**
+		 * Old migration.
+		 * Get the existing data from the database.
+		 */
 		$existing_data = $wpdb->get_results( "SELECT * FROM $table" );// phpcs:ignore
 
 		foreach ( $existing_data as $data ) {

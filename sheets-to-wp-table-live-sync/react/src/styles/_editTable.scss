@@ -608,6 +608,7 @@ div#create_tables_wrapper div#create_tables_length select {
                     width: 31px;
                     height: 31px;
                     display: flex;
+                    position: relative;
                     margin-bottom: 5px;
                     align-items: center;
                     border-radius: 500px;
@@ -620,6 +621,17 @@ div#create_tables_wrapper div#create_tables_length select {
                         path {
                             transition: all 0.3s ease;
                         }
+                    }
+
+                    .badge-new-circle {
+                        top: 0;
+                        right: 0;
+                        width: 10px;
+                        height: 10px;
+                        position: absolute;
+                        border-radius: 500px;
+                        border: 2px solid #ffffff;
+                        background-color: #34A0FA;
                     }
                 }
             }
@@ -649,6 +661,20 @@ div#create_tables_wrapper div#create_tables_length select {
                             path {
                                 fill: #ffffff;
                             }
+                        }
+
+                      
+                    }
+                }
+            }
+            &.active {
+
+                a {
+
+                    .icon {
+
+                        .badge-new-circle {
+                            display: none;
                         }
                     }
                 }

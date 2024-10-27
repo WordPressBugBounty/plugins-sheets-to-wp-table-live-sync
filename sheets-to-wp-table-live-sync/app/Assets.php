@@ -124,7 +124,7 @@ class Assets {
 		}
 
 		 /**
-		 * Banner content & notices
+		 * Banner content & notices.
 		 */
 		$pages = [ 'toplevel_page_gswpts-dashboard', 'edit.php', 'plugins.php', 'index.php' ];
 
@@ -151,67 +151,53 @@ class Assets {
 	}
 
 	/**
-	 * Load assets for shortcode based on shortcode
+	 * Load assets for shortcode based on shortcode.
 	 */
 	public function fe_scripts() {
-
 		global $post;
 		$script_support_mode = get_option('script_support_mode');
 		$shortcode = 'gswpts_table';
 		$tab_shortcode = 'gswpts_tab';
+		$should_enqueue = false;
 
 		if ( 'global_loading' === $script_support_mode ) {
 			$this->frontend_scripts();
-		} else {
-			// Check if it's not a Gutenberg page.
-			if ( ! is_admin() && function_exists( 'has_blocks' ) && has_blocks() ) {
-				if ( isset( $post ) && ! is_null( $post ) && ! empty( $post->post_content ) ) {
-					if ( ! has_shortcode( $post->post_content, $shortcode ) ) {
-						return;
-					} else {
-						$this->frontend_scripts();
-					}
+			return;
+		}
 
-					if ( ! has_shortcode( $post->post_content, $tab_shortcode ) ) {
-						return;
-					} else {
-						$this->frontend_scripts();
-					}
-				}
-			} else {
-				if ( isset( $post ) && ! is_null( $post ) && ! empty( $post->post_content ) ) {
-					if ( ! has_shortcode( $post->post_content, $shortcode ) ) {
-						return;
-					} else {
-						$this->frontend_scripts();
-					}
-
-					if ( ! has_shortcode( $post->post_content, $tab_shortcode ) ) {
-						return;
-					} else {
-						$this->frontend_scripts();
-					}
-				}
+		if ( isset($post) && ! empty($post->post_content) ) {
+			// Check for [gswpts_table] shortcode.
+			if ( has_shortcode($post->post_content, $shortcode) ) {
+				$should_enqueue = true;
 			}
 
-			if ( function_exists('get_field') ) {
-				$this->frontend_scripts();
+			// Check for [gswpts_tab] shortcode.
+			if ( has_shortcode($post->post_content, $tab_shortcode) ) {
+				$should_enqueue = true;
 			}
+		}
 
-			if ( wp_validate_boolean( did_action( 'elementor/loaded' ) ) ) {
-				if ( isset($post) && is_object($post) && property_exists($post, 'ID') && $post->ID ) {
-					$is_built_with_elementor = \Elementor\Plugin::$instance->documents->get( $post->ID )->is_built_with_elementor();
-					if ( $is_built_with_elementor ) {
-						if ( ! has_shortcode( $post->post_content, 'gswpts_table' ) || ! has_shortcode( $post->post_content, 'gswpts_tab' ) ) {
-							return;
-						} else {
-							$this->frontend_scripts();
-						}
+		// Additional conditions that might require enqueuing scripts.
+		if ( function_exists('get_field') ) {
+			$should_enqueue = true;
+		}
+
+		if ( did_action('elementor/loaded') ) {
+			if ( isset($post) && is_object($post) && property_exists($post, 'ID') && $post->ID ) {
+				$is_built_with_elementor = \Elementor\Plugin::$instance->documents->get($post->ID)->is_built_with_elementor();
+				if ( $is_built_with_elementor ) {
+					if ( has_shortcode($post->post_content, $shortcode) || has_shortcode($post->post_content, $tab_shortcode) ) {
+						$should_enqueue = true;
 					}
 				}
 			}
 		}
+
+		if ( $should_enqueue ) {
+			$this->frontend_scripts();
+		}
 	}
+
 
 	/**
 	 * Enqueue frontend files.
@@ -314,6 +300,22 @@ class Assets {
 			'GSWPTS-frontend-semantic',
 			SWPTLS_BASE_URL . 'assets/public/common/datatables/tables/js/datatables.semanticui.min.js',
 			[ 'jquery' ],
+			time(),
+			false
+		);
+
+		wp_enqueue_script(
+			'moment-js',
+			SWPTLS_BASE_URL . 'assets/public/scripts/moment/moment.min.js',
+			[ 'jquery' ],
+			time(),
+			false
+		);
+
+		wp_enqueue_script(
+			'datetime-moment-js',
+			SWPTLS_BASE_URL . 'assets/public/scripts/moment/datetime-moment.js',
+			[ 'moment-js', 'GSWPTS-frontend-table' ],
 			time(),
 			false
 		);

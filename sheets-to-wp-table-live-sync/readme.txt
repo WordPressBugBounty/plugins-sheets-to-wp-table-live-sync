@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.2
-Stable tag: 3.14.7
+Stable tag: 3.15.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -174,6 +174,13 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 
 == Changelog ==
+
+= 3.15.0 - 27 October 2024 =
+* **New: Introduced new wizard stepper "Conditional Table View"**
+* **New: Search-Only Display:** Turn your table into a powerful search-engine! Visitors will initially see a search box instead of the table. Based on their input, they will receive filtered data in a streamlined table view.
+* **Fix:** Fixed DB Engine issues which prevent table creation with MyISAM engine
+* **Fix:** Fixed scripts loading issues when use shortcode for tab alone
+* **Fix:** Shortcode fallback method for unsupported browsers
 
 = 3.14.7 - 21 October 2024 =
 * **Enhancement:** Popup module and SDK update.

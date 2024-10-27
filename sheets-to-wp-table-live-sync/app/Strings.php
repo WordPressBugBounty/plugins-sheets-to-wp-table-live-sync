@@ -257,11 +257,13 @@ class Strings {
 			'table-theme'  => __( '2. Table theme', 'sheetstowptable' ), // Old name Display Settings.
 			'tc'  => __( '3. Table customization', 'sheetstowptable' ),
 			'hide-row-col'  => __( '4. Hide Rows/Column', 'sheetstowptable' ),
+			'conditional-view'  => __( '5. Conditional View', 'sheetstowptable' ),
 
 			'data-source-title'  => __( 'Data source', 'sheetstowptable' ),
 			'table-theme-title'  => __( 'Table theme', 'sheetstowptable' ), // Old name Display Settings.
 			'tc-title'  => __( 'Table customization', 'sheetstowptable' ),
 			'hide-row-col-title'  => __( 'Hide Rows/Column', 'sheetstowptable' ),
+			'conditional-view-title'  => __( 'Conditional View', 'sheetstowptable' ),
 
 			'save'  => __( 'Save', 'sheetstowptable' ),
 			'lp'  => __( 'Loading Preview...', 'sheetstowptable' ),
@@ -633,6 +635,30 @@ class Strings {
 			 'active-pagination-color'  => __( 'Active pagination color', 'sheetstowptable' ),
 			 'keep-pagination-in-middle'  => __( 'Keep pagination in middle', 'sheetstowptable' ),
 			 'confirm'  => __( 'Confirm', 'sheetstowptable' ),
+
+			 /**
+			  * Conditional view
+			  */
+
+			  'basic-display' => __('Basic Display (default)','sheetstowptable'),
+			  'column-specific' => __('Enable Column-Specific Search','sheetstowptable'),
+			  'choose-how-you-want' => __('Choose how you want to Display the table','sheetstowptable'),
+			  'table-will-show-by-default' => __('Table will show by default and work accordingly. Nothing special here','sheetstowptable'),
+			  'a-search-field' => __('Turn your table into a powerful search-engine! Visitors will initially see a search box instead of the table. Based on their input, they will receive filtered data in a streamlined table view. Ideal for searching both broad and specific ranges of information from your Google Sheets (e.g., student records, employee info, etc.).','sheetstowptable'),
+
+			  'search-only-display' => __('Search-Only Display','sheetstowptable'),
+			  'user-specific-display' => __('User-Specific Display','sheetstowptable'),
+			  'Upcomming' => __('Upcomming','sheetstowptable'),
+			  'displayed-only-to-logged-in-users' => __("Enhance personalization with this mode. It allows the table to be displayed only to the logged-in users based on their credentials or unique data (e.g., username or email) stored in the Google Sheets. There will be no search box, preventing anyone from searching other users' data.",'sheetstowptable'),
+
+			  'password-pin-protected' => __('This mode adds an extra layer of security to your data. The table is protected by a password or PIN, ensuring that only authorized users can unlock and see the table information.','sheetstowptable'),
+
+			  'protected-view' => __('Protected View','sheetstowptable'),
+			  'loading-header' => __('Loading headers...','sheetstowptable'),
+			  'want-to-display-your-search' => __('Choose Search-Result Trigger Option','sheetstowptable'),
+			  'show-search-result-once-Typing' => __('Show search result once Typing','sheetstowptable'),
+			  'show-search-result-after-pressing' => __('Show search result after pressing Search button','sheetstowptable'),
+			  'column-for-table-search' => __('Select a column to search within its data. Results will only show matches from the selected column. If no column is selected, the search will apply to all data in the Google Sheet.','sheetstowptable'),
 
 		];
 	}
