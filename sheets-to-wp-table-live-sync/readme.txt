@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.2
-Stable tag: 3.15.0
+Stable tag: 3.15.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,7 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 * **6 Premium Table Themes:** Instantly switch your table’s look and feel. Each of the table themes is expertly created to provide a modern and responsive table experience.
 * **🔥 Customize Table Theme:** Build your table your way! With table theme customization, you can customize any table theme and personalize the header, body, text, and border colors. It's time to get creative.
 * **🎨 Table Theme Builder:** Create your own theme to display the best version of your table! With an in-built table builder, get creative and customize every section of your table. Once you create a theme, it's yours. Use the theme for any other tables later on as well.
+* **🪄 Search-Only Display:** Create a search engine for your data tables. This feature displays a search field that allows users to obtain precise data, such as student records and employee information. Additionally, you can enhance the search functionality by enabling column-specific searches and restricting visibility to only selected columns of data.
 * **📃 Premium Table Pagination:** Simply creating gorgeous tables isn't enough. Our premium table pagination support allows you to choose from five distinct themes to achieve your ideal pagination style - Default, Modern, Minimal, Tailwind, or Outlined. You can also customize the active pagination color and position the pagination at the middle or bottom right.
 * **Horizontal Dragging:** Once you enable this feature your users will be able to drag the table horizontally. This will improve their reading experience from the table.
 * **Hide Column:** Hide your Google Sheets table column on desktop screen OR mobile screens. Protect your data if you don’t want to publish everything on the web.
@@ -174,6 +175,9 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 
 == Changelog ==
+
+= 3.15.1 - 30 October 2024 =
+* **Fix:** Resolved an issue where the row hiding feature was breaking the table header layout.
 
 = 3.15.0 - 27 October 2024 =
 * **New: Introduced new wizard stepper "Conditional Table View"**
