@@ -2,9 +2,9 @@
 Contributors: wppool, devsabbirahmed, mahfuz01, azizultex, wpdarkmode, sahabuddinsgr
 Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 3.15.1
+Stable tag: 3.15.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -175,6 +175,9 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 
 == Changelog ==
+
+= 3.15.2 - 14 November 2024 =
+* **Improvement:** Enhanced compatibility to support WordPress 6.7
 
 = 3.15.1 - 30 October 2024 =
 * **Fix:** Resolved an issue where the row hiding feature was breaking the table header layout.
