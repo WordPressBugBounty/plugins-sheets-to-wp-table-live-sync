@@ -3,7 +3,7 @@
  * Plugin Name:       FlexTable
  * Plugin URI:        https://wppool.dev/sheets-to-wp-table-live-sync/
  * Description:       Display Google Spreadsheet data to WordPress table in just a few clicks and keep the data always synced. Organize and display all your spreadsheet data in your WordPress quickly and effortlessly.
- * Version:           3.15.2
+ * Version:           3.15.3
  * Requires at least: 5.0
  * Requires PHP:      7.2
  * Author:            WPPOOL
@@ -19,7 +19,7 @@
 // if direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
 
-define( 'SWPTLS_VERSION', '3.15.2' );
+define( 'SWPTLS_VERSION', '3.15.3' );
 define( 'SWPTLS_BASE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SWPTLS_BASE_URL', plugin_dir_url( __FILE__ ) );
 define( 'SWPTLS_PLUGIN_FILE', __FILE__ );

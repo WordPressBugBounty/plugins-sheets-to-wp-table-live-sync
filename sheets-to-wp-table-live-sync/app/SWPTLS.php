@@ -203,11 +203,11 @@ namespace SWPTLS { //phpcs:ignore
 						$cta_text = esc_html__( 'Grab Your Treat!', 'sheetstowptable' );
 						$swptls_plugin->set_campaign( $campaign_image, $to, $from, $cta_text );
 
-						 // Second Campaign.
-						 $new_campaign_image = SWPTLS_BASE_URL . 'lib/wppool/blackFriday.png';
-						 $new_to = '2023-11-27';
-						 $new_from = '2023-11-16';
-						 $black_friday_cta = esc_html__( 'Black Friday Sale!', 'sheetstowptable' );
+						 // New BFCM Campaign.
+						 $new_campaign_image = SWPTLS_BASE_URL . 'lib/wppool/bfcm.png';
+						 $new_to = '2024-12-04 16:00:00';
+						 $new_from = '2024-11-21 16:00:00';
+						 $black_friday_cta = esc_html__( 'Grab Your Deals!', 'sheetstowptable' );
 						 $swptls_plugin->set_campaign( $new_campaign_image, $new_to, $new_from, $black_friday_cta );
 
 					} catch ( Exception $e ) {// phpcs:ignore
