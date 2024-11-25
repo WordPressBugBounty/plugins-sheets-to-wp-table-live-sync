@@ -141,6 +141,8 @@ namespace SWPTLS { //phpcs:ignore
 			if ( null === self::$instance || ! self::$instance instanceof self ) {
 				self::$instance = new self();
 
+				add_action( 'init', array( self::$instance, 'appsero_init' ) );
+
 				self::$instance->init();
 			}
 
@@ -159,8 +161,6 @@ namespace SWPTLS { //phpcs:ignore
 			if ( swptls()->helpers->version_check() ) {
 				return;
 			}
-
-			$this->appsero_init();
 		}
 
 		/**

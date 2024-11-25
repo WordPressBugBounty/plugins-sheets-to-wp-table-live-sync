@@ -1,0 +1,57 @@
+................[31mE[0m....................[31mE[0m[31mE[0m.. 41 / 41 (100%)
+
+
+
+[1mFILE: app\Helpers.php[0m
+-------------------------------------------------------------------------------------------
+[1mFOUND 1 ERROR AFFECTING 1 LINE[0m
+-------------------------------------------------------------------------------------------
+ 830 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m
+     |       | (WordPress.PHP.YodaConditions.NotYoda)
+-------------------------------------------------------------------------------------------
+
+
+[1mFILE: react\build\index.asset.php[0m
+-----------------------------------------------------------------------------
+[1mFOUND 1 ERROR AFFECTING 1 LINE[0m
+-----------------------------------------------------------------------------
+ 1 | [31mERROR[0m | [1mMissing file doc comment[0m
+   |       | (Squiz.Commenting.FileComment.Missing)
+-----------------------------------------------------------------------------
+
+
+[1mFILE: react\node_modules\flatted\php\flatted.php[0m
+---------------------------------------------------------------------------------------------------------------------
+[1mFOUND 20 ERRORS AFFECTING 18 LINES[0m
+---------------------------------------------------------------------------------------------------------------------
+   3 | [31mERROR[0m | [1mEmpty line not required before block comment[0m (Squiz.Commenting.BlockComment.HasEmptyLineBefore)
+  22 | [31mERROR[0m | [1mYou must use "/**" style comments for a class comment[0m (Squiz.Commenting.ClassComment.WrongStyle)
+  23 | [31mERROR[0m | [1mMissing doc comment for function __construct()[0m (Squiz.Commenting.FunctionComment.Missing)
+  28 | [31mERROR[0m | [1mOnly one object structure is allowed in a file[0m
+     |       | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+  28 | [31mERROR[0m | [1mMissing doc comment for class Flatted[0m (Squiz.Commenting.ClassComment.Missing)
+  30 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m
+     |       | (Squiz.Commenting.InlineComment.InvalidEndChar)
+  31 | [31mERROR[0m | [1mYou must use "/**" style comments for a function comment[0m
+     |       | (Squiz.Commenting.FunctionComment.WrongStyle)
+  51 | [31mERROR[0m | [1mMissing doc comment for function stringify()[0m (Squiz.Commenting.FunctionComment.Missing)
+  58 | [31mERROR[0m | [1mThe use of count() inside a loop condition is not allowed; assign the return value to a variable and
+     |       | use the variable in the loop condition instead[0m (Squiz.PHP.DisallowSizeFunctionsInLoops.Found)
+  65 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m
+     |       | (Squiz.Commenting.InlineComment.InvalidEndChar)
+  66 | [31mERROR[0m | [1mMethod name "asString" in class Flatted is not in snake case format, try "as_string"[0m
+     |       | (WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid)
+  66 | [31mERROR[0m | [1mYou must use "/**" style comments for a function comment[0m
+     |       | (Squiz.Commenting.FunctionComment.WrongStyle)
+  70 | [31mERROR[0m | [1mMissing doc comment for function index()[0m (Squiz.Commenting.FunctionComment.Missing)
+  78 | [31mERROR[0m | [1mMissing doc comment for function keys()[0m (Squiz.Commenting.FunctionComment.Missing)
+  88 | [31mERROR[0m | [1mMissing doc comment for function loop()[0m (Squiz.Commenting.FunctionComment.Missing)
+  98 | [31mERROR[0m | [1mMissing doc comment for function relate()[0m (Squiz.Commenting.FunctionComment.Missing)
+ 101 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m (WordPress.PHP.YodaConditions.NotYoda)
+ 109 | [31mERROR[0m | [1mMissing doc comment for function ref()[0m (Squiz.Commenting.FunctionComment.Missing)
+ 124 | [31mERROR[0m | [1mMissing doc comment for function transform()[0m (Squiz.Commenting.FunctionComment.Missing)
+ 144 | [31mERROR[0m | [1mMissing doc comment for function wrap()[0m (Squiz.Commenting.FunctionComment.Missing)
+---------------------------------------------------------------------------------------------------------------------
+
+Time: 2 mins, 30.34 secs; Memory: 32MB
+
