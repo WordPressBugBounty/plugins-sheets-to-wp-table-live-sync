@@ -22,24 +22,7 @@ function TableItem( {
 	const [ copySuccess, setCopySuccess ] = useState( false );
 	const [ deleteModal, setDeleteModal ] = useState< boolean >( false );
 
-	/* const handleCopyShortcode = async ( id ) => {
-		const shortcode = `[gswpts_table id="${ id }"]`;
-
-		try {
-			await navigator.clipboard.writeText( shortcode );
-			setCopySuccess( true );
-
-			// Reset copySuccess state after 1 second
-			setTimeout( () => {
-				setCopySuccess( false );
-			}, 1000 ); // 1000 milliseconds = 1 second
-		} catch ( err ) {
-			setCopySuccess( false );
-		}
-	}; */
-
 	const handleCopyShortcode = async ( id ) => {
-		// console.log(id);
 		const shortcode = `[gswpts_table id="${ id }"]`;
 		if ( navigator.clipboard && navigator.clipboard.writeText ) {
 			try {

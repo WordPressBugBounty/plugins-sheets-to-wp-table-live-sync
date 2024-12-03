@@ -45,6 +45,7 @@ export function getDefaultSettings() {
 		swap_filter_inputs: false,
 		swap_bottom_options: false,
 		allow_sorting: false,
+		hide_sorting_icon: false,
 		search_bar: true,
 		table_export: [],
 		vertical_scroll: null,
@@ -78,9 +79,6 @@ export function getDefaultSettings() {
 		import_styles: false,
 
 		checkbox_support: false,
-		allow_singleshort: false,
-		sorting_mode: 'desc',
-		columnnumber: '0', // sorting by column - feature are commented out for now
 
 		table_styles: false,
 		table_img_support: false,
@@ -90,6 +88,10 @@ export function getDefaultSettings() {
 		table_search_column: [],
 		search_by: 'search-by-typing',
 		enable_column_specific_search: false,
+
+		allow_singleshort: false,
+		columnnumber: -1,
+		sorting_mode: 'asc',
 
 		import_styles_theme_colors: {
 			'default-style': {
@@ -1926,30 +1928,6 @@ export function handleTableAppearance( settings ) {
 		// console.error('Checkbox element not found!');
 	}
 
-	/**
-	 * Hide merge cell notice if vertical merge found.
-	 * No need now as we removed one notice from below the merge cell
-	 */
-	/* var tableRows = document.querySelectorAll('.gswpts_rows');
-	var mergeTipsElement = document.getElementById('merge-hints');
-
-	var verticalMergeFound = false;
-
-	tableRows.forEach(function (row) {
-	var cells = row.querySelectorAll('td');
-
-	cells.forEach(function (cell) {
-			var rowspan = cell.getAttribute('rowspan');
-			if (rowspan && parseInt(rowspan) > 1) {
-			// Vertical merge found
-			verticalMergeFound = true;
-			}
-		});
-	});
-
-	if (mergeTipsElement) {
-		mergeTipsElement.style.display = verticalMergeFound ? 'block' : 'none';
-	} */
 
 	/**
 	 *
@@ -1992,6 +1970,54 @@ export function handleTableAppearance( settings ) {
 		}
 	}
 
+	/**
+	 * Sorting hiding
+	 */
+	const table = document.querySelector('#create_tables');
+	const sortingCheckbox = document.querySelector('#hide-sorting-control');
+
+	if (table && sortingCheckbox) {
+		const sortingHeaders = table.querySelectorAll('th.sorting');
+
+		// Event listener for the checkbox change
+		sortingCheckbox.addEventListener('change', () => {
+			if (sortingCheckbox.checked) {
+				// Hide sorting controls
+				sortingHeaders.forEach((header) => {
+					header.classList.add('sorting-icon-hidden');
+					header.style.pointerEvents = 'none';
+					header.style.cursor = 'default';
+				});
+				
+			} else {
+				// Show sorting controls
+				sortingHeaders.forEach((header) => {
+					header.classList.remove('sorting-icon-hidden');
+					header.style.pointerEvents = '';
+					header.style.cursor = '';
+				});
+				
+			}
+		});
+
+		// Initial state based on settings
+		if (settings?.hide_sorting_icon) {
+			sortingHeaders.forEach((header) => {
+				header.classList.add('sorting-icon-hidden');
+				header.style.pointerEvents = 'none';
+				header.style.cursor = 'default';
+			});
+		} else {
+			sortingHeaders.forEach((header) => {
+				header.classList.remove('sorting-icon-hidden');
+				header.style.pointerEvents = '';
+				header.style.cursor = '';
+			});
+		}
+	}
+	// END 
+
+	
 	if ( document.querySelectorAll( '.dt-button' ).length ) {
 		const buttons = document.querySelectorAll( '.dt-button' );
 		for ( let btn of buttons ) {

@@ -41,6 +41,7 @@ class Settings {
 			'css'   => get_option( 'css_code_value' ),
 			'link_support'   => get_option( 'link_support_mode', 'pretty_link' ),
 			'script_support'   => get_option( 'script_support_mode', 'global_loading' ),
+			'timeout'   => get_option( 'timeout_values', 10 ),
 		]);
 	}
 
@@ -64,6 +65,8 @@ class Settings {
 		update_option( 'link_support_mode', isset( $settings['link_support'] ) ? sanitize_text_field( $settings['link_support'] ) : '' );
 
 		update_option( 'script_support_mode', isset( $settings['script_support'] ) ? sanitize_text_field( $settings['script_support'] ) : '' );
+		
+		update_option( 'timeout_values', isset( $settings['timeout'] ) ? sanitize_text_field( $settings['timeout'] ) : '' );
 
 		wp_send_json_success([
 			'message' => __( 'Settings saved successfully.', 'sheetstowptable' ),
@@ -71,6 +74,7 @@ class Settings {
 			'css'   => get_option( 'css_code_value' ),
 			'link_support'   => get_option( 'link_support_mode', 'pretty_link' ),
 			'script_support'   => get_option( 'script_support_mode', 'global_loading' ),
+			'timeout'   => get_option( 'timeout_values', 10 ),
 		]);
 	}
 }

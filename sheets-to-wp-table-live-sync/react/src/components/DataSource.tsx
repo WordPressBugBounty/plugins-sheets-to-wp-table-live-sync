@@ -84,14 +84,14 @@ const DataSource = ( { tableSettings, setTableSettings, sheetUrlRef } ) => {
 				{ /* Table Description : new Feature */ }
 				<div className="edit-form-group">
 					<label htmlFor="google-sheet-url">
-						Table description
+					{ getStrings( 'table-desc' ) }
 						<Tooltip
 							content={ `Table description holder. Enter your table description here.` }
 						/>
 						{
-							<button className="btn-pro btn-new">
-								{ getStrings( 'new' ) }
-							</button>
+							// <button className="btn-pro btn-new">
+							// 	{ getStrings( 'new' ) }
+							// </button> 
 						}
 					</label>
 

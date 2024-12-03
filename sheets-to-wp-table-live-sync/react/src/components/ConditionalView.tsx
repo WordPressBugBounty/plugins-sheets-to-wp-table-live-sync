@@ -180,8 +180,6 @@ const ConditionalView = ( { tableSettings, setTableSettings } ) => {
 		};
 	}, [ handleCancelOutside ] );
 
-	console.log( tableSettings?.table_settings?.enable_column_specific_search );
-
 	return (
 		<div className="edit-data-source-wrap conditional-view-wrapper">
 			<h4 className="title">{ getStrings( 'choose-how-you-want' ) }</h4>

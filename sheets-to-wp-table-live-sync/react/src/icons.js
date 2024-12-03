@@ -62,7 +62,7 @@ export const lockBTN = (
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
 	>
-		<rect width="100" height="26" rx="5" fill="#34A0FA" />
+		<rect width="100" height="26" rx="5" fill="#ff3b30" />
 		<path
 			fill-rule="evenodd"
 			clip-rule="evenodd"

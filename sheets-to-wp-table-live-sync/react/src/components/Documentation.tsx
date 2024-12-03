@@ -25,10 +25,10 @@ function Documentation() {
 	const [ activeItems, setActiveItems ] = useState( [ 0 ] );
 
 	const faqs = [
-		{ question: getStrings( 'doc-1' ), answer: getStrings( 'doc-1-ans' ) },
+		// { question: getStrings( 'doc-1' ), answer: getStrings( 'doc-1-ans' ) },
 		{ question: getStrings( 'doc-2' ), answer: getStrings( 'doc-2-ans' ) },
 		{ question: getStrings( 'doc-3' ), answer: getStrings( 'doc-3-ans' ) },
-		{ question: getStrings( 'doc-4' ), answer: getStrings( 'doc-4-ans' ) },
+		// { question: getStrings( 'doc-4' ), answer: getStrings( 'doc-4-ans' ) },
 		{ question: getStrings( 'doc-5' ), answer: getStrings( 'doc-5-ans' ) },
 		{ question: getStrings( 'doc-6' ), answer: getStrings( 'doc-6-ans' ) },
 

@@ -24,6 +24,12 @@ const TableCustomization = ( {
 } ) => {
 	const [ importModal, setImportModal ] = useState< boolean >( false );
 	const confirmImportRef = useRef();
+	const [tableHeaders, setTableHeaders] = useState([]);
+	const [selectedOption, setSelectedOption] = useState(
+		tableSettings?.table_settings?.columnnumber?.[0] ?? -1
+	);
+
+	const [sortOrder, setSortOrder] = useState(tableSettings?.table_settings?.sorting_mode || 'asc');
 
 	useEffect( () => {
 		setSecondActiveTab( secondActiveTabs );
@@ -43,10 +49,6 @@ const TableCustomization = ( {
 		// Update the secondActiveTab in the parent component
 		updateSecondActiveTab( key );
 	};
-
-	/* const isOnExportOptionsList = (key) => {
-		return tableSettings.table_settings.table_export.includes(key);
-	}; */
 
 	const handleExportOptions = ( e ) => {
 		const exportOption = e.target.dataset.item;
@@ -120,6 +122,78 @@ const TableCustomization = ( {
 	const handleClosePopup = () => {
 		setImportModal( false );
 	};
+
+
+
+	// Start 
+
+	useEffect(() => {
+		// Extract headers logic
+		const checkTableContainer = () => {
+			const tableContainer = document.getElementById("table-preview");
+			if (!tableContainer) return false;
+			return true;
+		};
+
+		const intervalId = setInterval(() => {
+			if (checkTableContainer()) {
+				const tableHead = document.querySelector("#create_tables thead");
+				if (tableHead) {
+					const headers = [
+						{ label: "Prioritize Google Sheets Format (default)", value: -1 },
+						...Array.from(tableHead.querySelectorAll("th")).map((th, index) => ({
+							label: th.textContent.trim(),
+							value: index,
+						})),
+					];
+					setTableHeaders(headers);
+					clearInterval(intervalId);
+				}
+			}
+		}, 500);
+
+		return () => clearInterval(intervalId);
+	}, []);
+
+
+	const handleOptionSelect = (value) => {
+
+		if (value !== -1 && !isProActive()) {
+			WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
+			return;
+		}
+
+		setSelectedOption(value);
+
+		setTableSettings({
+			...tableSettings,
+			table_settings: {
+				...tableSettings.table_settings,
+				columnnumber: value === -1 ? [] : [value],
+				allow_singleshort: value === -1 ? false : true, 
+			},
+		});
+	};
+
+	
+
+
+	const handleSortOrderChange = (e) => {
+		setSortOrder(e.target.value);
+
+		setTableSettings((prevSettings) => ({
+			...prevSettings,
+			table_settings: {
+				...prevSettings.table_settings,
+				sorting_mode: e.target.value,
+			},
+		}));
+
+	};
+
+
+	// END 
+
 
 	/**
 	 * Alert if clicked on outside of element
@@ -728,11 +802,11 @@ const TableCustomization = ( {
 															content={ `Enable this option to show table description for the viewers` }
 														/>
 														{
-															<button className="btn-pro btn-new">
-																{ getStrings(
-																	'new'
-																) }
-															</button>
+															// <button className="btn-pro btn-new">
+															// 	{ getStrings(
+															// 		'new'
+															// 	) }
+															// </button>
 														}
 													</label>
 												</div>
@@ -761,9 +835,7 @@ const TableCustomization = ( {
 																			{
 																				...tableSettings.table_settings,
 																				merged_support:
-																					e
-																						.target
-																						.checked,
+																					e.target.checked,
 																			},
 																	}
 																)
@@ -812,7 +884,7 @@ const TableCustomization = ( {
 													/>
 													<label htmlFor="disable-sorting">
 														{ getStrings(
-															'disable-sorting'
+															'allow-sorting'
 														) }
 														<Tooltip
 															content={ getStrings(
@@ -822,148 +894,162 @@ const TableCustomization = ( {
 													</label>
 												</div>
 
-												{ /* Column wise sorting disabled for now */ }
-												{ /* {tableSettings?.table_settings?.allow_sorting && (
-													<div className="edit-form-group cache-feature allow-sorting">
-														<input
-															type="hidden"
-															name="allow_singleshort"
-															value={
-																tableSettings?.table_settings
-																	?.allow_singleshort
-															}
-														/>
-														<input
-															type="checkbox"
-															id="allow_singleshort"
-															checked={
-																tableSettings?.table_settings
-																	?.allow_singleshort
-															}
+												
+												{/* Single Select Dropdown */}
+												<div className={ `edit-form-group sorting-feature-with-priority ${
+														tableSettings?.table_settings
+															?.allow_sorting === false
+															? 'feature-disabled'
+															: ''
+													}` }>
+												
+													<div className="auto_sorting-label">{getStrings('auto-sorting')}
 
-															onChange={(e) =>
-																setTableSettings({
-																	...tableSettings,
-																	table_settings: {
-																		...tableSettings.table_settings,
-																		allow_singleshort: e.target.checked,
-																	},
-																})
-															}
-
+														<Tooltip
+															content={ getStrings(
+																'tooltip-57'
+															) }
 														/>
-														<label htmlFor="allow_singleshort" className='singlesort-label'>
-															{' '}
-															{getStrings('specific-column')}
-															<span className="select-wrapper">
+														
+														<button className="btn-pro btn-new">
+															{ getStrings(
+																'new'
+															) }
+														</button>
+													</div>
+													
+													{/* Sort order  */}
+													<div className="conditional-view">
+														<div className="conditional-dropdown-select">
+															<label htmlFor="headerSelect" className="auto_sorting-title">
+															{getStrings('col-sorting')}
+															<Tooltip content={getStrings('tooltip-54')} />
+															</label>
+															<div className="select-with-icon">
 																<select
-																	name="sorting_mode"
-																	id="singleshort-mode"
-																	value={
-																		tableSettings
-																			.table_settings
-																			?.sorting_mode
-																	}
-																	onChange={(
-																		e
-																	) =>
-																		setTableSettings(
-																			{
+																	id="headerSelect"
+																	value={selectedOption}
+																	onChange={(e) => handleOptionSelect(Number(e.target.value))}
+																	disabled={tableSettings?.table_settings?.allow_sorting === false}
+																>
+																	{tableHeaders.map((header) => (
+																	<option key={header.value} value={header.value}>
+																		{header.label}
+																	</option>
+																	))}
+																</select>
+																<span
+																	className={`select-icon`}
+																>
+																	<svg xmlns="http://www.w3.org/2000/svg" width="11" height="6" viewBox="0 0 11 6" fill="none"><path d="M10.9999 0.995538C11.0003 1.12361 10.9744 1.25016 10.9241 1.36588C10.8738 1.48159 10.8004 1.58354 10.7093 1.66423L5.99542 5.80497C5.85484 5.93107 5.67851 6 5.49654 6C5.31456 6 5.13823 5.93107 4.99765 5.80497L0.283814 1.51849C0.123373 1.37297 0.0224779 1.16387 0.00332422 0.937177C-0.0158295 0.710485 0.0483274 0.484775 0.181681 0.309701C0.315034 0.134626 0.506661 0.024529 0.714405 0.00362822C0.922149 -0.0172725 1.12899 0.0527358 1.28943 0.198252L5.50046 4.03037L9.7115 0.326847C9.82682 0.222014 9.96724 0.155421 10.1162 0.134949C10.2651 0.114478 10.4163 0.140983 10.5518 0.211329C10.6873 0.281675 10.8016 0.392918 10.881 0.531895C10.9604 0.670871 11.0017 0.831765 10.9999 0.995538Z" fill="#1E1E1E"></path></svg>
+																</span>
+															</div>
+
+															{/* sorting-control */}
+
+															
+
+															<div className='sorting-control'>
+																
+																<div className={ `${
+																	! isProActive()
+																		? ` swptls-pro-settings`
+																		: ``
+																}` }>
+																	<input
+																		type="checkbox"
+																		name="hide_sorting_control"
+																		id="hide-sorting-control"
+																		checked={
+																			tableSettings
+																				.table_settings
+																				?.hide_sorting_icon
+																		}
+																		onChange={ ( e ) =>
+																			setTableSettings( {
 																				...tableSettings,
 																				table_settings:
-																				{
-																					...tableSettings.table_settings,
-																					sorting_mode:
-																						e
-																							.target
-																							.value,
-																				},
-																			}
-																		)
-																	}
-																>
-																	<option value="asc">
-																		{getStrings('sorting-ascending')}
-																	</option>
-																	<option value="desc">
-																		{getStrings('sorting-descending')}
-																	</option>
-
-																</select>
-
-																<div className="icon">
-																	<svg
-																		xmlns="http://www.w3.org/2000/svg"
-																		width="11"
-																		height="6"
-																		viewBox="0 0 11 6"
-																		fill="none"
-																	>
-																		<path
-																			d="M10.9999 0.995538C11.0003 1.12361 10.9744 1.25016 10.9241 1.36588C10.8738 1.48159 10.8004 1.58354 10.7093 1.66423L5.99542 5.80497C5.85484 5.93107 5.67851 6 5.49654 6C5.31456 6 5.13823 5.93107 4.99765 5.80497L0.283814 1.51849C0.123373 1.37297 0.0224779 1.16387 0.00332422 0.937177C-0.0158295 0.710485 0.0483274 0.484775 0.181681 0.309701C0.315034 0.134626 0.506661 0.024529 0.714405 0.00362822C0.922149 -0.0172725 1.12899 0.0527358 1.28943 0.198252L5.50046 4.03037L9.7115 0.326847C9.82682 0.222014 9.96724 0.155421 10.1162 0.134949C10.2651 0.114478 10.4163 0.140983 10.5518 0.211329C10.6873 0.281675 10.8016 0.392918 10.881 0.531895C10.9604 0.670871 11.0017 0.831765 10.9999 0.995538Z"
-																			fill="#1E1E1E"
-																		/>
-																	</svg>
+																					{
+																						...tableSettings.table_settings,
+																						hide_sorting_icon:
+																							! tableSettings
+																								.table_settings
+																								?.hide_sorting_icon,
+																					},
+																			} )
+																		}
+																	/>
+																	
+																	<label htmlFor="hide-sorting-control">
+																		{ getStrings(
+																			'sorting-control'
+																		) }
+																		
+																	</label>
 																</div>
 
-															</span>
-															{getStrings('sorting-checkbox-content')}
-															<Tooltip
-																content={`Enable this option to sort table by default with any specific column in ascending/descending`}
-															/>
+																<span className='pro-tag-sorting-control'>
+																	{ ! isProActive() && (
+																		<button className="btn-pro">
+																			{ getStrings( 'pro' ) }
+																		</button>
+																	) }
 
-															{
-																<button className="btn-pro btn-new">
-																	{getStrings(
-																		'new'
+																</span>
+
+															</div>
+															
+															{/* End  */}
+
+														</div>
+
+														{/* Sorting Order Dropdown */}
+														{selectedOption !== -1 && selectedOption !== null && selectedOption !== '' && (
+															<div className="sort-order-select">
+																<label htmlFor="sortOrder" className="auto_sorting-title">
+																	{getStrings('order-sorting')}
+																	<Tooltip content={getStrings('tooltip-55')} />
+																</label>
+																<div className="select-with-icon">
+																	<span className={`select-icon-sort`}>
+																	{sortOrder === 'asc' ? (
+																		<svg fill="#666" width="15" height="20" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#666" stroke-width="1">
+																		<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+																		<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+																		<g id="SVGRepo_iconCarrier"> <title>arrow-down-a-z</title> <path d="M11.47 24.469l-3.72 3.721v-26.189c0-0.414-0.336-0.75-0.75-0.75s-0.75 0.336-0.75 0.75v0 26.188l-3.72-3.72c-0.136-0.134-0.322-0.218-0.528-0.218-0.415 0-0.751 0.336-0.751 0.751 0 0.207 0.083 0.394 0.218 0.529l5 5c0.026 0.026 0.065 0.017 0.093 0.038 0.052 0.040 0.088 0.098 0.15 0.124 0.085 0.035 0.184 0.056 0.287 0.057h0c0.207 0 0.394-0.084 0.53-0.219l5-5c0.135-0.136 0.218-0.323 0.218-0.529 0-0.415-0.336-0.751-0.751-0.751-0.206 0-0.393 0.083-0.528 0.218l0-0zM23.557 1.872c-0.049-0.102-0.152-0.172-0.271-0.172-0 0-0.001 0-0.001 0h-0.584c-0 0-0.001 0-0.001 0-0.119 0-0.222 0.069-0.27 0.17l-0.001 0.002-5.64 12c-0.018 0.037-0.029 0.081-0.029 0.128 0 0.166 0.134 0.3 0.3 0.3 0 0 0 0 0 0h0.531c0 0 0 0 0 0 0.119 0 0.222-0.070 0.271-0.171l0.001-0.002 1.343-2.861h7.557l1.357 2.863c0.050 0.102 0.153 0.171 0.271 0.171h0.531c0 0 0.001 0 0.002 0 0.165 0 0.299-0.134 0.299-0.299 0-0.047-0.011-0.091-0.030-0.13l0.001 0.002zM19.711 10.169l3.281-6.95 3.264 6.95zM27.584 17.704h-8.908c-0 0-0 0-0.001 0-0.166 0-0.3 0.134-0.3 0.3v0 0.496c0 0.166 0.135 0.301 0.301 0.301h7.615l-8.129 10.604c-0.039 0.050-0.062 0.113-0.063 0.182v0.41c0 0.166 0.135 0.301 0.301 0.301h9.166c0.166-0 0.301-0.135 0.301-0.301v0-0.496c-0-0.166-0.135-0.301-0.301-0.301h-7.873l8.129-10.604c0.039-0.050 0.062-0.113 0.063-0.182v-0.41c-0-0.166-0.134-0.3-0.3-0.3-0 0-0.001 0-0.001 0h0z"/> </g>
+																		</svg>
+																	) : (
+																		<svg width="15" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																		<path d="M7 3V21M7 3L11 7M7 3L3 7M15.5 3H20.5L15.5 10H20.5M16 20H20M15 21L18 14L21 21" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+																		</svg>
 																	)}
-																</button>
-															}
+																	</span>
+																	<select
+																		id="sortOrder"
+																		value={sortOrder}
+																		onChange={handleSortOrderChange}
+																		disabled={tableSettings?.table_settings?.allow_sorting === false}
+																	>
+																		<option value="asc">{getStrings('sorting-ascending')}</option>
+																		<option value="desc">{getStrings('sorting-descending')}</option>
+																	</select>
+																	<span
+																		className={`select-icon`}
+																	>
+																		<svg xmlns="http://www.w3.org/2000/svg" width="11" height="6" viewBox="0 0 11 6" fill="none"><path d="M10.9999 0.995538C11.0003 1.12361 10.9744 1.25016 10.9241 1.36588C10.8738 1.48159 10.8004 1.58354 10.7093 1.66423L5.99542 5.80497C5.85484 5.93107 5.67851 6 5.49654 6C5.31456 6 5.13823 5.93107 4.99765 5.80497L0.283814 1.51849C0.123373 1.37297 0.0224779 1.16387 0.00332422 0.937177C-0.0158295 0.710485 0.0483274 0.484775 0.181681 0.309701C0.315034 0.134626 0.506661 0.024529 0.714405 0.00362822C0.922149 -0.0172725 1.12899 0.0527358 1.28943 0.198252L5.50046 4.03037L9.7115 0.326847C9.82682 0.222014 9.96724 0.155421 10.1162 0.134949C10.2651 0.114478 10.4163 0.140983 10.5518 0.211329C10.6873 0.281675 10.8016 0.392918 10.881 0.531895C10.9604 0.670871 11.0017 0.831765 10.9999 0.995538Z" fill="#1E1E1E"></path></svg>
+																	</span>
+																</div>
 
-														</label>
+																
+															</div>
+														)}
+
+														
+														
 													</div>
+												</div>
 
-												)} */ }
-
-												{ /* Column wise sorting input filed to sort also disabled for now */ }
-												{ /* {tableSettings?.table_settings?.allow_singleshort && tableSettings?.table_settings?.allow_sorting && (
-
-													<div
-														className={`edit-form-group cache-feature columnnumber-wraper`}
-													>
-														<label
-															className="columnnumber"
-
-															htmlFor="columnnumber"
-														>
-															<input
-																type="text"
-																name="columnnumber"
-																id="columnnumber"
-																placeholder='Add single column number ex. 1'
-																value={
-																	tableSettings
-																		?.table_settings
-																		?.columnnumber
-																}
-																onChange={(e) =>
-																	setTableSettings({
-																		...tableSettings,
-																		table_settings: {
-																			...tableSettings.table_settings,
-																			columnnumber:
-																				e.target
-																					.value,
-																		},
-																	})
-																}
-
-															/>
-
-														</label>
-
-													</div>
-												)} */ }
+												
 											</div>
 										</div>
 									</div>
@@ -1471,9 +1557,9 @@ const TableCustomization = ( {
 												) }
 											/>{ ' ' }
 											{
-												<button className="btn-pro btn-new">
-													{ getStrings( 'new' ) }
-												</button>
+												// <button className="btn-pro btn-new">
+												// 	{ getStrings( 'new' ) }
+												// </button>
 											}
 										</span>
 									</div>

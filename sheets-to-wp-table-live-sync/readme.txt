@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
 Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 3.15.5
+Stable tag: 3.16.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,7 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 * **Search Bar:** Find your data and related details specifically with the search bar. The search bar will help you to find any data easily and effortlessly. This feature also contains an On/Off button on the backend.
 * **Pagination Support:** Flex Table comes with in-built table pagination support. Order your data in a simple manner of sequential pages that are contextually connected.
 * **Asynchronous Loading:** Enable this feature to load the table in the front end after loading all content with a pre-loader. This will help your website load fast. 
+* **Set Maximum Response Timeout for Table Loading:** Take control of performance with a global setting to define how long (in seconds) the plugin should wait for a response from the Google server.
 * **Multisite Support:** With Google Sheets to WordPress Table Multisite support, share table sync features across your multisite network.
 
 👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get The PRO Version](https://go.wppool.dev/Hat0)
@@ -75,7 +76,8 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 * **Hide Column:** Hide your Google Sheets table column on desktop screen OR mobile screens. Protect your data if you don’t want to publish everything on the web.
 * **Hide Row:** Hide your Google Sheets table rows based on your custom row selection. Hide those rows if you don’t want to show those secret rows in your table.
 * **Hide Cell:** Hide your Google Sheets cell data based on your custom cell selection.
-Optimized Loading: By enabling this feature, the table scripts will load only on the relevant pages/posts in your website where the table is added.
+* **Optimized Loading:** By enabling this feature, the table scripts will load only on the relevant pages/posts in your website where the table is added.
+* **Table Sorting Control:** Easily set a default sort order for tables when the page loads. You can also hide the sorting controls from the table for a cleaner and more streamlined table display.
 * **24/7 VIP Support:** We have a dedicated and hardworking team. Get support anytime for any issues with Flex Table. Our support team will be there always.
 
 👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get The PRO Version](https://go.wppool.dev/Hat0)
@@ -175,6 +177,22 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 
 == Changelog ==
+
+= 3.16.0 - 03 December 2024 =
+
+* **New: Default Table Sorting on Load:** Introducing the ability to set a default sorting order for tables. Users can now define how their tables should be sorted when the page loads, improving data presentation and usability.  
+
+* **New: Enhanced Timeout Settings:** A new global timeout configuration is now available under the Performance tab. This setting allows users to extend the request timeout duration, ensuring smoother handling of larger or slower data queries.  
+
+* **New: Google Sheets Line Break Support:** The plugin now fully supports line breaks within cells of Google Sheets. This enhancement improves data formatting and ensures seamless integration of multi-line content.  
+
+* **Fix: Color and Style Import for Large Datasets:** Resolved issues related to importing colors and styles for large data sheets. The process is now more reliable and efficient, ensuring accurate data representation.  
+
+* **Fix: Accurate Date Sorting in DataTables:** Addressed incorrect date sorting issues within DataTables. Dates are now properly sorted, providing accurate and intuitive ordering.  
+
+* **Improvement: Enhanced Tag Management:** Tags have been improved for better organization and usability.  
+
+* **Improvement: Tab Title Formatting:** Tab titles now consistently follow the user-defined input formatting. Previously enforced sentence case formatting has been updated to respect custom title input, offering greater flexibility. 
 
 = 3.15.5 - 30 November 2024 =
 * **Enhancement:** Updated Appsero notice that clarifies what data we collect to help users understand what they are sharing.

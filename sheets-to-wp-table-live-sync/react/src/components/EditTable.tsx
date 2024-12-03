@@ -76,6 +76,15 @@ function EditTable() {
 		setActiveTab( key );
 		localStorage.setItem( 'active_tab', key );
 
+		if (key === 'conditional_view') {
+			localStorage.setItem('conditional_view_visited', true);
+		}
+
+		if (key === 'table_customization') {
+			localStorage.setItem('table_customization_visited', true);
+		}
+
+
 		// Reset thirdActiveTabs when changing main tabs, except when moving to 'conditional_view'
 		if ( key !== 'conditional_view' ) {
 			setThirdActiveTabs( 'columns' );
@@ -351,11 +360,10 @@ function EditTable() {
 						dom,
 						ordering: values.table_settings.allow_sorting,
 
-						order: values.table_settings.allow_sorting ? [] : [],
-						// order: [[2, 'desc']],
-						/* order: values.table_settings.allow_singleshort
-							? [[(values.table_settings.columnnumber ? values.table_settings.columnnumber - 1 : 0), values.table_settings.sorting_mode ? values.table_settings.sorting_mode : 'desc']]
-							: (values.table_settings.allow_sorting ? [] : []), */
+						order: values.table_settings.allow_singleshort
+						? [[(values.table_settings.columnnumber ? values.table_settings.columnnumber : 0), values.table_settings.sorting_mode ? values.table_settings.sorting_mode : 'desc']]
+						: (values.table_settings.allow_sorting ? [] : []),
+
 
 						lengthMenu: [
 							[ 1, 5, 10, 15, 30, 50 ],
@@ -1385,22 +1393,6 @@ function EditTable() {
 		window.open( 'https://go.wppool.dev/KfVZ', '_blank' );
 	};
 
-	/* const handleCopyShortcode = async (id) => {
-		const shortcode = `[gswpts_table id="${id}"]`;
-
-		try {
-			await navigator.clipboard.writeText(shortcode);
-			setCopySuccess(true);
-			toast.success('Shortcode copied successfully.');
-			setTimeout(() => {
-				setCopySuccess(false);
-			}, 1000);
-		} catch (err) {
-			setCopySuccess(false);
-			toast.success('Shortcode copy failed.');
-		}
-	}; */
-
 	const handleCopyShortcode = async ( id ) => {
 		// console.log(id);
 		const shortcode = `[gswpts_table id="${ id }"]`;
@@ -1546,6 +1538,11 @@ function EditTable() {
 												fill="#879EB1"
 											/>
 										</svg>
+										{/* <div className="badge-new-circle"></div> */}
+										{!localStorage.getItem('table_customization_visited') && (
+											<div className="badge-new-circle"></div>
+										)}
+
 									</span>
 
 									<span className="text">
@@ -1611,7 +1608,11 @@ function EditTable() {
 												fill="#879EB1"
 											/>
 										</svg>
-										<div className="badge-new-circle"></div>
+										{/* <div className="badge-new-circle"></div> */}
+										{!localStorage.getItem('conditional_view_visited') && (
+											<div className="badge-new-circle"></div>
+										)}
+										
 									</span>
 
 									<span className="text">
@@ -1886,30 +1887,22 @@ function EditTable() {
 														</svg>
 													</span>
 													<span>
-														Unable to access the
-														Sheet! Please follow the
-														instructions below:
+														{ getStrings( 'unable-to-access' ) }
 													</span>
 												</label>
 
 												<div className="text">
 													<ol>
 														<li>
-															On your Google
-															Sheet, click on the{ ' ' }
+														{ getStrings( 'on-your-google' ) }{ ' ' }
 															<button>
 																Share
 															</button>
-															button located at
-															the top-right
-															corner. Then on the
-															popup, choose the{ ' ' }
+															{ getStrings( 'button-located-at' ) }{ ' ' }
 															<span className="swptls-text-highlight">
-																“Anyone with the
-																link”
+																{ getStrings( 'anyone-with-the-link' ) }
 															</span>{ ' ' }
-															option under General
-															access
+															{ getStrings( 'option-under-general' ) }
 														</li>
 														<li>
 															Click on the
@@ -1936,23 +1929,15 @@ function EditTable() {
 																	/>
 																</svg>
 															</span>
-															icon on the popup
-															and ensure that the
-															option{ ' ' }
+															icon on the popup and ensure that the option{ ' ' }
 															<span className="swptls-text-highlight">
-																“Viewers and
-																commenters can
-																see the option
-																to download,
-																print, and copy”
+																“Viewers and commenters can see the option to download, print, and copy”
 															</span>{ ' ' }
 															is selected
 														</li>
 														<li>
 															<span>
-																Save the changes
-																by clicking on
-																the
+																Save the changes by clicking on the
 																<button className="done-btn">
 																	Done
 																</button>

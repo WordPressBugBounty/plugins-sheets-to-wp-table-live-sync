@@ -329,7 +329,7 @@
                 align-items: center;
                 position: relative;
                 box-sizing: border-box;
-                margin-bottom: 0px;
+                margin-bottom: -5px;
             }
 
             label:before {
@@ -387,11 +387,12 @@
             font-weight: 600;
             font-size: 16px;
             line-height: 100%;
+            margin-top: 40px;
         }
 
         p.tooltip-content {
             margin-bottom: 0px;
-            margin-top: 5px;
+            margin-top: -5px;
             margin-left: 25px;
         }
 
@@ -480,6 +481,31 @@
                     top: 6%;
                     width: 25px;
                     height: 25px;
+                }
+            }
+        }
+
+        .scripts-modes.time-out-settings{
+            label {
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+            select {
+                width: 140px;
+                padding: 8px 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background-color: #f9f9f9;
+                font-size: 14px;
+                color: #333;
+                appearance: none;
+                cursor: pointer;
+                margin: 0px 0px 0px 5px;
+
+                &:focus {
+                    outline: none;
+                    border-color: #666;
                 }
             }
         }

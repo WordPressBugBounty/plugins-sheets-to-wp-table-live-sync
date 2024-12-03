@@ -140,9 +140,9 @@ namespace SWPTLS { //phpcs:ignore
 		public static function get_instance() {
 			if ( null === self::$instance || ! self::$instance instanceof self ) {
 				self::$instance = new self();
-
+				
 				add_action( 'init', array( self::$instance, 'appsero_init' ) );
-
+				
 				self::$instance->init();
 			}
 

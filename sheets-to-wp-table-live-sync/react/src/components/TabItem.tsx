@@ -14,19 +14,50 @@ function TabItem( { tab, setTabs, setTabCount } ) {
 	const [ deleteModal, setDeleteModal ] = useState< boolean >( false );
 
 	const handleCopyShortcode = async ( id ) => {
+		// console.log(id)
+		 
 		const shortcode = `[gswpts_tab id="${ id }"]`;
-
-		try {
-			await navigator.clipboard.writeText( shortcode );
-			setCopySuccess( true );
-			toast.success( 'Shortcode copied successfully.' );
-			setTimeout( () => {
+		if ( navigator.clipboard && navigator.clipboard.writeText ) {
+			try {
+				await navigator.clipboard.writeText( shortcode );
+				setCopySuccess( true );
+				toast.success( 'Shortcode copied successfully.' );
+				// Reset copySuccess state after 1 second
+				setTimeout( () => {
+					setCopySuccess( false );
+				}, 1000 );
+			} catch ( err ) {
+				console.error(
+					'Failed to copy text using clipboard API: ',
+					err
+				);
 				setCopySuccess( false );
-			}, 1000 ); // 1000 milliseconds = 1 second
-		} catch ( err ) {
-			setCopySuccess( false );
-			toast.success( 'Shortcode copy failed.' );
+				toast.success( 'Shortcode copy failed.' );
+			}
+		} else {
+			// Fallback method for unsupported browsers
+			try {
+				const textArea = document.createElement( 'textarea' );
+				textArea.value = shortcode;
+				textArea.style.position = 'fixed';
+				textArea.style.opacity = '0';
+				document.body.appendChild( textArea );
+				textArea.select();
+				textArea.setSelectionRange( 0, textArea.value.length );
+				document.execCommand( 'copy' );
+				document.body.removeChild( textArea );
+				setCopySuccess( true );
+				toast.success( 'Shortcode copied successfully.' );
+				setTimeout( () => {
+					setCopySuccess( false );
+				}, 1000 );
+			} catch ( err ) {
+				console.error( 'Fallback copy method failed: ', err );
+				setCopySuccess( false );
+				toast.success( 'Shortcode copy failed.' );
+			}
 		}
+
 	};
 
 	const handleClosePopup = () => {

@@ -1586,13 +1586,13 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 									content={ getStrings( 'tooltip-40' ) }
 								/>{ ' ' }
 							</label>
-							<span className="import-tooltip">
+							{/* <span className="import-tooltip">
 								{ ! isProActive() && (
 									<button className="btn-pro">
 										{ getStrings( 'pro' ) }
 									</button>
 								) }
-							</span>
+							</span> */}
 						</div>
 
 						{ /* Theme  */ }
@@ -1746,7 +1746,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 											</div>
 										</div>
 									</div>
-									<div className="bottom">
+									{/* <div className="bottom">
 										{ ! isProActive() && (
 											<span className="theme-pro-tags">
 												{ lockpro }
@@ -1757,7 +1757,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										<span className="theme-new-tags">
 											{ getStrings( 'new' ) }
 										</span>
-									</div>
+									</div> */}
 								</div>
 								{ isHovered === 'style-6' &&
 									! isProActive() && (
@@ -1801,15 +1801,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										</div>
 									</div>
 
-									<div className="bottom">
-										{ ! isProActive() && (
-											<span className="theme-pro-tags single-pro">
-												{ lockpro }
-												{ ` ` }
-												{ getStrings( 'pro' ) }
-											</span>
-										) }
-									</div>
+									
 								</div>
 								{ isHovered === 'style-2' &&
 									! isProActive() && (
@@ -1852,15 +1844,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 											</div>
 										</div>
 									</div>
-									<div className="bottom">
-										{ ! isProActive() && (
-											<span className="theme-pro-tags single-pro">
-												{ lockpro }
-												{ ` ` }
-												{ getStrings( 'pro' ) }
-											</span>
-										) }
-									</div>
+									
 								</div>
 
 								{ isHovered === 'style-3' &&
@@ -1904,15 +1888,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 											</div>
 										</div>
 									</div>
-									<div className="bottom">
-										{ ! isProActive() && (
-											<span className="theme-pro-tags single-pro">
-												{ lockpro }
-												{ ` ` }
-												{ getStrings( 'pro' ) }
-											</span>
-										) }
-									</div>
+									
 								</div>
 								{ isHovered === 'style-5' &&
 									! isProActive() && (
@@ -1955,18 +1931,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 											</div>
 										</div>
 									</div>
-									<div className="bottom">
-										{ ! isProActive() && (
-											<span className="theme-pro-tags">
-												{ lockpro }
-												{ ` ` }
-												{ getStrings( 'pro' ) }
-											</span>
-										) }
-										<span className="theme-new-tags">
-											{ getStrings( 'new' ) }
-										</span>
-									</div>
+									
 								</div>
 								{ isHovered === 'style-8' &&
 									! isProActive() && (
@@ -2009,7 +1974,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 											</div>
 										</div>
 									</div>
-									<div className="bottom">
+									{/* <div className="bottom">
 										{ ! isProActive() && (
 											<span className="theme-pro-tags single-pro">
 												{ lockpro }
@@ -2017,7 +1982,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 												{ getStrings( 'pro' ) }
 											</span>
 										) }
-									</div>
+									</div> */}
 								</div>
 								{ isHovered === 'style-1' &&
 									! isProActive() && (
@@ -2060,18 +2025,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 											</div>
 										</div>
 									</div>
-									<div className="bottom">
-										{ ! isProActive() && (
-											<span className="theme-pro-tags">
-												{ lockpro }
-												{ ` ` }
-												{ getStrings( 'pro' ) }
-											</span>
-										) }
-										<span className="theme-new-tags">
-											{ getStrings( 'new' ) }
-										</span>
-									</div>
+									
 								</div>
 								{ isHovered === 'style-7' &&
 									! isProActive() && (
@@ -2248,7 +2202,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										{ getStrings( '+new-theme' ) }
 									</div>
 
-									<div className="new-theme-tags">
+									{/* <div className="new-theme-tags">
 										{ ! isProActive() && (
 											<span className="theme-pro-tags">
 												{ lockpro }
@@ -2259,7 +2213,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										<span className="theme-new-tags">
 											{ getStrings( 'new' ) }
 										</span>
-									</div>
+									</div> */}
 								</div>
 
 								{ isHovered === 'swptls-new-theme' &&

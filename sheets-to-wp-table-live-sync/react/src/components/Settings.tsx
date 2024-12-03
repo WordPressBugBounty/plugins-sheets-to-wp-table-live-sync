@@ -21,6 +21,7 @@ function Settings() {
 		async_loading: 'on',
 		link_support: 'smart_link',
 		script_support: 'global_loading',
+		timeout: 5, 
 	} );
 
 	const [ activeTab, setActiveTab ] = useState(
@@ -32,6 +33,10 @@ function Settings() {
 		setActiveTab( name );
 	};
 
+
+	const timeoutOptions = [3, 5, 10, 15, 20, 25, 30, 40, 50, 60];
+
+
 	useEffect( () => {
 		const handleClick = () => {
 			WPPOOL.Popup( 'sheets_to_wp_table_live_sync' ).show();
@@ -41,8 +46,6 @@ function Settings() {
 			'.swptls-pro-settings, .btn-pro-lock'
 		);
 
-		// console.log(proSettings)
-
 		proSettings.forEach( ( item ) => {
 			item.addEventListener( 'click', handleClick );
 		} );
@@ -51,12 +54,13 @@ function Settings() {
 			data: {
 				nonce: getNonce(),
 			},
-			success( { css, async, link_support, script_support } ) {
+			success( { css, async, link_support, script_support, timeout } ) {
 				setSettings( {
 					css_code_value: css,
 					async_loading: async,
 					link_support: link_support,
 					script_support: script_support,
+					timeout: timeout,
 				} );
 			},
 			error( error ) {
@@ -79,12 +83,13 @@ function Settings() {
 				nonce: getNonce(),
 				settings: JSON.stringify( settings ),
 			},
-			success( { message, css, async, link_support, script_support } ) {
+			success( { message, css, async, link_support, script_support, timeout } ) {
 				setSettings( {
 					css_code_value: css,
 					async_loading: async,
 					link_support: link_support,
 					script_support: script_support,
+					timeout: timeout,
 				} );
 
 				toast.success( message );
@@ -354,11 +359,7 @@ function Settings() {
 						</div>
 
 						<div className={ `swptls-performance-settings` }>
-							{ /* <div className="title">
-								{getStrings('performance')}
-								<Tooltip content={`Write your own custom CSS to design the table or the page itself.`} />
-								{<button className='btn-pro btn-new'>{getStrings('new')}</button>}
-							</div> */ }
+							
 							<p className="performance-title">
 								{ getStrings( 'script-content' ) }
 							</p>
@@ -387,6 +388,8 @@ function Settings() {
 									{ getStrings( 'global-loading' ) }
 								</label>
 							</div>
+
+
 							<p className="tooltip-content">
 								{ getStrings( 'global-loading-details' ) }
 							</p>
@@ -397,7 +400,7 @@ function Settings() {
 										: ``
 								}` }
 							>
-								{ /* <div className='scripts-modes'> */ }
+								
 								<input
 									type="radio"
 									name="script_support"
@@ -445,16 +448,40 @@ function Settings() {
 							>
 								{ getStrings( 'optimized-loading-details' ) }
 							</p>
+			
+							{/* Timeout Select */}
+							<p className="performance-title">
+								{ getStrings( 'timeout-content' ) }{<button className='btn-pro btn-new'>{getStrings('new')}</button>}
+							</p>
+							<div className="scripts-modes time-out-settings">
+							
+								<label htmlFor="timeout-select">{ getStrings( 'timeout-label' ) } </label>
+								<select
+									id="timeout-select"
+									value={settings.timeout}
+									onChange={(e) =>
+										setSettings({
+											...settings,
+											timeout: parseInt(e.target.value),
+										})
+									}
+								>
+									{timeoutOptions.map((option) => (
+										<option key={option} value={option}>
+											{option} seconds
+										</option>
+									))}
+								</select>
+
+								<Tooltip
+									content={ getStrings( 'tooltip-56' ) }
+								/>
+								
+
+							</div>
+
 						</div>
 
-						{ /* <div className='btn-box text-right'>
-							<button
-								className="btn"
-								onClick={(e) => handleSaveSettings(e)}
-							>
-								{getStrings('save-settings')}
-							</button>
-						</div> */ }
 					</>
 				) }
 

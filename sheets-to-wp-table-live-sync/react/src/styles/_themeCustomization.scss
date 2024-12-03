@@ -121,11 +121,8 @@
     .import-style-modal {
         padding: 24px 30px;
         text-align: left;
-
-        height: 750px;
+        height: 625px;
         overflow-y: scroll;
-
-        /* Styling for scrollbar */
         scrollbar-width: thin;
         scrollbar-color: #ffffff #f0f0f0;
 
@@ -192,7 +189,6 @@
         .action-buttons {
             margin-top: 30px;
             justify-content: flex-end;
-            // margin-right: 85px; // set it right a bit 
         }
 
     }

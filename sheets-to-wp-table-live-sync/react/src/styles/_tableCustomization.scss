@@ -325,7 +325,9 @@
                             margin-top: 20px;
                             padding-bottom: 40px;
                         }
+                        
                     }
+                    
 
                     .edit-form-group.cache-feature {
                         gap: 3px;
@@ -473,7 +475,6 @@
                             border: 1px solid #BBBDCA;
                         }
                     }
-
 
                     // end s
                 }
@@ -712,6 +713,8 @@
                                 box-shadow: none;
                             }
                         }
+
+                        
                     }
                 }
 
@@ -1113,7 +1116,7 @@
         padding: 20px 20px 18px;
         background-color: #f6f7fe;
         border-radius: 4px;
-        max-width: 405px;
+        max-width: 406px;
 
         .top-elements-wrapper {
             gap: 10px 40px;
@@ -1346,7 +1349,123 @@
                     pointer-events: none;
                 }
             }
+            
         }
+
+        // Auto sorting 
+        .edit-form-group.sorting-feature-with-priority {
+            padding: 20px 20px 18px;
+            background-color: #f6f7fe;
+            border-radius: 4px;
+          
+            .auto_sorting-label {
+              margin-bottom: 10px;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 16px;
+              color: #1e1e1e;
+              display: flex;
+              align-items: center;
+            }
+          
+            .auto_sorting-title {
+              font-size: 14px;
+              color: #666 !important;
+              margin-bottom: 10px;
+              line-height: 1.4;
+            }
+          
+            .conditional-view {
+              display: flex;
+              gap: 20px;
+          
+              .conditional-dropdown-select,
+              .sort-order-select {
+                display: flex;
+                flex-direction: column;
+                // width: 285px;
+                width: 300px;
+          
+                label {
+                  margin-bottom: 5px;
+                  color: #333;
+                }
+               
+          
+                .select-with-icon {
+                  position: relative;
+          
+                  select {
+                    width: 100%;
+                    padding: 8px 10px;
+                    border-radius: 4px;
+                    background: #f8fcff;
+                    border: 1px solid #ecf2f6;
+                    font-size: 14px;
+                    color: #333;
+                    appearance: none;
+                    cursor: pointer;
+                    padding-right: 23px;
+          
+                    &:focus {
+                      outline: none;
+                      border-color: #ecf2f6;
+                    }
+                  }
+
+                  select#sortOrder {
+                    padding: 8px 30px;
+                  }
+
+                  .select-icon-sort{
+                    position: absolute;
+                    left: 12px;
+                    top: 55%;
+                    transform: translateY(-50%);
+                    pointer-events: none; 
+                    transition: transform 0.3s ease; 
+                  }
+          
+                  .select-icon {
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    pointer-events: none; 
+                    transition: transform 0.3s ease; 
+                  }
+
+                }
+
+                .sorting-control {
+                    margin-top: 25px;
+                    display: flex;
+                    align-items: center;
+                    margin-left: 5px;
+                    width: 305px;
+
+                    label {
+                        cursor: pointer;
+                      }
+                }
+
+              }
+            }
+          }
+
+          
+
+        .feature-disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+
+            #headerSelect, #sortOrder{
+                cursor: not-allowed;
+            }
+        }
+        
+
     }
 
     .swptls-table-bottom-elements {
