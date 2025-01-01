@@ -147,67 +147,67 @@ class Helpers {
 	}
 
 	/**
-	 * Get csv data. 
-	 * Support line break. 
+	 * Get csv data.
+	 * Support line break.
 	 *
 	 * @param  string $url     The sheet url.
 	 * @param  string $sheet_id The sheet ID.
 	 * @param  int    $gid     The sheet tab id.
 	 * @return string|WP_Error
 	 */
-	public function get_csv_data(string $url, string $sheet_id, int $gid) {
+	public function get_csv_data( string $url, string $sheet_id, int $gid ) {
 		$timeout = get_option('timeout_values', 10);
-		$timeout = !empty($timeout) ? (int)$timeout : 10; 
+		$timeout = ! empty($timeout) ? (int) $timeout : 10;
 		$args = array(
 			'timeout' => $timeout,
 		);
-		
+
 		$url = $this->prepare_export_url($sheet_id, $gid);
-		
+
 		$response = wp_remote_get($url, $args);
-	
-		if (is_wp_error($response)) {
+
+		if ( is_wp_error($response) ) {
 			return new WP_Error('private_sheet', __('You are offline.', 'sheetstowptable'));
 		}
-	
+
 		$headers = $response['headers'];
-	
-		if (!isset($headers['X-Frame-Options']) || 'DENY' === $headers['X-Frame-Options']) {
+
+		if ( ! isset($headers['X-Frame-Options']) || 'DENY' === $headers['X-Frame-Options'] ) {
 			wp_send_json_error([
 				'message' => __('Sheet is not public or shared', 'sheetstowptable'),
 				'type'    => 'private_sheet',
 			]);
 		}
-	
+
 		$csv_data = wp_remote_retrieve_body($response);
 		$sanitized_csv_data = wp_kses_post($csv_data);
-	
+
 		// Open CSV data stream for processing.
 		$data_stream = fopen('php://temp', 'r+');
 		fwrite($data_stream, $sanitized_csv_data);
 		rewind($data_stream);
-	
+
 		// Process each cell to replace actual line breaks and handle special characters.
 		$rows = [];
-		while (($data = fgetcsv($data_stream, 0, ",")) !== false) {
-			foreach ($data as &$cell) {
+		while ( ( $data = fgetcsv($data_stream, 0, ',') ) !== false ) {
+			foreach ( $data as &$cell ) {
 				// Escape quotes.
 				$cell = str_replace('"', '""', $cell);
 				// Replace newlines with <br> and ensure proper encapsulation.
-				if (strpos($cell, ',') !== false || strpos($cell, "\n") !== false) {
-					$cell = '"' . str_replace("\n", "<br>", $cell) . '"';
+				if ( strpos($cell, ',') !== false || strpos($cell, "\n") !== false ) {
+					$cell = '"' . str_replace("\n", '<br>', $cell) . '"';
 				}
 			}
 			$rows[] = $data;
 		}
 		fclose($data_stream);
-	
+
 		// Convert rows back into CSV format as a string.
 		$output_csv = '';
-		foreach ($rows as $row) {
+		foreach ( $rows as $row ) {
 			$output_csv .= implode(',', $row) . "\n";
 		}
-	
+
 		return $output_csv;
 	}
 
@@ -224,15 +224,13 @@ class Helpers {
 		}
 
 		$timeout = get_option( 'timeout_values', 10 );
-		$timeout = !empty( $timeout ) ? (int) $timeout : 10; 
+		$timeout = ! empty( $timeout ) ? (int) $timeout : 10;
 
 		$args = array(
 			'timeout' => $timeout,
 		);
 
 		$url = sprintf( 'https://script.google.com/macros/s/AKfycbzBVcMW-7v4avyTH4FJCrogXY8_-TMKBVCvikNRzIKrojHoXXc1zJc2-rJD7P30L6oGXQ/exec?sheetID=%1$s&gID=%2$d&action=getMergedCells', $sheet_id, $gid );
-
-		//https://script.google.com/macros/s/AKfycbxcktQePbVRivPDdp5AZr9c22ho6Wztw08Ctm92pKAUGmqeNPr54PDHGnZnNSKDGoJD/exec?sheetID=1HLPQhsggPsU0T5j6EYUpOzm7wvhL8sISxbsUhXyMWfQ&gID=1959874648&action=getCSV
 
 		$response = wp_remote_get( $url, $args );
 
@@ -587,9 +585,9 @@ class Helpers {
 	 * @return array
 	 */
 	public function get_images_data( $sheet_id, $gid ) {
-		
+
 		$timeout = get_option( 'timeout_values', 10 );
-		$timeout = !empty( $timeout ) ? (int) $timeout : 10; 
+		$timeout = ! empty( $timeout ) ? (int) $timeout : 10;
 
 		$args = array(
 			'timeout' => $timeout,
@@ -616,9 +614,8 @@ class Helpers {
 	 */
 	public function get_links_data( $sheet_id, $gid ) {
 
-		
 		$timeout = get_option( 'timeout_values', 10 );
-		$timeout = !empty( $timeout ) ? (int) $timeout : 10; 
+		$timeout = ! empty( $timeout ) ? (int) $timeout : 10;
 
 		$args = array(
 			'timeout' => $timeout,

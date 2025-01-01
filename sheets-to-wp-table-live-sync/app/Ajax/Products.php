@@ -328,8 +328,8 @@ class Products {
 			}
 
 			$details_link = esc_url( self_admin_url(
-				'plugin-install.php?tab=plugin-information&amp;plugin=' . $plugin['slug'] .
-				'&amp;TB_iframe=true&amp;width=600&amp;height=550'
+				'plugin-install.php?tab=plugin-information&amp;plugin=' . $plugin['slug']
+				. '&amp;TB_iframe=true&amp;width=600&amp;height=550'
 			) );
 
 			$action_links[] = sprintf(

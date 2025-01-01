@@ -29,15 +29,15 @@ import Pagination from './Pagination';
 import { toast } from 'react-toastify';
 import '../styles/_tableTheme.scss';
 
-const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
+const ThemeSettings = ({ tableSettings, setTableSettings }) => {
 	//Old name: DisplaySettings
 
-	const [ activeSection, setActiveSection ] = useState( null );
-	const [ isHovered, setIsHovered ] = useState( null );
-	const [ importModal, setImportModal ] = useState< boolean >( false );
+	const [activeSection, setActiveSection] = useState(null);
+	const [isHovered, setIsHovered] = useState(null);
+	const [importModal, setImportModal] = useState<boolean>(false);
 	const confirmImportRef = useRef();
-	const [ customThemeModal, setCustomThemeModal ] = useState( false );
-	const [ customTheme, setCustomTheme ] = useState( {
+	const [customThemeModal, setCustomThemeModal] = useState(false);
+	const [customTheme, setCustomTheme] = useState({
 		name: '',
 		headerBGColor: '#ffffff',
 		headerTextColor: '#000000',
@@ -55,6 +55,8 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 		borderType: 'rounded',
 		borderRadius: '10px',
 
+		GlobalThemeCreate: true,
+
 		activeColumnColor: false,
 		activeRowColor: false,
 		activeRowColumnMode: false,
@@ -70,74 +72,74 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 		outlinedPagination: false,
 		paginationStyle: '',
 		paginationAciveBtnColor: '#2F80ED',
-	} );
+	});
 	const customThemeRef = useRef();
-	const [ isEditing, setIsEditing ] = useState( false );
-	const [ currentThemeName, setCurrentThemeName ] = useState( '' );
-	const [ deleteConfirmationModal, setDeleteConfirmationModal ] =
-		useState( false );
-	const [ activeThemeErrorModal, setActiveThemeErrorModal ] =
-		useState( false );
-	const [ themeToDelete, setThemeToDelete ] = useState( '' );
+	const [isEditing, setIsEditing] = useState(false);
+	const [currentThemeName, setCurrentThemeName] = useState('');
+	const [deleteConfirmationModal, setDeleteConfirmationModal] =
+		useState(false);
+	const [activeThemeErrorModal, setActiveThemeErrorModal] =
+		useState(false);
+	const [themeToDelete, setThemeToDelete] = useState('');
 
-	const [ themeNameError, setThemeNameError ] = useState( false );
-	const [ emptyNameError, setEmptyNameError ] = useState( false );
+	const [themeNameError, setThemeNameError] = useState(false);
+	const [emptyNameError, setEmptyNameError] = useState(false);
 
-	const toggleSection = ( section ) => {
-		setActiveSection( activeSection === section ? null : section );
+	const toggleSection = (section) => {
+		setActiveSection(activeSection === section ? null : section);
 	};
 
 	const scrollToTop = () => {
-		if ( customThemeRef.current ) {
+		if (customThemeRef.current) {
 			customThemeRef.current.scrollTop = 0;
 		}
 	};
 
-	const handleImportStyle = ( e ) => {
-		setTableSettings( {
+	const handleImportStyle = (e) => {
+		setTableSettings({
 			...tableSettings,
 			table_settings: {
 				...tableSettings.table_settings,
 				import_styles: e.target.checked,
 			},
-		} );
+		});
 
-		if ( e.target.checked === false ) {
-			setImportModal( true );
+		if (e.target.checked === false) {
+			setImportModal(true);
 		}
 	};
 
 	const handleClosePopup = () => {
-		setImportModal( false );
-		setCustomThemeModal( false );
-		setIsEditing( false );
+		setImportModal(false);
+		setCustomThemeModal(false);
+		setIsEditing(false);
 		resetCustomTheme();
-		setCurrentThemeName( '' );
-		setDeleteConfirmationModal( false );
-		setActiveThemeErrorModal( false );
+		setCurrentThemeName('');
+		setDeleteConfirmationModal(false);
+		setActiveThemeErrorModal(false);
 	};
 
 	const handleDisableImportStyle = () => {
 		handleClosePopup();
-		setTableSettings( {
+		setTableSettings({
 			...tableSettings,
 			table_settings: {
 				...tableSettings.table_settings,
 				import_styles: false,
 			},
-		} );
+		});
 	};
 
 	const handleCloseImportStylemodal = () => {
 		handleClosePopup();
 
-		setTableSettings( {
+		setTableSettings({
 			...tableSettings,
 			table_settings: {
 				...tableSettings.table_settings,
 				import_styles: true,
 			},
-		} );
+		});
 	};
 
 	/**
@@ -145,35 +147,35 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 	 *
 	 * @param  event
 	 */
-	function handleCancelOutside( event: MouseEvent ) {
+	function handleCancelOutside(event: MouseEvent) {
 		if (
 			confirmImportRef.current &&
-			! confirmImportRef.current.contains( event.target )
+			!confirmImportRef.current.contains(event.target)
 		) {
 			handleClosePopup();
 		}
 	}
 
-	useEffect( () => {
+	useEffect(() => {
 		const handleClick = () => {
-			WPPOOL.Popup( 'sheets_to_wp_table_live_sync' ).show();
+			WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
 		};
-		document.addEventListener( 'mousedown', handleCancelOutside );
+		document.addEventListener('mousedown', handleCancelOutside);
 
 		const proSettings = document.querySelectorAll(
 			'.swptls-pro-settings, .btn-pro-lock'
 		);
-		proSettings.forEach( ( item ) => {
-			item.addEventListener( 'click', handleClick );
-		} );
+		proSettings.forEach((item) => {
+			item.addEventListener('click', handleClick);
+		});
 
 		return () => {
-			document.removeEventListener( 'mousedown', handleCancelOutside );
-			proSettings.forEach( ( item ) => {
-				item.removeEventListener( 'click', handleClick );
-			} );
+			document.removeEventListener('mousedown', handleCancelOutside);
+			proSettings.forEach((item) => {
+				item.removeEventListener('click', handleClick);
+			});
 		};
-	}, [ handleCancelOutside ] );
+	}, [handleCancelOutside]);
 
 	/**
 	 * New Theme code
@@ -181,14 +183,14 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 	const handleAddCustomTheme = () => {
 		const newThemeName = customTheme.name;
 
-		if ( ! customTheme.name ) {
-			setEmptyNameError( true );
+		if (!customTheme.name) {
+			setEmptyNameError(true);
 			scrollToTop();
 			return;
 		}
 
-		if ( isThemeNameUsed( newThemeName ) ) {
-			setThemeNameError( true );
+		if (isThemeNameUsed(newThemeName)) {
+			setThemeNameError(true);
 			scrollToTop();
 			return;
 		}
@@ -210,6 +212,8 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 			borderType: customTheme.borderType,
 			borderRadius: customTheme.borderRadius,
 
+			GlobalThemeCreate: customTheme.GlobalThemeCreate,
+
 			activeColumnColor: customTheme.activeColumnColor,
 			activeRowColor: customTheme.activeRowColor,
 			activeRowColumnMode: customTheme.activeRowColumnMode,
@@ -228,54 +232,54 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 			paginationAciveBtnColor: customTheme.paginationAciveBtnColor,
 		};
 
-		setTableSettings( ( prevSettings ) => ( {
+		setTableSettings((prevSettings) => ({
 			...prevSettings,
 			table_settings: {
 				...prevSettings.table_settings,
 				import_styles_theme_colors: {
 					...prevSettings.table_settings.import_styles_theme_colors,
-					[ newThemeName ]: newThemeColors,
+					[newThemeName]: newThemeColors,
 				},
 			},
-		} ) );
+		}));
 
 		resetCustomTheme();
 		handleClosePopup();
 	};
 
 	// Column and Row colors
-	const handleCustomThemeChange = ( e ) => {
+	const handleCustomThemeChange = (e) => {
 		const { name, value, type, checked } = e.target;
 
-		setCustomTheme( ( prevTheme ) => {
-			if ( type === 'checkbox' ) {
-				if ( name === 'activeColumnColor' && checked ) {
+		setCustomTheme((prevTheme) => {
+			if (type === 'checkbox') {
+				if (name === 'activeColumnColor' && checked) {
 					return {
 						...prevTheme,
 						activeColumnColor: true,
 						activeRowColor: false,
 					};
-				} else if ( name === 'activeRowColor' && checked ) {
+				} else if (name === 'activeRowColor' && checked) {
 					return {
 						...prevTheme,
 						activeRowColor: true,
 						activeColumnColor: false,
 					};
-				} else if ( name === 'hoverModeNone' && checked ) {
+				} else if (name === 'hoverModeNone' && checked) {
 					return {
 						...prevTheme,
 						hoverModeNone: true,
 						hoverModeRow: false,
 						hoverModeColumn: false,
 					};
-				} else if ( name === 'hoverModeRow' && checked ) {
+				} else if (name === 'hoverModeRow' && checked) {
 					return {
 						...prevTheme,
 						hoverModeNone: false,
 						hoverModeRow: true,
 						hoverModeColumn: false,
 					};
-				} else if ( name === 'hoverModeColumn' && checked ) {
+				} else if (name === 'hoverModeColumn' && checked) {
 					return {
 						...prevTheme,
 						hoverModeRow: false,
@@ -285,7 +289,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 				}
 
 				// ColumnRow Toggle Mode
-				else if ( name === 'activeRowColumnMode' && checked ) {
+				else if (name === 'activeRowColumnMode' && checked) {
 					return {
 						...prevTheme,
 						activeRowColumnMode: checked,
@@ -293,42 +297,42 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 				} else {
 					return {
 						...prevTheme,
-						[ name ]: checked,
+						[name]: checked,
 					};
 				}
 			} else {
 				return {
 					...prevTheme,
-					[ name ]: value,
+					[name]: value,
 				};
 			}
-		} );
+		});
 
-		setThemeNameError( false );
-		setEmptyNameError( false );
+		setThemeNameError(false);
+		setEmptyNameError(false);
 	};
 
 	// Hover colors
-	const handleCustomHovermodeChange = ( e ) => {
+	const handleCustomHovermodeChange = (e) => {
 		const { name, value, type, checked } = e.target;
 
-		setCustomTheme( ( prevTheme ) => {
-			if ( type === 'checkbox' ) {
-				if ( name === 'hoverModeNone' && checked ) {
+		setCustomTheme((prevTheme) => {
+			if (type === 'checkbox') {
+				if (name === 'hoverModeNone' && checked) {
 					return {
 						...prevTheme,
 						hoverModeNone: true,
 						hoverModeRow: false,
 						hoverModeColumn: false,
 					};
-				} else if ( name === 'hoverModeRow' && checked ) {
+				} else if (name === 'hoverModeRow' && checked) {
 					return {
 						...prevTheme,
 						hoverModeRow: true,
 						hoverModeNone: false,
 						hoverModeColumn: false,
 					};
-				} else if ( name === 'hoverModeColumn' && checked ) {
+				} else if (name === 'hoverModeColumn' && checked) {
 					return {
 						...prevTheme,
 						hoverModeColumn: true,
@@ -338,28 +342,44 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 				} else {
 					return {
 						...prevTheme,
-						[ name ]: checked,
+						[name]: checked,
 					};
 				}
 			} else {
 				return {
 					...prevTheme,
-					[ name ]: value,
+					[name]: value,
 				};
 			}
-		} );
+		});
 
-		setThemeNameError( false );
-		setEmptyNameError( false );
+		setThemeNameError(false);
+		setEmptyNameError(false);
 	};
 
+	// Consent
+	const handleConsentmodeChange = (e) => {
+		const { name, checked } = e.target;
+
+		setCustomTheme((prevTheme) => ({
+			...prevTheme,
+			[name]: checked,
+		}));
+
+		setThemeNameError(false);
+		setEmptyNameError(false);
+	};
+
+
+
+
 	// Paginaton mode
-	const handlePaginationModeChange = ( e ) => {
+	const handlePaginationModeChange = (e) => {
 		const { name, value, type, checked } = e.target;
 
-		setCustomTheme( ( prevTheme ) => {
-			if ( type === 'checkbox' ) {
-				if ( name === 'defaultPagination' && checked ) {
+		setCustomTheme((prevTheme) => {
+			if (type === 'checkbox') {
+				if (name === 'defaultPagination' && checked) {
 					return {
 						...prevTheme,
 						defaultPagination: true,
@@ -369,7 +389,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 						outlinedPagination: false,
 						modernPagination: false,
 					};
-				} else if ( name === 'simplePagination' && checked ) {
+				} else if (name === 'simplePagination' && checked) {
 					return {
 						...prevTheme,
 						simplePagination: true,
@@ -379,7 +399,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 						outlinedPagination: false,
 						modernPagination: false,
 					};
-				} else if ( name === 'modernPagination' && checked ) {
+				} else if (name === 'modernPagination' && checked) {
 					return {
 						...prevTheme,
 						modernPagination: true,
@@ -389,7 +409,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 						outlinedPagination: false,
 						defaultPagination: false,
 					};
-				} else if ( name === 'tailwindPagination' && checked ) {
+				} else if (name === 'tailwindPagination' && checked) {
 					return {
 						...prevTheme,
 						tailwindPagination: true,
@@ -399,7 +419,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 						modernPagination: false,
 						defaultPagination: false,
 					};
-				} else if ( name === 'outlinedPagination' && checked ) {
+				} else if (name === 'outlinedPagination' && checked) {
 					return {
 						...prevTheme,
 						outlinedPagination: true,
@@ -412,27 +432,27 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 				} else {
 					return {
 						...prevTheme,
-						[ name ]: checked,
+						[name]: checked,
 					};
 				}
 			} else {
 				return {
 					...prevTheme,
-					[ name ]: value,
+					[name]: value,
 				};
 			}
-		} );
+		});
 
-		setThemeNameError( false );
-		setEmptyNameError( false );
+		setThemeNameError(false);
+		setEmptyNameError(false);
 	};
 
-	const isThemeNameUsed = ( themeName ) => {
+	const isThemeNameUsed = (themeName) => {
 		const normalizedThemeName = themeName.toLowerCase();
 		return Object.keys(
 			tableSettings.table_settings.import_styles_theme_colors
 		).some(
-			( existingThemeName ) =>
+			(existingThemeName) =>
 				existingThemeName.toLowerCase() === normalizedThemeName
 		);
 	};
@@ -440,12 +460,12 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 	/**
 	 * Edit and delete
 	 */
-	const handleEditTheme = ( themeName ) => {
+	const handleEditTheme = (themeName) => {
 		const themeColors =
 			tableSettings.table_settings.import_styles_theme_colors[
-				themeName
+			themeName
 			];
-		setCustomTheme( {
+		setCustomTheme({
 			name: themeName,
 			headerBGColor: themeColors.headerBGColor || '',
 			headerTextColor: themeColors.headerTextColor || '',
@@ -462,6 +482,8 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 
 			borderType: themeColors.borderType || '',
 			borderRadius: themeColors.borderRadius || '',
+
+			GlobalThemeCreate: themeColors.GlobalThemeCreate || true,
 
 			activeColumnColor: themeColors.activeColumnColor || false,
 			activeRowColor: themeColors.activeRowColor || false,
@@ -480,51 +502,51 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 			paginationStyle: themeColors.paginationStyle || '',
 			paginationAciveBtnColor:
 				themeColors.paginationAciveBtnColor || '#2F80ED',
-		} );
-		setIsEditing( true );
-		setCurrentThemeName( themeName );
-		setCustomThemeModal( true );
+		});
+		setIsEditing(true);
+		setCurrentThemeName(themeName);
+		setCustomThemeModal(true);
 	};
 
-	const handleDeleteTheme = ( themeName ) => {
-		if ( tableSettings.table_settings.table_style === themeName ) {
+	const handleDeleteTheme = (themeName) => {
+		if (tableSettings.table_settings.table_style === themeName) {
 			// Show error modal if trying to delete active theme
-			setActiveThemeErrorModal( true );
+			setActiveThemeErrorModal(true);
 		} else {
 			// Show confirmation modal for other themes
-			setThemeToDelete( themeName );
-			setDeleteConfirmationModal( true );
+			setThemeToDelete(themeName);
+			setDeleteConfirmationModal(true);
 		}
 	};
 
 	const handleCloseActiveThemeErrorModal = () => {
-		setActiveThemeErrorModal( false );
+		setActiveThemeErrorModal(false);
 	};
 
 	const handleCloseDeleteConfirmationModal = () => {
-		setDeleteConfirmationModal( false );
-		setThemeToDelete( '' );
+		setDeleteConfirmationModal(false);
+		setThemeToDelete('');
 	};
 
 	const handleConfirmDeleteTheme = () => {
-		const { [ themeToDelete ]: _, ...newThemes } =
+		const { [themeToDelete]: _, ...newThemes } =
 			tableSettings.table_settings.import_styles_theme_colors;
-		setTableSettings( ( prevSettings ) => ( {
+		setTableSettings((prevSettings) => ({
 			...prevSettings,
 			table_settings: {
 				...prevSettings.table_settings,
 				import_styles_theme_colors: newThemes,
 			},
-		} ) );
+		}));
 		handleCloseDeleteConfirmationModal();
-		toast.success( 'Theme has been been deleted !' );
+		toast.success('Theme has been been deleted !');
 	};
 
 	// End
 
 	const handleSaveEditedTheme = () => {
-		if ( ! customTheme.name ) {
-			setEmptyNameError( true );
+		if (!customTheme.name) {
+			setEmptyNameError(true);
 			scrollToTop();
 			return;
 		}
@@ -546,6 +568,8 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 			borderType: customTheme.borderType,
 			borderRadius: customTheme.borderRadius,
 
+			GlobalThemeCreate: customTheme.GlobalThemeCreate,
+
 			activeColumnColor: customTheme.activeColumnColor,
 			activeRowColor: customTheme.activeRowColor,
 			activeRowColumnMode: customTheme.activeRowColumnMode,
@@ -564,14 +588,14 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 			paginationAciveBtnColor: customTheme.paginationAciveBtnColor,
 		};
 
-		setTableSettings( ( prevSettings ) => {
+		setTableSettings((prevSettings) => {
 			const updatedThemes = {
 				...prevSettings.table_settings.import_styles_theme_colors,
 			};
-			if ( currentThemeName !== customTheme.name ) {
-				delete updatedThemes[ currentThemeName ];
+			if (currentThemeName !== customTheme.name) {
+				delete updatedThemes[currentThemeName];
 			}
-			updatedThemes[ customTheme.name ] = newThemeColors;
+			updatedThemes[customTheme.name] = newThemeColors;
 
 			return {
 				...prevSettings,
@@ -580,14 +604,14 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 					import_styles_theme_colors: updatedThemes,
 				},
 			};
-		} );
+		});
 
 		resetCustomTheme();
 		handleClosePopup();
 	};
 
 	const resetCustomTheme = () => {
-		setCustomTheme( {
+		setCustomTheme({
 			name: '',
 			headerBGColor: '',
 			headerTextColor: '',
@@ -605,6 +629,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 			borderRadius: '',
 
 			activeColumnColor: false,
+			GlobalThemeCreate: true,
 			activeRowColor: true,
 			activeRowColumnMode: false,
 
@@ -620,9 +645,9 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 
 			paginationStyle: '',
 			paginationAciveBtnColor: '',
-		} );
-		setIsEditing( false );
-		setCurrentThemeName( '' );
+		});
+		setIsEditing(false);
+		setCurrentThemeName('');
 	};
 
 	/**
@@ -630,101 +655,101 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 	 * @param style Handle theme selection
 	 * @returns
 	 */
-	const handleThemeClick = ( style ) => {
-		if ( ! isProActive() ) {
+	const handleThemeClick = (style) => {
+		if (!isProActive()) {
 			return;
 		}
-		setTableSettings( {
+		setTableSettings({
 			...tableSettings,
 			table_settings: {
 				...tableSettings.table_settings,
 				table_style: style,
 			},
-		} );
+		});
 	};
 
-	const handleMouseEnter = ( style ) => {
-		setIsHovered( style );
+	const handleMouseEnter = (style) => {
+		setIsHovered(style);
 	};
 
 	const handleMouseLeave = () => {
-		setIsHovered( null );
+		setIsHovered(null);
 	};
 
-	const handleCustomthememodal = ( style ) => {
-		if ( ! isProActive() ) {
+	const handleCustomthememodal = (style) => {
+		if (!isProActive()) {
 			return;
 		}
-		if ( style === 'swptls-new-theme' ) {
-			setCustomThemeModal( true );
+		if (style === 'swptls-new-theme') {
+			setCustomThemeModal(true);
 		}
 	};
 
 	return (
 		<div>
-			{ /* Import modal  */ }
-			{ importModal && (
+			{ /* Import modal  */}
+			{importModal && (
 				<Modal>
 					<div
 						className="import-style-modal-wrap modal-content"
-						ref={ confirmImportRef }
+						ref={confirmImportRef}
 					>
 						<div
 							className="cross_sign"
-							onClick={ handleCloseImportStylemodal }
+							onClick={handleCloseImportStylemodal}
 						>
-							{ Cross }
+							{Cross}
 						</div>
 						<div className="import-style-modal">
-							<h2>{ getStrings( 'are-you-sure-to-disable' ) }</h2>
-							<p>{ getStrings( 'imported-style-desc' ) }</p>
+							<h2>{getStrings('are-you-sure-to-disable')}</h2>
+							<p>{getStrings('imported-style-desc')}</p>
 							<div className="action-buttons">
 								<button
 									className="swptls-button cancel-button"
-									onClick={ handleCloseImportStylemodal }
+									onClick={handleCloseImportStylemodal}
 								>
-									{ getStrings( 'Cancel' ) }
+									{getStrings('Cancel')}
 								</button>
 								<button
 									className="swptls-button confirm-button"
-									onClick={ handleDisableImportStyle }
+									onClick={handleDisableImportStyle}
 								>
-									{ getStrings( 'yes-disable' ) }
+									{getStrings('yes-disable')}
 								</button>
 							</div>
 						</div>
 					</div>
 				</Modal>
-			) }
+			)}
 
-			{ /* Theme Create and Edit modal  */ }
-			{ customThemeModal && (
+			{ /* Theme Create and Edit modal  */}
+			{customThemeModal && (
 				<Modal>
 					<div className="import-style-modal-wrap modal-content theme-create-edit">
 						<div
 							className="cross_sign left-back"
-							onClick={ handleClosePopup }
+							onClick={handleClosePopup}
 						>
-							{ Cross }
+							{Cross}
 						</div>
 						<div
 							className="import-style-modal"
-							ref={ customThemeRef }
+							ref={customThemeRef}
 						>
 							<h2 className="heading-title">
 								<span
 									className="back-btn"
-									onClick={ handleClosePopup }
+									onClick={handleClosePopup}
 								>
-									{ Backbtn }
-								</span>{ ' ' }
-								{ isEditing
+									{Backbtn}
+								</span>{' '}
+								{isEditing
 									? 'Edit Custom Theme'
-									: 'Create Custom Theme' }
+									: 'Create Custom Theme'}
 							</h2>
 							<div className="custom-theme-field-group name-field">
 								<label htmlFor="custom-theme-name-field">
-									{ getStrings( 'theme-name' ) }
+									{getStrings('theme-name')}
 								</label>
 								<input
 									className="customThemename"
@@ -732,36 +757,36 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 									id="custom-theme-name-field"
 									name="name"
 									placeholder="Enter Your Theme Name"
-									value={ customTheme.name }
-									onChange={ handleCustomThemeChange }
+									value={customTheme.name}
+									onChange={handleCustomThemeChange}
 								/>
 
-								{ ! isEditing && themeNameError && (
+								{!isEditing && themeNameError && (
 									<div className="error-message">
 										Name already used, please use another
 										name for theme
 									</div>
-								) }
+								)}
 
-								{ emptyNameError && (
+								{emptyNameError && (
 									<div className="error-message">
 										Name field can not be empty
 									</div>
-								) }
+								)}
 							</div>
 
 							<h4 className="title-divider">
-								{ getStrings( 'theme-colors' ) }
+								{getStrings('theme-colors')}
 							</h4>
 
 							<div className="theme-colors">
 								<div className="theme-design-modal">
-									{ /* Header Colors  */ }
+									{ /* Header Colors  */}
 									<div className="theme-colors__palette">
 										<h4 className="theme-colors__title text-uppercase">
-											{ getStrings(
+											{getStrings(
 												'header-color-title'
-											) }
+											)}
 										</h4>
 
 										<div className="theme-colors__scheme">
@@ -779,7 +804,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 												}
 											/>
 											<label htmlFor="color-picker-headerBGColor">
-												{ getStrings( 'bg-color' ) }
+												{getStrings('bg-color')}
 											</label>
 										</div>
 										<div className="theme-colors__scheme">
@@ -797,15 +822,15 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 												}
 											/>
 											<label htmlFor="color-picker-headerTextColor">
-												{ getStrings( 'txt-color' ) }
+												{getStrings('txt-color')}
 											</label>
 										</div>
 									</div>
 
-									{ /* border color  */ }
+									{ /* border color  */}
 									<div className="theme-colors__palette">
 										<h4 className="theme-colors__title text-uppercase">
-											{ getStrings( 'border-title' ) }
+											{getStrings('border-title')}
 										</h4>
 
 										<div className="theme-colors__scheme">
@@ -823,9 +848,9 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 												}
 											/>
 											<label htmlFor="color-picker-borderColor">
-												{ getStrings(
+												{getStrings(
 													'inside-border-color'
-												) }
+												)}
 											</label>
 										</div>
 										<div className="theme-colors__scheme">
@@ -848,10 +873,10 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										</div>
 									</div>
 
-									{ /* Table Body Text  */ }
+									{ /* Table Body Text  */}
 									<div className="theme-colors__palette">
 										<h4 className="theme-colors__title text-uppercase">
-											{ getStrings( 'table-text-title' ) }
+											{getStrings('table-text-title')}
 										</h4>
 
 										<div className="theme-colors__scheme">
@@ -869,9 +894,9 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 												}
 											/>
 											<label htmlFor="color-picker-bodyTextColorCol_1">
-												{ getStrings(
+												{getStrings(
 													'first-cl-txt-color'
-												) }
+												)}
 											</label>
 										</div>
 
@@ -890,50 +915,49 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 												}
 											/>
 											<label htmlFor="color-picker-bodyTextColorColRest">
-												{ getStrings(
+												{getStrings(
 													'rest-txt-color'
-												) }
+												)}
 											</label>
 										</div>
 									</div>
 
-									{ /* Body Colors  */ }
+									{ /* Body Colors  */}
 									<div className="theme-colors__palette body-colors">
 										<h4 className="theme-colors__title text-uppercase">
-											{ getStrings( 'body-title' ) }
+											{getStrings('body-title')}
 										</h4>
 
-										{ customTheme.activeRowColumnMode ===
+										{customTheme.activeRowColumnMode ===
 											false && (
-											<div className="theme-colors__scheme">
-												<input
-													className="color-picker bodyBGColor"
-													type="color"
-													name="bodyBGColor"
-													id="color-picker-bodyBGColor"
-													value={
-														customTheme.bodyBGColor
-													}
-													onChange={
-														handleCustomThemeChange
-													}
-												/>
-												<label htmlFor="color-picker-bodyBGColor">
-													{ getStrings(
-														'table-bg-color'
-													) }
-												</label>
-											</div>
-										) }
+												<div className="theme-colors__scheme">
+													<input
+														className="color-picker bodyBGColor"
+														type="color"
+														name="bodyBGColor"
+														id="color-picker-bodyBGColor"
+														value={
+															customTheme.bodyBGColor
+														}
+														onChange={
+															handleCustomThemeChange
+														}
+													/>
+													<label htmlFor="color-picker-bodyBGColor">
+														{getStrings(
+															'table-bg-color'
+														)}
+													</label>
+												</div>
+											)}
 
-										{ /* Toggle for active row and column  */ }
+										{ /* Toggle for active row and column  */}
 										<div className="edit-form-group active-rowcol-style">
 											<label
-												className={ `${
-													! isProActive()
-														? `swptls-pro-settings`
-														: ``
-												}` }
+												className={`${!isProActive()
+													? `swptls-pro-settings`
+													: ``
+													}`}
 												htmlFor="active-rowcol-style"
 											>
 												<div className="toggle-switch">
@@ -959,262 +983,253 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 													/>
 													<div className="slider round"></div>
 												</div>
-												{ getStrings(
+												{getStrings(
 													'enable-row-column-ordering'
-												) }{ ' ' }
+												)}{' '}
 												<Tooltip
-													content={ getStrings(
+													content={getStrings(
 														'tooltip-50'
-													) }
-												/>{ ' ' }
+													)}
+												/>{' '}
 											</label>
 										</div>
 
-										{ customTheme.activeRowColumnMode ===
+										{customTheme.activeRowColumnMode ===
 											true && (
-											<>
-												{ /* Selection Row and Column  */ }
-												<div
-													className={ `edit-form-group` }
-												>
-													<h4>
-														<span
-															className={ `${
-																! isProActive()
+												<>
+													{ /* Selection Row and Column  */}
+													<div
+														className={`edit-form-group`}
+													>
+														<h4>
+															<span
+																className={`${!isProActive()
 																	? ` swptls-pro-settings`
 																	: ``
-															}` }
-														>
-															{ getStrings(
-																'select-coloring'
-															) }{ ' ' }
-															<Tooltip
-																content={ getStrings(
-																	'tooltip-51'
-																) }
-															/>{ ' ' }
-														</span>
-													</h4>
+																	}`}
+															>
+																{getStrings(
+																	'select-coloring'
+																)}{' '}
+																<Tooltip
+																	content={getStrings(
+																		'tooltip-51'
+																	)}
+																/>{' '}
+															</span>
+														</h4>
 
-													<div
-														className={ `utility-checkbox-wrapper${
-															! isProActive()
+														<div
+															className={`utility-checkbox-wrapper${!isProActive()
 																? ` swptls-pro-settings`
 																: ``
-														}` }
-													>
-														<label
-															className={ `utility-checkboxees${
-																customTheme.activeRowColor
+																}`}
+														>
+															<label
+																className={`utility-checkboxees${customTheme.activeRowColor
 																	? ' active'
 																	: ''
-															}` }
-															htmlFor="active_row_color_id"
-														>
-															<input
-																type="checkbox"
-																id="active_row_color_id"
-																name="activeRowColor"
-																checked={
-																	customTheme.activeRowColor
-																}
-																onChange={
-																	handleCustomThemeChange
-																}
-															/>
-															<span>
-																{ getStrings(
-																	'active-row-colors'
-																) }{ ' ' }
-																<Tooltip
-																	content={ getStrings(
-																		'tooltip-53'
-																	) }
+																	}`}
+																htmlFor="active_row_color_id"
+															>
+																<input
+																	type="checkbox"
+																	id="active_row_color_id"
+																	name="activeRowColor"
+																	checked={
+																		customTheme.activeRowColor
+																	}
+																	onChange={
+																		handleCustomThemeChange
+																	}
 																/>
-															</span>
-															<div
-																className={ `control__indicator${
-																	customTheme.activeRowColor
+																<span>
+																	{getStrings(
+																		'active-row-colors'
+																	)}{' '}
+																	<Tooltip
+																		content={getStrings(
+																			'tooltip-53'
+																		)}
+																	/>
+																</span>
+																<div
+																	className={`control__indicator${customTheme.activeRowColor
 																		? ' active'
 																		: ''
-																}` }
-															></div>
-														</label>
+																		}`}
+																></div>
+															</label>
 
-														<label
-															className={ `utility-checkboxees${
-																customTheme.activeColumnColor
+															<label
+																className={`utility-checkboxees${customTheme.activeColumnColor
 																	? ' active'
 																	: ''
-															}` }
-															htmlFor="active_column_color_id"
-														>
-															<input
-																type="checkbox"
-																id="active_column_color_id"
-																name="activeColumnColor"
-																checked={
-																	customTheme.activeColumnColor
-																}
-																onChange={
-																	handleCustomThemeChange
-																}
-															/>
-															<span>
-																{ getStrings(
-																	'active-column-colors'
-																) }{ ' ' }
-																<Tooltip
-																	content={ getStrings(
-																		'tooltip-52'
-																	) }
+																	}`}
+																htmlFor="active_column_color_id"
+															>
+																<input
+																	type="checkbox"
+																	id="active_column_color_id"
+																	name="activeColumnColor"
+																	checked={
+																		customTheme.activeColumnColor
+																	}
+																	onChange={
+																		handleCustomThemeChange
+																	}
 																/>
-															</span>
-															<div
-																className={ `control__indicator${
-																	customTheme.activeColumnColor
+																<span>
+																	{getStrings(
+																		'active-column-colors'
+																	)}{' '}
+																	<Tooltip
+																		content={getStrings(
+																			'tooltip-52'
+																		)}
+																	/>
+																</span>
+																<div
+																	className={`control__indicator${customTheme.activeColumnColor
 																		? ' active'
 																		: ''
-																}` }
-															></div>
-														</label>
+																		}`}
+																></div>
+															</label>
+														</div>
 													</div>
-												</div>
 
-												{ /* Color plate  */ }
-												<div className="column-row-selection">
-													{ /* Column Mode  */ }
-													{ customTheme.activeColumnColor ===
-														true && (
-														<div className="column-mode-parent">
-															<div className="theme-colors__scheme">
-																<input
-																	className="color-picker bodyBGColorEven"
-																	type="color"
-																	name="bodyBGColorEven"
-																	id="color-picker-column-bodyBGColorEven"
-																	value={
-																		customTheme.bodyBGColorEven
-																	}
-																	onChange={
-																		handleCustomThemeChange
-																	}
-																/>
-																<label htmlFor="color-picker-column-bodyBGColorEven">
-																	{ getStrings(
-																		'even-column-color'
-																	) }
-																</label>
-															</div>
-															<div className="theme-colors__scheme">
-																<input
-																	className="color-picker bodyBGColorOdd"
-																	type="color"
-																	name="bodyBGColorOdd"
-																	id="color-picker-column-bodyBGColorOdd"
-																	value={
-																		customTheme.bodyBGColorOdd
-																	}
-																	onChange={
-																		handleCustomThemeChange
-																	}
-																/>
-																<label htmlFor="color-picker-column-bodyBGColorOdd">
-																	{ getStrings(
-																		'odd-column-color'
-																	) }
-																</label>
-															</div>
-														</div>
-													) }
+													{ /* Color plate  */}
+													<div className="column-row-selection">
+														{ /* Column Mode  */}
+														{customTheme.activeColumnColor ===
+															true && (
+																<div className="column-mode-parent">
+																	<div className="theme-colors__scheme">
+																		<input
+																			className="color-picker bodyBGColorEven"
+																			type="color"
+																			name="bodyBGColorEven"
+																			id="color-picker-column-bodyBGColorEven"
+																			value={
+																				customTheme.bodyBGColorEven
+																			}
+																			onChange={
+																				handleCustomThemeChange
+																			}
+																		/>
+																		<label htmlFor="color-picker-column-bodyBGColorEven">
+																			{getStrings(
+																				'even-column-color'
+																			)}
+																		</label>
+																	</div>
+																	<div className="theme-colors__scheme">
+																		<input
+																			className="color-picker bodyBGColorOdd"
+																			type="color"
+																			name="bodyBGColorOdd"
+																			id="color-picker-column-bodyBGColorOdd"
+																			value={
+																				customTheme.bodyBGColorOdd
+																			}
+																			onChange={
+																				handleCustomThemeChange
+																			}
+																		/>
+																		<label htmlFor="color-picker-column-bodyBGColorOdd">
+																			{getStrings(
+																				'odd-column-color'
+																			)}
+																		</label>
+																	</div>
+																</div>
+															)}
 
-													{ /* Row mode  */ }
+														{ /* Row mode  */}
 
-													{ customTheme.activeRowColor ===
-														true && (
-														<div className="row-mode-parent">
-															<div className="theme-colors__scheme">
-																<input
-																	className="color-picker bodyBGColorEven"
-																	type="color"
-																	name="bodyBGColorEven"
-																	id="color-picker-bodyBGColorEven"
-																	value={
-																		customTheme.bodyBGColorEven
-																	}
-																	onChange={
-																		handleCustomThemeChange
-																	}
-																/>
-																<label htmlFor="color-picker-bodyBGColorEven">
-																	{ getStrings(
-																		'even-row-color'
-																	) }
-																</label>
-															</div>
-															<div className="theme-colors__scheme">
-																<input
-																	className="color-picker bodyBGColorOdd"
-																	type="color"
-																	name="bodyBGColorOdd"
-																	id="color-picker-bodyBGColorOdd"
-																	value={
-																		customTheme.bodyBGColorOdd
-																	}
-																	onChange={
-																		handleCustomThemeChange
-																	}
-																/>
-																<label htmlFor="color-picker-bodyBGColorOdd">
-																	{ getStrings(
-																		'odd-row-color'
-																	) }
-																</label>
-															</div>
-														</div>
-													) }
-												</div>
-											</>
-										) }
+														{customTheme.activeRowColor ===
+															true && (
+																<div className="row-mode-parent">
+																	<div className="theme-colors__scheme">
+																		<input
+																			className="color-picker bodyBGColorEven"
+																			type="color"
+																			name="bodyBGColorEven"
+																			id="color-picker-bodyBGColorEven"
+																			value={
+																				customTheme.bodyBGColorEven
+																			}
+																			onChange={
+																				handleCustomThemeChange
+																			}
+																		/>
+																		<label htmlFor="color-picker-bodyBGColorEven">
+																			{getStrings(
+																				'even-row-color'
+																			)}
+																		</label>
+																	</div>
+																	<div className="theme-colors__scheme">
+																		<input
+																			className="color-picker bodyBGColorOdd"
+																			type="color"
+																			name="bodyBGColorOdd"
+																			id="color-picker-bodyBGColorOdd"
+																			value={
+																				customTheme.bodyBGColorOdd
+																			}
+																			onChange={
+																				handleCustomThemeChange
+																			}
+																		/>
+																		<label htmlFor="color-picker-bodyBGColorOdd">
+																			{getStrings(
+																				'odd-row-color'
+																			)}
+																		</label>
+																	</div>
+																</div>
+															)}
+													</div>
+												</>
+											)}
 									</div>
 
-									{ /* Hover mode  */ }
+									{ /* Hover mode  */}
 
 									<div className="theme-colors__palette hover-mode-customization">
 										<h4 className="theme-colors__title text-uppercase">
-											{ getStrings(
+											{getStrings(
 												'table-hover-title'
-											) }
+											)}
 										</h4>
-										{ /* Hover Mode  */ }
-										<div className={ `edit-form-group` }>
+										{ /* Hover Mode  */}
+										<div className={`edit-form-group`}>
 											<h4>
 												<span
-													className={ `${
-														! isProActive()
-															? ` swptls-pro-settings`
-															: ``
-													}` }
+													className={`${!isProActive()
+														? ` swptls-pro-settings`
+														: ``
+														}`}
 												>
-													{ getStrings(
+													{getStrings(
 														'hover-mode'
-													) }{ ' ' }
+													)}{' '}
 												</span>
 											</h4>
 
 											<div
-												className={ `utility-checkbox-wrapper${
-													! isProActive()
-														? ` swptls-pro-settings`
-														: ``
-												}` }
+												className={`utility-checkbox-wrapper${!isProActive()
+													? ` swptls-pro-settings`
+													: ``
+													}`}
 											>
 												<label
-													className={ `utility-checkboxees${
-														customTheme.hoverModeNone
-															? ' active'
-															: ''
-													}` }
+													className={`utility-checkboxees${customTheme.hoverModeNone
+														? ' active'
+														: ''
+														}`}
 													htmlFor="hover_mode_none"
 												>
 													<input
@@ -1229,23 +1244,21 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 														}
 													/>
 													<span>
-														{ getStrings( 'none' ) }
+														{getStrings('none')}
 													</span>
 													<div
-														className={ `control__indicator${
-															customTheme.hoverModeNone
-																? ' active'
-																: ''
-														}` }
+														className={`control__indicator${customTheme.hoverModeNone
+															? ' active'
+															: ''
+															}`}
 													></div>
 												</label>
 
 												<label
-													className={ `utility-checkboxees${
-														customTheme.hoverModeRow
-															? ' active'
-															: ''
-													}` }
+													className={`utility-checkboxees${customTheme.hoverModeRow
+														? ' active'
+														: ''
+														}`}
 													htmlFor="hover_mode_row"
 												>
 													<input
@@ -1260,25 +1273,23 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 														}
 													/>
 													<span>
-														{ getStrings(
+														{getStrings(
 															'row-wise'
-														) }
+														)}
 													</span>
 													<div
-														className={ `control__indicator${
-															customTheme.hoverModeRow
-																? ' active'
-																: ''
-														}` }
+														className={`control__indicator${customTheme.hoverModeRow
+															? ' active'
+															: ''
+															}`}
 													></div>
 												</label>
 
 												<label
-													className={ `utility-checkboxees${
-														customTheme.hoverModeColumn
-															? ' active'
-															: ''
-													}` }
+													className={`utility-checkboxees${customTheme.hoverModeColumn
+														? ' active'
+														: ''
+														}`}
 													htmlFor="hover_mode_column"
 												>
 													<input
@@ -1293,16 +1304,15 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 														}
 													/>
 													<span>
-														{ getStrings(
+														{getStrings(
 															'col-wise'
-														) }
+														)}
 													</span>
 													<div
-														className={ `control__indicator${
-															customTheme.hoverModeColumn
-																? ' active'
-																: ''
-														}` }
+														className={`control__indicator${customTheme.hoverModeColumn
+															? ' active'
+															: ''
+															}`}
 													></div>
 												</label>
 											</div>
@@ -1322,13 +1332,13 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 												}
 											/>
 											<label htmlFor="color-picker-hoverBGColor">
-												{ getStrings( 'hover-color' ) }
+												{getStrings('hover-color')}
 											</label>
 										</div>
 
-										{ /* Hover Text color  */ }
+										{ /* Hover Text color  */}
 
-										{ /* {!customTheme.hoverModeColumn === true && ( */ }
+										{ /* {!customTheme.hoverModeColumn === true && ( */}
 										<div className="theme-colors__scheme">
 											<input
 												className="color-picker hoverTextColor"
@@ -1343,47 +1353,47 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 												}
 											/>
 											<label htmlFor="color-picker-hoverTextColor">
-												{ getStrings(
+												{getStrings(
 													'hover-text-color'
-												) }
+												)}
 											</label>
 										</div>
-										{ /* )} */ }
+										{ /* )} */}
 									</div>
 
-									{ /* Add more  */ }
+									{ /* Add more  */}
 								</div>
 
 								<h4 className="title-divider">
-									{ getStrings( 'border-style-title' ) }
+									{getStrings('border-style-title')}
 								</h4>
 								<div className="border-styles">
 									<div className="border-styles__field-group">
 										<label htmlFor="border-type">
-											{ getStrings(
+											{getStrings(
 												'outside-border-type'
-											) }
+											)}
 										</label>
 										<select
 											className="borderType"
 											id="border-type"
 											name="borderType"
-											value={ customTheme.borderType }
-											onChange={ handleCustomThemeChange }
+											value={customTheme.borderType}
+											onChange={handleCustomThemeChange}
 										>
 											<option value="solid">
-												{ getStrings( 'solid-border' ) }
+												{getStrings('solid-border')}
 											</option>
 											<option value="rounded">
-												{ getStrings(
+												{getStrings(
 													'rounded-border'
-												) }
+												)}
 											</option>
 										</select>
 									</div>
 									<div className="border-styles__field-group">
 										<label htmlFor="border-radius">
-											{ getStrings( 'border-radius' ) }
+											{getStrings('border-radius')}
 										</label>
 										<input
 											className="border-radius borderRadius"
@@ -1391,27 +1401,26 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 											type="text"
 											id="border-radius"
 											name="borderRadius"
-											value={ customTheme.borderRadius }
-											onChange={ handleCustomThemeChange }
+											value={customTheme.borderRadius}
+											onChange={handleCustomThemeChange}
 										/>
 									</div>
 								</div>
 
-								{ /* Paginations  */ }
+								{ /* Paginations  */}
 								<div className="pagination-section">
 									<h4
 										className="title-divider"
-										onClick={ () =>
-											toggleSection( 'pagination' )
+										onClick={() =>
+											toggleSection('pagination')
 										}
 									>
-										{ getStrings( 'pg-style' ) }{ ' ' }
+										{getStrings('pg-style')}{' '}
 										<span
-											className={ `accordion-icon ${
-												activeSection === 'pagination'
-													? 'open'
-													: ''
-											}` }
+											className={`accordion-icon ${activeSection === 'pagination'
+												? 'open'
+												: ''
+												}`}
 										>
 											<svg
 												width="11"
@@ -1429,104 +1438,140 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 									</h4>
 
 									<div
-										className={ `info-section ${
-											activeSection === 'pagination'
-												? 'open'
-												: ''
-										}` }
+										className={`info-section ${activeSection === 'pagination'
+											? 'open'
+											: ''
+											}`}
 									>
 										<div className="section-header">
-											{ activeSection ===
+											{activeSection ===
 												'pagination' && (
-												<Pagination
-													customTheme={ customTheme }
-													handlePaginationModeChange={
-														handlePaginationModeChange
-													}
-													handleCustomThemeChange={
-														handleCustomThemeChange
-													}
-												/>
-											) }
+													<Pagination
+														customTheme={customTheme}
+														handlePaginationModeChange={
+															handlePaginationModeChange
+														}
+														handleCustomThemeChange={
+															handleCustomThemeChange
+														}
+													/>
+												)}
 										</div>
 									</div>
 								</div>
 
-								{ /* Actions button to save theme  */ }
+								{/* -----------Consent---------------  */}
+								{!isEditing ? (
+									<div className="custom-theme-field-group consent-field">
+										<label htmlFor="GlobalThemeCreate">
+											<input
+												type="checkbox"
+												id="GlobalThemeCreate"
+												name="GlobalThemeCreate"
+												checked={customTheme.GlobalThemeCreate}
+												onChange={handleConsentmodeChange}
+
+											/>
+											{getStrings('apply-theme-globally')}
+											<Tooltip
+												content={getStrings('tooltip-58')}
+											/>{' '} {<button className='btn-pro btn-new'>{getStrings('new')}</button>}
+										</label>
+
+									</div>
+								) : (
+									<div className="custom-theme-field-group consent-field">
+										<label htmlFor="GlobalThemeCreate">
+											<input
+												type="checkbox"
+												id="GlobalThemeCreate"
+												name="GlobalThemeCreate"
+												checked={customTheme.GlobalThemeCreate}
+												onChange={handleConsentmodeChange}
+											/>
+											{getStrings('style-theme-globally')}
+											<Tooltip
+												content={getStrings('tooltip-59')}
+											/>{' '} {<button className='btn-pro btn-new'>{getStrings('new')}</button>}
+										</label>
+									</div>
+								)}
+
+
+								{ /* Actions button to save theme  */}
 								<div className="action-buttons">
 									<button
 										className="swptls-button cancel-button"
-										onClick={ handleClosePopup }
+										onClick={handleClosePopup}
 									>
-										{ getStrings( 'Cancel' ) }
+										{getStrings('Cancel')}
 									</button>
 									<button
-										className={ `swptls-button confirm-button ${
-											themeNameError ? 'name-erros' : ''
-										}` }
+										className={`swptls-button confirm-button ${themeNameError ? 'name-erros' : ''
+											}`}
 										onClick={
 											isEditing
 												? handleSaveEditedTheme
 												: handleAddCustomTheme
 										}
-										// disabled={!customTheme.name}
+									// disabled={!customTheme.name}
 									>
-										{ isEditing
-											? getStrings( 'update-changes' )
-											: getStrings( 'add-theme' ) }
+										{isEditing
+											? getStrings('update-changes')
+											: getStrings('add-theme')}
 									</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</Modal>
-			) }
+			)}
 
-			{ /* Active Theme Delete warning Error Modal */ }
-			{ activeThemeErrorModal && (
+			{ /* Active Theme Delete warning Error Modal */}
+			{activeThemeErrorModal && (
 				<Modal>
 					<div className="import-style-modal-wrap modal-content theme-delete-warning-modal">
 						<div
 							className="cross_sign"
-							onClick={ handleClosePopup }
+							onClick={handleClosePopup}
 						>
-							{ Cross }
+							{Cross}
 						</div>
 						<div className="import-style-modal delete-modal">
-							<h3>{ getStrings( 'theme-alert-delete' ) }</h3>
-							<p>{ getStrings( 'theme-delete-notice' ) }</p>
+							<h3>{getStrings('theme-alert-delete')}</h3>
+							<p>{getStrings('theme-delete-notice')}</p>
 
 							<div className="action-btn">
 								<button
 									className="delete-warning"
-									onClick={ handleCloseActiveThemeErrorModal }
+									onClick={handleCloseActiveThemeErrorModal}
 								>
-									{ getStrings( 'merge-confirm' ) }
+									{getStrings('merge-confirm')}
 								</button>
 							</div>
 						</div>
 					</div>
 				</Modal>
-			) }
+			)}
 
-			{ /* Delete Confirmation Modal */ }
-			{ deleteConfirmationModal && (
+			{ /* Delete Confirmation Modal */}
+			{deleteConfirmationModal && (
 				<Modal>
 					<div className="import-style-modal-wrap modal-content theme-delete-warning-modal">
 						<div
 							className="cross_sign"
-							onClick={ handleClosePopup }
+							onClick={handleClosePopup}
 						>
-							{ Cross }
+							{Cross}
 						</div>
 						<div className="import-style-modal delete-modal">
 							<h3>
-								{ getStrings( 'confirmation-theme-delete' ) }
+								{getStrings('confirmation-theme-delete')}
 							</h3>
 							<p>
-								{ getStrings(
+								{getStrings(
 									'confirmation-theme-delete-notice'
-								) }
+								)}
 							</p>
 
 							<div className="action-btn">
@@ -1536,28 +1581,27 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										handleCloseDeleteConfirmationModal
 									}
 								>
-									{ getStrings( 'Cancel' ) }
+									{getStrings('Cancel')}
 								</button>
 								<button
 									className="delete-confirm"
-									onClick={ handleConfirmDeleteTheme }
+									onClick={handleConfirmDeleteTheme}
 								>
-									{ getStrings( 'yes-delete' ) }
+									{getStrings('yes-delete')}
 								</button>
 							</div>
 						</div>
 					</div>
 				</Modal>
-			) }
+			)}
 
 			<div className="edit-table-customization-wrap">
 				<div className="edit-form-group">
 					<div className="table-customization-theme-wrapper">
-						<div className={ `edit-form-group table-style` }>
+						<div className={`edit-form-group table-style`}>
 							<label
-								className={ `${
-									! isProActive() ? `swptls-pro-settings` : ``
-								}` }
+								className={`${!isProActive() ? `swptls-pro-settings` : ``
+									}`}
 								htmlFor="table-style"
 							>
 								<div className="toggle-switch">
@@ -1576,15 +1620,15 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 											tableSettings?.table_settings
 												?.import_styles
 										}
-										onChange={ handleImportStyle }
-										disabled={ ! isProActive() }
+										onChange={handleImportStyle}
+										disabled={!isProActive()}
 									/>
 									<div className="slider round"></div>
 								</div>
-								{ getStrings( 'import-color-from-sheet' ) }{ ' ' }
+								{getStrings('import-color-from-sheet')}{' '}
 								<Tooltip
-									content={ getStrings( 'tooltip-40' ) }
-								/>{ ' ' }
+									content={getStrings('tooltip-40')}
+								/>{' '}
 							</label>
 							{/* <span className="import-tooltip">
 								{ ! isProActive() && (
@@ -1595,15 +1639,15 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 							</span> */}
 						</div>
 
-						{ /* Theme  */ }
+						{ /* Theme  */}
 						<h4>
-							{ getStrings( 'select-theme' ) }{ ' ' }
+							{getStrings('select-theme')}{' '}
 							<Tooltip
-								content={ `Quickly change your table's look and feel using themes` }
+								content={`Quickly change your table's look and feel using themes`}
 							/>
 						</h4>
 
-						{ tableSettings?.table_settings?.import_styles && (
+						{tableSettings?.table_settings?.import_styles && (
 							<>
 								<div className="invalid-card has--import-enabled">
 									<label className="import-enabled">
@@ -1623,41 +1667,39 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										</span>
 
 										<span>
-											{ getStrings( 'theme-alert' ) }
+											{getStrings('theme-alert')}
 										</span>
 									</label>
 								</div>
 							</>
-						) }
+						)}
 
-						{ /* Default Style - default-style = new name: Simple  */ }
+						{ /* Default Style - default-style = new name: Simple  */}
 						<div
-							className={ `table-customization-theme ${
-								tableSettings?.table_settings?.import_styles
-									? 'active_sheetstyle'
-									: 'disable_sheetstyle'
-							}` }
+							className={`table-customization-theme ${tableSettings?.table_settings?.import_styles
+								? 'active_sheetstyle'
+								: 'disable_sheetstyle'
+								}`}
 						>
 							<button
-								className={ `single-theme ${
-									tableSettings?.table_settings
-										?.table_style === 'default-style'
-										? ' active'
-										: ''
-								}` }
-								onClick={ () =>
-									setTableSettings( {
+								className={`single-theme ${tableSettings?.table_settings
+									?.table_style === 'default-style'
+									? ' active'
+									: ''
+									}`}
+								onClick={() =>
+									setTableSettings({
 										...tableSettings,
 										table_settings: {
 											...tableSettings.table_settings,
 											table_style: 'default-style',
 										},
-									} )
+									})
 								}
 							>
 								<div className="media">
 									<img
-										src={ theme_one_default_style }
+										src={theme_one_default_style}
 										alt="theme_one_default_style"
 									/>
 								</div>
@@ -1666,34 +1708,33 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										<div className="label">
 											<div className="radio-field"></div>
 											<div className="label-title">
-												{ getStrings( 'Simple' ) }
+												{getStrings('Simple')}
 											</div>
 										</div>
 									</div>
 								</div>
 							</button>
 
-							{ /* Dark Table - style-4 : new name: Simple on dark*/ }
+							{ /* Dark Table - style-4 : new name: Simple on dark*/}
 							<button
-								className={ `single-theme${
-									tableSettings?.table_settings
-										?.table_style === 'style-4'
-										? ' active'
-										: ''
-								}` }
-								onClick={ () =>
-									setTableSettings( {
+								className={`single-theme${tableSettings?.table_settings
+									?.table_style === 'style-4'
+									? ' active'
+									: ''
+									}`}
+								onClick={() =>
+									setTableSettings({
 										...tableSettings,
 										table_settings: {
 											...tableSettings.table_settings,
 											table_style: 'style-4',
 										},
-									} )
+									})
 								}
 							>
 								<div className="media">
 									<img
-										src={ theme_three_dark_table }
+										src={theme_three_dark_table}
 										alt="theme_three_dark_table"
 									/>
 								</div>
@@ -1702,36 +1743,34 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										<div className="label">
 											<div className="radio-field"></div>
 											<div className="label-title">
-												{ getStrings( 'Dark-Table' ) }
+												{getStrings('Dark-Table')}
 											</div>
 										</div>
 									</div>
 								</div>
 							</button>
 
-							{ /* PRO Theme  */ }
+							{ /* PRO Theme  */}
 
-							{ /* Vertical style place on last  */ }
+							{ /* Vertical style place on last  */}
 
-							{ /* Minimal new styke - style-6 : new name: Minimal */ }
+							{ /* Minimal new styke - style-6 : new name: Minimal */}
 							<button
-								className={ `single-theme${
-									! isProActive() ? ` swptls-pro-theme` : ``
-								} ${
-									tableSettings?.table_settings
+								className={`single-theme${!isProActive() ? ` swptls-pro-theme` : ``
+									} ${tableSettings?.table_settings
 										?.table_style === 'style-6'
 										? 'active'
 										: ''
-								}` }
-								onClick={ () => handleThemeClick( 'style-6' ) }
-								onMouseEnter={ () =>
-									handleMouseEnter( 'style-6' )
+									}`}
+								onClick={() => handleThemeClick('style-6')}
+								onMouseEnter={() =>
+									handleMouseEnter('style-6')
 								}
-								onMouseLeave={ handleMouseLeave }
+								onMouseLeave={handleMouseLeave}
 							>
 								<div className="media">
 									<img
-										src={ theme_minimal_six_hovered_style }
+										src={theme_minimal_six_hovered_style}
 										alt="theme_minimal_six_hovered_style"
 									/>
 								</div>
@@ -1740,9 +1779,9 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										<div className="label">
 											<div className="radio-field"></div>
 											<div className="label-title">
-												{ getStrings(
+												{getStrings(
 													'minimal-simple-style'
-												) }
+												)}
 											</div>
 										</div>
 									</div>
@@ -1759,33 +1798,31 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										</span>
 									</div> */}
 								</div>
-								{ isHovered === 'style-6' &&
-									! isProActive() && (
+								{isHovered === 'style-6' &&
+									!isProActive() && (
 										<div className="btn-pro-lock theme-lock-blur">
-											{ lockBTN }
+											{lockBTN}
 										</div>
-									) }
+									)}
 							</button>
 
-							{ /* Stripped Table style-2 : new name: Minimal on dark */ }
+							{ /* Stripped Table style-2 : new name: Minimal on dark */}
 							<button
-								className={ `single-theme${
-									! isProActive() ? ` swptls-pro-theme` : ``
-								} ${
-									tableSettings?.table_settings
+								className={`single-theme${!isProActive() ? ` swptls-pro-theme` : ``
+									} ${tableSettings?.table_settings
 										?.table_style === 'style-2'
 										? 'active'
 										: ''
-								}` }
-								onClick={ () => handleThemeClick( 'style-2' ) }
-								onMouseEnter={ () =>
-									handleMouseEnter( 'style-2' )
+									}`}
+								onClick={() => handleThemeClick('style-2')}
+								onMouseEnter={() =>
+									handleMouseEnter('style-2')
 								}
-								onMouseLeave={ handleMouseLeave }
+								onMouseLeave={handleMouseLeave}
 							>
 								<div className="media">
 									<img
-										src={ theme_two_stripped_table }
+										src={theme_two_stripped_table}
 										alt="theme_two_stripped_table"
 									/>
 								</div>
@@ -1794,42 +1831,40 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										<div className="label">
 											<div className="radio-field"></div>
 											<div className="label-title">
-												{ getStrings(
+												{getStrings(
 													'minimal-Table'
-												) }
+												)}
 											</div>
 										</div>
 									</div>
 
-									
+
 								</div>
-								{ isHovered === 'style-2' &&
-									! isProActive() && (
+								{isHovered === 'style-2' &&
+									!isProActive() && (
 										<div className="btn-pro-lock theme-lock-blur">
-											{ lockBTN }
+											{lockBTN}
 										</div>
-									) }
+									)}
 							</button>
 
-							{ /* Hover Style - style-3: new name: minimal-elegant-style */ }
+							{ /* Hover Style - style-3: new name: minimal-elegant-style */}
 							<button
-								className={ `single-theme${
-									! isProActive() ? ` swptls-pro-theme` : ``
-								} ${
-									tableSettings?.table_settings
+								className={`single-theme${!isProActive() ? ` swptls-pro-theme` : ``
+									} ${tableSettings?.table_settings
 										?.table_style === 'style-3'
 										? 'active'
 										: ''
-								}` }
-								onClick={ () => handleThemeClick( 'style-3' ) }
-								onMouseEnter={ () =>
-									handleMouseEnter( 'style-3' )
+									}`}
+								onClick={() => handleThemeClick('style-3')}
+								onMouseEnter={() =>
+									handleMouseEnter('style-3')
 								}
-								onMouseLeave={ handleMouseLeave }
+								onMouseLeave={handleMouseLeave}
 							>
 								<div className="media">
 									<img
-										src={ theme_six_hovered_style }
+										src={theme_six_hovered_style}
 										alt="theme_six_hovered_style"
 									/>
 								</div>
@@ -1838,42 +1873,40 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										<div className="label">
 											<div className="radio-field"></div>
 											<div className="label-title">
-												{ getStrings(
+												{getStrings(
 													'minimal-elegant-style'
-												) }
+												)}
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
 
-								{ isHovered === 'style-3' &&
-									! isProActive() && (
+								{isHovered === 'style-3' &&
+									!isProActive() && (
 										<div className="btn-pro-lock theme-lock-blur">
-											{ lockBTN }
+											{lockBTN}
 										</div>
-									) }
+									)}
 							</button>
 
-							{ /* Taliwind Style - style-5 : new name: Uppercase-heading*/ }
+							{ /* Taliwind Style - style-5 : new name: Uppercase-heading*/}
 							<button
-								className={ `single-theme${
-									! isProActive() ? ` swptls-pro-theme` : ``
-								} ${
-									tableSettings?.table_settings
+								className={`single-theme${!isProActive() ? ` swptls-pro-theme` : ``
+									} ${tableSettings?.table_settings
 										?.table_style === 'style-5'
 										? 'active'
 										: ''
-								}` }
-								onClick={ () => handleThemeClick( 'style-5' ) }
-								onMouseEnter={ () =>
-									handleMouseEnter( 'style-5' )
+									}`}
+								onClick={() => handleThemeClick('style-5')}
+								onMouseEnter={() =>
+									handleMouseEnter('style-5')
 								}
-								onMouseLeave={ handleMouseLeave }
+								onMouseLeave={handleMouseLeave}
 							>
 								<div className="media">
 									<img
-										src={ theme_four_tailwind_style }
+										src={theme_four_tailwind_style}
 										alt="theme_four_tailwind_style"
 									/>
 								</div>
@@ -1882,41 +1915,39 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										<div className="label">
 											<div className="radio-field"></div>
 											<div className="label-title">
-												{ getStrings(
+												{getStrings(
 													'Uppercase-heading'
-												) }
+												)}
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
-								{ isHovered === 'style-5' &&
-									! isProActive() && (
+								{isHovered === 'style-5' &&
+									!isProActive() && (
 										<div className="btn-pro-lock theme-lock-blur">
-											{ lockBTN }
+											{lockBTN}
 										</div>
-									) }
+									)}
 							</button>
 
-							{ /* Uppercase elegant style new style - style-8 : new name: Uppercase elegant */ }
+							{ /* Uppercase elegant style new style - style-8 : new name: Uppercase elegant */}
 							<button
-								className={ `single-theme${
-									! isProActive() ? ` swptls-pro-theme` : ``
-								} ${
-									tableSettings?.table_settings
+								className={`single-theme${!isProActive() ? ` swptls-pro-theme` : ``
+									} ${tableSettings?.table_settings
 										?.table_style === 'style-8'
 										? 'active'
 										: ''
-								}` }
-								onClick={ () => handleThemeClick( 'style-8' ) }
-								onMouseEnter={ () =>
-									handleMouseEnter( 'style-8' )
+									}`}
+								onClick={() => handleThemeClick('style-8')}
+								onMouseEnter={() =>
+									handleMouseEnter('style-8')
 								}
-								onMouseLeave={ handleMouseLeave }
+								onMouseLeave={handleMouseLeave}
 							>
 								<div className="media">
 									<img
-										src={ theme_uppercase_elegant_style }
+										src={theme_uppercase_elegant_style}
 										alt="theme_uppercase_elegant_style"
 									/>
 								</div>
@@ -1925,41 +1956,39 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										<div className="label">
 											<div className="radio-field"></div>
 											<div className="label-title">
-												{ getStrings(
+												{getStrings(
 													'uppercase-elegant-theme'
-												) }
+												)}
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
-								{ isHovered === 'style-8' &&
-									! isProActive() && (
+								{isHovered === 'style-8' &&
+									!isProActive() && (
 										<div className="btn-pro-lock theme-lock-blur">
-											{ lockBTN }
+											{lockBTN}
 										</div>
-									) }
+									)}
 							</button>
 
-							{ /* Colored Column - style-1 : new name: vertical-style */ }
+							{ /* Colored Column - style-1 : new name: vertical-style */}
 							<button
-								className={ `single-theme${
-									! isProActive() ? ` swptls-pro-theme` : ``
-								} ${
-									tableSettings?.table_settings
+								className={`single-theme${!isProActive() ? ` swptls-pro-theme` : ``
+									} ${tableSettings?.table_settings
 										?.table_style === 'style-1'
 										? 'active'
 										: ''
-								}` }
-								onClick={ () => handleThemeClick( 'style-1' ) }
-								onMouseEnter={ () =>
-									handleMouseEnter( 'style-1' )
+									}`}
+								onClick={() => handleThemeClick('style-1')}
+								onMouseEnter={() =>
+									handleMouseEnter('style-1')
 								}
-								onMouseLeave={ handleMouseLeave }
+								onMouseLeave={handleMouseLeave}
 							>
 								<div className="media">
 									<img
-										src={ theme_five_colored_column }
+										src={theme_five_colored_column}
 										alt="theme_five_colored_column"
 									/>
 								</div>
@@ -1968,9 +1997,9 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										<div className="label">
 											<div className="radio-field"></div>
 											<div className="label-title">
-												{ getStrings(
+												{getStrings(
 													'vertical-style'
-												) }
+												)}
 											</div>
 										</div>
 									</div>
@@ -1984,33 +2013,31 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										) }
 									</div> */}
 								</div>
-								{ isHovered === 'style-1' &&
-									! isProActive() && (
+								{isHovered === 'style-1' &&
+									!isProActive() && (
 										<div className="btn-pro-lock theme-lock-blur">
-											{ lockBTN }
+											{lockBTN}
 										</div>
-									) }
+									)}
 							</button>
 
-							{ /* Dark Style new style - style-7 : new name: Dark */ }
+							{ /* Dark Style new style - style-7 : new name: Dark */}
 							<button
-								className={ `single-theme ${
-									! isProActive() ? ` swptls-pro-theme` : ``
-								} ${
-									tableSettings?.table_settings
+								className={`single-theme ${!isProActive() ? ` swptls-pro-theme` : ``
+									} ${tableSettings?.table_settings
 										?.table_style === 'style-7'
 										? 'active'
 										: ''
-								}` }
-								onClick={ () => handleThemeClick( 'style-7' ) }
-								onMouseEnter={ () =>
-									handleMouseEnter( 'style-7' )
+									}`}
+								onClick={() => handleThemeClick('style-7')}
+								onMouseEnter={() =>
+									handleMouseEnter('style-7')
 								}
-								onMouseLeave={ handleMouseLeave }
+								onMouseLeave={handleMouseLeave}
 							>
 								<div className="media">
 									<img
-										src={ theme_dark_knight_style }
+										src={theme_dark_knight_style}
 										alt="theme_dark_knight_style"
 									/>
 								</div>
@@ -2019,32 +2046,32 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										<div className="label">
 											<div className="radio-field"></div>
 											<div className="label-title">
-												{ getStrings(
+												{getStrings(
 													'dark-style-theme'
-												) }
+												)}
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
-								{ isHovered === 'style-7' &&
-									! isProActive() && (
+								{isHovered === 'style-7' &&
+									!isProActive() && (
 										<div className="btn-pro-lock theme-lock-blur">
-											{ lockBTN }
+											{lockBTN}
 										</div>
-									) }
+									)}
 							</button>
 
-							{ /* Add new theme here below */ }
+							{ /* Add new theme here below */}
 
-							{ /* Render existing themes */ }
-							{ Object.keys(
+							{ /* Render existing themes */}
+							{Object.keys(
 								tableSettings?.table_settings
 									?.import_styles_theme_colors || {}
 							)
 								.filter(
-									( themeName ) =>
-										! [
+									(themeName) =>
+										![
 											'default-style',
 											'style-1',
 											'style-2',
@@ -2054,32 +2081,31 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 											'style-6',
 											'style-7',
 											'style-8',
-										].includes( themeName )
+										].includes(themeName)
 								)
 								// .sort()
-								.map( ( themeName, index ) => (
+								.map((themeName, index) => (
 									<button
-										key={ index }
-										className={ `single-theme new-custom-theme${
-											tableSettings?.table_settings
-												?.table_style === themeName
-												? ' active'
-												: ''
-										}` }
-										onClick={ () =>
-											handleThemeClick( themeName )
+										key={index}
+										className={`single-theme new-custom-theme${tableSettings?.table_settings
+											?.table_style === themeName
+											? ' active'
+											: ''
+											}`}
+										onClick={() =>
+											handleThemeClick(themeName)
 										}
-										onMouseEnter={ () =>
-											handleMouseEnter( themeName )
+										onMouseEnter={() =>
+											handleMouseEnter(themeName)
 										}
-										onMouseLeave={ handleMouseLeave }
+										onMouseLeave={handleMouseLeave}
 									>
 										<div className="text">
 											<div className="top">
 												<div className="label">
 													<div className="radio-field"></div>
 													<div className="label-title">
-														{ themeName }
+														{themeName}
 													</div>
 													<div className="action">
 														<div className="action-icon-wrapper">
@@ -2099,33 +2125,33 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 														<div className="action-dropdown-menu">
 															<button
 																className="theme-actions-buttons action-edit"
-																onClick={ (
+																onClick={(
 																	e
 																) => {
 																	e.stopPropagation();
 																	handleEditTheme(
 																		themeName
 																	);
-																} }
+																}}
 															>
-																{ getStrings(
+																{getStrings(
 																	'edit-theme'
-																) }
+																)}
 															</button>
 															<button
 																className="theme-actions-buttons action-delete"
-																onClick={ (
+																onClick={(
 																	e
 																) => {
 																	e.stopPropagation();
 																	handleDeleteTheme(
 																		themeName
 																	);
-																} }
+																}}
 															>
-																{ getStrings(
+																{getStrings(
 																	'Delete'
-																) }
+																)}
 															</button>
 														</div>
 													</div>
@@ -2163,25 +2189,25 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 											</div>
 										</div>
 
-										{ isHovered === themeName &&
-											! isProActive() && (
+										{isHovered === themeName &&
+											!isProActive() && (
 												<div className="btn-pro-lock theme-lock-blur">
-													{ lockBTN }
+													{lockBTN}
 												</div>
-											) }
+											)}
 									</button>
-								) ) }
+								))}
 
-							{ /* Add new theme button */ }
+							{ /* Add new theme button */}
 							<button
 								className="single-theme add-new-theme"
-								onClick={ () =>
-									handleCustomthememodal( 'swptls-new-theme' )
+								onClick={() =>
+									handleCustomthememodal('swptls-new-theme')
 								}
-								onMouseEnter={ () =>
-									handleMouseEnter( 'swptls-new-theme' )
+								onMouseEnter={() =>
+									handleMouseEnter('swptls-new-theme')
 								}
-								onMouseLeave={ handleMouseLeave }
+								onMouseLeave={handleMouseLeave}
 							>
 								<div className="text-center">
 									<div className="icon-wrapper">
@@ -2199,7 +2225,7 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 										</svg>
 									</div>
 									<div className="title">
-										{ getStrings( '+new-theme' ) }
+										{getStrings('+new-theme')}
 									</div>
 
 									{/* <div className="new-theme-tags">
@@ -2216,34 +2242,33 @@ const ThemeSettings = ( { tableSettings, setTableSettings } ) => {
 									</div> */}
 								</div>
 
-								{ isHovered === 'swptls-new-theme' &&
-									! isProActive() && (
+								{isHovered === 'swptls-new-theme' &&
+									!isProActive() && (
 										<div className="btn-pro-lock theme-lock-blur">
-											{ lockBTN }
+											{lockBTN}
 										</div>
-									) }
+									)}
 							</button>
 						</div>
 
-						{ /* END  */ }
+						{ /* END  */}
 					</div>
 
 					<div
-						className={ `theme-customization-options-parent ${
-							tableSettings?.table_settings?.import_styles
-								? 'active_sheetstyle'
-								: 'disable_sheetstyle'
-						}` }
+						className={`theme-customization-options-parent ${tableSettings?.table_settings?.import_styles
+							? 'active_sheetstyle'
+							: 'disable_sheetstyle'
+							}`}
 					>
 						<ThemeCustomization
-							tableSettings={ tableSettings }
-							setTableSettings={ setTableSettings }
+							tableSettings={tableSettings}
+							setTableSettings={setTableSettings}
 						/>
-						{ ! isProActive() && (
+						{!isProActive() && (
 							<div className="btn-pro-lock theme-lock-blur">
-								{ lockBTN }
+								{lockBTN}
 							</div>
-						) }
+						)}
 					</div>
 				</div>
 			</div>

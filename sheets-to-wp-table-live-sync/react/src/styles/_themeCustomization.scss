@@ -175,11 +175,56 @@
                 box-shadow: none;
                 line-height: 19px;
                 color: #1E1E1E;
-                border-radius: 4px;
+                border-radius: 6px;
                 background: #F8FCFF;
                 border: 1px solid #ECF2F6;
                 padding: 15px 12px 16px 12px;
             }
+
+            input[type="checkbox"] {
+                position: relative;
+                border: 1px solid #bbbdca;
+                border-radius: 3px;
+                background: none;
+                cursor: pointer;
+                line-height: 0;
+                margin: 0 0.6em 0 0;
+                outline: 0;
+                padding: 0 !important;
+                vertical-align: text-top;
+                height: 19px;
+                width: 19px;
+                -webkit-appearance: none;
+                outline: none;
+                box-shadow: none;
+                box-sizing: border-box;
+
+                &:checked {
+                    background-color: #34a0fa;
+                }
+
+                &:checked::before {
+                    content: "";
+                    position: absolute;
+                    right: 53%;
+                    top: 50%;
+                    width: 4px;
+                    height: 10px;
+                    border: solid #fff;
+                    border-width: 0 2px 2px 0;
+                    margin: -1px -1px 0 -1px;
+                    transform: rotate(45deg) translate(-53%, -50%);
+                    z-index: 2;
+                }
+
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                    border: 1px solid #bbbdca;
+                }
+            }
+
+
         }
 
         .theme-name {
@@ -257,7 +302,7 @@
         button.delete-warning {
             border: 0;
             color: #F8F9FA;
-            border-radius: 4px;
+            border-radius: 6px;
             background: #34A0FA;
             outline: 0;
             cursor: pointer;
@@ -273,7 +318,7 @@
         button.delete-confirm {
             border: 0;
             color: #F8F9FA;
-            border-radius: 4px;
+            border-radius: 6px;
             background: #EB5757;
             outline: 0;
             cursor: pointer;
@@ -289,7 +334,7 @@
         button.delete-cancle {
             border: 0;
             color: #00050a;
-            border-radius: 4px;
+            border-radius: 6px;
             background: rgb(247, 247, 247);
             outline: 0;
             cursor: pointer;
@@ -376,12 +421,10 @@ h4.title-divider {
     }
 
     &__palette {
-        // flex: 1 1 195px;
-        // min-width: 195px;
         flex: 1 1 200px;
         min-width: 200px;
         padding: 8px 8px;
-        border-radius: 4px;
+        border-radius: 6px;
         background-color: #F6F9FB;
 
     }
@@ -530,7 +573,7 @@ h4.title-divider {
             box-shadow: none;
             line-height: 19px;
             color: #1E1E1E;
-            border-radius: 4px;
+            border-radius: 6px;
             background: #F8FCFF;
             border: 1px solid #ECF2F6;
             padding: 15px 34px 16px 12px;
@@ -545,7 +588,7 @@ h4.title-divider {
             box-shadow: none;
             line-height: 19px;
             color: #1E1E1E;
-            border-radius: 4px;
+            border-radius: 6px;
             background: #F8FCFF;
             border: 1px solid #ECF2F6;
             padding: 15px 12px 16px 12px;
@@ -681,7 +724,7 @@ div#pagination-style {
     box-shadow: none;
     line-height: 19px;
     color: #1E1E1E;
-    border-radius: 4px;
+    border-radius: 6px;
     background: #F8FCFF;
     border: 1px solid #ECF2F6;
     padding: 15px 34px 16px 12px;
@@ -690,7 +733,7 @@ div#pagination-style {
 
 // Hover pagination ^ 
 .title-divider {
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 20px 5px;
     transition: background-color 0.3s ease, border-radius 0.3s ease;
 }
@@ -796,7 +839,7 @@ div#pagination-style {
         display: inline-block;
         background: #ffffff;
         border: 1px solid #ecf2f6;
-        border-radius: 4px;
+        border-radius: 6px;
         white-space: nowrap;
         padding: 10px 20px;
         text-align: right;

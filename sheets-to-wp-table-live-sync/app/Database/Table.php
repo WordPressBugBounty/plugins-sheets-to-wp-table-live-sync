@@ -67,6 +67,74 @@ class Table {
 		return $wpdb->update( $table, $data, $where, $format, $where_format );
 	}
 
+
+	/**
+	 * Check and update global themes in all tables.
+	 *
+	 * @param string $table_settings JSON-encoded table settings.
+	 */
+	public function check_and_update_global_theme( $table_settings ) {
+		global $wpdb;
+
+		$table_settings = json_decode( $table_settings, true );
+
+		// Check if 'import_styles_theme_colors' exists.
+		if ( isset( $table_settings['import_styles_theme_colors'] ) ) {
+			foreach ( $table_settings['import_styles_theme_colors'] as $theme_name => $theme_data ) {
+				// Only modify GlobalThemeCreate if it exists.
+				if ( isset( $theme_data['GlobalThemeCreate'] ) && true === $theme_data['GlobalThemeCreate'] ) {
+					$table_settings['import_styles_theme_colors'][ $theme_name ]['GlobalThemeCreate'] = false;
+					$this->clone_theme_to_all_tables( $theme_name, $theme_data );
+				}
+			}
+		}
+
+		// Return the updated table settings.
+		return wp_json_encode( $table_settings );
+	}
+
+
+
+
+
+
+	/**
+	 * Clone a theme to all tables.
+	 *
+	 * @param string $theme_name Name of the theme.
+	 * @param array  $theme_data Theme data to clone.
+	 */
+	private function clone_theme_to_all_tables( $theme_name, $theme_data ) {
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . 'gswpts_tables';
+		$rows = $wpdb->get_results( "SELECT id, table_settings FROM {$table_name}", ARRAY_A ); // phpcs:ignore
+
+		foreach ( $rows as $row ) {
+			$current_table_settings = json_decode( $row['table_settings'], true );
+
+			// Ensure `import_styles_theme_colors` exists.
+			if ( ! isset( $current_table_settings['import_styles_theme_colors'] ) ) {
+				$current_table_settings['import_styles_theme_colors'] = [];
+			}
+
+			// Add the theme if it doesn't already exist.
+			if ( ! isset( $current_table_settings['import_styles_theme_colors'][ $theme_name ] ) ) {
+				$current_table_settings['import_styles_theme_colors'][ $theme_name ] = $theme_data;
+
+				// Update the table.
+				$updated_table_settings = wp_json_encode( $current_table_settings );
+				$wpdb->update(
+					$table_name,
+					[ 'table_settings' => $updated_table_settings ],
+					[ 'id' => $row['id'] ],
+					[ '%s' ],
+					[ '%d' ]
+				);
+			}
+		}
+	}
+
 	/**
 	 * Delete table data from the DB.
 	 *

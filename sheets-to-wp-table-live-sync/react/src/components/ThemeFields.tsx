@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const ThemeFields = ( { tableSettings } ) => {
+const ThemeFields = ({ tableSettings }) => {
 	const theme = tableSettings?.table_settings?.table_style || 'default-style';
 	const themeColors =
-		tableSettings?.table_settings?.import_styles_theme_colors?.[ theme ] ||
+		tableSettings?.table_settings?.import_styles_theme_colors?.[theme] ||
 		{};
 	const defaultThemes = [
 		'default-style',
@@ -18,7 +18,7 @@ const ThemeFields = ( { tableSettings } ) => {
 	];
 
 	// Skip rendering for default themes
-	if ( defaultThemes.includes( theme ) ) {
+	if (defaultThemes.includes(theme)) {
 		// return null;
 
 		return (
@@ -28,8 +28,8 @@ const ThemeFields = ( { tableSettings } ) => {
 					type="hidden"
 					id="pagination_center"
 					name="pagination_center"
-					value={ themeColors.pagination_center }
-					checked={ themeColors?.pagination_center }
+					value={themeColors.pagination_center}
+					checked={themeColors?.pagination_center}
 				/>
 
 				<input
@@ -49,8 +49,50 @@ const ThemeFields = ( { tableSettings } ) => {
 					id="paginationAciveBtnColor"
 					placeholder="10px"
 					name="paginationAciveBtnColor"
-					value={ themeColors.paginationAciveBtnColor || '#2F80ED' }
+					value={themeColors.paginationAciveBtnColor || '#2F80ED'}
 				/>
+
+				<input
+					className="enable_fixed_headers"
+					type="hidden"
+					id="enable_fixed_headers"
+					name="enable_fixed_headers"
+					checked={tableSettings.table_settings?.fixed_headers || false}
+				/>
+
+				<input
+					className="header_offset"
+					type="hidden"
+					id="header_offset"
+					name="header_offset"
+					value={tableSettings.table_settings?.header_offset || 0}
+
+				/>
+
+				<input
+					className="enable_fixed_columns"
+					type="hidden"
+					id="enable_fixed_columns"
+					name="enable_fixed_columns"
+					checked={tableSettings.table_settings?.enable_fixed_columns || false}
+				/>
+
+				<input
+					className="left_columns"
+					type="hidden"
+					id="left_columns"
+					name="left_columns"
+					value={tableSettings.table_settings?.left_columns || 0}
+				/>
+
+				<input
+					className="right_columns"
+					type="hidden"
+					id="right_columns"
+					name="right_columns"
+					value={tableSettings.table_settings?.right_columns || 0}
+				/>
+
 			</div>
 		);
 	}
@@ -61,95 +103,90 @@ const ThemeFields = ( { tableSettings } ) => {
 				type="hidden"
 				id="headerBGColor"
 				className="color-picker headerBGColor"
-				value={ themeColors.headerBGColor || '#ffffff' }
+				value={themeColors.headerBGColor || '#ffffff'}
 			/>
 			<input
 				type="hidden"
 				id="headerTextColor"
 				className="color-picker headerTextColor"
-				value={ themeColors.headerTextColor || '#000000' }
+				value={themeColors.headerTextColor || '#000000'}
 			/>
 			<input
 				type="hidden"
 				id="bodyTextColorCol_1"
 				className="color-picker bodyTextColorCol_1"
-				value={ themeColors.bodyTextColorCol_1 || '#333333' }
+				value={themeColors.bodyTextColorCol_1 || '#333333'}
 			/>
 			<input
 				type="hidden"
 				id="bodyTextColorColRest"
 				className="color-picker bodyTextColorColRest"
-				value={ themeColors.bodyTextColorColRest || '#6b6b6b' }
+				value={themeColors.bodyTextColorColRest || '#6b6b6b'}
 			/>
 			<input
 				type="hidden"
 				id="bodyBGColor"
 				className="color-picker bodyBGColor"
-				value={ themeColors.bodyBGColor || '#ffffff' }
+				value={themeColors.bodyBGColor || '#ffffff'}
 			/>
 			<input
 				type="hidden"
 				id="bodyBGColorEven"
-				className={ `color-picker bodyBGColorEven ${
-					themeColors.activeColumnColor ? 'activeColumnColor' : ''
-				}` }
-				value={ themeColors.bodyBGColorEven || '#f5f5f5' }
+				className={`color-picker bodyBGColorEven ${themeColors.activeColumnColor ? 'activeColumnColor' : ''
+					}`}
+				value={themeColors.bodyBGColorEven || '#f5f5f5'}
 			/>
 			<input
 				type="hidden"
 				id="bodyBGColorOdd"
-				className={ `color-picker bodyBGColorOdd ${
-					themeColors.activeColumnColor ? 'activeColumnColor' : ''
-				}` }
-				value={ themeColors.bodyBGColorOdd || '#ffffff' }
+				className={`color-picker bodyBGColorOdd ${themeColors.activeColumnColor ? 'activeColumnColor' : ''
+					}`}
+				value={themeColors.bodyBGColorOdd || '#ffffff'}
 			/>
 			<input
 				type="hidden"
 				id="bodyBGColorEven"
-				className={ `color-picker bodyBGColorEven ${
-					themeColors.activeRowColor ? 'activeRowColor' : ''
-				}` }
-				value={ themeColors.bodyBGColorEven || '#f5f5f5' }
+				className={`color-picker bodyBGColorEven ${themeColors.activeRowColor ? 'activeRowColor' : ''
+					}`}
+				value={themeColors.bodyBGColorEven || '#f5f5f5'}
 			/>
 			<input
 				type="hidden"
 				id="bodyBGColorOdd"
-				className={ `color-picker bodyBGColorOdd ${
-					themeColors.activeRowColor ? 'activeRowColor' : ''
-				}` }
-				value={ themeColors.bodyBGColorOdd || '' }
+				className={`color-picker bodyBGColorOdd ${themeColors.activeRowColor ? 'activeRowColor' : ''
+					}`}
+				value={themeColors.bodyBGColorOdd || ''}
 			/>
 			<input
 				type="hidden"
 				id="hoverBGColor"
-				className={ `color-picker hoverBGColor ${
-					themeColors.hoverModeNone
-						? 'hoverModeNone'
-						: themeColors.hoverModeRow
+				className={`color-picker hoverBGColor ${themeColors.hoverModeNone
+					? 'hoverModeNone'
+					: themeColors.hoverModeRow
 						? 'hoverModeRow'
 						: themeColors.hoverModeColumn
-						? 'hoverModeColumn'
-						: ''
-				}` }
-				value={ themeColors.hoverBGColor || '' }
+							? 'hoverModeColumn'
+							: ''
+					}`}
+				value={themeColors.hoverBGColor || ''}
 			/>
 			<input
 				type="hidden"
 				id="hoverTextColor"
 				className="color-picker hoverTextColor"
-				value={ themeColors.hoverTextColor || '#e8e8e8' }
+				value={themeColors.hoverTextColor || '#e8e8e8'}
 			/>
 			<input
 				type="hidden"
 				id="borderColor"
 				className="color-picker borderColor"
-				value={ themeColors.borderColor || '#000000' }
+				value={themeColors.borderColor || '#000000'}
 			/>
 			<input
 				type="hidden"
 				id="outsideborderColor"
 				className="color-picker outsideborderColor"
-				value={ themeColors.outsideborderColor || '#ffffff' }
+				value={themeColors.outsideborderColor || '#ffffff'}
 			/>
 			<input
 				className="borderType"
@@ -157,7 +194,7 @@ const ThemeFields = ( { tableSettings } ) => {
 				id="border-type"
 				placeholder="10px"
 				name="borderType"
-				value={ themeColors.borderType || 'rounded' }
+				value={themeColors.borderType || 'rounded'}
 			/>
 			<input
 				className="borderRadius"
@@ -165,7 +202,7 @@ const ThemeFields = ( { tableSettings } ) => {
 				id="border-radius"
 				placeholder="10px"
 				name="borderRadius"
-				value={ themeColors.borderRadius || '10px' }
+				value={themeColors.borderRadius || '10px'}
 			/>
 
 			<input
@@ -174,7 +211,7 @@ const ThemeFields = ( { tableSettings } ) => {
 				id="pagination-style"
 				placeholder="10px"
 				name="paginationStyle"
-				value={ themeColors.paginationStyle || 'default_pagination' }
+				value={themeColors.paginationStyle || 'default_pagination'}
 			/>
 
 			<input
@@ -183,16 +220,60 @@ const ThemeFields = ( { tableSettings } ) => {
 				id="paginationAciveBtnColor"
 				placeholder="10px"
 				name="paginationAciveBtnColor"
-				value={ themeColors.paginationAciveBtnColor || '#2F80ED' }
+				value={themeColors.paginationAciveBtnColor || '#2F80ED'}
 			/>
 			<input
 				className="pagination_center"
 				type="hidden"
 				id="pagination_center"
 				name="pagination_center"
-				value={ themeColors.pagination_center }
-				checked={ themeColors?.pagination_center }
+				value={themeColors.pagination_center}
+				checked={themeColors?.pagination_center}
 			/>
+
+			{/* Sticky  */}
+			<input
+				className="enable_fixed_headers"
+				type="hidden"
+				id="enable_fixed_headers"
+				name="enable_fixed_headers"
+				checked={tableSettings.table_settings?.fixed_headers || false}
+			/>
+
+			<input
+				className="header_offset"
+				type="hidden"
+				id="header_offset"
+				name="header_offset"
+				value={tableSettings.table_settings?.header_offset || 0}
+
+			/>
+
+			<input
+				className="enable_fixed_columns"
+				type="hidden"
+				id="enable_fixed_columns"
+				name="enable_fixed_columns"
+				checked={tableSettings.table_settings?.enable_fixed_columns || false}
+			/>
+
+			<input
+				className="left_columns"
+				type="hidden"
+				id="left_columns"
+				name="left_columns"
+				value={tableSettings.table_settings?.left_columns || 0}
+			/>
+
+			<input
+				className="right_columns"
+				type="hidden"
+				id="right_columns"
+				name="right_columns"
+				value={tableSettings.table_settings?.right_columns || 0}
+			/>
+
+
 		</div>
 	);
 };

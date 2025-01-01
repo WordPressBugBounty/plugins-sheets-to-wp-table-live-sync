@@ -1,9 +1,9 @@
 .banner-content {
-    display: flex;
+	display: flex;
 }
 
-.upgrade-btn-wrapper{
-    margin-top: 30px;
+.upgrade-btn-wrapper {
+	margin-top: 30px;
 }
 
 .gswpts-upgrade-banner,
@@ -13,10 +13,10 @@
 }
 
 p.review-notice {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    font-family: inter;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: inter;
 }
 
 .gswpts-image-icon {
@@ -27,35 +27,35 @@ p.review-notice {
 }
 
 .bottom-fields {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .already-did-hook {
 	padding: 15px 20px;
-    background: #F9FAFB;
-    border-radius: 8px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 21px;
-    color: #4B5563;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
+	background: #F9FAFB;
+	border-radius: 8px;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 21px;
+	color: #4B5563;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	transition: all 0.3s ease;
+	cursor: pointer;
 }
 
-.already-did-hook:hover{
+.already-did-hook:hover {
 	background: #efefef;
 	color: #6b6a6a;
 }
 
 .ratting_popup-container {
-    z-index: 1000;
+	z-index: 1000;
 }
 
 .gswpts-upgrade-close,
@@ -73,9 +73,9 @@ p.review-notice {
 }
 
 .upgrade-btn-wrapper {
-    display: flex;
-    flex-direction: row;
-    margin-top: 18px;
+	display: flex;
+	flex-direction: row;
+	margin-top: 18px;
 }
 
 .upgrade-button {
@@ -141,7 +141,7 @@ p.review-notice {
 	flex-direction: column;
 	justify-content: left;
 	margin-right: 10px;
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 .gswpts-upgrade-banner {
@@ -153,7 +153,7 @@ p.review-notice {
 	box-sizing: border-box;
 	border: 2px solid #e5e7eb;
 	background-color: #fff;
-	border-radius: 4px;
+	border-radius: 6px;
 }
 
 .gswpts-upgrade-banner .content {
@@ -176,7 +176,7 @@ p.review-notice {
 	font-weight: 600;
 }
 
-.gswpts-influencer-banner, 
+.gswpts-influencer-banner,
 .gswpts-ratting-banner {
 	/* display: none; */
 	flex-direction: row;
@@ -186,7 +186,7 @@ p.review-notice {
 	margin: 20px auto;
 	border: 2px solid #e5e7eb;
 	background-color: #fff;
-	border-radius: 4px;
+	border-radius: 6px;
 }
 
 .affiliate-button {
@@ -227,73 +227,76 @@ p.review-notice {
 	display: flex;
 	align-items: center;
 	transform: scale(1);
-  }
-  
-  .ratting_popup-container h3 {
+}
+
+.ratting_popup-container h3 {
 	margin: 10px;
-  }
-  
-  .rating-container {
+}
+
+.rating-container {
 	display: flex;
 	flex-direction: row;
 	cursor: pointer;
-  }
+}
 
-  h3.rating-heading {
-    font-weight: 400;
-  }
-  span.sheets-plugin-title {
-    font-weight: 600;
-  }
-  
-  .ratting-yellow-icon {
+h3.rating-heading {
+	font-weight: 400;
+}
+
+span.sheets-plugin-title {
+	font-weight: 600;
+}
+
+.ratting-yellow-icon {
 	content: url("./public/icons/top-banner/yellow-star2.svg");
 	width: 28px;
 	height: 28px;
-  }
-  
-  .ratting-gray-icon {
+}
+
+.ratting-gray-icon {
 	content: url("./public/icons/top-banner/gray-star.svg");
 	width: 28px;
 	height: 28px;
-  }
-  
-  .ratting-orange-icon {
+}
+
+.ratting-orange-icon {
 	content: url("./public/icons/top-banner/orange-star.svg");
 	width: 28px;
 	height: 28px;
 	/* transition: 0.2s all ease-out; */
-  }
+}
 
-  
-  .ratting-image-icon {
+
+.ratting-image-icon {
 	margin: 20px;
 	padding: 10px;
 	vertical-align: top;
 	align-self: flex-start;
-  }
-  .ratting-rating-close,
-  .ratting-upgrade-close,
-  .ratting-influencer-close {
+}
+
+.ratting-rating-close,
+.ratting-upgrade-close,
+.ratting-influencer-close {
 	position: absolute;
 	right: 35px;
 	cursor: pointer;
-  }
-  
-  .ratting-rating-close::before,
-  .ratting-upgrade-close::before,
-  .ratting-influencer-close::before {
+}
+
+.ratting-rating-close::before,
+.ratting-upgrade-close::before,
+.ratting-influencer-close::before {
 	content: url("./public/icons/top-banner/cross.svg");
-  }
-  
-  .ratting_custom-select option {
-	font-size: 16px; 
-  }
-  
-  .ratting_custom-select option:checked {
+}
+
+.ratting_custom-select option {
 	font-size: 16px;
-  }
-  .ratting_custom-select {
+}
+
+.ratting_custom-select option:checked {
+	font-size: 16px;
+}
+
+.ratting_custom-select {
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -304,85 +307,85 @@ p.review-notice {
 	min-width: 95%;
 	border-radius: 0.3rem !important;
 	cursor: pointer;
-  }
+}
 
 
-  /* Custom Select  */
-  .custom-select {
-    position: relative;
-    width: 200px; 
+/* Custom Select  */
+.custom-select {
+	position: relative;
+	width: 200px;
 	margin-top: 5px;
 }
 
 .selected-option {
-    display: block;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
+	display: block;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 span.selected-option {
-    width: 395px;
-    height: 45px;
-    border-radius: 8px;
-    line-height: 2;
+	width: 395px;
+	height: 45px;
+	border-radius: 8px;
+	line-height: 2;
 	position: relative;
 }
 
 
 
 .options-list {
-    display: none;
-    position: absolute;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
+	display: none;
+	position: absolute;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
 }
 
 .options-list li {
-    padding: 10px;
-    cursor: pointer;
+	padding: 10px;
+	cursor: pointer;
 }
 
 .options-list li:hover {
-    background-color: #EFF6FF;
+	background-color: #EFF6FF;
 	border-radius: 5px;
 }
 
 .options-list li:nth-child(1) {
-    background-color: #EFF6FF;
-    border-radius: 5px;
+	background-color: #EFF6FF;
+	border-radius: 5px;
 }
 
 ul.options-list {
-    width: 395px;
-    height: 170px;
-    border-radius: 8px;
-    line-height: 2;
+	width: 395px;
+	height: 170px;
+	border-radius: 8px;
+	line-height: 2;
 	font-size: 16px;
 	font-weight: 400;
 }
 
 li.remind-me-text {
-    font-weight: 300;
-    font-size: 16px;
+	font-weight: 300;
+	font-size: 16px;
 	color: #7c7c7c;
 }
 
 
-  /* END  */
-  
-  .ratting_select-wrapper {
+/* END  */
+
+.ratting_select-wrapper {
 	margin-top: 35px;
 	margin-left: 10px;
-  }
+}
 
-  /* Select Carrot  */
-  .selected-option::after {
+/* Select Carrot  */
+.selected-option::after {
 	content: url("./public/icons/top-banner/arrow-down.svg");
 	position: absolute;
 	top: 50%;
@@ -393,26 +396,27 @@ li.remind-me-text {
 	color: #555;
 	z-index: 9;
 	pointer-events: none;
-  }
+}
 
-  .custom-select.open .selected-option::after {
-    transform: translateY(-50%) rotateX(180deg);
-  }
-  
-  .ratting_show_the_popup_start {
+.custom-select.open .selected-option::after {
+	transform: translateY(-50%) rotateX(180deg);
+}
+
+.ratting_show_the_popup_start {
 	font-weight: 600;
 	font-size: 15px;
 	margin-bottom: 5px;
-  }
-  .ratting_show_the_popup_start {
-	align-self: flex-start;
-  }
-  
-  .ratting_custom-select {
-	margin-top: auto;
-  }
+}
 
-  .ratting_custom-button {
+.ratting_show_the_popup_start {
+	align-self: flex-start;
+}
+
+.ratting_custom-select {
+	margin-top: auto;
+}
+
+.ratting_custom-button {
 	display: inline-block;
 	padding: 10px 40px 10px 40px;
 	background-color: #2563eb;
@@ -424,60 +428,68 @@ li.remind-me-text {
 	cursor: pointer;
 	border: none;
 	transition: all 0.3s ease;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
 	.ratting_custom-select {
-	  width: 100%;
+		width: 100%;
 	}
-	.ratting_select-wrapper {
-	  margin-top: 50px;
-	  padding-left: 0%;
-	}
-  }
-  @media (max-width: 968px) {
-	.ratting_select-wrapper {
-	  margin-top: 50px;
-	}
-  }
-  @media (max-width: 1200px) {
-	.ratting_select-wrapper {
-	  margin-top: 50px;
-	}
-  }
 
-  .ratting_popup_wrap1.ratting_popup_wrap13 {
+	.ratting_select-wrapper {
+		margin-top: 50px;
+		padding-left: 0%;
+	}
+}
+
+@media (max-width: 968px) {
+	.ratting_select-wrapper {
+		margin-top: 50px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.ratting_select-wrapper {
+		margin-top: 50px;
+	}
+}
+
+.ratting_popup_wrap1.ratting_popup_wrap13 {
 	margin-top: 40px;
-  }
+}
 
-  .ratting_custom-button:hover {
-    color: #fff;
-    background-color: #003bbe;
-	}
-  
-  .promo_close_btn_submit {
+.ratting_custom-button:hover {
+	color: #fff;
+	background-color: #003bbe;
+}
+
+.promo_close_btn_submit {
 	margin: 10px 0px;
 	text-align: right;
 	margin-right: 10px;
-  }
-  .ratting_popup_wrap1 {
+}
+
+.ratting_popup_wrap1 {
 	text-align: center;
 	margin-top: 10px;
 	margin-bottom: 20px;
-  }
-  .ratting_popup_wrap1 p {
+}
+
+.ratting_popup_wrap1 p {
 	font-size: 16px !important;
 	color: darkslategrey;
 	font-weight: 500;
-  }
-  .ratting_just_margin-up {
+}
+
+.ratting_just_margin-up {
 	margin-top: -24px;
-  }
-  .ratting_popup_wrap {
+}
+
+.ratting_popup_wrap {
 	text-align: left;
 	margin-left: 10px;
-  }
-  .ratting_popup_wrap h4 {
+}
+
+.ratting_popup_wrap h4 {
 	font-size: 18px;
 	font-family: inherit;
 	color: #111827;
@@ -485,31 +497,36 @@ li.remind-me-text {
 	margin: 0;
 	padding: 0px;
 	font-weight: 500;
-  }
-  .ratting_popup_wrap1 h2 {
+}
+
+.ratting_popup_wrap1 h2 {
 	font-weight: 700;
-  }
-  .ratting_next_heading {
+}
+
+.ratting_next_heading {
 	margin-top: -10px;
-  }
-  .ratting_popup-content {
+}
+
+.ratting_popup-content {
 	background-color: #fefefe;
 	margin: auto;
 	padding: 15px;
 	border: 1px solid rgba(18, 27, 33, 0.2);
 	border-radius: 0.95rem;
 	width: 450px;
-  }
-  @media (max-width: 1056px) {
+}
+
+@media (max-width: 1056px) {
 	.ratting_popup-content {
-	  background-color: #fefefe;
-	  margin: auto;
-	  padding: 15px;
-	  border: 1px solid #888;
-	  width: 50%;
+		background-color: #fefefe;
+		margin: auto;
+		padding: 15px;
+		border: 1px solid #888;
+		width: 50%;
 	}
-  }
-  .ratting_popup-content a.close {
+}
+
+.ratting_popup-content a.close {
 	color: #aaaaaa;
 	float: right;
 	font-size: 28px;
@@ -518,9 +535,8 @@ li.remind-me-text {
 	padding: 0;
 	margin-right: 5px;
 	text-decoration: none;
-  }
-  
-  .ratting_popup-content a.close:hover {
+}
+
+.ratting_popup-content a.close:hover {
 	color: #333;
-  }
-  
+}

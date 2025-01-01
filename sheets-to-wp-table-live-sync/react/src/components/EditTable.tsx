@@ -40,41 +40,41 @@ function EditTable() {
 	const { id } = useParams();
 	const sheetUrlRef = useRef();
 	const verticalModelRef = useRef();
-	const [ loader, setLoader ] = useState< boolean >( false );
-	const [ verticalmodal, setVerticalmodal ] = useState< boolean >( false );
-	const [ previewLoader, setPreviewLoader ] = useState< boolean >( false );
+	const [loader, setLoader] = useState<boolean>(false);
+	const [verticalmodal, setVerticalmodal] = useState<boolean>(false);
+	const [previewLoader, setPreviewLoader] = useState<boolean>(false);
 
-	const [ privatesheetmessage, setPrivateSheetmessage ] = useState( false );
-	const [ limitedtmessage, setLimitedmessage ] = useState( false );
+	const [privatesheetmessage, setPrivateSheetmessage] = useState(false);
+	const [limitedtmessage, setLimitedmessage] = useState(false);
 
-	const [ hidingContext, setHidingContext ] = useState(
-		localStorage.getItem( 'third_active_tab' ) || 'columns'
+	const [hidingContext, setHidingContext] = useState(
+		localStorage.getItem('third_active_tab') || 'columns'
 	);
-	const [ copySuccess, setCopySuccess ] = useState( false );
+	const [copySuccess, setCopySuccess] = useState(false);
 
 	//Main parent tabs
-	const [ activeTab, setActiveTab ] = useState(
-		localStorage.getItem( 'active_tab' ) || 'data_source'
+	const [activeTab, setActiveTab] = useState(
+		localStorage.getItem('active_tab') || 'data_source'
 	);
 
 	//Second
-	const [ secondActiveTabs, setSecondActiveTabs ] = useState(
-		localStorage.getItem( 'second_active_tab' ) || 'layout'
+	const [secondActiveTabs, setSecondActiveTabs] = useState(
+		localStorage.getItem('second_active_tab') || 'layout'
 	);
 
 	//Third Row
-	const [ thirdActiveTabs, setThirdActiveTabs ] = useState< string >(
-		localStorage.getItem( 'third_active_tab' ) || 'columns'
+	const [thirdActiveTabs, setThirdActiveTabs] = useState<string>(
+		localStorage.getItem('third_active_tab') || 'columns'
 	);
 
 	//Third Row
-	const [ forthActiveTabs, setForthActiveTabs ] = useState< string >(
-		localStorage.getItem( 'forth_active_tab' ) || 'conditional_view'
+	const [forthActiveTabs, setForthActiveTabs] = useState<string>(
+		localStorage.getItem('forth_active_tab') || 'conditional_view'
 	);
 
-	const handleSetActiveTab = ( key ) => {
-		setActiveTab( key );
-		localStorage.setItem( 'active_tab', key );
+	const handleSetActiveTab = (key) => {
+		setActiveTab(key);
+		localStorage.setItem('active_tab', key);
 
 		if (key === 'conditional_view') {
 			localStorage.setItem('conditional_view_visited', true);
@@ -86,72 +86,72 @@ function EditTable() {
 
 
 		// Reset thirdActiveTabs when changing main tabs, except when moving to 'conditional_view'
-		if ( key !== 'conditional_view' ) {
-			setThirdActiveTabs( 'columns' );
-			localStorage.setItem( 'third_active_tab', 'columns' );
+		if (key !== 'conditional_view') {
+			setThirdActiveTabs('columns');
+			localStorage.setItem('third_active_tab', 'columns');
 		}
 
 		// Reset forthActiveTabs if necessary
-		if ( key !== 'conditional_view' ) {
-			setForthActiveTabs( 'conditional_view' );
-			localStorage.setItem( 'forth_active_tab', 'conditional_view' );
+		if (key !== 'conditional_view') {
+			setForthActiveTabs('conditional_view');
+			localStorage.setItem('forth_active_tab', 'conditional_view');
 		}
 
-		if ( key === 'data_source' || key === 'theme_settings' ) {
-			setSecondActiveTabs( 'layout' );
-			localStorage.setItem( 'second_active_tab', 'layout' );
+		if (key === 'data_source' || key === 'theme_settings') {
+			setSecondActiveTabs('layout');
+			localStorage.setItem('second_active_tab', 'layout');
 
-			if ( key !== 'conditional_view' ) {
-				setThirdActiveTabs( 'columns' );
-				localStorage.setItem( 'third_active_tab', 'columns' );
+			if (key !== 'conditional_view') {
+				setThirdActiveTabs('columns');
+				localStorage.setItem('third_active_tab', 'columns');
 			}
 		}
 	};
 
-	const handleSetsecondTab = ( key ) => {
-		setSecondActiveTabs( key );
-		localStorage.setItem( 'second_active_tab', key );
+	const handleSetsecondTab = (key) => {
+		setSecondActiveTabs(key);
+		localStorage.setItem('second_active_tab', key);
 	};
 
 	// Callback function to update secondActiveTab in EditTable component
-	const updateSecondActiveTab = ( tab ) => {
-		setSecondActiveTabs( tab );
+	const updateSecondActiveTab = (tab) => {
+		setSecondActiveTabs(tab);
 	};
 
 	// Callback function to update thirdActiveTab in EditTable component
-	const updateThirdActiveTab = ( tab ) => {
-		setThirdActiveTabs( tab );
+	const updateThirdActiveTab = (tab) => {
+		setThirdActiveTabs(tab);
 	};
 
-	const [ tableSettings, setTableSettings ] = useState( {} );
+	const [tableSettings, setTableSettings] = useState({});
 
-	const [ previewClasses, setPreviewClasses ] =
-		useState( 'mode-hide-columns' );
+	const [previewClasses, setPreviewClasses] =
+		useState('mode-hide-columns');
 
-	const [ previewModeClasses, setPreviewModeClasses ] =
-		useState( 'columns-desktop' );
+	const [previewModeClasses, setPreviewModeClasses] =
+		useState('columns-desktop');
 
-	const [ tablePreview, setTablePreview ] = useState();
-	const [ paginated, setPaginated ] = useState( false );
+	const [tablePreview, setTablePreview] = useState();
+	const [paginated, setPaginated] = useState(false);
 
-	const [ openDropdown, setOpenDropdown ] = useState( false );
-	const [ openDropdownShortCode, setOpenDropdownShortCode ] =
-		useState( false );
+	const [openDropdown, setOpenDropdown] = useState(false);
+	const [openDropdownShortCode, setOpenDropdownShortCode] =
+		useState(false);
 
-	const getTitleForTab = ( tab ) => {
-		switch ( tab ) {
+	const getTitleForTab = (tab) => {
+		switch (tab) {
 			case 'data_source':
-				return getStrings( 'data-source-title' );
+				return getStrings('data-source-title');
 			case 'theme_settings':
-				return getStrings( 'table-theme-title' );
+				return getStrings('table-theme-title');
 			case 'table_customization':
-				return getStrings( 'tc-title' );
+				return getStrings('tc-title');
 			case 'row_settings':
-				return getStrings( 'hide-row-col-title' );
+				return getStrings('hide-row-col-title');
 			case 'conditional_view':
-				return getStrings( 'conditional-view-title' );
+				return getStrings('conditional-view-title');
 			default:
-				return getStrings( 'data-source-title' );
+				return getStrings('data-source-title');
 		}
 	};
 
@@ -163,47 +163,47 @@ function EditTable() {
 			'row_settings',
 			'conditional_view',
 		];
-		const secondTabs = [ 'layout', 'utility', 'style' ];
-		const thirdTabs = [ 'columns', 'rows', 'cells' ];
+		const secondTabs = ['layout', 'utility', 'style'];
+		const thirdTabs = ['columns', 'rows', 'cells'];
 
-		const currentMainIndex = mainTabs.indexOf( activeTab );
+		const currentMainIndex = mainTabs.indexOf(activeTab);
 
-		if ( activeTab === 'table_customization' ) {
-			const currentSecondIndex = secondTabs.indexOf( secondActiveTabs );
-			if ( currentSecondIndex < secondTabs.length - 1 ) {
+		if (activeTab === 'table_customization') {
+			const currentSecondIndex = secondTabs.indexOf(secondActiveTabs);
+			if (currentSecondIndex < secondTabs.length - 1) {
 				// Move to next second-level tab
-				const nextSecondTab = secondTabs[ currentSecondIndex + 1 ];
-				setSecondActiveTabs( nextSecondTab );
-				localStorage.setItem( 'second_active_tab', nextSecondTab );
+				const nextSecondTab = secondTabs[currentSecondIndex + 1];
+				setSecondActiveTabs(nextSecondTab);
+				localStorage.setItem('second_active_tab', nextSecondTab);
 			} else {
 				// Completed second-level tabs, move to 'row_settings'
-				handleSetActiveTab( 'row_settings' );
+				handleSetActiveTab('row_settings');
 			}
-		} else if ( activeTab === 'row_settings' ) {
-			const currentThirdIndex = thirdTabs.indexOf( thirdActiveTabs );
-			if ( currentThirdIndex < thirdTabs.length - 1 ) {
+		} else if (activeTab === 'row_settings') {
+			const currentThirdIndex = thirdTabs.indexOf(thirdActiveTabs);
+			if (currentThirdIndex < thirdTabs.length - 1) {
 				// Move to next third-level tab
-				const nextThirdTab = thirdTabs[ currentThirdIndex + 1 ];
-				setThirdActiveTabs( nextThirdTab );
-				localStorage.setItem( 'third_active_tab', nextThirdTab );
+				const nextThirdTab = thirdTabs[currentThirdIndex + 1];
+				setThirdActiveTabs(nextThirdTab);
+				localStorage.setItem('third_active_tab', nextThirdTab);
 			} else {
 				// Completed third-level tabs, move to 'conditional_view'
-				handleSetActiveTab( 'conditional_view' );
+				handleSetActiveTab('conditional_view');
 			}
 		} else {
-			if ( currentMainIndex < mainTabs.length - 1 ) {
+			if (currentMainIndex < mainTabs.length - 1) {
 				// Move to next main tab
-				handleSetActiveTab( mainTabs[ currentMainIndex + 1 ] );
+				handleSetActiveTab(mainTabs[currentMainIndex + 1]);
 
 				// Reset secondActiveTabs if moving to 'table_customization'
 				if (
-					mainTabs[ currentMainIndex + 1 ] === 'table_customization'
+					mainTabs[currentMainIndex + 1] === 'table_customization'
 				) {
-					handleSetsecondTab( 'layout' );
+					handleSetsecondTab('layout');
 				}
 			} else {
 				// Optionally handle end of navigation
-				console.log( 'End of navigation.' );
+				console.log('End of navigation.');
 			}
 		}
 	};
@@ -216,71 +216,71 @@ function EditTable() {
 			'row_settings',
 			'conditional_view',
 		];
-		const secondTabs = [ 'layout', 'utility', 'style' ];
-		const thirdTabs = [ 'columns', 'rows', 'cells' ];
+		const secondTabs = ['layout', 'utility', 'style'];
+		const thirdTabs = ['columns', 'rows', 'cells'];
 
-		const currentMainIndex = mainTabs.indexOf( activeTab );
+		const currentMainIndex = mainTabs.indexOf(activeTab);
 
-		if ( activeTab === 'conditional_view' ) {
+		if (activeTab === 'conditional_view') {
 			// Move back to 'row_settings' and set to last third-level tab
-			handleSetActiveTab( 'row_settings' );
-			setThirdActiveTabs( 'cells' );
-			localStorage.setItem( 'third_active_tab', 'cells' );
-		} else if ( activeTab === 'row_settings' ) {
-			const currentThirdIndex = thirdTabs.indexOf( thirdActiveTabs );
-			if ( currentThirdIndex > 0 ) {
+			handleSetActiveTab('row_settings');
+			setThirdActiveTabs('cells');
+			localStorage.setItem('third_active_tab', 'cells');
+		} else if (activeTab === 'row_settings') {
+			const currentThirdIndex = thirdTabs.indexOf(thirdActiveTabs);
+			if (currentThirdIndex > 0) {
 				// Move to previous third-level tab
-				const prevThirdTab = thirdTabs[ currentThirdIndex - 1 ];
-				setThirdActiveTabs( prevThirdTab );
-				localStorage.setItem( 'third_active_tab', prevThirdTab );
+				const prevThirdTab = thirdTabs[currentThirdIndex - 1];
+				setThirdActiveTabs(prevThirdTab);
+				localStorage.setItem('third_active_tab', prevThirdTab);
 			} else {
 				// Move back to 'table_customization'
-				handleSetActiveTab( 'table_customization' );
-				setSecondActiveTabs( 'style' ); // Optionally, set to last second-level tab
-				localStorage.setItem( 'second_active_tab', 'style' );
+				handleSetActiveTab('table_customization');
+				setSecondActiveTabs('style'); // Optionally, set to last second-level tab
+				localStorage.setItem('second_active_tab', 'style');
 			}
-		} else if ( activeTab === 'table_customization' ) {
-			const currentSecondIndex = secondTabs.indexOf( secondActiveTabs );
-			if ( currentSecondIndex > 0 ) {
+		} else if (activeTab === 'table_customization') {
+			const currentSecondIndex = secondTabs.indexOf(secondActiveTabs);
+			if (currentSecondIndex > 0) {
 				// Move to previous second-level tab
-				const prevSecondTab = secondTabs[ currentSecondIndex - 1 ];
-				setSecondActiveTabs( prevSecondTab );
-				localStorage.setItem( 'second_active_tab', prevSecondTab );
+				const prevSecondTab = secondTabs[currentSecondIndex - 1];
+				setSecondActiveTabs(prevSecondTab);
+				localStorage.setItem('second_active_tab', prevSecondTab);
 			} else {
 				// Move back to previous main tab
-				if ( currentMainIndex > 0 ) {
-					handleSetActiveTab( mainTabs[ currentMainIndex - 1 ] );
+				if (currentMainIndex > 0) {
+					handleSetActiveTab(mainTabs[currentMainIndex - 1]);
 				}
 			}
 		} else {
-			if ( currentMainIndex > 0 ) {
+			if (currentMainIndex > 0) {
 				// Move back to previous main tab
-				handleSetActiveTab( mainTabs[ currentMainIndex - 1 ] );
+				handleSetActiveTab(mainTabs[currentMainIndex - 1]);
 			}
 		}
 	};
 
 	const getTableData = () => {
-		setLoader( true );
+		setLoader(true);
 
-		wp.ajax.send( 'swptls_edit_table', {
+		wp.ajax.send('swptls_edit_table', {
 			data: {
 				nonce: getNonce(),
 				id,
 			},
-			success( response ) {
-				setTableSettings( {
+			success(response) {
+				setTableSettings({
 					...response,
 					id,
-				} );
+				});
 
-				getTablePreview( response );
-				setLoader( false );
+				getTablePreview(response);
+				setLoader(false);
 			},
-			error( error ) {
-				console.error( error );
+			error(error) {
+				console.error(error);
 			},
-		} );
+		});
 	};
 
 	/**
@@ -288,71 +288,71 @@ function EditTable() {
 	 */
 	const theme = tableSettings?.table_settings?.table_style || 'default-style';
 	const paginationStyle =
-		tableSettings?.table_settings?.import_styles_theme_colors?.[ theme ]
+		tableSettings?.table_settings?.import_styles_theme_colors?.[theme]
 			?.paginationStyle || 'default_pagination';
 
-	const getPaginateSettings = ( style ) => {
+	const getPaginateSettings = (style) => {
 		const paginationStyle =
-			tableSettings?.table_settings?.import_styles_theme_colors?.[ theme ]
+			tableSettings?.table_settings?.import_styles_theme_colors?.[theme]
 				?.paginationStyle || 'default_pagination';
 
-		if ( paginationStyle === 'default_pagination' ) {
+		if (paginationStyle === 'default_pagination') {
 			return {
-				first: `<span class='paging-first-${ style }'>${ getStrings(
+				first: `<span class='paging-first-${style}'>${getStrings(
 					'first'
-				) }</span>`,
-				previous: `<span class='paging-backward-${ style }'>${ getStrings(
+				)}</span>`,
+				previous: `<span class='paging-backward-${style}'>${getStrings(
 					'previous'
-				) }</span>`,
-				next: `<span class='paging-forward-${ style }'>${ getStrings(
+				)}</span>`,
+				next: `<span class='paging-forward-${style}'>${getStrings(
 					'next'
-				) }</span>`,
-				last: `<span class='paging-last-${ style }'>${ getStrings(
+				)}</span>`,
+				last: `<span class='paging-last-${style}'>${getStrings(
 					'last'
-				) }</span>`,
+				)}</span>`,
 			};
 		} else {
 			return {
-				first: `<span class='paging-first-${ style }'>${ getStrings(
+				first: `<span class='paging-first-${style}'>${getStrings(
 					'first'
-				) }</span>`,
-				previous: `<span class='paging-backward-${ style }'>‹</span>`,
-				next: `<span class='paging-forward-${ style }'>›</span>`,
-				last: `<span class='paging-last-${ style }'>${ getStrings(
+				)}</span>`,
+				previous: `<span class='paging-backward-${style}'>‹</span>`,
+				next: `<span class='paging-forward-${style}'>›</span>`,
+				last: `<span class='paging-last-${style}'>${getStrings(
 					'last'
-				) }</span>`,
+				)}</span>`,
 			};
 		}
 	};
 
-	const getTablePreview = ( values ) => {
-		setPreviewLoader( true );
-		wp.ajax.send( 'swptls_get_table_preview', {
+	const getTablePreview = (values) => {
+		setPreviewLoader(true);
+		wp.ajax.send('swptls_get_table_preview', {
 			data: {
 				nonce: getNonce(),
 				...values,
-				table_settings: JSON.stringify( values.table_settings ),
+				table_settings: JSON.stringify(values.table_settings),
 				id,
 			},
-			success( response ) {
-				setTablePreview( {
+			success(response) {
+				setTablePreview({
 					...response,
-				} );
+				});
 
-				setPreviewLoader( false );
+				setPreviewLoader(false);
 
-				if ( response.is_private ) {
-					setPrivateSheetmessage( response.is_private );
+				if (response.is_private) {
+					setPrivateSheetmessage(response.is_private);
 				}
 				// console.log(response.is_private)
 
 				let dom = `<"#filtering_input"lf>rt<"#bottom_options"ip>`;
 
-				if ( isProActive() ) {
+				if (isProActive()) {
 					dom = `B<"#filtering_input"lf>rt<"#bottom_options"ip>`;
 				}
 
-				if ( ! previewLoader ) {
+				if (!previewLoader) {
 					const tableOptions = {
 						pageLength: parseInt(
 							values.table_settings.default_rows_per_page
@@ -361,112 +361,112 @@ function EditTable() {
 						ordering: values.table_settings.allow_sorting,
 
 						order: values.table_settings.allow_singleshort
-						? [[(values.table_settings.columnnumber ? values.table_settings.columnnumber : 0), values.table_settings.sorting_mode ? values.table_settings.sorting_mode : 'desc']]
-						: (values.table_settings.allow_sorting ? [] : []),
+							? [[(values.table_settings.columnnumber ? values.table_settings.columnnumber : 0), values.table_settings.sorting_mode ? values.table_settings.sorting_mode : 'desc']]
+							: (values.table_settings.allow_sorting ? [] : []),
 
 
 						lengthMenu: [
-							[ 1, 5, 10, 15, 30, 50 ],
+							[1, 5, 10, 15, 30, 50],
 							[
-								getStrings( '1' ),
-								getStrings( '5' ),
-								getStrings( '10' ),
-								getStrings( '15' ),
-								getStrings( '30' ),
-								getStrings( '50' ),
+								getStrings('1'),
+								getStrings('5'),
+								getStrings('10'),
+								getStrings('15'),
+								getStrings('30'),
+								getStrings('50'),
 							],
 						],
 						language: {
-							search: getStrings( 'search' ),
-							searchPlaceholder: getStrings( 'search-items' ),
+							search: getStrings('search'),
+							searchPlaceholder: getStrings('search-items'),
 							lengthMenu:
-								getStrings( 'filtering_show' ) +
+								getStrings('filtering_show') +
 								' _MENU_ ' +
-								getStrings( 'filtering_entries' ),
+								getStrings('filtering_entries'),
 							info:
-								getStrings( 'dataTables_info_showing' ) +
+								getStrings('dataTables_info_showing') +
 								' _START_ ' +
-								getStrings( 'dataTables_info_to' ) +
+								getStrings('dataTables_info_to') +
 								' _END_ ' +
-								getStrings( 'dataTables_info_of' ) +
+								getStrings('dataTables_info_of') +
 								' _TOTAL_ ' +
-								getStrings( 'filtering_entries' ),
-							emptyTable: getStrings( 'data-empty-notice' ),
-							zeroRecords: getStrings( 'data-empty-notice' ),
-							paginate: getPaginateSettings( paginationStyle ),
+								getStrings('filtering_entries'),
+							emptyTable: getStrings('data-empty-notice'),
+							zeroRecords: getStrings('data-empty-notice'),
+							paginate: getPaginateSettings(paginationStyle),
 						},
 						buttons: [
 							{
-								text: `<img src="${ SWPTLS_APP.icons.curlyBrackets }" />`,
+								text: `<img src="${SWPTLS_APP.icons.curlyBrackets}" />`,
 								className:
 									'ui inverted button transition hidden json_btn',
 
-								action: function ( e, dt, button, config ) {
+								action: function (e, dt, button, config) {
 									var data = dt.buttons.exportData();
-									var json = JSON.stringify( data );
-									var blob = new Blob( [ json ], {
+									var json = JSON.stringify(data);
+									var blob = new Blob([json], {
 										type: 'application/json',
-									} );
-									var url = URL.createObjectURL( blob );
+									});
+									var url = URL.createObjectURL(blob);
 
 									// Create a link element
-									var link = document.createElement( 'a' );
+									var link = document.createElement('a');
 									link.href = url;
-									link.download = `${ values.table_name }.json`;
+									link.download = `${values.table_name}.json`;
 
 									// Append the link to the document body and trigger the click event
-									document.body.appendChild( link );
+									document.body.appendChild(link);
 									link.click();
 
 									// Cleanup
-									document.body.removeChild( link );
-									URL.revokeObjectURL( url );
+									document.body.removeChild(link);
+									URL.revokeObjectURL(url);
 								},
 
-								titleAttr: getStrings( 'export-json' ),
+								titleAttr: getStrings('export-json'),
 							},
 							{
-								text: `<img src="${ SWPTLS_APP.icons.fileCSV }" />`,
+								text: `<img src="${SWPTLS_APP.icons.fileCSV}" />`,
 								extend: 'csv',
 								className:
 									'ui inverted button transition hidden csv_btn',
-								title: `${ values.table_name }`,
-								titleAttr: getStrings( 'export-csv' ),
+								title: `${values.table_name}`,
+								titleAttr: getStrings('export-csv'),
 							},
 							{
-								text: `<img src="${ SWPTLS_APP.icons.fileExcel }" />`,
+								text: `<img src="${SWPTLS_APP.icons.fileExcel}" />`,
 								extend: 'excel',
 								className:
 									'ui inverted button transition hidden excel_btn',
-								title: `${ values.table_name }`,
-								titleAttr: getStrings( 'export-excel' ),
+								title: `${values.table_name}`,
+								titleAttr: getStrings('export-excel'),
 							},
 							{
-								text: `<img src="${ SWPTLS_APP.icons.printIcon }" />`,
+								text: `<img src="${SWPTLS_APP.icons.printIcon}" />`,
 								extend: 'print',
 								className:
 									'ui inverted button transition hidden print_btn',
-								title: `${ values.table_name }`,
-								titleAttr: getStrings( 'print' ),
+								title: `${values.table_name}`,
+								titleAttr: getStrings('print'),
 							},
 							{
-								text: `<img src="${ SWPTLS_APP.icons.copySolid }" />`,
+								text: `<img src="${SWPTLS_APP.icons.copySolid}" />`,
 								extend: 'copy',
 								className:
 									'ui inverted button transition hidden copy_btn',
-								title: `${ values.table_name }`,
-								titleAttr: getStrings( 'copy' ),
+								title: `${values.table_name}`,
+								titleAttr: getStrings('copy'),
 							},
 						],
 					};
 
 					// Making sorting on Clicking - correct ordering
 					const container =
-						document.querySelector( '#create_tables' );
+						document.querySelector('#create_tables');
 					// Event listener for column sorting
-					if ( container ) {
+					if (container) {
 						const numberOfColumns =
-							container.querySelectorAll( 'thead th' ).length;
+							container.querySelectorAll('thead th').length;
 						// Track the sorting order for each column
 						const sortingOrders = Array.from(
 							{ length: numberOfColumns },
@@ -475,30 +475,30 @@ function EditTable() {
 
 						container.addEventListener(
 							'click',
-							function ( event ) {
+							function (event) {
 								const target = event.target;
 
 								// Check if the click is on a th element
-								if ( target.tagName === 'TH' ) {
+								if (target.tagName === 'TH') {
 									const columnIndex = target.cellIndex;
 
-									if ( sortingOrders ) {
+									if (sortingOrders) {
 										// Toggle sorting order for the clicked column
-										sortingOrders[ columnIndex ] =
-											sortingOrders[ columnIndex ] ===
-											'asc'
+										sortingOrders[columnIndex] =
+											sortingOrders[columnIndex] ===
+												'asc'
 												? 'desc'
 												: 'asc';
 
 										// Clear the existing sorting order
-										window.swptlsDataTable.order( [] );
+										window.swptlsDataTable.order([]);
 
 										// Apply sorting to the clicked column with the updated order
 										window.swptlsDataTable
-											.order( [
+											.order([
 												columnIndex,
-												sortingOrders[ columnIndex ],
-											] )
+												sortingOrders[columnIndex],
+											])
 											.draw();
 									}
 								}
@@ -506,24 +506,24 @@ function EditTable() {
 						);
 					}
 
-					if ( isProActive() ) {
+					if (isProActive()) {
 						tableOptions.lengthMenu = [
-							[ 1, 5, 10, 15, 30, 50, 100, -1 ],
+							[1, 5, 10, 15, 30, 50, 100, -1],
 							[
-								getStrings( '1' ),
-								getStrings( '5' ),
-								getStrings( '10' ),
-								getStrings( '15' ),
-								getStrings( '30' ),
-								getStrings( '50' ),
-								getStrings( '100' ),
-								getStrings( 'All' ),
+								getStrings('1'),
+								getStrings('5'),
+								getStrings('10'),
+								getStrings('15'),
+								getStrings('30'),
+								getStrings('50'),
+								getStrings('100'),
+								getStrings('All'),
 							],
 						];
 					}
 
-					if ( values.table_settings.vertical_scrolling ) {
-						tableOptions.scrollY = `${ values.table_settings.vertical_scrolling }px`;
+					if (values.table_settings.vertical_scrolling) {
+						tableOptions.scrollY = `${values.table_settings.vertical_scrolling}px`;
 					}
 
 					window.swptlsDataTable = new DataTable(
@@ -531,39 +531,39 @@ function EditTable() {
 						tableOptions
 					);
 
-					if ( isProActive() ) {
-						setPdfUrl( values?.source_url );
+					if (isProActive()) {
+						setPdfUrl(values?.source_url);
 					}
 				}
 			},
-			error( error ) {
-				toast.error( error.message );
-				setTablePreview( '' );
-				setPreviewLoader( false );
+			error(error) {
+				toast.error(error.message);
+				setTablePreview('');
+				setPreviewLoader(false);
 			},
-		} );
+		});
 	};
 
 	const handleClosePopup = () => {
-		setVerticalmodal( false );
+		setVerticalmodal(false);
 	};
 
-	function handleCancelOutside( event: MouseEvent ) {
+	function handleCancelOutside(event: MouseEvent) {
 		if (
 			verticalModelRef.current &&
-			! verticalModelRef.current.contains( event.target )
+			!verticalModelRef.current.contains(event.target)
 		) {
 			handleClosePopup();
 		}
 	}
-	useEffect( () => {
-		document.addEventListener( 'mousedown', handleCancelOutside );
+	useEffect(() => {
+		document.addEventListener('mousedown', handleCancelOutside);
 		return () => {
-			document.removeEventListener( 'mousedown', handleCancelOutside );
+			document.removeEventListener('mousedown', handleCancelOutside);
 		};
-	}, [ handleCancelOutside ] );
+	}, [handleCancelOutside]);
 
-	const handleTableSettingsSave = ( e ) => {
+	const handleTableSettingsSave = (e) => {
 		e.preventDefault();
 
 		delete tableSettings.output;
@@ -572,28 +572,28 @@ function EditTable() {
 		delete tableSettings.table_columns;
 		delete tableSettings.id;
 
-		wp.ajax.send( 'swptls_save_table', {
+		wp.ajax.send('swptls_save_table', {
 			data: {
 				nonce: getNonce(),
 				id,
-				settings: JSON.stringify( tableSettings ),
+				settings: JSON.stringify(tableSettings),
 			},
-			success( response ) {
-				setTableSettings( {
+			success(response) {
+				setTableSettings({
 					...response,
-				} );
+				});
 
-				if ( ! previewLoader ) {
-					getTablePreview( response );
+				if (!previewLoader) {
+					getTablePreview(response);
 				}
 
-				toast.success( 'Settings saved successfully.' );
+				toast.success('Settings saved successfully.');
 			},
-			error( error ) {},
-		} );
+			error(error) { },
+		});
 	};
 
-	const handleUpdateTableandRedirect = ( e ) => {
+	const handleUpdateTableandRedirect = (e) => {
 		e.preventDefault();
 
 		delete tableSettings.output;
@@ -602,28 +602,28 @@ function EditTable() {
 		delete tableSettings.table_columns;
 		delete tableSettings.id;
 
-		wp.ajax.send( 'swptls_save_table', {
+		wp.ajax.send('swptls_save_table', {
 			data: {
 				nonce: getNonce(),
 				id,
-				settings: JSON.stringify( tableSettings ),
+				settings: JSON.stringify(tableSettings),
 			},
-			success( response ) {
-				toast.success( 'Settings saved successfully.' );
+			success(response) {
+				toast.success('Settings saved successfully.');
 				const baseUrl = window.location.href.replace(
 					/\/tables.*/,
 					''
 				);
-				window.location.replace( baseUrl );
+				window.location.replace(baseUrl);
 			},
-			error( error ) {},
-		} );
+			error(error) { },
+		});
 	};
 
-	useEffect( () => {
+	useEffect(() => {
 		getTableData();
 
-		if ( ! isProActive() ) {
+		if (!isProActive()) {
 			/* toast.warning(
 				<>
 					{ getStrings( 'live-sync-is-limited' ) }
@@ -633,91 +633,91 @@ function EditTable() {
 					{ getStrings( 'for-showing-full' ) }
 				</>
 			); */
-			setLimitedmessage( true );
+			setLimitedmessage(true);
 		}
-	}, [] );
+	}, []);
 
 	// Hiding feature
-	useEffect( () => {
-		if ( ! previewLoader ) {
+	useEffect(() => {
+		if (!previewLoader) {
 			const container = document.querySelector(
 				'.gswpts_tables_container'
 			);
-			if ( ! container ) return; // Check if the container exists
+			if (!container) return; // Check if the container exists
 			const table = window?.swptlsDataTable?.table().node();
 
-			if ( ! table || activeTab !== 'row_settings' ) {
+			if (!table || activeTab !== 'row_settings') {
 				return;
 			}
 
-			if ( table ) {
-				const handleClick = ( event ) => {
+			if (table) {
+				const handleClick = (event) => {
 					const target = event.target;
 					const currentNode = target.nodeName;
-					if ( ! isProActive() ) {
+					if (!isProActive()) {
 						return false;
 					}
 
 					// Update isDesktop and isMobile based on the current state
 					const isColumnsDesktop =
-						container.classList.contains( 'columns-desktop' );
+						container.classList.contains('columns-desktop');
 					const isColumnsMobile =
-						container.classList.contains( 'columns-mobile' );
+						container.classList.contains('columns-mobile');
 					const isColumnAutomode =
-						container.classList.contains( 'auto-columns-mode' );
+						container.classList.contains('auto-columns-mode');
 
 					const isRowDesktop =
-						container.classList.contains( 'rows-desktop' );
+						container.classList.contains('rows-desktop');
 					const isRowsMobile =
-						container.classList.contains( 'rows-mobile' );
+						container.classList.contains('rows-mobile');
 					const isRowAutomode =
-						container.classList.contains( 'auto-rows-mode' );
+						container.classList.contains('auto-rows-mode');
 
 					const isCellDesktop =
-						container.classList.contains( 'cells-desktop' );
+						container.classList.contains('cells-desktop');
 					const isCellsMobile =
-						container.classList.contains( 'cells-mobile' );
+						container.classList.contains('cells-mobile');
 					const isCellAutomode =
-						container.classList.contains( 'auto-cells-mode' );
+						container.classList.contains('auto-cells-mode');
 
 					// Determine the hiding context mode based on the current platform.
 					let hidingContextMode;
-					if ( isColumnsDesktop ) {
+					if (isColumnsDesktop) {
 						hidingContextMode = 'columns-desktop';
-					} else if ( isColumnsMobile ) {
+					} else if (isColumnsMobile) {
 						hidingContextMode = 'columns-mobile';
-					} else if ( isColumnAutomode ) {
+					} else if (isColumnAutomode) {
 						hidingContextMode = 'auto-columns-mode';
-					} else if ( isRowDesktop ) {
+					} else if (isRowDesktop) {
 						hidingContextMode = 'rows-desktop';
-					} else if ( isRowsMobile ) {
+					} else if (isRowsMobile) {
 						hidingContextMode = 'rows-mobile';
-					} else if ( isRowAutomode ) {
+					} else if (isRowAutomode) {
 						hidingContextMode = 'auto-rows-mode';
-					} else if ( isCellDesktop ) {
+					} else if (isCellDesktop) {
 						hidingContextMode = 'cells-desktop';
-					} else if ( isCellsMobile ) {
+					} else if (isCellsMobile) {
 						hidingContextMode = 'cells-mobile';
-					} else if ( isCellAutomode ) {
+					} else if (isCellAutomode) {
 						hidingContextMode = 'auto-cells-mode';
 					} else {
 						hidingContextMode = 'columns-desktop';
 					}
 
-					switch ( hidingContextMode ) {
+					switch (hidingContextMode) {
 						case 'columns-desktop':
 							// Handle hiding columns for desktop
-							if ( currentNode === 'TD' ) {
-								switch ( hidingContext ) {
+							if (currentNode === 'TD') {
+								switch (hidingContext) {
 									case 'columns':
 										// Check if the clicked element is a table cell
-										if ( target.nodeName === 'TD' ) {
+										if (target.nodeName === 'TD') {
 											const columnIndex =
 												target.cellIndex;
 											let hiddenColumnsDesktop = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
-													?.hide_column || [] ),
+													?.hide_column || []),
 											];
 
 											if (
@@ -727,7 +727,7 @@ function EditTable() {
 											) {
 												hiddenColumnsDesktop =
 													hiddenColumnsDesktop.filter(
-														( item ) =>
+														(item) =>
 															item !== columnIndex
 													);
 												target.classList.remove(
@@ -744,27 +744,26 @@ function EditTable() {
 
 											const cells =
 												table.querySelectorAll(
-													`td:nth-child(${
-														columnIndex + 1
+													`td:nth-child(${columnIndex + 1
 													})`
 												);
-											cells.forEach( ( cell ) => {
+											cells.forEach((cell) => {
 												cell.classList.toggle(
 													'hidden-column',
 													hiddenColumnsDesktop.includes(
 														columnIndex
 													)
 												);
-											} );
+											});
 
-											setTableSettings( {
+											setTableSettings({
 												...tableSettings,
 												table_settings: {
 													...tableSettings?.table_settings,
 													hide_column:
 														hiddenColumnsDesktop,
 												},
-											} );
+											});
 										}
 										break;
 								}
@@ -773,18 +772,18 @@ function EditTable() {
 
 						case 'columns-mobile':
 							// Handle hiding columns for mobile
-							if ( currentNode === 'TD' ) {
-								switch ( hidingContext ) {
+							if (currentNode === 'TD') {
+								switch (hidingContext) {
 									case 'columns':
 										// Check if the clicked element is a table cell
-										if ( target.nodeName === 'TD' ) {
+										if (target.nodeName === 'TD') {
 											const columnIndex =
 												target.cellIndex;
 											let hiddenColumnsMobile = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
 													?.hide_column_mobile ||
-													[] ),
+													[]),
 											];
 
 											if (
@@ -794,7 +793,7 @@ function EditTable() {
 											) {
 												hiddenColumnsMobile =
 													hiddenColumnsMobile.filter(
-														( item ) =>
+														(item) =>
 															item !== columnIndex
 													);
 												target.classList.remove(
@@ -811,27 +810,26 @@ function EditTable() {
 
 											const cells =
 												table.querySelectorAll(
-													`td:nth-child(${
-														columnIndex + 1
+													`td:nth-child(${columnIndex + 1
 													})`
 												);
-											cells.forEach( ( cell ) => {
+											cells.forEach((cell) => {
 												cell.classList.toggle(
 													'hidden-column-mobile',
 													hiddenColumnsMobile.includes(
 														columnIndex
 													)
 												);
-											} );
+											});
 
-											setTableSettings( {
+											setTableSettings({
 												...tableSettings,
 												table_settings: {
 													...tableSettings?.table_settings,
 													hide_column_mobile:
 														hiddenColumnsMobile,
 												},
-											} );
+											});
 										}
 										break;
 								}
@@ -840,11 +838,11 @@ function EditTable() {
 
 						case 'auto-columns-mode':
 							// Handle hiding columns for mobile
-							if ( currentNode === 'TD' ) {
-								switch ( hidingContext ) {
+							if (currentNode === 'TD') {
+								switch (hidingContext) {
 									case 'columns':
 										// Check if the clicked element is a table cell
-										if ( target.nodeName === 'TD' ) {
+										if (target.nodeName === 'TD') {
 											// Get the column index of the clicked cell
 											const columnIndex =
 												target.cellIndex;
@@ -852,15 +850,15 @@ function EditTable() {
 											// console.log(columnIndex);
 
 											let hiddenColumnsDesktop = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
-													?.hide_column || [] ),
+													?.hide_column || []),
 											];
 											let hiddenColumnsMobile = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
 													?.hide_column_mobile ||
-													[] ),
+													[]),
 											];
 
 											if (
@@ -870,7 +868,7 @@ function EditTable() {
 											) {
 												hiddenColumnsDesktop =
 													hiddenColumnsDesktop.filter(
-														( item ) =>
+														(item) =>
 															item !== columnIndex
 													);
 												target.classList.remove(
@@ -891,7 +889,7 @@ function EditTable() {
 											) {
 												hiddenColumnsMobile =
 													hiddenColumnsMobile.filter(
-														( item ) =>
+														(item) =>
 															item !== columnIndex
 													);
 												target.classList.remove(
@@ -909,45 +907,44 @@ function EditTable() {
 											// Toggle 'hidden' class on every cell in the column
 											const cells =
 												table.querySelectorAll(
-													`td:nth-child(${
-														columnIndex + 1
+													`td:nth-child(${columnIndex + 1
 													})`
 												);
-											cells.forEach( ( cell ) => {
+											cells.forEach((cell) => {
 												cell.classList.toggle(
 													'hidden-column',
 													hiddenColumnsDesktop.includes(
 														columnIndex
 													)
 												);
-											} );
-											cells.forEach( ( cell ) => {
+											});
+											cells.forEach((cell) => {
 												cell.classList.toggle(
 													'hidden-column',
 													hiddenColumnsMobile.includes(
 														columnIndex
 													)
 												);
-											} );
+											});
 
-											setTableSettings( {
+											setTableSettings({
 												...tableSettings,
 												table_settings: {
 													...tableSettings?.table_settings,
 													hide_column:
 														hiddenColumnsDesktop,
 												},
-											} );
+											});
 
 											setTableSettings(
-												( prevSettings ) => ( {
+												(prevSettings) => ({
 													...prevSettings,
 													table_settings: {
 														...prevSettings?.table_settings,
 														hide_column_mobile:
 															hiddenColumnsMobile,
 													},
-												} )
+												})
 											);
 										}
 										break;
@@ -959,17 +956,17 @@ function EditTable() {
 
 						case 'rows-desktop':
 							// Handle hiding columns for desktop
-							if ( currentNode === 'TD' ) {
-								switch ( hidingContext ) {
+							if (currentNode === 'TD') {
+								switch (hidingContext) {
 									case 'rows':
 										// Handle hiding rows for desktop
-										if ( currentNode === 'TD' ) {
+										if (currentNode === 'TD') {
 											const row = target.parentNode;
 											const rowIndex = target.dataset.row;
 											let hiddenRowsDesktop = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
-													?.hide_rows || [] ),
+													?.hide_rows || []),
 											];
 
 											if (
@@ -979,7 +976,7 @@ function EditTable() {
 											) {
 												hiddenRowsDesktop =
 													hiddenRowsDesktop.filter(
-														( item ) =>
+														(item) =>
 															item !== rowIndex
 													);
 												row.classList.remove(
@@ -994,14 +991,14 @@ function EditTable() {
 												);
 											}
 
-											setTableSettings( {
+											setTableSettings({
 												...tableSettings,
 												table_settings: {
 													...tableSettings.table_settings,
 													hide_rows:
 														hiddenRowsDesktop,
 												},
-											} );
+											});
 										}
 										break;
 								}
@@ -1010,17 +1007,17 @@ function EditTable() {
 
 						case 'rows-mobile':
 							// Handle hiding columns for mobile
-							if ( currentNode === 'TD' ) {
-								switch ( hidingContext ) {
+							if (currentNode === 'TD') {
+								switch (hidingContext) {
 									case 'rows':
 										// Handle hiding rows for mobile
-										if ( currentNode === 'TD' ) {
+										if (currentNode === 'TD') {
 											const row = target.parentNode;
 											const rowIndex = target.dataset.row;
 											let hiddenRowsMobile = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
-													?.hide_rows_mobile || [] ),
+													?.hide_rows_mobile || []),
 											];
 
 											if (
@@ -1030,7 +1027,7 @@ function EditTable() {
 											) {
 												hiddenRowsMobile =
 													hiddenRowsMobile.filter(
-														( item ) =>
+														(item) =>
 															item !== rowIndex
 													);
 												row.classList.remove(
@@ -1045,14 +1042,14 @@ function EditTable() {
 												);
 											}
 
-											setTableSettings( {
+											setTableSettings({
 												...tableSettings,
 												table_settings: {
 													...tableSettings.table_settings,
 													hide_rows_mobile:
 														hiddenRowsMobile,
 												},
-											} );
+											});
 										}
 										break;
 								}
@@ -1061,11 +1058,11 @@ function EditTable() {
 
 						case 'auto-rows-mode':
 							// Handle hiding columns for mobile
-							if ( currentNode === 'TD' ) {
-								switch ( hidingContext ) {
+							if (currentNode === 'TD') {
+								switch (hidingContext) {
 									case 'rows':
 										// Check if the clicked element is a table cell
-										if ( currentNode === 'TD' ) {
+										if (currentNode === 'TD') {
 											// Get the parent row (tr element)
 											const row = target.parentNode;
 											const td = target;
@@ -1074,14 +1071,14 @@ function EditTable() {
 											const rowIndex = td.dataset.row;
 
 											let hiddenRowsDesktop = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
-													?.hide_rows || [] ),
+													?.hide_rows || []),
 											];
 											let hiddenRowsMobile = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
-													?.hide_rows_mobile || [] ),
+													?.hide_rows_mobile || []),
 											];
 
 											if (
@@ -1091,7 +1088,7 @@ function EditTable() {
 											) {
 												hiddenRowsDesktop =
 													hiddenRowsDesktop.filter(
-														( item ) =>
+														(item) =>
 															item !== rowIndex
 													);
 												row.classList.remove(
@@ -1113,7 +1110,7 @@ function EditTable() {
 											) {
 												hiddenRowsMobile =
 													hiddenRowsMobile.filter(
-														( item ) =>
+														(item) =>
 															item !== rowIndex
 													);
 												row.classList.remove(
@@ -1128,24 +1125,24 @@ function EditTable() {
 												);
 											}
 
-											setTableSettings( {
+											setTableSettings({
 												...tableSettings,
 												table_settings: {
 													...tableSettings.table_settings,
 													hide_rows:
 														hiddenRowsDesktop,
 												},
-											} );
+											});
 
 											setTableSettings(
-												( prevSettings ) => ( {
+												(prevSettings) => ({
 													...prevSettings,
 													table_settings: {
 														...prevSettings.table_settings,
 														hide_rows_mobile:
 															hiddenRowsMobile,
 													},
-												} )
+												})
 											);
 										}
 										break;
@@ -1155,17 +1152,17 @@ function EditTable() {
 						// CELLS
 						case 'cells-desktop':
 							// Handle hiding columns for desktop
-							if ( currentNode === 'TD' ) {
-								switch ( hidingContext ) {
+							if (currentNode === 'TD') {
+								switch (hidingContext) {
 									case 'cells':
 										// Handle hiding cells for desktop
-										if ( target.nodeName === 'TD' ) {
+										if (target.nodeName === 'TD') {
 											const cellIndex =
 												target.dataset.index;
 											let hiddenCellsDesktop = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
-													?.hide_cell || [] ),
+													?.hide_cell || []),
 											];
 
 											if (
@@ -1175,7 +1172,7 @@ function EditTable() {
 											) {
 												hiddenCellsDesktop =
 													hiddenCellsDesktop.filter(
-														( item ) =>
+														(item) =>
 															item !== cellIndex
 													);
 												target.classList.remove(
@@ -1190,14 +1187,14 @@ function EditTable() {
 												);
 											}
 
-											setTableSettings( {
+											setTableSettings({
 												...tableSettings,
 												table_settings: {
 													...tableSettings?.table_settings,
 													hide_cell:
 														hiddenCellsDesktop,
 												},
-											} );
+											});
 										}
 										break;
 								}
@@ -1206,17 +1203,17 @@ function EditTable() {
 
 						case 'cells-mobile':
 							// Handle hiding columns for mobile
-							if ( currentNode === 'TD' ) {
-								switch ( hidingContext ) {
+							if (currentNode === 'TD') {
+								switch (hidingContext) {
 									case 'cells':
 										// Handle hiding cells for mobile
-										if ( target.nodeName === 'TD' ) {
+										if (target.nodeName === 'TD') {
 											const cellIndex =
 												target.dataset.index;
 											let hiddenCellsMobile = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
-													?.hide_cell_mobile || [] ),
+													?.hide_cell_mobile || []),
 											];
 
 											if (
@@ -1226,7 +1223,7 @@ function EditTable() {
 											) {
 												hiddenCellsMobile =
 													hiddenCellsMobile.filter(
-														( item ) =>
+														(item) =>
 															item !== cellIndex
 													);
 												target.classList.remove(
@@ -1241,14 +1238,14 @@ function EditTable() {
 												);
 											}
 
-											setTableSettings( {
+											setTableSettings({
 												...tableSettings,
 												table_settings: {
 													...tableSettings?.table_settings,
 													hide_cell_mobile:
 														hiddenCellsMobile,
 												},
-											} );
+											});
 										}
 										break;
 								}
@@ -1257,23 +1254,23 @@ function EditTable() {
 
 						case 'auto-cells-mode':
 							// Handle hiding columns for mobile
-							if ( currentNode === 'TD' ) {
-								switch ( hidingContext ) {
+							if (currentNode === 'TD') {
+								switch (hidingContext) {
 									case 'cells':
 										// Check if the clicked element is a table cell
-										if ( target.nodeName === 'TD' ) {
+										if (target.nodeName === 'TD') {
 											const cellIndex =
 												target.dataset.index;
 
 											let hiddenCellsDesktop = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
-													?.hide_cell || [] ),
+													?.hide_cell || []),
 											];
 											let hiddenCellsMobile = [
-												...( tableSettings
+												...(tableSettings
 													?.table_settings
-													?.hide_cell_mobile || [] ),
+													?.hide_cell_mobile || []),
 											];
 
 											if (
@@ -1283,7 +1280,7 @@ function EditTable() {
 											) {
 												hiddenCellsDesktop =
 													hiddenCellsDesktop.filter(
-														( item ) =>
+														(item) =>
 															item !== cellIndex
 													);
 												target.classList.remove(
@@ -1305,7 +1302,7 @@ function EditTable() {
 											) {
 												hiddenCellsMobile =
 													hiddenCellsMobile.filter(
-														( item ) =>
+														(item) =>
 															item !== cellIndex
 													);
 												target.classList.remove(
@@ -1320,24 +1317,24 @@ function EditTable() {
 												);
 											}
 
-											setTableSettings( {
+											setTableSettings({
 												...tableSettings,
 												table_settings: {
 													...tableSettings?.table_settings,
 													hide_cell:
 														hiddenCellsDesktop,
 												},
-											} );
+											});
 
 											setTableSettings(
-												( prevSettings ) => ( {
+												(prevSettings) => ({
 													...prevSettings,
 													table_settings: {
 														...prevSettings.table_settings,
 														hide_cell_mobile:
 															hiddenCellsMobile,
 													},
-												} )
+												})
 											);
 										}
 										break;
@@ -1350,24 +1347,24 @@ function EditTable() {
 					}
 				};
 
-				table.addEventListener( 'click', handleClick );
+				table.addEventListener('click', handleClick);
 
 				return () => {
-					table.removeEventListener( 'click', handleClick );
+					table.removeEventListener('click', handleClick);
 				};
 			}
 		}
-	}, [ previewLoader, tableSettings, hidingContext, activeTab ] );
+	}, [previewLoader, tableSettings, hidingContext, activeTab]);
 
 	useEffect(
-		() => handleTableAppearance( tableSettings.table_settings ),
-		[ tableSettings.table_settings, previewLoader ]
+		() => handleTableAppearance(tableSettings.table_settings),
+		[tableSettings.table_settings, previewLoader]
 	);
 
 	// POPUP
-	useEffect( () => {
+	useEffect(() => {
 		const handleClick = () => {
-			WPPOOL.Popup( 'sheets_to_wp_table_live_sync' ).show();
+			WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
 		};
 
 		const proSettings = document.querySelectorAll(
@@ -1375,86 +1372,85 @@ function EditTable() {
 		);
 
 		// console.log(proSettings)
-		proSettings.forEach( ( item ) => {
-			item.addEventListener( 'click', handleClick );
-		} );
+		proSettings.forEach((item) => {
+			item.addEventListener('click', handleClick);
+		});
 
 		return () => {
-			proSettings.forEach( ( item ) => {
-				item.removeEventListener( 'click', handleClick );
-			} );
+			proSettings.forEach((item) => {
+				item.removeEventListener('click', handleClick);
+			});
 		};
-	}, [] );
+	}, []);
 
 	const handleClick = () => {
-		WPPOOL.Popup( 'sheets_to_wp_table_live_sync' ).show();
+		WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
 	};
 	const handleVisit = () => {
-		window.open( 'https://go.wppool.dev/KfVZ', '_blank' );
+		window.open('https://go.wppool.dev/KfVZ', '_blank');
 	};
 
-	const handleCopyShortcode = async ( id ) => {
+	const handleCopyShortcode = async (id) => {
 		// console.log(id);
-		const shortcode = `[gswpts_table id="${ id }"]`;
-		if ( navigator.clipboard && navigator.clipboard.writeText ) {
+		const shortcode = `[gswpts_table id="${id}"]`;
+		if (navigator.clipboard && navigator.clipboard.writeText) {
 			try {
-				await navigator.clipboard.writeText( shortcode );
-				setCopySuccess( true );
-				toast.success( 'Shortcode copied successfully.' );
+				await navigator.clipboard.writeText(shortcode);
+				setCopySuccess(true);
+				toast.success('Shortcode copied successfully.');
 				// Reset copySuccess state after 1 second
-				setTimeout( () => {
-					setCopySuccess( false );
-				}, 1000 );
-			} catch ( err ) {
+				setTimeout(() => {
+					setCopySuccess(false);
+				}, 1000);
+			} catch (err) {
 				console.error(
 					'Failed to copy text using clipboard API: ',
 					err
 				);
-				setCopySuccess( false );
-				toast.success( 'Shortcode copy failed.' );
+				setCopySuccess(false);
+				toast.success('Shortcode copy failed.');
 			}
 		} else {
 			// Fallback method for unsupported browsers
 			try {
-				const textArea = document.createElement( 'textarea' );
+				const textArea = document.createElement('textarea');
 				textArea.value = shortcode;
 				textArea.style.position = 'fixed';
 				textArea.style.opacity = '0';
-				document.body.appendChild( textArea );
+				document.body.appendChild(textArea);
 				textArea.select();
-				textArea.setSelectionRange( 0, textArea.value.length );
-				document.execCommand( 'copy' );
-				document.body.removeChild( textArea );
-				setCopySuccess( true );
-				toast.success( 'Shortcode copied successfully.' );
-				setTimeout( () => {
-					setCopySuccess( false );
-				}, 1000 );
-			} catch ( err ) {
-				console.error( 'Fallback copy method failed: ', err );
-				setCopySuccess( false );
-				toast.success( 'Shortcode copy failed.' );
+				textArea.setSelectionRange(0, textArea.value.length);
+				document.execCommand('copy');
+				document.body.removeChild(textArea);
+				setCopySuccess(true);
+				toast.success('Shortcode copied successfully.');
+				setTimeout(() => {
+					setCopySuccess(false);
+				}, 1000);
+			} catch (err) {
+				console.error('Fallback copy method failed: ', err);
+				setCopySuccess(false);
+				toast.success('Shortcode copy failed.');
 			}
 		}
 	};
 
 	return (
 		<div>
-			{ loader ? (
-				<h2>{ getStrings( 'loading' ) }</h2>
+			{loader ? (
+				<h2>{getStrings('loading')}</h2>
 			) : (
 				// Tabs desgin
 				<>
 					<div className="navbar-step">
 						<ul className="navbar-step__tab-list">
 							<li
-								className={ `${
-									activeTab === 'data_source' ? 'active' : ''
-								}` }
+								className={`${activeTab === 'data_source' ? 'active' : ''
+									}`}
 							>
 								<a
-									onClick={ () =>
-										handleSetActiveTab( 'data_source' )
+									onClick={() =>
+										handleSetActiveTab('data_source')
 									}
 								>
 									<span className="icon">
@@ -1473,20 +1469,19 @@ function EditTable() {
 									</span>
 
 									<span className="text">
-										{ getStrings( 'data-source' ) }
+										{getStrings('data-source')}
 									</span>
 								</a>
 							</li>
 							<li
-								className={ `${
-									activeTab === 'theme_settings'
-										? 'active'
-										: ''
-								}` }
+								className={`${activeTab === 'theme_settings'
+									? 'active'
+									: ''
+									}`}
 							>
 								<a
-									onClick={ () =>
-										handleSetActiveTab( 'theme_settings' )
+									onClick={() =>
+										handleSetActiveTab('theme_settings')
 									}
 								>
 									<span className="icon">
@@ -1505,19 +1500,18 @@ function EditTable() {
 									</span>
 
 									<span className="text">
-										{ getStrings( 'table-theme' ) }
+										{getStrings('table-theme')}
 									</span>
 								</a>
 							</li>
 							<li
-								className={ `${
-									activeTab === 'table_customization'
-										? 'active'
-										: ''
-								}` }
+								className={`${activeTab === 'table_customization'
+									? 'active'
+									: ''
+									}`}
 							>
 								<a
-									onClick={ () =>
+									onClick={() =>
 										handleSetActiveTab(
 											'table_customization'
 										)
@@ -1546,18 +1540,17 @@ function EditTable() {
 									</span>
 
 									<span className="text">
-										{ getStrings( 'tc' ) }
+										{getStrings('tc')}
 									</span>
 								</a>
 							</li>
 							<li
-								className={ `${
-									activeTab === 'row_settings' ? 'active' : ''
-								}` }
+								className={`${activeTab === 'row_settings' ? 'active' : ''
+									}`}
 							>
 								<a
-									onClick={ () =>
-										handleSetActiveTab( 'row_settings' )
+									onClick={() =>
+										handleSetActiveTab('row_settings')
 									}
 								>
 									<span className="icon">
@@ -1576,21 +1569,20 @@ function EditTable() {
 									</span>
 
 									<span className="text">
-										{ getStrings( 'hide-row-col' ) }
+										{getStrings('hide-row-col')}
 									</span>
 								</a>
 							</li>
-							{ /* Condition view panel */ }
+							{ /* Condition view panel */}
 							<li
-								className={ `${
-									activeTab === 'conditional_view'
-										? 'active'
-										: ''
-								}` }
+								className={`${activeTab === 'conditional_view'
+									? 'active'
+									: ''
+									}`}
 							>
 								<a
-									onClick={ () =>
-										handleSetActiveTab( 'conditional_view' )
+									onClick={() =>
+										handleSetActiveTab('conditional_view')
 									}
 								>
 									<span className="icon">
@@ -1612,35 +1604,34 @@ function EditTable() {
 										{!localStorage.getItem('conditional_view_visited') && (
 											<div className="badge-new-circle"></div>
 										)}
-										
+
 									</span>
 
 									<span className="text">
-										{ getStrings( 'conditional-view' ) }
+										{getStrings('conditional-view')}
 									</span>
 								</a>
 							</li>
 						</ul>
 					</div>
 
-					{ /* Action  */ }
+					{ /* Action  */}
 					<div className="table-action">
-						{ /* <div className="action-title">Enter details of your Google Sheet</div> */ }
+						{ /* <div className="action-title">Enter details of your Google Sheet</div> */}
 						<div className="action-title">
-							{ ' ' }
-							{ getTitleForTab( activeTab ) }
+							{' '}
+							{getTitleForTab(activeTab)}
 						</div>
 
 						<div className="table-action__wrapper">
 							<button
-								className={ `copy-shortcode btn-shortcode ${
-									! copySuccess ? '' : 'btn-success'
-								}` }
-								onClick={ () => handleCopyShortcode( id ) }
+								className={`copy-shortcode btn-shortcode ${!copySuccess ? '' : 'btn-success'
+									}`}
+								onClick={() => handleCopyShortcode(id)}
 							>
-								{ ! copySuccess ? (
+								{!copySuccess ? (
 									<>
-										<span>{ `[gswpts_table="${ id }"]` }</span>
+										<span>{`[gswpts_table="${id}"]`}</span>
 										<div className="icon">
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
@@ -1672,20 +1663,19 @@ function EditTable() {
 												fill="white"
 											/>
 										</svg>
-										{ getStrings( 'tab-short-copy' ) }
+										{getStrings('tab-short-copy')}
 									</>
-								) }
+								)}
 							</button>
 							<div className="table-action__step">
 								<button
-									className={ `table-action__prev ${
-										activeTab === 'data_source'
-											? 'swptls-wizard-disabled'
-											: ''
-									}` }
-									onClick={ handleBack }
+									className={`table-action__prev ${activeTab === 'data_source'
+										? 'swptls-wizard-disabled'
+										: ''
+										}`}
+									onClick={handleBack}
 								>
-									{ /* <button className='table-action__prev' onClick={handleBack}>  */ }
+									{ /* <button className='table-action__prev' onClick={handleBack}>  */}
 									<span className="icon">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -1703,20 +1693,19 @@ function EditTable() {
 										</svg>
 									</span>
 									<span className="text">
-										{ getStrings( 'wiz-back' ) }
+										{getStrings('wiz-back')}
 									</span>
 								</button>
 								<button
-									className={ `table-action__next ${
-										activeTab === 'conditional_view'
-											? 'swptls-wizard-disabled'
-											: ''
-									}` }
-									onClick={ handleNext }
+									className={`table-action__next ${activeTab === 'conditional_view'
+										? 'swptls-wizard-disabled'
+										: ''
+										}`}
+									onClick={handleNext}
 								>
-									{ /* <button className='table-action__next' onClick={handleNext}> */ }
+									{ /* <button className='table-action__next' onClick={handleNext}> */}
 									<span className="text">
-										{ getStrings( 'wiz-next' ) }
+										{getStrings('wiz-next')}
 									</span>
 									<span className="icon">
 										<svg
@@ -1738,23 +1727,22 @@ function EditTable() {
 							</div>
 							<div className="table-action__group">
 								<div
-									className={ `table-action__dropdown ${
-										openDropdown ? 'show' : ''
-									}` }
+									className={`table-action__dropdown ${openDropdown ? 'show' : ''
+										}`}
 								>
 									<div className="action-group">
 										<button
-											onClick={ ( e ) =>
-												handleTableSettingsSave( e )
+											onClick={(e) =>
+												handleTableSettingsSave(e)
 											}
 											className="table-action__save"
 										>
 											Fetch & Save
 										</button>
 										<span
-											onClick={ () =>
+											onClick={() =>
 												setOpenDropdown(
-													! openDropdown
+													!openDropdown
 												)
 											}
 											className="caret-down"
@@ -1774,25 +1762,25 @@ function EditTable() {
 										</span>
 									</div>
 
-									{ openDropdown ? (
+									{openDropdown ? (
 										<div
-											onClick={ () =>
-												setOpenDropdown( false )
+											onClick={() =>
+												setOpenDropdown(false)
 											}
 											className="table-action__dropdown-outarea"
 										></div>
 									) : (
 										''
-									) }
+									)}
 
 									<div
 										className="table-action__dropdown-menu"
-										onClick={ handleUpdateTableandRedirect }
+										onClick={handleUpdateTableandRedirect}
 									>
 										<a>
-											{ getStrings(
+											{getStrings(
 												'save-and-move-dashboard'
-											) }
+											)}
 										</a>
 									</div>
 								</div>
@@ -1800,74 +1788,73 @@ function EditTable() {
 						</div>
 					</div>
 
-					{ /* Edit part  */ }
+					{ /* Edit part  */}
 
 					<div className="edit-body">
 						<div className="tab-card">
 							<div
-								className={ `edit-tab-content ${
-									activeTab === 'table_customization'
-										? 'table-customization'
-										: activeTab === 'row_settings'
+								className={`edit-tab-content ${activeTab === 'table_customization'
+									? 'table-customization'
+									: activeTab === 'row_settings'
 										? 'row_settings'
 										: activeTab === 'theme_settings'
-										? 'theme_settings'
-										: ''
-								}` }
+											? 'theme_settings'
+											: ''
+									}`}
 							>
-								{ 'data_source' === activeTab && (
+								{'data_source' === activeTab && (
 									<DataSource
-										tableSettings={ tableSettings }
-										setTableSettings={ setTableSettings }
-										sheetUrlRef={ sheetUrlRef }
+										tableSettings={tableSettings}
+										setTableSettings={setTableSettings}
+										sheetUrlRef={sheetUrlRef}
 									/>
-								) }
+								)}
 
-								{ 'theme_settings' === activeTab && (
+								{'theme_settings' === activeTab && (
 									<ThemeSettings
-										tableSettings={ tableSettings }
-										setTableSettings={ setTableSettings }
+										tableSettings={tableSettings}
+										setTableSettings={setTableSettings}
 									/>
-								) }
+								)}
 
-								{ 'table_customization' === activeTab && (
+								{'table_customization' === activeTab && (
 									<TableCustomization
-										tableSettings={ tableSettings }
-										setTableSettings={ setTableSettings }
-										secondActiveTabs={ secondActiveTabs }
+										tableSettings={tableSettings}
+										setTableSettings={setTableSettings}
+										secondActiveTabs={secondActiveTabs}
 										//Next and Prev button update below
 										updateSecondActiveTab={
 											updateSecondActiveTab
 										}
 									/>
-								) }
+								)}
 
-								{ 'row_settings' === activeTab && (
+								{'row_settings' === activeTab && (
 									<RowSettings
-										tableSettings={ tableSettings }
-										setTableSettings={ setTableSettings }
-										setPreviewClasses={ setPreviewClasses }
+										tableSettings={tableSettings}
+										setTableSettings={setTableSettings}
+										setPreviewClasses={setPreviewClasses}
 										setPreviewModeClasses={
 											setPreviewModeClasses
 										}
-										hidingContext={ hidingContext }
-										setHidingContext={ setHidingContext }
-										thirdActiveTabs={ thirdActiveTabs }
+										hidingContext={hidingContext}
+										setHidingContext={setHidingContext}
+										thirdActiveTabs={thirdActiveTabs}
 										//Next and Prev button update below
 										updateThirdActiveTab={
 											updateThirdActiveTab
 										}
 									/>
-								) }
+								)}
 
-								{ 'conditional_view' === activeTab && (
+								{'conditional_view' === activeTab && (
 									<ConditionalView
-										tableSettings={ tableSettings }
-										setTableSettings={ setTableSettings }
+										tableSettings={tableSettings}
+										setTableSettings={setTableSettings}
 									/>
-								) }
+								)}
 
-								{ privatesheetmessage === true ? (
+								{privatesheetmessage === true ? (
 									<>
 										<div className="private-sheet-notice-container invalid-download">
 											<div className="invalid-card">
@@ -1887,22 +1874,22 @@ function EditTable() {
 														</svg>
 													</span>
 													<span>
-														{ getStrings( 'unable-to-access' ) }
+														{getStrings('unable-to-access')}
 													</span>
 												</label>
 
 												<div className="text">
 													<ol>
 														<li>
-														{ getStrings( 'on-your-google' ) }{ ' ' }
+															{getStrings('on-your-google')}{' '}
 															<button>
 																Share
 															</button>
-															{ getStrings( 'button-located-at' ) }{ ' ' }
+															{getStrings('button-located-at')}{' '}
 															<span className="swptls-text-highlight">
-																{ getStrings( 'anyone-with-the-link' ) }
-															</span>{ ' ' }
-															{ getStrings( 'option-under-general' ) }
+																{getStrings('anyone-with-the-link')}
+															</span>{' '}
+															{getStrings('option-under-general')}
 														</li>
 														<li>
 															Click on the
@@ -1929,10 +1916,10 @@ function EditTable() {
 																	/>
 																</svg>
 															</span>
-															icon on the popup and ensure that the option{ ' ' }
+															icon on the popup and ensure that the option{' '}
 															<span className="swptls-text-highlight">
 																“Viewers and commenters can see the option to download, print, and copy”
-															</span>{ ' ' }
+															</span>{' '}
 															is selected
 														</li>
 														<li>
@@ -1963,34 +1950,34 @@ function EditTable() {
 									</>
 								) : (
 									<></>
-								) }
+								)}
 							</div>
 						</div>
 
 						<div className="table-preview wrapper">
-							{ privatesheetmessage === true && (
+							{privatesheetmessage === true && (
 								<style>
-									{ `
+									{`
 									.table-preview::before {
 									background-color: unset !important;
 									}
 								` }
 								</style>
-							) }
+							)}
 
-							{ previewLoader ? (
-								<h2>{ getStrings( 'lp' ) }</h2>
+							{previewLoader ? (
+								<h2>{getStrings('lp')}</h2>
 							) : (
 								<>
-									{ /* For limitation notice  */ }
+									{ /* For limitation notice  */}
 
-									{ limitedtmessage === true ? (
+									{limitedtmessage === true ? (
 										<>
 											<div className="invalid-card has--limit-upgrade">
 												<label
 													className="invalid-upgrade"
 
-													// onClick={() => handleVisit()}
+												// onClick={() => handleVisit()}
 												>
 													<span className="icon">
 														<svg
@@ -2007,126 +1994,118 @@ function EditTable() {
 														</svg>
 													</span>
 													<span>
-														{ getStrings(
+														{getStrings(
 															'limited-to-msg'
-														) }{ ' ' }
+														)}{' '}
 														<a
 															className="upgrade-now-btn-txt"
-															onClick={ () =>
+															onClick={() =>
 																handleVisit()
 															}
 														>
-															{ getStrings(
+															{getStrings(
 																'upgrade-pro'
-															) }
-														</a>{ ' ' }
-														{ getStrings(
+															)}
+														</a>{' '}
+														{getStrings(
 															'limited-to-msg-2'
-														) }
+														)}
 													</span>
 												</label>
 
 												<button
 													className="btn"
-													onClick={ () =>
+													onClick={() =>
 														handleVisit()
 													}
 												>
-													{ getStrings(
+													{getStrings(
 														'upgrade-now'
-													) }
+													)}
 												</button>
 											</div>
 										</>
 									) : (
 										<div></div>
-									) }
+									)}
 
-									{ /* If table is private after create  */ }
-									{ privatesheetmessage === true ? (
-										<>{ /* Show nothing  */ }</>
+									{ /* If table is private after create  */}
+									{privatesheetmessage === true ? (
+										<>{ /* Show nothing  */}</>
 									) : (
 										<div
-											className={ `gswpts_tables_container table-preview ${
-												activeTab === 'row_settings'
-													? previewClasses +
-													  ' ' +
-													  previewModeClasses
-													: ''
-											} gswpts_${
-												tableSettings?.table_settings
+											className={`gswpts_tables_container table-preview ${activeTab === 'row_settings'
+												? previewClasses +
+												' ' +
+												previewModeClasses
+												: ''
+												} gswpts_${tableSettings?.table_settings
 													?.table_style
-											}${
-												! isProActive()
+												}${!isProActive()
 													? ` swptls-lite-table-preview`
 													: ``
-											}${
-												tableSettings?.table_settings
+												}${tableSettings?.table_settings
 													?.hide_on_desktop
 													? ` hide-column-on-desktop`
 													: ``
-											}${
-												tableSettings?.table_settings
+												}${tableSettings?.table_settings
 													?.hide_on_mobile
 													? ` hide-column-on-mobile`
 													: ``
-											}${
-												tableSettings?.table_settings
+												}${tableSettings?.table_settings
 													?.swap_filter_inputs
 													? ` swap-filter-inputs`
 													: ``
-											}${
-												tableSettings?.table_settings
+												}${tableSettings?.table_settings
 													?.swap_bottom_options
 													? ` swap-bottom-options`
 													: ``
-											}${
-												tableSettings?.table_settings
+												}${tableSettings?.table_settings
 													?.allow_sorting
 													? ``
 													: ` sorting-off`
-											}` }
+												}`}
 											id="table-preview"
-											dangerouslySetInnerHTML={ {
+											dangerouslySetInnerHTML={{
 												__html: tablePreview?.html,
-											} }
+											}}
 										></div>
-									) }
+									)}
 								</>
-							) }
+							)}
 						</div>
 					</div>
 				</>
-			) }
+			)}
 
-			{ verticalmodal && (
+			{verticalmodal && (
 				<Modal>
 					<div
 						className="delete-table-modal-wrap modal-content"
-						ref={ verticalModelRef }
+						ref={verticalModelRef}
 					>
 						<div
 							className="cross_sign"
-							onClick={ () => handleClosePopup() }
+							onClick={() => handleClosePopup()}
 						>
-							{ Cross }
+							{Cross}
 						</div>
 						<div className="delete-table-modal">
-							<div className="modal-media">{ Merge }</div>
-							<h2>{ getStrings( 'merge-alert' ) }</h2>
-							<p>{ getStrings( 'merge-info' ) }</p>
+							<div className="modal-media">{Merge}</div>
+							<h2>{getStrings('merge-alert')}</h2>
+							<p>{getStrings('merge-info')}</p>
 							<div className="action-buttons">
 								<button
 									className="swptls-button cancel-button"
-									onClick={ handleClosePopup }
+									onClick={handleClosePopup}
 								>
-									{ getStrings( 'merge-confirm' ) }
+									{getStrings('merge-confirm')}
 								</button>
 							</div>
 						</div>
 					</div>
 				</Modal>
-			) }
+			)}
 		</div>
 	);
 }

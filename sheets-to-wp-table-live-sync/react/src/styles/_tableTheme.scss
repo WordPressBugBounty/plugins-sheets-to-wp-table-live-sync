@@ -53,7 +53,7 @@
                 display: inline-block;
                 background: #ffffff;
                 border: 1px solid white;
-                border-radius: 4px;
+                border-radius: 6px;
                 cursor: pointer;
                 outline: none;
                 box-shadow: none;
@@ -193,7 +193,7 @@
             // New Theme 
             button.single-theme-button.addnewTheme {
                 border: 1px solid #34A0FA;
-                border-radius: 4px;
+                border-radius: 6px;
                 margin-bottom: 30px;
             }
 
@@ -279,7 +279,7 @@
         border: none;
         cursor: pointer;
         padding: 5px 10px;
-        border-radius: 4px;
+        border-radius: 6px;
 
         button.theme-actions-buttons:hover {
             box-shadow: unset;
@@ -305,7 +305,7 @@
 
     .item-wrapper.new-themes-names {
         border: 1px solid #34A0FA;
-        border-radius: 4px;
+        border-radius: 6px;
         margin-bottom: 30px;
 
     }
@@ -339,7 +339,7 @@
         height: 130px;
         padding: 8px 8px;
         overflow: hidden;
-        border-radius: 4px;
+        border-radius: 6px;
         -webkit-backface-visibility: hidden;
         -moz-backface-visibility: hidden;
         -webkit-transform: translate3d(0, 0, 0);
@@ -457,7 +457,7 @@
                     visibility: hidden;
                     min-width: 82px;
                     position: absolute;
-                    border-radius: 4px;
+                    border-radius: 6px;
                     background-color: #fff;
                     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.10);
                     transition: all 0.3s ease;
@@ -624,7 +624,7 @@
 button.confirm-button-reset {
     border: 0;
     color: #F8F9FA;
-    border-radius: 4px;
+    border-radius: 6px;
     background: #EB5757;
     outline: 0;
     cursor: pointer;
@@ -648,7 +648,7 @@ button.confirm-button-reset {
         user-select: none;
         font-size: 14px;
         line-height: 14px;
-        border-radius: 4px;
+        border-radius: 6px;
 
         .accordion-icon {
             // margin-left: auto; // place in right
@@ -665,6 +665,8 @@ button.confirm-button-reset {
         }
 
     }
+
+
 
     .info-section {
         max-height: 0;

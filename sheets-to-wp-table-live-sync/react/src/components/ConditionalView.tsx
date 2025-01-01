@@ -7,32 +7,44 @@ import { lockBTN } from '../icons';
 
 import '../styles/_conditionalview.scss';
 
-const ConditionalView = ( { tableSettings, setTableSettings } ) => {
-	const [ tableHeaders, setTableHeaders ] = useState( [] );
-	const [ isDropdownOpen, setIsDropdownOpen ] = useState( false );
-	const [ selectedOptions, setSelectedOptions ] = useState(
+const ConditionalView = ({ tableSettings, setTableSettings }) => {
+	const [tableHeaders, setTableHeaders] = useState([]);
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+	const [selectedOptions, setSelectedOptions] = useState(
 		tableSettings?.table_settings?.table_search_column || []
 	);
 
-	const dropdownRef = useRef( null ); // Create a ref for the dropdown
-	const [ previewGif, setPreviewGif ] = useState( true );
+	const dropdownRef = useRef(null); // Create a ref for the dropdown
+	const [previewGif, setPreviewGif] = useState(true);
 
-	const handleColumnSpecificSearchToggle = ( e ) => {
-		setTableSettings( {
+	const [isOpenpopupvideo, setIsOpenpopupvideo] = useState(false);
+
+	// Function to open the modal
+	const openModal = () => {
+		setIsOpenpopupvideo(true);
+	};
+
+	// Function to close the modal
+	const closeModal = () => {
+		setIsOpenpopupvideo(false);
+	};
+
+	const handleColumnSpecificSearchToggle = (e) => {
+		setTableSettings({
 			...tableSettings,
 			table_settings: {
 				...tableSettings.table_settings,
 				enable_column_specific_search: e.target.checked,
 			},
-		} );
+		});
 
-		setIsDropdownOpen( false );
+		setIsDropdownOpen(false);
 	};
 
-	useEffect( () => {
+	useEffect(() => {
 		const checkTableContainer = () => {
-			const tableContainer = document.getElementById( 'table-preview' );
-			if ( ! tableContainer ) {
+			const tableContainer = document.getElementById('table-preview');
+			if (!tableContainer) {
 				// console.error('Table container with ID "table-preview" not found.');
 				return false;
 			}
@@ -40,109 +52,109 @@ const ConditionalView = ( { tableSettings, setTableSettings } ) => {
 		};
 
 		// Check for the table and try to extract headers every 500ms
-		const intervalId = setInterval( () => {
-			if ( checkTableContainer() ) {
+		const intervalId = setInterval(() => {
+			if (checkTableContainer()) {
 				const tableHead = document.querySelector(
 					'#create_tables thead'
 				);
-				if ( tableHead ) {
+				if (tableHead) {
 					const headers = Array.from(
-						tableHead.querySelectorAll( 'th' )
-					).map( ( th, index ) => ( {
+						tableHead.querySelectorAll('th')
+					).map((th, index) => ({
 						label: th.textContent.trim(),
 						value: index,
-					} ) );
+					}));
 					// console.log('Extracted Headers:', headers);
-					setTableHeaders( headers );
-					clearInterval( intervalId ); // Stop checking once headers are found
+					setTableHeaders(headers);
+					clearInterval(intervalId); // Stop checking once headers are found
 				}
 			}
-		}, 500 ); // Check every 500ms
+		}, 500); // Check every 500ms
 
 		// Cleanup function to stop the interval
-		return () => clearInterval( intervalId );
-	}, [] ); // Empty dependency array ensures this runs once when the component mounts
+		return () => clearInterval(intervalId);
+	}, []); // Empty dependency array ensures this runs once when the component mounts
 
-	const handleOptionChange = ( headerValue ) => {
-		setSelectedOptions( ( prevSelected ) => {
-			const updatedSelection = prevSelected.includes( headerValue )
-				? prevSelected.filter( ( value ) => value !== headerValue ) // Remove the selected option
-				: [ ...prevSelected, headerValue ]; // Add the selected option
+	const handleOptionChange = (headerValue) => {
+		setSelectedOptions((prevSelected) => {
+			const updatedSelection = prevSelected.includes(headerValue)
+				? prevSelected.filter((value) => value !== headerValue) // Remove the selected option
+				: [...prevSelected, headerValue]; // Add the selected option
 
 			// Update tableSettings to reflect the new selection
-			setTableSettings( ( prevSettings ) => ( {
+			setTableSettings((prevSettings) => ({
 				...prevSettings,
 				table_settings: {
 					...prevSettings.table_settings,
 					table_search_column: updatedSelection,
 				},
-			} ) );
+			}));
 
 			return updatedSelection;
-		} );
+		});
 	};
 
 	const handleDropdownToggle = () => {
-		setIsDropdownOpen( ( prev ) => ! prev );
+		setIsDropdownOpen((prev) => !prev);
 	};
 
-	const handleRemoveOption = ( value ) => {
-		setSelectedOptions( ( prevSelected ) => {
+	const handleRemoveOption = (value) => {
+		setSelectedOptions((prevSelected) => {
 			const updatedSelection = prevSelected.filter(
-				( v ) => v !== value
+				(v) => v !== value
 			);
 
 			// Update tableSettings to reflect the removal
-			setTableSettings( ( prevSettings ) => ( {
+			setTableSettings((prevSettings) => ({
 				...prevSettings,
 				table_settings: {
 					...prevSettings.table_settings,
 					table_search_column: updatedSelection,
 				},
-			} ) );
+			}));
 
 			return updatedSelection;
-		} );
+		});
 	};
 
 	// Prevent dropdown from closing when clicking on checkboxes
-	const handleCheckboxClick = ( event ) => {
+	const handleCheckboxClick = (event) => {
 		event.stopPropagation();
 	};
 
-	const handleOutsideClick = ( event ) => {
+	const handleOutsideClick = (event) => {
 		if (
 			dropdownRef.current &&
-			! dropdownRef.current.contains( event.target )
+			!dropdownRef.current.contains(event.target)
 		) {
-			setIsDropdownOpen( false ); // Close dropdown if clicked outside
+			setIsDropdownOpen(false); // Close dropdown if clicked outside
 		}
 	};
 
-	useEffect( () => {
-		document.addEventListener( 'mousedown', handleOutsideClick );
+	useEffect(() => {
+		document.addEventListener('mousedown', handleOutsideClick);
 		return () => {
-			document.removeEventListener( 'mousedown', handleOutsideClick );
+			document.removeEventListener('mousedown', handleOutsideClick);
 		};
-	}, [] );
+	}, []);
 
 	/**
 	 *
 	 * @param style Handle theme selection
 	 * @returns
 	 */
-	const handleModeSelect = ( style ) => {
-		if ( ! isProActive() ) {
+	const handleModeSelect = (style) => {
+		if (!isProActive()) {
 			return;
 		}
 
-		setTableSettings( {
+		setTableSettings({
 			...tableSettings,
 			table_settings: {
 				...tableSettings.table_settings,
 				table_view_mode: style,
 			},
-		} );
+		});
 	};
 
 	/**
@@ -150,61 +162,59 @@ const ConditionalView = ( { tableSettings, setTableSettings } ) => {
 	 *
 	 * @param  event
 	 */
-	function handleCancelOutside( event: MouseEvent ) {
+	function handleCancelOutside(event: MouseEvent) {
 		if (
 			dropdownRef.current &&
-			! dropdownRef.current.contains( event.target )
+			!dropdownRef.current.contains(event.target)
 		) {
 			// handleClosePopup();
 		}
 	}
 
-	useEffect( () => {
+	useEffect(() => {
 		const handleClick = () => {
-			WPPOOL.Popup( 'sheets_to_wp_table_live_sync' ).show();
+			WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
 		};
-		document.addEventListener( 'mousedown', handleCancelOutside );
+		document.addEventListener('mousedown', handleCancelOutside);
 
 		const proSettings = document.querySelectorAll(
 			'.swptls-pro-settings, .swptls-pro-theme'
 		);
-		proSettings.forEach( ( item ) => {
-			item.addEventListener( 'click', handleClick );
-		} );
+		proSettings.forEach((item) => {
+			item.addEventListener('click', handleClick);
+		});
 
 		return () => {
-			document.removeEventListener( 'mousedown', handleCancelOutside );
-			proSettings.forEach( ( item ) => {
-				item.removeEventListener( 'click', handleClick );
-			} );
+			document.removeEventListener('mousedown', handleCancelOutside);
+			proSettings.forEach((item) => {
+				item.removeEventListener('click', handleClick);
+			});
 		};
-	}, [ handleCancelOutside ] );
+	}, [handleCancelOutside]);
 
 	return (
 		<div className="edit-data-source-wrap conditional-view-wrapper">
-			<h4 className="title">{ getStrings( 'choose-how-you-want' ) }</h4>
+			<h4 className="title">{getStrings('choose-how-you-want')}</h4>
 			<div
-				className={ `table-view__list ${
-					tableSettings?.table_settings?.import_styles
-						? 'active_sheetstyle'
-						: 'disable_sheetstyle'
-				}` }
+				className={`table-view__list ${tableSettings?.table_settings?.import_styles
+					? 'active_sheetstyle'
+					: 'disable_sheetstyle'
+					}`}
 			>
 				<button
-					className={ `table-view__item ${
-						tableSettings?.table_settings?.table_view_mode ===
+					className={`table-view__item ${tableSettings?.table_settings?.table_view_mode ===
 						'default-mode'
-							? ' active'
-							: ''
-					}` }
-					onClick={ () =>
-						setTableSettings( {
+						? ' active'
+						: ''
+						}`}
+					onClick={() =>
+						setTableSettings({
 							...tableSettings,
 							table_settings: {
 								...tableSettings.table_settings,
 								table_view_mode: 'default-mode',
 							},
-						} )
+						})
 					}
 				>
 					<div className="table-view__card">
@@ -228,27 +238,26 @@ const ConditionalView = ( { tableSettings, setTableSettings } ) => {
 						</div>
 						<div className="text">
 							<p>
-								{ getStrings( 'table-will-show-by-default' ) }
+								{getStrings('table-will-show-by-default')}
 							</p>
 						</div>
 					</div>
 					<div className="table-view__lable">
 						<div className="radio-field"></div>
 						<div className="label-title">
-							{ getStrings( 'basic-display' ) }{ ' ' }
+							{getStrings('basic-display')}{' '}
 						</div>
 					</div>
 				</button>
 
-				{ /* Search  */ }
+				{ /* Search  */}
 				<button
-					className={ `table-view__item ${
-						tableSettings?.table_settings?.table_view_mode ===
+					className={`table-view__item ${tableSettings?.table_settings?.table_view_mode ===
 						'search-only-mode'
-							? ' active'
-							: ''
-					}  ${ ! isProActive() ? 'swptls-pro-theme' : '' }` }
-					onClick={ () => handleModeSelect( 'search-only-mode' ) }
+						? ' active'
+						: ''
+						}  ${!isProActive() ? 'swptls-pro-theme' : ''}`}
+					onClick={() => handleModeSelect('search-only-mode')}
 				>
 					<div className="table-view__card">
 						<div className="icon-wrap">
@@ -270,47 +279,66 @@ const ConditionalView = ( { tableSettings, setTableSettings } ) => {
 							</div>
 							<div className="badge-wrap">
 								<button className="beta-badge">Beta</button>
-								{ /* <button className="tutorial-badge">
+								<button className="tutorial-badge"
+									onClick={openModal}
+									style={{ cursor: 'pointer' }}
+								>
 									<span className="icon">
 										<svg xmlns="http://www.w3.org/2000/svg" width="6" height="7" viewBox="0 0 6 7" fill="none">
 											<path d="M1.61548 0.633108C1.08519 0.328931 0.655273 0.578117 0.655273 1.18924V5.69903C0.655273 6.31076 1.08519 6.55962 1.61548 6.25573L5.55726 3.99514C6.08772 3.69086 6.08772 3.19787 5.55726 2.89366L1.61548 0.633108Z" fill="#FF0000" />
 										</svg>
 									</span>
 									<span className="text-label">Tutorial</span>
-								</button> */ }
+								</button>
+
+								{isOpenpopupvideo && (
+									<div className="popupmodal" onClick={closeModal}>
+										<div className="modal-content" onClick={(e) => e.stopPropagation()}>
+											<button className="close-btn" onClick={closeModal}>&#10006;</button>
+											<iframe
+												width="560"
+												height="315"
+												src="https://www.youtube.com/embed/GLDIL1JT-J8?autoplay=1"
+												frameBorder="0"
+												allow="autoplay; encrypted-media"
+												allowFullScreen
+											></iframe>
+										</div>
+									</div>
+								)}
+
 							</div>
 						</div>
 						<div className="text">
-							<p>{ getStrings( 'a-search-field' ) }</p>
+							<p>{getStrings('a-search-field')}</p>
 						</div>
 
-						{ ! isProActive() && (
+						{!isProActive() && (
 							<button className="btn-pro-lock theme-lock-blur">
-								{ lockBTN }
+								{lockBTN}
 							</button>
-						) }
+						)}
 					</div>
 					<div className="table-view__lable">
 						<div className="radio-field"></div>
 						<div className="label-title">
-							{ getStrings( 'search-only-display' ) }{ ' ' }
+							{getStrings('search-only-display')}{' '}
 							<Tooltip
-								content={ getStrings( 'a-search-field' ) }
+								content={getStrings('a-search-field')}
 							/>
 						</div>
 					</div>
 				</button>
 
-				{ /* User specific  */ }
+				{ /* User specific  */}
 				<button
 					disabled
-					className={ `table-view__item disabled ${
-						tableSettings?.table_settings?.table_view_mode ===
+					className={`table-view__item disabled ${tableSettings?.table_settings?.table_view_mode ===
 						'user-specific-mode'
-							? ' active'
-							: ''
-					}  ${ ! isProActive() ? 'swptls-pro-theme' : '' }` }
-					onClick={ () => handleModeSelect( 'user-specific-mode' ) }
+						? ' active'
+						: ''
+						}  ${!isProActive() ? 'swptls-pro-theme' : ''}`}
+					onClick={() => handleModeSelect('user-specific-mode')}
 				>
 					<div className="table-view__card">
 						<div className="icon-wrap">
@@ -349,39 +377,38 @@ const ConditionalView = ( { tableSettings, setTableSettings } ) => {
 						</div>
 						<div className="text">
 							<p>
-								{ getStrings(
+								{getStrings(
 									'displayed-only-to-logged-in-users'
-								) }
+								)}
 							</p>
 						</div>
 						<button className="btn-pro-lock btn-upcooming theme-lock-blur">
-							<span>{ getStrings( 'Upcomming' ) }</span>
+							<span>{getStrings('Upcomming')}</span>
 						</button>
 					</div>
 					<div className="table-view__lable">
 						<div className="radio-field"></div>
 						<div className="label-title">
-							{ getStrings( 'user-specific-display' ) }{ ' ' }
+							{getStrings('user-specific-display')}{' '}
 							<Tooltip
-								content={ getStrings(
+								content={getStrings(
 									'displayed-only-to-logged-in-users'
-								) }
+								)}
 							/>
 						</div>
 					</div>
 				</button>
 
-				{ /* Procted mode  */ }
+				{ /* Procted mode  */}
 				<button
 					disabled
 					// className={`table-view__item disabled ${tableSettings?.table_settings?.table_view_mode === 'protected-mode' ? ' active' : ''}` }
-					className={ `table-view__item disabled ${
-						tableSettings?.table_settings?.table_view_mode ===
+					className={`table-view__item disabled ${tableSettings?.table_settings?.table_view_mode ===
 						'protected-mode'
-							? ' active'
-							: ''
-					} ${ ! isProActive() ? 'swptls-pro-theme' : '' }` }
-					onClick={ () => handleModeSelect( 'protected-mode' ) }
+						? ' active'
+						: ''
+						} ${!isProActive() ? 'swptls-pro-theme' : ''}`}
+					onClick={() => handleModeSelect('protected-mode')}
 				>
 					<div className="table-view__card">
 						<div className="icon-wrap">
@@ -413,89 +440,88 @@ const ConditionalView = ( { tableSettings, setTableSettings } ) => {
 							</div>
 						</div>
 						<div className="text">
-							<p>{ getStrings( 'password-pin-protected' ) }</p>
+							<p>{getStrings('password-pin-protected')}</p>
 						</div>
 						<button className="btn-pro-lock btn-upcooming theme-lock-blur">
-							<span>{ getStrings( 'Upcomming' ) }</span>
+							<span>{getStrings('Upcomming')}</span>
 						</button>
 					</div>
 					<div className="table-view__lable">
 						<div className="radio-field"></div>
 						<div className="label-title">
-							{ getStrings( 'protected-view' ) }{ ' ' }
+							{getStrings('protected-view')}{' '}
 							<Tooltip
-								content={ getStrings(
+								content={getStrings(
 									'password-pin-protected'
-								) }
+								)}
 							/>
 						</div>
 					</div>
 				</button>
 			</div>
 
-			{ tableSettings?.table_settings?.table_view_mode ===
+			{tableSettings?.table_settings?.table_view_mode ===
 				'search-only-mode' && (
-				<div className="edit-form-group">
-					{ /* Here will be Select column(s) to search through their header data*/ }
-					<div
-						className="condition-select-fields"
-						ref={ dropdownRef }
-					>
-						<div className="switch-toggle">
-							<input
-								type="checkbox"
-								name="same_as_desktop"
-								id="enable-column-specific-search"
-								checked={
-									tableSettings?.table_settings
-										?.enable_column_specific_search
-								}
-								onChange={ handleColumnSpecificSearchToggle }
-								disabled={ ! isProActive() }
-							/>
-
-							<label htmlFor="enable-column-specific-search">
-								{ getStrings( 'column-specific' ) }{ ' ' }
-								<Tooltip content='Use this feature to streamline your search by focusing on specific columns. For example, if you select a column (e.g., "Roll Number") and search for a number (e.g., 60), only rows with 60 in that column will be displayed. Any instances of 60 in other columns will not appear in the search results if they do not match accordingly.' />
-							</label>
-						</div>
-						<label htmlFor="column-select">
-							{ getStrings( 'column-for-table-search' ) }
-						</label>
+					<div className="edit-form-group">
+						{ /* Here will be Select column(s) to search through their header data*/}
 						<div
-							className={ `conditional-dropdown-select ${
-								tableSettings?.table_settings
+							className="condition-select-fields"
+							ref={dropdownRef}
+						>
+							<div className="switch-toggle">
+								<input
+									type="checkbox"
+									name="same_as_desktop"
+									id="enable-column-specific-search"
+									checked={
+										tableSettings?.table_settings
+											?.enable_column_specific_search
+									}
+									onChange={handleColumnSpecificSearchToggle}
+									disabled={!isProActive()}
+								/>
+
+								<label htmlFor="enable-column-specific-search">
+									{getStrings('column-specific')}{' '}
+									<Tooltip content='Use this feature to streamline your search by focusing on specific columns. For example, if you select a column (e.g., "Roll Number") and search for a number (e.g., 60), only rows with 60 in that column will be displayed. Any instances of 60 in other columns will not appear in the search results if they do not match accordingly.' />
+								</label>
+							</div>
+							<label htmlFor="column-select">
+								{getStrings('column-for-table-search')}
+							</label>
+							<div
+								className={`conditional-dropdown-select ${tableSettings?.table_settings
 									?.enable_column_specific_search === false
 									? 'select-disabled'
 									: ''
-							}` }
-							onClick={ () =>
-								tableSettings?.table_settings
-									?.enable_column_specific_search &&
-								handleDropdownToggle()
-							}
-						>
-							<div className="selected-options">
-								{ selectedOptions.length > 0
-									? selectedOptions.map( ( value ) => {
+									}`}
+								onClick={() =>
+									tableSettings?.table_settings
+										?.enable_column_specific_search &&
+									handleDropdownToggle()
+								}
+							>
+								<div className="selected-options">
+									{selectedOptions.length > 0
+										? selectedOptions.map((value) => {
 											const header = tableHeaders.find(
-												( h ) => h.value === value
+												(h) => h.value === value
 											);
 											return header ? (
 												<div
-													key={ header.value }
+													key={header.value}
 													className="selected-item"
 												>
-													{ header.label }
+													{header.label}
 													<span
 														className="remove-icon"
-														onClick={ ( e ) => {
+														onClick={(e) => {
 															// Prevent dropdown from closing
 															e.stopPropagation();
 															handleRemoveOption(
 																header.value
 															);
-														} }
+														}}
 													>
 														<svg
 															xmlns="http://www.w3.org/2000/svg"
@@ -514,140 +540,139 @@ const ConditionalView = ( { tableSettings, setTableSettings } ) => {
 													</span>
 												</div>
 											) : null;
-									  } )
-									: 'Select a column (optional)' }
-								<div className="select-arrow">
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="11"
-										height="6"
-										viewBox="0 0 11 6"
-										fill="none"
-									>
-										<path
-											d="M10.9999 0.995538C11.0003 1.12361 10.9744 1.25016 10.9241 1.36588C10.8738 1.48159 10.8004 1.58354 10.7093 1.66423L5.99542 5.80497C5.85484 5.93107 5.67851 6 5.49654 6C5.31456 6 5.13823 5.93107 4.99765 5.80497L0.283814 1.51849C0.123373 1.37297 0.0224779 1.16387 0.00332422 0.937177C-0.0158295 0.710485 0.0483274 0.484775 0.181681 0.309701C0.315034 0.134626 0.506661 0.024529 0.714405 0.00362822C0.922149 -0.0172725 1.12899 0.0527358 1.28943 0.198252L5.50046 4.03037L9.7115 0.326847C9.82682 0.222014 9.96724 0.155421 10.1162 0.134949C10.2651 0.114478 10.4163 0.140983 10.5518 0.211329C10.6873 0.281675 10.8016 0.392918 10.881 0.531895C10.9604 0.670871 11.0017 0.831765 10.9999 0.995538Z"
-											fill="#1E1E1E"
-										/>
-									</svg>
+										})
+										: 'Select a column (optional)'}
+									<div className="select-arrow">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="11"
+											height="6"
+											viewBox="0 0 11 6"
+											fill="none"
+										>
+											<path
+												d="M10.9999 0.995538C11.0003 1.12361 10.9744 1.25016 10.9241 1.36588C10.8738 1.48159 10.8004 1.58354 10.7093 1.66423L5.99542 5.80497C5.85484 5.93107 5.67851 6 5.49654 6C5.31456 6 5.13823 5.93107 4.99765 5.80497L0.283814 1.51849C0.123373 1.37297 0.0224779 1.16387 0.00332422 0.937177C-0.0158295 0.710485 0.0483274 0.484775 0.181681 0.309701C0.315034 0.134626 0.506661 0.024529 0.714405 0.00362822C0.922149 -0.0172725 1.12899 0.0527358 1.28943 0.198252L5.50046 4.03037L9.7115 0.326847C9.82682 0.222014 9.96724 0.155421 10.1162 0.134949C10.2651 0.114478 10.4163 0.140983 10.5518 0.211329C10.6873 0.281675 10.8016 0.392918 10.881 0.531895C10.9604 0.670871 11.0017 0.831765 10.9999 0.995538Z"
+												fill="#1E1E1E"
+											/>
+										</svg>
+									</div>
+								</div>
+								<div
+									className={`dropdown-menu ${isDropdownOpen ? 'open' : ''
+										}`}
+								>
+									{tableHeaders.length > 0 ? (
+										tableHeaders.map((header) => (
+											<label
+												htmlFor={`option-${header.value}`}
+												style={{
+													display: 'flex',
+													alignItems: 'center',
+												}}
+												onClick={handleCheckboxClick}
+												className="dropdown-item"
+											>
+												<input
+													type="checkbox"
+													id={`option-${header.value}`}
+													value={header.value}
+													checked={selectedOptions.includes(
+														header.value
+													)}
+													onChange={() =>
+														handleOptionChange(
+															header.value
+														)
+													}
+												/>
+												{header.label}
+											</label>
+										))
+									) : (
+										<div className="dropdown-item">
+											{getStrings('loading-header')}
+										</div>
+									)}
 								</div>
 							</div>
-							<div
-								className={ `dropdown-menu ${
-									isDropdownOpen ? 'open' : ''
-								}` }
-							>
-								{ tableHeaders.length > 0 ? (
-									tableHeaders.map( ( header ) => (
-										<label
-											htmlFor={ `option-${ header.value }` }
-											style={ {
-												display: 'flex',
-												alignItems: 'center',
-											} }
-											onClick={ handleCheckboxClick }
-											className="dropdown-item"
-										>
-											<input
-												type="checkbox"
-												id={ `option-${ header.value }` }
-												value={ header.value }
-												checked={ selectedOptions.includes(
-													header.value
-												) }
-												onChange={ () =>
-													handleOptionChange(
-														header.value
-													)
-												}
-											/>
-											{ header.label }
-										</label>
-									) )
-								) : (
-									<div className="dropdown-item">
-										{ getStrings( 'loading-header' ) }
-									</div>
-								) }
-							</div>
-						</div>
-					</div>
-
-					{ /* Choose when you want to display your search result*/ }
-					<div className="swptls-search-support">
-						<h4 className="title">
-							{ getStrings( 'want-to-display-your-search' ) }
-						</h4>
-						<div className="wrapper">
-							<div className="search-by-modes">
-								<input
-									type="radio"
-									name="search_by_typing"
-									id="search_by_typing"
-									value="search_by_typing"
-									checked={
-										tableSettings?.table_settings
-											?.search_by === 'search-by-typing'
-									}
-									onChange={ () =>
-										setTableSettings( {
-											...tableSettings,
-											table_settings: {
-												...tableSettings.table_settings,
-												search_by: 'search-by-typing',
-											},
-										} )
-									}
-								/>
-								<label
-									className="search-by-modes__lable"
-									htmlFor="search_by_typing"
-								>
-									<div className="radio-field"></div>
-									<div className="label-title">
-										{ getStrings(
-											'show-search-result-once-Typing'
-										) }{ ' ' }
-										<Tooltip content="Select this option if you prefer to view your search results dynamically as you type. " />
-									</div>
-								</label>
-							</div>
-							<div className="search-by-modes">
-								<input
-									type="radio"
-									name="search_by_press"
-									id="search_by_press"
-									value="search_by_press"
-									checked={
-										tableSettings?.table_settings
-											?.search_by === 'search-by-press'
-									}
-									onChange={ () =>
-										setTableSettings( {
-											...tableSettings,
-											table_settings: {
-												...tableSettings.table_settings,
-												search_by: 'search-by-press',
-											},
-										} )
-									}
-								/>
-								<label
-									className="search-by-modes__lable"
-									htmlFor="search_by_press"
-								>
-									<div className="radio-field"></div>
-									<div className="label-title">
-										{ getStrings(
-											'show-search-result-after-pressing'
-										) }{ ' ' }
-										<Tooltip content="Select this option if you prefer to view your search results only after pressing enter or any button." />
-									</div>
-								</label>
-							</div>
 						</div>
 
-						{ /* Preview panel */ }
-						{ /* <div className="preview-wrapper">  
+						{ /* Choose when you want to display your search result*/}
+						<div className="swptls-search-support">
+							<h4 className="title">
+								{getStrings('want-to-display-your-search')}
+							</h4>
+							<div className="wrapper">
+								<div className="search-by-modes">
+									<input
+										type="radio"
+										name="search_by_typing"
+										id="search_by_typing"
+										value="search_by_typing"
+										checked={
+											tableSettings?.table_settings
+												?.search_by === 'search-by-typing'
+										}
+										onChange={() =>
+											setTableSettings({
+												...tableSettings,
+												table_settings: {
+													...tableSettings.table_settings,
+													search_by: 'search-by-typing',
+												},
+											})
+										}
+									/>
+									<label
+										className="search-by-modes__lable"
+										htmlFor="search_by_typing"
+									>
+										<div className="radio-field"></div>
+										<div className="label-title">
+											{getStrings(
+												'show-search-result-once-Typing'
+											)}{' '}
+											<Tooltip content="Select this option if you prefer to view your search results dynamically as you type. " />
+										</div>
+									</label>
+								</div>
+								<div className="search-by-modes">
+									<input
+										type="radio"
+										name="search_by_press"
+										id="search_by_press"
+										value="search_by_press"
+										checked={
+											tableSettings?.table_settings
+												?.search_by === 'search-by-press'
+										}
+										onChange={() =>
+											setTableSettings({
+												...tableSettings,
+												table_settings: {
+													...tableSettings.table_settings,
+													search_by: 'search-by-press',
+												},
+											})
+										}
+									/>
+									<label
+										className="search-by-modes__lable"
+										htmlFor="search_by_press"
+									>
+										<div className="radio-field"></div>
+										<div className="label-title">
+											{getStrings(
+												'show-search-result-after-pressing'
+											)}{' '}
+											<Tooltip content="Select this option if you prefer to view your search results only after pressing enter or any button." />
+										</div>
+									</label>
+								</div>
+							</div>
+
+							{ /* Preview panel */}
+							{ /* <div className="preview-wrapper">  
 							<div className="preview-title">
 								Preview
 								<span className={`caret ${previewGif === false ? 'rotated' : ''}`} onClick={() => setPreviewGif(!previewGif)}>
@@ -670,9 +695,9 @@ const ConditionalView = ( { tableSettings, setTableSettings } ) => {
 								</div>
 							}
 						</div> */ }
+						</div>
 					</div>
-				</div>
-			) }
+				)}
 		</div>
 	);
 };

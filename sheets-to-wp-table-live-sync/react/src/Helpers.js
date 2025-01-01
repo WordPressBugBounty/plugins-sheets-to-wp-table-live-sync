@@ -92,6 +92,12 @@ export function getDefaultSettings() {
 		allow_singleshort: false,
 		columnnumber: -1,
 		sorting_mode: 'asc',
+		
+		enable_fixed_columns: false,
+		left_columns: 0,
+		right_columns: 0,
+		fixed_headers: false,
+		header_offset: 0,
 
 		import_styles_theme_colors: {
 			'default-style': {
@@ -1849,7 +1855,7 @@ export function handleTableAppearance( settings ) {
 			messageDiv.style.padding = '10px 10px 10px 13px';
 			messageDiv.style.color = '#ce6d26';
 			messageDiv.style.backgroundColor = '#fff4ec';
-			messageDiv.style.display = 'none'; // Change display to none initially
+			messageDiv.style.display = 'none';
 			messageDiv.style.alignItems = 'center';
 			messageDiv.style.justifyContent = 'flex-start';
 			messageDiv.style.borderRadius = '4px';
@@ -2016,6 +2022,156 @@ export function handleTableAppearance( settings ) {
 		}
 	}
 	// END 
+
+
+	// Sticky feature 
+	const previewTable = document.querySelector('#create_tables_wrapper');
+	if (previewTable) {
+		const enableFixedHeadersCheckbox = document.querySelector('#enable_fixed_headers');
+		const enableFixedColumnsCheckbox = document.querySelector('#enable_fixed_columns');
+		const headerOffsetInput = document.querySelector('#header_offset');
+		const leftColumnsInput = document.querySelector('#left_columns');
+		const rightColumnsInput = document.querySelector('#right_columns');
+	
+		const handleStickyPreview = () => {
+			if (previewTable) {
+				const tableHeader = previewTable.querySelector('thead');
+				const tableinsideHead = previewTable.querySelectorAll('thead tr th');
+				const tableBodyRows = previewTable.querySelectorAll('tbody tr');
+	
+				// Clear previous sticky styles
+				if (tableHeader) {
+					tableHeader.style.position = '';
+					tableHeader.style.top = '';
+					tableHeader.style.zIndex = '';
+					tableHeader.style.boxShadow = '';
+				}
+	
+				tableinsideHead.forEach(header => {
+					header.style.position = '';
+					header.style.left = '';
+					header.style.right = '';
+					header.style.zIndex = '';
+					header.style.boxShadow = '';
+				});
+	
+				tableBodyRows.forEach(row => {
+					const cells = row.querySelectorAll('td');
+					cells.forEach(cell => {
+						cell.style.position = '';
+						cell.style.left = '';
+						cell.style.right = '';
+						cell.style.zIndex = '';
+						cell.style.boxShadow = '';
+					});
+				});
+	
+				// Apply fixed header
+				if (enableFixedHeadersCheckbox && enableFixedHeadersCheckbox.checked) {
+					const headerOffset = parseInt(headerOffsetInput.value, 10) || 0;
+	
+					tableinsideHead.forEach((header, index) => {
+						header.style.position = 'sticky';
+						header.style.zIndex = '100';
+	
+						// Apply box-shadow only for the last header column
+						if (index === tableinsideHead.length - 1) {
+							header.style.boxShadow = '0px 2px 5px rgba(0, 0, 0, 0.1)';
+						}
+					});
+	
+					tableHeader.style.position = 'sticky';
+					tableHeader.style.zIndex = '100';
+					tableHeader.style.boxShadow = '0px 5px 5px rgba(0, 0, 0, 0.1)';
+				}
+	
+				// Apply fixed columns
+				if (enableFixedColumnsCheckbox && enableFixedColumnsCheckbox.checked) {
+					const leftColumnsCount = parseInt(leftColumnsInput.value, 10) || 0;
+					const rightColumnsCount = parseInt(rightColumnsInput.value, 10) || 0;
+	
+					let leftOffset = 0;
+					let rightOffset = 0;
+	
+					// Left sticky columns
+					if (leftColumnsCount > 0) {
+						for (let i = 0; i < leftColumnsCount; i++) {
+							const header = tableinsideHead[i];
+							header.style.position = 'sticky';
+							header.style.left = `${leftOffset}px`;
+							header.style.zIndex = '999';
+							header.style.boxShadow = '2px 0px 5px rgba(0, 0, 0, 0.1)';
+							leftOffset += header.offsetWidth;
+	
+							tableBodyRows.forEach(row => {
+								const cell = row.cells[i];
+								cell.style.position = 'sticky';
+								cell.style.left = `${leftOffset - cell.offsetWidth}px`;
+								cell.style.zIndex = '1';
+								cell.style.boxShadow = '2px 0px 5px rgba(0, 0, 0, 0.1)';
+							});
+						}
+					}
+	
+					// Right sticky columns
+					if (rightColumnsCount > 0) {
+						for (let i = 0; i < rightColumnsCount; i++) {
+							const columnIndex = tableinsideHead.length - 1 - i;
+							const header = tableinsideHead[columnIndex];
+							header.style.position = 'sticky';
+							header.style.right = `${rightOffset}px`;
+							header.style.zIndex = '999';
+	
+							// Apply box-shadow only for the last sticky column
+							if (i === rightColumnsCount - 1) {
+								header.style.boxShadow = '-2px 0px 5px rgba(0, 0, 0, 0.1)';
+							}
+	
+							rightOffset += header.offsetWidth;
+	
+							tableBodyRows.forEach(row => {
+								const cell = row.cells[columnIndex];
+								cell.style.position = 'sticky';
+								cell.style.right = `${rightOffset - cell.offsetWidth}px`;
+								cell.style.zIndex = '999';
+	
+								// Apply box-shadow only for the last sticky column
+								if (i === rightColumnsCount - 1) {
+									cell.style.boxShadow = '-2px 0px 5px rgba(0, 0, 0, 0.1)';
+								}
+							});
+						}
+					}
+				}
+			}
+		};
+	
+		// Event listeners for real-time updates
+		if (enableFixedHeadersCheckbox && headerOffsetInput) {
+			enableFixedHeadersCheckbox.addEventListener('change', debounce(handleStickyPreview, 300));
+			headerOffsetInput.addEventListener('input', debounce(handleStickyPreview, 300));
+		}
+	
+		if (enableFixedColumnsCheckbox && leftColumnsInput && rightColumnsInput) {
+			enableFixedColumnsCheckbox.addEventListener('change', debounce(handleStickyPreview, 300));
+			leftColumnsInput.addEventListener('input', debounce(handleStickyPreview, 300));
+			rightColumnsInput.addEventListener('input', debounce(handleStickyPreview, 300));
+		}
+	
+		// Initial setup
+		handleStickyPreview();
+	}
+	
+	// Debounce function to improve performance
+	function debounce(func, delay) {
+		let timeout;
+		return (...args) => {
+			clearTimeout(timeout);
+			timeout = setTimeout(() => func.apply(this, args), delay);
+		};
+	}
+		
+	// End ----------------
 
 	
 	if ( document.querySelectorAll( '.dt-button' ).length ) {

@@ -65,7 +65,7 @@ class Settings {
 		update_option( 'link_support_mode', isset( $settings['link_support'] ) ? sanitize_text_field( $settings['link_support'] ) : '' );
 
 		update_option( 'script_support_mode', isset( $settings['script_support'] ) ? sanitize_text_field( $settings['script_support'] ) : '' );
-		
+
 		update_option( 'timeout_values', isset( $settings['timeout'] ) ? sanitize_text_field( $settings['timeout'] ) : '' );
 
 		wp_send_json_success([

@@ -95,9 +95,9 @@ class Strings {
 			'tooltip-45'  => __( 'Set the cursor behavior on your table', 'sheetstowptable' ),
 			'tooltip-46'  => __( 'You can easily highlight text for copy-paste', 'sheetstowptable' ),
 			'tooltip-47'  => __( 'You can effortlessly move the table horizontally (left-right).', 'sheetstowptable' ),
-			
+
 			'tooltip-48'  => __( 'Allow checkbox to be loaded from sheets. You can use it to import checkox if you have them in Google Sheets.', 'sheetstowptable' ),
-			
+
 			'tooltip-50' => __( 'Enable row and column coloring', 'sheetstowptable' ),
 			'tooltip-51' => __( 'Choose the column or row to add colors', 'sheetstowptable' ),
 			'tooltip-52' => __( 'Add color on column', 'sheetstowptable' ),
@@ -105,12 +105,17 @@ class Strings {
 
 			'tooltip-54'  => __( 'Select which column to sort on load, or keep the format from Google Sheets.', 'sheetstowptable' ),
 			'tooltip-55'  => __( 'Choose the order of sorting for the selected column.', 'sheetstowptable' ),
-			
+
 			'tooltip-56' => __('Specify the maximum time (in seconds) the plugin will wait for a response from the Google server. A higher timeout allows more time to receive a complete response, but may delay table loading; a lower timeout can speed up loading but may result in missing data if the response isn’t fully received. A setting between 10 and 15 seconds is generally recommended for balanced performance.','sheetstowptable'),
 
 			'tooltip-57'  => __( 'Choose how you want to sort your table on load. Select a specific column to sort by (either ascending or descending), or keep the same format as in Google Sheets.', 'sheetstowptable' ),
 
+			'tooltip-58' => __( 'Select this to make the custom theme available for all tables. If unchecked, the theme will only be used for this table.', 'sheetstowptable' ),
+			'tooltip-59' => __( 'If selected, any changes made to your theme will be automatically applied to all other tables with the same theme, ensuring consistency across them. If the theme does not exist in other tables, it will be cloned with update style.', 'sheetstowptable' ),
 
+			'tooltip-60' => __( 'Adjust the header’s offset to prevent overlap with sticky menus or other elements at the top of the page.', 'sheetstowptable' ),
+			'tooltip-61' => __( 'Set how many columns from the left side of the table should remain fixed while scrolling.', 'sheetstowptable' ),
+			'tooltip-62' => __( 'Set how many columns from the right side of the table should remain fixed while scrolling.', 'sheetstowptable' ),
 
 			/**
 			 * AddNewTable.
@@ -199,13 +204,18 @@ class Strings {
 			'hide-search-box'  => __( 'Show search box', 'sheetstowptable' ),
 			'swap'  => __( 'Swap', 'sheetstowptable' ),
 			'hide-title'  => __( 'Hide title', 'sheetstowptable' ),
-			
+
 			'allow-sorting'  => __( 'Allow Table Sorting', 'sheetstowptable' ),
 			'sorting-control'  => __( 'Hide sorting controls from table', 'sheetstowptable' ),
 			'auto-sorting'  => __( 'Set Default Table Sorting on Load', 'sheetstowptable' ),
 			'col-sorting'  => __( 'Sort By Column', 'sheetstowptable' ),
 			'order-sorting'  => __( 'Sort By Order', 'sheetstowptable' ),
 
+			'enb-fixed-clmn'  => __( 'Freeze Table Columns', 'sheetstowptable' ),
+			'left-clmn-header'  => __( 'Left Columns Numbers', 'sheetstowptable' ),
+			'right-clmn-header'  => __( 'Right Columns Numbers', 'sheetstowptable' ),
+			'fixed-header'  => __( 'Freeze Table Header', 'sheetstowptable' ),
+			'header-offset'  => __( 'Header Offset', 'sheetstowptable' ),
 
 			'table-bottom-ele'  => __( 'Table bottom elements', 'sheetstowptable' ),
 			'hide-entry-info'  => __( 'Show entry info', 'sheetstowptable' ),
@@ -217,8 +227,6 @@ class Strings {
 			/**
 			 * Documentation.
 			 */
-			/* 'doc-1'  => __( 'How to Add Line Breaks in a WP Table?', 'sheetstowptable' ),
-			'doc-1-ans'  => __( "To incorporate a line break within a WordPress table, simply employ the `<span class='date-format'><code> &lt;br&gt; </code></span>` tag within the content of a specific cell.", 'sheetstowptable' ), */
 
 			'doc-2'  => __('What date format can I use?', 'sheetstowptable'),
 			'doc-2-ans'  => __("When working with date formats in your table, you have various options to choose from. Avoid using a <span class='date-format'><code>comma separator</code></span>, but consider formats such as <br> e.g. <span class='date-format'><code>2005-06-07</code> | <code>2005/06/07</code> | <code>2005 06 07</code> | <code>June 7- 2005</code> | <code>June 7 2005</code> | <code>7th June 2005</code></span>",'sheetstowptable'),
@@ -226,10 +234,6 @@ class Strings {
 			'doc-3'  => __('Which one is better for link support?', 'sheetstowptable'),
 			'doc-3-ans'  => __(
 				"For enhanced link functionality, it's advisable to utilize <span class='date-format'><code>Smart Link</code></span> over the <span class='date-format'><code>Pretty Link</code></span>. Smart Link is known for its robust and user-friendly features.",'sheetstowptable'),
-
-			/* 'doc-4'  => __('Why my table design breaks?', 'sheetstowptable'),
-			'doc-4-ans'  => __(
-				"If you encounter design issues in your table, it may be due to the use of  <span class='date-format'><code>multiline content </code></span>within a single cell in your Google spreadsheets. To address this, insert the <span class='date-format'><code> &lt;br&gt; </code></span> tag within the text of the specific cell to create multiline breaks. Additionally, using comma-separated date formats can disrupt the table cell layout.",'sheetstowptable'), */
 
 			'doc-5'  => __('Why my table taking too long to load?', 'sheetstowptable'),
 			'doc-5-ans'  => __(
@@ -567,8 +571,6 @@ class Strings {
 			 * Theme Customization and builder
 			 */
 
-			
-
 			'header-color-title'  => __( 'HEADER COLORS', 'sheetstowptable' ),
 			'text-color-title'  => __( 'TEXT COLORS', 'sheetstowptable' ),
 			'body-title'  => __( 'BODY COLORS', 'sheetstowptable' ),
@@ -637,6 +639,9 @@ class Strings {
 			'hover-mode'  => __( 'Hover mode', 'sheetstowptable' ),
 			'+new-theme'  => __( '+ New Theme', 'sheetstowptable' ),
 
+			'apply-theme-globally'  => __( 'Apply this custom theme to all tables', 'sheetstowptable' ),
+			'style-theme-globally'  => __( 'Apply this same style for the other table', 'sheetstowptable' ),
+
 			/**
 			 * Pagination.tsx
 			 */
@@ -678,20 +683,15 @@ class Strings {
 			  'show-search-result-once-Typing' => __('Show search result once Typing','sheetstowptable'),
 			  'show-search-result-after-pressing' => __('Show search result after pressing Search button','sheetstowptable'),
 			  'column-for-table-search' => __('Select a column to search within its data. Results will only show matches from the selected column. If no column is selected, the search will apply to all data in the Google Sheet.','sheetstowptable'),
-			  
+
 			  'unable-to-access' => __('Unable to access the Sheet! Please follow the instructions below:','sheetstowptable'),
 			  'on-your-google' => __('On your Google Sheet, click on the','sheetstowptable'),
 			  'button-located-at' => __('button located at the top-right corner. Then on the popup, choose the','sheetstowptable'),
 			  'anyone-with-the-link' => __('“Anyone with the link”','sheetstowptable'),
 			  'option-under-general' => __('option under General access','sheetstowptable'),
 
-
 			  'timeout-label' => __('Response Timeout: ','sheetstowptable'),
 			  'timeout-content' => __('Choose the maximum response timeout the table need to wait','sheetstowptable'),
-
-
-			  
-			  
 
 		];
 	}

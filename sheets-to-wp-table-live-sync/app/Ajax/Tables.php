@@ -57,8 +57,8 @@ class Tables {
 		}
 
 		$id = ! empty( $_POST['id'] ) ? absint( $_POST['id'] ) : false;
-			$settings = ! empty( $_POST['settings'] ) ? json_decode( sanitize_text_field( wp_unslash( $_POST['settings'] ) ), true ) : false;
-			$settings['table_settings'] = wp_json_encode( $settings['table_settings'] );
+		$settings = ! empty( $_POST['settings'] ) ? json_decode( sanitize_text_field( wp_unslash( $_POST['settings'] ) ), true ) : false;
+		$settings['table_settings'] = wp_json_encode( $settings['table_settings'] );
 
 		if ( ! $id || ! $settings ) {
 			wp_send_json_error([
@@ -66,6 +66,13 @@ class Tables {
 			]);
 		}
 
+		// Ensure GlobalThemeCreate is set to false and return the updated settings.
+		$updated_table_settings = swptls()->database->table->check_and_update_global_theme( $settings['table_settings'] );
+
+		// Now, assign the updated table settings back to settings array.
+		$settings['table_settings'] = $updated_table_settings;
+
+		// Save the updated settings.
 		$response = swptls()->database->table->update( $id, $settings );
 
 		wp_send_json_success([
@@ -75,6 +82,10 @@ class Tables {
 			'table_settings' => json_decode( $settings['table_settings'], true ),
 		]);
 	}
+
+
+
+
 
 	/**
 	 * Sorting disabled BE.
@@ -139,6 +150,7 @@ class Tables {
 			]);
 		}
 	}
+
 	/**
 	 * Sorting disabled FE.
 	 */

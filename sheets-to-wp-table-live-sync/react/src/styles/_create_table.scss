@@ -279,7 +279,7 @@
             width: 70%;
 
             background-color: #fff;
-            border-radius: 4px;
+            border-radius: 6px;
             -webkit-box-shadow: 0px 1px 18px 4px rgba(0, 0, 0, 0.3);
             box-shadow: 0px 1px 18px 4px rgba(0, 0, 0, 0.3);
 
@@ -430,7 +430,7 @@
             width: 30%;
 
             background-color: #fff;
-            border-radius: 4px;
+            border-radius: 6px;
             -webkit-box-shadow: 0px 1px 18px 4px rgba(0, 0, 0, 0.3);
             box-shadow: 0px 1px 18px 4px rgba(0, 0, 0, 0.3);
 
@@ -705,7 +705,7 @@
     a.paginate_button.current {
         background-color: rgba(47, 129, 237, 0.325);
         color: var(--pagination-colors);
-        border-radius: 4px;
+        border-radius: 6px;
         border: transparent;
     }
 

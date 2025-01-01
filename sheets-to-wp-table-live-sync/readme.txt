@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
 Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 3.16.0
+Stable tag: 3.17.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,15 +14,22 @@ Embed Google Sheets in WordPress. Best WordPress table plugin to sync tables wit
 
 [Website](https://wppool.dev/google-sheets-to-wordpress-table-live-sync/) | [Documentations](https://wppool.dev/docs-category/how-to-use-sheets-to-wp-table/) | [Tutorials](https://www.youtube.com/playlist?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP) | [Live Demo](https://demo.wppool.dev/)
 
-FlexTable (Google Sheets to WP Table Live Sync) allows you to quickly create responsive data tables from Google Sheets. Once you update your Google Sheets spreadsheet, it automatically updates the WordPress table. With the in-built shortcode and page builder support, you can add new tables on any page/post and live-sync the data with connected Google Sheets! No need to edit WordPress posts or tables from the WP dashboard. Edit on the spreadsheet and live sync from Google Sheets to the WordPress table with ease.
+**FlexTable (Google Sheets to WP Table Live Sync)** allows you to create responsive data tables from Google Sheets quickly. Once you update your Google Sheets spreadsheet, it automatically updates the WordPress table. With the in-built shortcode and page builder support, you can add new tables on any page/post and live-sync the data with connected Google Sheets! No need to edit WordPress posts or tables from the WP dashboard. Edit on the spreadsheet and live sync from Google Sheets to the WordPress table with ease.
 
+👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get PRO](https://go.wppool.dev/Hat0) | 🤝 [Join Our Facebook Community](https://cutt.ly/ceCQgvoT)
 **Recommended by WordPress experts!** 🤩
 
 [youtube https://youtu.be/1b9QXLg0JdQ?si=OATDuWHy_cZg9sWY?rel=0]
 
-👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get The PRO Version](https://go.wppool.dev/Hat0)
+**Let’s grow, connect, and thrive together!**
 
-Worried about how to display your Google Spreadsheet on a WordPress table? Well, your hustle ends today! Presenting FlexTable – the most flexible solution to embed Google Sheets data in WordPress tables.
+* **🤝 Join Our [Facebook Community](https://cutt.ly/ceCQgvoT)**
+* **🌐 Follow Us on [X (Twitter)](https://x.com/wppool_)**
+* **🎥 Subscribe on [YouTube](https://www.youtube.com/@WPPOOL)**
+* **👍 Like Our [Facebook Page](https://www.facebook.com/wppool.dev)**
+
+
+Worried about how to display your Google Spreadsheet on a WordPress table? Well, your hustle ends today! Presenting Flex Table – the most flexible solution to embed Google Sheets data in WordPress tables.
 
 [youtube https://youtu.be/IkxD64CoNfw?si=Wti1z-1gP0QWJtpF?rel=0]
 
@@ -56,7 +63,8 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 * **Set Maximum Response Timeout for Table Loading:** Take control of performance with a global setting to define how long (in seconds) the plugin should wait for a response from the Google server.
 * **Multisite Support:** With Google Sheets to WordPress Table Multisite support, share table sync features across your multisite network.
 
-👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get The PRO Version](https://go.wppool.dev/Hat0)
+👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get PRO](https://go.wppool.dev/Hat0) | 🤝 [Join Our Facebook Community](https://cutt.ly/ceCQgvoT)
+
 
 === ⚡ Experience the Full Potential with FlexTable Pro ===
 
@@ -78,9 +86,11 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 * **Hide Cell:** Hide your Google Sheets cell data based on your custom cell selection.
 * **Optimized Loading:** By enabling this feature, the table scripts will load only on the relevant pages/posts in your website where the table is added.
 * **Table Sorting Control:** Easily set a default sort order for tables when the page loads. You can also hide the sorting controls from the table for a cleaner and more streamlined table display.
+* **Freeze Header & Column:** You can now freeze any column(s) from the left or right side, based on your preference. Additionally, you can also freeze the table header with a customizable height to enhance your viewing experience while scrolling.
 * **24/7 VIP Support:** We have a dedicated and hardworking team. Get support anytime for any issues with Flex Table. Our support team will be there always.
 
-👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get The PRO Version](https://go.wppool.dev/Hat0)
+👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get PRO](https://go.wppool.dev/Hat0) | 🤝 [Join Our Facebook Community](https://cutt.ly/ceCQgvoT)
+
 
 ### WHAT OUR USERS SAY ABOUT THE MOST UNIQUE WORDPRESS DATA TABLE PLUGIN 😍
 
@@ -99,7 +109,8 @@ It’s easy to install and will offer you the simplest settings to configure. Wi
 
 After you set up a table, a shortcode is generated automatically. All you need to place the shortcode anywhere you want on your website. Table data will be displayed in a Google spreadsheet format in your dashboard. It doesn’t matter what type of data you would like to include, Sheet to WP Table Sync has support for almost everything you can think of!
 
-👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get The PRO Version](https://go.wppool.dev/Hat0)
+👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get PRO](https://go.wppool.dev/Hat0) | 🤝 [Join Our Facebook Community](https://cutt.ly/ceCQgvoT)
+
 
 === Installation ===
 
@@ -111,18 +122,18 @@ You can also follow this tutorial:
 
 [youtube https://youtu.be/IkxD64CoNfw?si=Wti1z-1gP0QWJtpF?rel=0]
 
-=== 🔥 More Awesome Plugins === 
+=== 🔥 More Awesome Plugins ===
 If you like FlexTable, then consider checking out our other awesome projects:
 
-🌓 **[WP Dark Mode](https://wordpress.org/plugins/wp-dark-mode/)**  - Use WP Dark Mode plugin to create a stunning dark version for your WordPress website. WP Dark Mode works automatically without going into any complicated settings.
+* 🌓 **[WP Dark Mode](https://wordpress.org/plugins/wp-dark-mode/)**: Use WP Dark Mode plugin to create a stunning dark version for your WordPress website. WP Dark Mode works automatically without going into any complicated settings.
 
-🔄 **[Stock Sync with Google Sheet for WooCommerce - FlexSync](https://wordpress.org/plugins/stock-sync-with-google-sheet-for-woocommerce/)**  - Auto-sync WooCommerce products from Google Sheets. An easy, powerful, and simple inventory management system to handle your WooCommerce products.
+* 💬 **[FormyChat](https://wordpress.org/plugins/social-contact-form/)**: Connect Form to Chat Apps with Contact Form 7, WPForms, Gravity Form | Welcome Popup & Multi-agent Live Chat
 
-🛒 **[Order Sync with Google Sheet for WooCommerce - FlexSync](https://wordpress.org/plugins/order-sync-with-google-sheets-for-woocommerce/)**  - Manage WooCommerce orders from Google Sheets. WooCommerce order sync, e-commerce order management, and sales order management with Google Sheets.
+* 🔄 **[FlexStock - Stock Sync with Google Sheet for WooCommerce](https://wordpress.org/plugins/stock-sync-with-google-sheet-for-woocommerce/)**: Auto-sync WooCommerce products from Google Sheets. Flex Stock is an easy, powerful, and simple inventory management system to handle your WooCommerce products.
 
-⭐ **[Easy Video Reviews](https://wordpress.org/plugins/easy-video-reviews/)**  - Easy Video Reviews is the best and easiest video review plugin for WordPress. Your customers can record and send video testimonials right from their browser, and you can manage and showcase anywhere on your WordPress website.
+* 🛒 **[FlexOrder - Order Sync with Google Sheet for WooCommerce](https://wordpress.org/plugins/order-sync-with-google-sheets-for-woocommerce/)**: Manage WooCommerce orders from Google Sheets. WooCommerce order sync, e-commerce order management, and sales order management with Google Sheets. Try Flex Order now!
 
-📽️ **[Webinar & Video Conference with Jitsi Meet](https://wordpress.org/plugins/webinar-and-video-conference-with-jitsi-meet/)**  - Experience the best WordPress video conference plugin and live video chat solution. Get shortcode support with WooCommerce and BuddyPress integration.
+* 🎁 **[EchoRewards](https://wordpress.org/plugins/echo-rewards/)**: With Echo Reward, you can refer a friend for WooCommerce to launch your customer referral program. Echo Rewards Referral Plugin is a WooCommerce referral plugin to boost your sales. Generate coupons, reward customers, and launch the ideal refer-a-friend program for your store.
 
 
 ## Privacy Policy 
@@ -178,8 +189,13 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 == Changelog ==
 
-= 3.16.0 - 03 December 2024 =
+= 3.17.0 - 31 December 2024 =
+* **New:** Added Freeze Header and Columns feature, allowing table headers and specific columns to stay sticky while scrolling.  
+* **New:** Introduced the ability to create custom themes and apply them globally across all tables.  
+* **New:** Added tutorial video CTA for Search-Only Display feature.  
+* **Tweak:** Refined the user interface for a cleaner and more modern appearance.  
 
+= 3.16.0 - 03 December 2024 =
 * **New: Default Table Sorting on Load:** Introducing the ability to set a default sorting order for tables. Users can now define how their tables should be sorted when the page loads, improving data presentation and usability.  
 
 * **New: Enhanced Timeout Settings:** A new global timeout configuration is now available under the Performance tab. This setting allows users to extend the request timeout duration, ensuring smoother handling of larger or slower data queries.  
