@@ -61,23 +61,31 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 				'button_link' => 'https://go.wppool.dev/LaSV',
 				'button_text' => 'Get Premium',
 				'color' => '#FF631A',
+				'demo_link' => 'https://go.wppool.dev/bjxy',
+				'demo_text' => 'Try a FREE demo',
 			],
 			'sheets_to_wp_table_live_sync' => [
 				'list_id' => 21,
 				'button_link' => 'https://go.wppool.dev/Rimc',
 				'button_text' => 'Get Premium',
 				'color' => '#1AD26E',
+				'demo_link' => 'https://go.wppool.dev/Yjcr',
+				'demo_text' => 'Try a FREE demo',
 			],
 			'easy_video_reviews' => [
 				'list_id' => 22,
 				'button_text' => 'Get Premium',
 				'color' => '#0288FD',
+				'demo_link' => 'https://go.wppool.dev/VjWZ',
+				'demo_text' => 'Try a FREE demo',
 			],
 			'webinar_and_video_conference_with_jitsi_meet' => [
 				'list_id' => 23,
 				'button_link' => 'https://go.wppool.dev/8iQC',
 				'button_text' => 'Get Premium',
 				'color' => '#1D5AE4',
+				'demo_link' => 'https://go.wppool.dev/ajve',
+				'demo_text' => 'Try a FREE demo',
 			],
 			'zero_bs_accounting' => [
 				'list_id' => 24,
@@ -89,6 +97,8 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 				'button_link' => 'https://go.wppool.dev/dr8d',
 				'button_text' => 'Get Premium',
 				'color' => '#8F5CCB',
+				'demo_link' => 'https://go.wppool.dev/kjbW',
+				'demo_text' => 'Try a FREE demo',
 			],
 			'stock_notifier_for_woocommerce' => [
 				'list_id' => 47,
@@ -129,11 +139,21 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 				'button_link' => 'https://go.wppool.dev/easycloudflare',
 				'button_text' => 'Get Premium',
 			],
-			'order_sync_with_google_sheets_for_woocommerce' => [
+			'order_sync_with_google_sheet_for_woocommerce' => [
 				'list_id' => 65,
 				'button_link' => 'https://go.wppool.dev/8aCD',
 				'button_text' => 'Get Premium',
 				'color' => '#6621ba',
+				'demo_link' => 'https://go.wppool.dev/fjno',
+				'demo_text' => 'Try a FREE demo',
+			],
+			'echo_rewards' => [
+				'list_id' => 70,
+				'button_link' => 'https://go.wppool.dev/Bg5L',
+				'button_text' => 'Get Premium',
+				'color' => '#6A32F8',
+				'demo_link' => 'https://go.wppool.dev/7jm2',
+				'demo_text' => 'Try a FREE demo',
 			],
 		];
 
@@ -305,54 +325,53 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 						<!-- countdown  -->
 						<div class="_wppool-popup-countdown" style="display: none">
 							<span class="_wppool-popup-countdown-text">
-								<?php echo esc_html__( 'Deal Ends In', 'formychat' ); ?>
+								<?php echo esc_html__( 'Deal Ends In', 'wp-dark-mode' ); ?>
 							</span>
 							<div class="_wppool-popup-countdown-time">
 								<div>
 									<span data-counter="days">
-										<?php echo esc_html__( '00', 'formychat' ); ?>
+										<?php echo esc_html__( '00', 'wp-dark-mode' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Days', 'formychat' ); ?>
+										<?php echo esc_html__( 'Days', 'wp-dark-mode' ); ?>
 									</span>
 								</div>
 								<span>:</span>
 								<div>
 									<span data-counter="hours">
-										<?php echo esc_html__( '00', 'formychat' ); ?>
+										<?php echo esc_html__( '00', 'wp-dark-mode' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Hours', 'formychat' ); ?>
+										<?php echo esc_html__( 'Hours', 'wp-dark-mode' ); ?>
 									</span>
 								</div>
 								<span>:</span>
 								<div>
 									<span data-counter="minutes">
-										<?php echo esc_html__( '00', 'formychat' ); ?>
+										<?php echo esc_html__( '00', 'wp-dark-mode' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Minutes', 'formychat' ); ?>
+										<?php echo esc_html__( 'Minutes', 'wp-dark-mode' ); ?>
 									</span>
 								</div>
 								<span>:</span>
 								<div>
 									<span data-counter="seconds">
-										<?php echo esc_html__( '00', 'formychat' ); ?>
+										<?php echo esc_html__( '00', 'wp-dark-mode' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Seconds', 'formychat' ); ?>
+										<?php echo esc_html__( 'Seconds', 'wp-dark-mode' ); ?>
 									</span>
 								</div>
 							</div>
 						</div>
 						<!-- button  -->
-						<a class="_wppool-popup-button" href="">
-							<?php
-							echo esc_html__(
-								'Upgrade to Pro',
-								'formychat'
-							);
-							?>
+						<a class="_wppool-popup-button">
+							<?php echo esc_html__( 'Upgrade to Pro', 'wp-dark-mode' ); ?>
+						</a>
+
+						<a target="_blank" class="_wppool-popup-demo-link" href="">
+							<?php echo esc_html__( 'Try a free demo', 'wp-dark-mode' ); ?>
 						</a>
 					</div>
 				</div>
@@ -532,6 +551,8 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 						plugin_data.from = plugin_data.from || null;
 						// counter to
 						plugin_data.to = plugin_data.to || null;
+						// demo link
+						plugin_data.demo_link = plugin_data.demo_link || null
 		
 						return plugin_data;
 					}
@@ -623,6 +644,14 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 
 						if ( data.button_link ) {
 							$container.find("._wppool-popup-button").attr("target", "_blank");
+						}
+
+						if ( data.demo_link ) {
+							$container.find("._wppool-popup-demo-link").show();
+							$container.find("._wppool-popup-demo-link").text(data.demo_text || "Try a FREE demo");
+							$container.find("._wppool-popup-demo-link").attr("href", data.demo_link || "");
+						} else {
+						 $container.find("._wppool-popup-demo-link").hide()
 						}
 		
 						// set popup color
@@ -795,7 +824,6 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 				z-index: 99999999 !important;
 			}
 		
-		
 			._wppool-popup-overlay {
 				position: absolute;
 				top: 0;
@@ -919,7 +947,7 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 			}
 
 			._wppool-popup-button {
-				height: 50px;
+				height: 60px;
 				background: var(--wppool-popup-color);
 				color: #222;
 				font-size: 18px;
@@ -934,7 +962,7 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 				transition: .3s;
 				color: white;
 				padding: 0 30px;
-				margin: 35px 0;
+				margin: 35px 0 20px 0;
 				transition: .2s;
 				position: relative;
 			}
@@ -962,7 +990,19 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 				._wppool-popup-countdown {
 					transform: scale(.99);
 				}
-			}';
+			}
+			._wppool-popup-demo-link {
+				color: #ddd;
+				transition: .2s ease-in-out;
+				cursor: pointer;
+				text-decoration: none;
+				padding-bottom: 10px;
+			}
+			._wppool-popup-demo-link:hover {
+				color: #ddd;
+				opacity: .9;
+			}
+			';
 
 			return apply_filters( 'wppool_inline_styles', $css );
 		}
@@ -1304,4 +1344,3 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 		return WPPOOL_Plugin::init( $plugin_id, $image_url );
 	}
 }
-

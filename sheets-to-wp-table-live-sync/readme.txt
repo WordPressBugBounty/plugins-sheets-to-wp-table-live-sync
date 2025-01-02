@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
 Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 3.17.0
+Stable tag: 3.17.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -189,7 +189,10 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 == Changelog ==
 
-= 3.17.0 - 31 December 2024 =
+= 3.17.1 - 02 January 2025 =
+* **Improvement:** SDK updated. 
+
+= 3.17.0 - 01 January 2025 =
 * **New:** Added Freeze Header and Columns feature, allowing table headers and specific columns to stay sticky while scrolling.  
 * **New:** Introduced the ability to create custom themes and apply them globally across all tables.  
 * **New:** Added tutorial video CTA for Search-Only Display feature.  
