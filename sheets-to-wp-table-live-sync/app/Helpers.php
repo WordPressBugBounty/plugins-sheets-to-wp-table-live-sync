@@ -161,55 +161,70 @@ class Helpers {
 		$args = array(
 			'timeout' => $timeout,
 		);
-
+	
 		$url = $this->prepare_export_url($sheet_id, $gid);
-
 		$response = wp_remote_get($url, $args);
-
+	
 		if ( is_wp_error($response) ) {
 			return new WP_Error('private_sheet', __('You are offline.', 'sheetstowptable'));
 		}
-
+	
 		$headers = $response['headers'];
-
+	
 		if ( ! isset($headers['X-Frame-Options']) || 'DENY' === $headers['X-Frame-Options'] ) {
 			wp_send_json_error([
 				'message' => __('Sheet is not public or shared', 'sheetstowptable'),
 				'type'    => 'private_sheet',
 			]);
 		}
-
+	
 		$csv_data = wp_remote_retrieve_body($response);
 		$sanitized_csv_data = wp_kses_post($csv_data);
-
+	
 		// Open CSV data stream for processing.
 		$data_stream = fopen('php://temp', 'r+');
 		fwrite($data_stream, $sanitized_csv_data);
 		rewind($data_stream);
-
-		// Process each cell to replace actual line breaks and handle special characters.
+	
 		$rows = [];
+		$row_count = 0;
+		
 		while ( ( $data = fgetcsv($data_stream, 0, ',') ) !== false ) {
-			foreach ( $data as &$cell ) {
-				// Escape quotes.
-				$cell = str_replace('"', '""', $cell);
-				// Replace newlines with <br> and ensure proper encapsulation.
-				if ( strpos($cell, ',') !== false || strpos($cell, "\n") !== false ) {
-					$cell = '"' . str_replace("\n", '<br>', $cell) . '"';
+			foreach ( $data as $index => &$cell ) {
+				// Handle line breaks for all columns.
+				$cell = str_replace("\n", '<br>', $cell);
+	
+				// Apply special handling for the first column in all rows (including header)
+				if ( $index === 0 ) {
+					$cell = trim($cell, '"');
+					$cell = str_replace(',', '﹐', $cell);
+					// Re-add quotes if cell contains special characters.
+					if ( strpos($cell, '﹐') !== false || strpos($cell, '<br>') !== false ) {
+						$cell = '"' . $cell . '"';
+					}
+				} else {
+					// Normal processing for other columns and Escape quotes.
+					$cell = str_replace('"', '""', $cell);
+					// Ensure proper encapsulation for cells with commas or line breaks.
+					if ( strpos($cell, ',') !== false || strpos($cell, '<br>') !== false ) {
+						$cell = '"' . $cell . '"';
+					}
 				}
 			}
 			$rows[] = $data;
+			$row_count++;
 		}
 		fclose($data_stream);
-
+	
 		// Convert rows back into CSV format as a string.
 		$output_csv = '';
 		foreach ( $rows as $row ) {
 			$output_csv .= implode(',', $row) . "\n";
 		}
-
+	
 		return $output_csv;
 	}
+
 
 	/**
 	 * Retrieve merged styles.

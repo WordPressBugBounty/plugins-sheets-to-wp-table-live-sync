@@ -672,7 +672,7 @@ class Strings {
 
 			  'search-only-display' => __('Search-Only Display','sheetstowptable'),
 			  'user-specific-display' => __('User-Specific Display','sheetstowptable'),
-			  'Upcomming' => __('Upcomming','sheetstowptable'),
+			  'Upcoming' => __('Upcoming','sheetstowptable'),
 			  'displayed-only-to-logged-in-users' => __("Enhance personalization with this mode. It allows the table to be displayed only to the logged-in users based on their credentials or unique data (e.g., username or email) stored in the Google Sheets. There will be no search box, preventing anyone from searching other users' data.",'sheetstowptable'),
 
 			  'password-pin-protected' => __('This mode adds an extra layer of security to your data. The table is protected by a password or PIN, ensuring that only authorized users can unlock and see the table information.','sheetstowptable'),

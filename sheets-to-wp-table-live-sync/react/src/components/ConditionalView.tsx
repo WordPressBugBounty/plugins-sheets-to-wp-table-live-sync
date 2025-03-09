@@ -383,7 +383,7 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 							</p>
 						</div>
 						<button className="btn-pro-lock btn-upcooming theme-lock-blur">
-							<span>{getStrings('Upcomming')}</span>
+							<span>{getStrings('Upcoming')}</span>
 						</button>
 					</div>
 					<div className="table-view__lable">
@@ -443,7 +443,7 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 							<p>{getStrings('password-pin-protected')}</p>
 						</div>
 						<button className="btn-pro-lock btn-upcooming theme-lock-blur">
-							<span>{getStrings('Upcomming')}</span>
+							<span>{getStrings('Upcoming')}</span>
 						</button>
 					</div>
 					<div className="table-view__lable">

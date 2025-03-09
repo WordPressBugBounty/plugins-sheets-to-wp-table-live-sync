@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
 Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 3.17.1
+Stable tag: 3.17.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -188,6 +188,13 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 
 == Changelog ==
+
+= 3.17.2 - 09 March 2025 =
+* **Fix:** If a comma is used in the first column of a Google Spreadsheet, the data after the comma was split into the second column.
+* **Fix:** Table widths broke when both the content area and sidebar contained tables.
+* **Improvement:** Table responsiveness and width misalignment issues have been resolved.
+* **Improvement:** Updated typo "upcoming" on the Conditional Table View page.
+* **Improvement:** Removed popup notices.
 
 = 3.17.1 - 02 January 2025 =
 * **Improvement:** SDK updated. 
