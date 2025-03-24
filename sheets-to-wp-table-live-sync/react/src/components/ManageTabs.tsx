@@ -22,58 +22,58 @@ import '../styles/_header.scss';
 
 const ManageTabs = () => {
 	const createTableModalRef = useRef();
-	const [ tabs, setTabs ] = useState( getTabs() || [] );
-	const [ copiedTabs, setCopiedTabs ] = useState( [] );
-	const [ tablesLength, setTablesLength ] = useState( 0 );
-	const [ createTableModal, setCreateTableModal ] = useState( false );
-	const [ searchKey, setSearchKey ] = useState( '' );
-	const [ tabCount, setTabCount ] = useState( 0 );
+	const [tabs, setTabs] = useState(getTabs() || []);
+	const [copiedTabs, setCopiedTabs] = useState([]);
+	const [tablesLength, setTablesLength] = useState(0);
+	const [createTableModal, setCreateTableModal] = useState(false);
+	const [searchKey, setSearchKey] = useState('');
+	const [tabCount, setTabCount] = useState(0);
 
-	useEffect( () => {
-		if ( isProActive() ) {
-			wp.ajax.send( 'swptls_get_tabs', {
+	useEffect(() => {
+		if (isProActive()) {
+			wp.ajax.send('swptls_get_tabs', {
 				data: {
 					nonce: getNonce(),
 				},
-				success( response ) {
-					setTabs( response.tabs );
-					setCopiedTabs( response.tabs );
-					setTablesLength( response.tables.length );
-					setTabCount( response.tabs_count );
+				success(response) {
+					setTabs(response.tabs);
+					setCopiedTabs(response.tabs);
+					setTablesLength(response.tables.length);
+					setTabCount(response.tabs_count);
 				},
-				error( error ) {
-					console.error( error );
+				error(error) {
+					console.error(error);
 				},
-			} );
+			});
 		} else {
 			const handleClick = () => {
-				WPPOOL.Popup( 'sheets_to_wp_table_live_sync' ).show();
+				WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
 			};
 
 			const proSettings = document.querySelectorAll(
 				'.swptls-pro-settings, .btn-pro-lock'
 			);
-			proSettings.forEach( ( item ) => {
-				item.addEventListener( 'click', handleClick );
-			} );
+			proSettings.forEach((item) => {
+				item.addEventListener('click', handleClick);
+			});
 
 			return () => {
-				proSettings.forEach( ( item ) => {
-					item.removeEventListener( 'click', handleClick );
-				} );
+				proSettings.forEach((item) => {
+					item.removeEventListener('click', handleClick);
+				});
 			};
 		}
-	}, [] );
+	}, []);
 
-	const handleCreateTablePopup = ( e ) => {
+	const handleCreateTablePopup = (e) => {
 		e.preventDefault();
 
-		if ( isProActive() ) {
-			setCreateTableModal( true );
+		if (isProActive()) {
+			setCreateTableModal(true);
 		}
 	};
 	const handleClosePopup = () => {
-		setCreateTableModal( false );
+		setCreateTableModal(false);
 	};
 
 	const handleMovetoDashboards = () => {
@@ -81,178 +81,176 @@ const ManageTabs = () => {
 		const manageTabLi = document.querySelector(
 			'#toplevel_page_gswpts-dashboard li.current'
 		);
-		if ( manageTabLi ) {
-			manageTabLi.classList.remove( 'current' );
+		if (manageTabLi) {
+			manageTabLi.classList.remove('current');
 		}
 
 		// Add the 'current' class to the "Dashboard" li with the class "wp-first-item"
 		const dashboardLi = document.querySelector(
 			'#toplevel_page_gswpts-dashboard li.wp-first-item'
 		);
-		if ( dashboardLi ) {
-			dashboardLi.classList.add( 'current' );
+		if (dashboardLi) {
+			dashboardLi.classList.add('current');
 		}
 	};
 
 	// Reseting Tab
-	useEffect( () => {
+	useEffect(() => {
 		const currentHash = window.location.hash;
-		if ( ! currentHash.startsWith( '#/tabs/edit/' ) ) {
-			localStorage.setItem( 'manage-tabs-active_tab', 'manage_tab' );
+		if (!currentHash.startsWith('#/tabs/edit/')) {
+			localStorage.setItem('manage-tabs-active_tab', 'manage_tab');
 
-			localStorage.setItem( 'second_active_tab', 'layout' );
-			localStorage.setItem( 'third_active_tab', 'columns' );
+			localStorage.setItem('second_active_tab', 'layout');
+			localStorage.setItem('third_active_tab', 'columns');
 
-			localStorage.setItem( 'forth_active_tab', 'conditional_view' );
+			localStorage.setItem('forth_active_tab', 'conditional_view');
 		}
-	}, [ window.location.hash ] );
+	}, [window.location.hash]);
 
 	/**
 	 * Alert if clicked on outside of element
 	 *
 	 * @param  event
 	 */
-	function handleCancelOutside( event: MouseEvent ) {
+	function handleCancelOutside(event: MouseEvent) {
 		if (
 			createTableModalRef.current &&
-			! createTableModalRef.current.contains( event.target )
+			!createTableModalRef.current.contains(event.target)
 		) {
 			handleClosePopup();
 		}
 	}
 
-	useEffect( () => {
-		document.addEventListener( 'mousedown', handleCancelOutside );
+	useEffect(() => {
+		document.addEventListener('mousedown', handleCancelOutside);
 		return () => {
-			document.removeEventListener( 'mousedown', handleCancelOutside );
+			document.removeEventListener('mousedown', handleCancelOutside);
 		};
-	}, [ handleCancelOutside ] );
+	}, [handleCancelOutside]);
 
-	useEffect( () => {
-		if ( searchKey !== '' ) {
-			const filtered = copiedTabs.filter( ( { tab_name }: any ) =>
+	useEffect(() => {
+		if (searchKey !== '') {
+			const filtered = copiedTabs.filter(({ tab_name }: any) =>
 				tab_name
 					.toLowerCase()
-					.includes( searchKey.toString().toLowerCase() )
+					.includes(searchKey.toString().toLowerCase())
 			);
 
-			setTabs( filtered );
+			setTabs(filtered);
 		} else {
-			setTabs( copiedTabs );
+			setTabs(copiedTabs);
 		}
-	}, [ searchKey ] );
+	}, [searchKey]);
 
 	return (
-		<div className={ `create-tabs-wrap` }>
+		<div className={`create-tabs-wrap`}>
 			<header className="setting-header">
-				<h5 className="setting-title">Manage Tab</h5>
+				<h5 className="setting-title">{getStrings('mng-tab')}</h5>
 				<div className="new-unlock-block">
-					{ ! isProActive() && (
+					{!isProActive() && (
 						<div className="unlock">
-							<div className="icon">{ Unlock }</div>
+							<div className="icon">{Unlock}</div>
 							<p>
 								<a
 									className="get-ultimate"
 									href="https://go.wppool.dev/KfVZ"
 									target="_blank"
 								>
-									{ getStrings( 'get-unlimited-access' ) }
+									{getStrings('get-unlimited-access')}
 								</a>
 							</p>
 						</div>
-					) }
+					)}
 					<ChangesLog />
 				</div>
 			</header>
-			{ createTableModal && (
+			{createTableModal && (
 				<Modal>
 					<div
 						className="create-table-modal-wrap modal-content manage-modal-content"
-						ref={ createTableModalRef }
+						ref={createTableModalRef}
 					>
 						<div
 							className="cross_sign"
-							onClick={ () => handleClosePopup() }
+							onClick={() => handleClosePopup()}
 						>
-							{ Cross }
+							{Cross}
 						</div>
 						<div className="create-table-modal">
-							<div className="modal-media">{ createTable }</div>
-							<h2>{ getStrings( 'CTF' ) }</h2>
+							<div className="modal-media">{createTable}</div>
+							<h2>{getStrings('CTF')}</h2>
 							<p>
-								{ getStrings( 'manage-tab-is-not-available' ) }
+								{getStrings('manage-tab-is-not-available')}
 							</p>
 							<Link
 								to="/tables/create"
 								className="create-table-popup-button btn"
 								id="create-table-popup"
-								onClick={ handleMovetoDashboards }
+								onClick={handleMovetoDashboards}
 							>
-								{ getStrings( 'create-table' ) }
+								{getStrings('create-table')}
 							</Link>
 						</div>
 					</div>
 				</Modal>
-			) }
+			)}
 
 			<div
-				className={ `table-header ${
-					! isProActive() ? ` swptls-pro-settings` : ``
-				}` }
+				className={`table-header ${!isProActive() ? ` swptls-pro-settings` : ``
+					}`}
 			>
 				<Title tagName="h4">
-					<strong>{ tabCount }</strong>&nbsp;
-					{ getStrings( 'tabs-created' ) }
+					<strong>{tabCount}</strong>&nbsp;
+					{getStrings('tabs-created')}
 				</Title>
 				<div className="wrapper">
 					<div className="table-search-box">
 						<input
 							type="text"
 							placeholder="Search tabs"
-							onChange={ ( e ) =>
-								setSearchKey( e.target.value.trim() )
+							onChange={(e) =>
+								setSearchKey(e.target.value.trim())
 							}
 						/>
-						<div className="icon">{ searchIcon }</div>
+						<div className="icon">{searchIcon}</div>
 					</div>
 
 					<div className="btn-box">
-						{ tablesLength < 1 ? (
+						{tablesLength < 1 ? (
 							<button
-								className={ `create-table btn btn-manage ${
-									! isProActive()
-										? ` swptls-pro-settings`
-										: ``
-								} ` }
+								className={`create-table btn btn-manage ${!isProActive()
+									? ` swptls-pro-settings`
+									: ``
+									} `}
 								//<div className={`create-tabs-wrap${!isProActive() ? ` swptls-pro-settings` : ``}`}>
-								onClick={ ( e ) => handleCreateTablePopup( e ) }
+								onClick={(e) => handleCreateTablePopup(e)}
 							>
-								{ getStrings( 'manage-new-tabs' ) }{ ' ' }
-								{ WhitePlusIcon }
+								{getStrings('manage-new-tabs')}{' '}
+								{WhitePlusIcon}
 							</button>
 						) : (
 							<Link
 								className="create-table btn btn-manage"
 								to="/tabs/create"
 							>
-								{ getStrings( 'manage-new-tabs' ) }{ ' ' }
-								{ WhitePlusIcon }
+								{getStrings('manage-new-tabs')}{' '}
+								{WhitePlusIcon}
 							</Link>
-						) }
+						)}
 
 						<Tooltip
-							content={ `Display multiple tables using tabs. Just like your google sheets` }
+							content={`Display multiple tables using tabs. Just like your google sheets`}
 						/>
-						{ ! isProActive() && (
+						{!isProActive() && (
 							<button className="btn-pro">
-								{ getStrings( 'pro' ) }
+								{getStrings('pro')}
 							</button>
-						) }
+						)}
 					</div>
 				</div>
 			</div>
 
-			{ searchKey !== '' && tabs.length < 1 ? (
+			{searchKey !== '' && tabs.length < 1 ? (
 				// <h1>{getStrings('no-tabs-found')}`{searchKey}`</h1>
 
 				<div className="manage-tab-search">
@@ -286,18 +284,18 @@ const ManageTabs = () => {
 							</svg>
 						</div>
 						<div className="text">
-							<h5 className="title">No tab group found!</h5>
-							<p>No tab group matches to your search term</p>
+							<h5 className="title">{getStrings('no-tab')}</h5>
+							<p>{getStrings('no-tab-match')}</p>
 						</div>
 					</div>
 				</div>
 			) : (
 				<TabsList
-					tabs={ tabs }
-					setTabs={ setTabs }
-					setTabCount={ setTabCount }
+					tabs={tabs}
+					setTabs={setTabs}
+					setTabCount={setTabCount}
 				/>
-			) }
+			)}
 		</div>
 	);
 };

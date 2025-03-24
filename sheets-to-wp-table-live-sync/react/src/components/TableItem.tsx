@@ -11,132 +11,132 @@ import Title from '../core/Title';
 import { toast } from 'react-toastify';
 import { getNonce, getStrings } from '../Helpers';
 
-function TableItem( {
+function TableItem({
 	table,
 	setCopiedTables,
 	setTableCount,
 	setTables,
 	setLoader,
-} ) {
+}) {
 	const confirmDeleteRef = useRef();
-	const [ copySuccess, setCopySuccess ] = useState( false );
-	const [ deleteModal, setDeleteModal ] = useState< boolean >( false );
+	const [copySuccess, setCopySuccess] = useState(false);
+	const [deleteModal, setDeleteModal] = useState<boolean>(false);
 
-	const handleCopyShortcode = async ( id ) => {
-		const shortcode = `[gswpts_table id="${ id }"]`;
-		if ( navigator.clipboard && navigator.clipboard.writeText ) {
+	const handleCopyShortcode = async (id) => {
+		const shortcode = `[gswpts_table id="${id}"]`;
+		if (navigator.clipboard && navigator.clipboard.writeText) {
 			try {
-				await navigator.clipboard.writeText( shortcode );
-				setCopySuccess( true );
-				setTimeout( () => {
-					setCopySuccess( false );
-				}, 1000 );
-			} catch ( err ) {
+				await navigator.clipboard.writeText(shortcode);
+				setCopySuccess(true);
+				setTimeout(() => {
+					setCopySuccess(false);
+				}, 1000);
+			} catch (err) {
 				console.error(
 					'Failed to copy text using clipboard API: ',
 					err
 				);
-				setCopySuccess( false );
+				setCopySuccess(false);
 			}
 		} else {
 			// Fallback method for unsupported browsers
 			try {
-				const textArea = document.createElement( 'textarea' );
+				const textArea = document.createElement('textarea');
 				textArea.value = shortcode;
 				textArea.style.position = 'fixed';
 				textArea.style.opacity = '0';
-				document.body.appendChild( textArea );
+				document.body.appendChild(textArea);
 				textArea.select();
-				textArea.setSelectionRange( 0, textArea.value.length );
-				document.execCommand( 'copy' );
-				document.body.removeChild( textArea );
-				setCopySuccess( true );
-				setTimeout( () => {
-					setCopySuccess( false );
-				}, 1000 );
-			} catch ( err ) {
-				console.error( 'Fallback copy method failed: ', err );
-				setCopySuccess( false );
+				textArea.setSelectionRange(0, textArea.value.length);
+				document.execCommand('copy');
+				document.body.removeChild(textArea);
+				setCopySuccess(true);
+				setTimeout(() => {
+					setCopySuccess(false);
+				}, 1000);
+			} catch (err) {
+				console.error('Fallback copy method failed: ', err);
+				setCopySuccess(false);
 			}
 		}
 	};
 
 	const handleClosePopup = () => {
-		setDeleteModal( false );
+		setDeleteModal(false);
 	};
 
 	const handleDeleteTable = () => {
-		setDeleteModal( true );
+		setDeleteModal(true);
 	};
 	/**
 	 *
 	 * @param id Copy Table
 	 */
-	const handleCopyTable = ( id ) => {
-		wp.ajax.send( 'swptls_copy_table', {
+	const handleCopyTable = (id) => {
+		wp.ajax.send('swptls_copy_table', {
 			data: {
 				nonce: getNonce(),
 				id,
 			},
 			success() {
-				setLoader( true );
+				setLoader(true);
 
-				wp.ajax.send( 'swptls_get_tables', {
+				wp.ajax.send('swptls_get_tables', {
 					data: {
 						nonce: getNonce(),
 					},
-					success( { tables, tables_count } ) {
-						setTables( tables );
-						setCopiedTables( tables );
-						setTableCount( tables_count );
-						setLoader( false );
+					success({ tables, tables_count }) {
+						setTables(tables);
+						setCopiedTables(tables);
+						setTableCount(tables_count);
+						setLoader(false);
 
 						toast.success(
 							'Your table has been been duplicated !'
 						);
 					},
-					error( error ) {
-						console.error( error );
-						toast.warn( 'Your table duplicated failed !' );
+					error(error) {
+						console.error(error);
+						toast.warn('Your table duplicated failed !');
 					},
-				} );
+				});
 			},
-			error( error ) {
-				console.error( error );
-				toast.warn( 'Table duplicated failed !' );
+			error(error) {
+				console.error(error);
+				toast.warn('Table duplicated failed !');
 			},
-		} );
+		});
 	};
 
-	const ConfirmDeleteTable = ( id ) => {
-		wp.ajax.send( 'swptls_delete_table', {
+	const ConfirmDeleteTable = (id) => {
+		wp.ajax.send('swptls_delete_table', {
 			data: {
 				nonce: getNonce(),
 				id,
 			},
 			success() {
-				setDeleteModal( false );
-				setLoader( true );
+				setDeleteModal(false);
+				setLoader(true);
 
-				wp.ajax.send( 'swptls_get_tables', {
+				wp.ajax.send('swptls_get_tables', {
 					data: {
 						nonce: getNonce(),
 					},
-					success( { tables, tables_count } ) {
-						setTables( tables );
-						setCopiedTables( tables );
-						setTableCount( tables_count );
-						setLoader( false );
+					success({ tables, tables_count }) {
+						setTables(tables);
+						setCopiedTables(tables);
+						setTableCount(tables_count);
+						setLoader(false);
 					},
-					error( error ) {
-						console.error( error );
+					error(error) {
+						console.error(error);
 					},
-				} );
+				});
 			},
-			error( error ) {
-				console.error( error );
+			error(error) {
+				console.error(error);
 			},
-		} );
+		});
 	};
 
 	/**
@@ -144,93 +144,92 @@ function TableItem( {
 	 *
 	 * @param  event
 	 */
-	function handleCancelOutside( event: MouseEvent ) {
+	function handleCancelOutside(event: MouseEvent) {
 		if (
 			confirmDeleteRef.current &&
-			! confirmDeleteRef.current.contains( event.target )
+			!confirmDeleteRef.current.contains(event.target)
 		) {
 			handleClosePopup();
 		}
 	}
 
-	useEffect( () => {
-		document.addEventListener( 'mousedown', handleCancelOutside );
+	useEffect(() => {
+		document.addEventListener('mousedown', handleCancelOutside);
 		return () => {
-			document.removeEventListener( 'mousedown', handleCancelOutside );
+			document.removeEventListener('mousedown', handleCancelOutside);
 		};
-	}, [ handleCancelOutside ] );
+	}, [handleCancelOutside]);
 
 	const maxLength = 80;
 	const truncatedText =
 		table.table_name.length > maxLength
-			? table.table_name.substring( 0, maxLength ) + '...'
+			? table.table_name.substring(0, maxLength) + '...'
 			: table.table_name;
 
 	return (
 		<div className="table_info-action_box_wrapper">
-			{ deleteModal && (
+			{deleteModal && (
 				<Modal>
 					<div
 						className="delete-table-modal-wrap modal-content"
-						ref={ confirmDeleteRef }
+						ref={confirmDeleteRef}
 					>
 						<div
 							className="cross_sign"
-							onClick={ () => handleClosePopup() }
+							onClick={() => handleClosePopup()}
 						>
-							{ Cross }
+							{Cross}
 						</div>
 						<div className="delete-table-modal">
-							<div className="modal-media">{ TrashCan }</div>
-							<h2>{ getStrings( 'are-you-sure-to-delete' ) }</h2>
+							<div className="modal-media">{TrashCan}</div>
+							<h2>{getStrings('are-you-sure-to-delete')}</h2>
 							<p>
-								{ getStrings( 'confirmation-about-to-delete' ) }
+								{getStrings('confirmation-about-to-delete')}
 							</p>
 							<div className="action-buttons">
 								<button
 									className="swptls-button cancel-button"
-									onClick={ handleClosePopup }
+									onClick={handleClosePopup}
 								>
-									{ getStrings( 'Cancel' ) }
+									{getStrings('Cancel')}
 								</button>
 								<button
 									className="swptls-button confirm-button"
-									onClick={ () =>
-										ConfirmDeleteTable( table.id )
+									onClick={() =>
+										ConfirmDeleteTable(table.id)
 									}
 								>
-									{ getStrings( 'Delete' ) }
+									{getStrings('Delete')}
 								</button>
 							</div>
 						</div>
 					</div>
 				</Modal>
-			) }
+			)}
 
 			<div className="table_info-action_box">
 				<div className="table-info-box">
 					<div className="table-info">
 						<Link
-							to={ `/tables/edit/${ table.id }` }
+							to={`/tables/edit/${table.id}`}
 							className="table-edit"
 						>
-							<Title tagName="h4">{ truncatedText }</Title>
+							<Title tagName="h4">{truncatedText}</Title>
 						</Link>
 
-						<Title tagName="p">ID: TB_{ table.id }</Title>
+						<Title tagName="p">ID: TB_{table.id}</Title>
 					</div>
 				</div>
 				<div className="table-action-box">
 					<div className="tooltip-wrapper">
 						<button
-							className={ `copy-shortcode btn-shortcode ${
-								! copySuccess ? '' : 'btn-success'
-							}` }
-							onClick={ () => handleCopyShortcode( table.id ) }
+							className={`copy-shortcode btn-shortcode ${!copySuccess ? '' : 'btn-success'
+								}`}
+							onClick={() => handleCopyShortcode(table.id)}
 						>
-							{ ! copySuccess ? (
+							{!copySuccess ? (
 								<>
-									<span>{ `[gswpts_table="${ table.id }"]` }</span>
+									<span>{`[gswpts_table="${table.id}"]`}</span>
 									<div className="icon">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -262,28 +261,28 @@ function TableItem( {
 											fill="white"
 										/>
 									</svg>
-									{ getStrings( 'tab-short-copy' ) }
+									{getStrings('tab-short-copy')}
 								</>
-							) }
+							)}
 						</button>
-						<span className="tooltip-content">Copy shortcode</span>
+						<span className="tooltip-content">{getStrings('copy-shortcode')}</span>
 					</div>
 
 					<div className="tooltip-wrapper">
 						<Link
-							to={ `/tables/edit/${ table.id }` }
+							to={`/tables/edit/${table.id}`}
 							className="table-edit"
 						>
-							{ EditIcon }
+							{EditIcon}
 						</Link>
-						<span className="tooltip-content">Edit table</span>
+						<span className="tooltip-content">{getStrings('edit-table')}</span>
 					</div>
 
-					{ /* Table duplicate  */ }
+					{ /* Table duplicate  */}
 					<div className="tooltip-wrapper">
 						<button
 							className="table-duplicate"
-							onClick={ () => handleCopyTable( table.id ) }
+							onClick={() => handleCopyTable(table.id)}
 							title="Duplicate table"
 						>
 							<svg
@@ -305,17 +304,17 @@ function TableItem( {
 								/>
 							</svg>
 						</button>
-						<span className="tooltip-content">Duplicate table</span>
+						<span className="tooltip-content">{getStrings('duplicate-table')}</span>
 					</div>
 
 					<div className="tooltip-wrapper">
 						<button
 							className="table-delete"
-							onClick={ handleDeleteTable }
+							onClick={handleDeleteTable}
 						>
-							{ DeleteIcon }
+							{DeleteIcon}
 						</button>
-						<span className="tooltip-content">Delete table</span>
+						<span className="tooltip-content">{getStrings('delete-table')}</span>
 					</div>
 				</div>
 			</div>

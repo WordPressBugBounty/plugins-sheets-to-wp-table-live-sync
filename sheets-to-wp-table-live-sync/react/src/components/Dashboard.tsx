@@ -26,78 +26,78 @@ import Card from '../core/Card';
 
 function Dashboard() {
 	const sortingRef = useRef();
-	const [ loader, setLoader ] = useState< boolean >( false );
-	const [ tables, setTables ] = useState( getTables() );
-	const [ copiedTables, setCopiedTables ] = useState( getTables() );
-	const [ sortingTables, setSortingTables ] = useState( getTables() );
-	const [ searchKey, setSearchKey ] = useState< string >( '' );
-	const [ tableCount, setTableCount ] = useState( 0 );
-	const [ isDropdownVisible, setDropdownVisible ] = useState( false );
+	const [loader, setLoader] = useState<boolean>(false);
+	const [tables, setTables] = useState(getTables());
+	const [copiedTables, setCopiedTables] = useState(getTables());
+	const [sortingTables, setSortingTables] = useState(getTables());
+	const [searchKey, setSearchKey] = useState<string>('');
+	const [tableCount, setTableCount] = useState(0);
+	const [isDropdownVisible, setDropdownVisible] = useState(false);
 
 	// Load initial sort settings from localStorage
-	const initialSortField = localStorage.getItem( 'sortField' ) || 'Id';
+	const initialSortField = localStorage.getItem('sortField') || 'Id';
 	const initialSortOrder =
-		localStorage.getItem( 'sortOrder' ) || 'Descending';
-	const [ sortField, setSortField ] = useState( initialSortField );
-	const [ sortOrder, setSortOrder ] = useState( initialSortOrder );
+		localStorage.getItem('sortOrder') || 'Descending';
+	const [sortField, setSortField] = useState(initialSortField);
+	const [sortOrder, setSortOrder] = useState(initialSortOrder);
 
 	// console.log(copiedTables)
 
-	useEffect( () => {
-		setLoader( true );
+	useEffect(() => {
+		setLoader(true);
 
-		wp.ajax.send( 'swptls_get_tables', {
+		wp.ajax.send('swptls_get_tables', {
 			data: {
 				nonce: getNonce(),
 			},
-			success( response ) {
+			success(response) {
 				const sortedTables = sortTables(
 					response.tables,
 					initialSortField,
 					initialSortOrder
 				);
-				setTables( sortedTables );
-				setCopiedTables( sortedTables );
-				setSortingTables( sortedTables );
-				setTableCount( response.tables_count );
-				setLoader( false );
+				setTables(sortedTables);
+				setCopiedTables(sortedTables);
+				setSortingTables(sortedTables);
+				setTableCount(response.tables_count);
+				setLoader(false);
 			},
-			error( error ) {
-				console.error( error );
+			error(error) {
+				console.error(error);
 			},
-		} );
-	}, [] );
+		});
+	}, []);
 
-	useEffect( () => {
-		if ( searchKey !== '' ) {
-			const filtered = tables.filter( ( { table_name }: any ) =>
+	useEffect(() => {
+		if (searchKey !== '') {
+			const filtered = tables.filter(({ table_name }: any) =>
 				table_name
 					.toLowerCase()
-					.includes( searchKey.toString().toLowerCase() )
+					.includes(searchKey.toString().toLowerCase())
 			);
 
-			setCopiedTables( filtered );
+			setCopiedTables(filtered);
 		} else {
-			setCopiedTables( tables );
+			setCopiedTables(tables);
 		}
-	}, [ searchKey ] );
+	}, [searchKey]);
 
 	// Reseting Table
-	useEffect( () => {
+	useEffect(() => {
 		const currentHash = window.location.hash;
-		if ( ! currentHash.startsWith( '#/tables/edit/' ) ) {
-			localStorage.setItem( 'active_tab', 'data_source' );
-			localStorage.setItem( 'second_active_tab', 'layout' );
-			localStorage.setItem( 'third_active_tab', 'columns' );
-			localStorage.setItem( 'forth_active_tab', 'conditional_view' );
+		if (!currentHash.startsWith('#/tables/edit/')) {
+			localStorage.setItem('active_tab', 'data_source');
+			localStorage.setItem('second_active_tab', 'layout');
+			localStorage.setItem('third_active_tab', 'columns');
+			localStorage.setItem('forth_active_tab', 'conditional_view');
 		}
-	}, [ window.location.hash ] );
+	}, [window.location.hash]);
 
 	// Table creation
 	const constructCreateTableUrl = () => {
 		const currentUrl = window.location.href; // Get the current full URL
-		const baseUrl = currentUrl.split( '#' )[ 0 ]; // Get the base URL (before the hash)
-		let newUrl = `${ baseUrl }`;
+		const baseUrl = currentUrl.split('#')[0]; // Get the base URL (before the hash)
+		let newUrl = `${baseUrl}`;
 		newUrl += '#/tables/create';
 		return newUrl;
 	};
@@ -105,17 +105,17 @@ function Dashboard() {
 	const handleCreateTable = () => {
 		const newUrl = constructCreateTableUrl();
 
-		if ( isProActive() ) {
+		if (isProActive()) {
 			window.location.href = newUrl;
 		} else {
-			if ( tableCount >= 10 ) {
+			if (tableCount >= 10) {
 				// alert("You can't create more than 10 tables.");
 				toast.warning(
 					<>
-						{ getStrings( 'table-10-limited' ) }{ ' ' }
+						{getStrings('table-10-limited')}{' '}
 						<a target="blank" href="https://go.wppool.dev/DoC">
-							{ ' ' }
-							{ getStrings( 'upgrade-pro' ) }
+							{' '}
+							{getStrings('upgrade-pro')}
 						</a>
 					</>
 				);
@@ -125,84 +125,84 @@ function Dashboard() {
 		}
 	};
 
-	const handleSortChange = ( field, order ) => {
-		setSortField( field );
-		setSortOrder( order );
+	const handleSortChange = (field, order) => {
+		setSortField(field);
+		setSortOrder(order);
 
 		// Save to localStorage
-		localStorage.setItem( 'sortField', field );
-		localStorage.setItem( 'sortOrder', order );
+		localStorage.setItem('sortField', field);
+		localStorage.setItem('sortOrder', order);
 
-		const sortedTables = sortTables( copiedTables, field, order );
-		setCopiedTables( sortedTables );
+		const sortedTables = sortTables(copiedTables, field, order);
+		setCopiedTables(sortedTables);
 	};
 
-	const sortTables = ( tables, field, order ) => {
-		return [ ...tables ].sort( ( a, b ) => {
-			if ( field === 'Name' ) {
+	const sortTables = (tables, field, order) => {
+		return [...tables].sort((a, b) => {
+			if (field === 'Name') {
 				const nameA = a.table_name.toLowerCase();
 				const nameB = b.table_name.toLowerCase();
-				if ( nameA < nameB ) return order === 'Ascending' ? -1 : 1;
-				if ( nameA > nameB ) return order === 'Ascending' ? 1 : -1;
+				if (nameA < nameB) return order === 'Ascending' ? -1 : 1;
+				if (nameA > nameB) return order === 'Ascending' ? 1 : -1;
 				return 0;
-			} else if ( field === 'Id' ) {
-				const idA = parseInt( a.id );
-				const idB = parseInt( b.id );
+			} else if (field === 'Id') {
+				const idA = parseInt(a.id);
+				const idB = parseInt(b.id);
 				return order === 'Ascending' ? idA - idB : idB - idA;
 			}
 			return 0;
-		} );
+		});
 	};
 
 	const toggleDropdown = () => {
-		setDropdownVisible( ! isDropdownVisible );
+		setDropdownVisible(!isDropdownVisible);
 	};
 
 	//
-	function handleCancelOutside( event: MouseEvent ) {
+	function handleCancelOutside(event: MouseEvent) {
 		if (
 			sortingRef.current &&
-			! sortingRef.current.contains( event.target )
+			!sortingRef.current.contains(event.target)
 		) {
 			toggleDropdown();
 		}
 	}
-	useEffect( () => {
-		document.addEventListener( 'mousedown', handleCancelOutside );
+	useEffect(() => {
+		document.addEventListener('mousedown', handleCancelOutside);
 		return () => {
-			document.removeEventListener( 'mousedown', handleCancelOutside );
+			document.removeEventListener('mousedown', handleCancelOutside);
 		};
-	}, [ handleCancelOutside ] );
+	}, [handleCancelOutside]);
 
 	return (
 		<>
 			<Header />
-			{ tables.length < 1 ? (
+			{tables.length < 1 ? (
 				<>
 					<div className="no-tables-created-intro text-center">
-						<div className="no-tables-intro-img">{ Cloud }</div>
+						<div className="no-tables-intro-img">{Cloud}</div>
 						<h2>
-							{ getStrings( 'no-tables-have-been-created-yet' ) }
+							{getStrings('no-tables-have-been-created-yet')}
 						</h2>
 						<p>
-							{ getStrings(
+							{getStrings(
 								'tables-will-be-appeared-here-once-you-create-them'
-							) }
+							)}
 						</p>
-						{ /* <Link className='btn btn-lg' to="/tables/create">{getStrings('create-new-table')}</Link> */ }
+						{ /* <Link className='btn btn-lg' to="/tables/create">{getStrings('create-new-table')}</Link> */}
 						<button
 							className="btn btn-lg"
-							onClick={ handleCreateTable }
+							onClick={handleCreateTable}
 						>
-							{ getStrings( 'new-tables' ) } { WhitePlusIcon }
+							{getStrings('new-tables')} {WhitePlusIcon}
 						</button>
 						<p className="help">
-							{ getStrings( 'need-help' ) }{ ' ' }
+							{getStrings('need-help')}{' '}
 							<a
 								href="https://youtu.be/hKYqE4e_ipY?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP"
 								target="_blank"
 							>
-								{ getStrings( 'watch-now' ) }
+								{getStrings('watch-now')}
 							</a>
 						</p>
 					</div>
@@ -211,38 +211,37 @@ function Dashboard() {
 				<>
 					<div className="table-header">
 						<Title tagName="h4">
-							<strong>{ tableCount }</strong>&nbsp;
-							{ getStrings( 'tables-created' ) }
+							<strong>{tableCount}</strong>&nbsp;
+							{getStrings('tables-created')}
 						</Title>
 						<div className="wrapper">
-							{ /* Sorting code */ }
+							{ /* Sorting code */}
 
 							<div className="sort-wrapper">
 								<div className="sort-by">
 									<div className="dropdown">
 										<div
 											className="header-sort-content"
-											onClick={ toggleDropdown }
+											onClick={toggleDropdown}
 										>
 											<button className="dropbtn">
-												Sort by
+												{getStrings('sort-by')}
 											</button>
 											<span className="header-sort-icon">
-												{ sortIcon }
+												{sortIcon}
 											</span>
 										</div>
 
-										{ isDropdownVisible && (
+										{isDropdownVisible && (
 											<div
-												className={ `dropdown-content ${
-													isDropdownVisible
-														? 'visible'
-														: ''
-												}` }
-												ref={ sortingRef }
+												className={`dropdown-content ${isDropdownVisible
+													? 'visible'
+													: ''
+													}`}
+												ref={sortingRef}
 											>
 												<h4 className="sort-by-title">
-													Sort by
+													{getStrings('sort-by')}
 												</h4>
 												<hr />
 												<label>
@@ -252,14 +251,14 @@ function Dashboard() {
 														checked={
 															sortField === 'Name'
 														}
-														onChange={ () =>
+														onChange={() =>
 															handleSortChange(
 																'Name',
 																sortOrder
 															)
 														}
 													/>
-													Name
+													{getStrings('sort-by-name')}
 												</label>
 
 												<label>
@@ -269,14 +268,14 @@ function Dashboard() {
 														checked={
 															sortField === 'Id'
 														}
-														onChange={ () =>
+														onChange={() =>
 															handleSortChange(
 																'Id',
 																sortOrder
 															)
 														}
 													/>
-													ID
+													{getStrings('sort-by-id')}
 												</label>
 												<hr />
 												<label className="selective-sorting">
@@ -287,14 +286,14 @@ function Dashboard() {
 															sortOrder ===
 															'Ascending'
 														}
-														onChange={ () =>
+														onChange={() =>
 															handleSortChange(
 																sortField,
 																'Ascending'
 															)
 														}
 													/>
-													Ascending{ arrowTop }
+													{getStrings('ascending')}{arrowTop}
 												</label>
 
 												<label className="selective-sorting">
@@ -305,17 +304,17 @@ function Dashboard() {
 															sortOrder ===
 															'Descending'
 														}
-														onChange={ () =>
+														onChange={() =>
 															handleSortChange(
 																sortField,
 																'Descending'
 															)
 														}
 													/>
-													Descending{ arrowBottom }
+													{getStrings('descending')}{arrowBottom}
 												</label>
 											</div>
-										) }
+										)}
 									</div>
 								</div>
 							</div>
@@ -323,61 +322,59 @@ function Dashboard() {
 							<div className="table-search-box">
 								<input
 									type="text"
-									placeholder={ getStrings( 'search-tb' ) }
-									onChange={ ( e ) =>
-										setSearchKey( e.target.value.trim() )
+									placeholder={getStrings('search-tb')}
+									onChange={(e) =>
+										setSearchKey(e.target.value.trim())
 									}
 								/>
-								<div className="icon">{ searchIcon }</div>
+								<div className="icon">{searchIcon}</div>
 							</div>
-							{ tableCount < 10 ? (
+							{tableCount < 10 ? (
 								<Link
 									className="create-table btn btn-md"
 									to="/tables/create"
 								>
-									{ getStrings( 'new-tables' ) }{ ' ' }
-									{ WhitePlusIcon }
+									{getStrings('new-tables')}{' '}
+									{WhitePlusIcon}
 								</Link>
 							) : (
 								<button
-									className={ `create-table btn btn-md${
-										! isProActive()
-											? ` swptls-pro-lock`
-											: ``
-									}` }
-									onClick={ handleCreateTable }
+									className={`create-table btn btn-md${!isProActive()
+										? ` swptls-pro-lock`
+										: ``
+										}`}
+									onClick={handleCreateTable}
 								>
-									{ getStrings( 'new-tables' ) }{ ' ' }
-									{ WhitePlusIcon }
+									{getStrings('new-tables')}{' '}
+									{WhitePlusIcon}
 								</button>
-							) }
+							)}
 						</div>
 					</div>
 
-					{ loader ? (
+					{loader ? (
 						<Card>
-							<h1>{ getStrings( 'loading' ) }</h1>
+							<h1>{getStrings('loading')}</h1>
 						</Card>
 					) : (
 						<Card
-							customClass={ `table-item-card ${
-								copiedTables.length === 0
-									? 'has--not-found'
-									: ''
-							}` }
+							customClass={`table-item-card ${copiedTables.length === 0
+								? 'has--not-found'
+								: ''
+								}`}
 						>
 							<TablesList
 								// tables={tables}
-								tables={ copiedTables }
-								copiedTables={ copiedTables }
-								setCopiedTables={ setCopiedTables }
-								setTables={ setTables }
-								setTableCount={ setTableCount }
-								setLoader={ setLoader }
+								tables={copiedTables}
+								copiedTables={copiedTables}
+								setCopiedTables={setCopiedTables}
+								setTables={setTables}
+								setTableCount={setTableCount}
+								setLoader={setLoader}
 							/>
 
 							<>
-								{ copiedTables.length === 0 ? (
+								{copiedTables.length === 0 ? (
 									<div className="not-found-table">
 										<div className="icon">
 											<svg
@@ -409,11 +406,10 @@ function Dashboard() {
 										</div>
 										<div className="text">
 											<h5 className="title">
-												No tables found!
+												{getStrings('no-table-found')}
 											</h5>
 											<p>
-												No tables matches to your search
-												term
+												{getStrings('no-table-match')}
 											</p>
 										</div>
 									</div>
@@ -421,12 +417,12 @@ function Dashboard() {
 									<div className="add-new-wrapper">
 										<AddNewTable />
 									</div>
-								) }
+								)}
 							</>
 						</Card>
-					) }
+					)}
 				</>
-			) }
+			)}
 		</>
 	);
 }

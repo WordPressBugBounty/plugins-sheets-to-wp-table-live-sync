@@ -8,104 +8,104 @@ import '../styles/_table_item.scss';
 import Title from '../core/Title';
 import { toast } from 'react-toastify';
 
-function TabItem( { tab, setTabs, setTabCount } ) {
+function TabItem({ tab, setTabs, setTabCount }) {
 	const confirmDeleteRef = useRef();
-	const [ copySuccess, setCopySuccess ] = useState( false );
-	const [ deleteModal, setDeleteModal ] = useState< boolean >( false );
+	const [copySuccess, setCopySuccess] = useState(false);
+	const [deleteModal, setDeleteModal] = useState<boolean>(false);
 
-	const handleCopyShortcode = async ( id ) => {
+	const handleCopyShortcode = async (id) => {
 		// console.log(id)
-		 
-		const shortcode = `[gswpts_tab id="${ id }"]`;
-		if ( navigator.clipboard && navigator.clipboard.writeText ) {
+
+		const shortcode = `[gswpts_tab id="${id}"]`;
+		if (navigator.clipboard && navigator.clipboard.writeText) {
 			try {
-				await navigator.clipboard.writeText( shortcode );
-				setCopySuccess( true );
-				toast.success( 'Shortcode copied successfully.' );
+				await navigator.clipboard.writeText(shortcode);
+				setCopySuccess(true);
+				toast.success('Shortcode copied successfully.');
 				// Reset copySuccess state after 1 second
-				setTimeout( () => {
-					setCopySuccess( false );
-				}, 1000 );
-			} catch ( err ) {
+				setTimeout(() => {
+					setCopySuccess(false);
+				}, 1000);
+			} catch (err) {
 				console.error(
 					'Failed to copy text using clipboard API: ',
 					err
 				);
-				setCopySuccess( false );
-				toast.success( 'Shortcode copy failed.' );
+				setCopySuccess(false);
+				toast.success('Shortcode copy failed.');
 			}
 		} else {
 			// Fallback method for unsupported browsers
 			try {
-				const textArea = document.createElement( 'textarea' );
+				const textArea = document.createElement('textarea');
 				textArea.value = shortcode;
 				textArea.style.position = 'fixed';
 				textArea.style.opacity = '0';
-				document.body.appendChild( textArea );
+				document.body.appendChild(textArea);
 				textArea.select();
-				textArea.setSelectionRange( 0, textArea.value.length );
-				document.execCommand( 'copy' );
-				document.body.removeChild( textArea );
-				setCopySuccess( true );
-				toast.success( 'Shortcode copied successfully.' );
-				setTimeout( () => {
-					setCopySuccess( false );
-				}, 1000 );
-			} catch ( err ) {
-				console.error( 'Fallback copy method failed: ', err );
-				setCopySuccess( false );
-				toast.success( 'Shortcode copy failed.' );
+				textArea.setSelectionRange(0, textArea.value.length);
+				document.execCommand('copy');
+				document.body.removeChild(textArea);
+				setCopySuccess(true);
+				toast.success('Shortcode copied successfully.');
+				setTimeout(() => {
+					setCopySuccess(false);
+				}, 1000);
+			} catch (err) {
+				console.error('Fallback copy method failed: ', err);
+				setCopySuccess(false);
+				toast.success('Shortcode copy failed.');
 			}
 		}
 
 	};
 
 	const handleClosePopup = () => {
-		setDeleteModal( false );
+		setDeleteModal(false);
 	};
 
 	const handleDeleteTable = () => {
-		setDeleteModal( true );
+		setDeleteModal(true);
 	};
 
-	const ConfirmDeleteTab = ( id ) => {
-		wp.ajax.send( 'swptls_delete_tab', {
+	const ConfirmDeleteTab = (id) => {
+		wp.ajax.send('swptls_delete_tab', {
 			data: {
 				nonce: getNonce(),
 				id,
 			},
-			success( { updated_tabs } ) {
-				setTabs( updated_tabs );
-				setTabCount( updated_tabs.length );
-				setDeleteModal( false );
+			success({ updated_tabs }) {
+				setTabs(updated_tabs);
+				setTabCount(updated_tabs.length);
+				setDeleteModal(false);
 			},
-			error( error ) {
-				console.error( error );
+			error(error) {
+				console.error(error);
 			},
-		} );
+		});
 	};
 
 	/**
 	 *
 	 * @param id Copy Table
 	 */
-	const handleCopyTab = ( id ) => {
-		wp.ajax.send( 'swptls_copy_tab', {
+	const handleCopyTab = (id) => {
+		wp.ajax.send('swptls_copy_tab', {
 			data: {
 				nonce: getNonce(),
 				id,
 			},
-			success( { updated_tabs } ) {
-				setTabs( updated_tabs );
-				setTabCount( updated_tabs.length );
-				setDeleteModal( false );
-				toast.success( 'Your tab has been been duplicated !' );
+			success({ updated_tabs }) {
+				setTabs(updated_tabs);
+				setTabCount(updated_tabs.length);
+				setDeleteModal(false);
+				toast.success('Your tab has been been duplicated !');
 			},
-			error( error ) {
-				console.error( error );
-				toast.warn( 'Tab duplicated failed !' );
+			error(error) {
+				console.error(error);
+				toast.warn('Tab duplicated failed !');
 			},
-		} );
+		});
 	};
 
 	/**
@@ -113,88 +113,87 @@ function TabItem( { tab, setTabs, setTabCount } ) {
 	 *
 	 * @param  event
 	 */
-	function handleCancelOutside( event: MouseEvent ) {
+	function handleCancelOutside(event: MouseEvent) {
 		if (
 			confirmDeleteRef.current &&
-			! confirmDeleteRef.current.contains( event.target )
+			!confirmDeleteRef.current.contains(event.target)
 		) {
 			handleClosePopup();
 		}
 	}
 
-	useEffect( () => {
-		document.addEventListener( 'mousedown', handleCancelOutside );
+	useEffect(() => {
+		document.addEventListener('mousedown', handleCancelOutside);
 		return () => {
-			document.removeEventListener( 'mousedown', handleCancelOutside );
+			document.removeEventListener('mousedown', handleCancelOutside);
 		};
-	}, [ handleCancelOutside ] );
+	}, [handleCancelOutside]);
 
 	const maxLength = 80;
 	const truncatedTabText =
 		tab.tab_name.length > maxLength
-			? tab.tab_name.substring( 0, maxLength ) + '...'
+			? tab.tab_name.substring(0, maxLength) + '...'
 			: tab.tab_name;
 
 	return (
 		<div className="table_info-action_box_wrapper">
-			{ deleteModal && (
+			{deleteModal && (
 				<Modal>
 					<div
 						className="delete-table-modal-wrap modal-content"
-						ref={ confirmDeleteRef }
+						ref={confirmDeleteRef}
 					>
 						<div
 							className="cross_sign"
-							onClick={ () => handleClosePopup() }
+							onClick={() => handleClosePopup()}
 						>
-							{ Cross }
+							{Cross}
 						</div>
 						<div className="delete-table-modal">
-							<div className="modal-media">{ TrashCan }</div>
-							<h2>{ getStrings( 'confirmation-delete' ) }</h2>
-							<p>{ getStrings( 'tab-group-delete' ) }</p>
+							<div className="modal-media">{TrashCan}</div>
+							<h2>{getStrings('confirmation-delete')}</h2>
+							<p>{getStrings('tab-group-delete')}</p>
 							<div className="action-buttons">
 								<button
 									className="swptls-button cancel-button"
-									onClick={ handleClosePopup }
+									onClick={handleClosePopup}
 								>
-									{ getStrings( 'Cancel' ) }
+									{getStrings('Cancel')}
 								</button>
 								<button
 									className="swptls-button confirm-button"
-									onClick={ () => ConfirmDeleteTab( tab.id ) }
+									onClick={() => ConfirmDeleteTab(tab.id)}
 								>
-									{ getStrings( 'Delete' ) }
+									{getStrings('Delete')}
 								</button>
 							</div>
 						</div>
 					</div>
 				</Modal>
-			) }
+			)}
 
 			<div className="table_info-action_box">
 				<div className="table-info-box">
 					<div className="table-info">
 						<Link
-							to={ `/tabs/edit/${ tab.id }` }
+							to={`/tabs/edit/${tab.id}`}
 							className="table-edit"
 						>
-							<Title tagName="h4">{ truncatedTabText }</Title>
+							<Title tagName="h4">{truncatedTabText}</Title>
 						</Link>
 
-						<Title tagName="p">ID: TB_{ tab.id }</Title>
+						<Title tagName="p">{getStrings('id-table')}{tab.id}</Title>
 					</div>
 				</div>
 				<div className="table-action-box">
 					<button
-						className={ `copy-shortcode btn-shortcode ${
-							! copySuccess ? '' : 'btn-success'
-						}` }
-						onClick={ () => handleCopyShortcode( tab.id ) }
+						className={`copy-shortcode btn-shortcode ${!copySuccess ? '' : 'btn-success'
+							}`}
+						onClick={() => handleCopyShortcode(tab.id)}
 					>
-						{ ! copySuccess ? (
+						{!copySuccess ? (
 							<>
-								<span>{ `[gswpts_tab="${ tab.id }"]` }</span>
+								<span>{`[gswpts_tab="${tab.id}"]`}</span>
 								<div className="icon">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -226,21 +225,21 @@ function TabItem( { tab, setTabs, setTabCount } ) {
 										fill="white"
 									/>
 								</svg>
-								{ getStrings( 'tab-short-copy' ) }
+								{getStrings('tab-short-copy')}
 							</>
-						) }
+						)}
 					</button>
 					<Link
-						to={ `/tabs/edit/${ tab.id }` }
+						to={`/tabs/edit/${tab.id}`}
 						className="table-edit"
 					>
-						{ EditIcon }
+						{EditIcon}
 					</Link>
 
-					{ /* Tab duplicate  */ }
+					{ /* Tab duplicate  */}
 					<button
 						className="table-duplicate"
-						onClick={ () => handleCopyTab( tab.id ) }
+						onClick={() => handleCopyTab(tab.id)}
 						title="Duplicate tab"
 					>
 						<svg
@@ -265,9 +264,9 @@ function TabItem( { tab, setTabs, setTabCount } ) {
 
 					<button
 						className="table-delete"
-						onClick={ handleDeleteTable }
+						onClick={handleDeleteTable}
 					>
-						{ DeleteIcon }
+						{DeleteIcon}
 					</button>
 				</div>
 			</div>

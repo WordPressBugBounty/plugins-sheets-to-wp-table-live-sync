@@ -2,25 +2,24 @@ import React from 'react';
 import { ThemeReset } from '../icons';
 import { getStrings, isProActive } from './../Helpers';
 
-const Pagination = ( {
+const Pagination = ({
 	customTheme,
 	handlePaginationModeChange,
 	handleCustomThemeChange,
-} ) => {
+}) => {
 	return (
 		<div className="border-styles pagination-fields">
-			<div className={ `edit-form-group pagination-section` }>
-				<h3 className="pagination-title-text">Select Pagination</h3>
+			<div className={`edit-form-group pagination-section`}>
+				<h3 className="pagination-title-text">{getStrings('sel-pagination')}</h3>
 				<div
-					className={ `utility-checkbox-wrapper pagination-selections` }
+					className={`utility-checkbox-wrapper pagination-selections`}
 				>
 					<div className="pagination-model">
 						<br />
 
 						<label
-							className={ `utility-checkboxees${
-								customTheme.defaultPagination ? ' active' : ''
-							}` }
+							className={`utility-checkboxees${customTheme.defaultPagination ? ' active' : ''
+								}`}
 							htmlFor="default_pagination"
 						>
 							<input
@@ -30,25 +29,22 @@ const Pagination = ( {
 								checked={
 									customTheme.defaultPagination &&
 									customTheme.paginationStyle ==
-										'default_pagination'
+									'default_pagination'
 								}
-								onChange={ handlePaginationModeChange }
+								onChange={handlePaginationModeChange}
 							/>
-							<span>{ getStrings( 'df-pagination' ) } </span>
+							<span>{getStrings('df-pagination')} </span>
 							<div
-								className={ `control__indicator${
-									customTheme.defaultPagination
-										? ' active'
-										: ''
-								}` }
+								className={`control__indicator${customTheme.defaultPagination
+									? ' active'
+									: ''
+									}`}
 							></div>
 						</label>
 						<div className="icon">
 							<svg
-								onClick={ () =>
-									document
-										.getElementById( 'default_pagination' )
-										.click()
+								onClick={() =>
+									document.getElementById('default_pagination').click()
 								}
 								width="260"
 								height="33"
@@ -131,12 +127,11 @@ const Pagination = ( {
 							</svg>
 						</div>
 
-						{ /* Modern pagination */ }
-						{ /* <h4 className='pagination-name'>Modern pagination{' '}</h4> */ }
+						{ /* Modern pagination */}
+						{ /* <h4 className='pagination-name'>Modern pagination{' '}</h4> */}
 						<label
-							className={ `utility-checkboxees${
-								customTheme.modernPagination ? ' active' : ''
-							}` }
+							className={`utility-checkboxees${customTheme.modernPagination ? ' active' : ''
+								}`}
 							htmlFor="modern_pagination"
 						>
 							<input
@@ -146,24 +141,23 @@ const Pagination = ( {
 								checked={
 									customTheme.modernPagination &&
 									customTheme.paginationStyle ==
-										'modern_pagination'
+									'modern_pagination'
 								}
-								onChange={ handlePaginationModeChange }
+								onChange={handlePaginationModeChange}
 							/>
-							<span>{ getStrings( 'md-pagination' ) } </span>
+							<span>{getStrings('md-pagination')} </span>
 							<div
-								className={ `control__indicator${
-									customTheme.modernPagination
-										? ' active'
-										: ''
-								}` }
+								className={`control__indicator${customTheme.modernPagination
+									? ' active'
+									: ''
+									}`}
 							></div>
 						</label>
 						<div className="icon">
 							<svg
-								onClick={ () =>
+								onClick={() =>
 									document
-										.getElementById( 'modern_pagination' )
+										.getElementById('modern_pagination')
 										.click()
 								}
 								width="264"
@@ -225,12 +219,11 @@ const Pagination = ( {
 							</svg>
 						</div>
 
-						{ /* Simple/Minimal pagination  */ }
-						{ /* <h4 className='pagination-name'>Minimal pagination{' '}</h4> */ }
+						{ /* Simple/Minimal pagination  */}
+						{ /* <h4 className='pagination-name'>Minimal pagination{' '}</h4> */}
 						<label
-							className={ `utility-checkboxees${
-								customTheme.simplePagination ? ' active' : ''
-							}` }
+							className={`utility-checkboxees${customTheme.simplePagination ? ' active' : ''
+								}`}
 							htmlFor="simple_pagination"
 						>
 							<input
@@ -240,24 +233,23 @@ const Pagination = ( {
 								checked={
 									customTheme.simplePagination &&
 									customTheme.paginationStyle ==
-										'simple_pagination'
+									'simple_pagination'
 								}
-								onChange={ handlePaginationModeChange }
+								onChange={handlePaginationModeChange}
 							/>
-							<span>{ getStrings( 'minimal-pagination' ) } </span>
+							<span>{getStrings('minimal-pagination')} </span>
 							<div
-								className={ `control__indicator${
-									customTheme.simplePagination
-										? ' active'
-										: ''
-								}` }
+								className={`control__indicator${customTheme.simplePagination
+									? ' active'
+									: ''
+									}`}
 							></div>
 						</label>
 						<div className="icon">
 							<svg
-								onClick={ () =>
+								onClick={() =>
 									document
-										.getElementById( 'simple_pagination' )
+										.getElementById('simple_pagination')
 										.click()
 								}
 								width="192"
@@ -307,12 +299,11 @@ const Pagination = ( {
 							</svg>
 						</div>
 
-						{ /* Tailwind pagination  */ }
-						{ /* <h4 className='pagination-name'>Tailwind pagination{' '}</h4> */ }
+						{ /* Tailwind pagination  */}
+						{ /* <h4 className='pagination-name'>Tailwind pagination{' '}</h4> */}
 						<label
-							className={ `utility-checkboxees${
-								customTheme.tailwindPagination ? ' active' : ''
-							}` }
+							className={`utility-checkboxees${customTheme.tailwindPagination ? ' active' : ''
+								}`}
 							htmlFor="tailwind_pagination"
 						>
 							<input
@@ -322,26 +313,25 @@ const Pagination = ( {
 								checked={
 									customTheme.tailwindPagination &&
 									customTheme.paginationStyle ==
-										'tailwind_pagination'
+									'tailwind_pagination'
 								}
-								onChange={ handlePaginationModeChange }
+								onChange={handlePaginationModeChange}
 							/>
 							<span>
-								{ getStrings( 'tailwind-pagination' ) }{ ' ' }
+								{getStrings('tailwind-pagination')}{' '}
 							</span>
 							<div
-								className={ `control__indicator${
-									customTheme.tailwindPagination
-										? ' active'
-										: ''
-								}` }
+								className={`control__indicator${customTheme.tailwindPagination
+									? ' active'
+									: ''
+									}`}
 							></div>
 						</label>
 						<div className="icon">
 							<svg
-								onClick={ () =>
+								onClick={() =>
 									document
-										.getElementById( 'tailwind_pagination' )
+										.getElementById('tailwind_pagination')
 										.click()
 								}
 								width="199"
@@ -395,12 +385,11 @@ const Pagination = ( {
 							</svg>
 						</div>
 
-						{ /* Outline pagination  */ }
-						{ /* <h4 className='pagination-name'>Outlined pagination{' '}</h4> */ }
+						{ /* Outline pagination  */}
+						{ /* <h4 className='pagination-name'>Outlined pagination{' '}</h4> */}
 						<label
-							className={ `utility-checkboxees${
-								customTheme.outlinedPagination ? ' active' : ''
-							}` }
+							className={`utility-checkboxees${customTheme.outlinedPagination ? ' active' : ''
+								}`}
 							htmlFor="outlined_pagination"
 						>
 							<input
@@ -410,24 +399,23 @@ const Pagination = ( {
 								checked={
 									customTheme.outlinedPagination &&
 									customTheme.paginationStyle ==
-										'outlined_pagination'
+									'outlined_pagination'
 								}
-								onChange={ handlePaginationModeChange }
+								onChange={handlePaginationModeChange}
 							/>
-							<span>{ getStrings( 'outline-pagination' ) } </span>
+							<span>{getStrings('outline-pagination')} </span>
 							<div
-								className={ `control__indicator${
-									customTheme.outlinedPagination
-										? ' active'
-										: ''
-								}` }
+								className={`control__indicator${customTheme.outlinedPagination
+									? ' active'
+									: ''
+									}`}
 							></div>
 						</label>
 						<div className="icon">
 							<svg
-								onClick={ () =>
+								onClick={() =>
 									document
-										.getElementById( 'outlined_pagination' )
+										.getElementById('outlined_pagination')
 										.click()
 								}
 								width="192"
@@ -500,10 +488,10 @@ const Pagination = ( {
 
 					<div className="pagination-colors">
 						<h4 className="pagination-color-title">
-							{ getStrings( 'color-picker' ) }{ ' ' }
+							{getStrings('color-picker')}{' '}
 						</h4>
 						<p className="pagination-color-content">
-							{ getStrings( 'pagination-color-will' ) }{ ' ' }
+							{getStrings('pagination-color-will')}{' '}
 						</p>
 						<div className="theme-colors__scheme paginations-color-fields">
 							<input
@@ -511,8 +499,8 @@ const Pagination = ( {
 								type="color"
 								name="paginationAciveBtnColor"
 								id="color-picker-paginationAciveBtnColor"
-								value={ customTheme.paginationAciveBtnColor }
-								onChange={ handleCustomThemeChange }
+								value={customTheme.paginationAciveBtnColor}
+								onChange={handleCustomThemeChange}
 							/>
 						</div>
 					</div>

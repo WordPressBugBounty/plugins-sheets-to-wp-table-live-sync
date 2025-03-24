@@ -13,147 +13,147 @@ import { getNonce, isProActive, getStrings } from './../Helpers';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 
 function Settings() {
-	const [ importModal, setImportModal ] = useState< boolean >( false );
+	const [importModal, setImportModal] = useState<boolean>(false);
 	const confirmImportRef = useRef();
 
-	const [ settings, setSettings ] = useState( {
+	const [settings, setSettings] = useState({
 		css_code_value: '',
 		async_loading: 'on',
 		link_support: 'smart_link',
 		script_support: 'global_loading',
-		timeout: 5, 
-	} );
+		timeout: 5,
+	});
 
-	const [ activeTab, setActiveTab ] = useState(
-		localStorage.getItem( 'setting-active_tab' ) || 'general'
+	const [activeTab, setActiveTab] = useState(
+		localStorage.getItem('setting-active_tab') || 'general'
 	);
 
-	const handleActiveTab = ( name ) => {
-		localStorage.setItem( 'manage-tabs-active_tab', name );
-		setActiveTab( name );
+	const handleActiveTab = (name) => {
+		localStorage.setItem('manage-tabs-active_tab', name);
+		setActiveTab(name);
 	};
 
 
 	const timeoutOptions = [3, 5, 10, 15, 20, 25, 30, 40, 50, 60];
 
 
-	useEffect( () => {
+	useEffect(() => {
 		const handleClick = () => {
-			WPPOOL.Popup( 'sheets_to_wp_table_live_sync' ).show();
+			WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
 		};
 
 		const proSettings = document.querySelectorAll(
 			'.swptls-pro-settings, .btn-pro-lock'
 		);
 
-		proSettings.forEach( ( item ) => {
-			item.addEventListener( 'click', handleClick );
-		} );
+		proSettings.forEach((item) => {
+			item.addEventListener('click', handleClick);
+		});
 
-		wp.ajax.send( 'swptls_get_settings', {
+		wp.ajax.send('swptls_get_settings', {
 			data: {
 				nonce: getNonce(),
 			},
-			success( { css, async, link_support, script_support, timeout } ) {
-				setSettings( {
+			success({ css, async, link_support, script_support, timeout }) {
+				setSettings({
 					css_code_value: css,
 					async_loading: async,
 					link_support: link_support,
 					script_support: script_support,
 					timeout: timeout,
-				} );
+				});
 			},
-			error( error ) {
+			error(error) {
 				// console.log(error);
 			},
-		} );
+		});
 
 		return () => {
-			proSettings.forEach( ( item ) => {
-				item.removeEventListener( 'click', handleClick );
-			} );
+			proSettings.forEach((item) => {
+				item.removeEventListener('click', handleClick);
+			});
 		};
-	}, [] );
+	}, []);
 
-	const handleSaveSettings = ( e ) => {
+	const handleSaveSettings = (e) => {
 		e.preventDefault();
 
-		wp.ajax.send( 'swptls_save_settings', {
+		wp.ajax.send('swptls_save_settings', {
 			data: {
 				nonce: getNonce(),
-				settings: JSON.stringify( settings ),
+				settings: JSON.stringify(settings),
 			},
-			success( { message, css, async, link_support, script_support, timeout } ) {
-				setSettings( {
+			success({ message, css, async, link_support, script_support, timeout }) {
+				setSettings({
 					css_code_value: css,
 					async_loading: async,
 					link_support: link_support,
 					script_support: script_support,
 					timeout: timeout,
-				} );
+				});
 
-				toast.success( message );
+				toast.success(message);
 			},
-			error( error ) {
+			error(error) {
 				// console.log(error);
 			},
-		} );
+		});
 	};
 
 	// Modal for Pro
 	const handleClosePopup = () => {
-		setImportModal( false );
+		setImportModal(false);
 	};
 
-	function handleCancelOutside( event: MouseEvent ) {
+	function handleCancelOutside(event: MouseEvent) {
 		if (
 			confirmImportRef.current &&
-			! confirmImportRef.current.contains( event.target )
+			!confirmImportRef.current.contains(event.target)
 		) {
 			handleClosePopup();
 		}
 	}
 
-	useEffect( () => {
+	useEffect(() => {
 		const handleClick = () => {
-			WPPOOL.Popup( 'sheets_to_wp_table_live_sync' ).show();
+			WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
 		};
-		document.addEventListener( 'mousedown', handleCancelOutside );
+		document.addEventListener('mousedown', handleCancelOutside);
 
 		const proSettings = document.querySelectorAll(
 			'.swptls-pro-settings, .btn-pro-lock'
 		);
-		proSettings.forEach( ( item ) => {
-			item.addEventListener( 'click', handleClick );
-		} );
+		proSettings.forEach((item) => {
+			item.addEventListener('click', handleClick);
+		});
 
 		return () => {
-			document.removeEventListener( 'mousedown', handleCancelOutside );
-			proSettings.forEach( ( item ) => {
-				item.removeEventListener( 'click', handleClick );
-			} );
+			document.removeEventListener('mousedown', handleCancelOutside);
+			proSettings.forEach((item) => {
+				item.removeEventListener('click', handleClick);
+			});
 		};
-	}, [ handleCancelOutside ] );
+	}, [handleCancelOutside]);
 
 	return (
 		<>
 			<header className="setting-header">
-				<h5 className="setting-title">Settings</h5>
+				<h5 className="setting-title">{getStrings('Settings')}</h5>
 				<div className="new-unlock-block">
-					{ ! isProActive() && (
+					{!isProActive() && (
 						<div className="unlock">
-							<div className="icon">{ Unlock }</div>
+							<div className="icon">{Unlock}</div>
 							<p>
 								<a
 									className="get-ultimate"
 									href="https://go.wppool.dev/KfVZ"
 									target="_blank"
 								>
-									{ getStrings( 'get-unlimited-access' ) }
+									{getStrings('get-unlimited-access')}
 								</a>
 							</p>
 						</div>
-					) }
+					)}
 					<ChangesLog />
 				</div>
 			</header>
@@ -161,10 +161,9 @@ function Settings() {
 			<div className="setting-navbar">
 				<div className="setting-navbar__nav">
 					<button
-						className={ `setting-tab ${
-							activeTab === 'general' ? 'active' : ''
-						}` }
-						onClick={ () => handleActiveTab( 'general' ) }
+						className={`setting-tab ${activeTab === 'general' ? 'active' : ''
+							}`}
+						onClick={() => handleActiveTab('general')}
 					>
 						<span className="icon">
 							<svg
@@ -188,13 +187,12 @@ function Settings() {
 								/>
 							</svg>
 						</span>
-						<span>General</span>
+						<span>{getStrings('General')}</span>
 					</button>
 					<button
-						className={ `setting-tab ${
-							activeTab === 'performance' ? 'active' : ''
-						}` }
-						onClick={ () => handleActiveTab( 'performance' ) }
+						className={`setting-tab ${activeTab === 'performance' ? 'active' : ''
+							}`}
+						onClick={() => handleActiveTab('performance')}
 					>
 						<span className="icon">
 							<svg
@@ -210,14 +208,13 @@ function Settings() {
 								/>
 							</svg>
 						</span>
-						<span>Performance</span>
+						<span>{getStrings('performance')}</span>
 					</button>
 
 					<button
-						className={ `setting-tab ${
-							activeTab === 'custom_css' ? 'active' : ''
-						}` }
-						onClick={ () => handleActiveTab( 'custom_css' ) }
+						className={`setting-tab ${activeTab === 'custom_css' ? 'active' : ''
+							}`}
+						onClick={() => handleActiveTab('custom_css')}
 					>
 						<span className="icon">
 							<svg
@@ -233,16 +230,16 @@ function Settings() {
 								/>
 							</svg>
 						</span>
-						<span>Custom CSS</span>
+						<span>{getStrings('custom-css')}</span>
 					</button>
 
 					<button className="save-settings-btn">
 						<div className="btn-box text-right">
 							<button
 								className="btn"
-								onClick={ ( e ) => handleSaveSettings( e ) }
+								onClick={(e) => handleSaveSettings(e)}
 							>
-								{ getStrings( 'save-settings' ) }
+								{getStrings('save-settings')}
 							</button>
 						</div>
 					</button>
@@ -250,16 +247,16 @@ function Settings() {
 			</div>
 
 			<div className="setting-tab-content">
-				{ 'general' === activeTab && (
+				{'general' === activeTab && (
 					<>
 						<div className="asynchronous-loading-setting">
-							{ /* Link support new*/ }
+							{ /* Link support new*/}
 							<div className="swptls-link-support">
 								<div className="title">
 									<label htmlFor="link-support">
-										{ getStrings( 'choose-link-support' ) }
+										{getStrings('choose-link-support')}
 									</label>
-									{ /* {<button className='btn-pro btn-new'>{getStrings('new')}</button>} */ }
+									{ /* {<button className='btn-pro btn-new'>{getStrings('new')}</button>} */}
 								</div>
 								<div className="link-modes">
 									<input
@@ -271,25 +268,25 @@ function Settings() {
 											settings.link_support ===
 											'smart_link'
 										}
-										onChange={ () =>
-											setSettings( {
+										onChange={() =>
+											setSettings({
 												...settings,
 												link_support: 'smart_link',
-											} )
+											})
 										}
 									/>
 									<label
 										className="smart_link"
 										htmlFor="smart_link"
 									>
-										{ getStrings( 'with-smart-link' ) }
+										{getStrings('with-smart-link')}
 									</label>
 									<Tooltip
-										content={ getStrings( 'tooltip-18' ) }
+										content={getStrings('tooltip-18')}
 									/>
 									{
 										<button className="btn-pro recommended-pro">
-											{ getStrings( 'recommended' ) }
+											{getStrings('recommended')}
 										</button>
 									}
 								</div>
@@ -303,18 +300,18 @@ function Settings() {
 											settings.link_support ===
 											'pretty_link'
 										}
-										onChange={ () =>
-											setSettings( {
+										onChange={() =>
+											setSettings({
 												...settings,
 												link_support: 'pretty_link',
-											} )
+											})
 										}
 									/>
 									<label htmlFor="pretty_link">
-										{ getStrings( 'with-pretty-link' ) }
+										{getStrings('with-pretty-link')}
 									</label>
 									<Tooltip
-										content={ getStrings( 'tooltip-19' ) }
+										content={getStrings('tooltip-19')}
 									/>
 								</div>
 							</div>
@@ -329,11 +326,11 @@ function Settings() {
 							</button>
 						</div> */ }
 					</>
-				) }
+				)}
 
-				{ 'performance' === activeTab && (
+				{'performance' === activeTab && (
 					<>
-						{ /* Script loading support new*/ }
+						{ /* Script loading support new*/}
 
 						<div className="swptls-async-settings">
 							<div className="async_loading">
@@ -341,27 +338,27 @@ function Settings() {
 									type="checkbox"
 									name="async_loading"
 									id="async-loading"
-									checked={ settings.async_loading === 'on' }
-									onChange={ ( e ) =>
-										setSettings( {
+									checked={settings.async_loading === 'on'}
+									onChange={(e) =>
+										setSettings({
 											...settings,
 											async_loading: e.target.checked
 												? 'on'
 												: '',
-										} )
+										})
 									}
 								/>
 								<label htmlFor="async-loading">
-									{ getStrings( 'asynchronous-loading' ) }
+									{getStrings('asynchronous-loading')}
 								</label>
 							</div>
-							<p>{ getStrings( 'async-content' ) }</p>
+							<p>{getStrings('async-content')}</p>
 						</div>
 
-						<div className={ `swptls-performance-settings` }>
-							
+						<div className={`swptls-performance-settings`}>
+
 							<p className="performance-title">
-								{ getStrings( 'script-content' ) }
+								{getStrings('script-content')}
 							</p>
 							<div className="scripts-modes">
 								<input
@@ -374,88 +371,84 @@ function Settings() {
 										settings.script_support ===
 										'global_loading'
 									}
-									onChange={ () =>
-										setSettings( {
+									onChange={() =>
+										setSettings({
 											...settings,
 											script_support: 'global_loading',
-										} )
+										})
 									}
 								/>
 								<label
 									className="link_support"
 									htmlFor="global_loading"
 								>
-									{ getStrings( 'global-loading' ) }
+									{getStrings('global-loading')}
 								</label>
 							</div>
 
 
 							<p className="tooltip-content">
-								{ getStrings( 'global-loading-details' ) }
+								{getStrings('global-loading-details')}
 							</p>
 							<div
-								className={ `scripts-modes${
-									! isProActive()
-										? ` swptls-pro-settings`
-										: ``
-								}` }
+								className={`scripts-modes${!isProActive()
+									? ` swptls-pro-settings`
+									: ``
+									}`}
 							>
-								
+
 								<input
 									type="radio"
 									name="script_support"
-									className={ `optimized_loading_field${
-										! isProActive()
-											? ` swptls-pro-settings`
-											: ``
-									}` }
+									className={`optimized_loading_field${!isProActive()
+										? ` swptls-pro-settings`
+										: ``
+										}`}
 									id="optimized_loading"
 									value="optimized_loading"
 									checked={
 										settings.script_support ===
 										'optimized_loading'
 									}
-									onChange={ () =>
-										setSettings( {
+									onChange={() =>
+										setSettings({
 											...settings,
 											script_support: 'optimized_loading',
-										} )
+										})
 									}
 								/>
 								<label
-									className={ `link_support${
-										! isProActive()
-											? ` swptls-pro-settings`
-											: ``
-									}` }
-									htmlFor="optimized_loading"
-								>
-									{ getStrings( 'optimized-loading' ) }
-								</label>
-								{ /* {<button className='btn-pro recommended-pro'>{getStrings('recommended')}</button>} */ }
-								{ ! isProActive() && (
-									<button className="btn-pro">
-										{ getStrings( 'pro' ) }
-									</button>
-								) }
-							</div>
-							<p
-								className={ `tooltip-content${
-									! isProActive()
+									className={`link_support${!isProActive()
 										? ` swptls-pro-settings`
 										: ``
-								}` }
+										}`}
+									htmlFor="optimized_loading"
+								>
+									{getStrings('optimized-loading')}
+								</label>
+								{ /* {<button className='btn-pro recommended-pro'>{getStrings('recommended')}</button>} */}
+								{!isProActive() && (
+									<button className="btn-pro">
+										{getStrings('pro')}
+									</button>
+								)}
+							</div>
+							<p
+								className={`tooltip-content${!isProActive()
+									? ` swptls-pro-settings`
+									: ``
+									}`}
 							>
-								{ getStrings( 'optimized-loading-details' ) }
+								{getStrings('optimized-loading-details')}
 							</p>
-			
+
 							{/* Timeout Select */}
 							<p className="performance-title">
-								{ getStrings( 'timeout-content' ) }{<button className='btn-pro btn-new'>{getStrings('new')}</button>}
+								{getStrings('timeout-content')}{<button className='btn-pro btn-new'>{getStrings('new')}</button>}
 							</p>
 							<div className="scripts-modes time-out-settings">
-							
-								<label htmlFor="timeout-select">{ getStrings( 'timeout-label' ) } </label>
+
+								<label htmlFor="timeout-select">{getStrings('timeout-label')} </label>
 								<select
 									id="timeout-select"
 									value={settings.timeout}
@@ -468,63 +461,62 @@ function Settings() {
 								>
 									{timeoutOptions.map((option) => (
 										<option key={option} value={option}>
-											{option} seconds
+											{option} {getStrings('seconds')}
 										</option>
 									))}
 								</select>
 
 								<Tooltip
-									content={ getStrings( 'tooltip-56' ) }
+									content={getStrings('tooltip-56')}
 								/>
-								
+
 
 							</div>
 
 						</div>
 
 					</>
-				) }
+				)}
 
-				{ 'custom_css' === activeTab && (
+				{'custom_css' === activeTab && (
 					<>
-						{ /* CSS Support  */ }
+						{ /* CSS Support  */}
 						<div
-							className={ `swptls-custom-css-settings${
-								! isProActive() ? ` swptls-pro-settings` : ``
-							}` }
+							className={`swptls-custom-css-settings${!isProActive() ? ` swptls-pro-settings` : ``
+								}`}
 						>
 							<div className="title">
-								{ getStrings( 'custom-css' ) }
-								{ /* <span className='info'>{infoIcon}</span> */ }
+								{getStrings('custom-css')}
+								{ /* <span className='info'>{infoIcon}</span> */}
 								<Tooltip
-									content={ `Write your own custom CSS to design the table or the page itself.` }
+									content={`Write your own custom CSS to design the table or the page itself.`}
 								/>
-								{ ! isProActive() && (
+								{!isProActive() && (
 									<button className="btn-pro">
-										{ getStrings( 'pro' ) }
+										{getStrings('pro')}
 									</button>
-								) }
+								)}
 							</div>
 							<p className="custom-css-desc">
-								{ getStrings( 'write-own-css' ) }
+								{getStrings('write-own-css')}
 							</p>
 							<CodeEditor
-								value={ settings.css_code_value }
+								value={settings.css_code_value}
 								language="css"
 								placeholder="# # Insert custom CSS code here to modify looks and feel"
-								onChange={ ( evn ) =>
-									setSettings( {
+								onChange={(evn) =>
+									setSettings({
 										...settings,
 										css_code_value: evn.target.value,
-									} )
+									})
 								}
-								padding={ 15 }
-								minHeight={ 350 }
-								style={ {
+								padding={15}
+								minHeight={350}
+								style={{
 									fontFamily:
 										'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
 									fontSize: 12,
-								} }
+								}}
 							/>
 						</div>
 						{ /* <div className='btn-box text-right'>
@@ -536,7 +528,7 @@ function Settings() {
 							</button>
 						</div> */ }
 					</>
-				) }
+				)}
 			</div>
 		</>
 	);

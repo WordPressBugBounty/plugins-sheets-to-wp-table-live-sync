@@ -1892,7 +1892,7 @@ function EditTable() {
 															{getStrings('option-under-general')}
 														</li>
 														<li>
-															Click on the
+															{getStrings('click-on-the')}
 															<span className="icon settings-icon">
 																<svg
 																	xmlns="http://www.w3.org/2000/svg"
@@ -1916,19 +1916,19 @@ function EditTable() {
 																	/>
 																</svg>
 															</span>
-															icon on the popup and ensure that the option{' '}
+															{getStrings('icon-on-the-popup')}{' '}
 															<span className="swptls-text-highlight">
-																“Viewers and commenters can see the option to download, print, and copy”
+																{getStrings('viewers-and-Commenters')}
 															</span>{' '}
-															is selected
+															{getStrings('is-selected')}
 														</li>
 														<li>
 															<span>
-																Save the changes by clicking on the
+																{getStrings('save-the-changes')}
 																<button className="done-btn">
-																	Done
+																	{getStrings('done')}
 																</button>
-																button
+																{getStrings('button')}
 															</span>
 														</li>
 													</ol>

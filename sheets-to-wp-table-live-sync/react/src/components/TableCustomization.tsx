@@ -780,7 +780,7 @@ const TableCustomization = ({
 													/>
 													<label htmlFor="show-description">
 														{' '}
-														Show Table description
+														{getStrings('show-table-desc')}
 														<span className="select-wrapper">
 															<select
 																name="description_position"
@@ -809,10 +809,10 @@ const TableCustomization = ({
 																}
 															>
 																<option value="above">
-																	above
+																	{getStrings('above')}
 																</option>
 																<option value="below">
-																	below
+																	{getStrings('below')}
 																</option>
 															</select>
 
@@ -831,7 +831,7 @@ const TableCustomization = ({
 																</svg>
 															</div>
 														</span>
-														the table
+														{getStrings('the-table')}
 														<Tooltip
 															content={`Enable this option to show table description for the viewers`}
 														/>

@@ -763,14 +763,13 @@ const ThemeSettings = ({ tableSettings, setTableSettings }) => {
 
 								{!isEditing && themeNameError && (
 									<div className="error-message">
-										Name already used, please use another
-										name for theme
+										{getStrings('name-used')}
 									</div>
 								)}
 
 								{emptyNameError && (
 									<div className="error-message">
-										Name field can not be empty
+										{getStrings('name-need')}
 									</div>
 								)}
 							</div>
@@ -868,7 +867,7 @@ const ThemeSettings = ({ tableSettings, setTableSettings }) => {
 												}
 											/>
 											<label htmlFor="color-picker-outside-outsideborderColor">
-												Outside border
+												{getStrings('outside-border')}
 											</label>
 										</div>
 									</div>

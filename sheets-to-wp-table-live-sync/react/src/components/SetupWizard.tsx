@@ -29,157 +29,155 @@ import '../styles/_wizard.scss';
 import Tooltip from './Tooltip';
 
 const SetupWizard = () => {
-	const [ step, setStep ] = useState( 'get_started' );
-	const sheetUrlRef = useRef( null );
-	const [ loader, setLoader ] = useState< boolean >( false );
-	const [ tableId, setTableId ] = useState( 0 );
-	const [ sheetUrl, setSheetUrl ] = useState< string >( '' );
-	const [ tableSettings, setTableSettings ] = useState( {} );
-	const [ preview, setPreview ] = useState( '' );
-	const [ copySuccess, setCopySuccess ] = useState( false );
-	const [ previewLoader, setPreviewLoader ] = useState( false );
+	const [step, setStep] = useState('get_started');
+	const sheetUrlRef = useRef(null);
+	const [loader, setLoader] = useState<boolean>(false);
+	const [tableId, setTableId] = useState(0);
+	const [sheetUrl, setSheetUrl] = useState<string>('');
+	const [tableSettings, setTableSettings] = useState({});
+	const [preview, setPreview] = useState('');
+	const [copySuccess, setCopySuccess] = useState(false);
+	const [previewLoader, setPreviewLoader] = useState(false);
 
-	const handleCopyShortcode = async ( id ) => {
-		const shortcode = `[gswpts_table id="${ id }"]`;
+	const handleCopyShortcode = async (id) => {
+		const shortcode = `[gswpts_table id="${id}"]`;
 
 		try {
-			await navigator.clipboard.writeText( shortcode );
-			setCopySuccess( true );
-		} catch ( err ) {
-			setCopySuccess( false );
+			await navigator.clipboard.writeText(shortcode);
+			setCopySuccess(true);
+		} catch (err) {
+			setCopySuccess(false);
 		}
 	};
 
-	const handleSheetUrl = ( e ) => {
+	const handleSheetUrl = (e) => {
 		const url = e.target.value.trim();
 
-		setSheetUrl( url );
+		setSheetUrl(url);
 	};
 
-	const generateTablePreview = ( e ) => {
+	const generateTablePreview = (e) => {
 		e.preventDefault();
 
-		if ( ! isValidGoogleSheetsUrl( sheetUrl ) ) {
+		if (!isValidGoogleSheetsUrl(sheetUrl)) {
 			sheetUrlRef.current.style.borderColor = 'red';
 
 			return false;
 		}
 		sheetUrlRef.current.style.borderColor = '';
 
-		setLoader( true );
+		setLoader(true);
 
-		wp.ajax.send( 'swptls_get_table_preview', {
+		wp.ajax.send('swptls_get_table_preview', {
 			data: {
 				nonce: getNonce(),
 				table_name: 'Untitled',
 				source_url: sheetUrl,
-				settings: JSON.stringify( getDefaultSettings() ),
+				settings: JSON.stringify(getDefaultSettings()),
 			},
-			success( { html, settings } ) {
-				setLoader( false );
-				setStep( 'edit_table' );
-				setPreview( html );
-				new DataTable( '#create_tables', {
+			success({ html, settings }) {
+				setLoader(false);
+				setStep('edit_table');
+				setPreview(html);
+				new DataTable('#create_tables', {
 					// pagingType: 'full_numbers',
-					pageLength: parseInt( settings.default_rows_per_page ),
-				} );
+					pageLength: parseInt(settings.default_rows_per_page),
+				});
 			},
-			error( error ) {
-				console.error( error );
+			error(error) {
+				console.error(error);
 			},
-		} );
+		});
 	};
 
-	const handleCreateTable = ( e ) => {
+	const handleCreateTable = (e) => {
 		e.preventDefault();
 
-		wp.ajax.send( 'swptls_create_table', {
+		wp.ajax.send('swptls_create_table', {
 			data: {
 				nonce: getNonce(),
 				sheet_url: sheetUrl,
-				settings: JSON.stringify( {
+				settings: JSON.stringify({
 					...tableSettings,
 					...getDefaultSettings(),
-				} ),
+				}),
 				context: 'wizard',
 			},
-			success( { id } ) {
-				setStep( 'complete' );
-				setTableId( id );
+			success({ id }) {
+				setStep('complete');
+				setTableId(id);
 			},
-			error( { message, type } ) {
-				toast.warn( message );
-				setLoader( false );
+			error({ message, type }) {
+				toast.warn(message);
+				setLoader(false);
 			},
-		} );
+		});
 	};
 
-	useEffect( () => {
-		if ( step !== 'edit_table' ) {
+	useEffect(() => {
+		if (step !== 'edit_table') {
 			return;
 		}
 
-		setPreviewLoader( true );
-		wp.ajax.send( 'swptls_get_table_preview', {
+		setPreviewLoader(true);
+		wp.ajax.send('swptls_get_table_preview', {
 			data: {
 				nonce: getNonce(),
 				table_name: 'Untitled',
 				source_url: sheetUrl,
-				settings: JSON.stringify( getDefaultSettings() ),
+				settings: JSON.stringify(getDefaultSettings()),
 			},
-			success( { html, settings } ) {
-				setStep( 'edit_table' );
-				setPreview( html );
-				setPreviewLoader( false );
-				new DataTable( '#create_tables', {
+			success({ html, settings }) {
+				setStep('edit_table');
+				setPreview(html);
+				setPreviewLoader(false);
+				new DataTable('#create_tables', {
 					// pagingType: 'full_numbers',
-					pageLength: parseInt( settings.default_rows_per_page ),
-				} );
+					pageLength: parseInt(settings.default_rows_per_page),
+				});
 			},
-			error( error ) {
-				console.error( error );
+			error(error) {
+				console.error(error);
 			},
-		} );
-	}, [ tableSettings?.table_settings?.table_style ] );
+		});
+	}, [tableSettings?.table_settings?.table_style]);
 
 	const handleGoToDashboard = () => {
 		const navigate = useNavigate();
-		navigate( 0 );
+		navigate(0);
 	};
 
 	return (
 		<div className="swptls-setup-wizard-wrap">
-			{ step === 'get_started' && (
+			{step === 'get_started' && (
 				<div className="swptls-setup-screen step-one">
-					<div className="setup-screen-img">{ Desktop }</div>
-					<h2>Let’s make your first table</h2>
+					<div className="setup-screen-img">{Desktop}</div>
+					<h2>{getStrings('make-your-first-table')}</h2>
 					<p>
-						Let us help you with your first table creation. You are
-						just a step away from creating beautiful tables from
-						your Google Sheets
+						{getStrings('help-on-your-first-table')}
 					</p>
 					<button
 						className="btn btn-lg"
-						onClick={ () => setStep( 'create_table' ) }
+						onClick={() => setStep('create_table')}
 					>
-						Get Started
+						{getStrings('get-started')}
 					</button>
 					<div className="btn-box">
-						<button className="btn-skip">Skip</button>
+						<button className="btn-skip">{getStrings('Skip')}</button>
 					</div>
 				</div>
-			) }
+			)}
 
-			{ step === 'create_table' && (
+			{step === 'create_table' && (
 				<>
 					<div className="create-table-form">
 						<Title tagName="h4">
-							Add Google Sheet URL{ ' ' }
-							<Tooltip content={ getStrings( 'tooltip-20' ) } />
+							{getStrings('add-sheets')}{' '}
+							<Tooltip content={getStrings('tooltip-20')} />
 						</Title>
 						<Title tagName="p">
-							{ /* Copy the URL of your Google Sheet and paste it here. */ }
-							{ getStrings( 'tooltip-21' ) }
+							{ /* Copy the URL of your Google Sheet and paste it here. */}
+							{getStrings('tooltip-21')}
 						</Title>
 
 						<input
@@ -187,230 +185,222 @@ const SetupWizard = () => {
 							name=""
 							placeholder="Enter your google sheet URL"
 							id="sheet-url"
-							onChange={ ( e ) => handleSheetUrl( e ) }
-							ref={ sheetUrlRef }
+							onChange={(e) => handleSheetUrl(e)}
+							ref={sheetUrlRef}
 						/>
 
 						<div className="create-table-btn-wrapper text-center">
 							<button
 								className="btn "
-								onClick={ ( e ) => generateTablePreview( e ) }
+								onClick={(e) => generateTablePreview(e)}
 							>
-								Create table{ ' ' }
-								{ loader ? '....' : arrowRightIcon }
+								{getStrings('create-table')}{' '}
+								{loader ? '....' : arrowRightIcon}
 							</button>
 						</div>
 					</div>
 
 					<CtaAdd />
 				</>
-			) }
+			)}
 
-			{ step === 'edit_table' && (
+			{step === 'edit_table' && (
 				<div className="setup-wizard-edit-table-wrap text-center">
-					<h4>Change theme and table style</h4>
+					<h4>{getStrings('change-theme-table-style')}</h4>
 					<p>
-						You can change table theme below. You will find more
-						customization in the dashboard
+						{getStrings('change-table-theme')}
 					</p>
 
 					<div className="table-customization-theme-btns">
 						<div className="item-wrapper">
 							<button
-								className={ `single-theme-button${
-									tableSettings?.table_settings
-										?.table_style === 'default-style'
-										? ' active'
-										: ''
-								}` }
-								onClick={ () =>
-									setTableSettings( {
+								className={`single-theme-button${tableSettings?.table_settings
+									?.table_style === 'default-style'
+									? ' active'
+									: ''
+									}`}
+								onClick={() =>
+									setTableSettings({
 										...tableSettings,
 										table_settings: {
 											...tableSettings.table_settings,
 											table_style: 'default-style',
 										},
-									} )
+									})
 								}
 							>
 								<img
-									src={ theme_one_default_style }
+									src={theme_one_default_style}
 									alt="theme_one_default_style"
 								/>
 							</button>
-							<span>Default Style</span>
+							<span>{getStrings('Default-Style')}</span>
 						</div>
 						<div className="item-wrapper">
 							<button
-								className={ `single-theme-button${
-									tableSettings?.table_settings
-										?.table_style === 'style-2'
-										? ' active'
-										: ''
-								}` }
-								onClick={ () =>
-									setTableSettings( {
+								className={`single-theme-button${tableSettings?.table_settings
+									?.table_style === 'style-2'
+									? ' active'
+									: ''
+									}`}
+								onClick={() =>
+									setTableSettings({
 										...tableSettings,
 										table_settings: {
 											...tableSettings.table_settings,
 											table_style: 'style-2',
 										},
-									} )
+									})
 								}
 							>
 								<img
-									src={ theme_two_stripped_table }
+									src={theme_two_stripped_table}
 									alt="theme_two_stripped_table"
 								/>
 							</button>
-							<span>Stripped Table</span>
+							<span>{getStrings('Stripped-Table')}</span>
 						</div>
 						<div className="item-wrapper">
 							<button
-								className={ `single-theme-button${
-									tableSettings?.table_settings
-										?.table_style === 'style-4'
-										? ' active'
-										: ''
-								}` }
-								onClick={ () =>
-									setTableSettings( {
+								className={`single-theme-button${tableSettings?.table_settings
+									?.table_style === 'style-4'
+									? ' active'
+									: ''
+									}`}
+								onClick={() =>
+									setTableSettings({
 										...tableSettings,
 										table_settings: {
 											...tableSettings.table_settings,
 											table_style: 'style-4',
 										},
-									} )
+									})
 								}
 							>
 								<img
-									src={ theme_three_dark_table }
+									src={theme_three_dark_table}
 									alt="theme_three_dark_table"
 								/>
 							</button>
-							<span>Dark Table</span>
+							<span>{getStrings('Dark-Table-wiz')}</span>
 						</div>
 						<div className="item-wrapper">
 							<button
-								className={ `single-theme-button${
-									tableSettings?.table_settings
-										?.table_style === 'style-5'
-										? ' active'
-										: ''
-								}` }
-								onClick={ () =>
-									setTableSettings( {
+								className={`single-theme-button${tableSettings?.table_settings
+									?.table_style === 'style-5'
+									? ' active'
+									: ''
+									}`}
+								onClick={() =>
+									setTableSettings({
 										...tableSettings,
 										table_settings: {
 											...tableSettings.table_settings,
 											table_style: 'style-5',
 										},
-									} )
+									})
 								}
 							>
 								<img
-									src={ theme_four_tailwind_style }
+									src={theme_four_tailwind_style}
 									alt="theme_four_tailwind_style"
 								/>
 							</button>
-							<span>Taliwind Style</span>
+							<span>{getStrings('Taliwind-Style')}</span>
 						</div>
 						<div className="item-wrapper">
 							<button
-								className={ `single-theme-button${
-									tableSettings?.table_settings
-										?.table_style === 'style-1'
-										? ' active'
-										: ''
-								}` }
-								onClick={ () =>
-									setTableSettings( {
+								className={`single-theme-button${tableSettings?.table_settings
+									?.table_style === 'style-1'
+									? ' active'
+									: ''
+									}`}
+								onClick={() =>
+									setTableSettings({
 										...tableSettings,
 										table_settings: {
 											...tableSettings.table_settings,
 											table_style: 'style-1',
 										},
-									} )
+									})
 								}
 							>
 								<img
-									src={ theme_five_colored_column }
+									src={theme_five_colored_column}
 									alt="theme_five_colored_column"
 								/>
 							</button>
-							<span>Colored Column</span>
+							<span>{getStrings('colored-column')}</span>
 						</div>
 						<div className="item-wrapper">
 							<button
-								className={ `single-theme-button${
-									tableSettings?.table_settings
-										?.table_style === 'style-3'
-										? ' active'
-										: ''
-								}` }
-								onClick={ () =>
-									setTableSettings( {
+								className={`single-theme-button${tableSettings?.table_settings
+									?.table_style === 'style-3'
+									? ' active'
+									: ''
+									}`}
+								onClick={() =>
+									setTableSettings({
 										...tableSettings,
 										table_settings: {
 											...tableSettings.table_settings,
 											table_style: 'style-3',
 										},
-									} )
+									})
 								}
 							>
 								<img
-									src={ theme_six_hovered_style }
+									src={theme_six_hovered_style}
 									alt="theme_six_hovered_style"
 								/>
 							</button>
-							<span>Hover Style</span>
+							<span>{getStrings('hover-style')}</span>
 						</div>
 					</div>
 
 					<div className="setup-nav-buttons">
 						<button
 							className="btn btn-back"
-							onClick={ () => setStep( 'create_table' ) }
+							onClick={() => setStep('create_table')}
 						>
-							Back
+							{getStrings('back')}
 						</button>
 						<button
 							className="btn btn-next"
-							onClick={ ( e ) => handleCreateTable( e ) }
+							onClick={(e) => handleCreateTable(e)}
 						>
-							Next
+							{getStrings('next')}
 						</button>
 					</div>
 
 					<div className="table-preview wrapper">
-						{ previewLoader ? (
-							<h1>Loading...</h1>
+						{previewLoader ? (
+							<h1>{getStrings('loading')}</h1>
 						) : (
 							preview && (
 								<div
-									className={ `table-preview` }
+									className={`table-preview`}
 									id="table-preview"
-									dangerouslySetInnerHTML={ {
+									dangerouslySetInnerHTML={{
 										__html: preview,
-									} }
+									}}
 								></div>
 							)
-						) }
+						)}
 					</div>
 				</div>
-			) }
+			)}
 
-			{ 'complete' === step && (
+			{'complete' === step && (
 				<div className="setup-complete-wrap text-center">
-					<div className="setup-success-img">{ success }</div>
-					<h3>Table creation successfull</h3>
+					<div className="setup-success-img">{success}</div>
+					<h3>{getStrings('create-success')}</h3>
 					<button
-						className={ `copy-shortcode btn-shortcode ${
-							! copySuccess ? '' : 'btn-success'
-						}` }
-						onClick={ () => handleCopyShortcode( tableId ) }
+						className={`copy-shortcode btn-shortcode ${!copySuccess ? '' : 'btn-success'
+							}`}
+						onClick={() => handleCopyShortcode(tableId)}
 					>
-						{ ! copySuccess ? (
+						{!copySuccess ? (
 							<svg
 								width="14"
 								height="14"
@@ -436,23 +426,22 @@ const SetupWizard = () => {
 									fill="#2BB885"
 								/>
 							</svg>
-						) }
-						Copy Shortcode
+						)}
+						{getStrings('copy-shortcode')}
 					</button>
 
 					<p>
-						Copy the shortcode to use in in any page or post.
-						Gutenberg and Elementor blocks are also supported
+						{getStrings('copy-shortcode-to-use-in-page')}
 					</p>
 
 					<button
 						className="btn btn-lg"
-						onClick={ handleGoToDashboard }
+						onClick={handleGoToDashboard}
 					>
-						Go to Dashboard
+						{getStrings('go-to-dashboard')}
 					</button>
 				</div>
-			) }
+			)}
 		</div>
 	);
 };

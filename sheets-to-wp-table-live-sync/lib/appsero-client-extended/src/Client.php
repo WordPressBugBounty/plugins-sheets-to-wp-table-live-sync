@@ -261,6 +261,8 @@ class Client {
 
 	/**
 	 * Translate function _e().
+	 *
+	 * @param string $text include $text.
 	 */
     // phpcs:ignore
     public function _etrans( $text ) {

@@ -22,23 +22,23 @@ import { toast } from 'react-toastify';
 
 function CreateTable() {
 	const navigate = useNavigate();
-	const sheetUrlRef = useRef( null );
-	const [ loader, setLoader ] = useState< boolean >( false );
-	const [ sheetUrl, setSheetUrl ] = useState< string >( '' );
+	const sheetUrlRef = useRef(null);
+	const [loader, setLoader] = useState<boolean>(false);
+	const [sheetUrl, setSheetUrl] = useState<string>('');
 	// const [gridError, setGridError] = useState(false);
-	const [ privatesheetmessage, setPrivateSheetmessage ] = useState( false );
+	const [privatesheetmessage, setPrivateSheetmessage] = useState(false);
 
-	const handleCreateTable = ( e ) => {
+	const handleCreateTable = (e) => {
 		e.preventDefault();
 
-		if ( ! isValidGoogleSheetsUrl( sheetUrl ) ) {
+		if (!isValidGoogleSheetsUrl(sheetUrl)) {
 			sheetUrlRef.current.style.borderColor = 'red';
 
 			return false;
 		}
 		sheetUrlRef.current.style.borderColor = '';
 
-		const gridId = getGridID( sheetUrl );
+		const gridId = getGridID(sheetUrl);
 
 		/* if (!isProActive()) {
 			if (gridId > 0) {
@@ -49,57 +49,57 @@ function CreateTable() {
 			}
 		} */
 
-		setLoader( true );
+		setLoader(true);
 
-		wp.ajax.send( 'swptls_create_table', {
+		wp.ajax.send('swptls_create_table', {
 			data: {
 				nonce: getNonce(),
 				sheet_url: sheetUrl,
-				settings: JSON.stringify( getDefaultSettings() ),
+				settings: JSON.stringify(getDefaultSettings()),
 			},
-			success( { id, url, message } ) {
-				setLoader( false );
-				navigate( `/tables/edit/${ id }` );
+			success({ id, url, message }) {
+				setLoader(false);
+				navigate(`/tables/edit/${id}`);
 			},
-			error( { message } ) {
-				toast.warn( message );
-				setPrivateSheetmessage( true );
+			error({ message }) {
+				toast.warn(message);
+				setPrivateSheetmessage(true);
 				// console.log(message)
-				setLoader( false );
+				setLoader(false);
 			},
-		} );
+		});
 	};
 
-	const handleSheetUrl = ( e ) => {
+	const handleSheetUrl = (e) => {
 		const url = e.target.value.trim();
-		setSheetUrl( url );
-		setPrivateSheetmessage( false );
+		setSheetUrl(url);
+		setPrivateSheetmessage(false);
 	};
 
 	return (
 		<div className="create-table">
-			<Title tagName="h1">{ getStrings( 'creating-new-table' ) }</Title>
+			<Title tagName="h1">{getStrings('creating-new-table')}</Title>
 
 			<div className="create-table-form">
 				<Title tagName="h4">
-					{ getStrings( 'google-sheet-url' ) }{ ' ' }
-					<Tooltip content={ getStrings( 'tooltip-1' ) } />
+					{getStrings('google-sheet-url')}{' '}
+					<Tooltip content={getStrings('tooltip-1')} />
 				</Title>
-				<Title tagName="p">{ getStrings( 'copy-the-url' ) }</Title>
+				<Title tagName="p">{getStrings('copy-the-url')}</Title>
 
 				<input
 					type="text"
 					name=""
 					placeholder="Enter your google sheet URL"
 					id="sheet-url"
-					onChange={ ( e ) => handleSheetUrl( e ) }
-					ref={ sheetUrlRef }
+					onChange={(e) => handleSheetUrl(e)}
+					ref={sheetUrlRef}
 				/>
 
-				{ /* {gridError && (<p className='swptls-grid-not-supported-error'>{getStrings('on-free-plan-tables-can')}<span onClick={displayProPopup}>{getStrings('get-pro')}</span> {getStrings('to-create-table-from-any-tab')}</p>)} */ }
-				{ /* Notice  */ }
+				{ /* {gridError && (<p className='swptls-grid-not-supported-error'>{getStrings('on-free-plan-tables-can')}<span onClick={displayProPopup}>{getStrings('get-pro')}</span> {getStrings('to-create-table-from-any-tab')}</p>)} */}
+				{ /* Notice  */}
 
-				{ privatesheetmessage && (
+				{privatesheetmessage && (
 					<div className="private-sheet-notice-container invalid-download">
 						<div className="invalid-card">
 							<label className="invalid-download-new">
@@ -118,25 +118,22 @@ function CreateTable() {
 									</svg>
 								</span>
 								<span>
-									Unable to access the Sheet! Please follow
-									the instructions below:
+									{getStrings('unable-to-access')}
 								</span>
 							</label>
 
 							<div className="text">
 								<ol>
 									<li>
-										On your Google Sheet, click on the{ ' ' }
-										<button>Share</button>button located at
-										the top-right corner. Then on the popup,
-										choose the{ ' ' }
+										{getStrings('on-your-google')}{' '}
+										<button>{getStrings('share')}</button>{getStrings('button-located-at')}{' '}
 										<span className="swptls-text-highlight">
-											“Anyone with the link”
-										</span>{ ' ' }
-										option under General access
+											{getStrings('anyone-with-the-link')}
+										</span>{' '}
+										{getStrings('option-under-general')}
 									</li>
 									<li>
-										Click on the
+										{getStrings('click-on-the')}
 										<span className="icon settings-icon">
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
@@ -160,21 +157,19 @@ function CreateTable() {
 												/>
 											</svg>
 										</span>
-										icon on the popup and ensure that the
-										option{ ' ' }
+										{getStrings('icon-on-the-popup')}{' '}
 										<span className="swptls-text-highlight">
-											“Viewers and commenters can see the
-											option to download, print, and copy”
-										</span>{ ' ' }
-										is selected
+											{getStrings('viewers-and-Commenters')}
+										</span>{' '}
+										{getStrings('is-selected')}
 									</li>
 									<li>
 										<span>
-											Save the changes by clicking on the
+											{getStrings('save-the-changes')}
 											<button className="done-btn">
-												Done
+												{getStrings('done')}
 											</button>
-											button
+											{getStrings('button')}
 										</span>
 									</li>
 								</ol>
@@ -193,17 +188,17 @@ function CreateTable() {
 							></iframe>
 						</div>
 					</div>
-				) }
+				)}
 
 				<div className="create-table-btn-wrapper">
 					<button
 						className="btn "
-						onClick={ ( e ) => handleCreateTable( e ) }
-						disabled={ privatesheetmessage }
-						style={ { opacity: privatesheetmessage ? '0.5' : '1' } }
+						onClick={(e) => handleCreateTable(e)}
+						disabled={privatesheetmessage}
+						style={{ opacity: privatesheetmessage ? '0.5' : '1' }}
 					>
-						{ getStrings( 'create-table' ) }
-						{ loader ? '....' : arrowRightIcon }
+						{getStrings('create-table')}
+						{loader ? '....' : arrowRightIcon}
 					</button>
 				</div>
 			</div>

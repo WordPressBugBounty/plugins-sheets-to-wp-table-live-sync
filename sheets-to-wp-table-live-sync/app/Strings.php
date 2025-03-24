@@ -42,6 +42,9 @@ class Strings {
 			'search-tb'  => __( 'Search tables', 'sheetstowptable' ),
 			'search-items'  => __( 'Search items', 'sheetstowptable' ),
 
+			'search-btn'  => __( 'Search', 'sheetstowptable' ),
+			'clear-btn'  => __( 'Clear', 'sheetstowptable' ),
+
 			/**
 			 * Tooltip
 			 */
@@ -145,18 +148,37 @@ class Strings {
 			'tab-settings-title'  => __( 'Tab settings', 'sheetstowptable' ),
 			'save-and-move'  => __( 'Save & go to Manage Tab', 'sheetstowptable' ),
 			'save-and-move-dashboard'  => __( 'Save & go to dashboard', 'sheetstowptable' ),
-			'save-and-update'  => __( 'Save changes', 'sheetstowptable' ),
+			'save-and-move-dashboard'  => __( 'Go to Dashboard', 'sheetstowptable' ),
+			'go-to-dashboard'  => __( 'Save changes', 'sheetstowptable' ),
+			'copy-mail'  => __( 'COPY EMAL', 'sheetstowptable' ),
+			'id-table'  => __( 'ID: TB_', 'sheetstowptable' ),
 			'tab-short-copy'  => __( 'Copied!', 'sheetstowptable' ),
 			'wiz-back'  => __( 'Back', 'sheetstowptable' ),
 			'wiz-next'  => __( 'Next', 'sheetstowptable' ),
+			'tab-1'  => __( 'Tab 1 title', 'sheetstowptable' ),
+			'mng-tab'  => __( 'Manage Tab', 'sheetstowptable' ),
+			'no-tab'  => __( 'No tab group found!', 'sheetstowptable' ),
+			'no-tab-match'  => __( 'No tab group matches to your search term', 'sheetstowptable' ),
+			'select-table-for-tab'  => __( 'Select table for Tab 1', 'sheetstowptable' ),
+
+			/**
+			 * Pagination
+			 */
+
+			'sel-pagination'  => __( 'Select Pagination', 'sheetstowptable' ),
 
 			/**
 			 * Sorting
 			 */
 			'sort-by-name'  => __( 'Name', 'sheetstowptable' ),
+			'sort-by-id'  => __( 'ID', 'sheetstowptable' ),
 			'sort-by-date'  => __( 'Date', 'sheetstowptable' ),
 			'ascending'  => __( 'Ascending', 'sheetstowptable' ),
 			'descending'  => __( 'Descending', 'sheetstowptable' ),
+			'above'  => __( 'above', 'sheetstowptable' ),
+			'below'  => __( 'below', 'sheetstowptable' ),
+			'no-table-found'  => __( 'No tables found!', 'sheetstowptable' ),
+			'no-table-match'  => __( 'No tables matches to your search term', 'sheetstowptable' ),
 
 			/**
 			 * EditTab.
@@ -168,7 +190,8 @@ class Strings {
 			 * CreateTable.
 			 */
 			'create-table'  => __( 'Create table', 'sheetstowptable' ),
-			// 'on-free-plan-tables-can'  => __( 'On free plan tables can be created from the first sheet tab only. ', 'sheetstowptable' ),
+			'change-theme-table-style'  => __( 'Change theme and table style', 'sheetstowptable' ),
+			'change-table-theme'  => __( 'You can change table theme below. You will find more customization in the dashboard. ', 'sheetstowptable' ),
 			'get-pro'  => __( 'Get Pro ', 'sheetstowptable' ),
 			'pro'  => __( 'PRO', 'sheetstowptable' ),
 			// 'pro-lock'  => __( 'PRO', 'sheetstowptable' ),
@@ -210,6 +233,7 @@ class Strings {
 			'auto-sorting'  => __( 'Set Default Table Sorting on Load', 'sheetstowptable' ),
 			'col-sorting'  => __( 'Sort By Column', 'sheetstowptable' ),
 			'order-sorting'  => __( 'Sort By Order', 'sheetstowptable' ),
+			'sort-by'  => __( 'Sort By', 'sheetstowptable' ),
 
 			'enb-fixed-clmn'  => __( 'Freeze Table Columns', 'sheetstowptable' ),
 			'left-clmn-header'  => __( 'Left Columns Numbers', 'sheetstowptable' ),
@@ -284,6 +308,7 @@ class Strings {
 			'hide-row-col'  => __( '4. Hide Rows/Column', 'sheetstowptable' ),
 			'conditional-view'  => __( '5. Conditional Table View', 'sheetstowptable' ),
 			'table-desc'  => __( 'Table description', 'sheetstowptable' ),
+			'show-table-desc'  => __( 'Show Table description', 'sheetstowptable' ),
 
 			'data-source-title'  => __( 'Data source', 'sheetstowptable' ),
 			'table-theme-title'  => __( 'Table theme', 'sheetstowptable' ),
@@ -345,14 +370,19 @@ class Strings {
 			'hidden-row-mob'  => __( 'Hidden Rows on Mobile', 'sheetstowptable' ),
 
 			'hide-row'  => __( 'Hide Rows', 'sheetstowptable' ),
+			'same-desktop'  => __( 'Same as desktop', 'sheetstowptable' ),
 
 			// 'hidden-column'  => __( 'Hidden Columns', 'sheetstowptable' ),
 			'hidden-column'  => __( 'Hidden Columns on Desktop', 'sheetstowptable' ),
 			'hidden-column-mob'  => __( 'Hidden Columns on Mobile', 'sheetstowptable' ),
+			'hide-column-desktop'  => __( 'Hide columns on desktop', 'sheetstowptable' ),
+			'hide-column-mobile'  => __( 'Hide columns on mobile', 'sheetstowptable' ),
 
 			'hide-column'  => __( 'Hide Columns', 'sheetstowptable' ),
 			'hide-desktop'  => __( 'Hide on Desktop', 'sheetstowptable' ),
 			'hide-mobile'  => __( 'Hide on Mobile', 'sheetstowptable' ),
+			'desktop'  => __( 'Desktop', 'sheetstowptable' ),
+			'mobile'  => __( 'Mobile', 'sheetstowptable' ),
 			'click-on-the-cells'  => __( 'Click on the cells on the table below that you want to hide', 'sheetstowptable' ),
 			'click-on-the-rows'  => __( 'Click on the rows on the table below that you want to hide', 'sheetstowptable' ),
 			'click-on-the-col'  => __( 'Click on the column on the table below that you want to hide', 'sheetstowptable' ),
@@ -473,23 +503,23 @@ class Strings {
 			'import-color-from-sheet'  => __( 'Import colors and text styles from sheet', 'sheetstowptable' ),
 			'unlock'  => __( 'Unlock', 'sheetstowptable' ),
 
-			// 'Default-Style'  => __( 'Default Style', 'sheetstowptable' ),
+			'Default-Style'  => __( 'Default Style', 'sheetstowptable' ),
 			'Simple'  => __( 'Simple', 'sheetstowptable' ),
 
-			// 'Dark-Table'  => __( 'Dark Table', 'sheetstowptable' ),
+			'Dark-Table-wiz'  => __( 'Dark Table', 'sheetstowptable' ),
 			'Dark-Table'  => __( 'Simple on dark', 'sheetstowptable' ),
 
-			// 'Stripped-Table'  => __( 'Stripped Table', 'sheetstowptable' ),
+			'Stripped-Table'  => __( 'Stripped Table', 'sheetstowptable' ),
 			'minimal-Table'  => __( 'Minimal on dark', 'sheetstowptable' ),
 
-			// 'hover-style'  => __( 'Hover Style', 'sheetstowptable' ),
+			'hover-style'  => __( 'Hover Style', 'sheetstowptable' ),
 			'minimal-elegant-style'  => __( 'Minimal elegant', 'sheetstowptable' ),
 
-			// 'Taliwind-Style'  => __( 'Taliwind Style', 'sheetstowptable' ),
+			'Taliwind-Style'  => __( 'Taliwind Style', 'sheetstowptable' ),
 			'Uppercase-heading'  => __( 'Uppercase heading', 'sheetstowptable' ),
-			// 'Uppercase-heading'  => __( 'Uppercase style', 'sheetstowptable' ),
+			'create-success'  => __( 'Table creation successfull', 'sheetstowptable' ),
 
-			// 'colored-column'  => __( 'Colored Column', 'sheetstowptable' ),
+			'colored-column'  => __( 'Colored Column', 'sheetstowptable' ),
 			'vertical-style'  => __( 'Vertical style', 'sheetstowptable' ),
 
 			 // NEW.
@@ -516,6 +546,8 @@ class Strings {
 			'manage-tab-submenu'  => __( 'Manage Tab', 'sheetstowptable' ),
 			'Settings'  => __( 'Settings', 'sheetstowptable' ),
 			'get-started'  => __( 'Get Started', 'sheetstowptable' ),
+			'Skip'  => __( 'Skip', 'sheetstowptable' ),
+			'add-sheets'  => __( 'Add Google Sheet URL', 'sheetstowptable' ),
 			'recommended-plugins'  => __( 'Recommended Plugins', 'sheetstowptable' ),
 
 			/**
@@ -539,6 +571,7 @@ class Strings {
 			 * TableItem
 			 */
 			'copy-shortcode'  => __( 'Copy Shortcode', 'sheetstowptable' ),
+			'copy-shortcode-to-use-in-page'  => __( 'Copy the shortcode to use in in any page or post. Gutenberg and Elementor blocks are also supported', 'sheetstowptable' ),
 			'are-you-sure-to-delete'  => __( 'Are you sure to delete the table? ', 'sheetstowptable' ),
 			'confirmation-about-to-delete'  => __( 'You are about to delete the table. This will permanently delete the table(s)', 'sheetstowptable' ),
 
@@ -607,6 +640,7 @@ class Strings {
 			'even-column-color'  => __( 'Even column color', 'sheetstowptable' ),
 			'odd-column-color'  => __( 'Odd column color', 'sheetstowptable' ),
 			'outside-border-type'  => __( 'Outside border type', 'sheetstowptable' ),
+			'outside-border'  => __( 'Outside border', 'sheetstowptable' ),
 			'solid-border'  => __( 'Solid border', 'sheetstowptable' ),
 			'rounded-border'  => __( 'Rounded border', 'sheetstowptable' ),
 			'border-radius'  => __( 'Border radius', 'sheetstowptable' ),
@@ -689,9 +723,28 @@ class Strings {
 			  'button-located-at' => __('button located at the top-right corner. Then on the popup, choose the','sheetstowptable'),
 			  'anyone-with-the-link' => __('“Anyone with the link”','sheetstowptable'),
 			  'option-under-general' => __('option under General access','sheetstowptable'),
+			  'click-on-the' => __('Click on the','sheetstowptable'),
+			  'icon-on-the-popup' => __('icon on the popup and ensure that the option','sheetstowptable'),
+			  'viewers-and-Commenters' => __('“Viewers and commenters can see the option to download, print, and copy”','sheetstowptable'),
+			  'is-selected' => __('is selected','sheetstowptable'),
+			  'share' => __('Share','sheetstowptable'),
+			  'save-the-changes' => __('Save the changes by clicking on the','sheetstowptable'),
+			  'done' => __('Done','sheetstowptable'),
+			  'button' => __('button','sheetstowptable'),
+			  'General' => __('General','sheetstowptable'),
+			  'seconds' => __('seconds','sheetstowptable'),
+			  'make-your-first-table' => __('Let’s make your first table','sheetstowptable'),
+			  'help-on-your-first-table' => __('Let us help you with your first table creation. You are just a step away from creating beautiful tables from your Google Sheets','sheetstowptable'),
 
 			  'timeout-label' => __('Response Timeout: ','sheetstowptable'),
 			  'timeout-content' => __('Choose the maximum response timeout the table need to wait','sheetstowptable'),
+			  'the-table' => __('the table','sheetstowptable'),
+			  'copy-shortcode' => __('Copy shortcode','sheetstowptable'),
+			  'edit-table' => __('Edit table','sheetstowptable'),
+			  'duplicate-table' => __('Duplicate table','sheetstowptable'),
+			  'delete-table' => __('Delete table','sheetstowptable'),
+			  'name-used' => __('Name already used, please use another name for theme','sheetstowptable'),
+			  'name-need' => __('Name field can not be empty','sheetstowptable'),
 
 		];
 	}
