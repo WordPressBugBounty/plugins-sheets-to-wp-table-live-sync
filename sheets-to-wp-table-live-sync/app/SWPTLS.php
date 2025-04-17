@@ -141,6 +141,7 @@ namespace SWPTLS { //phpcs:ignore
 			if ( null === self::$instance || ! self::$instance instanceof self ) {
 				self::$instance = new self();
 
+				add_action( 'init', array( self::$instance, 'load_sdk' ) );
 				add_action( 'init', array( self::$instance, 'appsero_init' ) );
 
 				self::$instance->init();
@@ -188,34 +189,6 @@ namespace SWPTLS { //phpcs:ignore
 			$this->shortcode   = new \SWPTLS\Shortcode();
 			$this->database    = new \SWPTLS\Database();
 			$this->ajax        = new \SWPTLS\Ajax();
-
-			// Init the SDK.
-			if ( function_exists( 'wppool_plugin_init' ) ) {
-
-				$popup_image_url = SWPTLS_BASE_URL . 'lib/wppool/background-image-not-cached.png';
-				$swptls_plugin = wppool_plugin_init( 'sheets_to_wp_table_live_sync', $popup_image_url );
-
-				if ( $swptls_plugin && is_object( $swptls_plugin ) && method_exists( $swptls_plugin, 'set_campaign' ) ) {
-					try {
-						$campaign_image = SWPTLS_BASE_URL . 'lib/wppool/halloween.png';
-						$to = '2024-11-05 16:00:00';
-						$from = '2024-10-21 16:00:00';
-						$cta_text = esc_html__( 'Grab Your Treat!', 'sheetstowptable' );
-						$swptls_plugin->set_campaign( $campaign_image, $to, $from, $cta_text );
-
-						 // New BFCM Campaign.
-						 $new_campaign_image = SWPTLS_BASE_URL . 'lib/wppool/bfcm.png';
-						 $new_to = '2024-12-04 16:00:00';
-						 $new_from = '2024-11-21 16:00:00';
-						 $black_friday_cta = esc_html__( 'Grab Your Deals!', 'sheetstowptable' );
-						 $swptls_plugin->set_campaign( $new_campaign_image, $new_to, $new_from, $black_friday_cta );
-
-					} catch ( Exception $e ) {// phpcs:ignore
-						// phpcs:ignore
-						// Catch block intentionally left empty. This is because we do not need to take any action on exception.
-					}
-				}
-			}
 		}
 
 		/**
@@ -303,6 +276,40 @@ namespace SWPTLS { //phpcs:ignore
 		public function i18n() {
 			load_plugin_textdomain( 'sheetstowptable', false, plugin_basename( __DIR__ ) . '/languages' );
 		}
+
+		/**
+		 * Load SDK for WPPool.
+		 *
+		 * @since 2.12.15
+		 */
+		public function load_sdk() {
+			if ( function_exists( 'wppool_plugin_init' ) ) {
+				$popup_image_url = SWPTLS_BASE_URL . 'lib/wppool/background-image-not-cached.png';
+				$swptls_plugin = wppool_plugin_init( 'sheets_to_wp_table_live_sync', $popup_image_url );
+
+				if ( $swptls_plugin && is_object( $swptls_plugin ) && method_exists( $swptls_plugin, 'set_campaign' ) ) {
+					try {
+						$campaign_image = SWPTLS_BASE_URL . 'lib/wppool/halloween.png';
+						$to = '2024-11-05 16:00:00';
+						$from = '2024-10-21 16:00:00';
+						$cta_text = esc_html__( 'Grab Your Treat!', 'sheetstowptable' );
+						$swptls_plugin->set_campaign( $campaign_image, $to, $from, $cta_text );
+
+						 // New BFCM Campaign.
+						 $new_campaign_image = SWPTLS_BASE_URL . 'lib/wppool/bfcm.png';
+						 $new_to = '2024-12-04 16:00:00';
+						 $new_from = '2024-11-21 16:00:00';
+						 $black_friday_cta = esc_html__( 'Grab Your Deals!', 'sheetstowptable' );
+						 $swptls_plugin->set_campaign( $new_campaign_image, $new_to, $new_from, $black_friday_cta );
+
+					} catch ( Exception $e ) {// phpcs:ignore
+						// phpcs:ignore
+						// Catch block intentionally left empty. This is because we do not need to take any action on exception.
+					}
+				}
+			}
+		}
+
 
 		/**
 		 * Redirect to admin page on plugin activation

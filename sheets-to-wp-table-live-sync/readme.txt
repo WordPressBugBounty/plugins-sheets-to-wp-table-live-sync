@@ -2,9 +2,9 @@
 Contributors: wppool, devsabbirahmed, mahfuz01, azizultex, wpdarkmode, sahabuddinsgr
 Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 7.2
-Stable tag: 3.17.3
+Stable tag: 3.17.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Embed Google Sheets in WordPress. Best WordPress table plugin to sync tables wit
 
 [Website](https://wppool.dev/google-sheets-to-wordpress-table-live-sync/) | [Documentations](https://wppool.dev/docs-category/how-to-use-sheets-to-wp-table/) | [Tutorials](https://www.youtube.com/playlist?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP) | [Live Demo](https://demo.wppool.dev/)
 
-**FlexTable (Google Sheets to WP Table Live Sync)** allows you to create responsive data tables from Google Sheets quickly. Once you update your Google Sheets spreadsheet, it automatically updates the WordPress table. With the in-built shortcode and page builder support, you can add new tables on any page/post and live-sync the data with connected Google Sheets! No need to edit WordPress posts or tables from the WP dashboard. Edit on the spreadsheet and live sync from Google Sheets to the WordPress table with ease.
+**FlexTable (Google Sheets to WP Table Live Sync)** allows you to quickly create responsive data tables from Google Sheets. Once you update your Google Sheets spreadsheet, it automatically updates the WordPress table. With the in-built shortcode and page builder support, you can add new tables on any page/post and live-sync the data with connected Google Sheets! No need to edit WordPress posts or tables from the WP dashboard. Edit on the spreadsheet and live sync from Google Sheets to the WordPress table with ease – all while supporting sorting, pagination, and searching for better interactivity. Plus, you can include images, links, and a lot more customizations options to decorate your table.
 
 👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get PRO](https://go.wppool.dev/Hat0) | 🤝 [Join Our Facebook Community](https://cutt.ly/ceCQgvoT)
 **Recommended by WordPress experts!** 🤩
@@ -78,7 +78,6 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 * **6 Premium Table Themes:** Instantly switch your table’s look and feel. Each of the table themes is expertly created to provide a modern and responsive table experience.
 * **🔥 Customize Table Theme:** Build your table your way! With table theme customization, you can customize any table theme and personalize the header, body, text, and border colors. It's time to get creative.
 * **🎨 Table Theme Builder:** Create your own theme to display the best version of your table! With an in-built table builder, get creative and customize every section of your table. Once you create a theme, it's yours. Use the theme for any other tables later on as well.
-* **🪄 Search-Only Display:** Create a search engine for your data tables. This feature displays a search field that allows users to obtain precise data, such as student records and employee information. Additionally, you can enhance the search functionality by enabling column-specific searches and restricting visibility to only selected columns of data.
 * **📃 Premium Table Pagination:** Simply creating gorgeous tables isn't enough. Our premium table pagination support allows you to choose from five distinct themes to achieve your ideal pagination style - Default, Modern, Minimal, Tailwind, or Outlined. You can also customize the active pagination color and position the pagination at the middle or bottom right.
 * **Horizontal Dragging:** Once you enable this feature your users will be able to drag the table horizontally. This will improve their reading experience from the table.
 * **Hide Column:** Hide your Google Sheets table column on desktop screen OR mobile screens. Protect your data if you don’t want to publish everything on the web.
@@ -91,6 +90,18 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 
 👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get PRO](https://go.wppool.dev/Hat0) | 🤝 [Join Our Facebook Community](https://cutt.ly/ceCQgvoT)
 
+=== 💼 FlexTable in Academic and Administrative Management ===
+Create a search engine for your data tables with our **Search Only Display** feature. It shows a smart search field that helps users find precise data like student records, employee information, and academic insights. You can enable **column-specific searches** and choose which columns to display, giving you full control over what’s visible.
+This feature is perfect for building a **student report card system**, managing a **class grading system**, or organizing a **class schedule table**. It's also ideal for full **student record management** workflows, where you need clean, secure, and user-friendly data presentation on the front end.
+Why this could be a game-changer for your business:
+
+* Allow your users to search student records by ID, grade level, or class section.
+* Let users filter teacher profiles based on department or subject area.
+* Enable front-end users to look up class schedules by time slot or assigned instructor.
+* Provide a searchable staff directory where users can filter by role or department.
+* Let students or parents view exam results filtered by student name or course.
+
+https://youtu.be/GLDIL1JT-J8?si=giLoMGAGdY4TONim
 
 ### WHAT OUR USERS SAY ABOUT THE MOST UNIQUE WORDPRESS DATA TABLE PLUGIN 😍
 
@@ -188,6 +199,9 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 
 == Changelog ==
+
+= 3.17.4 - 17 April 2025 =
+* **Improvement:** Improved compatibility with WordPress 6.8 by resolving the incorrect usage of _load_textdomain_just_in_time
 
 = 3.17.3 - 24 March 2025 =
 * **Improvement:** Update the translatable pot file and strings
