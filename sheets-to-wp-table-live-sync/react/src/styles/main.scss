@@ -347,24 +347,54 @@ input[type="search"] {
 }
 
 .btn-pro {
-    margin-left: 9px;
-    border: 0;
     outline: 0;
+    gap: 3px;
+    color: #FF5924;
     cursor: pointer;
     box-shadow: none;
-    color: #FF5924;
-    font-weight: 600;
     font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
     line-height: 100%;
-    margin-left: 8px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3.533px;
     padding: 4px 10px;
-    border-radius: 11.5px;
-    background-color: rgba(240, 161, 43, 0.1);
+    border: 0.5px solid rgba(255, 89, 36, 0.05);
+    box-shadow: none !important;
+    background-color: rgba(255, 89, 36, 0.05);
+    transition: background-color 0.2s, color 0.2s;
+    margin-left: 8px;
+
+    &:hover {
+        color: #fff;
+        background-color: #FF5924;
+    }
 }
 
 .btn-new {
-    background: #2bb885;
-    color: #fff;
+    outline: 0;
+    gap: 3px;
+    color: #2bb885;
+    background-color: rgba(43, 184, 133, 0.05);
+    box-shadow: none;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3.533px;
+    padding: 2px 7px 2px 7px;
+    border: 0.5px solid rgba(43, 184, 133, 0.05);
+    box-shadow: none !important;
+    transition: background-color 0.2s, color 0.2s;
+    margin-left: 5px;
+
+    &:hover {
+        color: #fff;
+        background-color: #2bb885;
+    }
 }
 
 // .cache-pro-tag{

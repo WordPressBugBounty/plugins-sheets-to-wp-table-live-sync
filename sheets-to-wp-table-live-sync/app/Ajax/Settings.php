@@ -42,6 +42,7 @@ class Settings {
 			'link_support'   => get_option( 'link_support_mode', 'pretty_link' ),
 			'script_support'   => get_option( 'script_support_mode', 'global_loading' ),
 			'timeout'   => get_option( 'timeout_values', 10 ),
+			'cache_timestamp'   => get_option( 'cache_timestamp', 30 ),
 		]);
 	}
 
@@ -66,7 +67,9 @@ class Settings {
 
 		update_option( 'script_support_mode', isset( $settings['script_support'] ) ? sanitize_text_field( $settings['script_support'] ) : '' );
 
-		update_option( 'timeout_values', isset( $settings['timeout'] ) ? sanitize_text_field( $settings['timeout'] ) : '' );
+		update_option( 'timeout_values', isset( $settings['timeout'] ) ? sanitize_text_field( $settings['timeout'] ) : 10 );
+
+		update_option( 'cache_timestamp', isset( $settings['cache_timestamp'] ) ? sanitize_text_field( $settings['cache_timestamp'] ) : 30 );
 
 		wp_send_json_success([
 			'message' => __( 'Settings saved successfully.', 'sheetstowptable' ),
@@ -75,6 +78,7 @@ class Settings {
 			'link_support'   => get_option( 'link_support_mode', 'pretty_link' ),
 			'script_support'   => get_option( 'script_support_mode', 'global_loading' ),
 			'timeout'   => get_option( 'timeout_values', 10 ),
+			'cache_timestamp'   => get_option( 'cache_timestamp', 30 ),
 		]);
 	}
 }

@@ -54,6 +54,7 @@ export function getDefaultSettings() {
 		redirection_type: '_blank',
 		cursor_behavior: 'left_right',
 		table_cache: false,
+		disable_frequent_cache: false,
 		table_style: 'default-style',
 		merged_support: false,
 		isvertical: false,

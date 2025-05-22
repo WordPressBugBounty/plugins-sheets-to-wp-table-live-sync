@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.2
-Stable tag: 3.17.4
+Stable tag: 3.18.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -199,6 +199,11 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 
 == Changelog ==
+
+= 3.18.0 - 22 May 2025 =
+* **New:** Introduced option to disable frequent cache updates for faster table loading
+* **New:** Added setting to customize cache duration in the Performance tab
+* **Improvement:** Enhanced cache system for optimal performance and reduced server load
 
 = 3.17.4 - 17 April 2025 =
 * **Improvement:** Improved compatibility with WordPress 6.8 by resolving the incorrect usage of _load_textdomain_just_in_time

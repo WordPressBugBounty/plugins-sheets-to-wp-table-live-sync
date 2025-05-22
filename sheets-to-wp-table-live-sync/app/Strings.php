@@ -119,6 +119,8 @@ class Strings {
 			'tooltip-60' => __( 'Adjust the header’s offset to prevent overlap with sticky menus or other elements at the top of the page.', 'sheetstowptable' ),
 			'tooltip-61' => __( 'Set how many columns from the left side of the table should remain fixed while scrolling.', 'sheetstowptable' ),
 			'tooltip-62' => __( 'Set how many columns from the right side of the table should remain fixed while scrolling.', 'sheetstowptable' ),
+			'tooltip-63' => __( "When this option is enabled, the cache won't trigger any API request to update data from sheets. This helps improve performance and reduce server load. Important: If this is enabled before turning on features like merged cells, links, images, or importing table styles from Google Sheets, those features might not appear until the cache expires. To avoid this, enable all necessary features first, then active the cache feaure and then turn on this option. You can also change the cache expiry time in Settings.", 'sheetstowptable' ),
+			'tooltip-64' => __( 'Set how many days the cache should be stored in transients. Once the transient expires, the data will automatically refresh from the connected Google Sheets with updated data.', 'sheetstowptable' ),
 
 			/**
 			 * AddNewTable.
@@ -467,6 +469,8 @@ class Strings {
 
 			'import-image'  => __( 'Import images from sheet', 'sheetstowptable' ),
 			'cache-table'  => __( 'Cache table for faster loading time', 'sheetstowptable' ),
+			'frequent-cache'  => __( 'Prevent frequent cache updates for faster table loading', 'sheetstowptable' ),
+			'freq-content'  => __( 'New changes from Google Sheets will appear only after the cache expires. Features like links, images, and merged cells may not show until the cache refreshes. Cache expiry time can be adjusted in Settings —> Performance.', 'sheetstowptable' ),
 			'cell-formatting'  => __( 'Cell formatting style', 'sheetstowptable' ),
 			'expanded'  => __( 'Expanded', 'sheetstowptable' ),
 			'wrapped'  => __( 'Wrapped', 'sheetstowptable' ),
@@ -538,6 +542,11 @@ class Strings {
 			'are-you-sure-to-disable'  => __( 'Are you sure to disable?', 'sheetstowptable' ),
 			'imported-style-desc'  => __( 'Colors and text styles from your Google Sheet won’t be imported anymore. A default theme will be selected for you if you haven’t selected one already', 'sheetstowptable' ),
 			'yes-disable'  => __( 'Yes, Disable', 'sheetstowptable' ),
+
+			'yes-enable'  => __( 'Enable for Faster Loading', 'sheetstowptable' ),
+			'are-you-sure-to-enable-frequent-mode'  => __( 'Prevent Live Sync?', 'sheetstowptable' ),
+			'frequent-cache-note'  => __( 'Table data will only refresh when the cache expires. This improves performance but may delay content updates. You can adjust the cache expiry time in Settings → Performance.', 'sheetstowptable' ),
+			'frequent-mode-desc'  => __( "Enabling this feature will skip live sync until your cache expires. Make sure your Google Sheet up to date and you've enabled all necessary features (images, links, merged cells, etc.) from the settings first.", 'sheetstowptable' ),
 
 			/**
 			 * Admin menus
@@ -736,8 +745,11 @@ class Strings {
 			  'make-your-first-table' => __('Let’s make your first table','sheetstowptable'),
 			  'help-on-your-first-table' => __('Let us help you with your first table creation. You are just a step away from creating beautiful tables from your Google Sheets','sheetstowptable'),
 
+			  'days' => __('Day ','sheetstowptable'),
 			  'timeout-label' => __('Response Timeout: ','sheetstowptable'),
+			  'timestamp-label' => __('Timestamp: ','sheetstowptable'),
 			  'timeout-content' => __('Choose the maximum response timeout the table need to wait','sheetstowptable'),
+			  'cache-timestamp' => __('Choose the maximum day to store the cache','sheetstowptable'),
 			  'the-table' => __('the table','sheetstowptable'),
 			  'copy-shortcode' => __('Copy shortcode','sheetstowptable'),
 			  'edit-table' => __('Edit table','sheetstowptable'),

@@ -274,112 +274,137 @@ class Helpers {
 	public function load_table_data( string $sheet_url, int $table_id, $editor_mode = false ) {
 		$response = [];
 		$table_id = absint($table_id);
+
+		if ( empty($sheet_url) || $table_id <= 0 ) {
+			return $response;
+		}
+
+		// Get table settings.
 		$table = swptls()->database->table->get($table_id);
 
-		// Decode JSON settings.
+		if ( empty($table) ) {
+			return $response;
+		}
+
 		$table_settings = ! empty($table['table_settings']) ? json_decode(wp_unslash($table['table_settings']), true) : [];
+
+		$cache_disable_frequent = isset($table_settings['disable_frequent_cache']) ? wp_validate_boolean($table_settings['disable_frequent_cache']) : false;
+
 		$table_cache = isset($table_settings['table_cache']) ? wp_validate_boolean($table_settings['table_cache']) : false;
-
+		$import_styles = isset($table_settings['import_styles']) ? wp_validate_boolean($table_settings['import_styles']) : false;
 		$merged_support = isset($table_settings['merged_support']) ? wp_validate_boolean($table_settings['merged_support']) : false;
-
 		$table_img_support = isset($table_settings['table_img_support']) ? wp_validate_boolean($table_settings['table_img_support']) : false;
 		$table_link_support = isset($table_settings['table_link_support']) ? wp_validate_boolean($table_settings['table_link_support']) : false;
 
+		// Get sheet identifiers.
 		$sheet_id = swptls()->helpers->get_sheet_id($sheet_url);
 		$sheet_gid = swptls()->helpers->get_grid_id($sheet_url);
 
-		// Helper functions to get data.
-		$get_csv_data = function () use ( $sheet_url, $sheet_id, $sheet_gid ) {
-			return swptls()->helpers->get_csv_data($sheet_url, $sheet_id, $sheet_gid);
-		};
+		// If cache active and frequent is enabled, bypass timestamp checks entirely.
+		if ( $table_cache && $cache_disable_frequent && ! $editor_mode ) {
+			// Retrieve ALL cached data at once.
+			$cached_data = [
+				'sheet_data' => swptls()->cache->get_saved_sheet_data($table_id),
+				'sheet_merged_data' => $merged_support ? swptls()->cache->get_saved_merge_styles($table_id, null) : null,
+				'sheet_images' => $table_img_support ? swptls()->cache->get_saved_sheet_images($table_id, null) : null,
+				'sheet_links' => $table_link_support ? swptls()->cache->get_saved_sheet_link_styles($table_id, null) : null,
+			];
 
-		if ( $merged_support ) {
-			$get_merged_style = function () use ( $sheet_id, $sheet_gid ) {
-				return $this->get_merged_styles($sheet_id, $sheet_gid);
-			};
-		}
+			// Check if we have valid cached data.
+			$cached_data_exists = ! empty($cached_data['sheet_data']);
 
-		if ( $table_img_support ) {
-			$get_images_data = function () use ( $sheet_id, $sheet_gid ) {
-				return $this->get_images_data($sheet_id, $sheet_gid);
-			};
-		}
+			// If cached data exists, use it without timestamp checks.
+			if ( $cached_data_exists ) {
+				// Construct response from cached data, filtering out null values. Using cached data (cache disable frequent mode).
+				$response = array_filter([
+					'sheet_data' => $cached_data['sheet_data'],
+					'sheet_merged_data' => $cached_data['sheet_merged_data'],
+					'sheet_images' => $cached_data['sheet_images'],
+					'sheet_links' => $cached_data['sheet_links'],
+				]);
 
-		if ( $table_link_support ) {
-			$get_links_data = function () use ( $sheet_id, $sheet_gid ) {
-				return $this->get_links_data($sheet_id, $sheet_gid);
-			};
-		}
-
-			/**
-			 * Cache not active: Direct fetch data from Google Sheets.
-			 */
-
-		if ( ! $table_cache ) {
-
-			$response['sheet_data'] = $get_csv_data();
-
-			if ( $merged_support ) {
-				$response['sheet_merged_data'] = $get_merged_style();
-			}
-
-			if ( $table_img_support ) {
-				$response['sheet_images'] = $get_images_data();
-			}
-			if ( $table_link_support ) {
-				$response['sheet_links'] = $get_links_data();
-			}
-
-			return $response;
-		}
-
-			$is_sheet_updated = swptls()->cache->is_updated($table_id, $sheet_url);
-			$is_url_updated = esc_url($sheet_url) !== esc_url($table['source_url']);
-
-		if ( $is_sheet_updated || $editor_mode ) {
-			swptls()->cache->set_last_updated_time($table_id, $sheet_url);
-
-			// Get and cache data.
-			$csv_data = $get_csv_data();
-			$response['sheet_data'] = $csv_data;
-			swptls()->cache->save_sheet_data($table_id, $csv_data);
-
-			if ( $merged_support ) {
-				$sheet_merged_data = $get_merged_style();
-				$response['sheet_merged_data'] = $sheet_merged_data;
-					swptls()->cache->save_merged_styles($table_id, $sheet_merged_data);
-			}
-
-			if ( $table_img_support ) {
-				$sheet_images = $get_images_data();
-				$response['sheet_images'] = $sheet_images;
-				swptls()->cache->save_sheet_images($table_id, $sheet_images);
-			}
-
-			if ( $table_link_support ) {
-				$sheet_links = $get_links_data();
-				$response['sheet_links'] = $sheet_links;
-				swptls()->cache->save_sheet_link($table_id, $sheet_links);
-			}
-
+				// We successfully used cache and avoided API calls - return early.
 				return $response;
+			}
 		}
 
-			// Retrieve cached data.
-			$response['sheet_data'] = swptls()->cache->get_saved_sheet_data($table_id, $sheet_url);
+		if ( $table_cache && ! $editor_mode && ! $cache_disable_frequent ) {
+			$isUrlUpdated = esc_url($sheet_url) !== esc_url($table['source_url']);
 
-		if ( $merged_support ) {
-			$response['sheet_merged_data'] = swptls()->cache->get_saved_merge_styles($table_id, $sheet_url);
+			if ( ! $isUrlUpdated ) {
+				// Retrieve ALL cached data at once.
+				$cached_data = [
+					'sheet_data' => swptls()->cache->get_saved_sheet_data($table_id),
+					'sheet_merged_data' => $merged_support ? swptls()->cache->get_saved_merge_styles($table_id, null) : null,
+					'sheet_images' => $table_img_support ? swptls()->cache->get_saved_sheet_images($table_id, null) : null,
+					'sheet_links' => $table_link_support ? swptls()->cache->get_saved_sheet_link_styles($table_id, null) : null,
+				];
+
+				// Check if we have valid cached data.
+				$cached_data_exists = ! empty($cached_data['sheet_data']);
+
+				if ( $cached_data_exists ) {
+					$is_sheet_updated = swptls()->cache->is_updated($table_id, $sheet_url);
+
+					// If sheet is NOT updated, use cached data.
+					if ( ! $is_sheet_updated ) {
+						$response = array_filter([
+							'sheet_data' => $cached_data['sheet_data'],
+							'sheet_merged_data' => $cached_data['sheet_merged_data'],
+							'sheet_images' => $cached_data['sheet_images'],
+							'sheet_links' => $cached_data['sheet_links'],
+						]);
+
+						// We successfully used cache and avoided API calls - return early.
+						return $response;
+					}
+				}
+			}
 		}
 
-		if ( $table_img_support ) {
-			$response['sheet_images'] = swptls()->cache->get_saved_sheet_images($table_id, $sheet_url, $sheet_gid);
-		}
-		if ( $table_link_support ) {
-			$response['sheet_links'] = swptls()->cache->get_saved_sheet_link_styles($table_id, $sheet_url, $sheet_gid);
+		// Need to fetch new data (cache miss, cache disabled, or editor mode) Fetch essential sheet data.
+		$response['sheet_data'] = swptls()->helpers->get_csv_data($sheet_url, $sheet_id, $sheet_gid);
+
+		// Only proceed with caching and additional data if sheet_data is not empty.
+		if ( ! empty($response['sheet_data']) ) {
+
+			if ( $table_cache ) {
+				swptls()->cache->set_last_updated_time($table_id, $sheet_url);
+			}
+
+			if ( $merged_support ) {
+				$response['sheet_merged_data'] = $this->get_merged_styles($sheet_id, $sheet_gid);
+			}
+
+			if ( $table_img_support ) {
+				$response['sheet_images'] = $this->get_images_data($sheet_id, $sheet_gid);
+			}
+
+			if ( $table_link_support ) {
+				$response['sheet_links'] = $this->get_links_data($sheet_id, $sheet_gid);
+			}
+
+			// If caching is enabled, save all fetched data to cache.
+			if ( $table_cache ) {
+				if ( ! empty($response['sheet_data']) ) {
+					swptls()->cache->save_sheet_data($table_id, $response['sheet_data']);
+				}
+
+				if ( $merged_support && ! empty($response['sheet_merged_data']) ) {
+					swptls()->cache->save_merged_styles($table_id, $response['sheet_merged_data']);
+				}
+
+				if ( $table_img_support && ! empty($response['sheet_images']) ) {
+					swptls()->cache->save_sheet_images($table_id, $response['sheet_images']);
+				}
+
+				if ( $table_link_support && ! empty($response['sheet_links']) ) {
+					swptls()->cache->save_sheet_link($table_id, $response['sheet_links']);
+				}
+			}
 		}
 
-			return $response;
+		return $response;
 	}
 
 

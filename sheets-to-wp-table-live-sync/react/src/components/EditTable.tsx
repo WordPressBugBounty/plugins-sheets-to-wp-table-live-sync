@@ -76,13 +76,13 @@ function EditTable() {
 		setActiveTab(key);
 		localStorage.setItem('active_tab', key);
 
-		if (key === 'conditional_view') {
+		/* if (key === 'conditional_view') {
 			localStorage.setItem('conditional_view_visited', true);
-		}
+		} */
 
-		if (key === 'table_customization') {
+		/* if (key === 'table_customization') {
 			localStorage.setItem('table_customization_visited', true);
-		}
+		} */
 
 
 		// Reset thirdActiveTabs when changing main tabs, except when moving to 'conditional_view'
@@ -1533,9 +1533,9 @@ function EditTable() {
 											/>
 										</svg>
 										{/* <div className="badge-new-circle"></div> */}
-										{!localStorage.getItem('table_customization_visited') && (
+										{/* {!localStorage.getItem('table_customization_visited') && (
 											<div className="badge-new-circle"></div>
-										)}
+										)} */}
 
 									</span>
 
@@ -1601,9 +1601,9 @@ function EditTable() {
 											/>
 										</svg>
 										{/* <div className="badge-new-circle"></div> */}
-										{!localStorage.getItem('conditional_view_visited') && (
+										{/* {!localStorage.getItem('conditional_view_visited') && (
 											<div className="badge-new-circle"></div>
-										)}
+										)} */}
 
 									</span>
 

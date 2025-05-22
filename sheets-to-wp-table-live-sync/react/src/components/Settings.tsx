@@ -22,6 +22,7 @@ function Settings() {
 		link_support: 'smart_link',
 		script_support: 'global_loading',
 		timeout: 5,
+		cache_timestamp: 30,
 	});
 
 	const [activeTab, setActiveTab] = useState(
@@ -35,6 +36,7 @@ function Settings() {
 
 
 	const timeoutOptions = [3, 5, 10, 15, 20, 25, 30, 40, 50, 60];
+	const timestampOptions = [1, 2, 3, 5, 10, 15, 20, 25, 30];
 
 
 	useEffect(() => {
@@ -54,13 +56,14 @@ function Settings() {
 			data: {
 				nonce: getNonce(),
 			},
-			success({ css, async, link_support, script_support, timeout }) {
+			success({ css, async, link_support, script_support, timeout, cache_timestamp }) {
 				setSettings({
 					css_code_value: css,
 					async_loading: async,
 					link_support: link_support,
 					script_support: script_support,
 					timeout: timeout,
+					cache_timestamp: cache_timestamp,
 				});
 			},
 			error(error) {
@@ -83,13 +86,14 @@ function Settings() {
 				nonce: getNonce(),
 				settings: JSON.stringify(settings),
 			},
-			success({ message, css, async, link_support, script_support, timeout }) {
+			success({ message, css, async, link_support, script_support, timeout, cache_timestamp }) {
 				setSettings({
 					css_code_value: css,
 					async_loading: async,
 					link_support: link_support,
 					script_support: script_support,
 					timeout: timeout,
+					cache_timestamp: cache_timestamp,
 				});
 
 				toast.success(message);
@@ -468,6 +472,37 @@ function Settings() {
 
 								<Tooltip
 									content={getStrings('tooltip-56')}
+								/>
+
+
+							</div>
+
+							{/* Cache timestamp  */}
+							<p className="performance-title">
+								{getStrings('cache-timestamp')}{<button className='btn-pro btn-new'>{getStrings('new')}</button>}
+							</p>
+							<div className="scripts-modes time-out-settings">
+
+								<label htmlFor="cache-timestamp">{getStrings('timestamp-label')} </label>
+								<select
+									id="cache-timestamp"
+									value={settings.cache_timestamp}
+									onChange={(e) =>
+										setSettings({
+											...settings,
+											cache_timestamp: parseInt(e.target.value),
+										})
+									}
+								>
+									{timestampOptions.map((option) => (
+										<option key={option} value={option}>
+											{option} {getStrings('days')}
+										</option>
+									))}
+								</select>
+
+								<Tooltip
+									content={getStrings('tooltip-64')}
 								/>
 
 

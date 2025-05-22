@@ -17,6 +17,15 @@ defined( 'ABSPATH' ) || exit;
  * @package SWPTLS
  */
 class Cache {
+	/**
+	 * Cache expiration time in seconds.
+	 *
+	 * @var int
+	 */
+	const TIMESTAMP_CACHE_TTL = 300; // 5 minutes for timestamp cache.
+	const DATA_CACHE_TTL = 2592000; // 30 days for data cache by default.
+	const UPDATE_CHECK_FREQUENCY = 300; // 5 minutes between update checks.
+
 
 	/**
 	 * Get sheet last updated timestamp.
@@ -25,9 +34,10 @@ class Cache {
 	 * @return mixed
 	 */
 	public function get_last_sheet_updated_timestamp( string $sheet_id ) {
-		$url = 'https://script.google.com/macros/s/AKfycbxFQqs02vfk887crE4jEK_i9SXnFcaWYpb9qNnvDZe09YL-DmDkFqVELaMB2F7EhzXeFg/exec';
+
+		$url = 'https://script.google.com/macros/s/AKfycbzBVcMW-7v4avyTH4FJCrogXY8_-TMKBVCvikNRzIKrojHoXXc1zJc2-rJD7P30L6oGXQ/exec';
 		$args = [
-			'timeout' => 10, // Set a reasonable timeout value.
+			'timeout' => 10,
 			'headers' => [
 				'Content-Type' => 'application/json',
 			],
@@ -36,21 +46,31 @@ class Cache {
 				'action'  => 'lastUpdatedTimestamp',
 			],
 		];
-
 		$response = wp_remote_get( $url, $args );
-
 		if ( is_wp_error( $response ) ) {
 			return false;
 		}
 
 		$response_code = wp_remote_retrieve_response_code( $response );
 		$body          = json_decode( wp_remote_retrieve_body( $response ) );
-		//phpcs:ignore
-		if ( 200 !== $response_code || ! isset( $body->lastUpdatedTimestamp ) ) { //phpcs:ignore
+
+		if ( 200 !== $response_code || ! isset( $body->lastUpdatedTimestamp ) ) {
 			return false;
 		}
+		return $body->lastUpdatedTimestamp;
+	}
 
-		return $body->lastUpdatedTimestamp;//phpcs:ignore
+	/**
+	 * Get the dynamic data cache expiration time.
+	 *
+	 * @return int
+	 */
+	public function get_data_cache_ttl() {
+		$minutes = get_option('cache_timestamp', 30);
+		$cache_ttl = ! empty($minutes) ? (int) $minutes : 30;
+		$cache_ttl = $cache_ttl * 60; // Convert minutes to seconds
+
+		return $cache_ttl;
 	}
 
 	/**
@@ -77,65 +97,30 @@ class Cache {
 	 * @param int    $table_id The table ID.
 	 * @param string $url The sheet url.
 	 */
-	public function set_last_updated_time( int $table_id, string $url ) {
+	public function set_last_updated_time( int $table_id, string $url ): bool {
 
-		if ( ! $url ) {
+		if ( empty($url) || $table_id <= 0 ) {
+			return false;
+		}
+		$sheet_id = swptls()->helpers->get_sheet_id($url);
+
+		if ( empty($sheet_id) ) {
+			return false;
+		}
+		// Get the last updated timestamp from Google.
+		$last_updated_timestamp_str = $this->get_last_sheet_updated_timestamp($sheet_id);
+
+		if ( $last_updated_timestamp_str === false ) {
 			return false;
 		}
 
-		$last_updated_timestamp = $this->get_last_sheet_updated_time( $url );
+		// Convert to timestamp.
+		$last_updated_timestamp = strtotime($last_updated_timestamp_str);
+		$timestamp_key = sprintf('gswpts_sheet_updated_time_%d', $table_id);
+		$save_result = update_option($timestamp_key, $last_updated_timestamp, 'no');
+		$verified_timestamp = get_option($timestamp_key);
 
-		if ( ! $last_updated_timestamp ) {
-			return false;
-		}
-
-		$option_key      = sprintf( 'gswpts_sheet_updated_time_%d', $table_id );
-		$saved_timestamp = get_option( $option_key );
-
-		if ( $saved_timestamp && ( $saved_timestamp !== $last_updated_timestamp ) ) {
-			update_option( $option_key, $last_updated_timestamp );
-		} else {
-			update_option( $option_key, $last_updated_timestamp );
-		}
-	}
-
-	/**
-	 * Save sheet data in transient.
-	 *
-	 * @param int    $table_id The table ID.
-	 * @param string $sheet_response The sheet data to save.
-	 * @return void
-	 */
-	public function save_sheet_data( int $table_id, $sheet_response ) {
-		set_transient( 'gswpts_sheet_data_' . $table_id . '', $sheet_response, ( time() + 86400 * 30 ), '/' );
-	}
-
-	/**
-	 * Get the data from transient.
-	 *
-	 * @param int $table_id The table id.
-	 * @return mixed
-	 */
-	public function get_saved_sheet_data( int $table_id ) {
-		$transient_key = sprintf( 'gswpts_sheet_data_%d', $table_id );
-		$saved         = get_transient( $transient_key ) ? get_transient( $transient_key ) : null;
-
-		if ( ! $saved ) {
-			$table     = swptls()->database->table->get( $table_id );
-			$sheet_id  = swptls()->helpers->get_sheet_id( $table['source_url'] );
-			$sheet_gid = swptls()->helpers->get_grid_id( $table['source_url'] );
-			$response  = swptls()->helpers->get_csv_data( $table['source_url'], $sheet_id, $sheet_gid );
-
-			// Save sheet data to local storage.
-			$this->save_sheet_data( $table_id, $response );
-
-			// Update the last updated time.
-			$this->set_last_updated_time( $table_id, $table['source_url'] );
-
-			return $response;
-		}
-
-		return $saved;
+		return $save_result;
 	}
 
 	/**
@@ -146,10 +131,132 @@ class Cache {
 	 * @return boolean
 	 */
 	public function is_updated( int $table_id, string $url ): bool {
-		$updated_timestamp = $this->get_last_sheet_updated_time( $url );
-		$saved_timestamp   = get_option( sprintf( 'gswpts_sheet_updated_time_%s', $table_id ) );
+		$option_key = sprintf('gswpts_sheet_updated_time_%d', $table_id);
 
-		return $saved_timestamp !== $updated_timestamp;
+		// Get the saved timestamp .
+		$saved_timestamp = get_option($option_key);
+		$sheet_id = swptls()->helpers->get_sheet_id($url);
+		if ( empty($sheet_id) ) {
+			return false;
+		}
+
+		// Get the current sheet update timestamp.
+		$current_timestamp_str = $this->get_last_sheet_updated_timestamp($sheet_id);
+
+		if ( $current_timestamp_str === false ) {
+			return false;
+		}
+
+		$current_timestamp = strtotime($current_timestamp_str);
+
+		// Ensure saved_timestamp is a valid number.
+		$saved_timestamp = $saved_timestamp !== false ? intval($saved_timestamp) : 0;
+		$is_updated = $current_timestamp > $saved_timestamp;
+
+		return $is_updated;
+	}
+
+	/**
+	 * Generates a unique cache key for a given table ID and data type.
+	 *
+	 * @param int    $table_id Table identifier.
+	 * @param string $type     Type of data (e.g., 'data', 'styles', 'images').
+	 * @return string          Generated cache key.
+	 */
+	private function get_cache_key( int $table_id, string $type = 'data' ) {
+		return sprintf('gswpts_sheet_%s_%d', $type, $table_id);
+	}
+
+	/**
+	 * Saves data to the WordPress transient cache.
+	 *
+	 * @param int    $table_id Table identifier.
+	 * @param mixed  $data     Data to be cached.
+	 * @param string $type     Type of data (default: 'data').
+	 * @return bool            True on success, false on failure.
+	 */
+	private function save_to_cache( int $table_id, $data, string $type = 'data' ) {
+		if ( empty($data) || $table_id <= 0 ) {
+			return false;
+		}
+
+		// Set the cache expiration using a filter to allow customization.
+		$expiration = apply_filters('gswpts_cache_expiration', $this->get_data_cache_ttl());
+		$key = $this->get_cache_key($table_id, $type);
+
+		return set_transient($key, $data, $expiration);
+	}
+
+
+	/**
+	 * Retrieves data from the WordPress transient cache.
+	 *
+	 * @param int    $table_id Table identifier.
+	 * @param string $type     Type of data (default: 'data').
+	 * @return mixed|null      Cached data or null if not found or invalid ID.
+	 */
+	private function get_from_cache( int $table_id, string $type = 'data' ) {
+		if ( $table_id <= 0 ) {
+			return null;
+		}
+
+		$key = $this->get_cache_key($table_id, $type);
+		return get_transient($key);
+	}
+
+	/**
+	 * Save sheet data in transient.
+	 *
+	 * @param int    $table_id The table ID.
+	 * @param string $sheet_response The sheet data to save.
+	 * @return void
+	 */
+	public function save_sheet_data( int $table_id, $sheet_response ) {
+		return $this->save_to_cache($table_id, $sheet_response, 'data');
+	}
+
+	/**
+	 * Get the data from transient.
+	 *
+	 * @param int $table_id The table id.
+	 * @return mixed
+	 */
+	public function get_saved_sheet_data( int $table_id ) {
+		return $this->get_from_cache($table_id, 'data');
+	}
+
+
+
+	/**
+	 * Save the table merge in WordPress transient.
+	 *
+	 * @param  int    $table_id The table ID.
+	 * @param  string $sheet_mergedata The sheet merge data.
+	 * @return void
+	 */
+	public function save_merged_styles( int $table_id, $sheet_mergedata ) {
+		return $this->save_to_cache($table_id, $sheet_mergedata, 'merged');
+	}
+
+	/**
+	 * Save sheet images in transient.
+	 *
+	 * @param int    $table_id The table ID.
+	 * @param string $images_data The sheet images data to save.
+	 * @return void
+	 */
+	public function save_sheet_images( int $table_id, $images_data ) {
+		return $this->save_to_cache($table_id, $images_data, 'images');
+	}
+
+	/**
+	 * Save sheet link in transient.
+	 *
+	 * @param int $table_id The table ID.
+	 * @param int $link_data The table link data.
+	 */
+	public function save_sheet_link( int $table_id, $link_data ) {
+		return $this->save_to_cache($table_id, $link_data, 'link');
 	}
 
 
@@ -161,54 +268,7 @@ class Cache {
 	 * @return mixed
 	 */
 	public function get_saved_merge_styles( int $table_id, string $sheet_url ) {
-		$table_id = absint( $table_id );
-		$sheet_id = swptls()->helpers->get_sheet_id( $sheet_url );
-		$sheet_gid = swptls()->helpers->get_grid_id( $sheet_url );
-
-		$sheet_mergedata = null;
-
-		$sheet_mergedata = get_transient( 'gswpts_sheet_merged_' . $table_id . '' ) ? get_transient( 'gswpts_sheet_merged_' . $table_id . '' ) : null;
-
-		if ( ! $sheet_mergedata ) {
-			$sheet_mergedata = swptls()->helpers->get_merged_styles( $sheet_id, $sheet_gid );
-
-			// Save sheet merge data to local storage.
-			$this->save_merged_styles( $table_id, $sheet_mergedata );
-		}
-
-		return $sheet_mergedata;
-	}
-
-	/**
-	 * Save the table merge in WordPress transient.
-	 *
-	 * @param  int    $table_id The table ID.
-	 * @param  string $sheet_mergedata The sheet merge data.
-	 * @return void
-	 */
-	public function save_merged_styles( int $table_id, $sheet_mergedata ) {
-		set_transient( 'gswpts_sheet_merged_' . $table_id . '', $sheet_mergedata, ( time() + 86400 * 30 ), '/' );
-	}
-
-	/**
-	 * Save sheet images in transient.
-	 *
-	 * @param int    $table_id The table ID.
-	 * @param string $images_data The sheet images data to save.
-	 * @return void
-	 */
-	public function save_sheet_images( int $table_id, $images_data ) {
-		set_transient( 'gswpts_sheet_images_' . $table_id . '', $images_data, ( time() + 86400 * 30 ), '/' );
-	}
-
-	/**
-	 * Save sheet link in transient.
-	 *
-	 * @param int $table_id The table ID.
-	 * @param int $link_data The table link data.
-	 */
-	public function save_sheet_link( int $table_id, $link_data ) {
-		set_transient( 'gswpts_sheet_link_' . $table_id . '', $link_data, ( time() + 86400 * 30 ), '/' );
+		return $this->get_from_cache($table_id, 'merged');
 	}
 
 	/**
@@ -221,22 +281,7 @@ class Cache {
 	 * @return mixed
 	 */
 	public function get_saved_sheet_images( $table_id, $sheet_url ) {
-		$images_data = null;
-
-		$images_data = get_transient( 'gswpts_sheet_images_' . $table_id . '' ) ? get_transient( 'gswpts_sheet_images_' . $table_id . '' ) : null;
-
-		if ( ! $images_data ) {
-			$sheet_id = swptls()->helpers->get_sheet_id( $sheet_url );
-			$sheet_gid = swptls()->helpers->get_grid_id( $sheet_url );
-			$images_data = swptls()->helpers->get_images_data( $sheet_id, $sheet_gid );
-
-			// save sheet data to local storage.
-			$this->save_sheet_images( $table_id, $images_data );
-			// update the last updated time.
-			$this->set_last_updated_time( $table_id, $sheet_url );
-		}
-
-		return $images_data;
+		return $this->get_from_cache($table_id, 'images');
 	}
 
 	/**
@@ -247,21 +292,6 @@ class Cache {
 	 * @param string $sheet_url The table sheet url.
 	 */
 	public function get_saved_sheet_link_styles( $table_id, $sheet_url ) {
-		$link_data = null;
-
-		$link_data = get_transient( 'gswpts_sheet_link_' . $table_id . '' ) ? get_transient( 'gswpts_sheet_link_' . $table_id . '' ) : null;
-
-		if ( ! $link_data ) {
-			$sheet_id = swptls()->helpers->get_sheet_id( $sheet_url );
-			$sheet_gid = swptls()->helpers->get_grid_id( $sheet_url );
-			$link_data = swptls()->helpers->get_links_data( $sheet_id, $sheet_gid );
-
-			// save sheet data to local storage.
-			$this->save_sheet_link( $table_id, $link_data );
-			// update the last updated time.
-			$this->set_last_updated_time( $table_id, $sheet_url );
-		}
-
-		return $link_data;
+		return $this->get_from_cache($table_id, 'link');
 	}
 }

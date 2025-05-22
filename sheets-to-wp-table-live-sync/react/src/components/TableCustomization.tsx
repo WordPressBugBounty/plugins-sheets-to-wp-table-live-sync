@@ -23,6 +23,8 @@ const TableCustomization = ({
 	updateSecondActiveTab,
 }) => {
 	const [importModal, setImportModal] = useState<boolean>(false);
+	const [frequentCacheModal, setFrequentCacheModal] = useState<boolean>(false);
+	const [pendingFrequentCacheValue, setPendingFrequentCacheValue] = useState<boolean>(false);
 	const confirmImportRef = useRef();
 	const [tableHeaders, setTableHeaders] = useState([]);
 	const [selectedOption, setSelectedOption] = useState(
@@ -121,6 +123,7 @@ const TableCustomization = ({
 
 	const handleClosePopup = () => {
 		setImportModal(false);
+		setFrequentCacheModal(false);
 	};
 
 
@@ -233,6 +236,39 @@ const TableCustomization = ({
 
 	// END 
 
+	const handleFrequentCacheCheckboxClick = (e) => {
+		// If unchecking (current value is true, new value will be false), just update directly
+		if (tableSettings?.table_settings?.disable_frequent_cache) {
+			setTableSettings({
+				...tableSettings,
+				table_settings: {
+					...tableSettings.table_settings,
+					disable_frequent_cache: false,
+				},
+			});
+		} else {
+			// If checking (current value is false, new value will be true), show modal first
+			setPendingFrequentCacheValue(true);
+			setFrequentCacheModal(true);
+		}
+	};
+
+	const handleConfirmFrequentCache = () => {
+		setTableSettings({
+			...tableSettings,
+			table_settings: {
+				...tableSettings.table_settings,
+				disable_frequent_cache: pendingFrequentCacheValue,
+			},
+		});
+		handleClosePopup();
+	};
+
+	const handleCancelFrequentCache = () => {
+		handleClosePopup();
+	};
+
+
 
 	/**
 	 * Alert if clicked on outside of element
@@ -308,6 +344,56 @@ const TableCustomization = ({
 
 	return (
 		<div>
+
+			{frequentCacheModal && (
+				<Modal>
+					<div
+						className="frequent-modal-wrap modal-content"
+						ref={confirmImportRef}
+					>
+						<div
+							className="cross_sign"
+							onClick={handleCancelFrequentCache}
+						>
+							{Cross}
+						</div>
+						<div className="active-frequent-modal">
+
+							<h2>{getStrings('are-you-sure-to-enable-frequent-mode')}</h2>
+							<p>{getStrings('frequent-mode-desc')}</p>
+
+							<div className="content-note">
+								<span className="content-note-icon">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+										<line x1="12" y1="9" x2="12" y2="13"></line>
+										<line x1="12" y1="17" x2="12.01" y2="17"></line>
+									</svg>
+								</span>
+								<div className="content-note-text">
+									{getStrings('frequent-cache-note')}
+								</div>
+							</div>
+
+							<div className="action-buttons">
+								<button
+									className="swptls-button cancel-button"
+									onClick={handleCancelFrequentCache}
+								>
+									{getStrings('Cancel')}
+								</button>
+								<button
+									className="swptls-button confirm-button"
+									onClick={handleConfirmFrequentCache}
+								>
+									{getStrings('yes-enable')}
+								</button>
+							</div>
+						</div>
+					</div>
+				</Modal>
+			)}
+
 			<div className="edit-table-customization-wrap">
 				<div className="edit-form-group">
 					{ /* Render Theme style for hidden values  */}
@@ -1733,6 +1819,7 @@ const TableCustomization = ({
 										</span>
 									</div>
 
+									<br />
 									{ /* Cache feature  */}
 									<div
 										className={`edit-form-group cache-feature`}
@@ -1775,6 +1862,70 @@ const TableCustomization = ({
 											{ /* {!isProActive() && (<button className='btn-pro cache-pro-tag'>{getStrings('pro')}</button>)} */}
 										</span>
 									</div>
+
+									{ /* Frequent Cache update disable feature  */}
+
+									{tableSettings?.table_settings
+										?.table_cache ===
+										true && (
+											<>
+												<div className={`edit-form-group cache-feature frequent-mode ${tableSettings?.table_settings
+													?.table_cache === false
+													? 'feature-disabled'
+													: ''
+													}`}>
+
+													<div className="freq-settings">
+														<label
+															className="cache-table"
+															// className={`cache-table ${!isProActive() ? ` swptls-pro-settings` : ``}`}
+															htmlFor="disable-frequent-cache"
+														>
+															<input
+																type="checkbox"
+																name="disable_frequent_cache"
+																id="disable-frequent-cache"
+																checked={
+																	tableSettings
+																		?.table_settings
+																		?.disable_frequent_cache
+																}
+																/* onClick={(e) =>
+																	setTableSettings({
+																		...tableSettings,
+																		table_settings: {
+																			...tableSettings.table_settings,
+																			disable_frequent_cache:
+																				e.target
+																					.checked,
+																		},
+																	})
+																} */
+																onChange={handleFrequentCacheCheckboxClick}
+
+																disabled={!tableSettings
+																	?.table_settings
+																	?.table_cache} // added to disable click if cache not enabled
+															/>
+															{getStrings('frequent-cache')}{' '}
+														</label>
+
+														<span className="tooltip-cache">
+															<Tooltip
+																content={getStrings(
+																	'tooltip-63'
+																)}
+															/>{' '}
+															{ /* {!isProActive() && (<button className='btn-pro cache-pro-tag'>{getStrings('pro')}</button>)} */}
+															{<button className='btn-pro btn-new cursor-behave'>{getStrings('new')}</button>}
+															<button className="beta-badge">{getStrings('beta')}</button>
+														</span>
+													</div>
+													<p className="content-paragraph">{getStrings('freq-content')}</p>
+
+												</div>
+											</>
+										)}
 
 									{ /* Add more here  */}
 								</div>
