@@ -488,7 +488,7 @@ class Strings {
 			'5'  => __( '5', 'sheetstowptable' ),//phpcs:ignore
 			'1'  => __( '1', 'sheetstowptable' ),//phpcs:ignore
 			'-1'  => __( '-1', 'sheetstowptable' ),//phpcs:ignore
-			'limited-to-msg'  => __( 'The table is limited to 50 rows.', 'sheetstowptable' ),
+			'limited-to-msg'  => __( 'The table is limited to 100 rows.', 'sheetstowptable' ),
 			'limited-to-msg-2'  => __( 'to show the full Google Sheet with awesome customizations.', 'sheetstowptable' ),
 
 			'upgrade-now'  => __( 'Upgrade Now →', 'sheetstowptable' ),

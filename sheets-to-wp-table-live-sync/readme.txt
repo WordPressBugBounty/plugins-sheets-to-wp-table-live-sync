@@ -1,20 +1,20 @@
-=== Sheets to WP Table Live Sync | Google Sheets Table Plugin for WordPress with Spreadsheet Integration - FlexTable ===
+=== FlexTable Google Sheets Connector | Sheets to WP Table Live Sync | Google Sheets Table Plugin for WordPress with Spreadsheet Integration ===
 Contributors: wppool, devsabbirahmed, mahfuz01, azizultex, wpdarkmode, sahabuddinsgr
-Tags: Google Sheets, table plugin, WordPress table, data table, table
+Tags: Google Sheets, table plugin, WordPress table, data table, table builder
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.2
-Stable tag: 3.18.0
+Stable tag: 3.18.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Embed Google Sheets in WordPress. Best WordPress table plugin to sync tables with Google Sheets. Fast, zero coding, and lots of table customization.
+Embed Google Sheets in WordPress. Best WordPress table plugin to manage tables from Google Sheets. Fast, zero coding, and rich table customization.
 
 === Description ===
 
 [Website](https://wppool.dev/google-sheets-to-wordpress-table-live-sync/) | [Documentations](https://wppool.dev/docs-category/how-to-use-sheets-to-wp-table/) | [Tutorials](https://www.youtube.com/playlist?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP) | [Live Demo](https://demo.wppool.dev/)
 
-**FlexTable (Google Sheets to WP Table Live Sync)** allows you to quickly create responsive data tables from Google Sheets. Once you update your Google Sheets spreadsheet, it automatically updates the WordPress table. With the in-built shortcode and page builder support, you can add new tables on any page/post and live-sync the data with connected Google Sheets! No need to edit WordPress posts or tables from the WP dashboard. Edit on the spreadsheet and live sync from Google Sheets to the WordPress table with ease – all while supporting sorting, pagination, and searching for better interactivity. Plus, you can include images, links, and a lot more customizations options to decorate your table.
+**FlexTable (Google Sheets to WP Table Live Sync)** allows you to quickly create responsive data tables from Google Sheets. Once you update your Google spreadsheet, it automatically updates the WordPress table. With the in-built shortcode and page builder support, you can add new tables on any page/post and live-sync the data with connected Google Sheets! No need to edit WordPress posts or tables from the WP dashboard. Edit on the spreadsheet and live sync from Google Sheets to the WordPress table with ease – all while supporting sorting, pagination, and searching for better interactivity. Plus, you can include images, links, and a lot more customizations options to decorate your table.
 
 👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get PRO](https://go.wppool.dev/Hat0) | 🤝 [Join Our Facebook Community](https://cutt.ly/ceCQgvoT)
 **Recommended by WordPress experts!** 🤩
@@ -41,11 +41,11 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 
 === 🔝 FlexTable Free Features ===
 
-* **Sync Table Data with Google Sheets:** Keep your WordPress tables synced with connected Google Sheets spreadsheets. You can update your WordPress table from anywhere through Google Sheets without ever needing to enter your website dashboard.
+* **Sync Table Data with Google Sheets:** Keep your WordPress tables synced with connected Google spreadsheets. You can update your WordPress table from anywhere through GSheets without ever needing to enter your website dashboard. Sync up to 100 rows for FREE!
 * **Gutenberg Table Block & Elementor Table Widget:** The built-in Gutenberg block and Elementor widget will make sure you can create responsive tables with any of your preferred page builders.
-* **Responsive Tables:** Tables made with this plugin are responsive for any device. The plugin allows collapsing on mobile and tablet screens. There are also options to choose between three responsive styles (Default, Collapsible, and Scrollable) and adjust table height.
+* **Responsive Tables:** Tables made with this plugin are responsive for any device. The plugin allows collapsing on mobile and tablet screens. There are also options to choose between three responsive styles (Default, Collapsible, and Scrollable) and adjust datatable height.
 * **Shortcode Supported:** Place your data table easily and effortlessly anywhere with the shortcode feature. A shortcode will be created with the table created. You can place the code anywhere you want on your page or posts to embed a data table. 
-* **Link Support:** With advanced link support you can import URLs/links from Google Sheets. All the URLs/links will be shown as links in the table instead of text. You can change the link behavior by redirecting your users when they click on those links.
+* **Link Support:** With advanced link support you can import URLs/links from GSheets. All the URLs/links will be shown as links in the table instead of text. You can change the link behavior by redirecting your users when they click on those links.
 * **Image Support:** Load images from any URL that contains an image. Just add the image URL to your sheet and it will load that image on your website.
 * **Merge Cells:** If your spreadsheet has merged cells, you can enable this feature to improve the appearance and clarity of your WordPress table data.
 * **Cache Table for Faster Loading:** Enabling this option will drastically improve your table loading speed. Experience flawless data tables without any delay.
@@ -61,7 +61,7 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 * **Pagination Support:** Flex Table comes with in-built table pagination support. Order your data in a simple manner of sequential pages that are contextually connected.
 * **Asynchronous Loading:** Enable this feature to load the table in the front end after loading all content with a pre-loader. This will help your website load fast. 
 * **Set Maximum Response Timeout for Table Loading:** Take control of performance with a global setting to define how long (in seconds) the plugin should wait for a response from the Google server.
-* **Multisite Support:** With Google Sheets to WordPress Table Multisite support, share table sync features across your multisite network.
+* **Multisite Support:** With FlexTable Multisite support, share table sync features across your multisite network.
 
 👁️ [View Demo](https://go.wppool.dev/5uYL) | 🚀  [Get PRO](https://go.wppool.dev/Hat0) | 🤝 [Join Our Facebook Community](https://cutt.ly/ceCQgvoT)
 
@@ -81,9 +81,9 @@ Worried about how to display your Google Spreadsheet on a WordPress table? Well,
 * **📃 Premium Table Pagination:** Simply creating gorgeous tables isn't enough. Our premium table pagination support allows you to choose from five distinct themes to achieve your ideal pagination style - Default, Modern, Minimal, Tailwind, or Outlined. You can also customize the active pagination color and position the pagination at the middle or bottom right.
 * **Horizontal Dragging:** Once you enable this feature your users will be able to drag the table horizontally. This will improve their reading experience from the table.
 * **Hide Column:** Hide your Google Sheets table column on desktop screen OR mobile screens. Protect your data if you don’t want to publish everything on the web.
-* **Hide Row:** Hide your Google Sheets table rows based on your custom row selection. Hide those rows if you don’t want to show those secret rows in your table.
-* **Hide Cell:** Hide your Google Sheets cell data based on your custom cell selection.
-* **Optimized Loading:** By enabling this feature, the table scripts will load only on the relevant pages/posts in your website where the table is added.
+* **Hide Row:** Hide your GSheets rows based on your custom row selection. Hide those rows if you don’t want to show those secret rows in your table.
+* **Hide Cell:** Hide your spreadsheet cell data based on your custom cell selection.
+* **Optimized Loading:** By enabling this feature, the scripts will load only on the relevant pages/posts in your website where the table is added.
 * **Table Sorting Control:** Easily set a default sort order for tables when the page loads. You can also hide the sorting controls from the table for a cleaner and more streamlined table display.
 * **Freeze Header & Column:** You can now freeze any column(s) from the left or right side, based on your preference. Additionally, you can also freeze the table header with a customizable height to enhance your viewing experience while scrolling.
 * **24/7 VIP Support:** We have a dedicated and hardworking team. Get support anytime for any issues with Flex Table. Our support team will be there always.
@@ -199,6 +199,10 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 
 == Changelog ==
+
+= 3.18.1 - 18 Aug 2025 =
+* **Improvement:** Increased row limit from 50 to 100.  
+* **Fix:** Resolved hide_row errors appearing in the debug log after upgrading from older versions.  
 
 = 3.18.0 - 22 May 2025 =
 * **New:** Introduced option to disable frequent cache updates for faster table loading

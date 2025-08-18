@@ -505,13 +505,13 @@ class Admin {
 
 				// If we're in Desktop.
 				// phpcs:ignore
-				if ( isset( $table_settings['hide_column']['desktopValues'] ) && $table_settings['hide_column']['desktopValues'] !== null ) {
+				if ( isset( $table_settings['hide_column'] ) && isset( $table_settings['hide_column']['desktopValues'] ) && $table_settings['hide_column']['desktopValues'] !== null ) {
 					// If we're in both Desktop and mobile.
 					// phpcs:ignore
 
 					// Rare case : If both 'desktopValues' and 'mobileValues' are empty strings.
 					// phpcs:ignore
-					if ( $table_settings['hide_column']['desktopValues'] === '' && $table_settings['hide_column']['mobileValues'] === '' ) {// phpcs:ignore
+					if ( isset( $table_settings['hide_column']['mobileValues'] ) && $table_settings['hide_column']['desktopValues'] === '' && $table_settings['hide_column']['mobileValues'] === '' ) {// phpcs:ignore
 						// If both 'desktopValues' and 'mobileValues' are empty strings.
 						$table_settings['hide_column'] = [];
 						$table_settings['hide_on_desktop'] = true;
@@ -540,7 +540,7 @@ class Admin {
 				} else {
 					// If not in desktop but in mobile.
 					// phpcs:ignore
-					if ( isset( $table_settings['hide_column']['mobileValues'] ) && $table_settings['hide_column']['mobileValues'] !== null ) {
+					if ( isset( $table_settings['hide_column'] ) && isset( $table_settings['hide_column']['mobileValues'] ) && $table_settings['hide_column']['mobileValues'] !== null ) {
 						// If not in desktop but mobile has.
 						$table_settings['hide_column'] = array_map( 'intval', $table_settings['hide_column']['mobileValues'] );
 						$table_settings['hide_on_desktop'] = false;
@@ -548,7 +548,7 @@ class Admin {
 					}
 				}
 
-				if ( is_array( $table_settings['hide_column'] ) && array_key_exists( 'desktopValues', $table_settings['hide_column'] ) && array_key_exists( 'mobileValues', $table_settings['hide_column'] ) ) {
+				if ( isset($table_settings['hide_column']) && is_array( $table_settings['hide_column'] ) && array_key_exists( 'desktopValues', $table_settings['hide_column'] ) && array_key_exists( 'mobileValues', $table_settings['hide_column'] ) ) {
 					// Both empty desktop and Mobile from inside of IF.
 					$table_settings['hide_column'] = [];
 					$table_settings['hide_on_desktop'] = true;
@@ -571,7 +571,7 @@ class Admin {
 			// ON Free version we need to generate all default value to match latest revamp data.
 			// Set first time for check if pro active but now condtion no need.
 			// phpcs:ignore
-			if ( $table_settings['table_title'] == null ) {
+			if ( isset( $table_settings['table_title'] ) && $table_settings['table_title'] == null ) {
 
 				// If we update then no need to update again. to check we're using old_update.
 				$table_settings['old_update'] = isset( $table_settings['old_update'] ) ? $table_settings['old_update'] : false;
@@ -602,12 +602,12 @@ class Admin {
 					$table_settings['cursor_behavior'] = isset( $table_settings['cursor_behavior'] ) ? $table_settings['cursor_behavior'] : 'left_right';
 					$table_settings['table_style'] = isset( $table_settings['table_style'] ) ? $table_settings['table_style'] : 'default-style';
 
-					if ( isset( $table_settings['hide_column']['desktopValues'] ) && $table_settings['hide_column']['desktopValues'] !== null ) {// phpcs:ignore
+					if ( isset( $table_settings['hide_column'] ) && isset( $table_settings['hide_column']['desktopValues'] ) && $table_settings['hide_column']['desktopValues'] !== null ) {// phpcs:ignore
 						// If desktop has and.
 						// Desktop and mobile.
 
 						// Rare case : If both 'desktopValues' and 'mobileValues' are empty strings.
-						if ( $table_settings['hide_column']['desktopValues'] === '' && $table_settings['hide_column']['mobileValues'] === '' ) {// phpcs:ignore
+						if ( isset( $table_settings['hide_column']['mobileValues'] ) && $table_settings['hide_column']['desktopValues'] === '' && $table_settings['hide_column']['mobileValues'] === '' ) {// phpcs:ignore
 							// If both 'desktopValues' and 'mobileValues' are empty strings.
 							$table_settings['hide_column'] = [];
 							$table_settings['hide_on_desktop'] = true;
@@ -636,7 +636,7 @@ class Admin {
 						}
 					} else {
 						// Jodi desktop e nai but mobile e ase then.
-						if ( isset( $table_settings['hide_column']['mobileValues'] ) && $table_settings['hide_column']['mobileValues'] !== null ) {// phpcs:ignore
+						if ( isset( $table_settings['hide_column'] ) && isset( $table_settings['hide_column']['mobileValues'] ) && $table_settings['hide_column']['mobileValues'] !== null ) {// phpcs:ignore
 							// If not in desktop but mobile has.
 							$table_settings['hide_column'] = array_map( 'intval', $table_settings['hide_column']['mobileValues'] );
 							$table_settings['hide_on_desktop'] = false;
@@ -644,7 +644,7 @@ class Admin {
 						}
 					}
 
-					if ( is_array( $table_settings['hide_column'] ) && array_key_exists( 'desktopValues', $table_settings['hide_column'] ) && array_key_exists( 'mobileValues', $table_settings['hide_column'] ) ) {
+					if ( isset($table_settings['hide_column']) && is_array( $table_settings['hide_column'] ) && array_key_exists( 'desktopValues', $table_settings['hide_column'] ) && array_key_exists( 'mobileValues', $table_settings['hide_column'] ) ) {
 						// Both empty desktop and Mobile from inside of IF.
 						$table_settings['hide_column'] = [];
 						$table_settings['hide_on_desktop'] = true;
@@ -661,7 +661,7 @@ class Admin {
 				}
 			}
 
-			// Finall Update the data in the database with the new structure.
+			// Finally Update the data in the database with the new structure.
 			$new_settings = json_encode( $table_settings );
 			$wpdb->update(
 				$table,

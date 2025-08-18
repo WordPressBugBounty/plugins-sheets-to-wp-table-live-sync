@@ -245,7 +245,7 @@ class Helpers {
 			'timeout' => $timeout,
 		);
 
-		$url = sprintf( 'https://script.google.com/macros/s/AKfycbzBVcMW-7v4avyTH4FJCrogXY8_-TMKBVCvikNRzIKrojHoXXc1zJc2-rJD7P30L6oGXQ/exec?sheetID=%1$s&gID=%2$d&action=getMergedCells', $sheet_id, $gid );
+		$url = sprintf( 'https://script.google.com/macros/s/AKfycbx1Uj8F5kesVvf98y4sDmCJP9EGcBJhclFSa0zAbuk8dzfPkY6dn-P2AbYOsRaTUAdE9w/exec?sheetID=%1$s&gID=%2$d&action=getMergedCells', $sheet_id, $gid );
 
 		$response = wp_remote_get( $url, $args );
 
@@ -634,7 +634,7 @@ class Helpers {
 		);
 
 		$rest_url = sprintf(
-			'https://script.google.com/macros/s/AKfycbzBVcMW-7v4avyTH4FJCrogXY8_-TMKBVCvikNRzIKrojHoXXc1zJc2-rJD7P30L6oGXQ/exec?sheetID=%s&gID=%s&action=getImages',
+			'https://script.google.com/macros/s/AKfycbx1Uj8F5kesVvf98y4sDmCJP9EGcBJhclFSa0zAbuk8dzfPkY6dn-P2AbYOsRaTUAdE9w/exec?sheetID=%s&gID=%s&action=getImages',
 			$sheet_id,
 			$gid
 		);
@@ -662,7 +662,7 @@ class Helpers {
 		);
 
 		$rest_url = sprintf(
-			'https://script.google.com/macros/s/AKfycbzBVcMW-7v4avyTH4FJCrogXY8_-TMKBVCvikNRzIKrojHoXXc1zJc2-rJD7P30L6oGXQ/exec?sheetID=%s&gID=%s&action=getLinks',
+			'https://script.google.com/macros/s/AKfycbx1Uj8F5kesVvf98y4sDmCJP9EGcBJhclFSa0zAbuk8dzfPkY6dn-P2AbYOsRaTUAdE9w/exec?sheetID=%s&gID=%s&action=getLinks',
 			$sheet_id,
 			$gid
 		);
