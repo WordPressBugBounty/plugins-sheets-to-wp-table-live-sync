@@ -25,10 +25,69 @@ class Assets {
 	 * @since 2.12.15
 	 */
 	public function __construct() {
-		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, 'gutenberg_files' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ], 20 ); 
+		add_action( 'enqueue_block_editor_assets', [ $this, 'gutenberg_files' ], 20 );
+		add_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ], 20 ); 
+		add_action( 'init', [ $this, 'detect_conflicting_plugins' ] );
+		
 	}
+
+
+	/**
+	 * Detect conflicting plugins and adjust load order.
+	 *
+	 * @since 2.12.15
+	 */
+	public function detect_conflicting_plugins() {
+		// Check if WP Maps plugin is active.
+		if ( $this->is_wp_maps_active() ) {
+			// Remove our hooks and re-add them with higher priority.
+			remove_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ], 20 );
+			
+			// Re-add with much higher priority to load after WP Maps.
+			add_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ], 999 );
+		}
+	}
+
+		/**
+	 * Check if WP Maps plugin is active.
+	 *
+	 * @return bool
+	 */
+	private function is_wp_maps_active() {
+		// Check for WP Maps plugin class or function.
+		return class_exists( 'WPGMP_Model' ) || 
+			   function_exists( 'wpgmp_register_map_frontend_resources' ) ||
+			   is_plugin_active( 'wp-google-map-plugin/wp-google-map-plugin.php' );
+	}
+
+	/**
+	 * Get WP Maps dependencies if available
+	 *
+	 * @return array
+	 */
+	private function get_wp_maps_dependencies() {
+		$dependencies = [];
+		
+		// Check if WP Maps scripts are registered.
+		global $wp_scripts;
+		
+		$wp_maps_handles = [
+			'wpgmp-backend',
+			'wpgmp-frontend',
+			'wpgmp-map',
+			'wpgmp-google-api'
+		];
+		
+		foreach ( $wp_maps_handles as $handle ) {
+			if ( isset( $wp_scripts->registered[ $handle ] ) ) {
+				$dependencies[] = $handle;
+			}
+		}
+		
+		return $dependencies;
+	}
+
 
 	/**
 	 * Enqueue backend files.
@@ -207,7 +266,10 @@ class Assets {
 	public function frontend_scripts() {
 		wp_enqueue_script( 'jquery' );
 
-		$this->frontend_tables_assets();
+		// Get WP Maps dependencies.
+		$wp_maps_deps = $this->get_wp_maps_dependencies();
+
+		$this->frontend_tables_assets( $wp_maps_deps );
 
 		do_action( 'gswpts_export_dependency_frontend' );
 
@@ -239,10 +301,16 @@ class Assets {
 
 		$this->table_styles_css();
 
+		// Add WP Maps dependencies to frontend script
+		$frontend_deps = [ 'jquery', 'jquery-ui-draggable' ];
+		if ( ! empty( $wp_maps_deps ) ) {
+			$frontend_deps = array_merge( $frontend_deps, $wp_maps_deps );
+		}
+
 		wp_enqueue_script(
 			'GSWPTS-frontend-js',
 			SWPTLS_BASE_URL . 'assets/public/scripts/frontend/frontend.min.js',
-			[ 'jquery', 'jquery-ui-draggable' ],
+			$frontend_deps,
 			time(),
 			true
 		);
@@ -287,11 +355,14 @@ class Assets {
 	 *
 	 * @since 2.12.15
 	 */
-	public function frontend_tables_assets() {
+	public function frontend_tables_assets( $additional_deps = [] ) {
+		$base_deps = [ 'jquery' ];
+		$deps = array_merge( $base_deps, $additional_deps );
+
 		wp_enqueue_script(
 			'GSWPTS-frontend-table',
 			SWPTLS_BASE_URL . 'assets/public/common/datatables/tables/js/jquery.datatables.min.js',
-			[ 'jquery' ],
+			$deps,
 			time(),
 			false
 		);
@@ -299,7 +370,7 @@ class Assets {
 		wp_enqueue_script(
 			'GSWPTS-frontend-semantic',
 			SWPTLS_BASE_URL . 'assets/public/common/datatables/tables/js/datatables.semanticui.min.js',
-			[ 'jquery' ],
+			array_merge( $deps, [ 'GSWPTS-frontend-table' ] ),
 			time(),
 			false
 		);
@@ -307,7 +378,7 @@ class Assets {
 		wp_enqueue_script(
 			'moment-js',
 			SWPTLS_BASE_URL . 'assets/public/scripts/moment/moment.min.js',
-			[ 'jquery' ],
+			$deps,
 			time(),
 			false
 		);
