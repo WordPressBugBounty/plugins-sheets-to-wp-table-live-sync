@@ -1,4 +1,4 @@
-=== FlexTable - Google Sheets to WP Table Live Sync | Responsive Data Table for WordPress ===
+=== FlexTable - Google Sheets to WP Table Live Sync | Responsive Data Table with Spreadsheet Integration | Google Sheet Connector ===
 Contributors: wppool, devsabbirahmed, mahfuz01, azizultex, wpdarkmode, sahabuddinsgr
 Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
@@ -51,11 +51,8 @@ Worried about how to display your GSheets on a WordPress table? Well, your hustl
 * **Image Support:** Load images from any URL that contains an image. Just add the image URL to your sheet and it will load that image on your website.
 * **Merge Cells:** If your spreadsheet has merged cells, you can enable this feature to improve the appearance and clarity of your WordPress table data.
 * **Cache Table for Faster Loading:** Enabling this option will drastically improve your table loading speed. Experience flawless data tables without any delay.
-
 * **Prevent frequent cache updates for faster table loading:** Speed up your table loading time like never before with our advanced caching system. By enabling Smart Caching (Prevent frequent cache updates for faster table loading), your tables will load in a fraction of the time. Instead of checking spreadsheet every time, FlexTable stores your data temporarily and only syncs when needed, helping your datatables load quicker and your site run smoother.
-
 * **Choose the maximum day to store the cache:** With Cache Duration, you decide how long FlexTable should keep your table data before checking Google Sheets for updates. Just set it to 1 day, 7 days, 30 days etc, whatever fits your update routine. It helps your tables load quicker and reduces unnecessary API requests
-
 * **2 Stunning Table Themes:** Easily customize the appearance of your tables by choosing one of the provided themes (Simple and Simple on Dark). 
 * **Duplicate Tables:** Easily generate duplicates of your tables without manually recreating them from scratch. Save time and maintain consistency across multiple tables.
 * **Table Description:** Communicate with your site visitors with clear table descriptions that describe the purpose of your tables. Easily convey important informations through the description.
@@ -110,19 +107,17 @@ Why this could be a game-changer for your business:
 
 https://youtu.be/GLDIL1JT-J8?si=giLoMGAGdY4TONim
 
-== WHAT OUR USERS SAY ABOUT THE MOST UNIQUE WORDPRESS DATA TABLE PLUGIN 😍 ==
+== 😍 WHAT OUR USERS SAY ABOUT THE MOST UNIQUE WORDPRESS DATA TABLE PLUGIN ==
 
 > ⭐⭐⭐⭐⭐ 
 [`Extremely helpful tool`](https://wordpress.org/support/topic/extremely-helpful-tool-4/)
-
-> *I really appreciate the way I can use this tool to embed Google Sheets tables into my website*
-**– by @masonwolf**
+*I really appreciate the way I can use this tool to embed Google Sheets tables into my website*
+– by @masonwolf
 
 > ⭐⭐⭐⭐⭐ 
 [`Incredible Support`](https://wordpress.org/support/topic/incredible-support-146/)
-
-> *While the plugin is very intuitive, there are advanced capabilities that I was struggling with. I submitted a support request and within hours the support team had not only resolved my inquiry, but they created a detailed overview of the specific capability I was interested in. Definitely above and beyond!*
-**– By @headway**
+*While the plugin is very intuitive, there are advanced capabilities that I was struggling with. I submitted a support request and within hours the support team had not only resolved my inquiry, but they created a detailed overview of the specific capability I was interested in. Definitely above and beyond!*
+– by @headway
 
 
 The plugin supports sorting options, search bars, and swap options. Keep almost every kind of data safe and secure and manage them smoothly without any hassle. Sheet to WP Table Live Sync creates responsive data tables and makes powerful data administration. 
@@ -150,20 +145,20 @@ If you like FlexTable, then consider checking out our other awesome projects:
 * 🌓 **[WP Dark Mode](https://wordpress.org/plugins/wp-dark-mode/)**: 
 Use WP Dark Mode plugin to create a stunning dark version for your WordPress website. WP Dark Mode works automatically without going into any complicated settings.
 
-* 🔄 **[FlexStock](https://wordpress.org/plugins/stock-sync-with-google-sheet-for-woocommerce/) - Manage WooCommerce Inventory from Google Sheets]**:
+* 🔄 **[FlexStock](https://wordpress.org/plugins/stock-sync-with-google-sheet-for-woocommerce/) - Manage WooCommerce Inventory from Google Sheets**:
 FlexStock - Stock Sync with Google Sheet for WooCommerce | Auto-sync WooCommerce products from Google Sheets. Flex Stock is an easy, powerful, and simple inventory management system to handle your WooCommerce products.
 
 * 🛒 **[FlexOrder](https://wordpress.org/plugins/order-sync-with-google-sheets-for-woocommerce/) - Manage Order with Google Sheets**:
 Try FlexOrder - Bulk Order Sync with Google Sheet for WooCommerce | Manage WooCommerce orders from Google Sheets. WooCommerce order sync, e-commerce order management, and sales order management with Google Sheets. Try Flex Order now!
 
-* 💬 **[FormyChat](https://wordpress.org/plugins/social-contact-form/) - Form to Chat App**:
+* 💬 **[FormyChat](https://wordpress.org/plugins/social-contact-form/) - Send Form Leads to Chat App**:
 Try FormyChat | Connect Form to Chat Apps with Contact Form 7, WPForms, Gravity Form | Welcome Popup & Multi-agent Live Chat
 
 * 🎁 **[EchoRewards](https://wordpress.org/plugins/echo-rewards/) - Boost Sales with a Smart Referral System:**
 Try EchoRewards | With Echo Reward, you can refer a friend for WooCommerce to launch your customer referral program. Echo Rewards Referral Plugin is a WooCommerce referral plugin to boost your sales. Generate coupons, reward customers, and launch the ideal refer-a-friend program for your store.
 
 
-## Privacy Policy 
+== Privacy Policy ==
 Flex Table uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
 
 Appsero SDK **does not gather any data by default.** The SDK only starts gathering basic telemetry data **when a user allows it via the admin notice**. We collect the data to ensure a great user experience for all our users. 
@@ -184,7 +179,7 @@ Additionally, read the WPPOOL [privacy policy](https://wppool.dev/privacy-policy
 [Watch the video to learn how to add a new table very easily with the plugin](https://youtu.be/Un4ByhNpFRI?si=dWp6EnQlkjavFSau?rel=0)
 
 = How many rows can I sync with the Free version? =
-The free version allows sync of up to 50 rows from Google Sheets.
+The free version allows sync of up to 100 rows from Google Sheets.
 
 = How many tables can I create? =
 The Free version allows you to create up to 10 tables.
