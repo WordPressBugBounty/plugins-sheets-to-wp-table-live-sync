@@ -23,6 +23,7 @@ class Notices {
 	 * @since 2.12.15
 	 */
 	public function __construct() {
+
 		/**
 		 * Detect plugin. For frontend only.
 		 */
@@ -32,6 +33,7 @@ class Notices {
 			// $this->review_notice_by_condition();
 			// $this->review_affiliate_notice_by_condition();
 			// $this->review_upgrade_notice_by_condition();
+			$this->pro_fix_notice_by_condition();
 		}
 
 		$this->version_check();
@@ -107,8 +109,8 @@ class Notices {
 	public function show_notice() {
 		printf(
 			'<div class="notice notice-error is-dismissible"><h3><strong>%s </strong></h3><p>%s</p></div>',
-			esc_html__( 'Plugin', 'sheetstowptable' ),
-			esc_html__( 'cannot be activated - requires at least PHP 5.4. Plugin automatically deactivated.', 'sheetstowptable' )
+			esc_html__( 'Plugin', 'sheets-to-wp-table-live-sync' ),
+			esc_html__( 'cannot be activated - requires at least PHP 5.4. Plugin automatically deactivated.', 'sheets-to-wp-table-live-sync' )
 		);
 	}
 
@@ -137,5 +139,78 @@ class Notices {
 	 */
 	public function show_upgrade_notice() {
 		load_template( SWPTLS_BASE_PATH . 'app/templates/parts/plugin_upgrade_notice.php' );
+	}
+
+	/**
+	 * Load pro fix notice condition.
+	 *
+	 * @since 2.12.15
+	 */
+	public function pro_fix_notice_by_condition() {
+		add_action( 'admin_notices', [ $this, 'check_and_show_pro_fix_notice' ] );
+	}
+
+	/**
+	 * Check and show pro fix notice (called on admin_notices hook)
+	 *
+	 * @since 2.12.15
+	 */
+	public function check_and_show_pro_fix_notice() {
+
+		// Check if pro plugin is active and needs fix
+		$pro_exists = swptls()->helpers->check_pro_plugin_exists();
+		$pro_active = swptls()->helpers->is_pro_active();
+
+		if ( ! $pro_exists || ! $pro_active ) {
+			return;
+		}
+
+		// Check if fix was already applied or declined
+		$fix_applied = get_option( 'swptls_pro_appsero_fix_applied', false );
+		$fix_declined = get_option( 'swptls_pro_appsero_fix_declined', false );
+
+		if ( $fix_applied || $fix_declined ) {
+			return;
+		}
+
+		// Check if we have a valid pro version that needs fixing
+		if ( ! defined( 'SWPTLS_PRO_VERSION' ) ) {
+			return;
+		}
+
+		$pro_version = SWPTLS_PRO_VERSION;
+
+		if ( version_compare( $pro_version, '3.7.0', '<' ) || version_compare( $pro_version, '3.15.1', '>' ) ) {
+			return;
+		}
+
+		// Check if the admin class method exists and needs fix
+		if ( class_exists( '\SWPTLS\Admin' ) ) {
+			$admin = new \SWPTLS\Admin();
+			if ( method_exists( $admin, 'needs_pro_appsero_fix' ) ) {
+				$needs_fix = $admin->needs_pro_appsero_fix();
+
+				if ( $needs_fix ) {
+					$this->show_pro_fix_notice();
+				}
+			}
+		}
+	}
+
+	/**
+	 * Display pro fix notice.
+	 *
+	 * @return void
+	 */
+	public function show_pro_fix_notice() {
+
+		// Mark that notice has been shown (for tracking purposes)
+		update_option( 'swptls_pro_appsero_notice_shown', true );
+
+		$template_path = SWPTLS_BASE_PATH . 'app/templates/parts/pro_fix_notice.php';
+
+		if ( file_exists( $template_path ) ) {
+			load_template( $template_path );
+		}
 	}
 }

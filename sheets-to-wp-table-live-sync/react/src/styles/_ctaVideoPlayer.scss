@@ -1,0 +1,353 @@
+// Video Player Modal Styles
+.cta-video-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+
+    .cta-video-modal-content {
+        background: white;
+        border-radius: 12px;
+        max-width: 800px;
+        width: 100%;
+        max-height: 90vh;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+        @media (max-width: 768px) {
+            max-width: 95vw;
+            margin: 10px;
+        }
+
+        .cta-video-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+
+            h3 {
+                margin: 0;
+                font-size: 18px;
+                font-weight: 600;
+                color: #1f2937;
+                flex: 1;
+                text-align: center;
+            }
+
+            .cta-video-modal-close {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 6px;
+                border-radius: 6px;
+                transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    background: #f3f4f6;
+                }
+
+                &:active {
+                    background: #e5e7eb;
+                }
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+                    color: #6b7280;
+                }
+            }
+        }
+
+        .cta-video-modal-body {
+            padding: 24px;
+
+            .cta-video-player-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #000;
+
+                .cta-video-player-wrapper {
+                    position: relative;
+                    width: 100%;
+                    max-width: 100%;
+
+                    .cta-video-thumbnail {
+                        position: relative;
+                        display: block;
+                        cursor: pointer;
+                        width: 100%;
+                        background: #000;
+
+                        .cta-video-player-image {
+                            display: block;
+                            width: 100%;
+                            height: auto;
+                            aspect-ratio: 16/9;
+                            object-fit: contain;
+                        }
+
+                        .cta-video-play-button {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background: unset;
+                            border: none;
+                            padding: 20px;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+                            &:hover {
+                                transform: translate(-50%, -50%) scale(1.1);
+                                background: unset;
+                                box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+                            }
+
+                            &:active {
+                                transform: translate(-50%, -50%) scale(1.05);
+                            }
+
+                            svg {
+                                width: 64px;
+                                height: 64px;
+                                color: #3858E9;
+
+                                @media (max-width: 768px) {
+                                    width: 48px;
+                                    height: 48px;
+                                }
+                            }
+                        }
+                    }
+
+                    .cta-video-embed {
+                        position: relative;
+                        width: 100%;
+                        height: 0;
+                        padding-bottom: 56.25%; // 16:9 aspect ratio
+                        background: #000;
+
+                        iframe {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                        }
+                    }
+                }
+            }
+
+            .cta-modal-description {
+                text-align: center;
+                padding-top: 20px;
+
+
+                .modal-actions {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 12px;
+
+                    @media (max-width: 480px) {
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+
+                    .modal-docs-button {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 12px 24px;
+                        background: #008717;
+                        color: white;
+                        border: none;
+                        border-radius: 6px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        text-decoration: none;
+                        min-width: 120px;
+
+                        &:hover {
+                            transform: translateY(-1px);
+                            background: #126E22;
+                        }
+
+                        &:active {
+                            transform: translateY(0);
+                        }
+
+                        @media (max-width: 480px) {
+                            width: 100%;
+                            max-width: 200px;
+                        }
+                    }
+
+                    .modal-close-button {
+                        padding: 12px 24px;
+                        background: transparent;
+                        color: #6b7280;
+                        border: 1px solid #d1d5db;
+                        border-radius: 6px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        min-width: 120px;
+
+                        &:hover {
+                            background: #f9fafb;
+                            border-color: #9ca3af;
+                            color: #374151;
+                        }
+
+                        @media (max-width: 480px) {
+                            width: 100%;
+                            max-width: 200px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+// Animations
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+// Video Trigger Link Styles
+.cta-video-trigger-link {
+    color: #3858E9;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline;
+
+    &:hover {
+        color: #2844c7;
+        text-decoration-thickness: 2px;
+    }
+
+    &:active {
+        color: #1e3399;
+    }
+}
+
+// Video Trigger Button Styles
+.cta-video-trigger-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #E6EAFB;
+    color: #3858E9;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    &:hover {
+        background: #d4ddf9;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(56, 88, 233, 0.15);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 4px rgba(56, 88, 233, 0.1);
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+        width: 100%;
+        justify-content: center;
+    }
+
+    // Alternative button style - outlined
+    &.outlined {
+        background: transparent;
+        border: 1px solid #3858E9;
+        color: #3858E9;
+
+        &:hover {
+            background: #E6EAFB;
+            border-color: #2844c7;
+        }
+    }
+
+    // Alternative button style - solid
+    &.solid {
+        background: #3858E9;
+        color: white;
+
+        &:hover {
+            background: #2844c7;
+        }
+
+        &:active {
+            background: #1e3399;
+        }
+    }
+
+    // Small size variant
+    &.small {
+        padding: 8px 12px;
+        font-size: 13px;
+
+        svg {
+            width: 14px;
+            height: 14px;
+        }
+    }
+
+    // Large size variant
+    &.large {
+        padding: 12px 20px;
+        font-size: 15px;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}

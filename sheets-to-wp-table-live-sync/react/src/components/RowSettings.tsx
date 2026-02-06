@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { hintIcon, Cross } from '../icons';
+import { hintIcon, Cross, ProIcon } from '../icons';
 import { isProActive, getStrings } from '../Helpers';
 import Tooltip from './Tooltip';
 import ThemeFields from './ThemeFields';
@@ -561,9 +561,7 @@ const RowSettings = ({
 																/>
 																{!isProActive() && (
 																	<button className="btn-pro">
-																		{getStrings(
-																			'pro'
-																		)}
+																		{ProIcon}
 																	</button>
 																)}
 															</span>
@@ -657,9 +655,7 @@ const RowSettings = ({
 															/>
 															{!isProActive() && (
 																<button className="btn-pro">
-																	{getStrings(
-																		'pro'
-																	)}
+																	{ProIcon}
 																</button>
 															)}
 														</span>
@@ -738,9 +734,7 @@ const RowSettings = ({
 																/>
 																{!isProActive() && (
 																	<button className="btn-pro">
-																		{getStrings(
-																			'pro'
-																		)}
+																		{ProIcon}
 																	</button>
 																)}
 															</span>
@@ -832,9 +826,7 @@ const RowSettings = ({
 															/>
 															{!isProActive() && (
 																<button className="btn-pro">
-																	{getStrings(
-																		'pro'
-																	)}
+																	{ProIcon}
 																</button>
 															)}
 														</span>
@@ -947,9 +939,7 @@ const RowSettings = ({
 																/>
 																{!isProActive() && (
 																	<button className="btn-pro">
-																		{getStrings(
-																			'pro'
-																		)}
+																		{ProIcon}
 																	</button>
 																)}
 															</span>
@@ -1038,9 +1028,7 @@ const RowSettings = ({
 															/>
 															{!isProActive() && (
 																<button className="btn-pro">
-																	{getStrings(
-																		'pro'
-																	)}
+																	{ProIcon}
 																</button>
 															)}
 														</span>
@@ -1114,9 +1102,7 @@ const RowSettings = ({
 																/>
 																{!isProActive() && (
 																	<button className="btn-pro">
-																		{getStrings(
-																			'pro'
-																		)}
+																		{ProIcon}
 																	</button>
 																)}
 															</span>
@@ -1203,9 +1189,7 @@ const RowSettings = ({
 															/>
 															{!isProActive() && (
 																<button className="btn-pro">
-																	{getStrings(
-																		'pro'
-																	)}
+																	{ProIcon}
 																</button>
 															)}
 														</span>
@@ -1317,9 +1301,7 @@ const RowSettings = ({
 																/>
 																{!isProActive() && (
 																	<button className="btn-pro">
-																		{getStrings(
-																			'pro'
-																		)}
+																		{ProIcon}
 																	</button>
 																)}
 															</span>
@@ -1423,9 +1405,7 @@ const RowSettings = ({
 															/>
 															{!isProActive() && (
 																<button className="btn-pro">
-																	{getStrings(
-																		'pro'
-																	)}
+																	{ProIcon}
 																</button>
 															)}
 														</span>
@@ -1499,9 +1479,7 @@ const RowSettings = ({
 																/>
 																{!isProActive() && (
 																	<button className="btn-pro">
-																		{getStrings(
-																			'pro'
-																		)}
+																		{ProIcon}
 																	</button>
 																)}
 															</span>
@@ -1604,9 +1582,7 @@ const RowSettings = ({
 															/>
 															{!isProActive() && (
 																<button className="btn-pro">
-																	{getStrings(
-																		'pro'
-																	)}
+																	{ProIcon}
 																</button>
 															)}
 														</span>

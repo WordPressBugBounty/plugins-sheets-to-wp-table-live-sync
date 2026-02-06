@@ -9,7 +9,7 @@ import CreateTable from './CreateTable';
 import Dashboard from './Dashboard';
 import Header from './Header';
 import Settings from './Settings';
-import Documentation from './Documentation';
+import GetStart from './GetStart';
 import Recommendation from './Recommendation';
 import ManageTabs from './ManageTabs';
 
@@ -22,6 +22,7 @@ import SetupWizard from './SetupWizard';
 
 import {
 	getLicenseUrl,
+	showGetStart,
 	getSetupWizardStatus,
 	isProActive,
 	isProInstalled,
@@ -37,61 +38,68 @@ function App() {
 
 	return (
 		<>
-			{ isProActive() && ! isProLicenseActive() ? (
+			{isProActive() && !isProLicenseActive() ? (
 				<div className="wppoolsbe-elementor-notice">
 					<p>
-						{ getStrings( 'please-activate-your-license' ) }{ ' ' }
-						<a href={ getLicenseUrl() }>
-							{ getStrings( 'activate' ) }
+						{getStrings('please-activate-your-license')}{' '}
+						<a href={getLicenseUrl()}>
+							{getStrings('activate')}
 						</a>
 					</p>
 				</div>
 			) : (
 				''
-			) }
+			)}
 			<Container>
 				<Row>
 					<Column xs="12">
 						<Routes>
-							<Route path="/wizard" element={ <SetupWizard /> } />
-							<Route path="/" element={ <Dashboard /> } />
+							{/* <Route path="/wizard" element={ <SetupWizard /> } /> */}
+							{/* <Route path="/doc" element={<GetStart />} /> */}
+							<Route path="/" element={<Dashboard />} />
 							<Route
 								path="/tables/create"
-								element={ <CreateTable /> }
+								element={<CreateTable />}
 							/>
 							<Route
 								path="/tables/edit/:id"
-								element={ <EditTable /> }
+								element={<EditTable />}
 							/>
 
-							<Route path="/tabs" element={ <ManageTabs /> } />
+							<Route path="/tabs" element={<ManageTabs />} />
 							<Route
 								path="/tabs/create"
-								element={ <CreateTab /> }
+								element={<CreateTab />}
 							/>
 							<Route
 								path="/tabs/edit/:id"
-								element={ <EditTab /> }
+								element={<EditTab />}
 							/>
 
-							<Route path="/settings" element={ <Settings /> } />
-							<Route path="/doc" element={ <Documentation /> } />
+							{/* <Route path="/settings" element={<Settings />} /> */}
+
+							<Route path="/settings" element={<Settings />} />
+							<Route path="/settings-performance" element={<Settings />} />
+							<Route path="/settings-aiconfig" element={<Settings />} />
+							<Route path="/settings-customcss" element={<Settings />} />
+
+							<Route path="/doc" element={<GetStart />} />
 
 							<Route
 								path="/recommendation"
-								element={ <Recommendation /> }
+								element={<Recommendation />}
 							/>
 						</Routes>
 
 						<ToastContainer
 							position="top-right"
-							autoClose={ 2000 }
-							hideProgressBar={ true }
-							newestOnTop={ false }
-							closeOnClick={ false }
-							rtl={ false }
-							pauseOnFocusLoss={ true }
-							pauseOnHover={ true }
+							autoClose={2000}
+							hideProgressBar={true}
+							newestOnTop={false}
+							closeOnClick={false}
+							rtl={false}
+							pauseOnFocusLoss={true}
+							pauseOnHover={true}
 							theme="colored"
 						/>
 					</Column>

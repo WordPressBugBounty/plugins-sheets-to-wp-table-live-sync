@@ -28,7 +28,7 @@
 				</div>
 				<span>
 					<a class="ui violet button m-0" href="https://swptls.wppool.dev/" target="_blank">
-						<?php esc_html_e( 'View Demo', 'sheetstowptable' ); ?>
+						<?php esc_html_e( 'View Demo', 'sheets-to-wp-table-live-sync' ); ?>
 						<span class="ml-2"><i class="fas fa-eye"></i></span>
 					</a>
 				</span>
@@ -38,7 +38,7 @@
 		<div class="gswpts_grid_container">
 			<!-- Start video section -->
 			<div class="video_box dash_boxes" style="display: flex; justify-content: center; flex-direction: column">
-				<?php printf( '<h2 class="p-0 m-t-0 m-b-4">%s <i>%s</i></h2', esc_html__( 'Welcome to', 'sheetstowptable' ), esc_html( SWPTLS_PLUGIN_NAME ) ); ?>
+				<?php printf( '<h2 class="p-0 m-t-0 m-b-4">%s <i>%s</i></h2', esc_html__( 'Welcome to', 'sheets-to-wp-table-live-sync' ), esc_html( SWPTLS_PLUGIN_NAME ) ); ?>
 				<p>
 				</p>
 				<iframe style="width: 100%; border-radius: 8px;" height="370"
@@ -54,9 +54,9 @@
 			<div class="gswpts_help_center dash_boxes">
 				<div class="help_container">
 					<div class="first_col">
-						<span><?php esc_html_e( 'Need more help ?', 'sheetstowptable' ); ?></span>
-						<p><?php esc_html_e( 'We provide professional support to all our users via our ticketing system.', 'sheetstowptable' ); ?></p>
-						<a href="https://wppool.dev/google-sheets-to-wordpress-table-live-sync/" target="_blank"><?php esc_html_e( 'Get Help', 'sheetstowptable' ); ?></a>
+						<span><?php esc_html_e( 'Need more help ?', 'sheets-to-wp-table-live-sync' ); ?></span>
+						<p><?php esc_html_e( 'We provide professional support to all our users via our ticketing system.', 'sheets-to-wp-table-live-sync' ); ?></p>
+						<a href="https://wppool.dev/google-sheets-to-wordpress-table-live-sync/" target="_blank"><?php esc_html_e( 'Get Help', 'sheets-to-wp-table-live-sync' ); ?></a>
 					</div>
 					<div class="second_col">
 						<img src="<?php echo esc_url( SWPTLS_BASE_URL . 'assets/public/images/need_help.svg' ); ?>"
@@ -70,9 +70,9 @@
 			<!-- Start Get Pro section -->
 			<div class="gswpts_pro_box dash_boxes">
 				<div class="col-12 p-0 pt-4 m-0 d-flex">
-					<h2 class="pro_title"><?php esc_html_e( 'Get Pro ✨', 'sheetstowptable' ); ?></h2>
+					<h2 class="pro_title"><?php esc_html_e( 'Get Pro ✨', 'sheets-to-wp-table-live-sync' ); ?></h2>
 					<h5>
-						<?php esc_html_e( 'Get the most out of the plugin. Go Pro!', 'sheetstowptable' ); ?>
+						<?php esc_html_e( 'Get the most out of the plugin. Go Pro!', 'sheets-to-wp-table-live-sync' ); ?>
 					</h5>
 					<div class="col-12 d-flex p-0 info_wrapper">
 						<div class="col-md-12 col-lg-6 p-0">
@@ -83,7 +83,7 @@
 										<i class="fas fa-check-square" style="color: #2ecc40; font-size: 18px"></i>
 									</span>
 									<span
-										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Responsive table. The plugin allows collapsing on mobile and tablet screens', 'sheetstowptable' ); ?></span>
+										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Responsive table. The plugin allows collapsing on mobile and tablet screens', 'sheets-to-wp-table-live-sync' ); ?></span>
 								</li>
 
 								<li class="d-flex align-items-center mb-3">
@@ -91,7 +91,7 @@
 										<i class="fas fa-check-square" style="color: #2ecc40; font-size: 18px"></i>
 									</span>
 									<span
-										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Data Caching feature cache the sheet data & therefore the table will load faster.', 'sheetstowptable' ); ?></span>
+										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Data Caching feature cache the sheet data & therefore the table will load faster.', 'sheets-to-wp-table-live-sync' ); ?></span>
 								</li>
 
 								<li class="d-flex align-items-center mb-3">
@@ -99,7 +99,7 @@
 										<i class="fas fa-check-square" style="color: #2ecc40; font-size: 18px"></i>
 									</span>
 									<span
-										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Link Support to import links from sheet. All the URL\'s will be shown as link in table.', 'sheetstowptable' ); ?></span>
+										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Link Support to import links from sheet. All the URL\'s will be shown as link in table.', 'sheets-to-wp-table-live-sync' ); ?></span>
 								</li>
 
 								<li class="d-flex align-items-center mb-3">
@@ -107,7 +107,7 @@
 										<i class="fas fa-check-square" style="color: #2ecc40; font-size: 18px"></i>
 									</span>
 									<span
-										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Table Styles. Pre-built amazing table styles. Each styles is different from one another.', 'sheetstowptable' ); ?></span>
+										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Table Styles. Pre-built amazing table styles. Each styles is different from one another.', 'sheets-to-wp-table-live-sync' ); ?></span>
 								</li>
 
 								<li class="d-flex align-items-center mb-3">
@@ -115,7 +115,7 @@
 										<i class="fas fa-check-square" style="color: #2ecc40; font-size: 18px"></i>
 									</span>
 									<span
-										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Hide your google sheet table column on desktop screen OR mobile screens.', 'sheetstowptable' ); ?></span>
+										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Hide your google sheet table column on desktop screen OR mobile screens.', 'sheets-to-wp-table-live-sync' ); ?></span>
 								</li>
 
 								<li class="d-flex align-items-center mb-3">
@@ -123,7 +123,7 @@
 										<i class="fas fa-check-square" style="color: #2ecc40; font-size: 18px"></i>
 									</span>
 									<span
-										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Hide Row. Hide your google sheet table rows based on your custom row selection.', 'sheetstowptable' ); ?></span>
+										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Hide Row. Hide your google sheet table rows based on your custom row selection.', 'sheets-to-wp-table-live-sync' ); ?></span>
 								</li>
 
 								<li class="d-flex align-items-center mb-3">
@@ -131,7 +131,7 @@
 										<i class="fas fa-check-square" style="color: #2ecc40; font-size: 18px"></i>
 									</span>
 									<span
-										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Unlimited Row Sync. Fetch unlimited rows from Google spreadsheet', 'sheetstowptable' ); ?></span>
+										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'Unlimited Row Sync. Fetch unlimited rows from Google spreadsheet', 'sheets-to-wp-table-live-sync' ); ?></span>
 								</li>
 
 								<li class="d-flex align-items-center mb-3">
@@ -139,15 +139,15 @@
 										<i class="fas fa-check-square" style="color: #2ecc40; font-size: 18px"></i>
 									</span>
 									<span
-										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'And much more.', 'sheetstowptable' ); ?> 
-										<a href="https://wordpress.org/plugins/sheets-to-wp-table-live-sync/" target="_blank"><?php esc_html_e( 'All Pro features', 'sheetstowptable' ); ?></a></span>
+										style="font-size: 15px; margin-top: -5px;"><?php esc_html_e( 'And much more.', 'sheets-to-wp-table-live-sync' ); ?> 
+										<a href="https://wordpress.org/plugins/sheets-to-wp-table-live-sync/" target="_blank"><?php esc_html_e( 'All Pro features', 'sheets-to-wp-table-live-sync' ); ?></a></span>
 								</li>
 							</ul>
 
 							<div class="col-12 pl-0 pb-5 pt-4">
 								<a class="ui get_pro_btn  m-0" href="https://wppool.dev/sheets-to-wp-table-live-sync/"
 									target="blank">
-									<?php esc_html_e( 'Buy Now', 'sheetstowptable' ); ?>
+									<?php esc_html_e( 'Buy Now', 'sheets-to-wp-table-live-sync' ); ?>
 								</a>
 							</div>
 						</div>
@@ -172,12 +172,12 @@
 						</span>
 						<span>
 							<a href="https://www.youtube.com/watch?v=_LWcaErh8jw&list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP"
-								target="_blank"><?php esc_html_e( 'Documentation', 'sheetstowptable' ); ?></a>
+								target="_blank"><?php esc_html_e( 'Documentation', 'sheets-to-wp-table-live-sync' ); ?></a>
 							<span>|</span>
 						</span>
 						<span>
 							<a href="https://wppool.dev/google-sheets-to-wordpress-table-live-sync/"
-								target="_blank"><?php esc_html_e( 'Support Center', 'sheetstowptable' ); ?></a>
+								target="_blank"><?php esc_html_e( 'Support Center', 'sheets-to-wp-table-live-sync' ); ?></a>
 						</span>
 					</div>
 				</div>

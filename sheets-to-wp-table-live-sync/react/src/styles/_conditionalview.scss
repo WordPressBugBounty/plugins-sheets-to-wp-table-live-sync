@@ -25,18 +25,25 @@
             outline: 0 !important;
             box-shadow: none !important;
             background-color: transparent !important;
+            position: relative;
 
             &.active {
 
                 .table-view__card {
-                    border-color: #34A0FA;
+                    border-color: #008717;
+
+                    svg {
+                        path {
+                            fill: #008717;
+                        }
+                    }
                 }
 
                 .table-view__lable {
 
                     .radio-field {
                         border-width: 8px;
-                        border-color: #34A0FA;
+                        border-color: #008717;
                     }
                 }
             }
@@ -62,7 +69,7 @@
             padding: 16px 16px;
             margin-bottom: 15px;
             position: relative;
-            background-color: #F6F7FE;
+            background-color: #f7f7f7;
             border: 2px solid #ffffff;
             transition: all 0.3s ease;
 
@@ -72,6 +79,9 @@
                 margin-bottom: 10px;
                 align-items: center;
                 justify-content: space-between;
+                margin-top: 0px;
+                margin-bottom: 50px;
+                margin-left: -2px;
             }
 
             .icon {
@@ -86,6 +96,7 @@
                 margin-left: auto;
                 display: inline-flex;
                 align-items: center;
+                z-index: 100;
 
                 /* Basic modal for popup video */
                 .popupmodal {
@@ -275,6 +286,9 @@
             gap: 4px;
             display: flex;
             align-items: flex-start;
+            position: absolute;
+            left: 17px;
+            margin-top: 65px;
 
             .radio-field {
                 height: 16px;
@@ -343,11 +357,11 @@
                 }
 
                 input[type="radio"]:checked+.search-by-modes__lable {
-                    border-color: #34a0fa;
+                    border-color: #008717;
 
                     .radio-field {
                         border-width: 8px;
-                        border-color: #34A0FA;
+                        border-color: #008717;
                     }
                 }
 
@@ -487,7 +501,7 @@
                 border-radius: 6px;
                 max-height: 100px;
                 position: relative;
-                background: #F8FCFF;
+                background: #ffffff;
                 padding: 15px 30px 15px 15px;
                 border: 1px solid #ECF2F6;
 
@@ -500,7 +514,7 @@
                     line-height: 53%;
                     border-radius: 500px;
                     align-items: center;
-                    background: #DAE9FF;
+                    background: #E3E5E9;
                     justify-content: center;
                     padding: 0px 7px 0px 12px;
 
@@ -603,7 +617,7 @@
                         box-sizing: border-box;
 
                         &:checked {
-                            background-color: #34a0fa;
+                            background-color: #008717;
                         }
 
                         &:checked::before {

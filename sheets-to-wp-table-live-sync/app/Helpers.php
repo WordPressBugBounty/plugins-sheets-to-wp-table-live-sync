@@ -166,61 +166,58 @@ class Helpers {
 		$response = wp_remote_get($url, $args);
 
 		if ( is_wp_error($response) ) {
-			return new WP_Error('private_sheet', __('You are offline.', 'sheetstowptable'));
+			return new WP_Error('private_sheet', __('You are offline.', 'sheets-to-wp-table-live-sync'));
 		}
 
 		$headers = $response['headers'];
 
 		if ( ! isset($headers['X-Frame-Options']) || 'DENY' === $headers['X-Frame-Options'] ) {
 			wp_send_json_error([
-				'message' => __('Sheet is not public or shared', 'sheetstowptable'),
+				'message' => __('Sheet is not public or shared', 'sheets-to-wp-table-live-sync'),
 				'type'    => 'private_sheet',
 			]);
 		}
 
 		$csv_data = wp_remote_retrieve_body($response);
-		$sanitized_csv_data = wp_kses_post($csv_data);
 
-		// Open CSV data stream for processing.
+		// Open CSV data stream for processing - use CSV RAW data
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen -- Using in-memory stream, not file I/O
 		$data_stream = fopen('php://temp', 'r+');
-		fwrite($data_stream, $sanitized_csv_data);
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fwrite -- Writing to memory stream
+		fwrite($data_stream, $csv_data);
 		rewind($data_stream);
 
 		$rows = [];
-		$row_count = 0;
 
 		while ( ( $data = fgetcsv($data_stream, 0, ',') ) !== false ) {
 			foreach ( $data as $index => &$cell ) {
-				// Handle line breaks for all columns.
-				$cell = str_replace("\n", '<br>', $cell);
+				// ✅ Sanitize each cell AFTER parsing
+				$cell = wp_kses_post($cell);
 
-				// Apply special handling for the first column in all rows (including header)
+				// Handle line breaks for all columns
+				$cell = str_replace("\n", '<br>', $cell);
+				$cell = str_replace("\r", '', $cell);
+
+				// Apply special handling for the first column
 				if ( $index === 0 ) {
-					$cell = trim($cell, '"');
 					$cell = str_replace(',', '﹐', $cell);
-					// Re-add quotes if cell contains special characters.
-					if ( strpos($cell, '﹐') !== false || strpos($cell, '<br>') !== false ) {
-						$cell = '"' . $cell . '"';
-					}
-				} else {
-					// Normal processing for other columns and Escape quotes.
-					$cell = str_replace('"', '""', $cell);
-					// Ensure proper encapsulation for cells with commas or line breaks.
-					if ( strpos($cell, ',') !== false || strpos($cell, '<br>') !== false ) {
-						$cell = '"' . $cell . '"';
-					}
 				}
 			}
 			$rows[] = $data;
-			$row_count++;
 		}
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- Closing memory stream
 		fclose($data_stream);
 
-		// Convert rows back into CSV format as a string.
-		$output_csv = '';
+		// ✅ Use fputcsv() for proper CSV encoding
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen -- Using in-memory stream for CSV generation
+		$output_stream = fopen('php://temp', 'r+');
 		foreach ( $rows as $row ) {
-			$output_csv .= implode(',', $row) . "\n";
+			fputcsv($output_stream, $row, ',');
 		}
+		rewind($output_stream);
+		$output_csv = stream_get_contents($output_stream);
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- Closing memory stream
+		fclose($output_stream);
 
 		return $output_csv;
 	}
@@ -235,7 +232,7 @@ class Helpers {
 	 */
 	public function get_merged_styles( string $sheet_id, int $gid ) {
 		if ( empty( $sheet_id ) || '' === $gid ) {
-			return new \WP_Error( 'feature_not_compatible', __( 'The feature is not compatible or something went wrong', 'sheetstowptable' ) );
+			return new \WP_Error( 'feature_not_compatible', __( 'The feature is not compatible or something went wrong', 'sheets-to-wp-table-live-sync' ) );
 		}
 
 		$timeout = get_option( 'timeout_values', 10 );
@@ -518,12 +515,18 @@ class Helpers {
 	public function transform_links( array $matched_link, string $string, $redirection_type, $link_text = '', $holder_text = '' ): string {
 		$replaced_string = $string;
 
-		// If link text is empty load default link as link text.
+		// Sanitize URL and link text to prevent XSS attacks
 		if ( '' === $link_text ) {
 			$link_text = $this->check_https_in_string( $matched_link[0], true );
 		}
+
+		// Sanitize the URL and link text
+		$safe_url = esc_url( $this->check_https_in_string( $matched_link[0], true ) );
+		$safe_link_text = esc_html( $link_text );
+		$safe_redirection = esc_attr( $redirection_type );
+
 		$replaced_string = str_replace( $holder_text, '', $replaced_string );
-		$replaced_string = str_replace( $matched_link[0], '<a href="' . $this->check_https_in_string( $matched_link[0], true ) . '" class="swptls-table-link" target="' . $redirection_type . '">' . $link_text . '</a>', $replaced_string );
+		$replaced_string = str_replace( $matched_link[0], '<a href="' . $safe_url . '" class="swptls-table-link" target="' . $safe_redirection . '">' . $safe_link_text . '</a>', $replaced_string );
 
 		return (string) $replaced_string;
 	}
@@ -567,9 +570,11 @@ class Helpers {
 
 		$img_matching_regex = '/(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))/i';
 
-		// Check for image URLs and return the image tag.
+		// Sanitize image URLs to prevent XSS attacks
 		if ( filter_var($string, FILTER_VALIDATE_URL) && preg_match($img_matching_regex, $string) ) {
-			return '<img src="' . $string . '" alt="' . $string . '"/>';
+			$safe_img_url = esc_url( $string );
+			$safe_alt_text = esc_attr( basename( $string ) );
+			return '<img src="' . $safe_img_url . '" alt="' . $safe_alt_text . '"/>';
 		}
 
 		// Check for iframe or img tags and return the original string if found.
@@ -584,22 +589,34 @@ class Helpers {
 		if ( preg_match_all($pattern, $string, $matches, PREG_SET_ORDER) ) {
 			$replacement = array();
 			foreach ( $matches as $match ) {
-				$link_text = $match[1];
+				// Sanitize link text and URL to prevent XSS attacks
+				$link_text = esc_html( $match[1] );
 				$link_data = $match[2];
 
 				// Split the $link_data into text and URL.
 				if ( preg_match('/^\s*([^[]+)\s*(.*)$/i', $link_data, $url_match) ) {
-					$link_url = $url_match[1];
+					$link_url = trim( $url_match[1] );
+
 					// Check if the linkURL starts with "http://" or "https://".
 					if ( ! preg_match('/^https?:\/\//i', $link_url) ) {
 						// If it doesn't, add "http://" by default.
-						$link_url = 'http://' . $link_url; // phpcs:ignore.
+						$link_url = 'http://' . $link_url;
 					}
-					// Create the formatted anchor tag.
-					// phpcs:ignore.
-					$formatted_link = '<a href="' . $link_url . '" target="' . $redirection_type . '">' . $link_text . '</a>' . ' '; // phpcs:ignore.
-					// Store the replacement in an array.
-					$replacement[ $match[0] ] = $formatted_link;
+
+					// Sanitize the URL to prevent XSS (blocks javascript:, data:, etc.)
+					$safe_url = esc_url( $link_url );
+					$safe_redirection = esc_attr( $redirection_type );
+
+					// Only create link if URL is valid
+					if ( filter_var($safe_url, FILTER_VALIDATE_URL) || strpos($safe_url, 'http') === 0 ) {
+						// Create the formatted anchor tag.
+						$formatted_link = '<a href="' . $safe_url . '" target="' . $safe_redirection . '">' . $link_text . '</a>' . ' ';
+						// Store the replacement in an array.
+						$replacement[ $match[0] ] = $formatted_link;
+					} else {
+						// If URL is invalid, just use the text
+						$replacement[ $match[0] ] = $link_text;
+					}
 				}
 			}
 
@@ -680,7 +697,7 @@ class Helpers {
 	 * @param array  $images_data The images data retrieved from the sheet.
 	 * @param mixed  $cell_data   The current cell data.
 	 */
-	public function get_organized_image_data( $index, $images_data, $cell_data ) {
+	public function get_organized_image_data( $index, $images_data, $cell_data, $table_settings = [] ) {
 		$images_data = ! is_array( $images_data ) ? json_decode( $images_data, 1 ) : null;
 
 		if ( ! $images_data ) {
@@ -688,12 +705,13 @@ class Helpers {
 		}
 
 		if ( isset( $images_data[ $index ] ) ) {
+			// Sanitize image URL and dimensions to prevent XSS attacks
+			$img_url = esc_url( $images_data[ $index ]['imgUrl'][0] );
+			$width = floatval( $images_data[ $index ]['width'] ) + 50;
+			$height = floatval( $images_data[ $index ]['height'] ) + 50;
 
-			$img_url = $images_data[ $index ]['imgUrl'][0];
-			$width = $images_data[ $index ]['width'];
-			$height = $images_data[ $index ]['height'];
+			return '<img src="' . $img_url . '" alt="swptls-image" style="width: ' . esc_attr( $width ) . 'px; height: ' . esc_attr( $height ) . 'px" />';
 
-			return '<img src="' . $img_url . '" alt="swptls-image" style="width: ' . ( floatval( $width ) + 50 ) . 'px; height: ' . ( floatval( $height ) + 50 ) . 'px" />';
 		}
 
 		return $cell_data;
@@ -757,12 +775,19 @@ class Helpers {
 			$result = '';
 
 			foreach ( $cell_data as $link_item ) {
-				$link_url = isset($link_item['linkUrl']) ? htmlspecialchars($link_item['linkUrl']) : null;
-				$link_text = $link_item['linkText'];
+				// Sanitize both URL and link text to prevent XSS attacks
+				$link_url = isset($link_item['linkUrl']) ? esc_url($link_item['linkUrl']) : null;
+				$link_text = isset($link_item['linkText']) ? esc_html($link_item['linkText']) : '';
 
 				if ( ! preg_match('/^\[(.*?)\](.*?)$/', $link_text, $matches) ) {
 					if ( ! empty($link_url) ) {
-						$result .= '<a href="' . $link_url . '" class="swptls-table-link" target="' . $redirection_type . '">' . $link_text . '</a>' . ' '; //phpcs:ignore
+						// Validate that the URL is safe (not javascript:, data:, etc.)
+						if ( filter_var($link_url, FILTER_VALIDATE_URL) || strpos($link_url, 'http') === 0 ) {
+							$result .= '<a href="' . $link_url . '" class="swptls-table-link" target="' . esc_attr($redirection_type) . '">' . $link_text . '</a>' . ' ';
+						} else {
+							// If URL is invalid, treat as normal text
+							$result .= '<span class="swptls-table-normal-text">' . $link_text . '</span>';
+						}
 					} else {
 						// Treat linkUrl as null and add as normal text.
 						$result .= '<span class="swptls-table-normal-text">' . $link_text . '</span>';
@@ -784,10 +809,11 @@ class Helpers {
 	 * @param array  $settings  The table settings.
 	 * @param array  $table_data The sheet $table_data.
 	 * @param bool   $from_block The request context type.
+	 * @param int    $table_id The table ID for backend AI summary.
 	 *
 	 * @return mixed
 	 */
-	public function generate_html( $name, $settings, $table_data, $from_block = false ) {
+	public function generate_html( $name, $settings, $table_data, $from_block = false, $table_id = 0 ) {
 		$table = '';
 
 		$hidden_fields = [
@@ -811,11 +837,22 @@ class Helpers {
 			$theme_data = $import_styles_theme_colors[ $table_style ];
 		}
 
+		$hover_color = isset($theme_data['hoverBGColor']) ? $theme_data['hoverBGColor'] : '#F3F4F6';
+		$hover_text_color = isset($theme_data['hoverTextColor']) ? $theme_data['hoverTextColor'] : '#fff';
+
 		$show_title = isset($settings['show_title']) ? wp_validate_boolean($settings['show_title']) : false;
 
 		$show_description = isset($settings['show_description']) ? wp_validate_boolean($settings['show_description']) : false;
 		$description_position = isset($settings['description_position']) && in_array($settings['description_position'], [ 'above', 'below' ]) ? $settings['description_position'] : 'above';
 		$description = isset($settings['table_description']) ? sanitize_text_field($settings['table_description']) : '';
+
+		// AI Summary settings
+		$enable_ai_summary = isset($settings['enable_ai_summary']) ? wp_validate_boolean($settings['enable_ai_summary']) : false;
+		$summary_source = isset($settings['summary_source']) ? $settings['summary_source'] : 'generate_on_click';
+		$summary_position_goc = isset($settings['summary_position_goc']) && in_array($settings['summary_position_goc'], [ 'above', 'below' ]) ? $settings['summary_position_goc'] : 'below';
+
+		// Determine what to show based on summary_source
+		$show_frontend_summary_button = $enable_ai_summary && $summary_source === 'generate_on_click';
 
 		$merged_support = ( isset($settings['merged_support']) && wp_validate_boolean($settings['merged_support']) ) ?? false;
 		$checkbox_support = ( isset($settings['checkbox_support']) && wp_validate_boolean($settings['checkbox_support']) ) ?? false;
@@ -827,6 +864,16 @@ class Helpers {
 
 		$table .= sprintf('<h3 class="swptls-table-title%s" id="swptls-table-title">%s</h3>', $show_title ? '' : ' hidden', $name );
 
+		// Display AI Summary result container above table if position is 'above'
+		if ( $show_frontend_summary_button && 'above' === $summary_position_goc ) {
+			$table .= $this->render_ai_summary_result_container($table_id, 'above');
+		}
+
+		// Display frontend AI Summary button above table (always)
+		if ( $show_frontend_summary_button ) {
+			$table .= $this->render_ai_summary_button($table_id, $settings, $summary_position_goc);
+		}
+
 		if ( 'above' === $description_position && false !== $show_description ) {
 			$table .= sprintf('<p class="swptls-table-description%s" id="swptls-table-description">%s</p>', $show_description ? '' : ' hidden', $description );
 		}
@@ -835,6 +882,9 @@ class Helpers {
 
 		$table .= "--pagination_center: $pagination_center;";
 		$table .= "--pagination-colors: $pagination_acive_btn_color;";
+		$table .= "--hover-bg-color: $hover_color;";
+		$table .= "--hover-text-color: $hover_text_color;";
+
 		$table .= '">';
 
 		if ( is_string($table_data['sheet_data']) ) {
@@ -923,8 +973,12 @@ class Helpers {
 
 				$cell_data = ( '' === $row_data[ $j ] ) ? '' : $row_data[ $j ];
 
-				if ( ! empty($table_data['sheet_images']) ) {
+				/* if ( ! empty($table_data['sheet_images']) ) {
 					$cell_data = $this->get_organized_image_data($c_index, $table_data['sheet_images'], $cell_data);
+				} */
+
+				if ( ! empty($table_data['sheet_images']) ) {
+					$cell_data = $this->get_organized_image_data($c_index, $table_data['sheet_images'], $cell_data, $settings);
 				}
 
 				if ( 'smart_link' === $link_support ) {
@@ -1031,6 +1085,11 @@ class Helpers {
 			$table .= sprintf('<p class="swptls-table-description%s" id="swptls-table-description">%s</p>', $show_description ? '' : ' hidden', $description );
 		}
 
+		// Display AI Summary result container below table if position is 'below'
+		if ( $show_frontend_summary_button && 'below' === $summary_position_goc ) {
+			$table .= $this->render_ai_summary_result_container($table_id, 'below');
+		}
+
 		return $table;
 	}
 
@@ -1118,5 +1177,101 @@ class Helpers {
 	 */
 	public function is_latest_version(): bool {
 		return version_compare( SWPTLS_VERSION, '2.13.4', '>' );
+	}
+
+	/**
+	 * Render AI Summary button for frontend interaction (always above table)
+	 *
+	 * @param int    $table_id The table ID for AI summary generation
+	 * @param array  $settings The table settings
+	 * @param string $summary_position_goc The position where result should appear
+	 * @return string The formatted HTML for the AI summary button
+	 */
+	private function render_ai_summary_button( $table_id, $settings = [], $summary_position_goc = 'below' ) {
+		if ( empty($table_id) ) {
+			return '';
+		}
+
+		// Get customizable button settings
+		$button_text = isset($settings['summary_button_text']) ? $settings['summary_button_text'] : '✨ Generate Summary';
+		$button_bg_color = isset($settings['summary_button_bg_color']) ? $settings['summary_button_bg_color'] : '#3B82F6';
+		$button_text_color = isset($settings['summary_button_text_color']) ? $settings['summary_button_text_color'] : '#ffffff';
+
+		$html = '<div class="swptls-ai-summary-controls">';
+		$html .= '<button class="swptls-ai-summary-btn-inline" data-table-id="' . esc_attr($table_id) . '" data-position="' . esc_attr($summary_position_goc) . '" title="' . esc_attr(__('Generate AI-powered summary of this table data', 'sheets-to-wp-table-live-sync')) . '" style="background-color: ' . esc_attr($button_bg_color) . '; color: ' . esc_attr($button_text_color) . ';">';
+		$html .= '<span class="button-text">' . esc_html($button_text) . '</span>';
+		$html .= '</button>';
+		$html .= '</div>';
+
+		return $html;
+	}
+
+	/**
+	 * Render AI Summary result container based on position
+	 *
+	 * @param int    $table_id The table ID for AI summary generation
+	 * @param string $position The position (above/below)
+	 * @return string The formatted HTML for the result container
+	 */
+	private function render_ai_summary_result_container( $table_id, $position = 'above' ) {
+		if ( empty($table_id) ) {
+			return '';
+		}
+
+		$result_id = 'swptls-ai-summary-result-' . $table_id . '-' . $position;
+		$scroll_target_id = 'swptls-ai-summary-scroll-target-' . $table_id;
+
+		$html = '<div class="swptls-ai-summary-result-container" data-position="' . esc_attr($position) . '">';
+
+		// Add scroll target for 'below' position
+		if ( $position === 'below' ) {
+			$html .= '<div id="' . esc_attr($scroll_target_id) . '" class="ai-summary-scroll-target"></div>';
+		}
+
+		$html .= '<div class="swptls-ai-summary-result" id="' . esc_attr($result_id) . '" style="display: none;">';
+		$html .= '<div class="summary-header">';
+		$html .= '<span class="ai-icon">';
+		$html .= '<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">';
+		$html .= '<g clip-path="url(#clip0_2856_18445)">
+					<path d="M21.4284 11.2353C15.681 11.582 11.0818 16.1813 10.7352 21.9287H10.6932C10.3465 16.1813 5.74734 11.582 0 11.2353V11.1934C5.74734 10.8467 10.3465 6.24744 10.6932 0.5H10.7352C11.0818 6.24744 15.681 10.8467 21.4284 11.1934V11.2353Z" fill="url(#paint0_radial_2856_18445)"/>
+					<path d="M24.001 20.2228C21.7021 20.3615 19.8624 22.2012 19.7238 24.5002H19.707C19.5683 22.2012 17.7286 20.3615 15.4297 20.2228V20.2061C17.7286 20.0674 19.5683 18.2277 19.707 15.9287H19.7238C19.8624 18.2277 21.7021 20.0674 24.001 20.2061V20.2228Z" fill="url(#paint1_radial_2856_18445)"/>
+					</g>
+					<defs>
+					<radialGradient id="paint0_radial_2856_18445" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(2.12658 9.20886) rotate(18.6835) scale(22.8078 182.707)">
+					<stop offset="0.0671246" stop-color="#9168C0"/>
+					<stop offset="0.342551" stop-color="#5684D1"/>
+					<stop offset="0.672076" stop-color="#1BA1E3"/>
+					</radialGradient>
+					<radialGradient id="paint1_radial_2856_18445" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(16.2803 19.4123) rotate(18.6835) scale(9.12314 73.083)">
+					<stop offset="0.0671246" stop-color="#9168C0"/>
+					<stop offset="0.342551" stop-color="#5684D1"/>
+					<stop offset="0.672076" stop-color="#1BA1E3"/>
+					</radialGradient>
+					<clipPath id="clip0_2856_18445">
+					<rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+					</clipPath>
+					</defs>';
+		$html .= '</svg>';
+		$html .= '<h4 class="summary-title">AI Summary</h4>';
+		$html .= '</span>';
+		$html .= '<div class="summary-actions">';
+		// Regenerate button - visibility controlled by JavaScript based on table settings
+		$html .= '<button class="summary-action-btn regenerate-btn" data-table-id="' . esc_attr($table_id) . '" title="Regenerate summary" style="display: none;">';
+		$html .= '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">';
+		$html .= '<path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>';
+		$html .= '</svg>';
+		$html .= '</button>';
+		$html .= '<button class="summary-action-btn close-btn" data-table-id="' . esc_attr($table_id) . '" title="Close summary">';
+		$html .= '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">';
+		$html .= '<path d="M18 6L6 18M6 6l12 12"/>';
+		$html .= '</svg>';
+		$html .= '</button>';
+		$html .= '</div>';
+		$html .= '</div>';
+		$html .= '<div class="summary-content"></div>';
+		$html .= '</div>';
+		$html .= '</div>';
+
+		return $html;
 	}
 }

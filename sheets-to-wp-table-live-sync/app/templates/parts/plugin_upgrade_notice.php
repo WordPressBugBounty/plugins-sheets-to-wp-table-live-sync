@@ -19,10 +19,10 @@ $pink_diamond = SWPTLS_BASE_URL . 'assets/public/icons/top-banner/pink-diamond.s
 		</div>
 		
 		<div class="content">
-			<h3><?php esc_html_e('Advance sheets design and many more premium features are available in ', 'sheetstowptable'); ?> <span><?php esc_html_e('FlexTable Pro', 'sheetstowptable'); ?></span> <?php esc_html_e('plugin 😍', 'sheetstowptable'); ?></h3>
+			<h3><?php esc_html_e('Advance sheets design and many more premium features are available in ', 'sheets-to-wp-table-live-sync'); ?> <span><?php esc_html_e('FlexTable Pro', 'sheets-to-wp-table-live-sync'); ?></span> <?php esc_html_e('plugin 😍', 'sheets-to-wp-table-live-sync'); ?></h3>
 
 			<div class="upgrade-btn-wrapper">
-				<a href="<?php echo esc_url('https://go.wppool.dev/KfVZ'); ?>" target="_blank" class="upgrade-button"><?php esc_html_e('Upgrade Now', 'sheetstowptable'); ?> <span></span></a>
+				<a href="<?php echo esc_url('https://go.wppool.dev/KfVZ'); ?>" target="_blank" class="upgrade-button"><?php esc_html_e('Upgrade Now', 'sheets-to-wp-table-live-sync'); ?> <span></span></a>
 			</div>
 
 		</div>

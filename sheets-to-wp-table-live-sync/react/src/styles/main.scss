@@ -17,7 +17,7 @@ div#swptls-app-root {
 //Button Style
 .btn {
     padding: 15px 20px;
-    background: #2bb885;
+    background: #008717;
     border-radius: 8px;
     font-weight: 600;
     font-size: 16px;
@@ -55,11 +55,11 @@ div#swptls-app-root {
 
     &.btn-manage {
         color: #ffffff;
-        background-color: #3858E9;
+        background-color: #008717;
 
         &:hover,
         &:focus {
-            background-color: darken($color: #3858E9, $amount: 10px);
+            background-color: #126E22;
         }
     }
 
@@ -107,7 +107,7 @@ div#swptls-app-root {
 
     &:hover {
         color: white;
-        background-color: darken($color: #2bb885, $amount: 10%);
+        background-color: #126E22;
     }
 
     &:focus {
@@ -115,6 +115,28 @@ div#swptls-app-root {
         border: none;
         box-shadow: none;
         outline: none;
+    }
+}
+
+.tab-btn {
+    padding: 15px 20px;
+    background: #008717;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    color: #f8f9fa;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        color: white;
+        background-color: #126E22;
     }
 }
 
@@ -130,6 +152,7 @@ div#swptls-app-root {
     background: transparent;
     display: inline-block;
     cursor: pointer;
+    transition: all 0.3s ease;
 
     svg {
         path {
@@ -138,10 +161,8 @@ div#swptls-app-root {
     }
 
     &:hover {
-        animation: delete-shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-        transform: translate3d(0, 0, 0);
-        backface-visibility: hidden;
-        perspective: 1000px;
+        transform: scale(1.1);
+
 
         svg {
             path {
@@ -280,7 +301,7 @@ input[type="search"] {
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
-    color: #666873;
+    color: #2c3338;
     outline: none;
     width: 100%;
     height: 50px;
@@ -334,7 +355,7 @@ input[type="search"] {
     color: #fff;
     padding: 1px 20px;
     text-align: center;
-    background-color: #2bb885;
+    background-color: #008717;
 
     a {
         color: #fff;
@@ -349,34 +370,8 @@ input[type="search"] {
 .btn-pro {
     outline: 0;
     gap: 3px;
-    color: #FF5924;
-    cursor: pointer;
-    box-shadow: none;
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 100%;
-    display: inline-flex;
-    align-items: center;
-    border-radius: 3.533px;
-    padding: 4px 10px;
-    border: 0.5px solid rgba(255, 89, 36, 0.05);
-    box-shadow: none !important;
-    background-color: rgba(255, 89, 36, 0.05);
-    transition: background-color 0.2s, color 0.2s;
-    margin-left: 8px;
-
-    &:hover {
-        color: #fff;
-        background-color: #FF5924;
-    }
-}
-
-.btn-new {
-    outline: 0;
-    gap: 3px;
-    color: #2bb885;
-    background-color: rgba(43, 184, 133, 0.05);
+    color: #1C6CDB;
+    background-color: #EFF2F7;
     box-shadow: none;
     font-size: 11px;
     font-style: normal;
@@ -384,17 +379,49 @@ input[type="search"] {
     line-height: normal;
     display: inline-flex;
     align-items: center;
-    border-radius: 3.533px;
+    border-radius: 14px;
     padding: 2px 7px 2px 7px;
     border: 0.5px solid rgba(43, 184, 133, 0.05);
     box-shadow: none !important;
     transition: background-color 0.2s, color 0.2s;
     margin-left: 5px;
 
-    &:hover {
+    /* &:hover {
         color: #fff;
-        background-color: #2bb885;
-    }
+        background-color: #324759;
+    } */
+}
+
+.btn-new {
+    outline: 0;
+    gap: 3px;
+    color: #1C6CDB;
+    background-color: #EFF2F7;
+    box-shadow: none;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 14px;
+    padding: 2px 7px 2px 7px;
+    border: 0.5px solid rgba(43, 184, 133, 0.05);
+    box-shadow: none !important;
+    transition: background-color 0.2s, color 0.2s;
+    margin-left: 5px;
+
+    /* &:hover {
+        color: #fff;
+        background-color: #324759;
+    } */
+}
+
+
+.swptls-ai-summary-controls,
+.swptls-backend-ai-summary,
+.swptls-prompt-interface {
+    display: none;
 }
 
 // .cache-pro-tag{
@@ -440,6 +467,25 @@ button.single-theme-button {
     // pointer-events: none;
     cursor: not-allowed;
     z-index: 99;
+
+    // Hide by default for AI-lock-blur variant
+    &.AI-lock-blur {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(1px);
+        border-radius: 10px;
+    }
+}
+
+// Show pro lock on hover for source options and other elements
+.source-option:hover .btn-pro-lock.AI-lock-blur,
+.summary-text-prompt:hover .btn-pro-lock.AI-lock-blur,
+.setting-row:hover .btn-pro-lock.AI-lock-blur,
+.generate-click-customization:hover .btn-pro-lock.AI-lock-blur {
+    opacity: 1;
+    visibility: visible;
 }
 
 .theme-lock-blur {
@@ -521,9 +567,9 @@ span.import-tooltip {
     margin-top: -5px;
 }
 
-button.btn-pro.btn-new {
+/* button.btn-pro.btn-new {
     margin-top: 3px;
-}
+} */
 
 .react-tooltip {
 

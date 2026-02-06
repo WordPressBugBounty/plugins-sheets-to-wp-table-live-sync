@@ -1,0 +1,207 @@
+//Resource Wrapper Styles
+.ResourceWrapper {
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 30px;
+
+    .gradient-border {
+        position: relative;
+        border: 0px solid transparent;
+        background-clip: padding-box;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 1px;
+    }
+
+    .content {
+        border-radius: 10px;
+
+        @media (max-width: 768px) {
+            padding: 30px;
+        }
+
+        @media (max-width: 480px) {
+            padding: 20px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            @media (max-width: 480px) {
+                gap: 20px;
+            }
+
+            .resource-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 20px;
+                padding: 24px;
+                background: #fff;
+                transition: all 0.3s ease;
+                border-radius: 10px;
+                border: 1px solid transparent;
+                cursor: pointer;
+                min-height: 180px; // Reserve minimum height to prevent jumping
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 24px rgb(158 152 152 / 10%);
+                    border-color: #e5e7eb;
+
+                    .resource-content {
+                        button.resource-cta {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+
+                    .resource-icon {
+
+                        svg path,
+                        svg circle,
+                        svg rect,
+                        svg {
+                            fill: #008717 !important;
+                            transition: fill 0.3s ease;
+                        }
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    min-height: auto;
+
+                    // Always show CTA on mobile
+                    .resource-cta {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    padding: 20px;
+                    gap: 16px;
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .resource-icon {
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 12px;
+                    transition: all 0.3s ease;
+
+                    @media (max-width: 480px) {
+                        width: 50px;
+                        height: 50px;
+                        align-self: center;
+                    }
+
+                    svg {
+                        width: 32px;
+                        height: 32px;
+                        transition: all 0.3s ease;
+
+                        path,
+                        circle,
+                        rect {
+                            transition: fill 0.3s ease;
+                        }
+
+                        @media (max-width: 480px) {
+                            width: 28px;
+                            height: 28px;
+                        }
+                    }
+                }
+
+                .resource-content {
+                    flex: 1;
+                    min-width: 0;
+                    display: flex;
+                    flex-direction: column;
+
+                    .resource-title {
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: #1e1e1e;
+                        margin: 0 0 8px 0;
+                        line-height: 1.3;
+
+                        @media (max-width: 480px) {
+                            font-size: 16px;
+                            margin-bottom: 6px;
+                        }
+                    }
+
+                    .resource-description {
+                        font-size: 14px;
+                        color: #666873;
+                        margin: 0 0 12px 0; // Always reserve space for CTA
+                        line-height: 1.5;
+
+                        @media (max-width: 480px) {
+                            font-size: 13px;
+                        }
+                    }
+
+                    .resource-cta {
+                        background: transparent;
+                        border: unset;
+                        color: #008717;
+                        padding: 8px 0;
+                        margin-top: 0;
+                        font-size: 14px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        text-decoration: none;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 4px;
+                        opacity: 0;
+                        visibility: hidden;
+                        height: 37px; // Fixed height to reserve space
+
+                        @media (max-width: 768px) {
+                            // Always visible on mobile
+                            opacity: 1;
+                            visibility: visible;
+                        }
+
+                        &:hover {
+                            color: #006612;
+                            transform: translateX(4px);
+                        }
+
+                        &:active {
+                            transform: translateX(2px);
+                        }
+
+                        &:focus {
+                            outline: 2px solid #008717;
+                            outline-offset: 2px;
+                        }
+
+                        @media (max-width: 480px) {
+                            padding: 10px 18px;
+                            font-size: 13px;
+                            align-self: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

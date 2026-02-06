@@ -36,7 +36,7 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 				<!-- phpcs:ignore -->
 				<a class="ui violet button"
 					href="<?php echo esc_url(admin_url( 'admin.php?page=gswpts-dashboard' )); ?>">
-					<i class="fas fa-angle-double-left"></i> <?php esc_html_e( 'Back', 'sheetstowptable' ); ?>
+					<i class="fas fa-angle-double-left"></i> <?php esc_html_e( 'Back', 'sheets-to-wp-table-live-sync' ); ?>
 				</a>
 
 				<div class="col p-0 d-flex align-items-center justify-content-end">
@@ -44,13 +44,13 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 						class="positive ui transition button m-0 mr-2 <?php echo isset( $table_id ) && ! empty( $table_id ) ? '' : 'transition hidden'; ?>"
 						style="padding-left: 30px;"
 						data-nonce="<?php echo esc_attr( wp_create_nonce( 'swptls_sheet_creation_nonce' ) ); ?>">
-						<?php esc_html_e( 'Create New', 'sheetstowptable' ); ?> &nbsp; <i class="fas fa-plus"></i>
+						<?php esc_html_e( 'Create New', 'sheets-to-wp-table-live-sync' ); ?> &nbsp; <i class="fas fa-plus"></i>
 					</button>
 					<button class="ui violet button m-0 transition hidden fetch_save_btn" type="button"
 						req-type="<?php echo ! empty( $table_id ) ? 'save' : 'fetch'; ?>"
 						data-nonce="<?php echo esc_attr( wp_create_nonce( 'swptls_sheet_creation_nonce' ) ); ?>">
 						<span class="btn_text">
-							<?php echo isset( $table_id ) && ! empty( $table_id ) ? esc_html__( 'Save Table', 'sheetstowptable' ) : esc_html__( 'Fetch Data', 'sheetstowptable' ); ?>
+							<?php echo isset( $table_id ) && ! empty( $table_id ) ? esc_html__( 'Save Table', 'sheets-to-wp-table-live-sync' ) : esc_html__( 'Fetch Data', 'sheets-to-wp-table-live-sync' ); ?>
 						</span>
 						&nbsp;
 						<?php if ( isset( $table_id ) && ! empty( $table_id ) ) { ?>
@@ -77,7 +77,7 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 							data-attr-text="<?php echo isset( $table_id ) && ! empty( $table_id ) ? esc_attr( 'save' ) : esc_attr( 'fetch' ); ?>">
 							<label for="tab1" role="button">
 								<i class="fas fa-box-open"></i>
-								<span><?php esc_html_e( 'Data Source', 'sheetstowptable' ); ?></span>
+								<span><?php esc_html_e( 'Data Source', 'sheets-to-wp-table-live-sync' ); ?></span>
 							</label>
 						</li>
 
@@ -87,7 +87,7 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 							data-attr-text="<?php echo esc_attr( 'save_changes' ); ?>">
 							<label for="tab2" role="button">
 								<i class="fas fa-cogs"></i>
-								<span><?php esc_html_e( 'Display Settings', 'sheetstowptable' ); ?></span>
+								<span><?php esc_html_e( 'Display Settings', 'sheets-to-wp-table-live-sync' ); ?></span>
 							</label>
 						</li>
 
@@ -97,7 +97,7 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 							data-attr-text="<?php echo esc_attr( 'save_changes' ); ?>">
 							<label for="tab3" role="button">
 								<i class="fas fa-sort-amount-up-alt"></i>
-								<span><?php esc_html_e( 'Sort & Filter', 'sheetstowptable' ); ?></span>
+								<span><?php esc_html_e( 'Sort & Filter', 'sheets-to-wp-table-live-sync' ); ?></span>
 							</label>
 						</li>
 
@@ -107,7 +107,7 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 							data-attr-text="<?php echo esc_attr( 'save_changes' ); ?>">
 							<label for="tab4" role="button">
 								<i class="fas fa-tools"></i>
-								<span><?php esc_html_e( 'Table Tools', 'sheetstowptable' ); ?></span>
+								<span><?php esc_html_e( 'Table Tools', 'sheets-to-wp-table-live-sync' ); ?></span>
 							</label>
 						</li>
 					</ul>
@@ -126,7 +126,7 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 												<input type="hidden" name="source_type" value="spreadsheet">
 												<i class="dropdown icon"></i>
 												<div class="default text">
-													<?php esc_html_e( 'Choose Source Type', 'sheetstowptable' ); ?>
+													<?php esc_html_e( 'Choose Source Type', 'sheets-to-wp-table-live-sync' ); ?>
 												</div>
 												<div class="menu">
 													<div class="item" data-value="spreadsheet">
@@ -195,7 +195,7 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 				<?php if ( isset( $table_id ) && ! empty( $table_id ) ) : ?>
 				<div class="ui segment gswpts_table_loader" style="z-index: -1;">
 					<div class="ui active inverted dimmer">
-						<div class="ui large text loader"><?php esc_html_e( 'Loading', 'sheetstowptable' ); ?></div>
+						<div class="ui large text loader"><?php esc_html_e( 'Loading', 'sheets-to-wp-table-live-sync' ); ?></div>
 					</div>
 					<p></p>
 					<p></p>

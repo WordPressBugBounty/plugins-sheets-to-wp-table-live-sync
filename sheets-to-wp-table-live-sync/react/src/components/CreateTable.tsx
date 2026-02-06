@@ -2,8 +2,9 @@ import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Tooltip from './Tooltip';
 import Title from '../core/Title';
+import CTAVideoPlayer from './CTAVideoPlayer';
 
-import { infoIcon, arrowRightIcon } from '../icons';
+import { infoIcon, arrowRightIcon, LoaderIcon } from '../icons';
 
 import {
 	isValidGoogleSheetsUrl,
@@ -17,7 +18,6 @@ import {
 
 //styles
 import '../styles/_createTable.scss';
-import CtaAdd from './CtaAdd';
 import { toast } from 'react-toastify';
 
 function CreateTable() {
@@ -27,6 +27,8 @@ function CreateTable() {
 	const [sheetUrl, setSheetUrl] = useState<string>('');
 	// const [gridError, setGridError] = useState(false);
 	const [privatesheetmessage, setPrivateSheetmessage] = useState(false);
+
+	const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
 	const handleCreateTable = (e) => {
 		e.preventDefault();
@@ -78,7 +80,6 @@ function CreateTable() {
 
 	return (
 		<div className="create-table">
-			<Title tagName="h1">{getStrings('creating-new-table')}</Title>
 
 			<div className="create-table-form">
 				<Title tagName="h4">
@@ -90,20 +91,17 @@ function CreateTable() {
 				<input
 					type="text"
 					name=""
-					placeholder="Enter your google sheet URL"
+					placeholder="Paste your Google Sheet URL here"
 					id="sheet-url"
 					onChange={(e) => handleSheetUrl(e)}
 					ref={sheetUrlRef}
 				/>
 
-				{ /* {gridError && (<p className='swptls-grid-not-supported-error'>{getStrings('on-free-plan-tables-can')}<span onClick={displayProPopup}>{getStrings('get-pro')}</span> {getStrings('to-create-table-from-any-tab')}</p>)} */}
-				{ /* Notice  */}
-
 				{privatesheetmessage && (
 					<div className="private-sheet-notice-container invalid-download">
 						<div className="invalid-card">
 							<label className="invalid-download-new">
-								<span className="icon">
+								{/* <span className="icon">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										width="16"
@@ -116,7 +114,7 @@ function CreateTable() {
 											fill="#FF8023"
 										/>
 									</svg>
-								</span>
+								</span> */}
 								<span>
 									{getStrings('unable-to-access')}
 								</span>
@@ -197,13 +195,35 @@ function CreateTable() {
 						disabled={privatesheetmessage}
 						style={{ opacity: privatesheetmessage ? '0.5' : '1' }}
 					>
-						{getStrings('create-table')}
-						{loader ? '....' : arrowRightIcon}
+						{getStrings('create-table-from-url')}
+						{loader ? LoaderIcon : ''}
 					</button>
 				</div>
+
+				<br />
+				<p>
+					{getStrings('need-help-watch-a')}{' '}
+					<span
+						onClick={() => setIsVideoModalOpen(true)}
+						style={{
+							color: '#575757',
+							cursor: 'pointer',
+							textDecoration: 'underline'
+						}}
+					>
+						quick video tutorial
+					</span>
+				</p>
+
 			</div>
 
-			<CtaAdd />
+			<CTAVideoPlayer
+				videoUrl="https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT"
+				title="Get started with table creation"
+				isOpen={isVideoModalOpen}
+				onClose={() => setIsVideoModalOpen(false)}
+			/>
+
 		</div>
 	);
 }

@@ -81,7 +81,7 @@
                         border-left: 1px solid #d5d6d7;
                         border-right: 1px solid #d5d6d7;
                         border-color: #d5d6d7;
-                        color: #2bb885;
+                        color: #008717;
                         position: relative;
 
                         &::after {
@@ -121,13 +121,13 @@
                 line-height: 21px;
                 text-align: center;
                 padding: 10px 30px;
-                background: #34A0FA;
+                background: #008717;
                 border-radius: 8px;
                 margin-bottom: 10px;
                 transition: all 0.3s ease;
 
                 &:hover {
-                    background-color: darken($color: #34A0FA, $amount: 10px);
+                    background-color: darken($color: #008717, $amount: 10px);
                 }
 
                 @media (max-width: 1067.98px) {
@@ -167,7 +167,7 @@
                         border-radius: 6px;
                         padding: 16px 15px;
                         align-content: center;
-                        background: #F5F6FD;
+                        background: #FAFAFA;
                         margin-top: 15px;
 
                         li {
@@ -596,7 +596,8 @@ div#create_tables_wrapper div#create_tables_length select {
                 cursor: pointer;
                 display: flex;
                 font-size: 16px;
-                font-weight: 400;
+                font-weight: 600;
+                opacity: 0.6;
                 color: #1E1E1E;
                 text-align: center;
                 line-height: normal;
@@ -631,7 +632,7 @@ div#create_tables_wrapper div#create_tables_length select {
                         position: absolute;
                         border-radius: 500px;
                         border: 2px solid #ffffff;
-                        background-color: #34A0FA;
+                        background-color: #008717;
                     }
                 }
             }
@@ -651,10 +652,11 @@ div#create_tables_wrapper div#create_tables_length select {
             &:focus {
 
                 a {
-                    color: #2BB885;
+                    opacity: 1;
+                    // font-weight: 600;
 
                     .icon {
-                        background-color: #2BB885;
+                        background-color: #008717;
 
                         svg {
 
@@ -780,6 +782,14 @@ div#create_tables_wrapper div#create_tables_length select {
         font-weight: 600;
         font-style: normal;
         line-height: normal;
+
+        span.help-link {
+            &:hover {
+                color: #008717 !important;
+            }
+        }
+
+
     }
 
     &__wrapper {
@@ -807,8 +817,8 @@ div#create_tables_wrapper div#create_tables_length select {
 
             &:hover {
                 box-shadow: none !important;
-                color: #2BB885;
-                border-color: #2BB885;
+                color: #008717;
+                border-color: #008717;
                 box-shadow: none !important;
 
                 span {
@@ -820,7 +830,7 @@ div#create_tables_wrapper div#create_tables_length select {
                     svg {
 
                         path {
-                            fill: #2BB885;
+                            fill: #008717;
                         }
                     }
                 }
@@ -833,7 +843,7 @@ div#create_tables_wrapper div#create_tables_length select {
 
             &.btn-success {
                 color: #fff;
-                background-color: #2BB885;
+                background-color: #008717;
 
                 svg {
 
@@ -863,7 +873,7 @@ div#create_tables_wrapper div#create_tables_length select {
     &__prev,
     &__next {
         gap: 5px;
-        color: #666873;
+        color: #465868;
         font-size: 16px;
         font-weight: 400;
         border-radius: 8px;
@@ -888,19 +898,7 @@ div#create_tables_wrapper div#create_tables_length select {
             }
         }
 
-        // &:hover {
-        //     color: #34A0FA;
-        //     border-color: #34A0FA;
 
-        //     .icon {
-
-        //         svg {
-        //             path {
-        //                 fill: #34A0FA;
-        //             }
-        //         }
-        //     }
-        // }
     }
 
     &__next {
@@ -914,20 +912,27 @@ div#create_tables_wrapper div#create_tables_length select {
         }
 
         &:not(.swptls-wizard-disabled) {
-            color: #34A0FA;
-            border-color: #34A0FA;
+            // color: #008717;
+            // border-color: #008717;
 
             .icon {
 
                 svg {
                     path {
-                        fill: #34A0FA;
+                        // fill: #008717;
                     }
                 }
             }
 
             &:hover {
-                background-color: #d8eaf999
+                // background-color: #d8eaf999
+                color: #008717;
+
+                svg {
+                    path {
+                        fill: #008717;
+                    }
+                }
             }
         }
     }
@@ -945,17 +950,28 @@ div#create_tables_wrapper div#create_tables_length select {
 
         &:not(.swptls-wizard-disabled) {
 
-            &:hover {
-                color: #34A0FA;
-                border-color: #34A0FA;
+            /* &:hover {
+                color: #008717;
+                border-color: #008717;
                 background-color: #d8eaf999;
 
                 .icon {
 
                     svg {
                         path {
-                            fill: #34A0FA;
+                            fill: #008717;
                         }
+                    }
+                }
+            } */
+
+            &:hover {
+                // background-color: #d8eaf999
+                color: #008717;
+
+                svg {
+                    path {
+                        fill: #008717;
                     }
                 }
             }
@@ -978,7 +994,11 @@ div#create_tables_wrapper div#create_tables_length select {
         border-radius: 8px;
         line-height: normal;
         transition: all 0.3s ease;
-        background-color: #34A0FA;
+        background-color: #008717;
+
+        &:hover {
+            background-color: #126E22;
+        }
     }
 
     &__dropdown {
@@ -992,120 +1012,12 @@ div#create_tables_wrapper div#create_tables_length select {
             position: relative;
             align-items: center;
             white-space: nowrap;
-            background-color: #34A0FA;
+            background-color: #008717;
             transition: all 0.3s ease;
-
-            .caret-down {
-                color: #fff;
-                width: 38px;
-                height: 34px;
-                display: flex;
-                cursor: pointer;
-                font-size: 16px;
-                font-weight: 600;
-                padding: 13px 12px;
-                align-items: center;
-                justify-content: center;
-                background-color: #34A0FA;
-                border-left: 1px solid #D1E2EF;
-                transition: all 0.3s ease;
-
-                svg {
-                    transition: all 0.3s ease;
-                }
-            }
-
-            &:hover {
-                background-color: darken(#34A0FA, 10px);
-
-                .caret-down {
-                    background-color: darken(#34A0FA, 10px);
-                }
-
-                .table-action__save {
-                    background-color: darken(#34A0FA, 10px);
-                }
-            }
         }
 
-        &.show {
-
-            .caret-down {
-
-                svg {
-                    transform: rotate(-180deg);
-                }
-            }
-
-            .table-action__dropdown-menu {
-                top: 100%;
-                opacity: 1;
-                visibility: visible;
-            }
-        }
     }
 
-    &__dropdown-outarea {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 40;
-        position: fixed;
-    }
-
-    &__dropdown-menu {
-        top: 120%;
-        right: 0;
-        z-index: 50;
-        opacity: 0;
-        margin-top: 5px;
-        min-width: 205px;
-        position: absolute;
-        visibility: hidden;
-        border-radius: 8px;
-        background-color: #FFF;
-        border: 1px solid #E3E5E9;
-        transition: all 0.3s ease;
-        box-shadow: 0px 4px 4px 0px rgba(90, 99, 107, 0.15);
-
-        a {
-            display: block;
-            font-size: 16px;
-            color: #1E1E1E;
-            font-weight: 400;
-            padding: 10px 14px;
-            margin-bottom: 2px;
-            cursor: pointer;
-            font-style: normal;
-            line-height: normal;
-            text-decoration: none;
-            transition: all 0.3s ease;
-
-            .icon {
-                margin-right: 5px;
-
-                svg {
-                    vertical-align: -3px;
-
-                    path {
-                        transition: all 0.3s ease;
-                    }
-                }
-            }
-
-            &:hover {
-                color: #34A0FA;
-
-                svg {
-
-                    path {
-                        stroke: #34A0FA;
-                    }
-                }
-            }
-        }
-    }
 
     &__shortcode {
         display: flex;

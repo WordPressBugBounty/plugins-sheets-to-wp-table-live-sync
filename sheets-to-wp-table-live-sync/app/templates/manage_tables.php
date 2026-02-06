@@ -40,13 +40,13 @@ defined( 'ABSPATH' ) || exit;
 				<button id="delete_button" class="negative ui button mr-0 float-right transition hidden"
 					data-show="false">
 					<span>
-						<?php esc_html_e( 'Delete Selected', 'sheetstowptable' ); ?> &nbsp; <i class="fas fa-trash-alt"></i>
+						<?php esc_html_e( 'Delete Selected', 'sheets-to-wp-table-live-sync' ); ?> &nbsp; <i class="fas fa-trash-alt"></i>
 					</span>
 				</button>
 
 				<button id="unselect_btn" class="ui violet button mr-2 float-right transition hidden">
 					<span>
-						<?php esc_html_e( 'Clear Selection', 'sheetstowptable' ); ?> &nbsp; <i class="fas fa-minus"></i>
+						<?php esc_html_e( 'Clear Selection', 'sheets-to-wp-table-live-sync' ); ?> &nbsp; <i class="fas fa-minus"></i>
 					</span>
 				</button>
 
@@ -57,7 +57,7 @@ defined( 'ABSPATH' ) || exit;
 			<div id="gswpts_tables_container" class="col-12 p-0 mt-3 position-relative" data-nonce="<?php echo esc_attr( wp_create_nonce( 'tables_related_nonce_action' ) ); ?>">
 				<div class="ui segment gswpts_table_loader">
 					<div class="ui active inverted dimmer">
-						<div class="ui large text loader"><?php esc_html_e( 'Loading', 'sheetstowptable' ); ?></div>
+						<div class="ui large text loader"><?php esc_html_e( 'Loading', 'sheets-to-wp-table-live-sync' ); ?></div>
 					</div>
 					<p></p>
 					<p></p>
@@ -69,24 +69,24 @@ defined( 'ABSPATH' ) || exit;
 			<a class="positive ui button mr-2 float-left transition hidden create_table_btn"
 				style="font-size: 1.03rem; position: relative;top: 0px;"
 				href="<?php echo esc_url( admin_url( 'admin.php?page=gswpts-dashboard&subpage=create-table' ) ); ?>">
-				<?php esc_html_e( 'Create Table', 'sheetstowptable' ); ?> &nbsp; <i class="fas fa-plus"></i>
+				<?php esc_html_e( 'Create Table', 'sheets-to-wp-table-live-sync' ); ?> &nbsp; <i class="fas fa-plus"></i>
 			</a>
 			<!-- End of create table button -->
 
 			<!-- Start popup modal -->
 			<div class="ui mini modal semntic-popup-modal" style="height: 180px; position: absolute; top: 40%; left: 50%; margin: -50px 0 0 -190px;">
 				<div class="header">
-					<?php esc_html_e( 'Delete Your Table', 'sheetstowptable' ); ?>
+					<?php esc_html_e( 'Delete Your Table', 'sheets-to-wp-table-live-sync' ); ?>
 				</div>
 				<div class="content">
 					<p><b class="gswpts_popup_content"></b></p>
 				</div>
 				<div class="actions">
 					<div class="ui negative button yes-btn">
-						<?php esc_html_e( 'Yes', 'sheetstowptable' ); ?>
+						<?php esc_html_e( 'Yes', 'sheets-to-wp-table-live-sync' ); ?>
 					</div>
 					<div class="ui positive button cancel-btn">
-						<?php esc_html_e( 'No', 'sheetstowptable' ); ?>
+						<?php esc_html_e( 'No', 'sheets-to-wp-table-live-sync' ); ?>
 					</div>
 				</div>
 			</div>

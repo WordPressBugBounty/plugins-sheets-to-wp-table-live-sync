@@ -18,11 +18,11 @@ $rating = SWPTLS_BASE_URL . 'assets/public/icons/top-banner/rating-mode.svg';
 			<img class="gswpts-image-icon" src="<?php echo esc_url($rating); ?>" alt="">
 		</div>
 		<div class="gswpts-influencer-wrapper">
-		<h3 class="rating-heading"><?php esc_html_e('Seems like ', 'sheetstowptable'); ?><span class="sheets-plugin-title"><?php esc_html_e('FlexTable', 'sheetstowptable'); ?></span><?php esc_html_e(' is bringing you value 🥳', 'sheetstowptable'); ?></h3>
+		<h3 class="rating-heading"><?php esc_html_e('Seems like ', 'sheets-to-wp-table-live-sync'); ?><span class="sheets-plugin-title"><?php esc_html_e('FlexTable', 'sheets-to-wp-table-live-sync'); ?></span><?php esc_html_e(' is bringing you value 🥳', 'sheets-to-wp-table-live-sync'); ?></h3>
 
-			<p class="review-notice"><?php esc_html_e( "Hi there! You've been using FlexTable for a while. Would you consider leaving us a 😍 5-star review? Your feedback will help us to develop better features and spread the word.", 'sheetstowptable' ); ?></p>
+			<p class="review-notice"><?php esc_html_e( "Hi there! You've been using FlexTable for a while. Would you consider leaving us a 😍 5-star review? Your feedback will help us to develop better features and spread the word.", 'sheets-to-wp-table-live-sync' ); ?></p>
 			<div class="link-wrapper notice-actions">
-				<h3><?php esc_attr_e( 'Please Rate Us:', 'sheetstowptable' ); ?></h3>
+				<h3><?php esc_attr_e( 'Please Rate Us:', 'sheets-to-wp-table-live-sync' ); ?></h3>
 				<div class="bottom-fields">
 				<div class="rating-container">
 					<span class="ratting-yellow-icon 1"></span>
@@ -31,7 +31,7 @@ $rating = SWPTLS_BASE_URL . 'assets/public/icons/top-banner/rating-mode.svg';
 					<span class="ratting-yellow-icon 4"></span>
 					<span class="ratting-yellow-icon 5"></span>
 				</div> 
-				<a href="#" class="hide_notice already-did-hook" data-value="hide_notice"><?php esc_html_e('I already did it', 'sheetstowptable'); ?></a>
+				<a href="#" class="hide_notice already-did-hook" data-value="hide_notice"><?php esc_html_e('I already did it', 'sheets-to-wp-table-live-sync'); ?></a>
 				</div>
 			</div>
 		</div>
@@ -42,22 +42,22 @@ $rating = SWPTLS_BASE_URL . 'assets/public/icons/top-banner/rating-mode.svg';
 			<a href="#" target="_blank" class="close ratting_close_button cross_to_close">&times;</a>
 			<div class="ratting_first_section2">
 				<div class="ratting_popup_wrap">
-					<h4><?php esc_html_e('Would you like to be remind in the future?', 'sheetstowptable'); ?></h4>
+					<h4><?php esc_html_e('Would you like to be remind in the future?', 'sheets-to-wp-table-live-sync'); ?></h4>
 				</div>
 				<div class="ratting_select-wrapper">
-					<span class="remind-title"><?php esc_html_e('Remind Me After:', 'sheetstowptable'); ?></span>
+					<span class="remind-title"><?php esc_html_e('Remind Me After:', 'sheets-to-wp-table-live-sync'); ?></span>
 					<div class="custom-select">
-						<span class="selected-option" data-value="7"><?php esc_html_e('7 Days', 'sheetstowptable'); ?>
+						<span class="selected-option" data-value="7"><?php esc_html_e('7 Days', 'sheets-to-wp-table-live-sync'); ?>
 						</span>
 						<ul class="options-list">
-							<li data-value="7"><?php esc_html_e('7 Days', 'sheetstowptable'); ?></li>
-							<li data-value="14"><?php esc_html_e('14 Days', 'sheetstowptable'); ?></li>
-							<li class="remind-me-text" data-value="hide_notice"><?php esc_html_e('Remind me never', 'sheetstowptable'); ?></li>
+							<li data-value="7"><?php esc_html_e('7 Days', 'sheets-to-wp-table-live-sync'); ?></li>
+							<li data-value="14"><?php esc_html_e('14 Days', 'sheets-to-wp-table-live-sync'); ?></li>
+							<li class="remind-me-text" data-value="hide_notice"><?php esc_html_e('Remind me never', 'sheets-to-wp-table-live-sync'); ?></li>
 						</ul>
 					</div>
 
 					<div class="promo_close_btn_submit">
-						<button class="ratting_custom-button ratting_submit_button2 promo_close_btn"><?php esc_html_e('Ok', 'sheetstowptable'); ?></button>
+						<button class="ratting_custom-button ratting_submit_button2 promo_close_btn"><?php esc_html_e('Ok', 'sheets-to-wp-table-live-sync'); ?></button>
 					</div>
 				</div>
 			</div>
@@ -228,7 +228,7 @@ jQuery(document).ready(function($) {
 		var orangeIcons = $('.ratting-orange-icon').length;
 
 		if (orangeIcons === 5) {
-			window.open('https://wordpress.org/support/plugin/sheets-to-wp-table-live-sync/reviews/?filter=5', '_blank');
+			window.open('https://wordpress.org/support/plugin/sheets-to-wp-table-live-sync/reviews/', '_blank');
 		} else {
 			window.open('https://wppool.dev/contact/', '_blank');
 		}

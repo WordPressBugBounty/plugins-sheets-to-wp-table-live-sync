@@ -53,18 +53,24 @@ class Shortcode {
 		$table = swptls()->database->table->get( $id );
 
 		if ( ! $table ) {
-			$output = '<h5><b>' . __( 'Table maybe deleted or can\'t be loaded.', 'sheetstowptable' ) . '</b></h5> <br>';
+			$output = '<h5><b>' . __( 'Table maybe deleted or can\'t be loaded.', 'sheets-to-wp-table-live-sync' ) . '</b></h5> <br>';
 			return $output;
 		}
 
-		$output .= '<div class="gswpts_tables_container gswpts_table_' . $id . '" id="' . $id . '" data-nonce="' . esc_attr( wp_create_nonce( 'gswpts_sheet_nonce_action' ) ) . '">';
+		// Get table settings to check if AI Summary is enabled
+		$table_settings = json_decode( $table['table_settings'], true );
+		$ai_summary_enabled = wp_validate_boolean( $table_settings['enable_ai_summary'] ?? false );
+		$summary_source = $table_settings['summary_source'] ?? 'generate_on_click';
+		$summary_display = $table_settings['summary_display'] ?? 'always_show';
+
+		$output .= '<div class="gswpts_tables_container gswpts_table_' . $id . '" id="' . $id . '" data-nonce="' . esc_attr( wp_create_nonce( 'gswpts_sheet_nonce_action' ) ) . '" data-ai-summary="' . ( $ai_summary_enabled ? 'true' : 'false' ) . '" data-summary-source="' . esc_attr( $summary_source ) . '" data-summary-display="' . esc_attr( $summary_display ) . '">';
 
 		$output .= '<div class="gswpts_tables_content">';
 
 		$output .= '
 			<div class="ui segment gswpts_table_loader">
 				<div class="ui active inverted dimmer">
-					<div class="ui large text loader">' . __( 'Loading', 'sheetstowptable' ) . '</div>
+					<div class="ui large text loader">' . __( 'Loading', 'sheets-to-wp-table-live-sync' ) . '</div>
 				</div>
 				<p></p>
 				<p></p>
@@ -89,7 +95,7 @@ class Shortcode {
 	 * @return HTML
 	 */
 	private function plain_shortcode( $atts ) {
-		$output = '<h5><b>' . __( 'Table maybe deleted or can\'t be loaded.', 'sheetstowptable' ) . '</b></h5><br>';
+		$output = '<h5><b>' . __( 'Table maybe deleted or can\'t be loaded.', 'sheets-to-wp-table-live-sync' ) . '</b></h5><br>';
 		$table = swptls()->database->table->get( absint( $atts['id'] ) );
 
 		if ( ! $table ) {
@@ -111,15 +117,12 @@ class Shortcode {
 		if ( swptls()->helpers->is_pro_active() ) {
 			$with_style  = wp_validate_boolean( $settings['importStyles'] ?? false );
 			$table_data  = swptlspro()->helpers->load_table_data( $url, absint( $table['id'] ) );
-			$response    = swptlspro()->helpers->generate_html( $name, $settings, $table_data );
+			$response    = swptlspro()->helpers->generate_html( $name, $settings, $table_data, false, absint( $table['id'] ) );
 			$table_style = $with_style ? 'default-style' : ( ! empty( $settings['table_style'] ) ? 'gswpts_' . $settings['table_style'] : '' );
 		} else {
-			// $response    = swptls()->helpers->generate_html( $response, $settings, $name ); // phpcs:ignore
-			// $table_style = 'default-style'; // phpcs:ignore
-
 			$with_style  = wp_validate_boolean( $settings['importStyles'] ?? false );
 			$table_data  = swptls()->helpers->load_table_data( $url, absint( $table['id'] ) );
-			$response    = swptls()->helpers->generate_html( $name, $settings, $table_data );
+			$response    = swptls()->helpers->generate_html( $name, $settings, $table_data, false, absint( $table['id'] ) );
 			$table_style = $with_style ? 'default-style' : ( ! empty( $settings['table_style'] ) ? 'gswpts_' . $settings['table_style'] : '' );
 
 		}
@@ -127,15 +130,24 @@ class Shortcode {
 		$table      = $response;
 		$responsive = isset( $settings['responsive_style'] ) && $settings['responsive_style'] ? $settings['responsive_style'] : null;
 
+		// Check if AI Summary is enabled
+		$ai_summary_enabled = wp_validate_boolean( $settings['enable_ai_summary'] ?? false );
+		$summary_source = $settings['summary_source'] ?? 'generate_on_click';
+		$summary_display = $settings['summary_display'] ?? 'always_show';
+
 		$output = sprintf(
-			'<div class="gswpts_tables_container gswpts_table_%1$d %2$s %3$s" id="%1$d" data-table_name="%4$s" data-table_settings=\'%5$s\' data-url="%6$s">',
+			'<div class="gswpts_tables_container gswpts_table_%1$d %2$s %3$s" id="%1$d" data-table_name="%4$s" data-table_settings=\'%5$s\' data-url="%6$s" data-ai-summary="%7$s" data-summary-source="%8$s" data-summary-display="%9$s">',
 			absint( $atts['id'] ),
 			esc_attr( $responsive ),
 			esc_attr( $table_style ),
 			esc_attr( $name ),
 			wp_json_encode( $settings ),
-			esc_attr( $url )
+			esc_attr( $url ),
+			$ai_summary_enabled ? 'true' : 'false',
+			esc_attr( $summary_source ),
+			esc_attr( $summary_display )
 		);
+
 		$output .= '<div class="gswpts_tables_content">';
 			$output .= $table;
 		$output .= '</div>';

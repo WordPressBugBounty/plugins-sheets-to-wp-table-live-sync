@@ -77,8 +77,8 @@ class TableSettings {
 	public function table_tools_array(): array {
 		$settings_array = [
 			'table_export' => [
-				'feature_title' => __( 'Table Exporting', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Enable this feature in order to allow your user to download your table content as various format.', 'sheetstowptable' ),
+				'feature_title' => __( 'Table Exporting', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Enable this feature in order to allow your user to download your table content as various format.', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'table_exporting',
 				'is_pro'        => true,
 				'type'          => 'multi-select',
@@ -87,9 +87,9 @@ class TableSettings {
 				'show_tooltip'  => true,
 			],
 			'table_cache'  => [
-				'feature_title' => __( 'Table Caching', 'sheetstowptable' ),
+				'feature_title' => __( 'Table Caching', 'sheets-to-wp-table-live-sync' ),
 				'feature_desc'  => __('Enabling this feature would cache the Google sheet data & therefore the table will load faster than before.
-                                        Also it will load the updated data when there is a change in your Google sheet.', 'sheetstowptable'),
+                                        Also it will load the updated data when there is a change in your Google sheet.', 'sheets-to-wp-table-live-sync'),
 				'input_name'    => 'table_cache',
 				'checked'       => false,
 				'is_pro'        => true,
@@ -98,8 +98,8 @@ class TableSettings {
 			],
 
 			'hide_column'  => [
-				'feature_title' => __( 'Hide Column', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Hide your table columns based on multiple screen sizes.', 'sheetstowptable' ),
+				'feature_title' => __( 'Hide Column', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Hide your table columns based on multiple screen sizes.', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'hide_column',
 				'checked'       => false,
 				'is_pro'        => true,
@@ -109,8 +109,8 @@ class TableSettings {
 				'icon_url'      => SWPTLS_BASE_URL . 'assets/public/icons/hide_column.svg',
 			],
 			'hide_column_mobile'  => [
-				'feature_title' => __( 'Hide Column on Mobile', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Hide your table columns based on mobile screen sizes.', 'sheetstowptable' ),
+				'feature_title' => __( 'Hide Column on Mobile', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Hide your table columns based on mobile screen sizes.', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'hide_column_mobile',
 				'checked'       => false,
 				'is_pro'        => true,
@@ -121,8 +121,8 @@ class TableSettings {
 			],
 
 			'hide_rows'    => [
-				'feature_title' => __( 'Hide Row\'s', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Hide your table rows based on your custom selection', 'sheetstowptable' ),
+				'feature_title' => __( 'Hide Row\'s', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Hide your table rows based on your custom selection', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'hide_rows',
 				'checked'       => false,
 				'is_pro'        => true,
@@ -132,8 +132,8 @@ class TableSettings {
 				'icon_url'      => SWPTLS_BASE_URL . 'assets/public/icons/hide_column.svg',
 			],
 			'hide_rows_mobile'    => [
-				'feature_title' => __( 'Hide Row\'s', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Hide your table rows based on your custom selection', 'sheetstowptable' ),
+				'feature_title' => __( 'Hide Row\'s', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Hide your table rows based on your custom selection', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'hide_rows_mobile',
 				'checked'       => false,
 				'is_pro'        => true,
@@ -144,8 +144,8 @@ class TableSettings {
 			],
 
 			'hide_cell'    => [
-				'feature_title' => __( 'Hide Cell', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Hide your specific table cell that is not going to visibile to your user\'s.', 'sheetstowptable' ),
+				'feature_title' => __( 'Hide Cell', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Hide your specific table cell that is not going to visibile to your user\'s.', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'hide_cell',
 				'checked'       => false,
 				'is_pro'        => true,
@@ -155,8 +155,8 @@ class TableSettings {
 				'icon_url'      => SWPTLS_BASE_URL . 'assets/public/icons/hide_column.svg',
 			],
 			'hide_cell_mobile'    => [
-				'feature_title' => __( 'Hide Cell', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Hide your specific table cell that is not going to visibile to your user\'s.', 'sheetstowptable' ),
+				'feature_title' => __( 'Hide Cell', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Hide your specific table cell that is not going to visibile to your user\'s.', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'hide_cell_mobile',
 				'checked'       => false,
 				'is_pro'        => true,

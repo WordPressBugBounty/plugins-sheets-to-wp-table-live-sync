@@ -1,38 +1,129 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Tooltip from './Tooltip';
-import { infoIcon, Unlock } from '../icons';
+import { infoIcon, Unlock, ProIcon } from '../icons';
 import Modal from './../core/Modal';
 import '../styles/_code.scss';
 import '../styles/_header.scss';
 import '../styles/_settings.scss';
+import '../styles/_ai-settings.scss';
 import ChangesLog from './ChangesLog';
+import Header from './Header';
 import { getNonce, isProActive, getStrings } from './../Helpers';
-
 import CodeEditor from '@uiw/react-textarea-code-editor';
+
+// AI Integration Interface for settings
+interface SettingsType {
+	css_code_value: string;
+	async_loading: string;
+	link_support: string;
+	script_support: string;
+	timeout: number;
+	cache_timestamp: number;
+	ai_provider: string;
+	openai_api_key: string;
+	openai_model: string;
+	gemini_api_key: string;
+	gemini_model: string;
+	gemini_top_p: number;
+	gemini_top_k: number;
+	max_tokens: number;
+	temperature: number;
+	frequency_penalty: number;
+	cache_duration: number;
+
+	// Allow dynamic property access
+	[key: string]: any;
+}
+
+// Map tab names to URL suffixes
+const TAB_URL_MAP: Record<string, string> = {
+	general: '',
+	performance: '-performance',
+	ai_summary: '-aiconfig',
+	custom_css: '-customcss'
+};
+
+// Reverse map for getting tab from URL
+const URL_TAB_MAP: Record<string, string> = {
+	'': 'general',
+	'-performance': 'performance',
+	'-aiconfig': 'ai_summary',
+	'-customcss': 'custom_css'
+};
+
 
 function Settings() {
 	const [importModal, setImportModal] = useState<boolean>(false);
 	const confirmImportRef = useRef();
 
-	const [settings, setSettings] = useState({
+	const [settings, setSettings] = useState<SettingsType>({
 		css_code_value: '',
 		async_loading: 'on',
 		link_support: 'smart_link',
 		script_support: 'global_loading',
 		timeout: 5,
 		cache_timestamp: 30,
+
+		// AI Integraion Provider Settings
+		ai_provider: 'openai',
+		openai_api_key: '',
+		openai_model: 'gpt-4o-mini',
+		gemini_api_key: '',
+		gemini_model: 'gemini-2.5-flash-lite', //gemini-2.5-flash-lite
+		gemini_top_p: 0.95,
+		gemini_top_k: 40,
+		max_tokens: 500,
+		temperature: 0.3,
+		frequency_penalty: 0.3,
+		cache_duration: 1800
+
 	});
 
-	const [activeTab, setActiveTab] = useState(
+
+	// AI Integraion
+	const [showAdvancedSettings, setShowAdvancedSettings] = useState<boolean>(false);
+	const [aiProviders, setAiProviders] = useState<any>({});
+	const [isTestingAPI, setIsTestingAPI] = useState<boolean>(false);
+
+	/* const [activeTab, setActiveTab] = useState(
 		localStorage.getItem('setting-active_tab') || 'general'
 	);
 
 	const handleActiveTab = (name) => {
 		localStorage.setItem('manage-tabs-active_tab', name);
 		setActiveTab(name);
+	}; */
+
+	// Initialize active tab from URL
+	const getTabFromURL = () => {
+		const pathname = location.pathname || '';
+		// Extract the part after /settings
+		const match = pathname.match(/\/settings(.*)$/);
+		const suffix = match ? match[1] : '';
+		return URL_TAB_MAP[suffix] || 'general';
 	};
+
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	const [activeTab, setActiveTab] = useState(getTabFromURL());
+
+	// Update URL when tab changes
+	const handleActiveTab = (name: string) => {
+		const urlSuffix = TAB_URL_MAP[name] || '';
+		navigate(`/settings${urlSuffix}`);
+		setActiveTab(name);
+		localStorage.setItem('setting-active_tab', name);
+	};
+
+	// Listen to URL changes (browser back/forward)
+	useEffect(() => {
+		const tab = getTabFromURL();
+		setActiveTab(tab);
+	}, [location.pathname]);
+
 
 
 	const timeoutOptions = [3, 5, 10, 15, 20, 25, 30, 40, 50, 60];
@@ -52,11 +143,23 @@ function Settings() {
 			item.addEventListener('click', handleClick);
 		});
 
+		wp.ajax.send('swptls_get_ai_providers', {
+			data: {
+				nonce: getNonce(),
+			},
+			success(response) {
+				setAiProviders(response.providers || {});
+			},
+			error(error) {
+				console.log('Failed to load AI providers:', error);
+			},
+		});
+
 		wp.ajax.send('swptls_get_settings', {
 			data: {
 				nonce: getNonce(),
 			},
-			success({ css, async, link_support, script_support, timeout, cache_timestamp }) {
+			success({ css, async, link_support, script_support, timeout, cache_timestamp, ai_provider, openai_api_key, openai_model, gemini_api_key, gemini_model, gemini_top_p, gemini_top_k, max_tokens, temperature, frequency_penalty, cache_duration }: any) {
 				setSettings({
 					css_code_value: css,
 					async_loading: async,
@@ -64,6 +167,19 @@ function Settings() {
 					script_support: script_support,
 					timeout: timeout,
 					cache_timestamp: cache_timestamp,
+
+					ai_provider: ai_provider || 'openai',
+					openai_api_key: openai_api_key || '',
+					openai_model: openai_model || 'gpt-4o-mini',
+					gemini_api_key: gemini_api_key || '',
+					gemini_model: gemini_model || 'gemini-2.5-flash-lite',
+					gemini_top_p: gemini_top_p !== undefined ? gemini_top_p : 0.95,
+					gemini_top_k: gemini_top_k !== undefined ? gemini_top_k : 40,
+					max_tokens: max_tokens || 500,
+					temperature: temperature !== undefined ? temperature : 0.3,
+					frequency_penalty: frequency_penalty !== undefined ? frequency_penalty : 0.3,
+					cache_duration: cache_duration || 1800,
+
 				});
 			},
 			error(error) {
@@ -86,7 +202,7 @@ function Settings() {
 				nonce: getNonce(),
 				settings: JSON.stringify(settings),
 			},
-			success({ message, css, async, link_support, script_support, timeout, cache_timestamp }) {
+			success({ message, css, async, link_support, script_support, timeout, cache_timestamp, ai_provider, openai_api_key, openai_model, gemini_api_key, gemini_model, gemini_top_p, gemini_top_k, max_tokens, temperature, frequency_penalty, cache_duration }: any) {
 				setSettings({
 					css_code_value: css,
 					async_loading: async,
@@ -94,6 +210,19 @@ function Settings() {
 					script_support: script_support,
 					timeout: timeout,
 					cache_timestamp: cache_timestamp,
+
+					ai_provider: ai_provider || 'openai',
+					openai_api_key: openai_api_key || '',
+					openai_model: openai_model || 'gpt-4o-mini',
+					gemini_api_key: gemini_api_key || '',
+					gemini_model: gemini_model || 'gemini-2.5-flash-lite',
+					gemini_top_p: gemini_top_p !== undefined ? gemini_top_p : 0.95,
+					gemini_top_k: gemini_top_k !== undefined ? gemini_top_k : 40,
+					max_tokens: max_tokens || 500,
+					temperature: temperature !== undefined ? temperature : 0.3,
+					frequency_penalty: frequency_penalty !== undefined ? frequency_penalty : 0.3,
+					cache_duration: cache_duration || 1800,
+
 				});
 
 				toast.success(message);
@@ -101,6 +230,79 @@ function Settings() {
 			error(error) {
 				// console.log(error);
 			},
+		});
+	};
+
+
+
+	// Test API connection function
+	const testAIAPI = () => {
+		const currentProvider = settings.ai_provider;
+		const apiKeyField = `${currentProvider}_api_key`;
+		const modelField = `${currentProvider}_model`;
+
+		if (!settings[apiKeyField]) {
+			toast.error('Please enter an API key first.');
+			return;
+		}
+
+		setIsTestingAPI(true);
+
+		(window as any).wp.ajax.send('swptls_test_ai_api', {
+			data: {
+				nonce: getNonce(),
+				provider: currentProvider,
+				api_key: settings[apiKeyField] as string,
+				model: settings[modelField] as string,
+			},
+			success({ message }: any) {
+				setIsTestingAPI(false);
+				toast.success(message || 'API connection successful!');
+			},
+			error(error: any) {
+				setIsTestingAPI(false);
+				toast.error('API test failed: ' + (error.message || 'Unknown error'));
+			},
+		});
+	};
+
+	// Get current provider's display name
+	const getCurrentProviderDisplayName = () => {
+		return aiProviders[settings.ai_provider]?.display_name || 'AI Provider';
+	};
+
+	// Get current provider's API key field
+	const getCurrentProviderApiKey = () => {
+		const apiKeyField = `${settings.ai_provider}_api_key`;
+		return (settings[apiKeyField] as string) || '';
+	};
+
+	// Update current provider's API key
+	const updateCurrentProviderApiKey = (value: string) => {
+		const apiKeyField = `${settings.ai_provider}_api_key`;
+		setSettings({
+			...settings,
+			[apiKeyField]: value
+		});
+	};
+
+	// Get current provider's models
+	const getCurrentProviderModels = () => {
+		return aiProviders[settings.ai_provider]?.models || {};
+	};
+
+	// Get current provider's selected model
+	const getCurrentProviderModel = () => {
+		const modelField = `${settings.ai_provider}_model`;
+		return (settings[modelField] as string) || aiProviders[settings.ai_provider]?.default_model || '';
+	};
+
+	// Update current provider's model
+	const updateCurrentProviderModel = (value: string) => {
+		const modelField = `${settings.ai_provider}_model`;
+		setSettings({
+			...settings,
+			[modelField]: value
 		});
 	};
 
@@ -139,28 +341,18 @@ function Settings() {
 		};
 	}, [handleCancelOutside]);
 
+
+	// console.log('AI Providers loaded:', aiProviders);
+
 	return (
 		<>
-			<header className="setting-header">
-				<h5 className="setting-title">{getStrings('Settings')}</h5>
-				<div className="new-unlock-block">
-					{!isProActive() && (
-						<div className="unlock">
-							<div className="icon">{Unlock}</div>
-							<p>
-								<a
-									className="get-ultimate"
-									href="https://go.wppool.dev/KfVZ"
-									target="_blank"
-								>
-									{getStrings('get-unlimited-access')}
-								</a>
-							</p>
-						</div>
-					)}
-					<ChangesLog />
-				</div>
-			</header>
+			<Header
+				title={getStrings('global-settings')}
+				description={getStrings('global-settings-content')}
+				// modalTitle={getStrings('mng-tab-modal-title')}
+				showChangesLog={true}
+				showProFeatures={true}
+			/>
 
 			<div className="setting-navbar">
 				<div className="setting-navbar__nav">
@@ -213,6 +405,20 @@ function Settings() {
 							</svg>
 						</span>
 						<span>{getStrings('performance')}</span>
+					</button>
+
+
+					<button
+						className={`setting-tab ${activeTab === 'ai_summary' ? 'active' : ''
+							}`}
+						onClick={() => handleActiveTab('ai_summary')}
+					>
+						<span className="icon">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M6.35897 3.28205C6.61633 3.28205 6.84643 3.44222 6.9359 3.68349L7.35978 4.82772L7.73478 5.82452C8.06283 6.66664 8.27464 7.08073 8.59696 7.40305C9.02667 7.83276 9.6196 8.06604 11.1723 8.64022L12.3165 9.0641C12.5578 9.15357 12.7179 9.38367 12.7179 9.64103C12.7179 9.89838 12.5578 10.1285 12.3165 10.2179L11.1723 10.6418C9.6193 11.2161 9.02567 11.4489 8.59696 11.8782C8.275 12.2006 8.06296 12.6155 7.73478 13.4575L7.35978 14.4543L6.9359 15.5986C6.84643 15.8398 6.61633 16 6.35897 16C6.10162 16 5.87152 15.8398 5.78205 15.5986L5.35817 14.4543C4.78388 12.9013 4.55111 12.3077 4.12179 11.879C3.79935 11.557 3.38445 11.345 2.54247 11.0168L1.54567 10.6418L0.401442 10.2179C0.160167 10.1285 0 9.89838 0 9.64103C0 9.38367 0.160167 9.15357 0.401442 9.0641L1.54567 8.64022L2.54247 8.26522C3.38459 7.93717 3.79868 7.72536 4.12099 7.40305C4.55071 6.97333 4.78399 6.3804 5.35817 4.82772L5.78205 3.68349L5.82212 3.59696C5.92964 3.40471 6.13382 3.28205 6.35897 3.28205ZM6.35897 5.66506C5.90942 6.87693 5.59073 7.67369 4.99119 8.27324C4.39164 8.87279 3.59488 9.19147 2.38301 9.64103C3.59517 10.0908 4.39181 10.4096 4.99119 11.008C5.59092 11.6069 5.90966 12.4048 6.35897 13.6162C6.80864 12.4044 7.12763 11.6081 7.72596 11.0088C8.3248 10.4091 9.12278 10.0903 10.3341 9.64103C9.12267 9.19161 8.32619 8.87267 7.72676 8.27324C7.12721 7.67369 6.80853 6.87693 6.35897 5.66506ZM12.9223 1.67992e-07C13.1795 -0.000189104 13.4103 0.159572 13.5 0.400641L13.6819 0.891026L13.6827 0.892628C13.9391 1.58809 14.0145 1.75249 14.1314 1.86939C14.2477 1.98566 14.4118 2.06079 15.1066 2.31811L15.5978 2.5C15.8391 2.5892 15.9997 2.81883 16 3.07612C16.0003 3.33342 15.8405 3.56409 15.5994 3.65385L15.109 3.83574L15.1074 3.83654C14.4119 4.0929 14.2475 4.16836 14.1306 4.28526C14.0144 4.40149 13.9394 4.56579 13.6819 5.26202L13.5 5.7524C13.4106 5.99341 13.1809 6.15351 12.9239 6.15385C12.6666 6.15404 12.4359 5.99427 12.3462 5.75321L12.1643 5.26282L12.1635 5.26122C11.9071 4.56576 11.8316 4.40135 11.7147 4.28446C11.5984 4.16813 11.4343 4.09255 10.7388 3.83494V3.83574L10.2484 3.65385C10.007 3.56465 9.84649 3.33502 9.84615 3.07772C9.84589 2.82042 10.0057 2.58975 10.2468 2.5L10.7372 2.31811L10.7388 2.31731C11.4342 2.06094 11.5986 1.98548 11.7155 1.86859C11.8318 1.75236 11.9067 1.58806 12.1643 0.891827L12.3462 0.401442L12.3862 0.314904C12.4936 0.122901 12.6974 0.000291925 12.9223 1.67992e-07ZM12.9231 2.27484C12.8294 2.44797 12.7217 2.60284 12.5857 2.73878C12.4494 2.87514 12.2943 2.98317 12.121 3.07692C12.2941 3.1706 12.449 3.27832 12.5849 3.41426C12.7211 3.55046 12.8294 3.70512 12.9231 3.87821C13.0167 3.70532 13.1246 3.55085 13.2604 3.41506C13.3966 3.27887 13.5513 3.1706 13.7244 3.07692C13.5515 2.98332 13.397 2.87537 13.2612 2.73958C13.1249 2.60322 13.0168 2.44817 12.9231 2.27484Z" fill="#666873" />
+							</svg>
+						</span>
+						<span>{getStrings('ai-config-tab')}</span>
 					</button>
 
 					<button
@@ -433,7 +639,7 @@ function Settings() {
 								{ /* {<button className='btn-pro recommended-pro'>{getStrings('recommended')}</button>} */}
 								{!isProActive() && (
 									<button className="btn-pro">
-										{getStrings('pro')}
+										{ProIcon}
 									</button>
 								)}
 							</div>
@@ -513,6 +719,355 @@ function Settings() {
 					</>
 				)}
 
+				{'ai_summary' === activeTab && (
+					<>
+						{/* AI Summary Settings */}
+						<div className="ai-settings-container">
+							<div className="ai-settings-header">
+								<div className="title">
+									<label>{getStrings('ai-summary-configuration')}</label>
+								</div>
+								<p>{getStrings('ai-configuration-desc')}</p>
+							</div>
+
+							<hr />
+
+							{/* AI Provider Selection */}
+							<div className="swptls-ai-settings">
+								<div className="title">
+									<label htmlFor="ai_provider_select">
+										{getStrings('choose-ai-provider')}
+									</label>
+									<Tooltip content={getStrings('tooltip-ai-provider')} />
+								</div>
+								<p className='Ai-titles'>{getStrings('choose-ai-provider-title')}</p>
+								<div className="ai-engine-selector">
+									<select
+										id="ai_provider_select"
+										value={settings.ai_provider}
+										onChange={(e) => setSettings({
+											...settings,
+											ai_provider: e.target.value
+										})}
+										className="provider-select"
+									>
+										<option value="openai">{getStrings('open-ai-gpt-title')}</option>
+										<option value="gemini">{getStrings('gemini-ai-title')}</option>
+									</select>
+
+
+								</div>
+							</div>
+
+							{/* Dynamic Provider Settings */}
+							<div className="swptls-ai-settings">
+								<div className="title">
+									<label htmlFor="ai_api_key">
+										{getCurrentProviderDisplayName()} {getStrings('ai-api-key')}
+									</label>
+									<Tooltip content={getStrings('tooltip-api-key')} />
+
+									<p>
+
+										{settings.ai_provider === 'openai' ? (
+											<a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer">
+												{getStrings('get-ai-api-key')}
+											</a>
+										) : (
+											<a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">
+												{getStrings('get-ai-api-key')}
+											</a>
+										)}
+
+									</p>
+
+								</div>
+
+								<div className="api-key-info">
+									<p className='Ai-titles'>
+										{getStrings('get-ai-api-key-hint')}(e.g.{' '}
+										{settings.ai_provider === 'openai' ? (
+											<span>{getStrings('chat-gpt')}</span>
+										) : (
+											<span>{getStrings('gemini-ai-studio')}</span>
+										)}
+										)
+
+										{getStrings('get-ai-api-key-hint-2')}
+									</p>
+								</div>
+								<div className="api-key-input-group">
+									<input
+										type="password"
+										id="ai_api_key"
+										value={getCurrentProviderApiKey()}
+										onChange={(e) => updateCurrentProviderApiKey(e.target.value)}
+										placeholder={settings.ai_provider === 'openai' ? 'sk-...' : 'AIza...'}
+										className="api-key-input"
+									/>
+									<button
+										type="button"
+										className={`test-api-btn ${isTestingAPI ? 'testing' : ''}`}
+										onClick={testAIAPI}
+										disabled={!getCurrentProviderApiKey() || isTestingAPI}
+									>
+										{isTestingAPI ? getStrings('checking') : getStrings('test-api')}
+									</button>
+								</div>
+							</div>
+
+							{/* AI Model Selection */}
+							<div className="swptls-ai-settings">
+								<div className="title">
+									<label htmlFor="ai_model_select">
+										{getStrings('model-version')}
+									</label>
+									<Tooltip content="Choose how powerful your AI should be" />
+								</div>
+								<p className='Ai-titles'>{getStrings('model-version-title')} </p>
+								<select
+									id="ai_model_select"
+									value={getCurrentProviderModel()}
+									onChange={(e) => updateCurrentProviderModel(e.target.value)}
+									className="model-select"
+								>
+									{Object.entries(getCurrentProviderModels()).map(([key, model]: [string, any]) => (
+										<option key={key} value={key}>
+											{model.name || key}
+										</option>
+									))}
+								</select>
+							</div>
+
+							{/* Advanced Settings Toggle */}
+							<div className="swptls-ai-settings">
+								<div className="advanced-settings-toggle">
+									<button
+										type="button"
+										className="advanced-toggle-btn"
+										onClick={() => setShowAdvancedSettings(!showAdvancedSettings)}
+									>
+										<span className="toggle-icon">
+											{showAdvancedSettings ? (
+												<svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M1 6L6 1L11 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+												</svg>
+											) : (
+												<svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+												</svg>
+											)}
+										</span>
+										<span>{getStrings('advanced-settings')}</span>
+									</button>
+									<p>{getStrings('advanced-settings-desc')}</p>
+								</div>
+							</div>
+
+							{/* Advanced Settings Content */}
+							<div className={`advanced-settings-content ${showAdvancedSettings ? 'show' : 'hide'}`}>
+
+								{/* Provider-specific settings */}
+								{/* {settings.ai_provider === 'gemini' && (
+									<>
+										<div className="swptls-ai-settings">
+											<div className="title">
+												<label htmlFor="gemini_top_p">
+													{getStrings('top-p')} ({settings.gemini_top_p})
+												</label>
+												<Tooltip content={getStrings('tooltip-top-p')} />
+											</div>
+											<div className="range-wrapper">
+												<input
+													type="range"
+													id="gemini_top_p"
+													min="0.1"
+													max="1"
+													step="0.05"
+													value={settings.gemini_top_p}
+													onChange={(e) => setSettings({
+														...settings,
+														gemini_top_p: parseFloat(e.target.value)
+													})}
+												/>
+												<div className="range-labels">
+													<span>{getStrings('precise')}</span>
+													<span>{getStrings('diverse')}</span>
+												</div>
+											</div>
+										</div>
+
+										<div className="swptls-ai-settings">
+											<div className="title">
+												<label htmlFor="gemini_top_k">
+													{getStrings('top-k')} ({settings.gemini_top_k})
+												</label>
+												<Tooltip content={getStrings('tooltip-top-k')} />
+											</div>
+											<div className="range-wrapper">
+												<input
+													type="range"
+													id="gemini_top_k"
+													min="1"
+													max="100"
+													step="1"
+													value={settings.gemini_top_k}
+													onChange={(e) => setSettings({
+														...settings,
+														gemini_top_k: parseInt(e.target.value)
+													})}
+												/>
+												<div className="range-labels">
+													<span>{getStrings('focused')}</span>
+													<span>{getStrings('broad')}</span>
+												</div>
+											</div>
+										</div>
+									</>
+								)} */}
+
+								{/* Max Tokens */}
+								<div className="swptls-ai-settings">
+									<div className="title">
+										<label htmlFor="max_tokens">
+											{getStrings('max-tokens')} ({settings.max_tokens})
+										</label>
+										<Tooltip content={getStrings('tooltip-max-tokens')} />
+									</div>
+									<div className="range-wrapper">
+										<input
+											type="range"
+											id="max_tokens"
+											min="100"
+											max="2000"
+											step="50"
+											value={settings.max_tokens}
+											onChange={(e) => setSettings({
+												...settings,
+												max_tokens: parseInt(e.target.value)
+											})}
+										/>
+										<div className="range-labels">
+											<span>{getStrings('short-summary')}</span>
+											<span>{getStrings('long-summary')}</span>
+										</div>
+									</div>
+								</div>
+
+								{/* Temperature */}
+								{/* <div className="swptls-ai-settings">
+									<div className="title">
+										<label htmlFor="temperature">
+											{getStrings('creativity')} ({settings.temperature})
+										</label>
+										<Tooltip content={getStrings('tooltip-temperature')} />
+									</div>
+									<div className="range-wrapper">
+										<input
+											type="range"
+											id="temperature"
+											min="0"
+											max="1"
+											step="0.1"
+											value={settings.temperature}
+											onChange={(e) => setSettings({
+												...settings,
+												temperature: parseFloat(e.target.value)
+											})}
+										/>
+										<div className="range-labels">
+											<span>{getStrings('focused')}</span>
+											<span>{getStrings('creative')}</span>
+										</div>
+									</div>
+								</div> */}
+
+								{/* Frequency Penalty */}
+								{/* <div className="swptls-ai-settings">
+									<div className="title">
+										<label htmlFor="frequency_penalty">
+											{getStrings('frequency-penalty')} ({settings.frequency_penalty})
+										</label>
+										<Tooltip content={getStrings('tooltip-frequency-penalty')} />
+									</div>
+									<div className="range-wrapper">
+										<input
+											type="range"
+											id="frequency_penalty"
+											min="0"
+											max="1"
+											step="0.1"
+											value={settings.frequency_penalty}
+											onChange={(e) => setSettings({
+												...settings,
+												frequency_penalty: parseFloat(e.target.value)
+											})}
+										/>
+										<div className="range-labels">
+											<span>{getStrings('allow-repetition')}</span>
+											<span>{getStrings('avoid-repetition')}</span>
+										</div>
+									</div>
+								</div> */}
+							</div>
+
+							{/* Cache Duration (Global Setting) */}
+
+							<div className="swptls-ai-settings">
+								<p className="performance-title">
+									{getStrings('cache-duration-title')}
+								</p>
+								<div className="ai-modes time-out-settings">
+									<label htmlFor="cache-duration">{getStrings('cache-duration-label')}</label>
+									<select
+										id="cache-duration"
+										value={settings.cache_duration}
+										onChange={(e) => {
+											const value = parseInt(e.target.value);
+											// Prevent selecting pro options if not pro
+											if (!isProActive() && value !== 1800) {
+												WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
+												return;
+											}
+											setSettings({
+												...settings,
+												cache_duration: value
+											});
+										}}
+									>
+										<option value="1800">{getStrings('30-minutes')}</option>
+										<option value="3600" style={{ opacity: !isProActive() ? 0.5 : 1, color: !isProActive() ? '#bbbbbbff' : 'inherit', cursor: !isProActive() ? 'not-allowed' : 'pointer' }}>
+											{getStrings('1-hour')} {!isProActive() && ''}
+										</option>
+										<option value="7200" style={{ opacity: !isProActive() ? 0.5 : 1, color: !isProActive() ? '#bbbbbbff' : 'inherit', cursor: !isProActive() ? 'not-allowed' : 'pointer' }}>
+											{getStrings('2-hours')} {!isProActive() && ''}
+										</option>
+										<option value="21600" style={{ opacity: !isProActive() ? 0.5 : 1, color: !isProActive() ? '#bbbbbbff' : 'inherit', cursor: !isProActive() ? 'not-allowed' : 'pointer' }}>
+											{getStrings('6-hours')} {!isProActive() && ''}
+										</option>
+										<option value="43200" style={{ opacity: !isProActive() ? 0.5 : 1, color: !isProActive() ? '#bbbbbbff' : 'inherit', cursor: !isProActive() ? 'not-allowed' : 'pointer' }}>
+											{getStrings('12-hours')} {!isProActive() && ''}
+										</option>
+										<option value="86400" style={{ opacity: !isProActive() ? 0.5 : 1, color: !isProActive() ? '#bbbbbbff' : 'inherit', cursor: !isProActive() ? 'not-allowed' : 'pointer' }}>
+											{getStrings('24-hours')} {!isProActive() && ''}
+										</option>
+									</select>
+									<Tooltip content={getStrings('tooltip-cache-duration')} />
+									{!isProActive() && (
+										<button className="btn-pro" style={{ marginLeft: '8px' }}>
+											{ProIcon}
+										</button>
+									)}
+								</div>
+							</div>
+
+						</div>
+
+					</>
+				)}
+
+
+
 				{'custom_css' === activeTab && (
 					<>
 						{ /* CSS Support  */}
@@ -528,7 +1083,7 @@ function Settings() {
 								/>
 								{!isProActive() && (
 									<button className="btn-pro">
-										{getStrings('pro')}
+										{ProIcon}
 									</button>
 								)}
 							</div>
@@ -554,14 +1109,7 @@ function Settings() {
 								}}
 							/>
 						</div>
-						{ /* <div className='btn-box text-right'>
-							<button
-								className="btn"
-								onClick={(e) => handleSaveSettings(e)}
-							>
-								{getStrings('save-settings')}
-							</button>
-						</div> */ }
+
 					</>
 				)}
 			</div>

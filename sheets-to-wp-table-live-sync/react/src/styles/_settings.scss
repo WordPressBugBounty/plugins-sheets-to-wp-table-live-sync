@@ -14,10 +14,10 @@
         }
 
         button.save-settings-btn button {
-            background-color: #34A0FA;
+            background-color: #008717;
 
             &:hover {
-                background-color: #1589e7;
+                background-color: #126E22;
             }
         }
     }
@@ -56,9 +56,12 @@
 
             .icon {
                 line-height: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
 
                 svg {
-
                     path {
                         transition: all 0.3s ease;
                     }
@@ -66,7 +69,8 @@
             }
 
             &:hover {
-                background-color: darken($color: #e7edf2, $amount: 5%);
+                background-color: #ECF1EC;
+                color: #666873;
             }
 
             &.active {
@@ -75,7 +79,7 @@
                 border-left: 1px solid #d5d6d7;
                 border-right: 1px solid #d5d6d7;
                 border-color: #d5d6d7;
-                color: #2bb885;
+                color: #008717;
                 position: relative;
 
                 &::after {
@@ -88,12 +92,19 @@
                     background: white;
                 }
 
+                span {
+                    font-weight: 600;
+                }
+
                 .icon {
+                    width: 33px;
+                    height: 33px;
+                    border-radius: 50%;
+                    background-color: #008717;
 
                     svg {
-
                         path {
-                            fill: #2bb885;
+                            fill: white;
                         }
                     }
                 }
@@ -132,6 +143,32 @@
     border: 1px solid #d5d6d7;
     border-radius: 0px 4px 4px 4px;
     padding: 30px 30px 50px;
+
+    select#ai_model_select,
+    select#ai_provider_select {
+        width: 165px;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background-color: #f9f9f9;
+        font-size: 14px;
+        color: #333;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        // margin: 0px 0px 0px 5px;
+    }
+
+    .swptls-ai-settings {
+
+        .Ai-titles {
+            a {
+                text-decoration: none;
+            }
+        }
+
+    }
 
     .asynchronous-loading-setting {
 
@@ -189,19 +226,18 @@
                 }
 
                 button.btn-pro.recommended-pro {
-                    border: 1px solid;
+                    border: unset;
                     outline: 0;
                     cursor: pointer;
                     box-shadow: none;
-                    color: #2bb885;
+                    color: #1C6CDB;
                     font-weight: 600;
                     font-size: 11px;
                     line-height: 100%;
                     margin-left: 8px;
                     padding: 4px 10px;
                     border-radius: 11.5px;
-                    background-color: rgba(43, 240, 87, 0.1);
-                    border-color: #88dcbe;
+                    background-color: #EFF2F7;
                 }
 
                 input#pretty_link,
@@ -227,14 +263,14 @@
                     border-radius: 50%;
                     background-color: #fdfeff;
                     line-height: 1.14285714;
-                    border: 4px solid #34a0fa;
+                    border: 4px solid #008717;
                     position: absolute;
                     left: 3px;
                     top: 20%;
                     width: 16px;
                     height: 16px;
                     transform: translate(-50%, -50%);
-                    border: 4px solid #34a0fa;
+                    border: 4px solid #008717;
                     border-radius: 8px;
                     box-sizing: border-box;
                     box-shadow: none;
@@ -245,7 +281,7 @@
 
             button.btn-pro.btn-new {
                 color: white;
-                background: #2bb885;
+                background: #008717;
                 font-weight: bold;
                 border-radius: 15px;
                 height: 21px;
@@ -359,7 +395,7 @@
             }
 
             input[type="checkbox"]:checked+label:before {
-                background: #34A0FA;
+                background: #008717;
             }
 
             input[type="checkbox"]:checked+label:after {
@@ -402,7 +438,7 @@
             outline: 0;
             cursor: pointer;
             box-shadow: none;
-            color: #2bb885;
+            color: #008717;
             font-weight: 600;
             font-size: 11px;
             line-height: 100%;
@@ -432,14 +468,14 @@
                 border-radius: 50%;
                 background-color: #fdfeff;
                 line-height: 1.14285714;
-                border: 4px solid #34a0fa;
+                border: 4px solid #008717;
                 position: absolute;
                 left: 5px;
                 top: 35%;
                 width: 17px;
                 height: 17px;
                 transform: translate(-50%, -50%);
-                border: 4px solid #34a0fa;
+                border: 4px solid #008717;
                 border-radius: 8px;
                 box-sizing: border-box;
                 box-shadow: none;
@@ -461,14 +497,14 @@
                 border-radius: 50%;
                 background-color: #fdfeff;
                 line-height: 1.14285714;
-                border: 4px solid #34a0fa;
+                border: 4px solid #008717;
                 position: absolute;
                 left: 5px;
                 top: 35%;
                 width: 17px;
                 height: 17px;
                 transform: translate(-50%, -50%);
-                border: 4px solid #34a0fa;
+                border: 4px solid #008717;
                 border-radius: 8px;
                 box-sizing: border-box;
                 box-shadow: none;
@@ -545,10 +581,10 @@
         margin-top: 40px;
 
         .btn {
-            background-color: #34A0FA;
+            background-color: #008717;
 
             &:hover {
-                background-color: #2BB885;
+                background-color: #008717;
             }
         }
 

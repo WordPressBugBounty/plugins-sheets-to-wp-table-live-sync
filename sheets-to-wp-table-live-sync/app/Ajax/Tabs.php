@@ -40,13 +40,13 @@ class Tabs {
 
 		if ( $response ) {
 			wp_send_json_success([
-				'output' => __( 'Tab deleted successfully', 'sheetstowptable' ),
+				'output' => __( 'Tab deleted successfully', 'sheets-to-wp-table-live-sync' ),
 				'type'   => 'deleted',
 			]);
 		}
 
 		wp_send_json_error([
-			'output' => __( 'Unable to delete tab.', 'sheetstowptable' ),
+			'output' => __( 'Unable to delete tab.', 'sheets-to-wp-table-live-sync' ),
 			'type'   => 'invalid_action',
 		]);
 	}
@@ -62,7 +62,7 @@ class Tabs {
 
 		$table  = $wpdb->prefix . 'gswpts_tabs';
 		$data   = [ 'tab_name' => $name ];
-		$output = __( 'Tab name updated successfully', 'sheetstowptable' );
+		$output = __( 'Tab name updated successfully', 'sheets-to-wp-table-live-sync' );
 
 		$response = $wpdb->update(
 			$table,
@@ -80,7 +80,7 @@ class Tabs {
 		}
 
 		wp_send_json_success([
-			'output' => __( 'Could not update the data.', 'sheetstowptable' ),
+			'output' => __( 'Could not update the data.', 'sheets-to-wp-table-live-sync' ),
 			'type'   => 'invalid_action',
 		]);
 	}

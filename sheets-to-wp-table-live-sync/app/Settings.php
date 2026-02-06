@@ -176,16 +176,16 @@ class Settings {
 	public function display_settings_array(): array {
 		$settings_array = [
 			'table_title'          => [
-				'feature_title' => __( 'Table Title', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Enable this to show the table title in <i>h3</i> tag above the table in your website front-end', 'sheetstowptable' ),
+				'feature_title' => __( 'Table Title', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Enable this to show the table title in <i>h3</i> tag above the table in your website front-end', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'show_title',
 				'checked'       => false,
 				'type'          => 'checkbox',
 				'show_tooltip'  => true,
 			],
 			'show_info_block'      => [
-				'feature_title' => __( 'Show info block', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Show <i>Showing X to Y of Z entries</i>block below the table', 'sheetstowptable' ),
+				'feature_title' => __( 'Show info block', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Show <i>Showing X to Y of Z entries</i>block below the table', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'info_block',
 				'checked'       => false,
 				'type'          => 'checkbox',
@@ -193,8 +193,8 @@ class Settings {
 
 			],
 			'show_x_entries'       => [
-				'feature_title' => __( 'Show X entries', 'sheetstowptable' ),
-				'feature_desc'  => __( '<i>Show X entries</i> per page dropdown', 'sheetstowptable' ),
+				'feature_title' => __( 'Show X entries', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( '<i>Show X entries</i> per page dropdown', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'show_entries',
 				'checked'       => true,
 				'type'          => 'checkbox',
@@ -202,8 +202,8 @@ class Settings {
 
 			],
 			'swap_filters'         => [
-				'feature_title' => __( 'Swap Filters', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Swap the places of <i> X entries</i> dropdown & search filter input', 'sheetstowptable' ),
+				'feature_title' => __( 'Swap Filters', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Swap the places of <i> X entries</i> dropdown & search filter input', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'swap_filter_inputs',
 				'checked'       => false,
 				'type'          => 'checkbox',
@@ -211,8 +211,8 @@ class Settings {
 
 			],
 			'swap_bottom_elements' => [
-				'feature_title' => __( 'Swap Bottom Elements', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Swap the places of <i>Showing X to Y of Z entries</i> with table pagination filter', 'sheetstowptable' ),
+				'feature_title' => __( 'Swap Bottom Elements', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Swap the places of <i>Showing X to Y of Z entries</i> with table pagination filter', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'swap_bottom_options',
 				'checked'       => false,
 				'type'          => 'checkbox',
@@ -220,8 +220,8 @@ class Settings {
 
 			],
 			'responsive_style'     => [
-				'feature_title' => __( 'Responsive Style', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Allow the table to collapse or scroll on mobile and tablet screen.', 'sheetstowptable' ),
+				'feature_title' => __( 'Responsive Style', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Allow the table to collapse or scroll on mobile and tablet screen.', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'responsive_style',
 				// 'is_pro'        => true,
 				'is_pro'        => false,
@@ -233,8 +233,8 @@ class Settings {
 
 			],
 			'link_support'     => [
-				'feature_title' => __( 'Link Support', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Allow the table to collapse or scroll on mobile and tablet screen.', 'sheetstowptable' ),
+				'feature_title' => __( 'Link Support', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Allow the table to collapse or scroll on mobile and tablet screen.', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'link_support',
 				// 'is_pro'        => true,
 				'is_pro'        => false,
@@ -246,8 +246,8 @@ class Settings {
 
 			],
 			'rows_per_page'        => [
-				'feature_title' => __( 'Rows per page', 'sheetstowptable' ),
-				'feature_desc'  => __( 'This will show rows per page. The feature will allow you how many rows you want to show to your user by default.', 'sheetstowptable' ),
+				'feature_title' => __( 'Rows per page', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'This will show rows per page. The feature will allow you how many rows you want to show to your user by default.', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'rows_per_page',
 				'type'          => 'select',
 				'values'        => $this->rows_per_page(),
@@ -257,8 +257,8 @@ class Settings {
 
 			],
 			'vertical_scrolling'   => [
-				'feature_title' => __( 'Table Height', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Choose the height of the table to scroll vertically. Activating this feature will allow the table to behave as sticky header', 'sheetstowptable' ),
+				'feature_title' => __( 'Table Height', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Choose the height of the table to scroll vertically. Activating this feature will allow the table to behave as sticky header', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'vertical_scrolling',
 				'checked'       => false,
 				'is_pro'        => true,
@@ -269,8 +269,8 @@ class Settings {
 				'show_tooltip'  => false,
 			],
 			'cell_format'          => [
-				'feature_title' => __( 'Format Cell', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Format the table cell as like google sheet cell formatting. Format your cell as Wrap OR Expanded style', 'sheetstowptable' ),
+				'feature_title' => __( 'Format Cell', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Format the table cell as like google sheet cell formatting. Format your cell as Wrap OR Expanded style', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'cell_format',
 				'checked'       => false,
 				// 'is_pro'        => true,
@@ -284,8 +284,8 @@ class Settings {
 
 			],
 			'redirection_type'     => [
-				'feature_title' => __( 'Link Type', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Choose the redirection type of all the links in this table.', 'sheetstowptable' ),
+				'feature_title' => __( 'Link Type', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Choose the redirection type of all the links in this table.', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'redirection_type',
 				// 'is_pro'        => true,
 				'is_pro'        => false,
@@ -298,8 +298,8 @@ class Settings {
 
 			],
 			'table_style'          => [
-				'feature_title' => __( 'Table Style', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Choose your desired table style for this table. This will change the design & color of this table according to your selected table design', 'sheetstowptable' ),
+				'feature_title' => __( 'Table Style', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Choose your desired table style for this table. This will change the design & color of this table according to your selected table design', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'table_style',
 				'checked'       => false,
 				'is_pro'        => true,
@@ -309,8 +309,8 @@ class Settings {
 				'icon_url'      => SWPTLS_BASE_URL . 'assets/public/icons/table_style.svg',
 			],
 			'import_styles'        => [
-				'feature_title' => __( 'Import Sheet Styles', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Import cell backgorund color & cell font color from google sheet. If you activate this feature it will overrider <i>Table Style</i> setting', 'sheetstowptable' ),
+				'feature_title' => __( 'Import Sheet Styles', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Import cell backgorund color & cell font color from google sheet. If you activate this feature it will overrider <i>Table Style</i> setting', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'import_styles',
 				'is_pro'        => true,
 				'type'          => 'checkbox',
@@ -332,16 +332,16 @@ class Settings {
 	public function sort_and_filter_settings_array(): array {
 		$settings_array = [
 			'allow_sorting' => [
-				'feature_title' => __( 'Allow Sorting', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Enable this feature to sort table data for frontend.', 'sheetstowptable' ),
+				'feature_title' => __( 'Allow Sorting', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Enable this feature to sort table data for frontend.', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'sorting',
 				'checked'       => true,
 				'type'          => 'checkbox',
 				'show_tooltip'  => true,
 			],
 			'search_bar'    => [
-				'feature_title' => __( 'Search Bar', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Enable this feature to show a search bar in for the table. It will help user to search data in the table', 'sheetstowptable' ),
+				'feature_title' => __( 'Search Bar', 'sheets-to-wp-table-live-sync' ),
+				'feature_desc'  => __( 'Enable this feature to show a search bar in for the table. It will help user to search data in the table', 'sheets-to-wp-table-live-sync' ),
 				'input_name'    => 'search_table',
 				'checked'       => true,
 				'type'          => 'checkbox',

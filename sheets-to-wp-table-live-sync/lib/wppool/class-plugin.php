@@ -325,53 +325,53 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 						<!-- countdown  -->
 						<div class="_wppool-popup-countdown" style="display: none">
 							<span class="_wppool-popup-countdown-text">
-								<?php echo esc_html__( 'Deal Ends In', 'wp-dark-mode' ); ?>
+								<?php echo esc_html__( 'Deal Ends In', 'sheets-to-wp-table-live-sync' ); ?>
 							</span>
 							<div class="_wppool-popup-countdown-time">
 								<div>
 									<span data-counter="days">
-										<?php echo esc_html__( '00', 'wp-dark-mode' ); ?>
+										<?php echo esc_html__( '00', 'sheets-to-wp-table-live-sync' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Days', 'wp-dark-mode' ); ?>
+										<?php echo esc_html__( 'Days', 'sheets-to-wp-table-live-sync' ); ?>
 									</span>
 								</div>
 								<span>:</span>
 								<div>
 									<span data-counter="hours">
-										<?php echo esc_html__( '00', 'wp-dark-mode' ); ?>
+										<?php echo esc_html__( '00', 'sheets-to-wp-table-live-sync' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Hours', 'wp-dark-mode' ); ?>
+										<?php echo esc_html__( 'Hours', 'sheets-to-wp-table-live-sync' ); ?>
 									</span>
 								</div>
 								<span>:</span>
 								<div>
 									<span data-counter="minutes">
-										<?php echo esc_html__( '00', 'wp-dark-mode' ); ?>
+										<?php echo esc_html__( '00', 'sheets-to-wp-table-live-sync' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Minutes', 'wp-dark-mode' ); ?>
+										<?php echo esc_html__( 'Minutes', 'sheets-to-wp-table-live-sync' ); ?>
 									</span>
 								</div>
 								<span>:</span>
 								<div>
 									<span data-counter="seconds">
-										<?php echo esc_html__( '00', 'wp-dark-mode' ); ?>
+										<?php echo esc_html__( '00', 'sheets-to-wp-table-live-sync' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Seconds', 'wp-dark-mode' ); ?>
+										<?php echo esc_html__( 'Seconds', 'sheets-to-wp-table-live-sync' ); ?>
 									</span>
 								</div>
 							</div>
 						</div>
 						<!-- button  -->
 						<a class="_wppool-popup-button">
-							<?php echo esc_html__( 'Upgrade to Pro', 'wp-dark-mode' ); ?>
+							<?php echo esc_html__( 'Upgrade to Pro', 'sheets-to-wp-table-live-sync' ); ?>
 						</a>
 
 						<a target="_blank" class="_wppool-popup-demo-link" href="">
-							<?php echo esc_html__( 'Try a free demo', 'wp-dark-mode' ); ?>
+							<?php echo esc_html__( 'Try a free demo', 'sheets-to-wp-table-live-sync' ); ?>
 						</a>
 					</div>
 				</div>
@@ -801,208 +801,209 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 		public function get_inline_styles() {
 			$css =
 				':root {
-				--wppool-popup-color: #FF631A;
-			}
-		
-			._wppool-popup * {
-				all: initial;
-				font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif;
-			}
-		
-			._wppool-popup {
-				position: fixed;
-				width: 100%;
-				height: 100%;
-				padding: 0;
-				margin: 0;
-				border: 0;
-				top: 0;
-				left: 0;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				z-index: 99999999 !important;
-			}
-		
-			._wppool-popup-overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: rgba(0, 0, 0, 0.2);
-			}
-		
-			._wppool-popup-modal {
-				width: 600px;
-				max-width: 600px !important;
-				height: 600px;
-				max-height: 600px !important;
-				color: white;
-				background: #222 url(' . esc_url( $this->get_image_url() ) . ') no-repeat center center;
-				background-position: center;
-				background-size: cover;
-				background-repeat: no-repeat;
-				padding: 0;
-				margin: 0;
-				transform: scale(0.9);
-				display: flex;
-				align-items: flex-end;
-				justify-content: center;
-				border-radius: 3px;
-				box-shadow: 0 0 10px 0 rgb(0 0 0 / 50%);
-			}
+                --wppool-popup-color: #FF631A;
+            }
+        
+            ._wppool-popup * {
+                all: initial;
+                font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif;
+            }
+        
+            ._wppool-popup {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                border: 0;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 99999999 !important;
+            }
+        
+            ._wppool-popup-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.2);
+            }
+        
+            ._wppool-popup-modal {
+                width: 600px;
+                max-width: 600px !important;
+                height: 600px;
+                max-height: 600px !important;
+                color: white;
+                background: #222 url(' . esc_url( $this->get_image_url() ) . ') no-repeat center center;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding: 0;
+                margin: 0;
+                transform: scale(0.9);
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                border-radius: 3px;
+                box-shadow: 0 0 10px 0 rgb(0 0 0 / 50%);
+            }
 
-			._wppool-popup-modal-close {
-				position: absolute;
-				top: 5px;
-				right: 10px;
-				font-size: 50px;
-				cursor: pointer;
-				color: var(--wppool-popup-color);
-				transition: .3s;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 40px;
-				height: 40px;
-				padding: 0;
-				margin: 0;
-				opacity: .5;
-			}
+            ._wppool-popup-modal-close {
+                position: absolute;
+                top: 5px;
+                right: 10px;
+                font-size: 50px;
+                cursor: pointer;
+                color: var(--wppool-popup-color);
+                transition: .3s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                padding: 0;
+                margin: 0;
+                opacity: .5;
+            }
 
-			._wppool-popup-modal-close:hover {
-				opacity: 1;
-			}
+            ._wppool-popup-modal-close:hover {
+                opacity: 1;
+            }
 
-			._wppool-popup-modal-footer {
-				width: 100%;
-				height: 225px;
-				max-height: 225px !important;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: flex-end;
-				padding: 15px 0;
-			}
+            ._wppool-popup-modal-footer {
+                width: 100%;
+                min-height: 225px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+                padding: 15px 0;
+                gap: 15px;
+            }
 
-			._wppool-popup-countdown {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: space-evenly;
-				gap: 10px;
-			}
+            ._wppool-popup-countdown {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
 
-			._wppool-popup-countdown-text {
-				font-size: 14px;
-				font-weight: 600;
-				color: white;
-				position: relative;
-				line-height: 1.4;
-			}
+            ._wppool-popup-countdown-text {
+                font-size: 14px;
+                font-weight: 600;
+                color: white;
+                position: relative;
+                line-height: 1.4;
+            }
 
-			._wppool-popup-countdown-time {
-				display: flex;
-				align-items: center;
-				justify-content: space-evenly;
-				gap: 15px;
-			}
+            ._wppool-popup-countdown-time {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                gap: 15px;
+            }
 
-			._wppool-popup-countdown-time>div {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: space-evenly;
-				gap: 8px;
-			}
+            ._wppool-popup-countdown-time>div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                gap: 8px;
+            }
 
-			._wppool-popup-countdown-time>div>span {
-				font-size: 20px;
-				font-weight: 600;
-				color: white;
-			}
+            ._wppool-popup-countdown-time>div>span {
+                font-size: 20px;
+                font-weight: 600;
+                color: white;
+            }
 
-			._wppool-popup-countdown-time>div>span:nth-child(1) {
-				border: 2px solid rgba(255, 255, 255, 0.6);
-				height: 60px;
-				width: 56px;
-				font-size: 26px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				border-radius: 5px;
-			}
+            ._wppool-popup-countdown-time>div>span:nth-child(1) {
+                border: 2px solid rgba(255, 255, 255, 0.6);
+                height: 60px;
+                width: 56px;
+                font-size: 26px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+            }
 
-			._wppool-popup-countdown-time>div>span:nth-child(2) {
-				font-size: 12px;
-				font-weight: 500;
-				color: rgb(255, 255, 255 / .8);
-			}
+            ._wppool-popup-countdown-time>div>span:nth-child(2) {
+                font-size: 12px;
+                font-weight: 500;
+                color: rgb(255, 255, 255 / .8);
+            }
 
-			._wppool-popup-countdown-time>span {
-				font-size: 50px;
-				color: white;
-				margin-top: -25px;
-			}
+            ._wppool-popup-countdown-time>span {
+                font-size: 50px;
+                color: white;
+                margin-top: -25px;
+            }
 
-			._wppool-popup-button {
-				height: 60px;
-				background: var(--wppool-popup-color);
-				color: #222;
-				font-size: 18px;
-				font-weight: 600;
-				letter-spacing: 0.5px;
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				border: 0;
-				border-radius: 5px;
-				cursor: pointer !important;
-				transition: .3s;
-				color: white;
-				padding: 0 30px;
-				margin: 35px 0 20px 0;
-				transition: .2s;
-				position: relative;
-			}
+            ._wppool-popup-button {
+                height: 60px;
+                background: var(--wppool-popup-color);
+                color: #222;
+                font-size: 18px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border: 0;
+                border-radius: 5px;
+                cursor: pointer !important;
+                transition: .3s;
+                color: white;
+                padding: 0 30px;
+                margin: 0;
+                transition: .2s;
+                position: relative;
+            }
 
-			._wppool-popup-button:after {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 0%;
-				height: 100%;
-				background: rgba(255, 255, 255, 0.2);
-				transition: .3s;
-			}
+            ._wppool-popup-button:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.2);
+                transition: .3s;
+            }
 
-			._wppool-popup-button:hover {
-				color: white;
-			}
+            ._wppool-popup-button:hover {
+                color: white;
+            }
 
-			._wppool-popup-button:hover:after {
-				width: 100%;
-			}
+            ._wppool-popup-button:hover:after {
+                width: 100%;
+            }
 
-			@media (max-width: 576px) {
-				._wppool-popup-countdown {
-					transform: scale(.99);
-				}
-			}
-			._wppool-popup-demo-link {
-				color: #ddd;
-				transition: .2s ease-in-out;
-				cursor: pointer;
-				text-decoration: none;
-				padding-bottom: 10px;
-			}
-			._wppool-popup-demo-link:hover {
-				color: #ddd;
-				opacity: .9;
-			}
-			';
+            @media (max-width: 576px) {
+                ._wppool-popup-countdown {
+                    transform: scale(.99);
+                }
+            }
+            ._wppool-popup-demo-link {
+                color: #ddd;
+                transition: .2s ease-in-out;
+                cursor: pointer;
+                text-decoration: none;
+                padding-bottom: 10px;
+            }
+            ._wppool-popup-demo-link:hover {
+                color: #ddd;
+                opacity: .9;
+            }
+            ';
 
 			return apply_filters( 'wppool_inline_styles', $css );
 		}
@@ -1298,7 +1299,7 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 		 * @param string $button_text The custom CTA text for the button.
 		 * @return mixed
 		 */
-		public function set_campaign( $image_url = null, $to = null, $from = null, $button_text = 'Get Premium' ) {
+		public function set_campaign( $image_url = null, $to = null, $from = null, $button_text = 'Get Premium', $button_link = 'https://go.wppool.dev/Rimc' ) {
 			// Bailout if image url is not valid.
 			if ( ! $image_url ) {
 				return $this;
@@ -1315,11 +1316,12 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 			}
 
 			// Modify the plugin data to include the campaign image, date range, and button text.
-			add_filter( 'wppool_plugins', function ( $plugins ) use ( $image_url, $to, $from, $button_text ) {
+			add_filter( 'wppool_plugins', function ( $plugins ) use ( $image_url, $to, $from, $button_text, $button_link ) {
 				$plugins[ $this->plugin_id ]['background_image'] = $image_url;
 				$plugins[ $this->plugin_id ]['from'] = $from;
 				$plugins[ $this->plugin_id ]['to'] = $to;
 				$plugins[ $this->plugin_id ]['button_text'] = $button_text;
+				$plugins[ $this->plugin_id ]['button_link'] = $button_link;
 
 				return $plugins;
 			} );

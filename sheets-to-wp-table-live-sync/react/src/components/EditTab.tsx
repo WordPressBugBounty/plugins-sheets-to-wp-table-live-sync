@@ -5,7 +5,7 @@ import Row from '../core/Row';
 import Title from '../core/Title';
 import { getNonce, getTabs, getStrings } from '../Helpers';
 import { OrangeCopyIcon } from '../icons';
-
+import CTAVideoPlayer from './CTAVideoPlayer';
 import DataTable from 'datatables.net-dt';
 import './../../node_modules/datatables.net-dt/css/jquery.dataTables.min.css';
 
@@ -17,143 +17,171 @@ import { toast } from 'react-toastify';
 
 function EditTab() {
 	const { id } = useParams();
-	const [ loader, setLoader ] = useState< boolean >( true );
-	const [ activeTab, setActiveTab ] = useState(
-		localStorage.getItem( 'manage-tabs-active_tab' ) || 'manage_tab'
+	const [loader, setLoader] = useState<boolean>(true);
+	const [activeTab, setActiveTab] = useState(
+		localStorage.getItem('manage-tabs-active_tab') || 'manage_tab'
 	);
-	const [ currentTab, setCurrentTab ] = useState( {} );
-	const [ copySuccess, setCopySuccess ] = useState( false );
+	const [currentTab, setCurrentTab] = useState({});
+	const [copySuccess, setCopySuccess] = useState(false);
+	const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+	const [openDropdown, setOpenDropdown] = useState(false);
+	const [openDropdownShortCode, setOpenDropdownShortCode] =
+		useState(false);
 
-	const [ openDropdown, setOpenDropdown ] = useState( false );
-	const [ openDropdownShortCode, setOpenDropdownShortCode ] =
-		useState( false );
+	const getTitleForTab = (tab) => {
+		const getTabTitle = (tabName) => {
+			switch (tabName) {
+				case 'manage_tab':
+					return getStrings('managing-tabs-title');
+				case 'tab_settings':
+					return getStrings('tab-settings-title');
 
-	const getTitleForTab = ( tab ) => {
-		switch ( tab ) {
-			case 'manage_tab':
-				return getStrings( 'managing-tabs-title' );
-			case 'tab_settings':
-				return getStrings( 'tab-settings-title' );
+				default:
+					return getStrings('managing-tabs-title');
+			}
+		};
 
-			default:
-				return getStrings( 'managing-tabs-title' );
-		}
+		const getTutorialUrl = (tabName) => {
+			const tutorialUrls = {
+				'manage_tab': 'https://wppool.dev/flextable-data-source-tutorial',
+				'tab_settings': 'https://wppool.dev/flextable-theme-settings-tutorial',
+			};
+			return tutorialUrls[tabName] || 'https://wppool.dev/flextable-documentation';
+		};
+
+		const handleTutorialClick = (tabName) => {
+			window.open(getTutorialUrl(tabName), '_blank', 'noopener,noreferrer');
+		};
+
+		return (
+			<div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+				<span>{getTabTitle(tab)}</span>
+				<span style={{
+					width: '8px',
+					height: '8px',
+					borderRadius: '50%',
+					backgroundColor: '#D9D9D9',
+					display: 'inline-block'
+				}}></span>
+				<span
+					className="help-link"
+					// onClick={() => handleTutorialClick(tab)}
+					onClick={() => setIsVideoModalOpen(true)}
+					style={{
+						color: '#666873',
+						cursor: 'pointer',
+						textDecoration: 'underline',
+						fontSize: '14px',
+						textDecoration: 'none'
+					}}
+				>
+					Help?
+				</span>
+
+				<CTAVideoPlayer
+					videoUrl="https://www.youtube.com/embed/nG-9-7wM0l0?si=NqhL8C-Z6Eq-4AKL"
+					title="Get started with tab groups"
+					isOpen={isVideoModalOpen}
+					onClose={() => setIsVideoModalOpen(false)}
+				/>
+
+			</div>
+		);
 	};
 
-	useEffect( () => {
-		wp.ajax.send( 'swptls_get_tab', {
+	useEffect(() => {
+		wp.ajax.send('swptls_get_tab', {
 			data: {
 				nonce: getNonce(),
 				id,
 			},
-			success( { tab } ) {
-				setCurrentTab( tab );
+			success({ tab }) {
+				setCurrentTab(tab);
 			},
-			error( error ) {},
-		} );
-	}, [] );
+			error(error) { },
+		});
+	}, []);
 
-	const handleActiveTab = ( name ) => {
-		localStorage.setItem( 'manage-tabs-active_tab', name );
-		setActiveTab( name );
+	const handleActiveTab = (name) => {
+		localStorage.setItem('manage-tabs-active_tab', name);
+		setActiveTab(name);
 	};
 
 	/**
 	 * Handle Next and Back for Tabs movement.
 	 */
 	const handleNext = () => {
-		if ( activeTab === 'manage_tab' ) {
-			handleActiveTab( 'tab_settings' );
+		if (activeTab === 'manage_tab') {
+			handleActiveTab('tab_settings');
 		}
 	};
 
 	const handleBack = () => {
-		if ( activeTab === 'tab_settings' ) {
-			handleActiveTab( 'manage_tab' );
+		if (activeTab === 'tab_settings') {
+			handleActiveTab('manage_tab');
 		}
 	};
 
 	const handleUpdateTab = () => {
-		wp.ajax.send( 'swptls_save_tab', {
+		wp.ajax.send('swptls_save_tab', {
 			data: {
 				nonce: getNonce(),
-				tab: JSON.stringify( currentTab ),
+				tab: JSON.stringify(currentTab),
 			},
-			success( { message } ) {
-				toast.success( message );
+			success({ message }) {
+				toast.success(message);
 			},
-			error( { message } ) {
-				toast.error( message );
+			error({ message }) {
+				toast.error(message);
 			},
-		} );
+		});
 	};
 
-	const handleUpdateTabandRedirect = () => {
-		wp.ajax.send( 'swptls_save_tab', {
-			data: {
-				nonce: getNonce(),
-				tab: JSON.stringify( currentTab ),
-			},
-			success( { message } ) {
-				toast.success( message );
 
-				// Redirect to the dashboard.
-				const baseUrl = window.location.href.split( '/edit/' )[ 0 ];
-				let redirectUrl = baseUrl.endsWith( '/tabs' )
-					? baseUrl
-					: baseUrl + '/#/tabs';
-				window.location.href = redirectUrl;
-			},
-			error( { message } ) {
-				toast.error( message );
-			},
-		} );
-	};
+	const handleCopyShortcode = async (id) => {
+		const shortcode = `[gswpts_tab id="${id}"]`;
 
-	const handleCopyShortcode = async ( id ) => {
-		const shortcode = `[gswpts_tab id="${ id }"]`;
-
-		if ( navigator.clipboard && navigator.clipboard.writeText ) {
+		if (navigator.clipboard && navigator.clipboard.writeText) {
 			try {
-				await navigator.clipboard.writeText( shortcode );
-				setCopySuccess( true );
-				toast.success( 'Shortcode copied successfully.' );
+				await navigator.clipboard.writeText(shortcode);
+				setCopySuccess(true);
+				toast.success('Shortcode copied successfully.');
 				// Reset copySuccess state after 1 second
-				setTimeout( () => {
-					setCopySuccess( false );
-				}, 1000 );
-			} catch ( err ) {
+				setTimeout(() => {
+					setCopySuccess(false);
+				}, 1000);
+			} catch (err) {
 				console.error(
 					'Failed to copy text using clipboard API: ',
 					err
 				);
-				setCopySuccess( false );
-				toast.success( 'Shortcode copy failed.' );
+				setCopySuccess(false);
+				toast.success('Shortcode copy failed.');
 			}
 		} else {
 			// Fallback method for unsupported browsers
 			try {
-				const textArea = document.createElement( 'textarea' );
+				const textArea = document.createElement('textarea');
 				textArea.value = shortcode;
 				textArea.style.position = 'fixed';
 				textArea.style.opacity = '0';
-				document.body.appendChild( textArea );
+				document.body.appendChild(textArea);
 				textArea.select();
-				textArea.setSelectionRange( 0, textArea.value.length );
-				document.execCommand( 'copy' );
-				document.body.removeChild( textArea );
-				setCopySuccess( true );
-				toast.success( 'Shortcode copied successfully.' );
-				setTimeout( () => {
-					setCopySuccess( false );
-				}, 1000 );
-			} catch ( err ) {
-				console.error( 'Fallback copy method failed: ', err );
-				setCopySuccess( false );
-				toast.success( 'Shortcode copy failed.' );
+				textArea.setSelectionRange(0, textArea.value.length);
+				document.execCommand('copy');
+				document.body.removeChild(textArea);
+				setCopySuccess(true);
+				toast.success('Shortcode copied successfully.');
+				setTimeout(() => {
+					setCopySuccess(false);
+				}, 1000);
+			} catch (err) {
+				console.error('Fallback copy method failed: ', err);
+				setCopySuccess(false);
+				toast.success('Shortcode copy failed.');
 			}
 		}
-		
+
 	};
 
 
@@ -162,11 +190,10 @@ function EditTab() {
 			<div className="navbar-step manage-tab">
 				<ul className="navbar-step__tab-list">
 					<li
-						className={ `${
-							activeTab === 'manage_tab' ? 'active' : ''
-						}` }
+						className={`${activeTab === 'manage_tab' ? 'active' : ''
+							}`}
 					>
-						<a onClick={ () => handleActiveTab( 'manage_tab' ) }>
+						<a onClick={() => handleActiveTab('manage_tab')}>
 							<span className="icon">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -183,16 +210,15 @@ function EditTab() {
 							</span>
 
 							<span className="text">
-								{ getStrings( 'manage-tab' ) }
+								{getStrings('manage-tab')}
 							</span>
 						</a>
 					</li>
 					<li
-						className={ `${
-							activeTab === 'tab_settings' ? 'active' : ''
-						}` }
+						className={`${activeTab === 'tab_settings' ? 'active' : ''
+							}`}
 					>
-						<a onClick={ () => handleActiveTab( 'tab_settings' ) }>
+						<a onClick={() => handleActiveTab('tab_settings')}>
 							<span className="icon">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +247,7 @@ function EditTab() {
 							</span>
 
 							<span className="text">
-								{ getStrings( 'tab-settings' ) }
+								{getStrings('tab-settings')}
 							</span>
 						</a>
 					</li>
@@ -230,19 +256,18 @@ function EditTab() {
 
 			<div className="table-action">
 				<div className="action-title">
-					{ getTitleForTab( activeTab ) }
+					{getTitleForTab(activeTab)}
 				</div>
 
 				<div className="table-action__wrapper">
-					<button
-						className={ `copy-shortcode btn-shortcode ${
-							! copySuccess ? '' : 'btn-success'
-						}` }
-						onClick={ () => handleCopyShortcode( id ) }
+					{/* <button
+						className={`copy-shortcode btn-shortcode ${!copySuccess ? '' : 'btn-success'
+							}`}
+						onClick={() => handleCopyShortcode(id)}
 					>
-						{ ! copySuccess ? (
+						{!copySuccess ? (
 							<>
-								<span>{ `[gswpts_tab id="${ id }"]` }</span>{ ' ' }
+								<span>{`[gswpts_tab id="${id}"]`}</span>{' '}
 								<div className="icon">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -274,110 +299,84 @@ function EditTab() {
 										fill="white"
 									/>
 								</svg>
-								{ getStrings( 'tab-short-copy' ) }
+								{getStrings('tab-short-copy')}
 							</>
-						) }
-					</button>
+						)}
+					</button> */}
 					<div className="table-action__step">
-						<button
-							className="table-action__prev"
-							onClick={ handleBack }
-						>
-							<span className="icon">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="14"
-									height="15"
-									viewBox="0 0 14 15"
-									fill="none"
-								>
-									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
-										d="M14 7.5C14 7.08579 13.6642 6.75 13.25 6.75L2.56066 6.75L7.28033 2.03033C7.57322 1.73744 7.57322 1.26256 7.28033 0.96967C6.98744 0.676777 6.51256 0.676777 6.21967 0.96967L0.219671 6.96967C-0.0732228 7.26256 -0.0732228 7.73744 0.219671 8.03033L6.21967 14.0303C6.51256 14.3232 6.98744 14.3232 7.28033 14.0303C7.57322 13.7374 7.57322 13.2626 7.28033 12.9697L2.56066 8.25L13.25 8.25C13.6642 8.25 14 7.91421 14 7.5Z"
-										fill="#666873"
-									/>
-								</svg>
-							</span>
-							<span className="text">
-								{ getStrings( 'wiz-back' ) }
-							</span>
-						</button>
-						<button
-							className="table-action__next"
-							onClick={ handleNext }
-						>
-							<span className="text">
-								{ getStrings( 'wiz-next' ) }
-							</span>
-							<span className="icon">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="14"
-									height="15"
-									viewBox="0 0 14 15"
-									fill="none"
-								>
-									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
-										d="M-2.95052e-07 7.5C-3.13158e-07 7.08579 0.335786 6.75 0.75 6.75L11.4393 6.75L6.71967 2.03033C6.42678 1.73744 6.42678 1.26256 6.71967 0.96967C7.01256 0.676777 7.48744 0.676777 7.78033 0.96967L13.7803 6.96967C14.0732 7.26256 14.0732 7.73744 13.7803 8.03033L7.78033 14.0303C7.48744 14.3232 7.01256 14.3232 6.71967 14.0303C6.42678 13.7374 6.42678 13.2626 6.71967 12.9697L11.4393 8.25L0.75 8.25C0.335786 8.25 -2.76946e-07 7.91421 -2.95052e-07 7.5Z"
-										fill="#666873"
-									/>
-								</svg>
-							</span>
-						</button>
-					</div>
-					<div className="table-action__group">
-						<div
-							className={ `table-action__dropdown ${
-								openDropdown ? 'show' : ''
-							}` }
-						>
-							<div className="action-group">
-								<button
-									onClick={ handleUpdateTab }
-									className="table-action__save"
-								>
-									{ getStrings( 'save-and-update' ) }
-								</button>
-								<span
-									onClick={ () =>
-										setOpenDropdown( ! openDropdown )
-									}
-									className="caret-down"
-								>
+
+						{activeTab !== 'manage_tab' && (
+							<button
+								className="table-action__prev"
+								onClick={handleBack}
+							>
+								<span className="icon">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
-										width="13"
-										height="9"
-										viewBox="0 0 13 9"
+										width="14"
+										height="15"
+										viewBox="0 0 14 15"
 										fill="none"
 									>
 										<path
-											d="M6.12617 8.31106L0.642609 1.52225C0.551067 1.40898 0.5 1.25848 0.5 1.10199C0.5 0.945487 0.551067 0.794995 0.642609 0.68172L0.648805 0.67441C0.693183 0.619307 0.7466 0.575429 0.805807 0.545446C0.865014 0.515462 0.928773 0.5 0.993206 0.5C1.05764 0.5 1.1214 0.515462 1.1806 0.545446C1.23981 0.575429 1.29323 0.619307 1.33761 0.67441L6.50103 7.06732L11.6624 0.67441C11.7068 0.619307 11.7602 0.575429 11.8194 0.545446C11.8786 0.515462 11.9424 0.5 12.0068 0.5C12.0712 0.5 12.135 0.515462 12.1942 0.545446C12.2534 0.575429 12.3068 0.619307 12.3512 0.67441L12.3574 0.68172C12.4489 0.794995 12.5 0.945487 12.5 1.10199C12.5 1.25848 12.4489 1.40898 12.3574 1.52225L6.87383 8.31106C6.82561 8.37077 6.76761 8.4183 6.70335 8.45078C6.63909 8.48325 6.56991 8.5 6.5 8.5C6.43009 8.5 6.36091 8.48325 6.29665 8.45078C6.23239 8.4183 6.17439 8.37077 6.12617 8.31106Z"
-											fill="white"
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M14 7.5C14 7.08579 13.6642 6.75 13.25 6.75L2.56066 6.75L7.28033 2.03033C7.57322 1.73744 7.57322 1.26256 7.28033 0.96967C6.98744 0.676777 6.51256 0.676777 6.21967 0.96967L0.219671 6.96967C-0.0732228 7.26256 -0.0732228 7.73744 0.219671 8.03033L6.21967 14.0303C6.51256 14.3232 6.98744 14.3232 7.28033 14.0303C7.57322 13.7374 7.57322 13.2626 7.28033 12.9697L2.56066 8.25L13.25 8.25C13.6642 8.25 14 7.91421 14 7.5Z"
+											fill="#666873"
 										/>
 									</svg>
 								</span>
-							</div>
+								<span className="text">
+									{getStrings('wiz-back')}
+								</span>
+							</button>
 
-							{ openDropdown ? (
-								<div
-									onClick={ () => setOpenDropdown( false ) }
-									className="table-action__dropdown-outarea"
-								></div>
-							) : (
-								''
-							) }
+						)}
 
-							<div
-								className="table-action__dropdown-menu"
-								onClick={ handleUpdateTabandRedirect }
+						{activeTab !== 'tab_settings' && (
+							<button
+								className="table-action__next"
+								onClick={handleNext}
 							>
-								{ /* Save & go to Manage Tab */ }
-								<a>{ getStrings( 'save-and-move' ) }</a>
+								<span className="text">
+									{getStrings('wiz-next')}
+								</span>
+								<span className="icon">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="14"
+										height="15"
+										viewBox="0 0 14 15"
+										fill="none"
+									>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M-2.95052e-07 7.5C-3.13158e-07 7.08579 0.335786 6.75 0.75 6.75L11.4393 6.75L6.71967 2.03033C6.42678 1.73744 6.42678 1.26256 6.71967 0.96967C7.01256 0.676777 7.48744 0.676777 7.78033 0.96967L13.7803 6.96967C14.0732 7.26256 14.0732 7.73744 13.7803 8.03033L7.78033 14.0303C7.48744 14.3232 7.01256 14.3232 6.71967 14.0303C6.42678 13.7374 6.42678 13.2626 6.71967 12.9697L11.4393 8.25L0.75 8.25C0.335786 8.25 -2.76946e-07 7.91421 -2.95052e-07 7.5Z"
+											fill="#666873"
+										/>
+									</svg>
+								</span>
+							</button>
+						)}
+
+					</div>
+					<div className="table-action__group">
+						<div
+							className={`table-action__dropdown`}
+						>
+							<div className="action-group">
+								<button
+									onClick={handleUpdateTab}
+									className="table-action__save"
+								>
+									{getStrings('save-changes')}
+								</button>
+
 							</div>
+
+
+
 						</div>
 					</div>
 				</div>
@@ -386,27 +385,26 @@ function EditTab() {
 			<div className="edit-body">
 				<div className="tab-card">
 					<div
-						className={ `edit-tab-content ${
-							activeTab === 'manage_tab'
-								? 'manage-tab'
-								: activeTab === 'tab_settings'
+						className={`edit-tab-content ${activeTab === 'manage_tab'
+							? 'manage-tab'
+							: activeTab === 'tab_settings'
 								? 'tab-settings'
 								: ''
-						}` }
+							}`}
 					>
-						{ 'manage_tab' === activeTab && (
+						{'manage_tab' === activeTab && (
 							<ManagingTabs
-								currentTab={ currentTab }
-								setCurrentTab={ setCurrentTab }
+								currentTab={currentTab}
+								setCurrentTab={setCurrentTab}
 							/>
-						) }
+						)}
 
-						{ 'tab_settings' === activeTab && (
+						{'tab_settings' === activeTab && (
 							<TabSettings
-								currentTab={ currentTab }
-								setCurrentTab={ setCurrentTab }
+								currentTab={currentTab}
+								setCurrentTab={setCurrentTab}
 							/>
-						) }
+						)}
 					</div>
 				</div>
 			</div>

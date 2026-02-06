@@ -26,6 +26,7 @@ class Notices {
 	public function __construct() {
 		add_action( 'wp_ajax_gswpts_notice_action', [ $this, 'manage_notices' ] );
 		add_action( 'wp_ajax_nopriv_gswpts_notice_action', [ $this, 'manage_notices' ] );
+		add_action( 'wp_ajax_gswpts_pro_fix_action', [ $this, 'handle_pro_fix' ] );
 	}
 
 	/**
@@ -36,7 +37,7 @@ class Notices {
 	public function manage_notices() {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'swptls_notices_nonce' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid action', 'sheetstowptable' ),
+				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
 			]);
 		}
 
@@ -70,6 +71,10 @@ class Notices {
 
 		if ( 'upgrade_notice' === $action_type ) {
 			update_option( 'gswptsUpgradeNotice', true );
+		}
+
+		if ( 'pro_fix_notice' === $action_type ) {
+			update_option( 'swptls_pro_appsero_fix_declined', true );
 		}
 
 		wp_send_json_success([
@@ -108,5 +113,52 @@ class Notices {
 				'response_type' => 'success',
 			]);
 		}
+	}
+
+	/**
+	 * Handle pro fix actions
+	 *
+	 * @since 2.12.15
+	 */
+	public function handle_pro_fix() {
+
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'swptls_pro_fix_nonce' ) ) {
+			wp_send_json_error([
+				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
+		$action = isset( $_POST['action_type'] ) ? sanitize_text_field( wp_unslash( $_POST['action_type'] ) ) : '';
+
+		if ( 'apply_fix' === $action ) {
+			// Apply the fix
+			$admin = new \SWPTLS\Admin();
+			$result = $admin->apply_pro_appsero_fix();
+
+			if ( $result ) {
+				wp_send_json_success([
+					'response_type' => 'success',
+					'message' => __( 'Pro plugin update has been fixed successfully!', 'sheets-to-wp-table-live-sync' ),
+				]);
+			} else {
+				wp_send_json_error([
+					'message' => __( 'Failed to apply the fix. Please try again or contact support.', 'sheets-to-wp-table-live-sync' ),
+				]);
+			}
+		}
+
+		if ( 'decline_fix' === $action ) {
+			// Mark as declined
+			update_option( 'swptls_pro_appsero_fix_declined', true );
+
+			wp_send_json_success([
+				'response_type' => 'success',
+				'message' => __( 'Fix declined. You will not receive premium plugin updates.', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
+		wp_send_json_error([
+			'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
+		]);
 	}
 }

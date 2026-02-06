@@ -3,6 +3,13 @@ const config = Object.assign( {}, window.SWPTLS_APP );
 export function getNonce() {
 	return config.nonce;
 }
+export function getCta_notice_status() {
+	return config.cta_notice_status;
+}
+
+export function getCta_notice_tabs_status() {
+	return config.cta_notice_tabs_status;
+}
 
 export function getTables() {
 	return config.tables;
@@ -83,6 +90,7 @@ export function getDefaultSettings() {
 
 		table_styles: false,
 		table_img_support: false,
+		img_lightbox_support: false,
 		table_link_support: false,
 
 		table_view_mode: 'default-mode',
@@ -100,6 +108,36 @@ export function getDefaultSettings() {
 		fixed_headers: false,
 		header_offset: 0,
 
+		 // AI Summary Settings
+		enable_ai_summary: false,
+		summary_source: 'generate_on_click', 
+		summary_prompt: 'Give a short summary of this table (max 50 words), highlighting key takeaways and trends.',
+		summary_position_goc: 'below', 
+		summary_position: 'above', 
+		summary_display: 'always_show', 
+		summary_button_text: '✨ Generate Summary', 
+		summary_title: 'Table Summary', 
+		instant_summary_title: 'Table Summary', 
+		summary_button_bg_color: '#3B82F6',
+		summary_button_text_color: '#ffffff', 
+		enable_ai_cache: false,
+		
+		// Ask AI Settings
+		show_table_prompt_fields: false, 
+		ask_ai_placeholder: 'Ask anything about this table… e.g., Top 5 products by sales', 
+		ask_ai_button_label: 'Ask AI', 
+		ask_ai_heading: 'Ask AI',
+
+		// Backend AI Summary (for instant_summary source)
+		backend_ai_summary: '',
+		backend_summary_exists: false,
+		show_regenerate_button: false,
+		
+		// Legacy/Deprecated (keeping for backward compatibility)
+		enable_backend_ai_trigger: false,
+		edit_summary_content: false,
+		show_summary_in_table: false,
+
 		import_styles_theme_colors: {
 			'default-style': {
 				headerBGColor: '#ffffff',
@@ -107,6 +145,8 @@ export function getDefaultSettings() {
 				bodyBGColor: '#ffffff',
 				bodyTextColorCol_1: '#333333',
 				bodyTextColorColRest: '#6B7280',
+				hoverBGColor: '#F3F4F6',
+				hoverTextColor: '#111827',
 				borderColor: '#e0e5f6',
 				paginationStyle: 'default_pagination',
 				paginationAciveBtnColor: '#828282',
@@ -118,6 +158,7 @@ export function getDefaultSettings() {
 				bodyBGColor: '#000f',
 				bodyTextColor: '#ffffff',
 				hoverBGColor: '#504949',
+				hoverTextColor: '#ebebeb',
 				paginationStyle: 'simple_pagination',
 				paginationAciveBtnColor: '#000000',
 				pagination_center: true,
@@ -128,7 +169,8 @@ export function getDefaultSettings() {
 				bodyTextColor: '#0f0f0f',
 				bodyBGColorEven: '#EBF4FF',
 				bodyBGColorOdd: '#ffffff',
-				hoverBGColor: '#bdcfe4',
+				hoverBGColor: '#D1E7FF',
+				hoverTextColor: '#0a1929',
 				paginationStyle: 'tailwind_pagination',
 				paginationAciveBtnColor: '#2D74E7',
 				pagination_center: false,
@@ -139,7 +181,8 @@ export function getDefaultSettings() {
 				bodyTextColor: '#0f0f0f',
 				bodyBGColorEven: '#f5f5f5',
 				bodyBGColorOdd: '#ffffff',
-				hoverBGColor: '#d1d1d1',
+				hoverBGColor: '#4a4560',
+				hoverTextColor: '#ffffff',
 				borderType: 'solid',
 				borderRadius: '10px',
 				paginationStyle: 'modern_pagination',
@@ -152,7 +195,8 @@ export function getDefaultSettings() {
 				bodyTextColor: '#0f0f0f',
 				bodyBGColorEven: '#f8f6ff',
 				bodyBGColorOdd: '#ffffff',
-				hoverBGColor: '#EDE8FC',
+				hoverBGColor: '#D5CCFF',
+				hoverTextColor: '#1a1a3e',
 				borderColor: '#fafafa',
 				borderType: 'solid',
 				borderRadius: '10px',
@@ -165,7 +209,8 @@ export function getDefaultSettings() {
 				headerTextColor: '#333333',
 				bodyBGColor: '#ffffff',
 				bodyTextColor: '#0f0f0f',
-				hoverBGColor: '#bdcfe4',
+				hoverBGColor: '#E8E8E8',
+				hoverTextColor: '#1a1a1a',
 				borderColor: '#e4e1e1',
 				borderType: 'solid',
 				borderRadius: '10px',
@@ -181,6 +226,7 @@ export function getDefaultSettings() {
 				bodyTextColorCol_1: '#333333',
 				bodyTextColorColRest: '#6B7280',
 				hoverBGColor: '#e4e9f8',
+				hoverTextColor: '#010613',
 				borderColor: '#e0e5f6',
 				borderType: 'solid',
 				borderRadius: '10px',
@@ -196,6 +242,8 @@ export function getDefaultSettings() {
 				bodyTextColor: '#000',
 				borderColor: '#e0e5f6',
 				hoverBGColor: '#EDE8FC',
+				hoverBGColor: '#6807f9',
+                hoverTextColor: '#ffffff',
 				borderType: 'solid',
 				borderRadius: '10px',
 				paginationStyle: 'outlined_pagination',
@@ -208,6 +256,7 @@ export function getDefaultSettings() {
 				bodyBGColor: '#34344C',
 				bodyTextColor: '#ffffff',
 				hoverBGColor: '#7e78d3',
+				hoverTextColor: '#f9f8ff',
 				borderType: 'solid',
 				borderRadius: '10px',
 				paginationStyle: 'simple_pagination',
@@ -462,6 +511,10 @@ export const displayProPopup = () => {
 
 export const getSetupWizardStatus = () => {
 	return config.ran_setup_wizard;
+};
+
+export const showGetStart = () => {
+	return config.show_get_start_page;
 };
 
 export function show_export_buttons( buttons ) {

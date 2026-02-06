@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="styleModal transition hidden">
 		<?php require SWPTLS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
 		<div class="header">
-			<h4><?php esc_html_e( 'Choose Table Style', 'sheetstowptable' ); ?></h4>
+			<h4><?php esc_html_e( 'Choose Table Style', 'sheets-to-wp-table-live-sync' ); ?></h4>
 		</div>
 
 		<div class="body">
@@ -23,10 +23,10 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="actions">
 			<div class="ui black deny button cancelBtn">
-				<?php esc_html_e( 'Cancel', 'sheetstowptable' ); ?>
+				<?php esc_html_e( 'Cancel', 'sheets-to-wp-table-live-sync' ); ?>
 			</div>
 			<div class="ui positive button selectBtn">
-				<?php esc_html_e( 'Select', 'sheetstowptable' ); ?>
+				<?php esc_html_e( 'Select', 'sheets-to-wp-table-live-sync' ); ?>
 			</div>
 		</div>
 	</div>
@@ -38,17 +38,17 @@ defined( 'ABSPATH' ) || exit;
 	<div class="gswpts-hide-modal transition hidden">
 		<?php require SWPTLS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
 		<div class="header">
-			<h4><?php esc_html_e( 'Choose Column To Hide', 'sheetstowptable' ); ?></h4>
+			<h4><?php esc_html_e( 'Choose Column To Hide', 'sheets-to-wp-table-live-sync' ); ?></h4>
 		</div>
 
 		<div class="body">
 			<!-- Column values to hide in desktop mode -->
 			<div class="desktop-column">
-				<span><?php esc_html_e( 'Hide columns in desktop:', 'sheetstowptable' ); ?></span>
+				<span><?php esc_html_e( 'Hide columns in desktop:', 'sheets-to-wp-table-live-sync' ); ?></span>
 				<div class="ui fluid multiple selection dropdown mt-2" id="desktop-hide-columns">
 					<input type="hidden" name="desktop-hide-column-input" id="desktop-hide-column-input">
 					<i class="dropdown icon"></i>
-					<div class="default text"><?php esc_html_e( 'Choose Column', 'sheetstowptable' ); ?></div>
+					<div class="default text"><?php esc_html_e( 'Choose Column', 'sheets-to-wp-table-live-sync' ); ?></div>
 					<div class="menu">
 					</div>
 				</div>
@@ -57,11 +57,11 @@ defined( 'ABSPATH' ) || exit;
 
 			<!-- Column values to hide in mobile mode -->
 			<div class="mobile-column">
-				<span><?php esc_html_e( 'Hide columns in mobile:', 'sheetstowptable' ); ?></span>
+				<span><?php esc_html_e( 'Hide columns in mobile:', 'sheets-to-wp-table-live-sync' ); ?></span>
 				<div class="ui fluid multiple selection dropdown mt-2" id="mobile-hide-columns">
 					<input type="hidden" name="mobile-hide-column-input" id="mobile-hide-column-input">
 					<i class="dropdown icon"></i>
-					<div class="default text"><?php esc_html_e( 'Choose Column', 'sheetstowptable' ); ?></div>
+					<div class="default text"><?php esc_html_e( 'Choose Column', 'sheets-to-wp-table-live-sync' ); ?></div>
 					<div class="menu">
 					</div>
 				</div>
@@ -71,10 +71,10 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="actions">
 			<div class="ui black deny button cancelBtn">
-				<?php esc_html_e( 'Cancel', 'sheetstowptable' ); ?>
+				<?php esc_html_e( 'Cancel', 'sheets-to-wp-table-live-sync' ); ?>
 			</div>
 			<div class="ui positive button selectBtn">
-				<?php esc_html_e( 'Select', 'sheetstowptable' ); ?>
+				<?php esc_html_e( 'Select', 'sheets-to-wp-table-live-sync' ); ?>
 			</div>
 		</div>
 	</div>
@@ -86,16 +86,16 @@ defined( 'ABSPATH' ) || exit;
 	<div class="gswpts-hide-modal transition hidden">
 		<?php require SWPTLS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
 		<div class="header">
-			<h4><?php esc_html_e( 'Activate Row Hiding Feature', 'sheetstowptable' ); ?></h4>
+			<h4><?php esc_html_e( 'Activate Row Hiding Feature', 'sheets-to-wp-table-live-sync' ); ?></h4>
 		</div>
 
 		<div class="body">
 			<div class="column">
-				<span><?php esc_html_e( 'Hidden Rows:', 'sheetstowptable' ); ?></span>
+				<span><?php esc_html_e( 'Hidden Rows:', 'sheets-to-wp-table-live-sync' ); ?></span>
 				<div class="ui fluid multiple selection dropdown mt-2" id="hidden_rows">
 					<input type="hidden" name="hidden_rows-input" id="hidden_rows-input">
 					<i class="dropdown icon"></i>
-					<div class="default text"><?php esc_html_e( 'Hidden Rows', 'sheetstowptable' ); ?></div>
+					<div class="default text"><?php esc_html_e( 'Hidden Rows', 'sheets-to-wp-table-live-sync' ); ?></div>
 					<div class="menu">
 					</div>
 				</div>
@@ -104,7 +104,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="actions">
 			<div class="ui black deny button cancelBtn">
-				<span><?php esc_html_e( 'Cancel', 'sheetstowptable' ); ?></span>
+				<span><?php esc_html_e( 'Cancel', 'sheets-to-wp-table-live-sync' ); ?></span>
 			</div>
 			<div class="ui toggle checkbox">
 				<?php $is_pro = swptls()->settings->table_tools_array()['hide_rows']['is_pro']; ?> 
@@ -125,16 +125,16 @@ defined( 'ABSPATH' ) || exit;
 	<div class="gswpts-hide-modal transition hidden">
 		<?php require SWPTLS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
 		<div class="header">
-			<h4><?php esc_html_e( 'Activate Cell Hiding Feature', 'sheetstowptable' ); ?></h4>
+			<h4><?php esc_html_e( 'Activate Cell Hiding Feature', 'sheets-to-wp-table-live-sync' ); ?></h4>
 		</div>
 
 		<div class="body">
 			<div class="column">
-				<span><?php esc_html_e( 'Hidden Cell:', 'sheetstowptable' ); ?></span>
+				<span><?php esc_html_e( 'Hidden Cell:', 'sheets-to-wp-table-live-sync' ); ?></span>
 				<div class="ui fluid multiple selection dropdown mt-2" id="hidden_cells">
 					<input type="hidden" name="hidden_cells-input" id="hidden_cells-input">
 					<i class="dropdown icon"></i>
-					<div class="default text"><?php esc_html_e( 'Hidden Cells', 'sheetstowptable' ); ?></div>
+					<div class="default text"><?php esc_html_e( 'Hidden Cells', 'sheets-to-wp-table-live-sync' ); ?></div>
 					<div class="menu">
 					</div>
 				</div>
@@ -143,7 +143,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="actions">
 			<div class="ui black deny button cancelBtn">
-				<?php esc_html_e( 'Cancel', 'sheetstowptable' ); ?>
+				<?php esc_html_e( 'Cancel', 'sheets-to-wp-table-live-sync' ); ?>
 			</div>
 			<div class="ui toggle checkbox">
 				<?php $is_pro = swptls()->settings->table_tools_array()['hide_cell']['is_pro']; ?>

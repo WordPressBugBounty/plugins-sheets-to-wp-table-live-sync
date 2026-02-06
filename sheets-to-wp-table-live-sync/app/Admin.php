@@ -28,6 +28,8 @@ class Admin {
 		add_action( 'admin_menu', [ $this, 'admin_menus' ] );
 		add_action( 'admin_init', [ $this, 'migrate_stwptls_style_data' ] );
 		add_action( 'admin_init', [ $this, 'migrate_stwptls_tab_data' ] );
+
+		add_action( 'admin_init', [ $this, 'fix_pro_appsero_init' ] );
 	}
 
 	/**
@@ -39,8 +41,8 @@ class Admin {
 		$strings_collection = Strings::get();
 
 		add_menu_page(
-			__( 'FlexTable', 'sheetstowptable' ),
-			__( 'FlexTable', 'sheetstowptable' ),
+			__( 'FlexTable', 'sheets-to-wp-table-live-sync' ),
+			__( 'FlexTable', 'sheets-to-wp-table-live-sync' ),
 			'manage_options',
 			'gswpts-dashboard',
 			[ $this, 'dashboard_page' ],
@@ -54,7 +56,7 @@ class Admin {
 
 			$submenu['gswpts-dashboard'][] = [ __( $strings_collection['manage-tab-submenu'], 'wppool-turnstile' ), 'manage_options', 'admin.php?page=gswpts-dashboard#/tabs' ]; // phpcs:ignore
 
-			$submenu['gswpts-dashboard'][] = [ __( $strings_collection['Settings'], 'wppool-turnstile' ), 'manage_options', 'admin.php?page=gswpts-dashboard#/settings' ]; // phpcs:ignore				
+			$submenu['gswpts-dashboard'][] = [ __( $strings_collection['global-settings'], 'wppool-turnstile' ), 'manage_options', 'admin.php?page=gswpts-dashboard#/settings' ]; // phpcs:ignore				
 
 			$submenu['gswpts-dashboard'][] = [ __( $strings_collection['get-started'], 'wppool-turnstile' ), 'manage_options', 'admin.php?page=gswpts-dashboard#/doc' ]; // phpcs:ignore
 
@@ -64,7 +66,7 @@ class Admin {
 		if ( ! swptls()->helpers->check_pro_plugin_exists() || ! swptls()->helpers->is_pro_active() ) {
 			add_submenu_page(
 				'gswpts-dashboard',
-				__( 'Get PRO -sheets-to-wp-table-live-sync', 'sheetstowptable' ),// phpcs:ignore
+				__( 'Get PRO -sheets-to-wp-table-live-sync', 'sheets-to-wp-table-live-sync' ),// phpcs:ignore
 				__( '<span style="display: flex; align-items: center; gap: 7px; color: #29be7c; font-weight: 700; text-transform:uppercase; font-size: 12px;"> Upgrade Now <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M11.8012 7.66016L10.0813 4.26172L8.36133 7.66016C8.9104 7.69498 9.48392 7.71466 10.0813 7.71466C10.6786 7.71466 11.2522 7.69498 11.8012 7.66016Z" fill="#34D399"/>
 					<path d="M13.5164 3.93457C12.5221 4.00909 11.4463 4.05114 10.3535 4.05712L12.0518 7.41268L13.5164 3.93457Z" fill="#34D399"/>
@@ -85,7 +87,7 @@ class Admin {
 					<path d="M16.8194 12.844C16.76 12.7656 16.7118 12.6754 16.6728 12.5811C16.6337 12.6754 16.5856 12.7656 16.5262 12.844C16.3898 13.0242 16.1957 13.155 16.0215 13.245C16.1957 13.3349 16.3898 13.4658 16.5262 13.6459C16.5856 13.7243 16.6337 13.8145 16.6728 13.9089C16.7118 13.8145 16.76 13.7243 16.8194 13.6459C16.9558 13.4657 17.1499 13.3349 17.3241 13.245C17.1499 13.155 16.9557 13.0242 16.8194 12.844Z" fill="#34D399"/>
 					</svg>
 					
-				</span>', 'sheetstowptable' ),// phpcs:ignore	
+				</span>', 'sheets-to-wp-table-live-sync' ),// phpcs:ignore	
 				'manage_options', 'https://go.wppool.dev/KfVZ', '', 9999
 			);
 
@@ -131,6 +133,13 @@ class Admin {
 		$theme_data_update = get_option('theme_data_update', 0);
 		$swptls_pagination_data_migrate = get_option('swptls_pagination_data_migrate', 0);
 		$swptls_conditional_mode_migrate = get_option('swptls_conditional_mode_migrate', 0);
+
+		// Check if table exists before running any migrations
+		$table_exists = $wpdb->get_var("SHOW TABLES LIKE '$table'") === $table;
+
+		if ( ! $table_exists ) {
+			return;
+		}
 
 		if ( 0 === $code_has_run ) {
 			if ( $wpdb->get_var("SHOW TABLES LIKE '$table'") === $table ) {//phpcs:ignore
@@ -713,5 +722,123 @@ class Admin {
 				}
 			}
 		}
+	}
+
+
+	/**
+	 * Fix pro plugin appsero init issue for versions 3.7.0 to 3.15.1
+	 *
+	 * This function addresses the Appsero fatal error that occurs when the pro plugin
+	 * uses !class_exists() check before the autoloader is properly initialized.
+	 *
+	 * @since 3.15.4
+	 * @return void
+	 */
+	public function fix_pro_appsero_init() {
+
+		// Check if pro plugin is active
+		if ( ! swptls()->helpers->check_pro_plugin_exists() || ! swptls()->helpers->is_pro_active() ) {
+			return;
+		}
+
+		// Get pro plugin version
+		if ( ! defined( 'SWPTLS_PRO_VERSION' ) ) {
+			return;
+		}
+
+		$pro_version = SWPTLS_PRO_VERSION;
+
+		if ( version_compare( $pro_version, '3.7.0', '<' ) || version_compare( $pro_version, '3.15.1', '>' ) ) {
+			return;
+		}
+
+		// Check if fix was already applied or user declined
+		$fix_applied = get_option( 'swptls_pro_appsero_fix_applied', false );
+		$fix_declined = get_option( 'swptls_pro_appsero_fix_declined', false );
+
+		if ( $fix_applied || $fix_declined ) {
+			return;
+		}
+	}
+
+	/**
+	 * Check if the pro plugin needs the Appsero fix
+	 *
+	 * @return bool
+	 */
+	public function needs_pro_appsero_fix() {
+
+		$pro_plugin_file = WP_PLUGIN_DIR . '/sheets-to-wp-table-live-sync-pro/includes/SWPTLS.php';
+
+		if ( ! file_exists( $pro_plugin_file ) ) {
+			return false;
+		}
+
+		if ( ! is_readable( $pro_plugin_file ) ) {
+			return false;
+		}
+
+		$file_content = file_get_contents( $pro_plugin_file );
+		if ( false === $file_content ) {
+			return false;
+		}
+
+		// Check if the problematic pattern exists.
+		$pattern = '/if\s*\(\s*!\s*class_exists\s*\(\s*[\'"]\\\\?SWPTLSPro\\\\?Appsero\\\\?Updater[\'"]\s*\)\s*\)\s*\{\s*\\\\?SWPTLSPro\\\\?Appsero\\\\?Updater\s*::\s*init\s*\(\s*\$client\s*\)\s*;\s*\}/';
+
+		$match_result = preg_match( $pattern, $file_content );
+
+		return $match_result;
+	}
+
+	/**
+	 * Apply the pro Appsero fix
+	 *
+	 * @return bool
+	 */
+	public function apply_pro_appsero_fix() {
+
+		$pro_plugin_file = WP_PLUGIN_DIR . '/sheets-to-wp-table-live-sync-pro/includes/SWPTLS.php';
+
+		if ( ! file_exists( $pro_plugin_file ) ) {	
+			return false;
+		}
+
+		if ( ! is_readable( $pro_plugin_file ) ) {
+			return false;
+		}
+
+		$file_content = file_get_contents( $pro_plugin_file );
+
+		if ( false === $file_content ) {
+			return false;
+		}
+
+		$content_updated = false;
+
+		// Regex pattern to match the entire problematic block with flexible whitespace
+		$pattern = '/if\s*\(\s*!\s*class_exists\s*\(\s*[\'"]\\\\?SWPTLSPro\\\\?Appsero\\\\?Updater[\'"]\s*\)\s*\)\s*\{\s*\\\\?SWPTLSPro\\\\?Appsero\\\\?Updater\s*::\s*init\s*\(\s*\$client\s*\)\s*;\s*\}/';
+
+		if ( preg_match( $pattern, $file_content ) ) {
+
+			$file_content = preg_replace(
+				'/(\s*if\s*\(\s*)!\s*(class_exists\s*\(\s*[\'"]\\\\?SWPTLSPro\\\\?Appsero\\\\?Updater[\'"]\s*\)\s*\)\s*\{\s*\\\\?SWPTLSPro\\\\?Appsero\\\\?Updater\s*::\s*init\s*\(\s*\$client\s*\)\s*;\s*\})/',
+				'$1$2',
+				$file_content
+			);
+			$content_updated = true;
+
+		}
+
+		if ( $content_updated ) {
+
+			$result = file_put_contents( $pro_plugin_file, $file_content, LOCK_EX );
+
+			if ( false !== $result ) {
+				update_option( 'swptls_pro_appsero_fix_applied', true );
+				return true;
+			}
+		}
+		return false;
 	}
 }

@@ -11,10 +11,10 @@ const ChangesLog: FC = () => {
 	const trigger = '#sheets-changelog-trigger';
 
 	return (
-		<HeadwayWidget account={ HW_CONFIG_ACCOUNT } trigger={ trigger }>
+		<HeadwayWidget account={HW_CONFIG_ACCOUNT} trigger={trigger}>
 			<div className="whats-new" id="sheets-changelog-trigger">
-				<div className="icon">{ RedHeart }</div>
-				<p>{ getStrings( 'db-headway' ) }</p>
+				<div className="icon">{RedHeart}</div>
+				<p>{getStrings('db-headway')}</p>
 			</div>
 		</HeadwayWidget>
 	);

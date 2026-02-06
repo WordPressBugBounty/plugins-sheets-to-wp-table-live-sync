@@ -1,23 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react';
 import TablesList from './TablesList';
 import Title from '../core/Title';
+import CTAVideoPlayer from './CTAVideoPlayer';
+import how_to_install_video_player from '../images/how-to-install-video-player.png';
 import {
-	Cloud,
 	WhitePlusIcon,
 	searchIcon,
 	sortIcon,
 	arrowTop,
 	arrowBottom,
+	PlayerRound
 } from '../icons';
 import { Link } from 'react-router-dom';
 import AddNewTable from './AddNewTable';
 import Header from './Header';
+import CtaNotice from './CtaNotice';
 import {
 	getNonce,
 	getTables,
 	convertToSlug,
 	getStrings,
 	isProActive,
+	getCta_notice_status
 } from './../Helpers';
 import { toast } from 'react-toastify';
 //styles
@@ -33,6 +37,9 @@ function Dashboard() {
 	const [searchKey, setSearchKey] = useState<string>('');
 	const [tableCount, setTableCount] = useState(0);
 	const [isDropdownVisible, setDropdownVisible] = useState(false);
+	const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+	const [showCtaNotice, setShowCtaNotice] = useState(true);
+	const [isVideoModalOpen, setIsVideoModalOpen] = useState(false); // CTA Video Modal
 
 	// Load initial sort settings from localStorage
 	const initialSortField = localStorage.getItem('sortField') || 'Id';
@@ -66,6 +73,26 @@ function Dashboard() {
 				console.error(error);
 			},
 		});
+
+
+		// Check if CTA notice should be shown based on backend status
+		const ctaNoticeStatus = getCta_notice_status();
+
+		// Update localStorage based on backend status
+		if (ctaNoticeStatus === 1 || ctaNoticeStatus === '1' || ctaNoticeStatus === true) {
+			localStorage.setItem('swptls_cta_notice_dismissed', 'true');
+			setShowCtaNotice(false);
+		} else {
+			localStorage.setItem('swptls_cta_notice_dismissed', 'false');
+			setShowCtaNotice(true);
+		}
+
+		// Check if CTA notice should be shown
+		const ctaDismissed = localStorage.getItem('swptls_cta_notice_dismissed');
+		if (ctaDismissed === 'true') {
+			setShowCtaNotice(false);
+		}
+
 	}, []);
 
 	useEffect(() => {
@@ -158,6 +185,11 @@ function Dashboard() {
 		setDropdownVisible(!isDropdownVisible);
 	};
 
+	const handleCtaNoticeDismiss = () => {
+		setShowCtaNotice(false);
+		localStorage.setItem('swptls_cta_notice_dismissed', 'true');
+	};
+
 	//
 	function handleCancelOutside(event: MouseEvent) {
 		if (
@@ -176,48 +208,79 @@ function Dashboard() {
 
 	return (
 		<>
-			<Header />
+			<Header
+				title={getStrings('dashboard')}
+				description={getStrings('Dashboard-title')}
+				// modalTitle={getStrings('mng-tab-modal-title')}
+				showChangesLog={false}
+				showProFeatures={true}
+				showYoutubeTutorial={true}
+			/>
+
+			{/* CTA Notice - can be dismissed */}
+			{showCtaNotice && tables.length > 0 && (
+				<CtaNotice onDismiss={handleCtaNoticeDismiss} />
+			)}
+
+
 			{tables.length < 1 ? (
 				<>
 					<div className="no-tables-created-intro text-center">
-						<div className="no-tables-intro-img">{Cloud}</div>
+
 						<h2>
 							{getStrings('no-tables-have-been-created-yet')}
 						</h2>
-						<p>
-							{getStrings(
-								'tables-will-be-appeared-here-once-you-create-them'
-							)}
-						</p>
-						{ /* <Link className='btn btn-lg' to="/tables/create">{getStrings('create-new-table')}</Link> */}
+						<p>{getStrings('no-tables-video-click')}</p>
+
 						<button
 							className="btn btn-lg"
 							onClick={handleCreateTable}
 						>
-							{getStrings('new-tables')} {WhitePlusIcon}
+							{getStrings('new-tables')}
+							{WhitePlusIcon}
 						</button>
-						<p className="help">
-							{getStrings('need-help')}{' '}
-							<a
-								href="https://youtu.be/hKYqE4e_ipY?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP"
-								target="_blank"
+
+						<br />
+						<br />
+
+						<p>
+							{getStrings('need-help-watch-a')}{' '}
+							<span
+								onClick={() => setIsVideoModalOpen(true)}
+								style={{
+									color: '#575757',
+									cursor: 'pointer',
+									textDecoration: 'underline',
+									fontWeight: 600,
+									fontSize: '14px'
+								}}
 							>
-								{getStrings('watch-now')}
-							</a>
+								quick video
+							</span>
 						</p>
+
+
+						<CTAVideoPlayer
+							videoUrl="https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT"
+							title="Get started with table creation"
+							isOpen={isVideoModalOpen}
+							onClose={() => setIsVideoModalOpen(false)}
+						/>
+
 					</div>
 				</>
 			) : (
 				<>
 					<div className="table-header">
 						<Title tagName="h4">
-							<strong>{tableCount}</strong>&nbsp;
-							{getStrings('tables-created')}
+							{getStrings('tables-created')} &nbsp; (<strong>{tableCount}</strong>)
 						</Title>
 						<div className="wrapper">
 							{ /* Sorting code */}
 
-							<div className="sort-wrapper">
+							<div className="sort-wrapper"
+								onClick={toggleDropdown}
+							>
 								<div className="sort-by">
 									<div className="dropdown">
 										<div
@@ -415,7 +478,7 @@ function Dashboard() {
 									</div>
 								) : (
 									<div className="add-new-wrapper">
-										<AddNewTable />
+										{/* <AddNewTable /> */}
 									</div>
 								)}
 							</>

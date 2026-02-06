@@ -6,10 +6,13 @@ import Row from '../core/Row';
 import Title from '../core/Title';
 import DataSource from './DataSource';
 import ConditionalView from './ConditionalView';
+import AIView from './AIView';
 import ThemeSettings from './ThemeSettings';
 import TableCustomization from './TableCustomization';
 import RowSettings from './RowSettings';
 import DataTable from 'datatables.net-dt';
+import CTAVideoPlayer from './CTAVideoPlayer';
+
 import {
 	getNonce,
 	getStrings,
@@ -47,6 +50,10 @@ function EditTable() {
 	const [privatesheetmessage, setPrivateSheetmessage] = useState(false);
 	const [limitedtmessage, setLimitedmessage] = useState(false);
 
+	const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+	const [currentVideoUrl, setCurrentVideoUrl] = useState('');
+	const [currentVideoTitle, setCurrentVideoTitle] = useState('');
+
 	const [hidingContext, setHidingContext] = useState(
 		localStorage.getItem('third_active_tab') || 'columns'
 	);
@@ -67,9 +74,12 @@ function EditTable() {
 		localStorage.getItem('third_active_tab') || 'columns'
 	);
 
-	//Third Row
+	//Foth Row
 	const [forthActiveTabs, setForthActiveTabs] = useState<string>(
 		localStorage.getItem('forth_active_tab') || 'conditional_view'
+	);
+	const [fiveActiveTabs, setFiveActiveTabs] = useState<string>(
+		localStorage.getItem('five_active_tab') || 'ai_integration'
 	);
 
 	const handleSetActiveTab = (key) => {
@@ -134,25 +144,78 @@ function EditTable() {
 	const [tablePreview, setTablePreview] = useState();
 	const [paginated, setPaginated] = useState(false);
 
-	const [openDropdown, setOpenDropdown] = useState(false);
-	const [openDropdownShortCode, setOpenDropdownShortCode] =
-		useState(false);
 
 	const getTitleForTab = (tab) => {
-		switch (tab) {
-			case 'data_source':
-				return getStrings('data-source-title');
-			case 'theme_settings':
-				return getStrings('table-theme-title');
-			case 'table_customization':
-				return getStrings('tc-title');
-			case 'row_settings':
-				return getStrings('hide-row-col-title');
-			case 'conditional_view':
-				return getStrings('conditional-view-title');
-			default:
-				return getStrings('data-source-title');
-		}
+		const getTabTitle = (tabName) => {
+			switch (tabName) {
+				case 'data_source':
+					return getStrings('data-source-title');
+				case 'theme_settings':
+					return getStrings('table-theme-title');
+				case 'table_customization':
+					return getStrings('tc-title');
+				case 'row_settings':
+					return getStrings('hide-row-col-title');
+				case 'conditional_view':
+					return getStrings('conditional-view-title');
+				case 'ai_integration':
+					return getStrings('ai-integration-title');
+				default:
+					return getStrings('data-source-title');
+			}
+		};
+
+		const getTutorialUrl = (tabName) => {
+			const tutorialUrls = {
+				'data_source': 'https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT',
+				'theme_settings': 'https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT',
+				'table_customization': 'https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT',
+				'row_settings': 'https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT',
+				'conditional_view': 'https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT',
+				'ai_integration': 'https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT'
+			};
+			return tutorialUrls[tabName] || 'https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT';
+		};
+
+		/* const handleTutorialClick = (tabName) => {
+			window.open(getTutorialUrl(tabName), '_blank', 'noopener,noreferrer');
+		}; */
+
+		const handleHelpClick = (tabName) => {
+			setCurrentVideoUrl(getTutorialUrl(tabName));
+			setCurrentVideoTitle(getTabTitle(tabName));
+			setIsVideoModalOpen(true);
+		};
+
+		return (
+			<div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+				<span>{getTabTitle(tab)}</span>
+				<span style={{
+					width: '8px',
+					height: '8px',
+					borderRadius: '50%',
+					backgroundColor: '#D9D9D9',
+					display: 'inline-block'
+				}}></span>
+				<span
+					className="help-link"
+					onClick={() => handleHelpClick(tab)}
+					style={{
+						color: '#666873',
+						cursor: 'pointer',
+						textDecoration: 'underline',
+						fontSize: '14px',
+						textDecoration: 'none'
+					}}
+				>
+					Help?
+				</span>
+
+				{/* Place CTAVideoPlayer outside the return  */}
+
+
+			</div>
+		);
 	};
 
 	const handleNext = () => {
@@ -162,6 +225,7 @@ function EditTable() {
 			'table_customization',
 			'row_settings',
 			'conditional_view',
+			'ai_integration',
 		];
 		const secondTabs = ['layout', 'utility', 'style'];
 		const thirdTabs = ['columns', 'rows', 'cells'];
@@ -215,6 +279,7 @@ function EditTable() {
 			'table_customization',
 			'row_settings',
 			'conditional_view',
+			'ai_integration',
 		];
 		const secondTabs = ['layout', 'utility', 'style'];
 		const thirdTabs = ['columns', 'rows', 'cells'];
@@ -593,32 +658,32 @@ function EditTable() {
 		});
 	};
 
-	const handleUpdateTableandRedirect = (e) => {
-		e.preventDefault();
+	// const handleUpdateTableandRedirect = (e) => {
+	// 	e.preventDefault();
 
-		delete tableSettings.output;
-		delete tableSettings.table_data;
-		delete tableSettings.message;
-		delete tableSettings.table_columns;
-		delete tableSettings.id;
+	// 	delete tableSettings.output;
+	// 	delete tableSettings.table_data;
+	// 	delete tableSettings.message;
+	// 	delete tableSettings.table_columns;
+	// 	delete tableSettings.id;
 
-		wp.ajax.send('swptls_save_table', {
-			data: {
-				nonce: getNonce(),
-				id,
-				settings: JSON.stringify(tableSettings),
-			},
-			success(response) {
-				toast.success('Settings saved successfully.');
-				const baseUrl = window.location.href.replace(
-					/\/tables.*/,
-					''
-				);
-				window.location.replace(baseUrl);
-			},
-			error(error) { },
-		});
-	};
+	// 	wp.ajax.send('swptls_save_table', {
+	// 		data: {
+	// 			nonce: getNonce(),
+	// 			id,
+	// 			settings: JSON.stringify(tableSettings),
+	// 		},
+	// 		success(response) {
+	// 			toast.success('Settings saved successfully.');
+	// 			const baseUrl = window.location.href.replace(
+	// 				/\/tables.*/,
+	// 				''
+	// 			);
+	// 			window.location.replace(baseUrl);
+	// 		},
+	// 		error(error) { },
+	// 	});
+	// };
 
 	useEffect(() => {
 		getTableData();
@@ -1612,19 +1677,56 @@ function EditTable() {
 									</span>
 								</a>
 							</li>
+
+							{/* AI integration  */}
+							<li
+								className={`${activeTab === 'ai_integration'
+									? 'active'
+									: ''
+									}`}
+							>
+								<a
+									onClick={() =>
+										handleSetActiveTab('ai_integration')
+									}
+								>
+									<span className="icon">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="15"
+											height="17"
+											viewBox="0 0 15 17"
+											fill="none"
+										>
+											<path
+												d="M11.9811 10.6733C11.8215 11.5316 11.3927 12.3222 10.7524 12.9387C10.112 13.5552 9.29093 13.968 8.39958 14.1215C8.36574 14.1267 8.33154 14.1294 8.29727 14.1296C8.14291 14.1296 7.9942 14.0737 7.88063 13.973C7.76707 13.8723 7.69694 13.7342 7.68416 13.5861C7.67138 13.4379 7.71688 13.2906 7.81164 13.1732C7.9064 13.0559 8.04349 12.9771 8.19574 12.9526C9.47035 12.7459 10.5519 11.7044 10.768 10.4748C10.7954 10.3198 10.8855 10.1816 11.0187 10.0906C11.1518 9.99958 11.3171 9.96325 11.478 9.98958C11.639 10.0159 11.7825 10.1027 11.877 10.2309C11.9715 10.3592 12.0092 10.5183 11.9819 10.6733H11.9811ZM14.4511 9.98143C14.4511 11.7103 13.7379 13.3683 12.4685 14.5908C11.199 15.8132 9.4772 16.5 7.68189 16.5C5.88658 16.5 4.1648 15.8132 2.89532 14.5908C1.62584 13.3683 0.912659 11.7103 0.912659 9.98143C0.912659 7.91327 1.75881 5.79844 3.42497 3.6962C3.47771 3.62963 3.5445 3.57459 3.62093 3.53468C3.69737 3.49478 3.78173 3.47093 3.86843 3.4647C3.95514 3.45847 4.04223 3.47001 4.12397 3.49855C4.20571 3.52709 4.28025 3.57198 4.34266 3.63027L6.19804 5.36436L7.89035 0.889513C7.92416 0.800263 7.97976 0.720149 8.05246 0.655925C8.12515 0.591701 8.21282 0.545249 8.30807 0.520486C8.40331 0.495722 8.50334 0.493373 8.59973 0.513637C8.69611 0.5339 8.78603 0.576182 8.86189 0.636918C10.5442 1.98137 14.4511 5.5777 14.4511 9.98143ZM13.2204 9.98143C13.2204 6.56733 10.4673 3.61694 8.74266 2.10508L7.02958 6.62881C6.99442 6.72173 6.93568 6.80469 6.8587 6.87014C6.78172 6.93559 6.68896 6.98145 6.58886 7.00355C6.48876 7.02564 6.38452 7.02325 6.28562 6.99662C6.18673 6.96998 6.09633 6.91993 6.02266 6.85104L3.9942 4.95621C2.76574 6.66363 2.14343 8.35179 2.14343 9.98143C2.14343 11.3959 2.72694 12.7525 3.76561 13.7527C4.80427 14.7529 6.213 15.3148 7.68189 15.3148C9.15078 15.3148 10.5595 14.7529 11.5982 13.7527C12.6368 12.7525 13.2204 11.3959 13.2204 9.98143Z"
+												fill="#666873"
+											/>
+										</svg>
+										{/* <div className="badge-new-circle"></div> */}
+										{/* {!localStorage.getItem('conditional_view_visited') && (
+											<div className="badge-new-circle"></div>
+										)} */}
+
+									</span>
+
+									<span className="text">
+										{getStrings('ai-integration')}
+									</span>
+								</a>
+							</li>
 						</ul>
 					</div>
 
 					{ /* Action  */}
 					<div className="table-action">
-						{ /* <div className="action-title">Enter details of your Google Sheet</div> */}
 						<div className="action-title">
 							{' '}
 							{getTitleForTab(activeTab)}
 						</div>
 
 						<div className="table-action__wrapper">
-							<button
+							{/* <button
 								className={`copy-shortcode btn-shortcode ${!copySuccess ? '' : 'btn-success'
 									}`}
 								onClick={() => handleCopyShortcode(id)}
@@ -1666,69 +1768,69 @@ function EditTable() {
 										{getStrings('tab-short-copy')}
 									</>
 								)}
-							</button>
+							</button> */}
+
+							{/* Table wizards next and back button section  */}
 							<div className="table-action__step">
-								<button
-									className={`table-action__prev ${activeTab === 'data_source'
-										? 'swptls-wizard-disabled'
-										: ''
-										}`}
-									onClick={handleBack}
-								>
-									{ /* <button className='table-action__prev' onClick={handleBack}>  */}
-									<span className="icon">
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="14"
-											height="15"
-											viewBox="0 0 14 15"
-											fill="none"
-										>
-											<path
-												fill-rule="evenodd"
-												clip-rule="evenodd"
-												d="M14 7.5C14 7.08579 13.6642 6.75 13.25 6.75L2.56066 6.75L7.28033 2.03033C7.57322 1.73744 7.57322 1.26256 7.28033 0.96967C6.98744 0.676777 6.51256 0.676777 6.21967 0.96967L0.219671 6.96967C-0.0732228 7.26256 -0.0732228 7.73744 0.219671 8.03033L6.21967 14.0303C6.51256 14.3232 6.98744 14.3232 7.28033 14.0303C7.57322 13.7374 7.57322 13.2626 7.28033 12.9697L2.56066 8.25L13.25 8.25C13.6642 8.25 14 7.91421 14 7.5Z"
-												fill="#666873"
-											/>
-										</svg>
-									</span>
-									<span className="text">
-										{getStrings('wiz-back')}
-									</span>
-								</button>
-								<button
-									className={`table-action__next ${activeTab === 'conditional_view'
-										? 'swptls-wizard-disabled'
-										: ''
-										}`}
-									onClick={handleNext}
-								>
-									{ /* <button className='table-action__next' onClick={handleNext}> */}
-									<span className="text">
-										{getStrings('wiz-next')}
-									</span>
-									<span className="icon">
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="14"
-											height="15"
-											viewBox="0 0 14 15"
-											fill="none"
-										>
-											<path
-												fill-rule="evenodd"
-												clip-rule="evenodd"
-												d="M-2.95052e-07 7.5C-3.13158e-07 7.08579 0.335786 6.75 0.75 6.75L11.4393 6.75L6.71967 2.03033C6.42678 1.73744 6.42678 1.26256 6.71967 0.96967C7.01256 0.676777 7.48744 0.676777 7.78033 0.96967L13.7803 6.96967C14.0732 7.26256 14.0732 7.73744 13.7803 8.03033L7.78033 14.0303C7.48744 14.3232 7.01256 14.3232 6.71967 14.0303C6.42678 13.7374 6.42678 13.2626 6.71967 12.9697L11.4393 8.25L0.75 8.25C0.335786 8.25 -2.76946e-07 7.91421 -2.95052e-07 7.5Z"
-												fill="#666873"
-											/>
-										</svg>
-									</span>
-								</button>
+								{activeTab !== 'data_source' && (
+									<button
+										className="table-action__prev"
+										onClick={handleBack}
+									>
+										<span className="icon">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="14"
+												height="15"
+												viewBox="0 0 14 15"
+												fill="none"
+											>
+												<path
+													fillRule="evenodd"
+													clipRule="evenodd"
+													d="M14 7.5C14 7.08579 13.6642 6.75 13.25 6.75L2.56066 6.75L7.28033 2.03033C7.57322 1.73744 7.57322 1.26256 7.28033 0.96967C6.98744 0.676777 6.51256 0.676777 6.21967 0.96967L0.219671 6.96967C-0.0732228 7.26256 -0.0732228 7.73744 0.219671 8.03033L6.21967 14.0303C6.51256 14.3232 6.98744 14.3232 7.28033 14.0303C7.57322 13.7374 7.57322 13.2626 7.28033 12.9697L2.56066 8.25L13.25 8.25C13.6642 8.25 14 7.91421 14 7.5Z"
+													fill="#666873"
+												/>
+											</svg>
+										</span>
+										<span className="text">
+											{getStrings('wiz-back')}
+										</span>
+									</button>
+								)}
+
+								{activeTab !== 'ai_integration' && (
+									<button
+										className="table-action__next"
+										onClick={handleNext}
+									>
+										<span className="text">
+											{getStrings('wiz-next')}
+										</span>
+										<span className="icon">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="14"
+												height="15"
+												viewBox="0 0 14 15"
+												fill="none"
+											>
+												<path
+													fillRule="evenodd"
+													clipRule="evenodd"
+													d="M-2.95052e-07 7.5C-3.13158e-07 7.08579 0.335786 6.75 0.75 6.75L11.4393 6.75L6.71967 2.03033C6.42678 1.73744 6.42678 1.26256 6.71967 0.96967C7.01256 0.676777 7.48744 0.676777 7.78033 0.96967L13.7803 6.96967C14.0732 7.26256 14.0732 7.73744 13.7803 8.03033L7.78033 14.0303C7.48744 14.3232 7.01256 14.3232 6.71967 14.0303C6.42678 13.7374 6.42678 13.2626 6.71967 12.9697L11.4393 8.25L0.75 8.25C0.335786 8.25 -2.76946e-07 7.91421 -2.95052e-07 7.5Z"
+													fill="#666873"
+												/>
+											</svg>
+										</span>
+									</button>
+								)}
 							</div>
+
+
 							<div className="table-action__group">
 								<div
-									className={`table-action__dropdown ${openDropdown ? 'show' : ''
-										}`}
+									className={`table-action__dropdown `}
 								>
 									<div className="action-group">
 										<button
@@ -1737,52 +1839,12 @@ function EditTable() {
 											}
 											className="table-action__save"
 										>
-											Fetch & Save
+											Save changes
 										</button>
-										<span
-											onClick={() =>
-												setOpenDropdown(
-													!openDropdown
-												)
-											}
-											className="caret-down"
-										>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												width="13"
-												height="9"
-												viewBox="0 0 13 9"
-												fill="none"
-											>
-												<path
-													d="M6.12617 8.31106L0.642609 1.52225C0.551067 1.40898 0.5 1.25848 0.5 1.10199C0.5 0.945487 0.551067 0.794995 0.642609 0.68172L0.648805 0.67441C0.693183 0.619307 0.7466 0.575429 0.805807 0.545446C0.865014 0.515462 0.928773 0.5 0.993206 0.5C1.05764 0.5 1.1214 0.515462 1.1806 0.545446C1.23981 0.575429 1.29323 0.619307 1.33761 0.67441L6.50103 7.06732L11.6624 0.67441C11.7068 0.619307 11.7602 0.575429 11.8194 0.545446C11.8786 0.515462 11.9424 0.5 12.0068 0.5C12.0712 0.5 12.135 0.515462 12.1942 0.545446C12.2534 0.575429 12.3068 0.619307 12.3512 0.67441L12.3574 0.68172C12.4489 0.794995 12.5 0.945487 12.5 1.10199C12.5 1.25848 12.4489 1.40898 12.3574 1.52225L6.87383 8.31106C6.82561 8.37077 6.76761 8.4183 6.70335 8.45078C6.63909 8.48325 6.56991 8.5 6.5 8.5C6.43009 8.5 6.36091 8.48325 6.29665 8.45078C6.23239 8.4183 6.17439 8.37077 6.12617 8.31106Z"
-													fill="white"
-												/>
-											</svg>
-										</span>
+
 									</div>
 
-									{openDropdown ? (
-										<div
-											onClick={() =>
-												setOpenDropdown(false)
-											}
-											className="table-action__dropdown-outarea"
-										></div>
-									) : (
-										''
-									)}
 
-									<div
-										className="table-action__dropdown-menu"
-										onClick={handleUpdateTableandRedirect}
-									>
-										<a>
-											{getStrings(
-												'save-and-move-dashboard'
-											)}
-										</a>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -1854,12 +1916,20 @@ function EditTable() {
 									/>
 								)}
 
+								{'ai_integration' === activeTab && (
+									<AIView
+										tableSettings={tableSettings}
+										setTableSettings={setTableSettings}
+										tableId={id}
+									/>
+								)}
+
 								{privatesheetmessage === true ? (
 									<>
 										<div className="private-sheet-notice-container invalid-download">
 											<div className="invalid-card">
 												<label className="invalid-download-new">
-													<span className="icon">
+													{/* <span className="icon">
 														<svg
 															xmlns="http://www.w3.org/2000/svg"
 															width="16"
@@ -1872,7 +1942,7 @@ function EditTable() {
 																fill="#FF8023"
 															/>
 														</svg>
-													</span>
+													</span> */}
 													<span>
 														{getStrings('unable-to-access')}
 													</span>
@@ -1979,7 +2049,7 @@ function EditTable() {
 
 												// onClick={() => handleVisit()}
 												>
-													<span className="icon">
+													{/* <span className="icon">
 														<svg
 															xmlns="http://www.w3.org/2000/svg"
 															width="16"
@@ -1992,7 +2062,7 @@ function EditTable() {
 																fill="#FF8023"
 															/>
 														</svg>
-													</span>
+													</span> */}
 													<span>
 														{getStrings(
 															'limited-to-msg'
@@ -2106,6 +2176,14 @@ function EditTable() {
 					</div>
 				</Modal>
 			)}
+
+			<CTAVideoPlayer
+				videoUrl={currentVideoUrl}
+				// title={currentVideoTitle} // to make dynamic title if needed 
+				title="Get started with table creation"
+				isOpen={isVideoModalOpen}
+				onClose={() => setIsVideoModalOpen(false)}
+			/>
 		</div>
 	);
 }

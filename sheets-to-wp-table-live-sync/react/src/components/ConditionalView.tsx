@@ -3,11 +3,13 @@ import { getStrings, isProActive } from './../Helpers';
 //styles
 import Tooltip from './Tooltip';
 import ThemeFields from './ThemeFields';
-import { lockBTN } from '../icons';
+import { lockBTN, ProIcon } from '../icons';
 
 import '../styles/_conditionalview.scss';
+import CTAVideoPlayer from './CTAVideoPlayer';
 
 const ConditionalView = ({ tableSettings, setTableSettings }) => {
+	const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 	const [tableHeaders, setTableHeaders] = useState([]);
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const [selectedOptions, setSelectedOptions] = useState(
@@ -15,19 +17,19 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 	);
 
 	const dropdownRef = useRef(null); // Create a ref for the dropdown
-	const [previewGif, setPreviewGif] = useState(true);
+	// const [previewGif, setPreviewGif] = useState(true);
 
-	const [isOpenpopupvideo, setIsOpenpopupvideo] = useState(false);
+	// const [isOpenpopupvideo, setIsOpenpopupvideo] = useState(false);
 
 	// Function to open the modal
 	const openModal = () => {
-		setIsOpenpopupvideo(true);
+		setIsVideoModalOpen(true);
 	};
 
 	// Function to close the modal
-	const closeModal = () => {
+	/* const closeModal = () => {
 		setIsOpenpopupvideo(false);
-	};
+	}; */
 
 	const handleColumnSpecificSearchToggle = (e) => {
 		setTableSettings({
@@ -194,7 +196,7 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 
 	return (
 		<div className="edit-data-source-wrap conditional-view-wrapper">
-			<h4 className="title">{getStrings('choose-how-you-want')}</h4>
+
 			<div
 				className={`table-view__list ${tableSettings?.table_settings?.import_styles
 					? 'active_sheetstyle'
@@ -277,8 +279,10 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 									/>
 								</svg>
 							</div>
+
+
 							<div className="badge-wrap">
-								<button className="beta-badge">Beta</button>
+								{/* <button className="beta-badge">Beta</button> */}
 								<button className="tutorial-badge"
 									onClick={openModal}
 									style={{ cursor: 'pointer' }}
@@ -291,7 +295,14 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 									<span className="text-label">Tutorial</span>
 								</button>
 
-								{isOpenpopupvideo && (
+								<CTAVideoPlayer
+									videoUrl="https://www.youtube.com/embed/GLDIL1JT-J8?autoplay=1"
+									// title={currentVideoTitle} // to make dynamic title if needed 
+									title="Get started with search table creation"
+									isOpen={isVideoModalOpen}
+									onClose={() => setIsVideoModalOpen(false)}
+								/>
+								{/* {isOpenpopupvideo && (
 									<div className="popupmodal" onClick={closeModal}>
 										<div className="modal-content" onClick={(e) => e.stopPropagation()}>
 											<button className="close-btn" onClick={closeModal}>&#10006;</button>
@@ -305,7 +316,7 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 											></iframe>
 										</div>
 									</div>
-								)}
+								)} */}
 
 							</div>
 						</div>
@@ -316,6 +327,7 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 						{!isProActive() && (
 							<button className="btn-pro-lock theme-lock-blur">
 								{lockBTN}
+								{/* {ProIcon} */}
 							</button>
 						)}
 					</div>
@@ -323,9 +335,9 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 						<div className="radio-field"></div>
 						<div className="label-title">
 							{getStrings('search-only-display')}{' '}
-							<Tooltip
+							{/* <Tooltip
 								content={getStrings('a-search-field')}
-							/>
+							/> */}
 						</div>
 					</div>
 				</button>
@@ -390,11 +402,11 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 						<div className="radio-field"></div>
 						<div className="label-title">
 							{getStrings('user-specific-display')}{' '}
-							<Tooltip
+							{/* <Tooltip
 								content={getStrings(
 									'displayed-only-to-logged-in-users'
 								)}
-							/>
+							/> */}
 						</div>
 					</div>
 				</button>
@@ -450,11 +462,11 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 						<div className="radio-field"></div>
 						<div className="label-title">
 							{getStrings('protected-view')}{' '}
-							<Tooltip
+							{/* <Tooltip
 								content={getStrings(
 									'password-pin-protected'
 								)}
-							/>
+							/> */}
 						</div>
 					</div>
 				</button>
@@ -696,6 +708,8 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 							}
 						</div> */ }
 						</div>
+
+
 					</div>
 				)}
 		</div>

@@ -8,15 +8,15 @@ import '../styles/_themeCustomization.scss';
 import Pagination from './Pagination';
 //ThemeReset
 
-const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
-	const [ customizationOptions, setCustomizationOptions ] = useState( {} );
-	const [ resetTriggered, setResetTriggered ] = useState( false );
+const ThemeCustomization = ({ tableSettings, setTableSettings }) => {
+	const [customizationOptions, setCustomizationOptions] = useState({});
+	const [resetTriggered, setResetTriggered] = useState(false);
 	const confirmImportRef = useRef();
-	const [ showModal, setShowModal ] = useState( false );
-	const [ showPaginationModal, setShowPaginationModal ] = useState( false );
-	const [ themeToReset, setThemeToReset ] = useState( null );
+	const [showModal, setShowModal] = useState(false);
+	const [showPaginationModal, setShowPaginationModal] = useState(false);
+	const [themeToReset, setThemeToReset] = useState(null);
 
-	const [ customTheme, setCustomTheme ] = useState( {
+	const [customTheme, setCustomTheme] = useState({
 		// name: '',
 		headerBGColor: '#ffffff',
 		headerTextColor: '#000000',
@@ -50,72 +50,72 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 		paginationStyle: '',
 		paginationAciveBtnColor: '#2F80ED',
 		pagination_center: false,
-	} );
+	});
 
 	/**
 	 * Alert if clicked on outside of element
 	 *
 	 * @param  event
 	 */
-	function handleCancelOutside( event: MouseEvent ) {
+	function handleCancelOutside(event: MouseEvent) {
 		if (
 			confirmImportRef.current &&
-			! confirmImportRef.current.contains( event.target )
+			!confirmImportRef.current.contains(event.target)
 		) {
 			handleCloseModal();
 		}
 	}
 
-	useEffect( () => {
+	useEffect(() => {
 		const handleClick = () => {
-			WPPOOL.Popup( 'sheets_to_wp_table_live_sync' ).show();
+			WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
 		};
-		document.addEventListener( 'mousedown', handleCancelOutside );
+		document.addEventListener('mousedown', handleCancelOutside);
 
 		const proSettings = document.querySelectorAll(
 			'.swptls-pro-settings, .btn-pro-lock'
 		);
-		proSettings.forEach( ( item ) => {
-			item.addEventListener( 'click', handleClick );
-		} );
+		proSettings.forEach((item) => {
+			item.addEventListener('click', handleClick);
+		});
 
 		return () => {
-			document.removeEventListener( 'mousedown', handleCancelOutside );
-			proSettings.forEach( ( item ) => {
-				item.removeEventListener( 'click', handleClick );
-			} );
+			document.removeEventListener('mousedown', handleCancelOutside);
+			proSettings.forEach((item) => {
+				item.removeEventListener('click', handleClick);
+			});
 		};
-	}, [ handleCancelOutside ] );
+	}, [handleCancelOutside]);
 
 	// END
 
 	// Effect to update customization options when theme changes
-	useEffect( () => {
+	useEffect(() => {
 		const currentTheme = tableSettings?.table_settings?.table_style;
-		if ( currentTheme ) {
-			setCustomizationOptions( ( prevOptions ) => ( {
+		if (currentTheme) {
+			setCustomizationOptions((prevOptions) => ({
 				...prevOptions,
-				[ currentTheme ]:
+				[currentTheme]:
 					tableSettings?.table_settings?.import_styles_theme_colors?.[
-						currentTheme
-					] || getDefaultOptions( currentTheme ),
-			} ) );
+					currentTheme
+					] || getDefaultOptions(currentTheme),
+			}));
 		}
-	}, [ tableSettings?.table_settings?.table_style ] );
+	}, [tableSettings?.table_settings?.table_style]);
 
 	// Function to handle changes in customization options.
-	const handleCustomizationChange = ( theme, key, value ) => {
-		setCustomizationOptions( ( prevOptions ) => {
+	const handleCustomizationChange = (theme, key, value) => {
+		setCustomizationOptions((prevOptions) => {
 			const currentOptions =
-				prevOptions[ theme ] || getDefaultOptions( theme );
-			const updatedOptions = { ...currentOptions, [ key ]: value };
-			return { ...prevOptions, [ theme ]: updatedOptions };
-		} );
+				prevOptions[theme] || getDefaultOptions(theme);
+			const updatedOptions = { ...currentOptions, [key]: value };
+			return { ...prevOptions, [theme]: updatedOptions };
+		});
 
-		handleThemeChange( theme, { [ key ]: value } );
+		handleThemeChange(theme, { [key]: value });
 	};
 
-	const handleCustomizationPaginationChange = ( theme, key, value ) => {
+	const handleCustomizationPaginationChange = (theme, key, value) => {
 		const paginationState = {
 			defaultPagination: value === 'default_pagination',
 			modernPagination: value === 'modern_pagination',
@@ -125,27 +125,27 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 		};
 
 		// Update the customization options with the new pagination style and state
-		setCustomizationOptions( ( prevOptions ) => {
+		setCustomizationOptions((prevOptions) => {
 			const currentOptions =
-				prevOptions[ theme ] || getDefaultOptions( theme );
+				prevOptions[theme] || getDefaultOptions(theme);
 			const updatedOptions = {
 				...currentOptions,
-				[ key ]: value,
+				[key]: value,
 				...paginationState,
 			};
-			return { ...prevOptions, [ theme ]: updatedOptions };
-		} );
+			return { ...prevOptions, [theme]: updatedOptions };
+		});
 
 		// Also update the theme with the new pagination style
-		handleThemeChange( theme, { [ key ]: value, ...paginationState } );
+		handleThemeChange(theme, { [key]: value, ...paginationState });
 	};
 
 	// Function to update table settings with selected theme and customization options
-	const handleThemeChange = ( theme, updatedOption ) => {
-		setTableSettings( ( prevSettings ) => {
+	const handleThemeChange = (theme, updatedOption) => {
+		setTableSettings((prevSettings) => {
 			const newThemeColors = {
 				...prevSettings.table_settings.import_styles_theme_colors[
-					theme
+				theme
 				],
 				...updatedOption,
 			};
@@ -156,16 +156,16 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					import_styles_theme_colors: {
 						...prevSettings.table_settings
 							.import_styles_theme_colors,
-						[ theme ]: newThemeColors,
+						[theme]: newThemeColors,
 					},
 				},
 			};
-		} );
+		});
 	};
 
 	// Function to get the default customization options for a theme
-	const getDefaultOptions = ( theme ) => {
-		switch ( theme ) {
+	const getDefaultOptions = (theme) => {
+		switch (theme) {
 			//Simple Theme
 			case 'default-style':
 				return {
@@ -174,6 +174,8 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					bodyBGColor: '#ffffff',
 					bodyTextColorCol_1: '#333333',
 					bodyTextColorColRest: '#6B7280',
+					hoverBGColor: '#F3F4F6',
+					hoverTextColor: '#111827',
 					borderColor: '#e0e5f6',
 					paginationStyle: 'default_pagination',
 					paginationAciveBtnColor: '#828282',
@@ -187,6 +189,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					bodyBGColor: '#000f',
 					bodyTextColor: '#ffffff',
 					hoverBGColor: '#504949',
+					hoverTextColor: '#ebebeb',
 					paginationStyle: 'simple_pagination',
 					paginationAciveBtnColor: '#000000',
 					pagination_center: true,
@@ -199,7 +202,8 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					bodyTextColor: '#0f0f0f',
 					bodyBGColorEven: '#EBF4FF',
 					bodyBGColorOdd: '#ffffff',
-					hoverBGColor: '#bdcfe4',
+					hoverBGColor: '#D1E7FF',
+					hoverTextColor: '#0a1929',
 					paginationStyle: 'tailwind_pagination',
 					paginationAciveBtnColor: '#2D74E7',
 					pagination_center: false,
@@ -213,7 +217,8 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					bodyTextColor: '#0f0f0f',
 					bodyBGColorEven: '#f5f5f5',
 					bodyBGColorOdd: '#ffffff',
-					hoverBGColor: '#d1d1d1',
+					hoverBGColor: '#4a4560',
+					hoverTextColor: '#ffffff',
 					borderType: 'solid',
 					borderRadius: '10px',
 					paginationStyle: 'modern_pagination',
@@ -229,7 +234,8 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					bodyTextColor: '#0f0f0f',
 					bodyBGColorEven: '#f8f6ff',
 					bodyBGColorOdd: '#ffffff',
-					hoverBGColor: '#EDE8FC',
+					hoverBGColor: '#D5CCFF',
+					hoverTextColor: '#1a1a3e',
 					borderColor: '#fafafa',
 					borderType: 'solid',
 					borderRadius: '10px',
@@ -245,7 +251,8 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					headerTextColor: '#333333',
 					bodyBGColor: '#ffffff',
 					bodyTextColor: '#0f0f0f',
-					hoverBGColor: '#bdcfe4',
+					hoverBGColor: '#E8E8E8',
+					hoverTextColor: '#1a1a1a',
 					borderColor: '#e4e1e1',
 					borderType: 'solid',
 					borderRadius: '10px',
@@ -264,6 +271,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					bodyTextColorCol_1: '#333333',
 					bodyTextColorColRest: '#6B7280',
 					hoverBGColor: '#e4e9f8',
+					hoverTextColor: '#010613',
 					borderColor: '#e0e5f6',
 					borderType: 'solid',
 					borderRadius: '10px',
@@ -281,7 +289,8 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					bodyBGColorOdd: '#E9E7FF',
 					bodyTextColor: '#000',
 					borderColor: '#e0e5f6',
-					hoverBGColor: '#EDE8FC',
+					hoverBGColor: '#6807f9',
+					// hoverTextColor: '#ffffff',
 					borderType: 'solid',
 					borderRadius: '10px',
 					paginationStyle: 'outlined_pagination',
@@ -297,6 +306,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					bodyBGColor: '#34344C',
 					bodyTextColor: '#ffffff',
 					hoverBGColor: '#7e78d3',
+					hoverTextColor: '#f9f8ff',
 					borderType: 'solid',
 					borderRadius: '10px',
 					paginationStyle: 'simple_pagination',
@@ -311,6 +321,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					headerBGColor: '#ffffff',
 					headerTextColor: '#000000',
 					bodyBGColor: '#ffffff',
+					hoverTextColor: '#0f0f0fff',
 					bodyTextColor: '#0f0f0f',
 					bodyTextColorCol_1: '#333333',
 					bodyTextColorColRest: '#6b6b6b',
@@ -326,27 +337,27 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 	};
 
 	// Function to check if any customization option has been modified
-	const isThemeModified = ( theme ) => {
-		const defaultOptions = getDefaultOptions( theme );
-		const currentOptions = customizationOptions[ theme ];
-		if ( ! currentOptions ) return false;
+	const isThemeModified = (theme) => {
+		const defaultOptions = getDefaultOptions(theme);
+		const currentOptions = customizationOptions[theme];
+		if (!currentOptions) return false;
 
-		return Object.keys( defaultOptions ).some(
-			( key ) => defaultOptions[ key ] !== currentOptions[ key ]
+		return Object.keys(defaultOptions).some(
+			(key) => defaultOptions[key] !== currentOptions[key]
 		);
 	};
 
 	//Modal
 
 	// Function to open the modal
-	const handleOpenModal = ( theme ) => {
-		setThemeToReset( theme );
-		setShowModal( true );
+	const handleOpenModal = (theme) => {
+		setThemeToReset(theme);
+		setShowModal(true);
 	};
-	const handleOpenPaginationModal = ( theme ) => {
+	const handleOpenPaginationModal = (theme) => {
 		// console.log(theme);
 		const themeColors = theme;
-		setCustomTheme( {
+		setCustomTheme({
 			// name: themeName,
 			headerBGColor: themeColors.headerBGColor || '',
 			headerTextColor: themeColors.headerTextColor || '',
@@ -382,67 +393,67 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 			paginationStyle: themeColors.paginationStyle || '',
 			paginationAciveBtnColor:
 				themeColors.paginationAciveBtnColor || '#2F80ED',
-		} );
+		});
 
-		setThemeToReset( theme );
-		setShowPaginationModal( true );
+		setThemeToReset(theme);
+		setShowPaginationModal(true);
 	};
 
 	// Function to confirm and reset the theme
 	const handleConfirmReset = () => {
-		if ( themeToReset ) {
-			const defaultOptions = getDefaultOptions( themeToReset );
-			setCustomizationOptions( ( prevOptions ) => ( {
+		if (themeToReset) {
+			const defaultOptions = getDefaultOptions(themeToReset);
+			setCustomizationOptions((prevOptions) => ({
 				...prevOptions,
-				[ themeToReset ]: defaultOptions,
-			} ) );
-			setResetTriggered( true );
-			handleThemeChange( themeToReset, defaultOptions );
-			toast.success( 'Theme has been reset!' );
-			setShowModal( false );
-			setShowPaginationModal( false );
+				[themeToReset]: defaultOptions,
+			}));
+			setResetTriggered(true);
+			handleThemeChange(themeToReset, defaultOptions);
+			toast.success('Theme has been reset!');
+			setShowModal(false);
+			setShowPaginationModal(false);
 		}
 	};
 
 	// Function to close the modal
 	const handleCloseModal = () => {
-		setShowModal( false );
-		setShowPaginationModal( false );
-		setThemeToReset( null );
+		setShowModal(false);
+		setShowPaginationModal(false);
+		setThemeToReset(null);
 	};
 
-	const handleCustomThemeChange = ( e ) => {
+	const handleCustomThemeChange = (e) => {
 		const { name, value, type, checked } = e.target;
 
-		setCustomTheme( ( prevTheme ) => {
-			if ( type === 'checkbox' ) {
-				if ( name === 'activeColumnColor' && checked ) {
+		setCustomTheme((prevTheme) => {
+			if (type === 'checkbox') {
+				if (name === 'activeColumnColor' && checked) {
 					return {
 						...prevTheme,
 						activeColumnColor: true,
 						activeRowColor: false,
 					};
-				} else if ( name === 'activeRowColor' && checked ) {
+				} else if (name === 'activeRowColor' && checked) {
 					return {
 						...prevTheme,
 						activeRowColor: true,
 						activeColumnColor: false,
 					};
-				} else if ( name === 'hoverModeNone' && checked ) {
+				} else if (name === 'hoverModeNone' && checked) {
 					return {
 						...prevTheme,
 						hoverModeNone: true,
 						hoverModeRow: false,
 						hoverModeColumn: false,
 					};
-				} else if ( name === 'hoverModeRow' && checked ) {
+				} else if (name === 'hoverModeRow' && checked) {
 					return {
 						...prevTheme,
 						hoverModeNone: false,
 						hoverModeRow: true,
 						hoverModeColumn: false,
 					};
-				} else if ( name === 'hoverModeColumn' && checked ) {
+				} else if (name === 'hoverModeColumn' && checked) {
 					return {
 						...prevTheme,
 						hoverModeRow: false,
@@ -452,7 +463,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 				}
 
 				// ColumnRow Toggle Mode
-				else if ( name === 'activeRowColumnMode' && checked ) {
+				else if (name === 'activeRowColumnMode' && checked) {
 					return {
 						...prevTheme,
 						activeRowColumnMode: checked,
@@ -460,24 +471,24 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 				} else {
 					return {
 						...prevTheme,
-						[ name ]: checked,
+						[name]: checked,
 					};
 				}
 			} else {
 				return {
 					...prevTheme,
-					[ name ]: value,
+					[name]: value,
 				};
 			}
-		} );
+		});
 	};
 
-	const handlePaginationModeChange = ( e ) => {
+	const handlePaginationModeChange = (e) => {
 		const { name, value, type, checked } = e.target;
 
-		setCustomTheme( ( prevTheme ) => {
-			if ( type === 'checkbox' ) {
-				if ( name === 'defaultPagination' && checked ) {
+		setCustomTheme((prevTheme) => {
+			if (type === 'checkbox') {
+				if (name === 'defaultPagination' && checked) {
 					return {
 						...prevTheme,
 						defaultPagination: true,
@@ -487,7 +498,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 						outlinedPagination: false,
 						modernPagination: false,
 					};
-				} else if ( name === 'simplePagination' && checked ) {
+				} else if (name === 'simplePagination' && checked) {
 					return {
 						...prevTheme,
 						simplePagination: true,
@@ -497,7 +508,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 						outlinedPagination: false,
 						modernPagination: false,
 					};
-				} else if ( name === 'modernPagination' && checked ) {
+				} else if (name === 'modernPagination' && checked) {
 					return {
 						...prevTheme,
 						modernPagination: true,
@@ -507,7 +518,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 						outlinedPagination: false,
 						defaultPagination: false,
 					};
-				} else if ( name === 'tailwindPagination' && checked ) {
+				} else if (name === 'tailwindPagination' && checked) {
 					return {
 						...prevTheme,
 						tailwindPagination: true,
@@ -517,7 +528,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 						modernPagination: false,
 						defaultPagination: false,
 					};
-				} else if ( name === 'outlinedPagination' && checked ) {
+				} else if (name === 'outlinedPagination' && checked) {
 					return {
 						...prevTheme,
 						outlinedPagination: true,
@@ -530,31 +541,31 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 				} else {
 					return {
 						...prevTheme,
-						[ name ]: checked,
+						[name]: checked,
 					};
 				}
 			} else {
 				return {
 					...prevTheme,
-					[ name ]: value,
+					[name]: value,
 				};
 			}
-		} );
+		});
 	};
 
-	const handleSaveEditedTheme = ( customTheme, themeName ) => {
+	const handleSaveEditedTheme = (customTheme, themeName) => {
 		// Update the import_styles_theme_colors object
-		setTableSettings( ( prevSettings ) => {
+		setTableSettings((prevSettings) => {
 			// Get the current import styles theme colors
 			const currentStyles =
 				prevSettings.table_settings.import_styles_theme_colors;
 
 			// Check if the themeName exists in the currentStyles
-			if ( currentStyles[ themeName ] ) {
+			if (currentStyles[themeName]) {
 				// Update the paginationStyle and paginationAciveBtnColor
-				currentStyles[ themeName ].paginationStyle =
+				currentStyles[themeName].paginationStyle =
 					customTheme.paginationStyle;
-				currentStyles[ themeName ].paginationAciveBtnColor =
+				currentStyles[themeName].paginationAciveBtnColor =
 					customTheme.paginationAciveBtnColor;
 			}
 
@@ -568,7 +579,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					},
 				},
 			};
-		} );
+		});
 
 		// Trigger handleCustomizationPaginationChange to update customization options
 		handleCustomizationPaginationChange(
@@ -579,12 +590,12 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 
 		// Close the modal after saving
 		// handleCloseModal();
-		setShowModal( false );
-		setShowPaginationModal( false );
-		setThemeToReset( null );
+		setShowModal(false);
+		setShowPaginationModal(false);
+		setThemeToReset(null);
 	};
 
-	function getPaginationStyleName( value ) {
+	function getPaginationStyleName(value) {
 		const paginationStyles = {
 			default_pagination: 'Default pagination',
 			modern_pagination: 'Modern pagination',
@@ -593,23 +604,23 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 			outlined_pagination: 'Outlined pagination',
 		};
 
-		return paginationStyles[ value ] || 'Default pagination';
+		return paginationStyles[value] || 'Default pagination';
 	}
 
 	/**
 	 * Theme render
 	 */
-	const renderCustomizationFields = ( theme ) => {
-		const isModified = isThemeModified( theme );
+	const renderCustomizationFields = (theme) => {
+		const isModified = isThemeModified(theme);
 
-		if ( theme === 'default-style' ) {
+		if (theme === 'default-style') {
 			return (
 				<>
-					{ /* Default theme Simple */ }
+					{ /* Default theme Simple */}
 					<div className="table-design">
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'header-color-title' ) }
+								{getStrings('header-color-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -622,7 +633,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'default-style'
 										]?.headerBGColor || '#ffffff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'default-style',
 											'headerBGColor',
@@ -631,7 +642,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerBGColor">
-									{ getStrings( 'bg-color' ) }
+									{getStrings('bg-color')}
 								</label>
 							</div>
 
@@ -646,7 +657,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'default-style'
 										]?.headerTextColor || '#000000'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'default-style',
 											'headerTextColor',
@@ -655,14 +666,14 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'body-title' ) }
+								{getStrings('body-title')}
 							</h4>
 
 							<div className="theme-colors__scheme">
@@ -676,7 +687,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'default-style'
 										]?.bodyBGColor || '#ffffff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'default-style',
 											'bodyBGColor',
@@ -685,14 +696,14 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColor">
-									{ getStrings( 'table-bg-color' ) }
+									{getStrings('table-bg-color')}
 								</label>
 							</div>
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'text-color-title' ) }
+								{getStrings('text-color-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -705,7 +716,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'default-style'
 										]?.bodyTextColorCol_1 || '#333333'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'default-style',
 											'bodyTextColorCol_1',
@@ -714,7 +725,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyTextColorCol_1">
-									{ getStrings( 'first-cl-txt-color' ) }
+									{getStrings('first-cl-txt-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -728,7 +739,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'default-style'
 										]?.bodyTextColorColRest || '#6b6b6b'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'default-style',
 											'bodyTextColorColRest',
@@ -737,13 +748,61 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyTextColorColRest">
-									{ getStrings( 'remaning-txt-color' ) }
+									{getStrings('remaning-txt-color')}
 								</label>
 							</div>
+
+							<div className="theme-colors__scheme">
+								<input
+									type="color"
+									className="color-picker hoverBGColor"
+									id="hoverBGColor"
+									value={
+										tableSettings?.table_settings
+											?.import_styles_theme_colors?.[
+											'default-style'
+										]?.hoverBGColor || '#F3F4F6'
+									}
+									onChange={(e) =>
+										handleCustomizationChange(
+											'default-style',
+											'hoverBGColor',
+											e.target.value
+										)
+									}
+								/>
+								<label htmlFor="hoverBGColor">
+									{getStrings('hover-color')}
+								</label>
+							</div>
+							<div className="theme-colors__scheme">
+								<input
+									type="color"
+									className="color-picker hoverTextColor"
+									id="hoverTextColor"
+									value={
+										tableSettings?.table_settings
+											?.import_styles_theme_colors?.[
+											'default-style'
+										]?.hoverTextColor || '#111827'
+									}
+									onChange={(e) =>
+										handleCustomizationChange(
+											'default-style',
+											'hoverTextColor',
+											e.target.value
+										)
+									}
+								/>
+								<label htmlFor="hoverTextColor">
+									{getStrings('hover-text-color')}
+								</label>
+							</div>
+
 						</div>
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'border-title' ) }
+								{getStrings('border-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -756,7 +815,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'default-style'
 										]?.borderColor || '#e0e5f6'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'default-style',
 											'borderColor',
@@ -765,17 +824,17 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="borderColor">
-									{ getStrings( 'inside-border-color' ) }
+									{getStrings('inside-border-color')}
 								</label>
 							</div>
 						</div>
 					</div>
 
-					{ /* Pagination  */ }
+					{ /* Pagination  */}
 					<div className="table-paginationn">
 						<div className="border-style-plate">
 							<h4 className="title-divider">
-								{ getStrings( 'pagination' ) }
+								{getStrings('pagination')}
 							</h4>
 							<div className="border-styles">
 								<input
@@ -791,7 +850,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="color"
 										name="paginationAciveBtnColor"
 										id="paginationAciveBtnColor"
-										className={ `color-picker paginationAciveBtnColor` }
+										className={`color-picker paginationAciveBtnColor`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -799,7 +858,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											]?.paginationAciveBtnColor ||
 											'#828282'
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												theme,
 												'paginationAciveBtnColor',
@@ -808,9 +867,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="paginationAciveBtnColor">
-										{ getStrings(
+										{getStrings(
 											'active-pagination-color'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
@@ -821,7 +880,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="checkbox"
 										name="pagination_center"
 										id="pagination_center"
-										className={ `pagination_center` }
+										className={`pagination_center`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -834,7 +893,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 												'default-style'
 											]?.pagination_center
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												'default-style',
 												'pagination_center',
@@ -843,26 +902,26 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="pagination_center">
-										{ getStrings(
+										{getStrings(
 											'keep-pagination-in-middle'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					{ isModified && (
+					{isModified && (
 						<button
 							className="swptls-reset-theme"
-							onClick={ () => handleOpenModal( 'default-style' ) }
+							onClick={() => handleOpenModal('default-style')}
 						>
-							{ ThemeReset } { getStrings( 'theme-reset' ) }
+							{ThemeReset} {getStrings('theme-reset')}
 						</button>
-					) }
+					)}
 				</>
 			);
-		} else if ( theme === 'style-4' ) {
+		} else if (theme === 'style-4') {
 			{
 				/* Simple On dark  */
 			}
@@ -871,7 +930,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					<div className="table-design">
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'header-color-title' ) }
+								{getStrings('header-color-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -884,7 +943,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-4'
 										]?.headerBGColor || '#000000'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-4',
 											'headerBGColor',
@@ -893,7 +952,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerBGColor">
-									{ getStrings( 'bg-color' ) }
+									{getStrings('bg-color')}
 								</label>
 							</div>
 
@@ -908,7 +967,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-4'
 										]?.headerTextColor || '#ffffff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-4',
 											'headerTextColor',
@@ -917,14 +976,14 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'body-title' ) }
+								{getStrings('body-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -937,7 +996,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-4'
 										]?.bodyBGColor || '#000000'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-4',
 											'bodyBGColor',
@@ -946,7 +1005,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColor">
-									{ getStrings( 'table-bg-color' ) }
+									{getStrings('table-bg-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -960,7 +1019,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-4'
 										]?.bodyTextColor || '#ffffff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-4',
 											'bodyTextColor',
@@ -969,7 +1028,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 
@@ -984,7 +1043,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-4'
 										]?.hoverBGColor || '#504949'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-4',
 											'hoverBGColor',
@@ -993,17 +1052,42 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="hoverBGColor">
-									{ getStrings( 'hover-color' ) }
+									{getStrings('hover-color')}
 								</label>
 							</div>
+
+							<div className="theme-colors__scheme">
+								<input
+									type="color"
+									className="color-picker hoverTextColor"
+									id="hoverTextColor"
+									value={
+										tableSettings?.table_settings
+											?.import_styles_theme_colors?.[
+											'style-4'
+										]?.hoverTextColor || '#333333'
+									}
+									onChange={(e) =>
+										handleCustomizationChange(
+											'style-4',
+											'hoverTextColor',
+											e.target.value
+										)
+									}
+								/>
+								<label htmlFor="hoverTextColor">
+									{getStrings('hover-text-color')}
+								</label>
+							</div>
+
 						</div>
 					</div>
 
-					{ /* Pagination  */ }
+					{ /* Pagination  */}
 					<div className="table-paginationn">
 						<div className="border-style-plate">
 							<h4 className="title-divider">
-								{ getStrings( 'pagination' ) }
+								{getStrings('pagination')}
 							</h4>
 							<div className="border-styles">
 								<input
@@ -1019,7 +1103,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="color"
 										name="paginationAciveBtnColor"
 										id="paginationAciveBtnColor"
-										className={ `color-picker paginationAciveBtnColor` }
+										className={`color-picker paginationAciveBtnColor`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -1027,7 +1111,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											]?.paginationAciveBtnColor ||
 											'#000000'
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												theme,
 												'paginationAciveBtnColor',
@@ -1036,9 +1120,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="paginationAciveBtnColor">
-										{ getStrings(
+										{getStrings(
 											'active-pagination-color'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
@@ -1049,7 +1133,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="checkbox"
 										name="pagination_center"
 										id="pagination_center"
-										className={ `pagination_center` }
+										className={`pagination_center`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -1062,7 +1146,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 												'style-4'
 											]?.pagination_center
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												'style-4',
 												'pagination_center',
@@ -1071,27 +1155,27 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="pagination_center">
-										{ getStrings(
+										{getStrings(
 											'keep-pagination-in-middle'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					{ /* Add other customization options for 'style-4' */ }
-					{ isModified && (
+					{ /* Add other customization options for 'style-4' */}
+					{isModified && (
 						<button
 							className="swptls-reset-theme"
-							onClick={ () => handleOpenModal( 'style-4' ) }
+							onClick={() => handleOpenModal('style-4')}
 						>
-							{ ThemeReset } { getStrings( 'theme-reset' ) }
+							{ThemeReset} {getStrings('theme-reset')}
 						</button>
-					) }
+					)}
 				</>
 			);
-		} else if ( theme === 'style-6' ) {
+		} else if (theme === 'style-6') {
 			{
 				/* Minimal */
 			}
@@ -1100,7 +1184,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					<div className="table-design">
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'header-color-title' ) }
+								{getStrings('header-color-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -1113,7 +1197,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-6'
 										]?.headerBGColor || '#E5F1FF'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-6',
 											'headerBGColor',
@@ -1122,7 +1206,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerBGColor">
-									{ getStrings( 'bg-color' ) }
+									{getStrings('bg-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -1136,7 +1220,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-6'
 										]?.headerTextColor || '#0f0f0f'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-6',
 											'headerTextColor',
@@ -1145,13 +1229,13 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 						</div>
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'body-title' ) }
+								{getStrings('body-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -1164,7 +1248,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-6'
 										]?.bodyTextColor || '#000000'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-6',
 											'bodyTextColor',
@@ -1173,7 +1257,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -1187,7 +1271,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-6'
 										]?.hoverBGColor || '#bdcfe4'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-6',
 											'hoverBGColor',
@@ -1196,14 +1280,39 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="hoverBGColor">
-									{ getStrings( 'hover-color' ) }
+									{getStrings('hover-color')}
 								</label>
 							</div>
+
+							<div className="theme-colors__scheme">
+								<input
+									type="color"
+									className="color-picker hoverTextColor"
+									id="hoverTextColor"
+									value={
+										tableSettings?.table_settings
+											?.import_styles_theme_colors?.[
+											'style-6'
+										]?.hoverTextColor || '#333333'
+									}
+									onChange={(e) =>
+										handleCustomizationChange(
+											'style-6',
+											'hoverTextColor',
+											e.target.value
+										)
+									}
+								/>
+								<label htmlFor="hoverTextColor">
+									{getStrings('hover-text-color')}
+								</label>
+							</div>
+
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'row-title' ) }
+								{getStrings('row-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -1216,7 +1325,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-6'
 										]?.bodyBGColorEven || '#EBF4FF'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-6',
 											'bodyBGColorEven',
@@ -1225,7 +1334,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColorEven">
-									{ getStrings( 'even-row-color' ) }
+									{getStrings('even-row-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -1239,7 +1348,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-6'
 										]?.bodyBGColorOdd || '#fff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-6',
 											'bodyBGColorOdd',
@@ -1248,17 +1357,17 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColorOdd">
-									{ getStrings( 'odd-row-color' ) }
+									{getStrings('odd-row-color')}
 								</label>
 							</div>
 						</div>
 					</div>
 
-					{ /* Pagination  */ }
+					{ /* Pagination  */}
 					<div className="table-paginationn">
 						<div className="border-style-plate">
 							<h4 className="title-divider">
-								{ getStrings( 'pagination' ) }
+								{getStrings('pagination')}
 							</h4>
 							<div className="border-styles">
 								<input
@@ -1274,7 +1383,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="color"
 										name="paginationAciveBtnColor"
 										id="paginationAciveBtnColor"
-										className={ `color-picker paginationAciveBtnColor` }
+										className={`color-picker paginationAciveBtnColor`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -1282,7 +1391,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											]?.paginationAciveBtnColor ||
 											'#2BBAE8'
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												theme,
 												'paginationAciveBtnColor',
@@ -1291,9 +1400,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="paginationAciveBtnColor">
-										{ getStrings(
+										{getStrings(
 											'active-pagination-color'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
@@ -1304,7 +1413,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="checkbox"
 										name="pagination_center"
 										id="pagination_center"
-										className={ `pagination_center` }
+										className={`pagination_center`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -1317,7 +1426,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 												'style-6'
 											]?.pagination_center
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												'style-6',
 												'pagination_center',
@@ -1326,26 +1435,26 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="pagination_center">
-										{ getStrings(
+										{getStrings(
 											'keep-pagination-in-middle'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					{ isModified && (
+					{isModified && (
 						<button
 							className="swptls-reset-theme"
-							onClick={ () => handleOpenModal( 'style-6' ) }
+							onClick={() => handleOpenModal('style-6')}
 						>
-							{ ThemeReset } { getStrings( 'theme-reset' ) }
+							{ThemeReset} {getStrings('theme-reset')}
 						</button>
-					) }
+					)}
 				</>
 			);
-		} else if ( theme === 'style-2' ) {
+		} else if (theme === 'style-2') {
 			{
 				/* Minimal on dark  */
 			}
@@ -1354,7 +1463,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					<div className="table-design">
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'header-color-title' ) }
+								{getStrings('header-color-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -1367,7 +1476,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-2'
 										]?.headerBGColor || '#36304a'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-2',
 											'headerBGColor',
@@ -1376,7 +1485,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerBGColor">
-									{ getStrings( 'bg-color' ) }
+									{getStrings('bg-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -1390,7 +1499,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-2'
 										]?.headerTextColor || '#fff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-2',
 											'headerTextColor',
@@ -1399,13 +1508,13 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 						</div>
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'body-title' ) }
+								{getStrings('body-title')}
 							</h4>
 
 							<div className="theme-colors__scheme">
@@ -1419,7 +1528,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-2'
 										]?.bodyTextColor || '#000000'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-2',
 											'bodyTextColor',
@@ -1428,7 +1537,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 
@@ -1443,7 +1552,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-2'
 										]?.hoverBGColor || '#d1d1d1'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-2',
 											'hoverBGColor',
@@ -1452,14 +1561,39 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="hoverBGColor">
-									{ getStrings( 'hover-color' ) }
+									{getStrings('hover-color')}
 								</label>
 							</div>
+
+							<div className="theme-colors__scheme">
+								<input
+									type="color"
+									className="color-picker hoverTextColor"
+									id="hoverTextColor"
+									value={
+										tableSettings?.table_settings
+											?.import_styles_theme_colors?.[
+											'style-2'
+										]?.hoverTextColor || '#333333'
+									}
+									onChange={(e) =>
+										handleCustomizationChange(
+											'style-2',
+											'hoverTextColor',
+											e.target.value
+										)
+									}
+								/>
+								<label htmlFor="hoverTextColor">
+									{getStrings('hover-text-color')}
+								</label>
+							</div>
+
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'row-title' ) }
+								{getStrings('row-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -1472,7 +1606,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-2'
 										]?.bodyBGColorEven || '#f5f5f5'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-2',
 											'bodyBGColorEven',
@@ -1481,7 +1615,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColorEven">
-									{ getStrings( 'even-row-color' ) }
+									{getStrings('even-row-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -1495,7 +1629,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-2'
 										]?.bodyBGColorOdd || '#fff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-2',
 											'bodyBGColorOdd',
@@ -1504,17 +1638,17 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColorOdd">
-									{ getStrings( 'odd-row-color' ) }
+									{getStrings('odd-row-color')}
 								</label>
 							</div>
 						</div>
 					</div>
 
-					{ /* Pagination  */ }
+					{ /* Pagination  */}
 					<div className="table-paginationn">
 						<div className="border-style-plate">
 							<h4 className="title-divider">
-								{ getStrings( 'pagination' ) }
+								{getStrings('pagination')}
 							</h4>
 							<div className="border-styles">
 								<input
@@ -1530,7 +1664,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="color"
 										name="paginationAciveBtnColor"
 										id="paginationAciveBtnColor"
-										className={ `color-picker paginationAciveBtnColor` }
+										className={`color-picker paginationAciveBtnColor`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -1538,7 +1672,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											]?.paginationAciveBtnColor ||
 											'#261C3B'
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												theme,
 												'paginationAciveBtnColor',
@@ -1547,9 +1681,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="paginationAciveBtnColor">
-										{ getStrings(
+										{getStrings(
 											'active-pagination-color'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
@@ -1560,7 +1694,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="checkbox"
 										name="pagination_center"
 										id="pagination_center"
-										className={ `pagination_center` }
+										className={`pagination_center`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -1573,7 +1707,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 												'style-2'
 											]?.pagination_center
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												'style-2',
 												'pagination_center',
@@ -1582,26 +1716,26 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="pagination_center">
-										{ getStrings(
+										{getStrings(
 											'keep-pagination-in-middle'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					{ isModified && (
+					{isModified && (
 						<button
 							className="swptls-reset-theme"
-							onClick={ () => handleOpenModal( 'style-2' ) }
+							onClick={() => handleOpenModal('style-2')}
 						>
-							{ ThemeReset } { getStrings( 'theme-reset' ) }
+							{ThemeReset} {getStrings('theme-reset')}
 						</button>
-					) }
+					)}
 				</>
 			);
-		} else if ( theme === 'style-3' ) {
+		} else if (theme === 'style-3') {
 			{
 				/* Minimal elegant */
 			}
@@ -1610,7 +1744,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					<div className="table-design">
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'header-color-title' ) }
+								{getStrings('header-color-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -1623,7 +1757,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-3'
 										]?.headerBGColor || '#6c7ae0'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-3',
 											'headerBGColor',
@@ -1632,7 +1766,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerBGColor">
-									{ getStrings( 'bg-color' ) }
+									{getStrings('bg-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -1646,7 +1780,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-3'
 										]?.headerTextColor || '#fff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-3',
 											'headerTextColor',
@@ -1655,13 +1789,13 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 						</div>
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'body-title' ) }
+								{getStrings('body-title')}
 							</h4>
 
 							<div className="theme-colors__scheme">
@@ -1675,7 +1809,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-3'
 										]?.bodyTextColor || '#000000'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-3',
 											'bodyTextColor',
@@ -1684,7 +1818,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 
@@ -1699,7 +1833,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-3'
 										]?.hoverBGColor || '#EDE8FC'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-3',
 											'hoverBGColor',
@@ -1708,14 +1842,39 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="hoverBGColor">
-									{ getStrings( 'hover-color' ) }
+									{getStrings('hover-color')}
 								</label>
 							</div>
+
+							<div className="theme-colors__scheme">
+								<input
+									type="color"
+									className="color-picker hoverTextColor"
+									id="hoverTextColor"
+									value={
+										tableSettings?.table_settings
+											?.import_styles_theme_colors?.[
+											'style-3'
+										]?.hoverTextColor || '#333333'
+									}
+									onChange={(e) =>
+										handleCustomizationChange(
+											'style-3',
+											'hoverTextColor',
+											e.target.value
+										)
+									}
+								/>
+								<label htmlFor="hoverTextColor">
+									{getStrings('hover-text-color')}
+								</label>
+							</div>
+
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'row-title' ) }
+								{getStrings('row-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -1728,7 +1887,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-3'
 										]?.bodyBGColorEven || '#f8f6ff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-3',
 											'bodyBGColorEven',
@@ -1737,7 +1896,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColorEven">
-									{ getStrings( 'even-row-color' ) }
+									{getStrings('even-row-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -1751,7 +1910,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-3'
 										]?.bodyBGColorOdd || '#fff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-3',
 											'bodyBGColorOdd',
@@ -1760,14 +1919,14 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColorOdd">
-									{ getStrings( 'odd-row-color' ) }
+									{getStrings('odd-row-color')}
 								</label>
 							</div>
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'border-title' ) }
+								{getStrings('border-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -1780,7 +1939,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-3'
 										]?.borderColor || '#e0e5f6'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-3',
 											'borderColor',
@@ -1789,18 +1948,18 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="borderColor">
-									{ getStrings( 'inside-border-color' ) }{ ' ' }
+									{getStrings('inside-border-color')}{' '}
 									color
 								</label>
 							</div>
 						</div>
 					</div>
 
-					{ /* Pagination  */ }
+					{ /* Pagination  */}
 					<div className="table-paginationn">
 						<div className="border-style-plate">
 							<h4 className="title-divider">
-								{ getStrings( 'pagination' ) }
+								{getStrings('pagination')}
 							</h4>
 							<div className="border-styles">
 								<input
@@ -1816,7 +1975,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="color"
 										name="paginationAciveBtnColor"
 										id="paginationAciveBtnColor"
-										className={ `color-picker paginationAciveBtnColor` }
+										className={`color-picker paginationAciveBtnColor`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -1824,7 +1983,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											]?.paginationAciveBtnColor ||
 											'#2F80ED'
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												theme,
 												'paginationAciveBtnColor',
@@ -1833,9 +1992,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="paginationAciveBtnColor">
-										{ getStrings(
+										{getStrings(
 											'active-pagination-color'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
@@ -1846,7 +2005,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="checkbox"
 										name="pagination_center"
 										id="pagination_center"
-										className={ `pagination_center` }
+										className={`pagination_center`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -1859,7 +2018,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 												'style-3'
 											]?.pagination_center
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												'style-3',
 												'pagination_center',
@@ -1868,26 +2027,26 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="pagination_center">
-										{ getStrings(
+										{getStrings(
 											'keep-pagination-in-middle'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					{ isModified && (
+					{isModified && (
 						<button
 							className="swptls-reset-theme"
-							onClick={ () => handleOpenModal( 'style-3' ) }
+							onClick={() => handleOpenModal('style-3')}
 						>
-							{ ThemeReset } { getStrings( 'theme-reset' ) }
+							{ThemeReset} {getStrings('theme-reset')}
 						</button>
-					) }
+					)}
 				</>
 			);
-		} else if ( theme === 'style-5' ) {
+		} else if (theme === 'style-5') {
 			{
 				/* Uppercase heading */
 			}
@@ -1896,7 +2055,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					<div className="table-design">
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'header-color-title' ) }
+								{getStrings('header-color-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -1909,7 +2068,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-5'
 										]?.headerBGColor || '#F2F2F2'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-5',
 											'headerBGColor',
@@ -1918,7 +2077,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerBGColor">
-									{ getStrings( 'bg-color' ) }
+									{getStrings('bg-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -1932,7 +2091,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-5'
 										]?.headerTextColor || '#333333'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-5',
 											'headerTextColor',
@@ -1941,13 +2100,13 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 						</div>
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'body-title' ) }
+								{getStrings('body-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -1960,7 +2119,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-5'
 										]?.bodyBGColor || '#fff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-5',
 											'bodyBGColor',
@@ -1969,7 +2128,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColor">
-									{ getStrings( 'table-bg-color' ) }
+									{getStrings('table-bg-color')}
 								</label>
 							</div>
 
@@ -1984,7 +2143,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-5'
 										]?.bodyTextColor || '#000000'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-5',
 											'bodyTextColor',
@@ -1993,14 +2152,63 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
+
+							<div className="theme-colors__scheme">
+								<input
+									type="color"
+									className="color-picker hoverBGColor"
+									id="hoverBGColor"
+									value={
+										tableSettings?.table_settings
+											?.import_styles_theme_colors?.[
+											'style-5'
+										]?.hoverBGColor || '#bdcfe4'
+									}
+									onChange={(e) =>
+										handleCustomizationChange(
+											'style-5',
+											'hoverBGColor',
+											e.target.value
+										)
+									}
+								/>
+								<label htmlFor="hoverBGColor">
+									{getStrings('hover-color')}
+								</label>
+							</div>
+
+							<div className="theme-colors__scheme">
+								<input
+									type="color"
+									className="color-picker hoverTextColor"
+									id="hoverTextColor"
+									value={
+										tableSettings?.table_settings
+											?.import_styles_theme_colors?.[
+											'style-5'
+										]?.hoverTextColor || '#333333'
+									}
+									onChange={(e) =>
+										handleCustomizationChange(
+											'style-5',
+											'hoverTextColor',
+											e.target.value
+										)
+									}
+								/>
+								<label htmlFor="hoverTextColor">
+									{getStrings('hover-text-color')}
+								</label>
+							</div>
+
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'border-title' ) }
+								{getStrings('border-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -2013,7 +2221,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-5'
 										]?.borderColor || '#e0e5f6'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-5',
 											'borderColor',
@@ -2022,17 +2230,17 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="borderColor">
-									{ getStrings( 'table-border-color' ) }
+									{getStrings('table-border-color')}
 								</label>
 							</div>
 						</div>
 					</div>
 
-					{ /* Pagination  */ }
+					{ /* Pagination  */}
 					<div className="table-paginationn">
 						<div className="border-style-plate">
 							<h4 className="title-divider">
-								{ getStrings( 'pagination' ) }
+								{getStrings('pagination')}
 							</h4>
 							<div className="border-styles">
 								<input
@@ -2048,7 +2256,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="color"
 										name="paginationAciveBtnColor"
 										id="paginationAciveBtnColor"
-										className={ `color-picker paginationAciveBtnColor` }
+										className={`color-picker paginationAciveBtnColor`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -2056,7 +2264,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											]?.paginationAciveBtnColor ||
 											'#2F80ED'
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												theme,
 												'paginationAciveBtnColor',
@@ -2065,9 +2273,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="paginationAciveBtnColor">
-										{ getStrings(
+										{getStrings(
 											'active-pagination-color'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
@@ -2078,7 +2286,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="checkbox"
 										name="pagination_center"
 										id="pagination_center"
-										className={ `pagination_center` }
+										className={`pagination_center`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -2091,7 +2299,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 												'style-5'
 											]?.pagination_center
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												'style-5',
 												'pagination_center',
@@ -2100,26 +2308,26 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="pagination_center">
-										{ getStrings(
+										{getStrings(
 											'keep-pagination-in-middle'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					{ isModified && (
+					{isModified && (
 						<button
 							className="swptls-reset-theme"
-							onClick={ () => handleOpenModal( 'style-5' ) }
+							onClick={() => handleOpenModal('style-5')}
 						>
-							{ ThemeReset } { getStrings( 'theme-reset' ) }
+							{ThemeReset} {getStrings('theme-reset')}
 						</button>
-					) }
+					)}
 				</>
 			);
-		} else if ( theme === 'style-8' ) {
+		} else if (theme === 'style-8') {
 			{
 				/* Uppercase elegant */
 			}
@@ -2128,7 +2336,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					<div className="table-design">
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'header-color-title' ) }
+								{getStrings('header-color-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -2141,7 +2349,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-8'
 										]?.headerBGColor || '#E0E7FF'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-8',
 											'headerBGColor',
@@ -2150,7 +2358,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerBGColor">
-									{ getStrings( 'bg-color' ) }
+									{getStrings('bg-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -2164,7 +2372,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-8'
 										]?.headerTextColor || '#312E81'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-8',
 											'headerTextColor',
@@ -2173,13 +2381,13 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 						</div>
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'body-title' ) }
+								{getStrings('body-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -2192,7 +2400,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-8'
 										]?.bodyBGColor || '#fff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-8',
 											'bodyBGColor',
@@ -2201,7 +2409,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColor">
-									{ getStrings( 'table-bg-color' ) }
+									{getStrings('table-bg-color')}
 								</label>
 							</div>
 
@@ -2216,7 +2424,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-8'
 										]?.hoverBGColor || '#e4e9f8'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-8',
 											'hoverBGColor',
@@ -2225,14 +2433,39 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="hoverBGColor">
-									{ getStrings( 'hover-color' ) }
+									{getStrings('hover-color')}
 								</label>
 							</div>
+
+							<div className="theme-colors__scheme">
+								<input
+									type="color"
+									className="color-picker hoverTextColor"
+									id="hoverTextColor"
+									value={
+										tableSettings?.table_settings
+											?.import_styles_theme_colors?.[
+											'style-8'
+										]?.hoverTextColor || '#333333'
+									}
+									onChange={(e) =>
+										handleCustomizationChange(
+											'style-8',
+											'hoverTextColor',
+											e.target.value
+										)
+									}
+								/>
+								<label htmlFor="hoverTextColor">
+									{getStrings('hover-text-color')}
+								</label>
+							</div>
+
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'text-color-title' ) }
+								{getStrings('text-color-title')}
 							</h4>
 
 							<div className="theme-colors__scheme">
@@ -2246,7 +2479,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-8'
 										]?.bodyTextColorCol_1 || '#333333'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-8',
 											'bodyTextColorCol_1',
@@ -2255,7 +2488,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyTextColorCol_1">
-									{ getStrings( 'first-cl-txt-color' ) }
+									{getStrings('first-cl-txt-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -2269,7 +2502,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-8'
 										]?.bodyTextColorColRest || '#6B7280'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-8',
 											'bodyTextColorColRest',
@@ -2278,14 +2511,14 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyTextColorColRest">
-									{ getStrings( 'rest-txt-color' ) }
+									{getStrings('rest-txt-color')}
 								</label>
 							</div>
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'border-title' ) }
+								{getStrings('border-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -2298,7 +2531,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-8'
 										]?.borderColor || '#e0e5f6'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-8',
 											'borderColor',
@@ -2307,17 +2540,17 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="borderColor">
-									{ getStrings( 'out-border-color' ) }
+									{getStrings('out-border-color')}
 								</label>
 							</div>
 						</div>
 					</div>
 
-					{ /* Pagination  */ }
+					{ /* Pagination  */}
 					<div className="table-paginationn">
 						<div className="border-style-plate">
 							<h4 className="title-divider">
-								{ getStrings( 'pagination' ) }
+								{getStrings('pagination')}
 							</h4>
 							<div className="border-styles">
 								<input
@@ -2333,7 +2566,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="color"
 										name="paginationAciveBtnColor"
 										id="paginationAciveBtnColor"
-										className={ `color-picker paginationAciveBtnColor` }
+										className={`color-picker paginationAciveBtnColor`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -2341,7 +2574,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											]?.paginationAciveBtnColor ||
 											'#5C51E0'
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												theme,
 												'paginationAciveBtnColor',
@@ -2350,9 +2583,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="paginationAciveBtnColor">
-										{ getStrings(
+										{getStrings(
 											'active-pagination-color'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
@@ -2363,7 +2596,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="checkbox"
 										name="pagination_center"
 										id="pagination_center"
-										className={ `pagination_center` }
+										className={`pagination_center`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -2376,7 +2609,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 												'style-8'
 											]?.pagination_center
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												'style-8',
 												'pagination_center',
@@ -2385,26 +2618,26 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="pagination_center">
-										{ getStrings(
+										{getStrings(
 											'keep-pagination-in-middle'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					{ isModified && (
+					{isModified && (
 						<button
 							className="swptls-reset-theme"
-							onClick={ () => handleOpenModal( 'style-8' ) }
+							onClick={() => handleOpenModal('style-8')}
 						>
-							{ ThemeReset } { getStrings( 'theme-reset' ) }
+							{ThemeReset} {getStrings('theme-reset')}
 						</button>
-					) }
+					)}
 				</>
 			);
-		} else if ( theme === 'style-1' ) {
+		} else if (theme === 'style-1') {
 			{
 				/* Vertical style */
 			}
@@ -2413,7 +2646,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					<div className="table-design">
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'header-color-title' ) }
+								{getStrings('header-color-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -2426,7 +2659,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-1'
 										]?.headerBGColor || '#E0E7FF'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-1',
 											'headerBGColor',
@@ -2435,7 +2668,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerBGColor">
-									{ getStrings( 'bg-color' ) }
+									{getStrings('bg-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -2449,7 +2682,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-1'
 										]?.headerTextColor || '#312E81'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-1',
 											'headerTextColor',
@@ -2458,13 +2691,13 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 						</div>
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'body-title' ) }
+								{getStrings('body-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -2477,7 +2710,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-1'
 										]?.bodyTextColor || '#000000'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-1',
 											'bodyTextColor',
@@ -2486,14 +2719,40 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
+
+							<div className="theme-colors__scheme">
+								<input
+									type="color"
+									className="color-picker hoverBGColor"
+									id="hoverBGColor"
+									value={
+										tableSettings?.table_settings
+											?.import_styles_theme_colors?.[
+											'style-1'
+										]?.hoverBGColor || '#bdcfe4'
+									}
+									onChange={(e) =>
+										handleCustomizationChange(
+											'style-1',
+											'hoverBGColor',
+											e.target.value
+										)
+									}
+								/>
+								<label htmlFor="hoverBGColor">
+									{getStrings('hover-color')}
+								</label>
+							</div>
+
+
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'column-title' ) }
+								{getStrings('column-title')}
 							</h4>
 
 							<div className="theme-colors__scheme">
@@ -2507,7 +2766,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-1'
 										]?.bodyBGColorEven || '#EBF4FF'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-1',
 											'bodyBGColorEven',
@@ -2516,7 +2775,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColorEven">
-									{ getStrings( 'even-column-color' ) }
+									{getStrings('even-column-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -2530,7 +2789,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-1'
 										]?.bodyBGColorOdd || '#fff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-1',
 											'bodyBGColorOdd',
@@ -2539,14 +2798,14 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label id="bodyBGColorOdd">
-									{ getStrings( 'odd-column-color' ) }
+									{getStrings('odd-column-color')}
 								</label>
 							</div>
 						</div>
 
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'border-title' ) }
+								{getStrings('border-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -2559,7 +2818,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-1'
 										]?.borderColor || '#e0e5f6'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-1',
 											'borderColor',
@@ -2568,17 +2827,17 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="borderColor">
-									{ getStrings( 'border-color' ) }
+									{getStrings('border-color')}
 								</label>
 							</div>
 						</div>
 					</div>
 
-					{ /* Pagination  */ }
+					{ /* Pagination  */}
 					<div className="table-paginationn">
 						<div className="border-style-plate">
 							<h4 className="title-divider">
-								{ getStrings( 'pagination' ) }
+								{getStrings('pagination')}
 							</h4>
 							<div className="border-styles">
 								<input
@@ -2594,7 +2853,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="color"
 										name="paginationAciveBtnColor"
 										id="paginationAciveBtnColor"
-										className={ `color-picker paginationAciveBtnColor` }
+										className={`color-picker paginationAciveBtnColor`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -2602,7 +2861,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											]?.paginationAciveBtnColor ||
 											'#5C51E0'
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												theme,
 												'paginationAciveBtnColor',
@@ -2611,9 +2870,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="paginationAciveBtnColor">
-										{ getStrings(
+										{getStrings(
 											'active-pagination-color'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
@@ -2624,7 +2883,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="checkbox"
 										name="pagination_center"
 										id="pagination_center"
-										className={ `pagination_center` }
+										className={`pagination_center`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -2637,7 +2896,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 												'style-1'
 											]?.pagination_center
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												'style-1',
 												'pagination_center',
@@ -2646,26 +2905,26 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="pagination_center">
-										{ getStrings(
+										{getStrings(
 											'keep-pagination-in-middle'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					{ isModified && (
+					{isModified && (
 						<button
 							className="swptls-reset-theme"
-							onClick={ () => handleOpenModal( 'style-1' ) }
+							onClick={() => handleOpenModal('style-1')}
 						>
-							{ ThemeReset } { getStrings( 'theme-reset' ) }
+							{ThemeReset} {getStrings('theme-reset')}
 						</button>
-					) }
+					)}
 				</>
 			);
-		} else if ( theme === 'style-7' ) {
+		} else if (theme === 'style-7') {
 			{
 				/* Dark knight */
 			}
@@ -2674,7 +2933,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 					<div className="table-design">
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'header-color-title' ) }
+								{getStrings('header-color-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -2687,7 +2946,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-7'
 										]?.headerBGColor || '#8880F8'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-7',
 											'headerBGColor',
@@ -2696,7 +2955,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerBGColor">
-									{ getStrings( 'bg-color' ) }
+									{getStrings('bg-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -2710,7 +2969,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-7'
 										]?.headerTextColor || '#fff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-7',
 											'headerTextColor',
@@ -2719,13 +2978,13 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="headerTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 						</div>
 						<div className="theme-colors__palette">
 							<h4 className="theme-colors__title text-uppercase">
-								{ getStrings( 'body-title' ) }
+								{getStrings('body-title')}
 							</h4>
 							<div className="theme-colors__scheme">
 								<input
@@ -2738,7 +2997,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-7'
 										]?.bodyBGColor || '#34344C'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-7',
 											'bodyBGColor',
@@ -2747,7 +3006,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyBGColor">
-									{ getStrings( 'table-bg-color' ) }
+									{getStrings('table-bg-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -2761,7 +3020,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-7'
 										]?.bodyTextColor || '#ffffff'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-7',
 											'bodyTextColor',
@@ -2770,7 +3029,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="bodyTextColor">
-									{ getStrings( 'txt-color' ) }
+									{getStrings('txt-color')}
 								</label>
 							</div>
 							<div className="theme-colors__scheme">
@@ -2784,7 +3043,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											'style-7'
 										]?.hoverBGColor || '#7e78d3'
 									}
-									onChange={ ( e ) =>
+									onChange={(e) =>
 										handleCustomizationChange(
 											'style-7',
 											'hoverBGColor',
@@ -2793,17 +3052,42 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									}
 								/>
 								<label htmlFor="hoverBGColor">
-									{ getStrings( 'hover-color' ) }
+									{getStrings('hover-color')}
 								</label>
 							</div>
+
+							<div className="theme-colors__scheme">
+								<input
+									type="color"
+									className="color-picker hoverTextColor"
+									id="hoverTextColor"
+									value={
+										tableSettings?.table_settings
+											?.import_styles_theme_colors?.[
+											'style-7'
+										]?.hoverTextColor || '#333333'
+									}
+									onChange={(e) =>
+										handleCustomizationChange(
+											'style-7',
+											'hoverTextColor',
+											e.target.value
+										)
+									}
+								/>
+								<label htmlFor="hoverTextColor">
+									{getStrings('hover-text-color')}
+								</label>
+							</div>
+
 						</div>
 					</div>
 					<div className="table-paginationn">
-						{ /* Pagination  */ }
+						{ /* Pagination  */}
 
 						<div className="border-style-plate">
 							<h4 className="title-divider">
-								{ getStrings( 'pagination' ) }
+								{getStrings('pagination')}
 							</h4>
 							<div className="border-styles">
 								<input
@@ -2819,7 +3103,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="color"
 										name="paginationAciveBtnColor"
 										id="paginationAciveBtnColor"
-										className={ `color-picker paginationAciveBtnColor` }
+										className={`color-picker paginationAciveBtnColor`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -2827,7 +3111,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 											]?.paginationAciveBtnColor ||
 											'#34344C'
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												theme,
 												'paginationAciveBtnColor',
@@ -2836,9 +3120,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="paginationAciveBtnColor">
-										{ getStrings(
+										{getStrings(
 											'active-pagination-color'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
@@ -2849,7 +3133,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										type="checkbox"
 										name="pagination_center"
 										id="pagination_center"
-										className={ `pagination_center` }
+										className={`pagination_center`}
 										value={
 											tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
@@ -2862,7 +3146,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 												'style-7'
 											]?.pagination_center
 										}
-										onChange={ ( e ) =>
+										onChange={(e) =>
 											handleCustomizationChange(
 												'style-7',
 												'pagination_center',
@@ -2871,38 +3155,38 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										}
 									/>
 									<label htmlFor="pagination_center">
-										{ getStrings(
+										{getStrings(
 											'keep-pagination-in-middle'
-										) }
+										)}
 									</label>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					{ isModified && (
+					{isModified && (
 						<button
 							className="swptls-reset-theme"
-							onClick={ () => handleOpenModal( 'style-7' ) }
+							onClick={() => handleOpenModal('style-7')}
 						>
-							{ ThemeReset } { getStrings( 'theme-reset' ) }
+							{ThemeReset} {getStrings('theme-reset')}
 						</button>
-					) }
+					)}
 				</>
 			);
-		} else if ( theme === 'style-new' ) {
+		} else if (theme === 'style-new') {
 			return <></>;
 		} else {
 			// Handle dynamic themes
 			return (
 				<>
-					{ Object.keys(
+					{Object.keys(
 						tableSettings?.table_settings
 							?.import_styles_theme_colors || {}
 					)
 						.filter(
-							( themeName ) =>
-								! [
+							(themeName) =>
+								![
 									'default-style',
 									'style-1',
 									'style-2',
@@ -2912,20 +3196,20 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 									'style-6',
 									'style-7',
 									'style-8',
-								].includes( themeName )
+								].includes(themeName)
 						)
 						.map(
-							( theme ) =>
+							(theme) =>
 								tableSettings?.table_settings?.table_style ===
-									theme && (
+								theme && (
 									<>
 										<div className="customization-plate-options">
-											{ /* HEADER COLORS  */ }
+											{ /* HEADER COLORS  */}
 											<div className="theme-colors__palette">
 												<h4 className="theme-colors__title text-uppercase">
-													{ getStrings(
+													{getStrings(
 														'header-color-title'
-													) }
+													)}
 												</h4>
 												<div className="theme-colors__scheme">
 													<input
@@ -2940,7 +3224,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 															]?.headerBGColor ||
 															'#ffffff'
 														}
-														onChange={ ( e ) =>
+														onChange={(e) =>
 															handleCustomizationChange(
 																theme,
 																'headerBGColor',
@@ -2949,9 +3233,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 														}
 													/>
 													<label htmlFor="headerBGColor">
-														{ getStrings(
+														{getStrings(
 															'bg-color'
-														) }
+														)}
 													</label>
 												</div>
 												<div className="theme-colors__scheme">
@@ -2968,7 +3252,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																?.headerTextColor ||
 															'#000000'
 														}
-														onChange={ ( e ) =>
+														onChange={(e) =>
 															handleCustomizationChange(
 																theme,
 																'headerTextColor',
@@ -2977,19 +3261,19 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 														}
 													/>
 													<label htmlFor="headerTextColor">
-														{ getStrings(
+														{getStrings(
 															'txt-color'
-														) }
+														)}
 													</label>
 												</div>
 											</div>
 
-											{ /* TABLE TEXTS  */ }
+											{ /* TABLE TEXTS  */}
 											<div className="theme-colors__palette">
 												<h4 className="theme-colors__title text-uppercase">
-													{ getStrings(
+													{getStrings(
 														'table-text-title'
-													) }
+													)}
 												</h4>
 
 												<div className="theme-colors__scheme">
@@ -3006,7 +3290,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																?.bodyTextColorCol_1 ||
 															'#333333'
 														}
-														onChange={ ( e ) =>
+														onChange={(e) =>
 															handleCustomizationChange(
 																theme,
 																'bodyTextColorCol_1',
@@ -3015,9 +3299,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 														}
 													/>
 													<label htmlFor="bodyTextColorCol_1">
-														{ getStrings(
+														{getStrings(
 															'first-cl-txt-color'
-														) }
+														)}
 													</label>
 												</div>
 												<div className="theme-colors__scheme">
@@ -3034,7 +3318,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																?.bodyTextColorColRest ||
 															'#6b6b6b'
 														}
-														onChange={ ( e ) =>
+														onChange={(e) =>
 															handleCustomizationChange(
 																theme,
 																'bodyTextColorColRest',
@@ -3043,59 +3327,59 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 														}
 													/>
 													<label htmlFor="bodyTextColorColRest">
-														{ getStrings(
+														{getStrings(
 															'remaning-txt-color'
-														) }
+														)}
 													</label>
 												</div>
 											</div>
 
-											{ /* BODY COLORS  */ }
+											{ /* BODY COLORS  */}
 											<div className="theme-colors__palette">
 												<h4 className="theme-colors__title text-uppercase">
-													{ getStrings(
+													{getStrings(
 														'body-title'
-													) }
+													)}
 												</h4>
 
-												{ tableSettings?.table_settings
+												{tableSettings?.table_settings
 													?.import_styles_theme_colors?.[
 													theme
 												]?.activeRowColumnMode ===
 													false && (
-													<div className="theme-colors__scheme">
-														<input
-															type="color"
-															id="bodyBGColor"
-															className="color-picker bodyBGColor"
-															value={
-																tableSettings
-																	?.table_settings
-																	?.import_styles_theme_colors?.[
-																	theme
-																]
-																	?.bodyBGColor ||
-																'#ffffff'
-															}
-															onChange={ ( e ) =>
-																handleCustomizationChange(
-																	theme,
-																	'bodyBGColor',
-																	e.target
-																		.value
-																)
-															}
-														/>
-														<label htmlFor="bodyBGColor">
-															{ getStrings(
-																'table-bg-color'
-															) }
-														</label>
-													</div>
-												) }
+														<div className="theme-colors__scheme">
+															<input
+																type="color"
+																id="bodyBGColor"
+																className="color-picker bodyBGColor"
+																value={
+																	tableSettings
+																		?.table_settings
+																		?.import_styles_theme_colors?.[
+																		theme
+																	]
+																		?.bodyBGColor ||
+																	'#ffffff'
+																}
+																onChange={(e) =>
+																	handleCustomizationChange(
+																		theme,
+																		'bodyBGColor',
+																		e.target
+																			.value
+																	)
+																}
+															/>
+															<label htmlFor="bodyBGColor">
+																{getStrings(
+																	'table-bg-color'
+																)}
+															</label>
+														</div>
+													)}
 
-												{ /* Column Color  */ }
-												{ tableSettings?.table_settings
+												{ /* Column Color  */}
+												{tableSettings?.table_settings
 													?.import_styles_theme_colors?.[
 													theme
 												]?.activeColumnColor === true &&
@@ -3104,23 +3388,22 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 														?.import_styles_theme_colors?.[
 														theme
 													]?.activeRowColumnMode ===
-														true && (
+													true && (
 														<div className="column-colors">
-															{ /* <h4 className="theme-colors__title text-uppercase">{getStrings('column-title')}</h4> */ }
+															{ /* <h4 className="theme-colors__title text-uppercase">{getStrings('column-title')}</h4> */}
 															<div className="theme-colors__scheme">
 																<input
 																	type="color"
 																	id="bodyBGColorEven"
-																	className={ `color-picker bodyBGColorEven ${
-																		tableSettings
-																			?.table_settings
-																			?.import_styles_theme_colors?.[
-																			theme
-																		]
-																			?.activeColumnColor
-																			? 'activeColumnColor'
-																			: ''
-																	}` }
+																	className={`color-picker bodyBGColorEven ${tableSettings
+																		?.table_settings
+																		?.import_styles_theme_colors?.[
+																		theme
+																	]
+																		?.activeColumnColor
+																		? 'activeColumnColor'
+																		: ''
+																		}`}
 																	value={
 																		tableSettings
 																			?.table_settings
@@ -3130,7 +3413,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																			?.bodyBGColorEven ||
 																		'#f5f5f5'
 																	}
-																	onChange={ (
+																	onChange={(
 																		e
 																	) =>
 																		handleCustomizationChange(
@@ -3143,25 +3426,24 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																	}
 																/>
 																<label htmlFor="bodyBGColorEven">
-																	{ getStrings(
+																	{getStrings(
 																		'even-column-color'
-																	) }
+																	)}
 																</label>
 															</div>
 															<div className="theme-colors__scheme">
 																<input
 																	type="color"
 																	id="bodyBGColorOdd"
-																	className={ `color-picker bodyBGColorOdd ${
-																		tableSettings
-																			?.table_settings
-																			?.import_styles_theme_colors?.[
-																			theme
-																		]
-																			?.activeColumnColor
-																			? 'activeColumnColor'
-																			: ''
-																	}` }
+																	className={`color-picker bodyBGColorOdd ${tableSettings
+																		?.table_settings
+																		?.import_styles_theme_colors?.[
+																		theme
+																	]
+																		?.activeColumnColor
+																		? 'activeColumnColor'
+																		: ''
+																		}`}
 																	value={
 																		tableSettings
 																			?.table_settings
@@ -3171,7 +3453,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																			?.bodyBGColorOdd ||
 																		'#ffffff'
 																	}
-																	onChange={ (
+																	onChange={(
 																		e
 																	) =>
 																		handleCustomizationChange(
@@ -3184,16 +3466,16 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																	}
 																/>
 																<label id="bodyBGColorOdd">
-																	{ getStrings(
+																	{getStrings(
 																		'odd-column-color'
-																	) }
+																	)}
 																</label>
 															</div>
 														</div>
-													) }
+													)}
 
-												{ /* Row Color  */ }
-												{ tableSettings?.table_settings
+												{ /* Row Color  */}
+												{tableSettings?.table_settings
 													?.import_styles_theme_colors?.[
 													theme
 												]?.activeRowColor === true &&
@@ -3202,23 +3484,22 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 														?.import_styles_theme_colors?.[
 														theme
 													]?.activeRowColumnMode ===
-														true && (
+													true && (
 														<div className="row-colors">
-															{ /* <h4 className="theme-colors__title text-uppercase">{getStrings('row-title')}</h4> */ }
+															{ /* <h4 className="theme-colors__title text-uppercase">{getStrings('row-title')}</h4> */}
 															<div className="theme-colors__scheme">
 																<input
 																	type="color"
 																	id="bodyBGColorEven"
-																	className={ `color-picker bodyBGColorEven ${
-																		tableSettings
-																			?.table_settings
-																			?.import_styles_theme_colors?.[
-																			theme
-																		]
-																			?.activeRowColor
-																			? 'activeRowColor'
-																			: ''
-																	}` }
+																	className={`color-picker bodyBGColorEven ${tableSettings
+																		?.table_settings
+																		?.import_styles_theme_colors?.[
+																		theme
+																	]
+																		?.activeRowColor
+																		? 'activeRowColor'
+																		: ''
+																		}`}
 																	value={
 																		tableSettings
 																			?.table_settings
@@ -3228,7 +3509,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																			?.bodyBGColorEven ||
 																		'#f5f5f5'
 																	}
-																	onChange={ (
+																	onChange={(
 																		e
 																	) =>
 																		handleCustomizationChange(
@@ -3241,25 +3522,24 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																	}
 																/>
 																<label htmlFor="bodyBGColorEven">
-																	{ getStrings(
+																	{getStrings(
 																		'even-row-color'
-																	) }
+																	)}
 																</label>
 															</div>
 															<div className="theme-colors__scheme">
 																<input
 																	type="color"
 																	id="bodyBGColorOdd"
-																	className={ `color-picker bodyBGColorOdd ${
-																		tableSettings
-																			?.table_settings
-																			?.import_styles_theme_colors?.[
-																			theme
-																		]
-																			?.activeRowColor
-																			? 'activeRowColor'
-																			: ''
-																	}` }
+																	className={`color-picker bodyBGColorOdd ${tableSettings
+																		?.table_settings
+																		?.import_styles_theme_colors?.[
+																		theme
+																	]
+																		?.activeRowColor
+																		? 'activeRowColor'
+																		: ''
+																		}`}
 																	value={
 																		tableSettings
 																			?.table_settings
@@ -3269,7 +3549,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																			?.bodyBGColorOdd ||
 																		'#ffffff'
 																	}
-																	onChange={ (
+																	onChange={(
 																		e
 																	) =>
 																		handleCustomizationChange(
@@ -3282,128 +3562,127 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																	}
 																/>
 																<label id="bodyBGColorOdd">
-																	{ getStrings(
+																	{getStrings(
 																		'odd-row-color'
-																	) }
+																	)}
 																</label>
 															</div>
 														</div>
-													) }
+													)}
 											</div>
 
-											{ /* Hover color  */ }
-											{ ! tableSettings?.table_settings
+											{ /* Hover color  */}
+											{!tableSettings?.table_settings
 												?.import_styles_theme_colors?.[
 												theme
 											]?.hoverModeNone === true && (
-												<div className="theme-colors__palette">
-													<h4 className="theme-colors__title text-uppercase">
-														{ getStrings(
-															'table-hover-title'
-														) }
-													</h4>
+													<div className="theme-colors__palette">
+														<h4 className="theme-colors__title text-uppercase">
+															{getStrings(
+																'table-hover-title'
+															)}
+														</h4>
 
-													<div className="theme-colors__scheme">
-														<input
-															type="color"
-															id="hoverBGColor"
-															// className="color-picker hoverBGColor"
-															className={ `color-picker hoverBGColor ${
-																tableSettings
+														<div className="theme-colors__scheme">
+															<input
+																type="color"
+																id="hoverBGColor"
+																// className="color-picker hoverBGColor"
+																className={`color-picker hoverBGColor ${tableSettings
 																	?.table_settings
 																	?.import_styles_theme_colors?.[
 																	theme
 																]?.hoverModeNone
 																	? 'hoverModeNone'
 																	: tableSettings
+																		?.table_settings
+																		?.import_styles_theme_colors?.[
+																		theme
+																	]
+																		?.hoverModeRow
+																		? 'hoverModeRow'
+																		: tableSettings
 																			?.table_settings
 																			?.import_styles_theme_colors?.[
 																			theme
-																	  ]
-																			?.hoverModeRow
-																	? 'hoverModeRow'
-																	: tableSettings
-																			?.table_settings
-																			?.import_styles_theme_colors?.[
-																			theme
-																	  ]
+																		]
 																			?.hoverModeColumn
-																	? 'hoverModeColumn'
-																	: ''
-															}` }
-															value={
-																tableSettings
-																	?.table_settings
-																	?.import_styles_theme_colors?.[
-																	theme
-																]
-																	?.hoverBGColor ||
-																'#e8e8e8'
-															}
-															onChange={ ( e ) =>
-																handleCustomizationChange(
-																	theme,
-																	'hoverBGColor',
-																	e.target
-																		.value
-																)
-															}
-														/>
-														<label htmlFor="hoverBGColor">
-															{ getStrings(
-																'hover-color'
-															) }
-														</label>
-													</div>
-
-													{ /* Hover Text colors  */ }
-													{ ! tableSettings
-														?.table_settings
-														?.import_styles_theme_colors?.[
-														theme
-													]?.hoverModeColumn ===
-														true && (
-														<div className="theme-colors__scheme">
-															<input
-																type="color"
-																id="hoverTextColor"
-																className="color-picker hoverTextColor"
+																			? 'hoverModeColumn'
+																			: ''
+																	}`}
 																value={
 																	tableSettings
 																		?.table_settings
 																		?.import_styles_theme_colors?.[
 																		theme
 																	]
-																		?.hoverTextColor ||
+																		?.hoverBGColor ||
 																	'#e8e8e8'
 																}
-																onChange={ (
-																	e
-																) =>
+																onChange={(e) =>
 																	handleCustomizationChange(
 																		theme,
-																		'hoverTextColor',
+																		'hoverBGColor',
 																		e.target
 																			.value
 																	)
 																}
 															/>
-															<label htmlFor="hoverTextColor">
-																{ getStrings(
-																	'hover-text-color'
-																) }
+															<label htmlFor="hoverBGColor">
+																{getStrings(
+																	'hover-color'
+																)}
 															</label>
 														</div>
-													) }
-												</div>
-											) }
 
-											{ /* Border  */ }
+														{ /* Hover Text colors  */}
+														{!tableSettings
+															?.table_settings
+															?.import_styles_theme_colors?.[
+															theme
+														]?.hoverModeColumn ===
+															true && (
+																<div className="theme-colors__scheme">
+																	<input
+																		type="color"
+																		id="hoverTextColor"
+																		className="color-picker hoverTextColor"
+																		value={
+																			tableSettings
+																				?.table_settings
+																				?.import_styles_theme_colors?.[
+																				theme
+																			]
+																				?.hoverTextColor ||
+																			'#e8e8e8'
+																		}
+																		onChange={(
+																			e
+																		) =>
+																			handleCustomizationChange(
+																				theme,
+																				'hoverTextColor',
+																				e.target
+																					.value
+																			)
+																		}
+																	/>
+																	<label htmlFor="hoverTextColor">
+																		{getStrings(
+																			'hover-text-color'
+																		)}
+																	</label>
+																</div>
+															)}
+													</div>
+												)}
+
+											{ /* Border  */}
 											<div className="theme-colors__palette">
 												<h4 className="theme-colors__title text-uppercase">
-													{ getStrings(
+													{getStrings(
 														'border-title'
-													) }
+													)}
 												</h4>
 												<div className="theme-colors__scheme">
 													<input
@@ -3418,7 +3697,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 															]?.borderColor ||
 															'#000000'
 														}
-														onChange={ ( e ) =>
+														onChange={(e) =>
 															handleCustomizationChange(
 																theme,
 																'borderColor',
@@ -3427,9 +3706,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 														}
 													/>
 													<label htmlFor="borderColor">
-														{ getStrings(
+														{getStrings(
 															'inside-border-color'
-														) }
+														)}
 													</label>
 												</div>
 
@@ -3438,16 +3717,15 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 														type="color"
 														id="outside-outsideborderColor"
 														// className="color-picker outsideborderColor"
-														className={ `color-picker outsideborderColor ${
-															tableSettings
-																?.table_settings
-																?.import_styles_theme_colors?.[
-																theme
-															]
-																?.activeOutsideborder
-																? 'activeOutsideborder'
-																: ''
-														}` }
+														className={`color-picker outsideborderColor ${tableSettings
+															?.table_settings
+															?.import_styles_theme_colors?.[
+															theme
+														]
+															?.activeOutsideborder
+															? 'activeOutsideborder'
+															: ''
+															}`}
 														value={
 															tableSettings
 																?.table_settings
@@ -3457,7 +3735,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																?.outsideborderColor ||
 															'#ffffff'
 														}
-														onChange={ ( e ) =>
+														onChange={(e) =>
 															handleCustomizationChange(
 																theme,
 																'outsideborderColor',
@@ -3471,21 +3749,21 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 												</div>
 											</div>
 
-											{ /* <button className="swptls-reset-theme" onClick={() => handleResetTheme(theme)}>{ThemeReset} Reset</button> */ }
+											{ /* <button className="swptls-reset-theme" onClick={() => handleResetTheme(theme)}>{ThemeReset} Reset</button> */}
 										</div>
 										<div className="customization-plate-others">
 											<div className="border-style-plate">
 												<h4 className="title-divider">
-													{ getStrings(
+													{getStrings(
 														'border-style-title'
-													) }
+													)}
 												</h4>
 												<div className="border-styles">
 													<div className="border-styles__field-group">
 														<label htmlFor="border-type">
-															{ getStrings(
+															{getStrings(
 																'outside-border-type'
-															) }
+															)}
 														</label>
 														<select
 															name="border-type"
@@ -3499,7 +3777,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																]?.borderType ||
 																'rounded'
 															}
-															onChange={ ( e ) =>
+															onChange={(e) =>
 																handleCustomizationChange(
 																	theme,
 																	'borderType',
@@ -3509,75 +3787,75 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 															}
 														>
 															<option value="solid">
-																{ getStrings(
+																{getStrings(
 																	'solid-border'
-																) }
+																)}
 															</option>
 															<option value="rounded">
-																{ getStrings(
+																{getStrings(
 																	'rounded-border'
-																) }
+																)}
 															</option>
 														</select>
 													</div>
-													{ tableSettings
+													{tableSettings
 														?.table_settings
 														?.import_styles_theme_colors?.[
 														theme
 													]?.borderType ===
 														'rounded' && (
-														<div className="border-styles__field-group">
-															<label htmlFor="border-radius">
-																{ getStrings(
-																	'border-radius'
-																) }
-															</label>
-															<input
-																className="border-radius borderRadius"
-																type="text"
-																id="border-radius"
-																placeholder="10px"
-																name="borderRadius"
-																value={
-																	tableSettings
-																		?.table_settings
-																		?.import_styles_theme_colors?.[
-																		theme
-																	]
-																		?.borderRadius ||
-																	'10px'
-																}
-																onChange={ (
-																	e
-																) =>
-																	handleCustomizationChange(
-																		theme,
-																		'borderRadius',
-																		e.target
-																			.value
-																	)
-																}
-															/>
-														</div>
-													) }
+															<div className="border-styles__field-group">
+																<label htmlFor="border-radius">
+																	{getStrings(
+																		'border-radius'
+																	)}
+																</label>
+																<input
+																	className="border-radius borderRadius"
+																	type="text"
+																	id="border-radius"
+																	placeholder="10px"
+																	name="borderRadius"
+																	value={
+																		tableSettings
+																			?.table_settings
+																			?.import_styles_theme_colors?.[
+																			theme
+																		]
+																			?.borderRadius ||
+																		'10px'
+																	}
+																	onChange={(
+																		e
+																	) =>
+																		handleCustomizationChange(
+																			theme,
+																			'borderRadius',
+																			e.target
+																				.value
+																		)
+																	}
+																/>
+															</div>
+														)}
 												</div>
 											</div>
 
-											{ /* Pagination  */ }
+											{ /* Pagination  */}
 
 											<div className="border-style-plate">
 												<h4 className="title-divider">
-													{ getStrings(
+													{getStrings(
 														'pagination'
-													) }
+													)}
 												</h4>
 												<div className="border-styles pagination-customizer">
 													<div className="paginaion-style-panel">
 														<div className="border-styles__field-group">
 															<label htmlFor="pagination-style">
-																{ getStrings(
+																{getStrings(
 																	'pg-style'
-																) }
+																)}
 															</label>
 															<input
 																className="paginationStyle"
@@ -3596,30 +3874,30 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																}
 															/>
 
-															{ /* Pagination  */ }
+															{ /* Pagination  */}
 															<div
 																className="paginationStyle"
 																id="pagination-style"
-																onClick={ () =>
+																onClick={() =>
 																	handleOpenPaginationModal(
 																		tableSettings
 																			?.table_settings
 																			?.import_styles_theme_colors?.[
-																			theme
+																		theme
 																		]
 																	)
 																}
 															>
-																{ /* {tableSettings?.table_settings?.import_styles_theme_colors?.[theme]?.paginationStyle} */ }
-																{ getPaginationStyleName(
+																{ /* {tableSettings?.table_settings?.import_styles_theme_colors?.[theme]?.paginationStyle} */}
+																{getPaginationStyleName(
 																	tableSettings
 																		?.table_settings
 																		?.import_styles_theme_colors?.[
 																		theme
 																	]
 																		?.paginationStyle ||
-																		'default_pagination'
-																) }
+																	'default_pagination'
+																)}
 															</div>
 														</div>
 
@@ -3628,16 +3906,15 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																type="color"
 																name="paginationAciveBtnColor"
 																id="paginationAciveBtnColor"
-																className={ `color-picker paginationAciveBtnColor ${
-																	tableSettings
-																		?.table_settings
-																		?.import_styles_theme_colors?.[
-																		theme
-																	]
-																		?.activeOutsideborder
-																		? 'activeOutsideborder'
-																		: ''
-																}` }
+																className={`color-picker paginationAciveBtnColor ${tableSettings
+																	?.table_settings
+																	?.import_styles_theme_colors?.[
+																	theme
+																]
+																	?.activeOutsideborder
+																	? 'activeOutsideborder'
+																	: ''
+																	}`}
 																value={
 																	tableSettings
 																		?.table_settings
@@ -3647,7 +3924,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																		?.paginationAciveBtnColor ||
 																	'#2F80ED'
 																}
-																onChange={ (
+																onChange={(
 																	e
 																) =>
 																	handleCustomizationChange(
@@ -3659,9 +3936,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																}
 															/>
 															<label htmlFor="paginationAciveBtnColor">
-																{ getStrings(
+																{getStrings(
 																	'active-pagination-color'
-																) }
+																)}
 															</label>
 														</div>
 													</div>
@@ -3672,7 +3949,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																	type="checkbox"
 																	name="pagination_center"
 																	id="pagination_center"
-																	className={ `pagination_center` }
+																	className={`pagination_center`}
 																	value={
 																		tableSettings
 																			?.table_settings
@@ -3691,7 +3968,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																			?.pagination_center ||
 																		false
 																	}
-																	onChange={ (
+																	onChange={(
 																		e
 																	) =>
 																		handleCustomizationChange(
@@ -3704,9 +3981,9 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 																	}
 																/>
 																<label htmlFor="pagination_center">
-																	{ getStrings(
+																	{getStrings(
 																		'keep-pagination-in-middle'
-																	) }
+																	)}
 																</label>
 															</div>
 														</div>
@@ -3716,7 +3993,7 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										</div>
 									</>
 								)
-						) }
+						)}
 				</>
 			);
 		}
@@ -3724,61 +4001,61 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 
 	return (
 		<div className="theme-customization">
-			{ showModal && (
+			{showModal && (
 				<Modal>
 					<div
 						className="import-style-modal-wrap modal-content"
-						ref={ confirmImportRef }
+						ref={confirmImportRef}
 					>
 						<div
 							className="cross_sign"
-							onClick={ handleCloseModal }
+							onClick={handleCloseModal}
 						>
-							{ Cross }
+							{Cross}
 						</div>
 						<div className="import-style-modal">
 							<h4>
-								{ getStrings( 'confirmation-theme-reset' ) }
+								{getStrings('confirmation-theme-reset')}
 							</h4>
 							<p>
-								{ ' ' }
-								{ getStrings(
+								{' '}
+								{getStrings(
 									'confirmation-theme-reset-notice'
-								) }
+								)}
 							</p>
 							<div className="action-buttons">
 								<button
 									className="swptls-button cancel-button"
-									onClick={ handleCloseModal }
+									onClick={handleCloseModal}
 								>
-									{ getStrings( 'Cancel' ) }
+									{getStrings('Cancel')}
 								</button>
 								<button
 									className="swptls-button confirm-button-reset"
-									onClick={ handleConfirmReset }
+									onClick={handleConfirmReset}
 								>
-									{ getStrings( 'yes-reset' ) }
+									{getStrings('yes-reset')}
 								</button>
 							</div>
 						</div>
 					</div>
 				</Modal>
-			) }
-			{ showPaginationModal && (
+			)}
+			{showPaginationModal && (
 				<Modal>
 					<div
 						className="import-style-modal-wrap modal-content theme-create-edit customizer-pagination"
-						ref={ confirmImportRef }
+						ref={confirmImportRef}
 					>
 						<div
 							className="cross_sign"
-							onClick={ handleCloseModal }
+							onClick={handleCloseModal}
 						>
-							{ Cross }
+							{Cross}
 						</div>
 						<div className="import-style-modal">
 							<Pagination
-								customTheme={ customTheme }
+								customTheme={customTheme}
 								handlePaginationModeChange={
 									handlePaginationModeChange
 								}
@@ -3790,14 +4067,14 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 							<div className="action-buttons">
 								<button
 									className="swptls-button cancel-button"
-									onClick={ handleCloseModal }
+									onClick={handleCloseModal}
 								>
-									{ getStrings( 'Cancel' ) }
+									{getStrings('Cancel')}
 								</button>
 								<button
-									className={ `swptls-button confirm-button` }
+									className={`swptls-button confirm-button`}
 									// onClick={handleSaveEditedTheme}
-									onClick={ ( e ) =>
+									onClick={(e) =>
 										handleSaveEditedTheme(
 											customTheme,
 											tableSettings?.table_settings
@@ -3805,58 +4082,58 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										)
 									}
 								>
-									{ ' ' }
-									{ getStrings( 'confirm' ) }{ ' ' }
+									{' '}
+									{getStrings('confirm')}{' '}
 								</button>
 							</div>
 						</div>
 					</div>
 				</Modal>
-			) }
+			)}
 
 			<div className="customizer-header">
 				<h2 className="theme-customization-heading">
-					{ getStrings( 'customize-theme-options-title' ) }
+					{getStrings('customize-theme-options-title')}
 				</h2>
 				<Tooltip content="Customize your theme according to your needs" />
 			</div>
 			<div className="theme-render">
 				<div className="theme-colors">
 					<div className="customization-plate-render">
-						{ tableSettings?.table_settings?.table_style ===
+						{tableSettings?.table_settings?.table_style ===
 							'default-style' &&
-							renderCustomizationFields( 'default-style' ) }
-						{ tableSettings?.table_settings?.table_style ===
+							renderCustomizationFields('default-style')}
+						{tableSettings?.table_settings?.table_style ===
 							'style-4' &&
-							renderCustomizationFields( 'style-4' ) }
-						{ tableSettings?.table_settings?.table_style ===
+							renderCustomizationFields('style-4')}
+						{tableSettings?.table_settings?.table_style ===
 							'style-6' &&
-							renderCustomizationFields( 'style-6' ) }
-						{ tableSettings?.table_settings?.table_style ===
+							renderCustomizationFields('style-6')}
+						{tableSettings?.table_settings?.table_style ===
 							'style-2' &&
-							renderCustomizationFields( 'style-2' ) }
-						{ tableSettings?.table_settings?.table_style ===
+							renderCustomizationFields('style-2')}
+						{tableSettings?.table_settings?.table_style ===
 							'style-3' &&
-							renderCustomizationFields( 'style-3' ) }
-						{ tableSettings?.table_settings?.table_style ===
+							renderCustomizationFields('style-3')}
+						{tableSettings?.table_settings?.table_style ===
 							'style-5' &&
-							renderCustomizationFields( 'style-5' ) }
-						{ tableSettings?.table_settings?.table_style ===
+							renderCustomizationFields('style-5')}
+						{tableSettings?.table_settings?.table_style ===
 							'style-8' &&
-							renderCustomizationFields( 'style-8' ) }
-						{ tableSettings?.table_settings?.table_style ===
+							renderCustomizationFields('style-8')}
+						{tableSettings?.table_settings?.table_style ===
 							'style-1' &&
-							renderCustomizationFields( 'style-1' ) }
-						{ tableSettings?.table_settings?.table_style ===
+							renderCustomizationFields('style-1')}
+						{tableSettings?.table_settings?.table_style ===
 							'style-7' &&
-							renderCustomizationFields( 'style-7' ) }
-						{ Object.keys(
+							renderCustomizationFields('style-7')}
+						{Object.keys(
 							tableSettings?.table_settings
 								?.import_styles_theme_colors || {}
 						)
 							.filter(
-								( themeName ) =>
-									! [
+								(themeName) =>
+									![
 										'default-style',
 										'style-1',
 										'style-2',
@@ -3866,14 +4143,14 @@ const ThemeCustomization = ( { tableSettings, setTableSettings } ) => {
 										'style-6',
 										'style-7',
 										'style-8',
-									].includes( themeName )
+									].includes(themeName)
 							)
 							.map(
-								( theme ) =>
+								(theme) =>
 									tableSettings?.table_settings
 										?.table_style === theme &&
-									renderCustomizationFields( theme )
-							) }
+									renderCustomizationFields(theme)
+							)}
 					</div>
 				</div>
 			</div>

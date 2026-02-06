@@ -89,7 +89,7 @@
 
                 &.active {
                     position: relative;
-                    border: 2px solid #34a0fa !important;
+                    border: 2px solid #008717 !important;
                     // sam 
 
                     &::before {
@@ -113,7 +113,7 @@
                         top: -30px;
                         width: 50px;
                         height: 50px;
-                        background: #34a0fa;
+                        background: #008717;
                         transform: rotate(47deg);
                         z-index: 0;
                     }
@@ -154,7 +154,7 @@
 
 
                 &.pro-tag-unlock {
-                    background: #34A0FA;
+                    background: #008717;
                     border-radius: 11.5px;
                     color: #ffffff !important;
                     width: 54px;
@@ -163,7 +163,7 @@
                 }
 
                 /* &.theme-new-tag {
-                    background: #2bb885;
+                    background: #008717;
                     border-radius: 11.5px;
                     color: white;
                     width: 54px;
@@ -179,20 +179,20 @@
                     height: 19px;
                     margin-top: 5px;
                     border-radius: 11.5px;
-                    color: #34A0FA !important;
+                    color: #008717 !important;
                     background-color: #ffffff !important;
                     font-size: 11px !important;
                 }
             }
 
             span.pro-tag-unlock.theme-new-tags {
-                background: #2bb885;
+                background: #008717;
                 color: white;
             }
 
             // New Theme 
             button.single-theme-button.addnewTheme {
-                border: 1px solid #34A0FA;
+                border: 1px solid #008717;
                 border-radius: 6px;
                 margin-bottom: 30px;
             }
@@ -304,7 +304,7 @@
     }
 
     .item-wrapper.new-themes-names {
-        border: 1px solid #34A0FA;
+        border: 1px solid #008717;
         border-radius: 6px;
         margin-bottom: 30px;
 
@@ -372,7 +372,7 @@
             }
 
             .title {
-                color: #34A0FA;
+                color: #008717;
                 font-size: 14px;
                 font-style: normal;
                 font-weight: 600;
@@ -547,7 +547,7 @@
 
         &.add-new-theme {
             cursor: pointer;
-            background-color: #34a0fa12;
+            background-color: #00871712;
         }
 
         &:hover {
@@ -563,7 +563,7 @@
         }
 
         &.active {
-            border-color: #34A0FA;
+            border-color: #008717;
 
             .text {
 
@@ -571,7 +571,7 @@
 
                     .radio-field {
                         border-width: 8px;
-                        border-color: #34A0FA;
+                        border-color: #008717;
                     }
                 }
             }

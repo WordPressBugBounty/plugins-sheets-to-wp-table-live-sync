@@ -499,7 +499,7 @@ class TemplateContent {
 														<span>
 															<?php require SWPTLS_BASE_PATH . 'assets/public/icons/cogs-solid.svg'; ?>
 														</span>
-														<span><?php esc_html_e( 'Display Settings', 'sheetstowptable' ); ?></span>
+														<span><?php esc_html_e( 'Display Settings', 'sheets-to-wp-table-live-sync' ); ?></span>
 													</label>
 												</li>
 												<li title="Sort & Filter">
@@ -507,13 +507,13 @@ class TemplateContent {
 														<span>
 															<?php require SWPTLS_BASE_PATH . 'assets/public/icons/sort-numeric-up-solid.svg'; ?>
 														</span>
-														<span><?php esc_html_e( 'Sort & Filter', 'sheetstowptable' ); ?></span>
+														<span><?php esc_html_e( 'Sort & Filter', 'sheets-to-wp-table-live-sync' ); ?></span>
 													</label>
 												</li>
 												<li title="Table Tools">
 													<label for="tab3" role="button">
 														<span><?php require SWPTLS_BASE_PATH . 'assets/public/icons/tools-solid.svg'; ?></span>
-														<span><?php esc_html_e( 'Table Tools', 'sheetstowptable' ); ?></span>
+														<span><?php esc_html_e( 'Table Tools', 'sheets-to-wp-table-live-sync' ); ?></span>
 													</label>
 												</li>
 											</ul>
@@ -580,7 +580,7 @@ class TemplateContent {
 		?>
 							<div class="gswpts_create_table_container" style="margin-right: 0px;">
 								<div class="block_initializer">
-									<div class="ui green message" style="width:70%; margin: 0 auto;text-align: center; font-weight: bold;"><?php esc_html_e( 'Choose any saved table to load data', 'sheetstowptable' ); ?></div>
+									<div class="ui green message" style="width:70%; margin: 0 auto;text-align: center; font-weight: bold;"><?php esc_html_e( 'Choose any saved table to load data', 'sheets-to-wp-table-live-sync' ); ?></div>
 								</div>
 							</div>
 						<?php
@@ -595,7 +595,7 @@ class TemplateContent {
 		?>
 							<div class="gswpts_table_settings" style="margin-right: 0px;">
 								<div class="block_initializer">
-									<div class="ui green message" style="width:70%; margin: 0 auto;text-align: center; font-weight: bold;"><?php esc_html_e( 'Choose any saved table to load data', 'sheetstowptable' ); ?></div>
+									<div class="ui green message" style="width:70%; margin: 0 auto;text-align: center; font-weight: bold;"><?php esc_html_e( 'Choose any saved table to load data', 'sheets-to-wp-table-live-sync' ); ?></div>
 								</div>
 							</div>
 					<?php

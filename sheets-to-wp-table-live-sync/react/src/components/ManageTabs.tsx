@@ -14,9 +14,10 @@ import Modal from '../core/Modal';
 import Tooltip from './TooltipTab';
 import ChangesLog from './ChangesLog';
 
-import { getStrings, getTabs, getNonce, isProActive } from './../Helpers';
-import { infoIcon } from '../icons';
-
+import { getStrings, getTabs, getNonce, isProActive, getCta_notice_tabs_status } from './../Helpers';
+import { infoIcon, ProIcon } from '../icons';
+import Header from './Header';
+import CtaNoticeTabs from './CtaNoticeTabs';
 import './../styles/_manageTab.scss';
 import '../styles/_header.scss';
 
@@ -28,6 +29,9 @@ const ManageTabs = () => {
 	const [createTableModal, setCreateTableModal] = useState(false);
 	const [searchKey, setSearchKey] = useState('');
 	const [tabCount, setTabCount] = useState(0);
+
+	const [showCtaNotice, setShowCtaNotice] = useState(true);
+	const [isVideoModalOpen, setIsVideoModalOpen] = useState(false); // CTA Video Modal
 
 	useEffect(() => {
 		if (isProActive()) {
@@ -64,6 +68,24 @@ const ManageTabs = () => {
 			};
 		}
 	}, []);
+
+	// Check CTA notice status for tabs
+	useEffect(() => {
+		const ctaNoticeTabsStatus = getCta_notice_tabs_status();
+		console.log('CTA Notice Tabs Status:', ctaNoticeTabsStatus);
+
+		if (ctaNoticeTabsStatus === 1 || ctaNoticeTabsStatus === '1' || ctaNoticeTabsStatus === true) {
+			localStorage.setItem('swptls_cta_notice_tabs_dismissed', 'true');
+			setShowCtaNotice(false);
+		} else {
+			localStorage.setItem('swptls_cta_notice_tabs_dismissed', 'false');
+			setShowCtaNotice(true);
+		}
+	}, []);
+
+	const handleCtaNoticeDismiss = () => {
+		setShowCtaNotice(false);
+	};
 
 	const handleCreateTablePopup = (e) => {
 		e.preventDefault();
@@ -144,26 +166,19 @@ const ManageTabs = () => {
 
 	return (
 		<div className={`create-tabs-wrap`}>
-			<header className="setting-header">
-				<h5 className="setting-title">{getStrings('mng-tab')}</h5>
-				<div className="new-unlock-block">
-					{!isProActive() && (
-						<div className="unlock">
-							<div className="icon">{Unlock}</div>
-							<p>
-								<a
-									className="get-ultimate"
-									href="https://go.wppool.dev/KfVZ"
-									target="_blank"
-								>
-									{getStrings('get-unlimited-access')}
-								</a>
-							</p>
-						</div>
-					)}
-					<ChangesLog />
-				</div>
-			</header>
+
+
+
+			<Header
+				title={getStrings('mng-tab')}
+				description={getStrings('mng-tab-content')}
+				modalTitle={getStrings('mng-tab-modal-title')}
+				showChangesLog={false}
+				showProFeatures={true}
+				showYoutubeTutorial={true}
+				videoURL='https://www.youtube.com/embed/nG-9-7wM0l0?si=17ZK5w_A4dy3RWax'
+			/>
+
 			{createTableModal && (
 				<Modal>
 					<div
@@ -195,107 +210,126 @@ const ManageTabs = () => {
 				</Modal>
 			)}
 
-			<div
-				className={`table-header ${!isProActive() ? ` swptls-pro-settings` : ``
-					}`}
-			>
-				<Title tagName="h4">
-					<strong>{tabCount}</strong>&nbsp;
-					{getStrings('tabs-created')}
-				</Title>
-				<div className="wrapper">
-					<div className="table-search-box">
-						<input
-							type="text"
-							placeholder="Search tabs"
-							onChange={(e) =>
-								setSearchKey(e.target.value.trim())
-							}
-						/>
-						<div className="icon">{searchIcon}</div>
-					</div>
 
-					<div className="btn-box">
-						{tablesLength < 1 ? (
-							<button
-								className={`create-table btn btn-manage ${!isProActive()
-									? ` swptls-pro-settings`
-									: ``
-									} `}
-								//<div className={`create-tabs-wrap${!isProActive() ? ` swptls-pro-settings` : ``}`}>
-								onClick={(e) => handleCreateTablePopup(e)}
-							>
-								{getStrings('manage-new-tabs')}{' '}
-								{WhitePlusIcon}
-							</button>
-						) : (
-							<Link
-								className="create-table btn btn-manage"
-								to="/tabs/create"
-							>
-								{getStrings('manage-new-tabs')}{' '}
-								{WhitePlusIcon}
-							</Link>
-						)}
 
-						<Tooltip
-							content={`Display multiple tables using tabs. Just like your google sheets`}
-						/>
-						{!isProActive() && (
-							<button className="btn-pro">
-								{getStrings('pro')}
-							</button>
-						)}
-					</div>
-				</div>
-			</div>
+			{tabCount > 0 ? (
+				<>
 
-			{searchKey !== '' && tabs.length < 1 ? (
-				// <h1>{getStrings('no-tabs-found')}`{searchKey}`</h1>
+					{showCtaNotice && tabs.length > 0 && (
+						<CtaNoticeTabs onDismiss={handleCtaNoticeDismiss} />
+					)}
 
-				<div className="manage-tab-search">
-					<div className="not-found-table">
-						<div className="icon">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="53"
-								height="52"
-								viewBox="0 0 53 52"
-								fill="none"
-							>
-								<path
-									fill-rule="evenodd"
-									clip-rule="evenodd"
-									d="M42.4192 41.9193C43.2002 41.1382 44.4664 41.1382 45.2474 41.9193L51.9141 48.5859C52.6952 49.367 52.6952 50.6331 51.9141 51.4142C51.133 52.1953 49.8669 52.1953 49.0858 51.4142L42.4192 44.7475C41.6381 43.9665 41.6381 42.7003 42.4192 41.9193Z"
-									fill="#DDE4E8"
+					<div
+						className={`table-header ${!isProActive() ? ` swptls-pro-settings` : ``
+							}`}
+					>
+						<Title tagName="h4">
+
+							{getStrings('tabs-created')} &nbsp; (<strong>{tabCount}</strong>)
+						</Title>
+						<div className="wrapper">
+							<div className="table-search-box">
+								<input
+									type="text"
+									placeholder="Search tabs"
+									onChange={(e) =>
+										setSearchKey(e.target.value.trim())
+									}
 								/>
-								<path
-									fill-rule="evenodd"
-									clip-rule="evenodd"
-									d="M35 47C42.1797 47 48 41.1797 48 34C48 26.8203 42.1797 21 35 21C27.8203 21 22 26.8203 22 34C22 41.1797 27.8203 47 35 47ZM39.3333 35.3028C40.2308 35.3028 40.9583 34.7196 40.9583 34.0002C40.9583 33.2807 40.2308 32.6974 39.3333 32.6974H30.6667C29.7692 32.6974 29.0417 33.2807 29.0417 34.0002C29.0417 34.7196 29.7692 35.3028 30.6667 35.3028H39.3333Z"
-									fill="#DDE4E8"
-								/>
-								<path
-									fill-rule="evenodd"
-									clip-rule="evenodd"
-									d="M0.5 12.6667C0.5 5.67107 6.17107 0 13.1667 0H39.8333C46.8291 0 52.5 5.67107 52.5 12.6667V17C52.5 18.1046 51.6045 19 50.5 19C49.3955 19 48.5 18.1046 48.5 17V12.6667C48.5 7.88019 44.6197 4 39.8333 4H13.1667C8.38019 4 4.5 7.88019 4.5 12.6667V39.3333C4.5 44.1197 8.38019 48 13.1667 48H17.5C18.6046 48 19.5 48.8955 19.5 50C19.5 51.1045 18.6046 52 17.5 52H13.1667C6.17107 52 0.5 46.3291 0.5 39.3333V12.6667Z"
-									fill="#DDE4E8"
-								/>
-							</svg>
-						</div>
-						<div className="text">
-							<h5 className="title">{getStrings('no-tab')}</h5>
-							<p>{getStrings('no-tab-match')}</p>
+								<div className="icon">{searchIcon}</div>
+							</div>
+
+							<div className="btn-box">
+								{tablesLength < 1 ? (
+									<button
+										className={`create-table btn btn-manage ${!isProActive()
+											? ` swptls-pro-settings`
+											: ``
+											} `}
+										//<div className={`create-tabs-wrap${!isProActive() ? ` swptls-pro-settings` : ``}`}>
+										onClick={(e) => handleCreateTablePopup(e)}
+									>
+										{getStrings('manage-new-tabs')}{' '}
+										{WhitePlusIcon}
+									</button>
+								) : (
+									<Link
+										className="create-table btn btn-manage"
+										to="/tabs/create"
+									>
+										{getStrings('manage-new-tabs')}{' '}
+										{WhitePlusIcon}
+									</Link>
+								)}
+
+
+								{!isProActive() && (
+									<button className="btn-pro">
+										{getStrings('pro')}
+									</button>
+								)}
+							</div>
 						</div>
 					</div>
-				</div>
+
+					{searchKey !== '' && tabs.length < 1 ? (
+						// <h1>{getStrings('no-tabs-found')}`{searchKey}`</h1>
+
+						<div className="manage-tab-search">
+							<div className="not-found-table">
+								<div className="icon">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="53"
+										height="52"
+										viewBox="0 0 53 52"
+										fill="none"
+									>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M42.4192 41.9193C43.2002 41.1382 44.4664 41.1382 45.2474 41.9193L51.9141 48.5859C52.6952 49.367 52.6952 50.6331 51.9141 51.4142C51.133 52.1953 49.8669 52.1953 49.0858 51.4142L42.4192 44.7475C41.6381 43.9665 41.6381 42.7003 42.4192 41.9193Z"
+											fill="#DDE4E8"
+										/>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M35 47C42.1797 47 48 41.1797 48 34C48 26.8203 42.1797 21 35 21C27.8203 21 22 26.8203 22 34C22 41.1797 27.8203 47 35 47ZM39.3333 35.3028C40.2308 35.3028 40.9583 34.7196 40.9583 34.0002C40.9583 33.2807 40.2308 32.6974 39.3333 32.6974H30.6667C29.7692 32.6974 29.0417 33.2807 29.0417 34.0002C29.0417 34.7196 29.7692 35.3028 30.6667 35.3028H39.3333Z"
+											fill="#DDE4E8"
+										/>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M0.5 12.6667C0.5 5.67107 6.17107 0 13.1667 0H39.8333C46.8291 0 52.5 5.67107 52.5 12.6667V17C52.5 18.1046 51.6045 19 50.5 19C49.3955 19 48.5 18.1046 48.5 17V12.6667C48.5 7.88019 44.6197 4 39.8333 4H13.1667C8.38019 4 4.5 7.88019 4.5 12.6667V39.3333C4.5 44.1197 8.38019 48 13.1667 48H17.5C18.6046 48 19.5 48.8955 19.5 50C19.5 51.1045 18.6046 52 17.5 52H13.1667C6.17107 52 0.5 46.3291 0.5 39.3333V12.6667Z"
+											fill="#DDE4E8"
+										/>
+									</svg>
+								</div>
+								<div className="text">
+									<h5 className="title">{getStrings('no-tab')}</h5>
+									<p>{getStrings('no-tab-match')}</p>
+								</div>
+							</div>
+						</div>
+					) : (
+						<TabsList
+							tabs={tabs}
+							setTabs={setTabs}
+							setTabCount={setTabCount}
+						/>
+					)}
+
+				</>
 			) : (
+
 				<TabsList
 					tabs={tabs}
 					setTabs={setTabs}
 					setTabCount={setTabCount}
 				/>
+
 			)}
+
 		</div>
 	);
 };

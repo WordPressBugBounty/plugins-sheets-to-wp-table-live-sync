@@ -1,0 +1,486 @@
+=== FlexTable - Live WP table sync with Google Sheets ===
+
+== Archived Changelog Entries ==
+
+This file contains older changelog entries, so we can keep the size of the standard WordPress readme.txt file reasonable. 
+For the latest changes, please see the "Changelog" section of the [readme.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/readme.txt).
+
+
+= 3.18.2 - 23 Aug 2025 =
+* **Fix:** Resolved conflict causing `dataTable.moment` error in DataTables.
+* **Fix:** Resolved conflict with WP Maps plugin to ensure tables load properly on the frontend.  
+
+= 3.18.1 - 18 Aug 2025 =
+* **Improvement:** Increased row limit from 50 to 100.  
+* **Fix:** Resolved hide_row errors appearing in the debug log after upgrading from older versions.  
+
+= 3.18.0 - 22 May 2025 =
+* **New:** Introduced option to disable frequent cache updates for faster table loading
+* **New:** Added setting to customize cache duration in the Performance tab
+* **Improvement:** Enhanced cache system for optimal performance and reduced server load
+
+= 3.17.4 - 17 April 2025 =
+* **Improvement:** Improved compatibility with WordPress 6.8 by resolving the incorrect usage of _load_textdomain_just_in_time
+
+= 3.17.3 - 24 March 2025 =
+* **Improvement:** Update the translatable pot file and strings
+
+= 3.17.2 - 09 March 2025 =
+* **Fix:** If a comma is used in the first column of a Google Spreadsheet, the data after the comma was split into the second column.
+* **Fix:** Table widths broke when both the content area and sidebar contained tables.
+* **Improvement:** Table responsiveness and width misalignment issues have been resolved.
+* **Improvement:** Updated typo "upcoming" on the Conditional Table View page.
+* **Improvement:** Removed popup notices.
+
+= 3.17.1 - 02 January 2025 =
+* **Improvement:** SDK updated. 
+
+= 3.17.0 - 01 January 2025 =
+* **New:** Added Freeze Header and Columns feature, allowing table headers and specific columns to stay sticky while scrolling.  
+* **New:** Introduced the ability to create custom themes and apply them globally across all tables.  
+* **New:** Added tutorial video CTA for Search-Only Display feature.  
+* **Tweak:** Refined the user interface for a cleaner and more modern appearance.  
+
+= 3.16.0 - 03 December 2024 =
+* **New: Default Table Sorting on Load:** Introducing the ability to set a default sorting order for tables. Users can now define how their tables should be sorted when the page loads, improving data presentation and usability.  
+
+* **New: Enhanced Timeout Settings:** A new global timeout configuration is now available under the Performance tab. This setting allows users to extend the request timeout duration, ensuring smoother handling of larger or slower data queries.  
+
+* **New: Google Sheets Line Break Support:** The plugin now fully supports line breaks within cells of Google Sheets. This enhancement improves data formatting and ensures seamless integration of multi-line content.  
+
+* **Fix: Color and Style Import for Large Datasets:** Resolved issues related to importing colors and styles for large data sheets. The process is now more reliable and efficient, ensuring accurate data representation.  
+
+* **Fix: Accurate Date Sorting in DataTables:** Addressed incorrect date sorting issues within DataTables. Dates are now properly sorted, providing accurate and intuitive ordering.  
+
+* **Improvement: Enhanced Tag Management:** Tags have been improved for better organization and usability.  
+
+* **Improvement: Tab Title Formatting:** Tab titles now consistently follow the user-defined input formatting. Previously enforced sentence case formatting has been updated to respect custom title input, offering greater flexibility. 
+
+= 3.15.5 - 30 November 2024 =
+* **Enhancement:** Updated Appsero notice that clarifies what data we collect to help users understand what they are sharing.
+
+= 3.15.4 - 25 November 2024 =
+* **Fix:** Resolved issue with the _load_textdomain_just_in_time error caused by premature loading of translations.
+
+= 3.15.3 - 21 November 2024 =
+* **Enhancement:** Popup module and SDK update.
+
+= 3.15.2 - 14 November 2024 =
+* **Improvement:** Enhanced compatibility to support WordPress 6.7
+
+= 3.15.1 - 30 October 2024 =
+* **Fix:** Resolved an issue where the row hiding feature was breaking the table header layout.
+
+= 3.15.0 - 27 October 2024 =
+* **New: Introduced new wizard stepper "Conditional Table View"**
+* **New: Search-Only Display:** Turn your table into a powerful search-engine! Visitors will initially see a search box instead of the table. Based on their input, they will receive filtered data in a streamlined table view.
+* **Fix:** Fixed DB Engine issues which prevent table creation with MyISAM engine
+* **Fix:** Fixed scripts loading issues when use shortcode for tab alone
+* **Fix:** Shortcode fallback method for unsupported browsers
+
+= 3.14.7 - 21 October 2024 =
+* **Enhancement:** Popup module and SDK update.
+
+= 3.14.6 - 29 September 2024 =
+* **Enhancement:** Improved SEO and decorations
+
+= 3.14.5 - 29 September 2024 =
+* **Enhancement:** You can now sync up to 50 rows with Google Sheets, instead of the previous limit of 30 rows.
+* **New: Checkbox functionality:** You can now display checkboxes directly in the frontend tables from the Google Sheets.
+* **Fix: Zero value handling:** You can now input zero (0) values directly into the table from the sheet. No more hassle!
+
+= 3.14.4 - 11 September 2024 =
+* **Fix:** Issue with JSON data export from the admin dashboard.
+* **Fix:** "Create Table" option in the Gutenberg FlexTable block not functioning properly.
+* **Fix:** Enhanced visibility of sorting arrows in tables.
+* **Fix:** Removed extra toast notifications.
+* **Fix:** Responsiveness issues in the "Create Theme" modal.
+* **Improvement:** Tooltips in the table customization section updated for better clarity.
+* **Improvement:** Corrected typos on the settings page for a cleaner user experience.
+* **Improvement:** Updated the FlexTable logo in the Gutenberg block.
+
+= 3.14.3 - 08 September 2024 =
+* **Fix:** Minor bug fixing
+
+= 3.14.2 - 05 September 2024 =
+* **Fix:** Fixed issues with Mac and other screens' modal sizes.
+
+= 3.14.0 - 05 September 2024 =
+**🎉 We've changed our branding!**
+ 
+* **New:** **"Sheets to WP Table Live Sync"** is now **"FlexTable"**! We believe this new name better represents the powerful functionality and flexibility that set our plugin apart. Enjoy!
+* **Fix:** Fixed Theme-builder custom theme background color not reflecting in frontend.
+* **Fix:** Fixed modal not showing properly in laptop screen.
+
+= 3.13.1 - 01 September 2024 =
+* **Fix:** Fixed Theme-wise pagination not changes style following default presets
+
+= 3.13.0 - 01 September 2024 =
+* **New: Theme-wise Pagination:** Simply creating gorgeous tables isn't enough. Achieve your ideal pagination style - Default, Modern, Minimal, Tailwind, or Outlined. You can also customize the active pagination color and position the pagination at the middle or bottom right.
+
+= 3.12.0 - 30 July 2024 =
+* **New:🔥 Customize Table Theme:**  With table theme customization, you can customize any table theme-template and personalize the header, body, text, and border colors.
+* **New: 🎨 Table Theme Builder:** Create your own theme to display your table! With an in-built table builder, get creative and customize every section of your table. Once you create a theme, it’s yours. Use the theme for any other tables later on as well.
+
+= 3.11.1 - 26 July 2024 =
+* **Improvement:** Enhanced compatibility to support WordPress 6.6
+
+= 3.11.0 - 06 June 2024 =
+* **New:** Introduced dragging functionality in Managing tabs. Users can now change the tabs order by dragging with the mouse.
+
+= 3.10.0 - 02 June 2024 =
+* **New:** Added an ascending/descending sorting option inside the dashboard for easier table ordering.
+* **New:** Introduced the duplicate tables/tabs feature, making it simpler to manage your content.
+* **New:** Launched a new theme called "Uppercase Elegant" for a sleek, modern appearance.
+* **Fix:** Resolved an issue where the table screen size would reduce when zooming in or out, ensuring consistent table display.
+* **Improvement:** Enhanced the table preset compatibility with WordPress default theme and Spectra Theme for a smoother integration.
+
+= 3.9.0 - 20 May 2024 =
+* **New:** Introduced a new theme called "Minimal" for a clean and simple look.
+* **New:** Introduced another new theme named "Dark Knight" for a sleek, modern appearance.
+* **New:** Added table description - you can now add table descriptions above or below your tables for better context and clarity.
+* **Improvement:** Enhanced the appearance and flow of existing themes for a more seamless and visually appealing experience.
+
+= 3.8.1 - 06 May 2024 =
+* Fix: Resolved conflict issue between stepper buttons (Next/Back)
+* Improvement: Enhanced hiding mechanism and introduced "same as desktop mode" toggle feature
+* Improvement: Implemented global save button located at the top-right corner on setting page
+
+= 3.8.0 - 24 Apr 2024 =
+* New: Added wizards (stepper) to the table editor and tab editor page
+* New: Added row and cell hiding for mobile devices
+* Fix: Fixed Appsero updater problem 
+* Fix: Fixed Cursor behavior inside the table with default mode
+* Improvement: Enhanced overall UI/UX of settings page and table creation flow
+
+= 3.7.2 - 04 Apr 2024 =
+* Improvement: Enhanced compatibility to support WordPress 6.5
+
+= 3.7.1 - 02 Apr 2024 =
+* Fix: Resolved Cross Site Scripting (XSS) issue
+
+= 3.7.0 - 21 Mar 2024 =
+* Tweak: Added more table customization options for Free users.
+* Fix: Resolved issue causing JSON imports during preview, ensuring seamless data integration for users.
+* Fix: Fixed table breakage occurrences when headers were merged within the table, ensuring uninterrupted data presentation.
+
+= 3.6.1 - 22 Feb 2024 =
+* Improvement: Enhanced Theme Style on the frontend for a more polished appearance
+* Improvement: Enhanced the User Interface for notices, providing a more refined and user-friendly experience
+
+= 3.6.0 - 07 Feb 2024 =
+* New: Added new Script Loading behavior as a Performance feature
+* New: Added new review/rating notice
+* Improvement: Enhanced style css files
+
+= 3.5.1 - 24 JAN 2024 =
+* Fix: Appsero updated
+
+= 3.5.0 - 17 JAN 2024 =
+* New: Added Cursor behavior feature for WP table
+* Improvement: Enhanced Preview sorting feature
+* Fix: Passing null to parameter #1 () of type string is deprecated
+* Fix: Resolved DataTable auto translation constant breaks the strings data
+
+= 3.4.1 - 10 JAN 2024 =
+* Fix: Resolved Table width onClick mismatched Issues
+* Improvement: Enhanced pot files for Data Table translation support
+
+= 3.4.0 - 03 JAN 2024 =
+* New: Added "Merge Cells" feature for WP table
+* Improvement: Enhanced the sorting feature
+* Improvement: Improved the on-hover color of the "Delete" button of table
+* Fix: Resolved table design broken issue in frontend
+
+= 3.3.1 - 12 DEC 2023 =
+* Fix: Added support for page builder compatibility
+
+= 3.3.0 - 28 NOV 2023 =
+* New: Added support popup functionality
+* New: Introduced a new Notice feature
+* New: Built pot files for Translation support
+* Fix: Updated Support UI links for better navigation
+* Fix: Fixed an issue with the Sorting feature
+* Fix: Resolved conflicts related to Importing Images from Sheet
+* Fix: Addressed an Appsero-related issue
+
+= 3.2.1 - 08 NOV 2023 =
+* Fix: Fixed an issue within the SDK that conflicted with Jitsi Meet plugin
+* Fix: Fixed import color and text style broken design 
+
+= 3.2.0 - 08 NOV 2023 =
+* New: Added a FAQ section
+* Improvement: Plugin loading performance
+* Improvement: Import links and images from sheet
+* Improvement: Replaced the "import style" feature to Theme section
+* Improvement: "UPGRADE NOW" menu positioning
+* Improvement: "Documentation" menu renamed to "Get Started"
+* Improvement: Updated popup design
+
+= 3.1.2 - 02 NOV 2023 =
+* Fix: Fixed an issue within the SDK that conflicted with some plugin and caused fatal error
+
+= 3.1.1 - 23 OCT 2023 =
+* Improvement: Updated popup design
+
+= 3.1.0 - 16 OCT 2023 =
+* New: Smart link support is now available
+* New: You can now embed all supported link types within "RichText", including both Smart link and Pretty link options
+* New: Added support for mailto:yourmail@google.com links to redirect emails on click
+* Fix: Users of the FREE version can now create multiple tables from the same Google Sheet link
+* Fix: Resolved an issue where the sort icon was not appearing in the table preview within the backend
+* Improvement: Updated the design of the "UPGRADE NOW" menu for a better user experience
+
+= 3.0.3 - 26 SEP 2023 =
+* Fix: Adverse experiences with the onChange event handler
+* Improvement: Refactored recursion functionality for tab group that calls on changing state
+
+= 3.0.2 - 20 SEP 2023 =
+* New: Added "Recommended Plugins" menu
+* New: Added "copy shortcode" option in Tab edit page
+* Improvement: Removed labeling pro from "Choose Theme" panel
+* Improvement: Improved the formatting of lengthy table names titles
+* Improvement: Added content loader in tab group table
+* Improvement: Added info-tips on export buttons
+* Improvement: Updated org screenshots
+
+= 3.0.1 - 19 SEP 2023 =
+* Improvement: Updated the WPCS to version 3.0
+
+= 3.0.0 - 13 SEP 2023 =
+* New: Introduced new fresh UI.
+* Fix: The table title now displays correctly in the backend editor panel.
+* Fix: Assets will no longer load on pages where the table isn't used, optimizing page loading times.
+* Fix: The table export to PDF now appears exactly as expected.
+* Fix: We've resolved a critical issue where a fatal error occurred while editing any page with Elementor.
+* Fix: Images now display in their respective row and column positions.
+
+= 2.14.4 - 17 AUG 2023 =
+* Fix: Fix fatal error in regular site
+
+= 2.14.3 - 17 AUG 2023 =
+* Fix: Multisite compatibility and license issue
+
+= 2.14.2 - 09 AUG 2023 =
+* Improvement: Enhanced compatibility to support WordPress 6.3
+
+= 2.14.1 - 26 JUN 2023 =
+* Maintenance update
+* Minor bug fixes
+
+= 2.14.0 - 16 MAY 2023 =
+* Fix: Display alert if google sheet is not shared properly.
+* Minor bug fixes
+
+= 2.13.9 - 27 APR 2023 =
+* Fix: table row settings to all not working.
+* Minor bug fixes
+
+= 2.13.8 - 17 APR 2023 =
+* Fix: table html generation php warning.
+* Minor bug fixes
+
+= 2.13.7 - 29 MAR 2023 =
+* Fix: Popup displaying wrong background image on update issue.
+
+= 2.13.6 - 28 MAR 2023 =
+* Fix: Popup background image issue.
+
+= 2.13.5 - 28 MAR 2023 =
+* Compatibility tested with WordPress version 6.2
+
+= 2.13.4 - 22 MAR 2023 =
+* Fix: Fatal error on table empty images data.
+
+= 2.13.3 - 14 MAR 2023 =
+* Fix: Bug fixes and performance enhancement
+
+= 2.13.0 - 22 FEB 2023 =
+* ADDED: Code refactoring
+* Fix: Minor bug fixes and performance enhancement
+
+= 2.12.15 - 14 DEC 2022 =
+* Fix: appsero security issue.
+* Minor bug fixes and enhancement
+
+= 2.12.14 - 07 DEC 2022 =
+* ADDED: Multisite support
+* Minor bug fixes and enhancement
+
+= 2.12.13 - 15 NOV 2022 =
+* ADDED: wppool sdk
+* Minor bug fixes and enhancement
+
+= 2.12.12 - 03 OCT 2022 =
+* Minor bug fixes and enhancement
+
+= 2.12.11 - 05 SEPT 2022 =
+* Minor bug fixes and enhancement
+
+= 2.12.10 - 17 AUG 2022 =
+* Minor bug fixes and enhancement
+
+= 2.12.9 - 28 JUL 2022 =
+* Minor bug fixes and enhancement
+
+= 2.12.8 =
+* Minor bug fixes and enhancement
+
+= 2.12.7 =
+* Checked and Fix compatibility with WordPress 6.0
+
+= 2.12.6 =
+* Fix: Error while updating plugins.
+
+= 2.12.5 =
+* Updated: FluentAPI
+* Updated: New data source for regular offers.
+
+= 2.12.4 =
+* Updated: New data source for regular offers.
+
+= 2.12.3 =
+* Updated: changes filenames.
+
+= 2.12.2 =
+* Updated: Updated plugin folder & normal plugin update
+* Updated: Updated latest node.js package version
+* Fix: Fix some typo
+
+= 2.12.1 =
+* Fix: Fix tab management db update
+
+= 2.12.0 =
+* New: Added tab management feature. 🔥
+* Updated: Popup offer API modified
+* Fix: Fix URL conflict issue for image loading.
+* Fix: Fix $ error with other plugins
+* Fix: Fix PHP 8 error
+* Fix: Fix PDF generation script
+
+= 2.11.1 =
+* Fix: Fix bug on free version without pro.
+
+= 2.11.0 =
+* New: Added image loading from URL. 🔥
+* New: Added automatic detection of line breaks. 🔥
+* New: Added iframe video support. 🔥
+* Removed: Removed Multiple sheet tab option and made it default
+* Fix: Fix some bug.
+* Fix: Fix Elementor settings popup height issue.
+
+= 2.10.0 =
+* New: Added import of all styles in sheet.
+* New: Added affiliate popup.
+* Updated: Modified some UI/UX
+* Fix: Fix Elementor header already sent issue.
+
+= 2.9.0 =
+* New: Added sheet background  & font color import feature 🔥
+* Updated: Re-arranged other product section
+* Fix: Fix create table bug.
+
+= 2.8.0 =
+* New: Added Cell Hiding feature 🔥
+* Updated: Some minor code updated.
+
+= 2.7.0 =
+* Improvement: Improved UI of sheet plugin.
+* Fix: Fix row hiding issue & other minor bug Fix.
+
+= 2.6.2 =
+* New: Added changelog viewer in dashboard.
+* Fix: Fix no data text in empty cell.
+* Fix: Updated table settings saving sync with other page builders.
+* Improvement: Modified Elementor widget.
+
+= 2.6.1 =
+* Added: Added new menu for free plugin.
+* Update: Updated pro links.
+* Fix: Multiple sheet table fetching issue Fix.
+* Changed: Added other minor code changes.
+
+
+= 2.6.0 =
+* New: Added row hiding feature.
+* Improvement: Minor code improvements.
+
+= 2.5.2 =
+* Updated: Updated 20 row sync to 50 row sync.
+* Updated: Updated fluent CRM webhook.
+
+= 2.5.1 =
+* New: Added pretty link support.
+
+= 2.5.0 =
+* New: Added custom column hide feature for pro.
+* Fix: Fix link feature bug.
+* Improvement: Minor code improvements
+
+= 2.4.1 =
+* New: Horizontal drag feature for pro.
+* Improvement: Link support feature.
+* Improvement: Minor code improvement
+
+= 2.4.0 =
+* Improvement: Improved admin UI/UX
+* Improvement: Improved responsive table feature
+* Fix: Fix table caching issue & other small bug Fix
+* Added: Added popup to each individual pro feature
+* Added: Added step by step table creation procedure
+* Added: Added each individual and general settings tooltip hint
+* Added: Added collapsible table feature
+
+= 2.3.5 =
+* Improvement: Improved popup design
+* Added: Added table edit link on frontend
+
+= 2.3.4 =
+* Fix: Table pagination style Fix
+* Fix: Fix table style image issue
+
+= 2.3.3 =
+* Fix: Minor bugs Fix for pro plugin
+* Fix: Fix Elementor page builder exports buttons bug
+* Fix: Notification notice after 7 day of installation
+* Improvement: Moved documentation page
+* Improvement: Improved Plugin UI/UX
+* Added: Multiple Google Sheet\'s Tab in pro version as a new feature
+* Added: Boolean value support in pro version as a new feature
+* Added: Table Caching feature introduced in pro version as a new feature
+* Added: Added new 6 Table Style (Including Default) in pro version
+* Added: Added Custom CSS support for pro version
+
+= 2.2.3 =
+* Fix: Minor bugs Fix for pro plugin
+* Added: Added Format Table Cell feature in pro plugin
+* Added: Added Link Support feature in pro plugin
+* Added: Added plugin review reminder option in 1 day after activation
+* Added: Removed doc page from dashboard page
+* Improvement: Improved Gutenberg Table creation
+* Improvement: Improved table creation with 1 step reduced
+* Improvement: Other minor improvement for pro plugin
+
+= 1.2.3 =
+* Fix: Minor bugs Fix for pro plugin
+
+= 1.2.2 =
+* Fix: Fix admin page css issue
+* Fix: Fix Table broken issue
+* Added: Add cell formatting feature as upcoming feature
+* Added: Changed non-developed feature as upcoming feature
+* Improvement: UI/UX improved for users
+* Improvement: Added 20 row fetching from google sheet
+* Improvement: Plugins code structure updated for pro version
+
+= 1.1.2 =
+* Fix: Fix spreadsheet data fetching issue for different server
+* Improvement: Added video documentation in dashboard page
+
+= 1.0.1 =
+* Fix: Fix user subscription
+* Fix: Fix post fetching from WPPOOL
+* Improvement: Improved plugin admin layout
+
+= 1.0.0 =
+* Initial Release

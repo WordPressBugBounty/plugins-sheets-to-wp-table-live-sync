@@ -37,17 +37,38 @@ class Products {
 
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'swptls-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid action', 'sheetstowptable' ),
+				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
 			]);
 		}
 
+		// Check if WooCommerce is active
+		$is_woocommerce_active = class_exists( 'WooCommerce' ) || is_plugin_active( 'woocommerce/woocommerce.php' );
+
+		// Get filtered products based on WooCommerce status
 		ob_start();
-		$this->get_other_products();
+		$this->get_other_products( $is_woocommerce_active );
 		$plugin_cards_html = ob_get_clean();
 
-		// Return the HTML content within the JSON response.
+		// Prepare header data based on WooCommerce status
+		$header_data = [];
+
+		if ( $is_woocommerce_active ) {
+			$header_data['woocommerce'] = [
+				'title' => '🛒 Boost your WooCommerce store\'s functionality',
+				'content' => 'Discover top plugins to supercharge your store with advanced tools and improvements',
+			];
+		}
+
+		$header_data['general'] = [
+			'title' => '🧩 Enhance your WordPress site with powerful tools',
+			'content' => 'We\'ve selected top plugins to improve your site. Explore options tailored just for you',
+		];
+
+		// Return the HTML content and header data within the JSON response.
 		wp_send_json_success([
 			'plugin_cards_html' => $plugin_cards_html,
+			'is_woocommerce_active' => $is_woocommerce_active,
+			'header_data' => $header_data,
 		]);
 		wp_die();
 	}
@@ -56,8 +77,9 @@ class Products {
 	 * Get products from plugins api.
 	 *
 	 * @since 2.12.15
+	 * @param bool $is_woocommerce_active Whether WooCommerce is active or not.
 	 */
-	public static function get_other_products() {
+	public static function get_other_products( $is_woocommerce_active = false ) {
 		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 		remove_all_filters( 'plugins_api' );
 
@@ -82,22 +104,83 @@ class Products {
 
 		$recommended_plugins = [];
 
-		/* stock-sync-with-google-sheet-for-woocommerce Plugin */
-		$args = [
-			'slug'   => 'stock-sync-with-google-sheet-for-woocommerce',
-			'fields' => [
-				'short_description' => true,
-				'icons'             => true,
-				'reviews'           => false, // Excludes all reviews.
-			],
-		];
+		// Add WooCommerce plugins only if WooCommerce is active
+		if ( $is_woocommerce_active ) {
+			/* FlexSync WooCommerce Plugin */
+			$args = [
+				'slug'   => 'stock-sync-with-google-sheet-for-woocommerce',
+				'fields' => [
+					'short_description' => true,
+					'icons'             => true,
+					'reviews'           => false, // Excludes all reviews.
+				],
+			];
 
-		$data = plugins_api( 'plugin_information', $args );
+			$data = plugins_api( 'plugin_information', $args );
 
-		if ( $data && ! is_wp_error( $data ) ) {
-			$recommended_plugins['stock-sync-with-google-sheet-for-woocommerce']                    = $data;
-			$recommended_plugins['stock-sync-with-google-sheet-for-woocommerce']->name              = __( 'Stock Sync for WooCommerce with Google Sheet – Easy Stock Management and Inventory Management System for WooCommerce', 'sheetstowptable' );
-			$recommended_plugins['stock-sync-with-google-sheet-for-woocommerce']->short_description = esc_html__( 'Auto-sync WooCommerce products from Google Sheets. An easy and powerful solution for WooCommerce inventory management.', 'sheetstowptable' );
+			if ( $data && ! is_wp_error( $data ) ) {
+				$recommended_plugins['stock-sync-with-google-sheet-for-woocommerce']                    = $data;
+				$recommended_plugins['stock-sync-with-google-sheet-for-woocommerce']->name              = __( 'Stock Sync with Google Sheets for WooCommerce | Product Sync with Google Sheet, WooCommerce Bulk Edit, Stock Management – FlexStock', 'sheets-to-wp-table-live-sync' );
+				$recommended_plugins['stock-sync-with-google-sheet-for-woocommerce']->short_description = esc_html__( 'Auto-sync WooCommerce products from Google Sheets. An easy and powerful solution for WooCommerce inventory management.', 'sheets-to-wp-table-live-sync' );
+				$recommended_plugins['stock-sync-with-google-sheet-for-woocommerce']->group = 'woocommerce';
+			}
+
+			/* FlexOrder WooCommerce Plugin */
+			$args = [
+				'slug'   => 'order-sync-with-google-sheets-for-woocommerce',
+				'fields' => [
+					'short_description' => true,
+					'icons'             => true,
+					'reviews'           => false, // Excludes all reviews.
+				],
+			];
+
+			$data = plugins_api( 'plugin_information', $args );
+
+			if ( $data && ! is_wp_error( $data ) ) {
+				$recommended_plugins['order-sync-with-google-sheets-for-woocommerce']                    = $data;
+				$recommended_plugins['order-sync-with-google-sheets-for-woocommerce']->name              = __( 'FlexOrder – Manage & Sync Orders with Google Sheets for WooCommerce', 'sheets-to-wp-table-live-sync' );
+				$recommended_plugins['order-sync-with-google-sheets-for-woocommerce']->short_description = esc_html__( '🔥Seamlessly connect WooCommerce with Google Sheets to manage orders, update statuses in bulk, and simplify your workflow', 'sheets-to-wp-table-live-sync' );
+				$recommended_plugins['order-sync-with-google-sheets-for-woocommerce']->group = 'woocommerce';
+			}
+
+			/* ArchiveMaster Plugin */
+			$args = [
+				'slug'   => 'archive-master',
+				'fields' => [
+					'short_description' => true,
+					'icons'             => true,
+					'reviews'           => false, // Excludes all reviews.
+				],
+			];
+
+			$data = plugins_api( 'plugin_information', $args );
+
+			if ( $data && ! is_wp_error( $data ) ) {
+				$recommended_plugins['archive-master']                    = $data;
+				$recommended_plugins['archive-master']->name              = __( 'ArchiveMaster — Auto Archive and Export Old Orders for WooCommerce', 'sheets-to-wp-table-live-sync' );
+				$recommended_plugins['archive-master']->short_description = esc_html__( 'Optimize your WooCommerce store and store old data in a local or any remote database. With ArchiveMaster, easily archive old orders, export order data, and streamline database performance.', 'sheets-to-wp-table-live-sync' );
+				$recommended_plugins['archive-master']->group = 'woocommerce';
+			}
+
+			/* EchoRewards Plugin */
+			$args = [
+				'slug'   => 'echo-rewards',
+				'fields' => [
+					'short_description' => true,
+					'icons'             => true,
+					'reviews'           => false, // Excludes all reviews.
+				],
+			];
+
+			$data = plugins_api( 'plugin_information', $args );
+
+			if ( $data && ! is_wp_error( $data ) ) {
+				$recommended_plugins['echo-rewards']                    = $data;
+				$recommended_plugins['echo-rewards']->name              = __( 'EchoRewards — Refer-a-Friend & Referral Program for WooCommerce', 'sheets-to-wp-table-live-sync' );
+				$recommended_plugins['echo-rewards']->short_description = esc_html__( 'Create your customer referral program with a refer-a-friend plugin for WordPress. With EchoRewards, automate customer rewards and add a refer-a-friend program to your WooCommerce store', 'sheets-to-wp-table-live-sync' );
+				$recommended_plugins['echo-rewards']->group = 'woocommerce';
+			}
 		}
 
 		/* WP Dark Mode Plugin */
@@ -114,27 +197,9 @@ class Products {
 
 		if ( $data && ! is_wp_error( $data ) ) {
 			$recommended_plugins['wp-dark-mode']                    = $data;
-			$recommended_plugins['wp-dark-mode']->name              = __( 'WP Dark Mode', 'sheetstowptable' );
-			$recommended_plugins['wp-dark-mode']->short_description = esc_html__( 'Help your website visitors spend more time and 
-			an eye-pleasing reading experience. Personal preference rules always king. WP Dark Mode can be a game-changer for your website.', 'sheetstowptable' );
-		}
-
-		/* Jitsi meet Plugin. */
-		$args = [
-			'slug'   => 'webinar-and-video-conference-with-jitsi-meet',
-			'fields' => [
-				'short_description' => true,
-				'icons'             => true,
-				'reviews'           => false, // Excludes all reviews.
-			],
-		];
-
-		$data = plugins_api( 'plugin_information', $args );
-
-		if ( $data && ! is_wp_error( $data ) ) {
-			$recommended_plugins['webinar-and-video-conference-with-jitsi-meet']                    = $data;
-			$recommended_plugins['webinar-and-video-conference-with-jitsi-meet']->name              = __( 'Webinar and Video Conference with Jitsi Meet', 'sheetstowptable' );
-			$recommended_plugins['webinar-and-video-conference-with-jitsi-meet']->short_description = esc_html__( 'The best WordPress webinar plugin with branded meetings. Add Jitsi meetings, host webinars and video conferences on your website.', 'sheetstowptable' );
+			$recommended_plugins['wp-dark-mode']->name              = __( 'WP Dark Mode', 'sheets-to-wp-table-live-sync' );
+			$recommended_plugins['wp-dark-mode']->short_description = esc_html__( 'Create a dark mode version of your website without any complicated setup. Activate the plugin and your site visitors will experience a dark mode or light mode version of your website as per their preferred operating system preference.', 'sheets-to-wp-table-live-sync' );
+			$recommended_plugins['wp-dark-mode']->group = 'general';
 		}
 
 		/* FormToChat – Connect Contact Form to Chat Apps with Contact Form 7 Integration Plugin. */
@@ -151,8 +216,28 @@ class Products {
 
 		if ( $data && ! is_wp_error( $data ) ) {
 			$recommended_plugins['social-contact-form']                    = $data;
-			$recommended_plugins['social-contact-form']->name              = __( 'FormToChat – Connect Contact Form to Chat Apps with Contact Form 7 Integration', 'sheetstowptable' );
-			$recommended_plugins['social-contact-form']->short_description = esc_html__( 'WhatsApp Chat for WordPress🔥. Connect contact forms to WhatsApp. A WhatsApp notifications plugin with Contact Form 7 integration.', 'sheetstowptable' );
+			$recommended_plugins['social-contact-form']->name              = __( 'FormToChat – Connect Contact Form to Chat Apps with Contact Form 7 Integration', 'sheets-to-wp-table-live-sync' );
+			$recommended_plugins['social-contact-form']->short_description = esc_html__( 'WhatsApp Chat for WordPress🔥. Connect contact forms to WhatsApp. A WhatsApp notifications plugin with Contact Form 7 integration.', 'sheets-to-wp-table-live-sync' );
+			$recommended_plugins['social-contact-form']->group = 'general';
+		}
+
+		/* Jitsi meet Plugin. */
+		$args = [
+			'slug'   => 'webinar-and-video-conference-with-jitsi-meet',
+			'fields' => [
+				'short_description' => true,
+				'icons'             => true,
+				'reviews'           => false, // Excludes all reviews.
+			],
+		];
+
+		$data = plugins_api( 'plugin_information', $args );
+
+		if ( $data && ! is_wp_error( $data ) ) {
+			$recommended_plugins['webinar-and-video-conference-with-jitsi-meet']                    = $data;
+			$recommended_plugins['webinar-and-video-conference-with-jitsi-meet']->name              = __( 'Webinar and Video Conference with Jitsi Meet', 'sheets-to-wp-table-live-sync' );
+			$recommended_plugins['webinar-and-video-conference-with-jitsi-meet']->short_description = esc_html__( 'The best WordPress webinar plugin with branded meetings. Add Jitsi meetings, host webinars and video conferences on your website.', 'sheets-to-wp-table-live-sync' );
+			$recommended_plugins['webinar-and-video-conference-with-jitsi-meet']->group = 'general';
 		}
 
 		/* easy-video-reviews Plugin */
@@ -168,30 +253,15 @@ class Products {
 		$data = plugins_api( 'plugin_information', $args );
 		if ( $data && ! is_wp_error( $data ) ) {
 			$recommended_plugins['easy-video-reviews']                    = $data;
-			$recommended_plugins['easy-video-reviews']->name              = __( 'Easy Video Reviews', 'sheetstowptable' );
+			$recommended_plugins['easy-video-reviews']->name              = __( 'Easy Video Reviews', 'sheets-to-wp-table-live-sync' );
 			$recommended_plugins['easy-video-reviews']->short_description = esc_html__( 'Easy Video Reviews is the best 
-			and easiest video review plugin for WordPress, fully compatible with WooCommerce and Easy Digital Downloads plugins.', 'sheetstowptable' );
-		}
-
-		/* Zero BS Accounting Plugin */
-		$args = [
-			'slug'   => 'zero-bs-accounting',
-			'fields' => [
-				'short_description' => true,
-				'icons'             => true,
-				'reviews'           => false, // Excludes all reviews.
-			],
-		];
-
-		$data = plugins_api( 'plugin_information', $args );
-
-		if ( $data && ! is_wp_error( $data ) ) {
-			$recommended_plugins['zero-bs-accounting']                    = $data;
-			$recommended_plugins['zero-bs-accounting']->name              = __( 'Zero BS Accounting', 'sheetstowptable' );
-			$recommended_plugins['zero-bs-accounting']->short_description = esc_html__( 'WordPress accounting Plugin for people with e zero accounting knowledge. Track your income and expenses from the WordPress dashboard.', 'sheetstowptable' );
+			and easiest video review plugin for WordPress, fully compatible with WooCommerce and Easy Digital Downloads plugins.', 'sheets-to-wp-table-live-sync' );
+			$recommended_plugins['easy-video-reviews']->group = 'general';
 		}
 
 		// END Plugin list .
+
+		$group = ''; // Initialize group variable
 
 		foreach ( (array) $recommended_plugins as $plugin ) {
 			if ( is_object( $plugin ) ) {
@@ -225,7 +295,7 @@ class Products {
 			$author = wp_kses( $plugin['author'], $plugins_allowedtags );
 			if ( ! empty( $author ) ) {
 				/* translators: %s: Plugin author. */
-				$author = ' <cite>' . sprintf( __( 'By %s' ), $author ) . '</cite>';
+				$author = ' <cite>' . sprintf( __( 'By %s', 'sheets-to-wp-table-live-sync' ), $author ) . '</cite>';
 			}
 
 			$requires_php = isset( $plugin['requires_php'] ) ? $plugin['requires_php'] : null;
@@ -249,14 +319,14 @@ class Products {
 									esc_attr( $plugin['slug'] ),
 									esc_url( $status['url'] ),
 									/* translators: %s: Plugin name and version. */
-									esc_attr( sprintf( _x( 'Install %s now', 'plugin' ), $name ) ),
+									esc_attr( sprintf( _x( 'Install %s now', 'plugin', 'sheets-to-wp-table-live-sync' ), $name ) ),
 									esc_attr( $name ),
-									__( 'Install Now' )
+									__( 'Install Now', 'sheets-to-wp-table-live-sync' )
 								);
 							} else {
 								$action_links[] = sprintf(
 									'<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-									_x( 'Cannot Install', 'plugin' )
+									_x( 'Cannot Install', 'plugin', 'sheets-to-wp-table-live-sync' )
 								);
 							}
 						}
@@ -271,14 +341,14 @@ class Products {
 									esc_attr( $plugin['slug'] ),
 									esc_url( $status['url'] ),
 									/* translators: %s: Plugin name and version. */
-									esc_attr( sprintf( _x( 'Update %s now', 'plugin' ), $name ) ),
+									esc_attr( sprintf( _x( 'Update %s now', 'plugin', 'sheets-to-wp-table-live-sync' ), $name ) ),
 									esc_attr( $name ),
-									__( 'Update Now' )
+									__( 'Update Now', 'sheets-to-wp-table-live-sync' )
 								);
 							} else {
 								$action_links[] = sprintf(
 									'<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-									_x( 'Cannot Update', 'plugin' )
+									_x( 'Cannot Update', 'plugin', 'sheets-to-wp-table-live-sync' )
 								);
 							}
 						}
@@ -289,12 +359,12 @@ class Products {
 						if ( is_plugin_active( $status['file'] ) ) {
 							$action_links[] = sprintf(
 								'<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-								_x( 'Active', 'plugin' )
+								_x( 'Active', 'plugin', 'sheets-to-wp-table-live-sync' )
 							);
 						} elseif ( current_user_can( 'activate_plugin', $status['file'] ) ) {
-							$button_text = esc_html__( 'Activate', 'sheetstowptable' );
+							$button_text = esc_html__( 'Activate', 'sheets-to-wp-table-live-sync' );
 							/* translators: %s: Plugin name. */
-							$button_label = _x( 'Activate %s', 'plugin' );
+							$button_label = _x( 'Activate %s', 'plugin', 'sheets-to-wp-table-live-sync' );
 							$activate_url = add_query_arg(
 								[
 									'_wpnonce' => wp_create_nonce( 'activate-plugin_' . $status['file'] ),
@@ -305,9 +375,9 @@ class Products {
 							);
 
 							if ( is_network_admin() ) {
-								$button_text = __( 'Network Activate' );
+								$button_text = __( 'Network Activate', 'sheets-to-wp-table-live-sync' );
 								/* translators: %s: Plugin name. */
-								$button_label = _x( 'Network Activate %s', 'plugin' );
+								$button_label = _x( 'Network Activate %s', 'plugin', 'sheets-to-wp-table-live-sync' );
 								$activate_url = add_query_arg( [ 'networkwide' => 1 ], $activate_url );
 							}
 
@@ -320,7 +390,7 @@ class Products {
 						} else {
 							$action_links[] = sprintf(
 								'<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-								_x( 'Installed', 'plugin' )
+								_x( 'Installed', 'plugin', 'sheets-to-wp-table-live-sync' )
 							);
 						}
 						break;
@@ -336,9 +406,9 @@ class Products {
 				'<a href="%s" class="thickbox open-plugin-details-modal" aria-label="%s" data-title="%s">%s</a>',
 				esc_url( $details_link ),
 				/* translators: %s: Plugin name and version. */
-				esc_attr( sprintf( __( 'More information about %s' ), $name ) ),
+				esc_attr( sprintf( __( 'More information about %s', 'sheets-to-wp-table-live-sync' ), $name ) ),
 				esc_attr( $name ),
-				__( 'More Details' )
+				__( 'More Details', 'sheets-to-wp-table-live-sync' )
 			);
 
 			if ( ! empty( $plugin['icons']['svg'] ) ) {
@@ -366,7 +436,7 @@ class Products {
 			if ( ! $compatible_php || ! $compatible_wp ) {
 				echo '<div class="notice inline notice-error notice-alt"><p>';
 				if ( ! $compatible_php && ! $compatible_wp ) {
-					esc_html_e( 'This plugin doesn&#8217;t work with your versions of WordPress and PHP.' );
+					esc_html_e( 'This plugin doesn&#8217;t work with your versions of WordPress and PHP.', 'sheets-to-wp-table-live-sync' );
 					if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 						printf(
 							/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
@@ -396,7 +466,7 @@ class Products {
 						wp_update_php_annotation( '</p><p><em>', '</em>' );
 					}
 				} elseif ( ! $compatible_wp ) {
-					esc_html_e( 'This plugin doesn&#8217;t work with your version of WordPress.' );
+					esc_html_e( 'This plugin doesn&#8217;t work with your version of WordPress.', 'sheets-to-wp-table-live-sync' );
 					if ( current_user_can( 'update_core' ) ) {
 						printf(
 							/* translators: %s: URL to WordPress Updates screen. */
@@ -407,7 +477,7 @@ class Products {
 						);
 					}
 				} elseif ( ! $compatible_php ) {
-					esc_html_e( 'This plugin doesn&#8217;t work with your version of PHP.' );
+					esc_html_e( 'This plugin doesn&#8217;t work with your version of PHP.', 'sheets-to-wp-table-live-sync' );
 					if ( current_user_can( 'update_php' ) ) {
 						printf(
 							/* translators: %s: URL to Update PHP page. */
@@ -461,10 +531,10 @@ class Products {
 				aria-hidden="true">(<?php echo esc_attr( number_format_i18n( $plugin['num_ratings'] ) ); ?>)</span>
 		</div>
 		<div class="column-updated">
-			<strong><?php esc_attr_e( 'Last Updated:' ); ?></strong>
+			<strong><?php esc_attr_e( 'Last Updated:', 'sheets-to-wp-table-live-sync' ); ?></strong>
 			<?php
 				/* translators: %s: Human-readable time difference. */
-				printf( esc_html( __( '%s ago' ) ), esc_html( human_time_diff( $last_updated_timestamp ) ) );
+				printf( esc_html( __( '%s ago', 'sheets-to-wp-table-live-sync' ) ), esc_html( human_time_diff( $last_updated_timestamp ) ) );
 			?>
 		</div>
 		<div class="column-downloaded">
@@ -473,22 +543,22 @@ class Products {
 				$active_installs_millions = floor( $plugin['active_installs'] / 1000000 );
 				$active_installs_text     = sprintf(
 					/* translators: %s: Number of millions. */
-					_nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations' ),
+					_nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations', 'sheets-to-wp-table-live-sync' ),
 					number_format_i18n( $active_installs_millions )
 				);
 			} elseif ( 0 === $plugin['active_installs'] ) {
-				$active_installs_text = _x( 'Less Than 10', 'Active plugin installations' );
+				$active_installs_text = _x( 'Less Than 10', 'Active plugin installations', 'sheets-to-wp-table-live-sync' );
 			} else {
 				$active_installs_text = number_format_i18n( $plugin['active_installs'] ) . '+';
 			}
 			/* translators: %s: Number of installations. */
-			printf( esc_html( __( '%s Active Installations' ) ), esc_html( $active_installs_text ) );
+			printf( esc_html( __( '%s Active Installations', 'sheets-to-wp-table-live-sync' ) ), esc_html( $active_installs_text ) );
 			?>
 		</div>
 		<div class="column-compatibility">
 			<?php
 			if ( ! $tested_wp ) {
-				echo '<span class="compatibility-untested">' . esc_html( __( 'Untested with your version of WordPress' ) ) . '</span>';
+				echo '<span class="compatibility-untested">' . esc_html( __( 'Untested with your version of WordPress', 'sheets-to-wp-table-live-sync' ) ) . '</span>';
 			} elseif ( ! $compatible_wp ) {
 				echo '<span class="compatibility-incompatible"><strong>Incompatible</strong> with your version of WordPress</span>';
 			} else {

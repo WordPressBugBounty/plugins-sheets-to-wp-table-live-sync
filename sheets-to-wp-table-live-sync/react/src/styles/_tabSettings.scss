@@ -32,7 +32,7 @@
                 border: 1.118px solid #DCDDE4;
 
                 &:checked {
-                    background-color: #34a0fa;
+                    background-color: #008717;
                 }
 
                 &:checked::before {
@@ -144,7 +144,7 @@
                         border-radius: 8px;
                         position: absolute;
                         box-sizing: border-box;
-                        border: 4px solid #34a0fa;
+                        border: 4px solid #008717;
                         transform: translate(-50%, -50%);
                     }
                 }
@@ -155,10 +155,10 @@
 
                 &.active,
                 {
-                border-color: #34a0fa;
+                border-color: #008717;
 
                 span {
-                    color: #34a0fa;
+                    color: #008717;
                 }
 
                 .control__indicator {

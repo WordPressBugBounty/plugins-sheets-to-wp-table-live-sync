@@ -147,13 +147,39 @@
         justify-content: flex-end;
         margin-top: 5px;
 
+        // Admin editor icons style export icons
         button {
             font-size: 13px;
             // margin: 0 5px;
 
-            &:hover img {
+            /* &:hover img {
                 filter: brightness(0.1);
-            }
+            } */
+        }
+
+        .json_btn:hover img {
+            filter: invert(42%) sepia(96%) saturate(1808%) hue-rotate(192deg) brightness(99%) contrast(101%);
+
+        }
+
+        .csv_btn:hover img {
+            filter: invert(56%) sepia(88%) saturate(1486%) hue-rotate(141deg) brightness(94%) contrast(101%);
+        }
+
+        .excel_btn:hover img {
+            filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(133deg) brightness(91%) contrast(97%);
+        }
+
+        .print_btn:hover img {
+            filter: invert(40%) sepia(97%) saturate(1809%) hue-rotate(201deg) brightness(96%) contrast(96%);
+        }
+
+        .copy_btn:hover img {
+            filter: invert(26%) sepia(96%) saturate(3668%) hue-rotate(265deg) brightness(85%) contrast(107%);
+        }
+
+        .pdf_btn:hover img {
+            filter: invert(43%) sepia(84%) saturate(1644%) hue-rotate(347deg) brightness(95%) contrast(91%);
         }
 
         span {

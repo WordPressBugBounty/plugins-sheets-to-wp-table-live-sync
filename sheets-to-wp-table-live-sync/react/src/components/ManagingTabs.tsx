@@ -164,20 +164,10 @@ const ManagingTabs = ({ currentTab, setCurrentTab }) => {
 															)
 														}
 													>
-														<svg
-															xmlns="http://www.w3.org/2000/svg"
-															width="8"
-															height="8"
-															viewBox="0 0 8 8"
-															fill="none"
-														>
-															<path
-																d="M1 7L7.0017 1M1 1L7.0017 7"
-																stroke="#666873"
-																strokeWidth="1.5"
-																strokeLinecap="round"
-															/>
+														<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M5 5L9.5 9.5M0.5 9.5L5 5L0.5 9.5ZM9.5 0.5L4.99914 5L9.5 0.5ZM4.99914 5L0.5 0.5L4.99914 5Z" stroke="#465868" stroke-linecap="round" stroke-linejoin="round" />
 														</svg>
+
 													</span>
 												</div>
 											)}

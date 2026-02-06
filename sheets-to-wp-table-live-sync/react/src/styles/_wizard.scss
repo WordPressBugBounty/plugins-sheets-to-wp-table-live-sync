@@ -50,7 +50,7 @@
                 transition: all 0.3s ease;
 
                 &:hover {
-                    color: #2BB885;
+                    color: #008717;
                 }
             }
         }
@@ -140,7 +140,7 @@
 
                     &.active {
                         position: relative;
-                        border-color: #34a0fa;
+                        border-color: #008717;
 
                         &::before {
                             content: "";
@@ -163,7 +163,7 @@
                             top: -30px;
                             width: 50px;
                             height: 50px;
-                            background: #34a0fa;
+                            background: #008717;
                             transform: rotate(47deg);
                             z-index: 0;
                         }
@@ -216,8 +216,8 @@
 
                 &:hover {
                     color: #F8F9FA;
-                    border-color: #2BB885;
-                    background-color: #2BB885;
+                    border-color: #008717;
+                    background-color: #008717;
                 }
 
             }
@@ -250,7 +250,7 @@
             color: #FC5E1A;
 
             &.btn-success {
-                color: #2BB885;
+                color: #008717;
             }
         }
     }

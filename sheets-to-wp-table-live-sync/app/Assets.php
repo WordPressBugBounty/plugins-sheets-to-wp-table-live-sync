@@ -25,11 +25,10 @@ class Assets {
 	 * @since 2.12.15
 	 */
 	public function __construct() {
-		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ], 20 ); 
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ], 20 );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'gutenberg_files' ], 20 );
-		add_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ], 20 ); 
+		add_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ], 20 );
 		add_action( 'init', [ $this, 'detect_conflicting_plugins' ] );
-		
 	}
 
 
@@ -43,20 +42,20 @@ class Assets {
 		if ( $this->is_wp_maps_active() ) {
 			// Remove our hooks and re-add them with higher priority.
 			remove_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ], 20 );
-			
+
 			// Re-add with much higher priority to load after WP Maps.
 			add_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ], 999 );
 		}
 	}
 
 		/**
-	 * Check if WP Maps plugin is active.
-	 *
-	 * @return bool
-	 */
+		 * Check if WP Maps plugin is active.
+		 *
+		 * @return bool
+		 */
 	private function is_wp_maps_active() {
 		// Check for WP Maps plugin class or function.
-		return class_exists( 'WPGMP_Model' ) || 
+		return class_exists( 'WPGMP_Model' ) ||
 			   function_exists( 'wpgmp_register_map_frontend_resources' ) ||
 			   is_plugin_active( 'wp-google-map-plugin/wp-google-map-plugin.php' );
 	}
@@ -68,23 +67,23 @@ class Assets {
 	 */
 	private function get_wp_maps_dependencies() {
 		$dependencies = [];
-		
+
 		// Check if WP Maps scripts are registered.
 		global $wp_scripts;
-		
+
 		$wp_maps_handles = [
 			'wpgmp-backend',
 			'wpgmp-frontend',
 			'wpgmp-map',
-			'wpgmp-google-api'
+			'wpgmp-google-api',
 		];
-		
+
 		foreach ( $wp_maps_handles as $handle ) {
 			if ( isset( $wp_scripts->registered[ $handle ] ) ) {
 				$dependencies[] = $handle;
 			}
 		}
-		
+
 		return $dependencies;
 	}
 
@@ -152,6 +151,8 @@ class Assets {
 				'strings'            => Strings::get(),
 				'tables'           => swptls()->database->table->get_all(),
 				'theme'           => swptls()->database->table->get_all_theme(),
+				'cta_notice_status' => get_option( 'swptls_cta_notice_dismissed', false ),
+				'cta_notice_tabs_status' => get_option( 'swptls_cta_notice_tabs_dismissed', false ),
 				'pro'              => [
 					'installed'   => swptls()->helpers->check_pro_plugin_exists(),
 					'active'      => swptls()->helpers->is_pro_active(),
@@ -159,6 +160,7 @@ class Assets {
 					'license_url' => esc_url( admin_url( 'admin.php?page=sheets_to_wp_table_live_sync_pro_settings' ) ),
 				],
 				'ran_setup_wizard' => wp_validate_boolean( get_option( 'swptls_ran_setup_wizard', false ) ),
+				'show_get_start_page' => wp_validate_boolean( get_option( 'show_get_start_page', false ) ),
 			];
 
 			if ( swptls()->helpers->is_pro_active() && swptls()->helpers->is_latest_version() ) {
@@ -359,12 +361,15 @@ class Assets {
 		$base_deps = [ 'jquery' ];
 		$deps = array_merge( $base_deps, $additional_deps );
 
+		wp_enqueue_script('moment');
+
+		// Load all DataTables scripts in footer to avoid conflicts with page builders
 		wp_enqueue_script(
 			'GSWPTS-frontend-table',
 			SWPTLS_BASE_URL . 'assets/public/common/datatables/tables/js/jquery.datatables.min.js',
 			$deps,
 			time(),
-			false
+			true
 		);
 
 		wp_enqueue_script(
@@ -372,23 +377,14 @@ class Assets {
 			SWPTLS_BASE_URL . 'assets/public/common/datatables/tables/js/datatables.semanticui.min.js',
 			array_merge( $deps, [ 'GSWPTS-frontend-table' ] ),
 			time(),
-			false
+			true
 		);
-
-		wp_enqueue_script(
-			'moment-js',
-			SWPTLS_BASE_URL . 'assets/public/scripts/moment/moment.min.js',
-			$deps,
-			time(),
-			false
-		);
-
 		wp_enqueue_script(
 			'datetime-moment-js',
 			SWPTLS_BASE_URL . 'assets/public/scripts/moment/datetime-moment.js',
-			[ 'moment-js', 'GSWPTS-frontend-table' ],
+			[ 'moment', 'GSWPTS-frontend-table' ],
 			time(),
-			false
+			true
 		);
 	}
 
@@ -480,8 +476,8 @@ class Assets {
 			'gswpts/google-sheets-to-wp-tables',
 			[
 				'description'   => __( 'Display Google Spreadsheet data to WordPress table in just a few clicks
-				and keep the data always synced. Organize and display all your spreadsheet data in your WordPress quickly and effortlessly.', 'sheetstowptable' ),
-				'title'         => __( 'FlexTable', 'sheetstowptable' ),
+				and keep the data always synced. Organize and display all your spreadsheet data in your WordPress quickly and effortlessly.', 'sheets-to-wp-table-live-sync' ),
+				'title'         => __( 'FlexTable', 'sheets-to-wp-table-live-sync' ),
 				'editor_script' => 'gswpts-gutenberg',
 				'editor_style'  => 'GSWPTS-gutenberg-css',
 			]
@@ -527,5 +523,4 @@ class Assets {
 			}
 		}
 	}
-
 }

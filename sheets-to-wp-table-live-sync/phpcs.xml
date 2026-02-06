@@ -10,7 +10,7 @@
 <!-- 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="sheetstowptable"/>
+				<element value="sheets-to-wp-table-live-sync"/>
 			</property>
 		</properties>
 	</rule> -->

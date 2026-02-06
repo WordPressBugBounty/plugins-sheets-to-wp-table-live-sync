@@ -63,7 +63,7 @@ textarea {
 					outline: 0;
 					cursor: pointer;
 					box-shadow: none;
-					color: #2bb885;
+					color: #008717;
 					font-weight: 600;
 					font-size: 11px;
 					line-height: 100%;
@@ -90,14 +90,14 @@ textarea {
 					border-radius: 50%;
 					background-color: #fdfeff;
 					line-height: 1.14285714;
-					border: 4px solid #34a0fa;
+					border: 4px solid #008717;
 					position: absolute;
 					left: 3px;
 					top: 20%;
 					width: 16px;
 					height: 16px;
 					transform: translate(-50%, -50%);
-					border: 4px solid #34a0fa;
+					border: 4px solid #008717;
 					border-radius: 8px;
 					box-sizing: border-box;
 					box-shadow: none;
@@ -116,7 +116,7 @@ textarea {
 
 			button.btn-pro.btn-new {
 				color: white;
-				background: #2bb885;
+				background: #008717;
 				font-weight: bold;
 				border-radius: 15px;
 				height: 21px;
@@ -149,7 +149,7 @@ textarea {
 				outline: 0;
 				cursor: pointer;
 				box-shadow: none;
-				color: #2bb885;
+				color: #008717;
 				font-weight: 600;
 				font-size: 11px;
 				line-height: 100%;
@@ -162,7 +162,7 @@ textarea {
 
 			button.btn-pro.btn-new {
 				color: white;
-				background: #2bb885;
+				background: #008717;
 				font-weight: bold;
 				border-radius: 15px;
 				height: 21px;
@@ -239,7 +239,7 @@ textarea {
 		}
 
 		input[type="checkbox"]:checked+label:before {
-			background: #34A0FA;
+			background: #008717;
 		}
 
 		input[type="checkbox"]:checked+label:after {

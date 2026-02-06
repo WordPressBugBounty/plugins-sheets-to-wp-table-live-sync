@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import { lockWhite, hintIcon, Cross, swapIcon } from '../icons';
+import { ProIcon, hintIcon, Cross, swapIcon } from '../icons';
 import Modal from './../core/Modal';
 import { isProActive, getStrings } from './../Helpers';
 
@@ -15,6 +15,7 @@ import theme_six_hovered_style from '../images/theme-six-hovered-style.png';
 import '../styles/_tableCustomization.scss';
 import Tooltip from './Tooltip';
 import ThemeFields from './ThemeFields';
+import { toast } from 'react-toastify';
 
 const TableCustomization = ({
 	tableSettings,
@@ -551,7 +552,7 @@ const TableCustomization = ({
 																		.table_settings
 																		?.swap_filter_inputs
 																}
-																onChange={(
+																/* onChange={(
 																	e
 																) =>
 																	setTableSettings(
@@ -567,7 +568,28 @@ const TableCustomization = ({
 																			},
 																		}
 																	)
-																}
+																	
+																} */
+
+																onChange={(e) => {
+																	setTableSettings({
+																		...tableSettings,
+																		table_settings: {
+																			...tableSettings.table_settings,
+																			swap_filter_inputs:
+																				!tableSettings
+																					.table_settings
+																					.swap_filter_inputs,
+																		},
+																	});
+
+																	// Add toast notification
+																	if (!tableSettings.table_settings.swap_filter_inputs) {
+																		toast.success("Position updated. See the changes in table preview");
+																	} else {
+																		toast.success("Position restored to default!");
+																	}
+																}}
 																// Disable input based on condition
 																disabled={
 																	!tableSettings
@@ -592,7 +614,7 @@ const TableCustomization = ({
 																	>
 																		<path
 																			d="M4 7.75L1 10.75L4 13.75M11.5 10.75H1M8.5 1.25L11.5 4.25L8.5 7.25M1 4.25H11.5"
-																			stroke="#34A0FA"
+																			stroke="#008717"
 																			stroke-width="1.5"
 																			stroke-linecap="round"
 																			stroke-linejoin="round"
@@ -732,7 +754,7 @@ const TableCustomization = ({
 																		.table_settings
 																		?.swap_bottom_options
 																}
-																onChange={(
+																/* onChange={(
 																	e
 																) =>
 																	setTableSettings(
@@ -748,7 +770,27 @@ const TableCustomization = ({
 																			},
 																		}
 																	)
-																}
+																} */
+
+																onChange={(e) => {
+																	setTableSettings({
+																		...tableSettings,
+																		table_settings: {
+																			...tableSettings.table_settings,
+																			swap_bottom_options:
+																				!tableSettings
+																					.table_settings
+																					.swap_bottom_options,
+																		},
+																	});
+
+																	// Add toast notification
+																	if (!tableSettings.table_settings.swap_bottom_options) {
+																		toast.success("Position updated. See the changes in table preview");
+																	} else {
+																		toast.success("Position restored to default!");
+																	}
+																}}
 																// Disable input based on condition
 																disabled={
 																	!tableSettings
@@ -773,7 +815,7 @@ const TableCustomization = ({
 																	>
 																		<path
 																			d="M4 7.75L1 10.75L4 13.75M11.5 10.75H1M8.5 1.25L11.5 4.25L8.5 7.25M1 4.25H11.5"
-																			stroke="#34A0FA"
+																			stroke="#008717"
 																			stroke-width="1.5"
 																			stroke-linecap="round"
 																			stroke-linejoin="round"
@@ -1102,7 +1144,7 @@ const TableCustomization = ({
 																<span className='pro-tag-sorting-control'>
 																	{!isProActive() && (
 																		<button className="btn-pro">
-																			{getStrings('pro')}
+																			{ProIcon}
 																		</button>
 																	)}
 
@@ -1180,7 +1222,7 @@ const TableCustomization = ({
 														<span className='pro-tag-sorting-control'>
 															{!isProActive() && (
 																<button className="btn-pro">
-																	{getStrings('pro')}
+																	{ProIcon}
 																</button>
 															)}
 															<button className="btn-pro btn-new">
@@ -1246,7 +1288,7 @@ const TableCustomization = ({
 														<span className='pro-tag-sorting-control'>
 															{!isProActive() && (
 																<button className="btn-pro">
-																	{getStrings('pro')}
+																	{ProIcon}
 																</button>
 															)}
 															<button className="btn-pro btn-new">
@@ -1343,7 +1385,7 @@ const TableCustomization = ({
 
 											{!isProActive() && (
 												<button className="btn-pro">
-													{getStrings('pro')}
+													{ProIcon}
 												</button>
 											)}
 										</h4>
@@ -1469,7 +1511,7 @@ const TableCustomization = ({
 
 											{!isProActive() && (
 												<button className="btn-pro">
-													{getStrings('pro')}
+													{ProIcon}
 												</button>
 											)}
 											{ /* {<button className='btn-pro btn-new cursor-behave'>{getStrings('new')}</button>} */}
@@ -1587,7 +1629,7 @@ const TableCustomization = ({
 													'tooltip-23'
 												)}
 											/>{' '}
-											{ /* {!isProActive() && (<button className='btn-pro'>{getStrings('pro')}</button>)} */}
+
 										</h4>
 
 										{ /* <div className={`utility-checkbox-wrapper${!isProActive() ? ` swptls-pro-settings` : ``}`}> */}
@@ -1724,8 +1766,7 @@ const TableCustomization = ({
 													'tooltip-26'
 												)}
 											/>{' '}
-											{ /* {!isProActive() && (<button className='btn-pro cache-pro-tag'>{getStrings('pro')}</button>)} */}
-											{ /* {<button className='btn-pro btn-new'>{getStrings('new')}</button>} */}
+
 										</span>
 									</div>
 									{ /* )} */}
@@ -1769,10 +1810,60 @@ const TableCustomization = ({
 													'tooltip-27'
 												)}
 											/>{' '}
-											{ /* {!isProActive() && (<button className='btn-pro cache-pro-tag'>{getStrings('pro')}</button>)} */}
-											{ /* {<button className='btn-pro btn-new'>{getStrings('new')}</button>} */}
+
 										</span>
 									</div>
+
+									{tableSettings?.table_settings?.table_img_support && (
+										<div
+											className={`${!isProActive()
+												? `edit-form-group special-feature lightbox-feature-wrapper swptls-pro-settings`
+												: `edit-form-group special-feature lightbox-feature-wrapper`
+												}`}
+										// style={{ marginLeft: '20px' }}
+										>
+											<label
+												className="cache-table"
+												htmlFor="img_lightbox_support"
+											>
+												<input
+													type="checkbox"
+													name="img_lightbox_support"
+													id="img_lightbox_support"
+													checked={
+														tableSettings
+															?.table_settings
+															?.img_lightbox_support
+													}
+													onClick={(e) =>
+														setTableSettings({
+															...tableSettings,
+															table_settings: {
+																...tableSettings.table_settings,
+																img_lightbox_support:
+																	e.target
+																		.checked,
+															},
+														})
+													}
+													disabled={!isProActive()}
+												/>
+												Enable Image Lightbox{' '}
+											</label>
+											<span className="tooltip-cache">
+												<Tooltip
+													content="Enable lightbox popup for images. Click on images to view them in full size."
+												/>{' '}
+											</span>
+
+											{<button className='btn-pro btn-new cursor-behave'>{getStrings('new')}</button>}
+											{!isProActive() && (
+												<button className="btn-pro">
+													{ProIcon}
+												</button>
+											)}
+										</div>
+									)}
 
 									{ /* Checkbox support */}
 									<div
@@ -1819,7 +1910,7 @@ const TableCustomization = ({
 										</span>
 									</div>
 
-									<br />
+									{/* <br /> */}
 									{ /* Cache feature  */}
 									<div
 										className={`edit-form-group cache-feature`}
@@ -1859,7 +1950,7 @@ const TableCustomization = ({
 													'tooltip-28'
 												)}
 											/>{' '}
-											{ /* {!isProActive() && (<button className='btn-pro cache-pro-tag'>{getStrings('pro')}</button>)} */}
+
 										</span>
 									</div>
 
@@ -1890,17 +1981,7 @@ const TableCustomization = ({
 																		?.table_settings
 																		?.disable_frequent_cache
 																}
-																/* onClick={(e) =>
-																	setTableSettings({
-																		...tableSettings,
-																		table_settings: {
-																			...tableSettings.table_settings,
-																			disable_frequent_cache:
-																				e.target
-																					.checked,
-																		},
-																	})
-																} */
+
 																onChange={handleFrequentCacheCheckboxClick}
 
 																disabled={!tableSettings
@@ -1916,9 +1997,9 @@ const TableCustomization = ({
 																	'tooltip-63'
 																)}
 															/>{' '}
-															{ /* {!isProActive() && (<button className='btn-pro cache-pro-tag'>{getStrings('pro')}</button>)} */}
-															{<button className='btn-pro btn-new cursor-behave'>{getStrings('new')}</button>}
-															<button className="beta-badge">{getStrings('beta')}</button>
+
+															{/* {<button className='btn-pro btn-new cursor-behave'>{getStrings('new')}</button>}
+															<button className="beta-badge">{getStrings('beta')}</button> */}
 														</span>
 													</div>
 													<p className="content-paragraph">{getStrings('freq-content')}</p>
@@ -1941,7 +2022,7 @@ const TableCustomization = ({
 													'tooltip-29'
 												)}
 											/>
-											{ /* {!isProActive() && (<button className='btn-pro'>{getStrings('pro')}</button>)} */}
+
 										</h4>
 
 										<div className="style-checkbox-items">
@@ -2042,7 +2123,7 @@ const TableCustomization = ({
 													'tooltip-32'
 												)}
 											/>
-											{ /* {!isProActive() && (<button className='btn-pro'>{getStrings('')}{getStrings('pro')}</button>)} */}
+
 										</h4>
 										<div className="style-checkbox-items">
 											{ /* <div className={`style-checkbox-items${!isProActive() ? ` swptls-pro-settings` : ``}`}> */}
@@ -2320,7 +2401,7 @@ const TableCustomization = ({
 														content={`Select the table height. If the table height is lower there will be a vertical scrollbar to scroll through the rows`}
 													/>
 												</span>
-												{ /* {!isProActive() && (<button className='btn-pro'>{getStrings('pro')}</button>)} */}
+												{ /* {!isProActive() && (<button className='btn-pro'>{ProIcon}</button>)} */}
 											</label>
 											<div
 												className={`edit-form-group swptls-select`}

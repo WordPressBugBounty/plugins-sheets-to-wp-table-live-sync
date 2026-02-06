@@ -21,6 +21,10 @@
     }
 
     .create-table-form {
+        background: #FFFFFF;
+        padding: 56px 30px 56px 30px;
+        border-radius: 4px;
+
         .swptls-title {
             &.h4 {
                 margin-bottom: 13px;
@@ -31,15 +35,15 @@
             padding: 21px 20px 23px 20px;
             height: 65px;
             background: #ffffff;
-            border: 1px solid #edeff1;
+            border: 1px solid #DEE0E7;
             border-radius: 6px;
             margin-bottom: 10px;
         }
 
         .create-table-btn-wrapper {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: flex-start;
             margin-top: 15px;
         }
     }
@@ -147,15 +151,13 @@
 label {
     margin-bottom: 10px;
 
-
-
     &.invalid-public,
     &.invalid-download,
     &.invalid-upgrade {
         gap: 7px;
-        color: #CE6D26;
+        color: #1E1E1E;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 400;
         font-style: normal;
         line-height: normal;
         display: inline-flex;
@@ -194,7 +196,7 @@ label {
 .invalid-card {
     margin-bottom: 10px;
     padding: 13px 20px;
-    background-color: #FFF7F2;
+    background-color: #EFF2F7;
 
     .invalid-download {
         margin-bottom: 16px;
@@ -304,7 +306,7 @@ label {
             span {
 
                 a {
-                    color: #3858E9;
+                    color: #1E1E1E;
                     font-weight: 600;
                     text-decoration: none;
 
@@ -328,14 +330,11 @@ label {
             font-weight: 600;
             line-height: 150%;
             border-radius: 5px;
-            border: 1px solid #3858E9;
-            background-color: #3858E9;
+            background-color: #1C6CDB;
             transition: all 0.3s ease;
 
             &:hover {
-                color: #3858E9;
-                border-color: #3858E9;
-                background-color: transparent;
+                background-color: #0F4B9E;
             }
         }
     }
@@ -344,9 +343,8 @@ label {
         margin-bottom: 14px;
 
         .import-enabled {
-            color: #CE6D26;
+            color: #1E1E1E;
             font-size: 14px;
-            font-weight: 600;
             cursor: initial;
 
             .icon {

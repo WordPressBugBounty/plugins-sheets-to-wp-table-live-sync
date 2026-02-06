@@ -20,9 +20,15 @@
 	}
 
 	div#sheets-changelog-trigger {
-		p {
-			&:hover {
-				color: #2271b1;
+
+		&:hover {
+			.icon svg path {
+				fill: #008717 !important;
+			}
+
+			p,
+			p a {
+				color: #008717;
 			}
 		}
 	}
@@ -32,5 +38,10 @@
 body {
 	.HW_frame_cont {
 		width: 360px !important;
+	}
+
+	.HW_badge,
+	.HW_badge.HW_softHidden {
+		background: #1C6CDB !important;
 	}
 }

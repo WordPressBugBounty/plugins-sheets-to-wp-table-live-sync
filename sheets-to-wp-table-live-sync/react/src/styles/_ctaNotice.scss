@@ -1,0 +1,386 @@
+//CTA Notice Styles
+.ctaNotice {
+    background: #ffffff;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 30px;
+
+    .gradient-border {
+        position: relative;
+        border: 0px solid transparent;
+        background-clip: padding-box;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 1px;
+    }
+
+    .content {
+        background: #fff;
+        border-radius: 10px;
+        padding: 16px 30px 16px 30px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        min-height: 120px;
+        justify-content: space-between;
+
+        @media (max-width: 992px) {
+            flex-direction: column;
+            text-align: center;
+            padding: 30px;
+            gap: 25px;
+            min-height: auto;
+        }
+
+        @media (max-width: 575.98px) {
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .leftside-content {
+            flex: 1;
+            max-width: 550px;
+
+            .cta-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: #1E1E1E;
+                margin: 0 0 8px 0;
+                line-height: 1.3;
+
+                @media (max-width: 768px) {
+                    font-size: 12px;
+                }
+            }
+
+            .cta-description {
+                font-size: 14px;
+                color: #666873;
+                margin: 0;
+                line-height: 1.5;
+
+                @media (max-width: 480px) {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .rightside-content {
+            flex: 0 0 auto;
+
+            .cta-buttons {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+
+                @media (max-width: 480px) {
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 10px;
+                }
+
+                .cta-tutorial-button {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 10px 16px;
+                    background: #FFFFFF;
+                    color: #1C6CDB;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    text-decoration: none;
+                    border: 1px solid #1C6CDB;
+
+                    &:hover {
+                        transform: translateY(-1px);
+                    }
+
+                    &:active {
+                        transform: translateY(0);
+                    }
+
+                    svg {
+                        width: 16px;
+                        height: 16px;
+                        fill: currentColor;
+                    }
+
+                    @media (max-width: 480px) {
+                        width: 100%;
+                        justify-content: center;
+                    }
+                }
+
+                .cta-close-button {
+                    padding: 10px 16px;
+                    background: #ECEFF4;
+                    color: #666873;
+                    border: 1px solid #ECEFF4;
+                    border-radius: 6px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: #f8f9fa;
+                        border-color: #d1d5db;
+                        color: #374151;
+                    }
+
+                    &:disabled {
+                        opacity: 0.6;
+                        cursor: not-allowed;
+                    }
+
+                    @media (max-width: 480px) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Modal Styles
+.cta-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+
+    .cta-modal-content {
+        background: white;
+        border-radius: 12px;
+        max-width: 800px;
+        width: 100%;
+        max-height: 90vh;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+        @media (max-width: 768px) {
+            max-width: 95vw;
+            margin: 10px;
+        }
+
+        .cta-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+
+            h3 {
+                margin: 0;
+                font-size: 18px;
+                font-weight: 600;
+                color: #1f2937;
+                flex: 1;
+                text-align: center;
+            }
+
+            .cta-modal-close {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 4px;
+                border-radius: 4px;
+                transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    background: #f3f4f6;
+                }
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    color: #6b7280;
+                }
+            }
+        }
+
+        .cta-modal-body {
+            padding: 24px;
+
+            .cta-video-player-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 24px;
+
+                .cta-video-player-wrapper {
+                    position: relative;
+                    width: 100%;
+                    max-width: 720px;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+                    .cta-video-thumbnail {
+                        position: relative;
+                        display: block;
+                        cursor: pointer;
+                        width: 100%;
+                        border-radius: 0px;
+
+                        .cta-video-player-image {
+                            display: block;
+                            width: 100%;
+                            height: auto;
+                            aspect-ratio: 16/9;
+                            object-fit: cover;
+                        }
+
+                        .cta-video-play-button {
+
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background: none;
+                            border: none;
+                            padding: 16px;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+
+                            &:hover {
+                                transform: translate(-50%, -50%) scale(1.1);
+                            }
+
+                            svg {
+                                width: 60px;
+                                height: 60px;
+                            }
+                        }
+                    }
+
+                    .cta-video-embed {
+                        position: relative;
+                        width: 100%;
+                        height: 0;
+                        padding-bottom: 56.25%; // 16:9 aspect ratio
+                        background: #000;
+
+                        iframe {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                        }
+                    }
+                }
+            }
+
+            .cta-modal-description {
+                text-align: center;
+                padding-top: 20px;
+
+
+                .modal-actions {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 12px;
+
+                    @media (max-width: 480px) {
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+
+                    .modal-docs-button {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 12px 24px;
+                        background: #008717;
+                        color: white;
+                        border: none;
+                        border-radius: 6px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        text-decoration: none;
+                        min-width: 120px;
+
+                        &:hover {
+                            transform: translateY(-1px);
+                            background: #126E22;
+                        }
+
+                        &:active {
+                            transform: translateY(0);
+                        }
+
+                        @media (max-width: 480px) {
+                            width: 100%;
+                            max-width: 200px;
+                        }
+                    }
+
+                    .modal-close-button {
+                        padding: 12px 24px;
+                        background: transparent;
+                        color: #6b7280;
+                        border: 1px solid #d1d5db;
+                        border-radius: 6px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        min-width: 120px;
+
+                        &:hover {
+                            background: #f9fafb;
+                            border-color: #9ca3af;
+                            color: #374151;
+                        }
+
+                        @media (max-width: 480px) {
+                            width: 100%;
+                            max-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Animation for modal
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.cta-modal-content {
+    animation: modalSlideUp 0.3s ease-out;
+}

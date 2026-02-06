@@ -119,6 +119,13 @@ namespace SWPTLS { //phpcs:ignore
 		 */
 		public $elementor;
 
+		/**
+		 * Contains Divi module.
+		 *
+		 * @var SWPTLS\Divi
+		 */
+		public $divi;
+
 
 
 		/**
@@ -171,7 +178,6 @@ namespace SWPTLS { //phpcs:ignore
 		 * @return void
 		 */
 		private function loader() {
-			add_action( 'init', [ $this, 'i18n' ] );
 			add_action( 'admin_init', [ $this, 'redirection' ] );
 			add_filter( 'plugin_action_links_' . plugin_basename( SWPTLS_PLUGIN_FILE ), [ $this, 'add_action_links' ] );
 
@@ -185,6 +191,7 @@ namespace SWPTLS { //phpcs:ignore
 			$this->assets      = new \SWPTLS\Assets();
 			$this->cache      = new \SWPTLS\Cache();
 			$this->elementor  = new \SWPTLS\Elementor\ElementorBase();
+			$this->divi       = new \SWPTLS\Divi\DiviBase();
 			$this->admin       = new \SWPTLS\Admin();
 			$this->shortcode   = new \SWPTLS\Shortcode();
 			$this->database    = new \SWPTLS\Database();
@@ -209,7 +216,7 @@ namespace SWPTLS { //phpcs:ignore
 			foreach ( $dependencies as $path ) {
 				if ( ! file_exists( SWPTLS_BASE_PATH . $path ) ) {
 					status_header( 500 );
-					wp_die( esc_html__( 'Plugin is missing required dependencies. Please contact support for more information.', 'sheetstowptable' ) );
+					wp_die( esc_html__( 'Plugin is missing required dependencies. Please contact support for more information.', 'sheets-to-wp-table-live-sync' ) );
 				}
 
 				require SWPTLS_BASE_PATH . $path;
@@ -227,29 +234,24 @@ namespace SWPTLS { //phpcs:ignore
 				sprintf(
 					'<a href="%s">%s</a>',
 					esc_url( admin_url( 'admin.php?page=gswpts-dashboard' ) ),
-					esc_html__( 'Dashboard', 'sheetstowptable' )
-				),
-				sprintf(
-					'<a href="%s">%s</a>',
-					esc_url( admin_url( 'admin.php?page=gswpts-dashboard#/settings' ) ),
-					esc_html__( 'General Settings', 'sheetstowptable' )
+					esc_html__( 'All Tables', 'sheets-to-wp-table-live-sync' )
 				),
 			];
 
+			// Insertws the WordPress default links (like Deactivate) after first item
+			$plugin = array_merge( $plugin, $links );
+
 			if ( ! $this->helpers->check_pro_plugin_exists() ) {
-				array_push(
-					$plugin,
-					sprintf(
-						'<a style="font-weight: bold; color: #ff3b00; text-transform: uppercase; font-style: italic;"
-							href="%s"
-							target="_blank">%s</a>',
-						esc_url( 'https://go.wppool.dev/KfVZ' ),
-						esc_html__( 'Get Pro', 'sheetstowptable' )
-					)
+				$plugin[] = sprintf(
+					'<a style="font-weight: bold; color: #ff3b00; text-transform: uppercase; font-style: italic;"
+						href="%s"
+						target="_blank">%s</a>',
+					esc_url( 'https://go.wppool.dev/KfVZ' ),
+					esc_html__( 'Get Pro', 'sheets-to-wp-table-live-sync' )
 				);
 			}
 
-			return array_merge( $links, $plugin );
+			return $plugin;
 		}
 
 		/**
@@ -260,21 +262,12 @@ namespace SWPTLS { //phpcs:ignore
 		public function appsero_init() {
 			$client = new \SWPTLSFree\Appsero\Client(
 				'e8bb9069-1a77-457b-b1e3-a961ce950e2f',
-				__( 'FlexTable', 'sheetstowptable' ),
+				__( 'FlexTable', 'sheets-to-wp-table-live-sync' ),
 				SWPTLS_PLUGIN_FILE
 			);
 
 			// Active insights.
 			$client->insights()->init();
-		}
-
-		/**
-		 * Load plugin localization files.
-		 *
-		 * @since 1.0.0
-		 */
-		public function i18n() {
-			load_plugin_textdomain( 'sheetstowptable', false, plugin_basename( __DIR__ ) . '/languages' );
 		}
 
 		/**
@@ -292,15 +285,17 @@ namespace SWPTLS { //phpcs:ignore
 						$campaign_image = SWPTLS_BASE_URL . 'lib/wppool/halloween.png';
 						$to = '2024-11-05 16:00:00';
 						$from = '2024-10-21 16:00:00';
-						$cta_text = esc_html__( 'Grab Your Treat!', 'sheetstowptable' );
+						$cta_text = esc_html__( 'Grab Your Treat!', 'sheets-to-wp-table-live-sync' );
 						$swptls_plugin->set_campaign( $campaign_image, $to, $from, $cta_text );
 
 						 // New BFCM Campaign.
 						 $new_campaign_image = SWPTLS_BASE_URL . 'lib/wppool/bfcm.png';
-						 $new_to = '2024-12-04 16:00:00';
-						 $new_from = '2024-11-21 16:00:00';
-						 $black_friday_cta = esc_html__( 'Grab Your Deals!', 'sheetstowptable' );
-						 $swptls_plugin->set_campaign( $new_campaign_image, $new_to, $new_from, $black_friday_cta );
+						 $new_to = '2025-12-04 16:00:00';
+						 $new_from = '2025-11-17 16:00:00';
+						 $black_friday_cta = esc_html__( 'Grab Your Deals!', 'sheets-to-wp-table-live-sync' );
+						 $black_friday_link = 'https://lnk.wppool.dev/MLNtGhQ';
+
+						 $swptls_plugin->set_campaign( $new_campaign_image, $new_to, $new_from, $black_friday_cta, $black_friday_link );
 
 					} catch ( Exception $e ) {// phpcs:ignore
 						// phpcs:ignore
@@ -318,10 +313,18 @@ namespace SWPTLS { //phpcs:ignore
 		 */
 		public function redirection() {
 			$redirect_to_admin_page = absint( get_option( 'gswpts_activation_redirect', 0 ) );
+			$is_first_time = absint( get_option( 'gswpts_first_time_install', 0 ) );
 
 			if ( 1 === $redirect_to_admin_page ) {
 				delete_option( 'gswpts_activation_redirect' );
-				wp_safe_redirect( admin_url( 'admin.php?page=gswpts-dashboard' ) );
+
+				// Redirect to Get Started page only on first install
+				if ( 1 === $is_first_time ) {
+					update_option( 'gswpts_first_time_install', 0 );
+					wp_safe_redirect( admin_url( 'admin.php?page=gswpts-dashboard#/doc' ) );
+				} else {
+					wp_safe_redirect( admin_url( 'admin.php?page=gswpts-dashboard#/' ) );
+				}
 				exit;
 			}
 		}
@@ -334,6 +337,10 @@ namespace SWPTLS { //phpcs:ignore
 		 */
 		public function register_active_deactive_hooks( $network_wide ) {
 			swptls()->database->migration->run( $network_wide );
+
+			if ( ! get_option( 'gswpts_first_time_install' ) ) {
+				add_option( 'gswpts_first_time_install', 1 );
+			}
 
 			add_option( 'gswpts_activation_redirect', 1 );
 

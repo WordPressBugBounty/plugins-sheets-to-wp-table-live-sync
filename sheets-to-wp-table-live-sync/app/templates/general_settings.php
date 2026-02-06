@@ -44,12 +44,12 @@ table {
 				</div>
 				<div class="col-12 p-0 mt-2 d-flex justify-content-between align-items-center">
 					<h4 class="m-0">
-						<?php esc_html_e( 'General Settings', 'sheetstowptable' ); ?>
+						<?php esc_html_e( 'General Settings', 'sheets-to-wp-table-live-sync' ); ?>
 					</h4>
 					<span>
 						<button type="submit" name="submit" id="submit" class="button ui violet m-0"
 							value="Save Changes">
-							<?php esc_html_e( 'Save Changes', 'sheetstowptable' ); ?>
+							<?php esc_html_e( 'Save Changes', 'sheets-to-wp-table-live-sync' ); ?>
 							&nbsp; <i class='fas fa-save'></i>
 						</button>
 					</span>

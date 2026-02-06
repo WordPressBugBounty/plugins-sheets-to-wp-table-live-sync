@@ -55,7 +55,7 @@ class ElementorWidget extends \Elementor\Widget_Base {
 	 * @since 2.13.1
 	 */
 	public function get_title() {
-		return __( 'FlexTable', 'sheetstowptable' );
+		return __( 'FlexTable', 'sheets-to-wp-table-live-sync' );
 	}
 
 	/**
@@ -93,7 +93,7 @@ class ElementorWidget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'choose_table',
 			[
-				'label'   => __( 'Choose Table', 'sheetstowptable' ),
+				'label'   => __( 'Choose Table', 'sheets-to-wp-table-live-sync' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'default' => 'select',
 				'options' => $this->tables_info(),

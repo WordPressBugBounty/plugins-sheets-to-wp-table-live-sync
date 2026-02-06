@@ -1,10 +1,10 @@
-=== FlexTable - Google Sheets to WP Table Live Sync | Responsive Data Table with Spreadsheet Integration | Google Sheet Connector ===
+=== FlexTable - Data Table Sync with Google Sheets ===
 Contributors: wppool, devsabbirahmed, mahfuz01, azizultex, wpdarkmode, sahabuddinsgr
 Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.2
-Stable tag: 3.18.2
+Stable tag: 3.22.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Turn Google Sheets into live WordPress tables. Embed, sync, and customize data i
 
 [Website](https://wppool.dev/google-sheets-to-wordpress-table-live-sync/) | [Documentations](https://wppool.dev/docs-category/how-to-use-sheets-to-wp-table/) | [Tutorials](https://www.youtube.com/playlist?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP) | [Live Demo](https://lnk.wppool.dev/9HneVn4) | [Get PRO](https://lnk.wppool.dev/JQ6ok1B) | [Join Community](https://lnk.wppool.dev/cRzJg8f)
 
-**FlexTable (Google Sheets to WP Table Live Sync)** allows you to quickly create responsive data tables from Google Sheets. Once you update your spreadsheet, it automatically updates the table. With the in-built shortcode and page builder support, you can add new tables on any page/post and live-sync the data with connected spreadsheet. No need to edit posts or tables from the WP dashboard. Edit on the spreadsheet and live sync from GSheets to the WordPress table with ease – all while supporting sorting, pagination, and searching for better interactivity. Plus, you can include images, links, and a lot more customizations options to decorate your table.
+**FlexTable - Spreadsheet to WP Table Sync** ets you create responsive tables that stay updated based on changes made in your connected sheet. After linking a sheet, any edits made there will reflect automatically on your site. The plugin includes shortcode and page-builder support so you can place tables on any page or post and keep them synchronized. It also supports sorting, pagination, search, AI analysis and options for displaying images, links, and other data formats.
 
 **Recommended by WordPress experts!** 🤩
 
@@ -28,7 +28,7 @@ Turn Google Sheets into live WordPress tables. Embed, sync, and customize data i
 * **👍 Like Our [Facebook Page](https://www.facebook.com/wppool.dev)**
 
 
-Worried about how to display your GSheets on a WordPress table? Well, your hustle ends today! Presenting Flex Table – the most flexible solution to embed GSheets data in WordPress tables.
+To show your spreadsheet data in a WP table, connect your sheet to FlexTable and embed it on your site.
 
 [youtube https://youtu.be/IkxD64CoNfw?si=Wti1z-1gP0QWJtpF?rel=0]
 
@@ -43,90 +43,113 @@ Worried about how to display your GSheets on a WordPress table? Well, your hustl
 
 == 😍 FlexTable Free Features ==
 
-* **Sync Data with Google Sheets:** Keep your WordPress tables synced with connected Google Sheets spreadsheets. You can update your table from anywhere through GSheets without ever needing to enter your website dashboard.
+* **Sync Data with Google Sheets:** Keep your WordPress tables synced with connected Google Sheets spreadsheets. You can update your table from anywhere through the connected sheet without ever needing to enter your website dashboard. Sync up to 100 rows for **FREE**. 
 * **Gutenberg Table Block & Elementor Table Widget:** The built-in Gutenberg block and Elementor widget will make sure you can create responsive tables with any of your preferred page builders.
-* **Responsive Tables:** Tables made with this plugin are responsive for any device. The plugin allows collapsing on mobile and tablet screens. There are also options to choose between three responsive styles (Default, Collapsible, and Scrollable) and adjust data-table height.
-* **Shortcode Supported:** Place your data-table easily and effortlessly anywhere with the shortcode feature. A shortcode will be created with the table created. You can place the code anywhere you want on your page or posts.
-* **Link Support:** With advanced link support you can import URLs/links from Google Sheets. All the URLs/links will be shown as links in the table instead of text. You can change the link behavior by redirecting your users when they click on those links.
+* **Responsive Tables:** Tables made with this plugin are responsive for any device. The plugin allows collapsing on mobile and tablet screens. There are also options to choose between three responsive styles (Default, Collapsible, and Scrollable) and adjust height.
+* **Shortcode Supported:** Place your data-table easily with the shortcode feature. A shortcode will be created with the table created. You can place the code anywhere you want on your page or posts.
+* **Link Support:** With advanced link support you can import URLs/links from Google Sheets. All the URLs/links will be shown as links instead of text. You can change the link behavior by redirecting your users when they click on those links.
 * **Image Support:** Load images from any URL that contains an image. Just add the image URL to your sheet and it will load that image on your website.
-* **Merge Cells:** If your spreadsheet has merged cells, you can enable this feature to improve the appearance and clarity of your WordPress table data.
-* **Cache Table for Faster Loading:** Enabling this option will drastically improve your table loading speed. Experience flawless data tables without any delay.
-* **Prevent frequent cache updates for faster table loading:** Speed up your table loading time like never before with our advanced caching system. By enabling Smart Caching (Prevent frequent cache updates for faster table loading), your tables will load in a fraction of the time. Instead of checking spreadsheet every time, FlexTable stores your data temporarily and only syncs when needed, helping your datatables load quicker and your site run smoother.
-* **Choose the maximum day to store the cache:** With Cache Duration, you decide how long FlexTable should keep your table data before checking Google Sheets for updates. Just set it to 1 day, 7 days, 30 days etc, whatever fits your update routine. It helps your tables load quicker and reduces unnecessary API requests
-* **2 Stunning Table Themes:** Easily customize the appearance of your tables by choosing one of the provided themes (Simple and Simple on Dark). 
-* **Duplicate Tables:** Easily generate duplicates of your tables without manually recreating them from scratch. Save time and maintain consistency across multiple tables.
-* **Table Description:** Communicate with your site visitors with clear table descriptions that describe the purpose of your tables. Easily convey important informations through the description.
+* **Merge Cells:** If your spreadsheet has merged cells, you can enable this feature to improve the appearance and clarity.
+* **Cache Table for Faster Loading:** Enabling this option can improve your table loading speed.
+* **Prevent frequent cache updates for faster table loading:** Optimized caching helps your tables load faster and reduces unnecessary API requests.
+* **Choose the maximum day to store the cache:** With Cache Duration, you decide the duration of Google Sheets checking for updates. Just set it to 1 day, 7 days, 30 days etc, whatever fits your update routine. It helps your tables load quicker and reduces unnecessary API requests
+* **2 Table Themes:** Easily customize the appearance by choosing one of the provided themes (Simple and Simple on Dark). 
+* **Duplicate Tables:** Easily generate duplicates without manually recreating them from scratch. Save time and maintain consistency across multiple tables.
+* **Table Description:** Communicate with your site visitors with clear descriptions that describe the purpose of your tables. Easily convey important information through the description.
 * **Cell Formatting Style:** Choose between expanded and wrapped table styles.
-* **Rows to Show Per Page:** Choose the number of table rows you want to display per page. 
-* **Table Title:** Enable this feature to show the table title in the h3 tag above the table in your website front-end. Rename your tables as you want. 
+* **Rows to Show Per Page:** Choose the number of rows you want to display per page. 
+* **Table Title:** Enable this feature to show the title in the h3 tag in your website front-end. Rename your tables as you want. 
 * **Show Info Block:** Show Showing X to Y of Z entries block below the table. With this feature, you will get an idea of the data sequence of your table at a glance. The plugin also has an On/Off button on the backend for this feature. 
-* **Allow Sorting:** Sort all your elements with Flex Table. It allows data sorting on your table in the exact order you need. You can turn off the feature if you want your data not sorted.
-* **Search Bar:** Find your data and related details specifically with the search bar. The search bar will help you to find any data easily and effortlessly. This feature also contains an On/Off button on the backend.
-* **Pagination Support:** Flex Table comes with in-built table pagination support. Order your data in a simple manner of sequential pages that are contextually connected.
-* **Asynchronous Loading:** Enable this feature to load the table in the front end after loading all content with a pre-loader. This will help your website load fast. 
+* **Allow Sorting:** It allows data sorting on your table in the exact order you need. You can turn off the feature if you want your data not sorted.
+* **Search Bar:** Quickly locate data using the built-in search bar for better usability.
+* **Pagination Support:** Access in-built table pagination support. Order your data in a simple manner of sequential pages that are contextually connected.
+* **Asynchronous Loading:** Enable this feature to load the table in the front end after loading all content with a pre-loader.
 * **Set Maximum Response Timeout for Table Loading:** Take control of performance with a global setting to define how long (in seconds) the plugin should wait for a response from the Google server.
-* **Multisite Support:** With spreadsheet to Table Multisite support, share table sync features across your multisite network.
+* **Multisite Support:** With spreadsheet to Table Multisite support, share sync features across your multisite network.
 
 👁️ [View Demo](https://lnk.wppool.dev/9HneVn4) | 🚀  [Get PRO](https://lnk.wppool.dev/JQ6ok1B) | 🤝 [Join Our Community](https://lnk.wppool.dev/cRzJg8f)
 
 
 == ⚡ Experience the Full Potential with FlexTable Pro ==
 
-* **Unlimited Table Creation:** Zero restrictions. Create unlimited data-tables without ever needing to think about any limits.
-* **Unlimited Row Sync:** Fetch as many rows as you want to show as tables. Syncing from spreadsheets to WordPress tables is now easier than ever.
-* **Import Styles from Google Sheets:** Import cell background color & cell font color, font size, font widget, font family & all other styles from GSheets.
+* **Unlimited Table Creation:** Create data-tables without limits.
+* **Unlimited Row Sync:** Fetch as many rows as you want to show.
+* **Import Styles from Google Sheets:** Import cell background color & cell font color, font size, font widget, font family & all other styles from connected sheet.
 * **Custom CSS:** Write your own custom CSS to design the table or the page itself. Your custom-written CSS will be applied to the front end of the website.
-* **Export Table:** Table exporting via CSV, Excel, PDF, JSON, Print, and Copy is easy on this plugin.
+* **Export Table:** Exporting via CSV, Excel, PDF, JSON, Print, and Copy is easy on this plugin.
 * **Tab Management:** Manage all the tables in 1 place as a tab. This feature enables you to effectively manage your data from multiple sheets.
-* **Vertical Scroll/Sticky Header:** This feature allows you to scroll vertically in the table. Activating this feature will allow the table to behave as a sticky header.
-* **6 Premium Table Themes:** Instantly switch your table’s look and feel. Each of the table themes is expertly created to provide a modern and responsive table experience.
-* **Customize Table Theme:** Build your table your way! With table theme customization, you can customize any tabl theme and personalize the header, body, text, and border colors. It's time to get creative.
-* **Table Theme Builder:** Create your own theme to display the best version of your table! With an in-built table builder, get creative and customize every section of your table. Once you create a theme, it's yours. Use the theme for any other tables later on as well.
-* **Premium Table Pagination:** Simply creating gorgeous tables isn't enough. Our premium table pagination support allows you to choose from five distinct themes to achieve your ideal pagination style - Default, Modern, Minimal, Tailwind, or Outlined. You can also customize the active pagination color and position the pagination at the middle or bottom right.
-* **Horizontal Dragging:** Once you enable this feature your users will be able to drag the table horizontally. This will improve their reading experience from the table.
-* **Hide Column:** Hide your GSheets column on desktop screen OR mobile screens. Protect your data if you don’t want to publish everything on the web.
-* **Hide Row:** Hide your GSheets rows based on your custom row selection. Hide those rows if you don’t want to show those secret rows in your table.
-* **Hide Cell:** Hide your Sheets cell data based on your custom cell selection.
+* **Vertical Scroll/Sticky Header:** This feature allows you to scroll vertically. Activating this feature will allow the table to behave as a sticky header.
+* **6 Premium Table Themes:** Switch your table’s look and feel. Each of the themes is created to provide a modern and responsive experience.
+* **Customize Table Theme:** Personalize header, body, and border colors.
+* **Table Theme Builder:** Create your own themes to display tables. With an in-built table builder, customize every section of your table. Once you create a theme, it's yours. You can  use the theme for later on as well.
+* **Premium Table Pagination:** Choose from five themes for pagination—Default, Modern, Minimal, Tailwind, or Outlined. You can customize the active pagination color and position the pagination at the middle or bottom right.
+* **Horizontal Dragging:** Once you enable this feature your users will be able to drag the table horizontally.
+* **Hide Column:** Hide your Sheet’s column on desktop screen OR mobile screens.
+* **Hide Row:** Hide your Sheet’s rows based on your custom row selection.
+* **Hide Cell:** Hide your Sheet’s cell data based on your custom cell selection.
 * **Optimized Loading:** By enabling this feature, the scripts will load only on the relevant pages/posts in your website where the table is added.
 * **Table Sorting Control:** Easily set a default sort order for tables when the page loads. You can also hide the sorting controls from the table for a cleaner and more streamlined display.
-* **Freeze Header & Column:** You can now freeze any column(s) from the left or right side, based on your preference. Additionally, you can also freeze the table header with a customizable height to enhance your viewing experience while scrolling.
-* **24/7 VIP Support:** We have a dedicated and hardworking team. Get support anytime for any issues with Flex Table. Our support team will be there always.
+* **Freeze Header & Column:** You can now freeze any column(s) from the left or right side, based on your preference. Additionally, you can also freeze the header with a customizable height to enhance your viewing experience while scrolling.
+* **Always-on support:** We have a dedicated and hardworking team. Get support for any issues with Flex Table.
 
 👁️ [View Demo](https://lnk.wppool.dev/9HneVn4) | 🚀  [Get PRO](https://lnk.wppool.dev/JQ6ok1B) | 🤝 [Join Our Community](https://lnk.wppool.dev/cRzJg8f)
 
-== 💼 FlexTable in Academic and Administrative Management ==
-Create a search engine for your data-tables with our **Search Only Display** feature. It shows a smart search field that helps users find precise data like student records, employee information, and academic insights. You can enable **column-specific searches** and choose which columns to display, giving you full control over what’s visible.
-This feature is perfect for building a **student report card system**, managing a **class grading system**, or organizing a **class schedule table**. It's also ideal for full **student record management** workflows, where you need clean, secure, and user-friendly data presentation on the front end.
-Why this could be a game-changer for your business:
+== ✨ AI Powered FlexTable ==
 
-* Allow your users to search student records by ID, grade level, or class section.
-* Let users filter teacher profiles based on department or subject area.
-* Enable front-end users to look up class schedules by time slot or assigned instructor.
-* Provide a searchable staff directory where users can filter by role or department.
-* Let students or parents view exam results filtered by student name or course.
+Transform static tables into intelligent, conversational experiences that understand and respond to your users' needs. It  delivers two powerful capabilities to enhance data accessibility:
+
+1. **Instant AI Summary** - One-click comprehensive overviews of your entire dataset
+2. **Interactive AI Table Assistant** - Conversational Q&A for deep data exploration
+
+**⚡ Instant AI Summary**
+
+With just one click, your visitors receive a clear and concise AI-generated summary of your entire table. People naturally prefer quick, ready-made answers over complex data tables. This intelligent data summary feature helps them understand your information faster than ever.
+
+**How it works**
+
+There are two quick ways to showcase the AI table summary for your users.
+
+* **Generate on Click**: Visitors will see a button to summarize the table. When they click, AI will create the summary live using your prompt. Suitable for tables with frequently changing data.
+
+* **Instant Summary**: You can generate and save the summary in advance. Visitors will see it immediately. Suitable for tables with mostly static data.
+
+**🤖 Interactive AI Table Assistant** 
+
+Beyond automatic summaries, empower your visitors with conversational AI capabilities. Users can ask specific questions about your table data and receive instant AI-powered answers tailored to their needs.
+
+**How Ask AI Works:**
+
+Users can type questions like:
+
+* **"What's the average value in this column?"**
+* **"Show me entries from last month."**
+* **"Which row has the highest sales?"**
+
+The AI analyzes your table in real-time and delivers personalized data analysis instantly.
+
+This intelligent table interaction transforms static data into an engaging, conversational data experience.
+
+== 💼 FlexTable in Academic and Administrative Management ==
+
+Use the **Search Only Display** feature to create a focused search interface for your tables. It provides a search field that helps users locate specific entries such as student details, employee information, or institutional data. You can enable **column-specific searches** and control which fields appear on the front end.
+
+This feature is useful for building tools like **student report cards**, **class grading systems**, or **course schedules**. It also supports broader record-management workflows where clear and accessible data presentation is required.
+
+Examples of how it can be used:
+
+* Let users search records by ID, grade level, or class section.
+* Allow filtering of teacher profiles by department or subject.
+* Enable front-end lookups for class schedules by time or instructor.
+* Provide a searchable staff directory with role or department filters.
+* Display exam results filtered by student name or course.
+
+
 
 https://youtu.be/GLDIL1JT-J8?si=giLoMGAGdY4TONim
 
-== 😍 WHAT OUR USERS SAY ABOUT THE MOST UNIQUE WORDPRESS DATA TABLE PLUGIN ==
-
-> ⭐⭐⭐⭐⭐ 
-[`Extremely helpful tool`](https://wordpress.org/support/topic/extremely-helpful-tool-4/)
-*I really appreciate the way I can use this tool to embed Google Sheets tables into my website*
-– by @masonwolf
-
-> ⭐⭐⭐⭐⭐ 
-[`Incredible Support`](https://wordpress.org/support/topic/incredible-support-146/)
-*While the plugin is very intuitive, there are advanced capabilities that I was struggling with. I submitted a support request and within hours the support team had not only resolved my inquiry, but they created a detailed overview of the specific capability I was interested in. Definitely above and beyond!*
-– by @headway
-
-
-The plugin supports sorting options, search bars, and swap options. Keep almost every kind of data safe and secure and manage them smoothly without any hassle. Sheet to WP Table Live Sync creates responsive data tables and makes powerful data administration. 
-
-It’s easy to install and will offer you the simplest settings to configure. With Flex Table, even a beginner can create a table on the backend by exporting data from any google sheet. 
-
-After you set up a table, a shortcode is generated automatically. All you need to place the shortcode anywhere you want on your website. Table data will be displayed in a Google spreadsheet format in your dashboard. It doesn’t matter what type of data you would like to include, Sheet to WP Table Sync has support for almost everything you can think of!
 
 👁️ [View Demo](https://lnk.wppool.dev/9HneVn4) | 🚀  [Get PRO](https://lnk.wppool.dev/JQ6ok1B) | 🤝 [Join Our Community](https://lnk.wppool.dev/cRzJg8f)
+
 
 
 == Installation ==
@@ -188,7 +211,7 @@ The Free version allows you to create up to 10 tables.
 [Watch this video to learn how to use the Shortcode to display your spreadsheet data in WP table](https://youtu.be/uGPO8qLUIq0?rel=0)
 
 = Does this plugin support the popular page builders?  =
-Yes, the plugin supports the most popular WP page builders - Elementor widget in Pro version and Gutenberg block in both Pro and Free version
+Yes, the plugin supports popular WP page builders - Elementor widget in Pro version and Gutenberg block in both Pro and Free version
 
 = How to hide “Showing X of X entries” in pagination? =
 Go to the Display tab of the table settings block and disable the “Show Info block” setting.
@@ -208,484 +231,40 @@ Yes, We have tested this plugin in all modern browsers (Safari, Chrome, Firefox,
 = Do I need to know any programming language for using this plugin? =
 No. FlexTable is a very user-friendly and simple plugin. Just download and use it accordingly.
 
-
 == Changelog ==
 
-= 3.18.2 - 23 Aug 2025 =
-* **Fix:** Resolved conflict causing `dataTable.moment` error in DataTables.
-* **Fix:** Resolved conflict with WP Maps plugin to ensure tables load properly on the frontend.  
+= 3.22.0 - 02 Feb 2026 =
+* **New:** Lightbox support added for images, allowing users to preview visuals in a focused, full-view experience.
 
-= 3.18.1 - 18 Aug 2025 =
-* **Improvement:** Increased row limit from 50 to 100.  
-* **Fix:** Resolved hide_row errors appearing in the debug log after upgrading from older versions.  
+= 3.21.0 - 12 Jan 2026 =
+* **New:** Added full compatibility with Divi page builder
 
-= 3.18.0 - 22 May 2025 =
-* **New:** Introduced option to disable frequent cache updates for faster table loading
-* **New:** Added setting to customize cache duration in the Performance tab
-* **Improvement:** Enhanced cache system for optimal performance and reduced server load
+= 3.20.1 - 30 Dec 2025 =
+* **New:** Added hover effects to all table presets with customizable hover background and text colors.
 
-= 3.17.4 - 17 April 2025 =
-* **Improvement:** Improved compatibility with WordPress 6.8 by resolving the incorrect usage of _load_textdomain_just_in_time
+= 3.20.0 - 24 Nov 2025 =
+* **New:** Introduced "Ask AI from Table Data" feature that allows users to retrieve table data using natural language questions. No manual searching required! 
+* **Improvement:** Enhanced the "Instant Summary" mode with smoother UX and improved UI flow 
+* **Fix:** Resolved an issue where single-value search results were not displaying 
+* **Fix:** Fixed incomplete pagination display in search results 
+* **Fix:** Fixed translation issues with the pagination Next / Previous buttons
 
-= 3.17.3 - 24 March 2025 =
-* **Improvement:** Update the translatable pot file and strings
+= 3.19.2 - 04 Dec 2025 =
+* **Improvement:** Improved codebase to ensure enhanced protection and overall stability.
+* **Improvement:** Added full compatibility support for WordPress 6.9 
 
-= 3.17.2 - 09 March 2025 =
-* **Fix:** If a comma is used in the first column of a Google Spreadsheet, the data after the comma was split into the second column.
-* **Fix:** Table widths broke when both the content area and sidebar contained tables.
-* **Improvement:** Table responsiveness and width misalignment issues have been resolved.
-* **Improvement:** Updated typo "upcoming" on the Conditional Table View page.
-* **Improvement:** Removed popup notices.
+= 3.19.1 - 30 Nov 2025 =
+* **Fix:** Resolved error that occurred when adding the shortcode.
 
-= 3.17.1 - 02 January 2025 =
-* **Improvement:** SDK updated. 
+= 3.19.0 - 24 Nov 2025 =
+* **New:** Added AI Summary feature with two modes *Generate on Click* and *Instant Summary*
+* **Improvement:** Fixed Moment.js library compatibility issues
+* **Improvement:** Enhanced overall UX for smoother interactions
+* **Fix:** Addressed line break inconsistencies
+* **Fix:** Corrected data missing issues in the wp table 
 
-= 3.17.0 - 01 January 2025 =
-* **New:** Added Freeze Header and Columns feature, allowing table headers and specific columns to stay sticky while scrolling.  
-* **New:** Introduced the ability to create custom themes and apply them globally across all tables.  
-* **New:** Added tutorial video CTA for Search-Only Display feature.  
-* **Tweak:** Refined the user interface for a cleaner and more modern appearance.  
+= 3.18.3 - 24 Oct 2025 =
+* **Fix:** Fixed issues to ensure smoother update functionality
 
-= 3.16.0 - 03 December 2024 =
-* **New: Default Table Sorting on Load:** Introducing the ability to set a default sorting order for tables. Users can now define how their tables should be sorted when the page loads, improving data presentation and usability.  
 
-* **New: Enhanced Timeout Settings:** A new global timeout configuration is now available under the Performance tab. This setting allows users to extend the request timeout duration, ensuring smoother handling of larger or slower data queries.  
-
-* **New: Google Sheets Line Break Support:** The plugin now fully supports line breaks within cells of Google Sheets. This enhancement improves data formatting and ensures seamless integration of multi-line content.  
-
-* **Fix: Color and Style Import for Large Datasets:** Resolved issues related to importing colors and styles for large data sheets. The process is now more reliable and efficient, ensuring accurate data representation.  
-
-* **Fix: Accurate Date Sorting in DataTables:** Addressed incorrect date sorting issues within DataTables. Dates are now properly sorted, providing accurate and intuitive ordering.  
-
-* **Improvement: Enhanced Tag Management:** Tags have been improved for better organization and usability.  
-
-* **Improvement: Tab Title Formatting:** Tab titles now consistently follow the user-defined input formatting. Previously enforced sentence case formatting has been updated to respect custom title input, offering greater flexibility. 
-
-= 3.15.5 - 30 November 2024 =
-* **Enhancement:** Updated Appsero notice that clarifies what data we collect to help users understand what they are sharing.
-
-= 3.15.4 - 25 November 2024 =
-* **Fix:** Resolved issue with the _load_textdomain_just_in_time error caused by premature loading of translations.
-
-= 3.15.3 - 21 November 2024 =
-* **Enhancement:** Popup module and SDK update.
-
-= 3.15.2 - 14 November 2024 =
-* **Improvement:** Enhanced compatibility to support WordPress 6.7
-
-= 3.15.1 - 30 October 2024 =
-* **Fix:** Resolved an issue where the row hiding feature was breaking the table header layout.
-
-= 3.15.0 - 27 October 2024 =
-* **New: Introduced new wizard stepper "Conditional Table View"**
-* **New: Search-Only Display:** Turn your table into a powerful search-engine! Visitors will initially see a search box instead of the table. Based on their input, they will receive filtered data in a streamlined table view.
-* **Fix:** Fixed DB Engine issues which prevent table creation with MyISAM engine
-* **Fix:** Fixed scripts loading issues when use shortcode for tab alone
-* **Fix:** Shortcode fallback method for unsupported browsers
-
-= 3.14.7 - 21 October 2024 =
-* **Enhancement:** Popup module and SDK update.
-
-= 3.14.6 - 29 September 2024 =
-* **Enhancement:** Improved SEO and decorations
-
-= 3.14.5 - 29 September 2024 =
-* **Enhancement:** You can now sync up to 50 rows with Google Sheets, instead of the previous limit of 30 rows.
-* **New: Checkbox functionality:** You can now display checkboxes directly in the frontend tables from the Google Sheets.
-* **Fix: Zero value handling:** You can now input zero (0) values directly into the table from the sheet. No more hassle!
-
-= 3.14.4 - 11 September 2024 =
-* **Fix:** Issue with JSON data export from the admin dashboard.
-* **Fix:** "Create Table" option in the Gutenberg FlexTable block not functioning properly.
-* **Fix:** Enhanced visibility of sorting arrows in tables.
-* **Fix:** Removed extra toast notifications.
-* **Fix:** Responsiveness issues in the "Create Theme" modal.
-* **Improvement:** Tooltips in the table customization section updated for better clarity.
-* **Improvement:** Corrected typos on the settings page for a cleaner user experience.
-* **Improvement:** Updated the FlexTable logo in the Gutenberg block.
-
-= 3.14.3 - 08 September 2024 =
-* **Fix:** Minor bug fixing
-
-= 3.14.2 - 05 September 2024 =
-* **Fix:** Fixed issues with Mac and other screens' modal sizes.
-
-= 3.14.0 - 05 September 2024 =
-**🎉 We've changed our branding!**
- 
-* **New:** **"Sheets to WP Table Live Sync"** is now **"FlexTable"**! We believe this new name better represents the powerful functionality and flexibility that set our plugin apart. Enjoy!
-* **Fix:** Fixed Theme-builder custom theme background color not reflecting in frontend.
-* **Fix:** Fixed modal not showing properly in laptop screen.
-
-= 3.13.1 - 01 September 2024 =
-* **Fix:** Fixed Theme-wise pagination not changes style following default presets
-
-= 3.13.0 - 01 September 2024 =
-* **New: Theme-wise Pagination:** Simply creating gorgeous tables isn't enough. Achieve your ideal pagination style - Default, Modern, Minimal, Tailwind, or Outlined. You can also customize the active pagination color and position the pagination at the middle or bottom right.
-
-= 3.12.0 - 30 July 2024 =
-* **New:🔥 Customize Table Theme:**  With table theme customization, you can customize any table theme-template and personalize the header, body, text, and border colors.
-* **New: 🎨 Table Theme Builder:** Create your own theme to display the best version of your table! With an in-built table builder, get creative and customize every section of your table. Once you create a theme, it’s yours. Use the theme for any other tables later on as well.
-
-= 3.11.1 - 26 July 2024 =
-* **Improvement:** Enhanced compatibility to support WordPress 6.6
-
-= 3.11.0 - 06 June 2024 =
-* **New:** Introduced dragging functionality in Managing tabs. Users can now change the tabs order by dragging with the mouse.
-
-= 3.10.0 - 02 June 2024 =
-* **New:** Added an ascending/descending sorting option inside the dashboard for easier table ordering.
-* **New:** Introduced the duplicate tables/tabs feature, making it simpler to manage your content.
-* **New:** Launched a new theme called "Uppercase Elegant" for a sleek, modern appearance.
-* **Fix:** Resolved an issue where the table screen size would reduce when zooming in or out, ensuring consistent table display.
-* **Improvement:** Enhanced the table preset compatibility with WordPress default theme and Spectra Theme for a smoother integration.
-
-= 3.9.0 - 20 May 2024 =
-* **New:** Introduced a new theme called "Minimal" for a clean and simple look.
-* **New:** Introduced another new theme named "Dark Knight" for a sleek, modern appearance.
-* **New:** Added table description - you can now add table descriptions above or below your tables for better context and clarity.
-* **Improvement:** Enhanced the appearance and flow of existing themes for a more seamless and visually appealing experience.
-
-= 3.8.1 - 06 May 2024 =
-* Fix: Resolved conflict issue between stepper buttons (Next/Back)
-* Improvement: Enhanced hiding mechanism and introduced "same as desktop mode" toggle feature
-* Improvement: Implemented global save button located at the top-right corner on setting page
-
-= 3.8.0 - 24 Apr 2024 =
-* New: Added wizards (stepper) to the table editor and tab editor page
-* New: Added row and cell hiding for mobile devices
-* Fix: Fixed Appsero updater problem 
-* Fix: Fixed Cursor behavior inside the table with default mode
-* Improvement: Enhanced overall UI/UX of settings page and table creation flow
-
-= 3.7.2 - 04 Apr 2024 =
-* Improvement: Enhanced compatibility to support WordPress 6.5
-
-= 3.7.1 - 02 Apr 2024 =
-* Fix: Resolved Cross Site Scripting (XSS) issue
-
-= 3.7.0 - 21 Mar 2024 =
-* Tweak: Added more table customization options for Free users.
-* Fix: Resolved issue causing JSON imports during preview, ensuring seamless data integration for users.
-* Fix: Fixed table breakage occurrences when headers were merged within the table, ensuring uninterrupted data presentation.
-
-= 3.6.1 - 22 Feb 2024 =
-* Improvement: Enhanced Theme Style on the frontend for a more polished appearance
-* Improvement: Enhanced the User Interface for notices, providing a more refined and user-friendly experience
-
-= 3.6.0 - 07 Feb 2024 =
-* New: Added new Script Loading behavior as a Performance feature
-* New: Added new review/rating notice
-* Improvement: Enhanced style css files
-
-= 3.5.1 - 24 JAN 2024 =
-* Fix: Appsero updated
-
-= 3.5.0 - 17 JAN 2024 =
-* New: Added Cursor behavior feature for WP table
-* Improvement: Enhanced Preview sorting feature
-* Fix: Passing null to parameter #1 () of type string is deprecated
-* Fix: Resolved DataTable auto translation constant breaks the strings data
-
-= 3.4.1 - 10 JAN 2024 =
-* Fix: Resolved Table width onClick mismatched Issues
-* Improvement: Enhanced pot files for Data Table translation support
-
-= 3.4.0 - 03 JAN 2024 =
-* New: Added "Merge Cells" feature for WP table
-* Improvement: Enhanced the sorting feature
-* Improvement: Improved the on-hover color of the "Delete" button of table
-* Fix: Resolved table design broken issue in frontend
-
-= 3.3.1 - 12 DEC 2023 =
-* Fix: Added support for page builder compatibility
-
-= 3.3.0 - 28 NOV 2023 =
-* New: Added support popup functionality
-* New: Introduced a new Notice feature
-* New: Built pot files for Translation support
-* Fix: Updated Support UI links for better navigation
-* Fix: Fixed an issue with the Sorting feature
-* Fix: Resolved conflicts related to Importing Images from Sheet
-* Fix: Addressed an Appsero-related issue
-
-= 3.2.1 - 08 NOV 2023 =
-* Fix: Fixed an issue within the SDK that conflicted with Jitsi Meet plugin
-* Fix: Fixed import color and text style broken design 
-
-= 3.2.0 - 08 NOV 2023 =
-* New: Added a FAQ section
-* Improvement: Plugin loading performance
-* Improvement: Import links and images from sheet
-* Improvement: Replaced the "import style" feature to Theme section
-* Improvement: "UPGRADE NOW" menu positioning
-* Improvement: "Documentation" menu renamed to "Get Started"
-* Improvement: Updated popup design
-
-= 3.1.2 - 02 NOV 2023 =
-* Fix: Fixed an issue within the SDK that conflicted with some plugin and caused fatal error
-
-= 3.1.1 - 23 OCT 2023 =
-* Improvement: Updated popup design
-
-= 3.1.0 - 16 OCT 2023 =
-* New: Smart link support is now available
-* New: You can now embed all supported link types within "RichText", including both Smart link and Pretty link options
-* New: Added support for mailto:yourmail@google.com links to redirect emails on click
-* Fix: Users of the FREE version can now create multiple tables from the same Google Sheet link
-* Fix: Resolved an issue where the sort icon was not appearing in the table preview within the backend
-* Improvement: Updated the design of the "UPGRADE NOW" menu for a better user experience
-
-= 3.0.3 - 26 SEP 2023 =
-* Fix: Adverse experiences with the onChange event handler
-* Improvement: Refactored recursion functionality for tab group that calls on changing state
-
-= 3.0.2 - 20 SEP 2023 =
-* New: Added "Recommended Plugins" menu
-* New: Added "copy shortcode" option in Tab edit page
-* Improvement: Removed labeling pro from "Choose Theme" panel
-* Improvement: Improved the formatting of lengthy table names titles
-* Improvement: Added content loader in tab group table
-* Improvement: Added info-tips on export buttons
-* Improvement: Updated org screenshots
-
-= 3.0.1 - 19 SEP 2023 =
-* Improvement: Updated the WPCS to version 3.0
-
-= 3.0.0 - 13 SEP 2023 =
-* New: Introduced new fresh UI.
-* Fix: The table title now displays correctly in the backend editor panel.
-* Fix: Assets will no longer load on pages where the table isn't used, optimizing page loading times.
-* Fix: The table export to PDF now appears exactly as expected.
-* Fix: We've resolved a critical issue where a fatal error occurred while editing any page with Elementor.
-* Fix: Images now display perfectly in their respective row and column positions.
-
-= 2.14.4 - 17 AUG 2023 =
-* Fix: Fix fatal error in regular site
-
-= 2.14.3 - 17 AUG 2023 =
-* Fix: Multisite compatibility and license issue
-
-= 2.14.2 - 09 AUG 2023 =
-* Improvement: Enhanced compatibility to support WordPress 6.3
-
-= 2.14.1 - 26 JUN 2023 =
-* Maintenance update
-* Minor bug fixes
-
-= 2.14.0 - 16 MAY 2023 =
-* Fix: Display alert if google sheet is not shared properly.
-* Minor bug fixes
-
-= 2.13.9 - 27 APR 2023 =
-* Fix: table row settings to all not working.
-* Minor bug fixes
-
-= 2.13.8 - 17 APR 2023 =
-* Fix: table html generation php warning.
-* Minor bug fixes
-
-= 2.13.7 - 29 MAR 2023 =
-* Fix: Popup displaying wrong background image on update issue.
-
-= 2.13.6 - 28 MAR 2023 =
-* Fix: Popup background image issue.
-
-= 2.13.5 - 28 MAR 2023 =
-* Compatibility tested with WordPress version 6.2
-
-= 2.13.4 - 22 MAR 2023 =
-* Fix: Fatal error on table empty images data.
-
-= 2.13.3 - 14 MAR 2023 =
-* Fix: Bug fixes and performance enhancement
-
-= 2.13.0 - 22 FEB 2023 =
-* ADDED: Code refactoring
-* Fix: Minor bug fixes and performance enhancement
-
-= 2.12.15 - 14 DEC 2022 =
-* Fix: appsero security issue.
-* Minor bug fixes and enhancement
-
-= 2.12.14 - 07 DEC 2022 =
-* ADDED: Multisite support
-* Minor bug fixes and enhancement
-
-= 2.12.13 - 15 NOV 2022 =
-* ADDED: wppool sdk
-* Minor bug fixes and enhancement
-
-= 2.12.12 - 03 OCT 2022 =
-* Minor bug fixes and enhancement
-
-= 2.12.11 - 05 SEPT 2022 =
-* Minor bug fixes and enhancement
-
-= 2.12.10 - 17 AUG 2022 =
-* Minor bug fixes and enhancement
-
-= 2.12.9 - 28 JUL 2022 =
-* Minor bug fixes and enhancement
-
-= 2.12.8 =
-* Minor bug fixes and enhancement
-
-= 2.12.7 =
-* Checked and Fix compatibility with WordPress 6.0
-
-= 2.12.6 =
-* Fix: Error while updating plugins.
-
-= 2.12.5 =
-* Updated: FluentAPI
-* Updated: New data source for regular offers.
-
-= 2.12.4 =
-* Updated: New data source for regular offers.
-
-= 2.12.3 =
-* Updated: changes filenames.
-
-= 2.12.2 =
-* Updated: Updated plugin folder & normal plugin update
-* Updated: Updated latest node.js package version
-* Fix: Fix some typo
-
-= 2.12.1 =
-* Fix: Fix tab management db update
-
-= 2.12.0 =
-* New: Added tab management feature. 🔥
-* Updated: Popup offer API modified
-* Fix: Fix URL conflict issue for image loading.
-* Fix: Fix $ error with other plugins
-* Fix: Fix PHP 8 error
-* Fix: Fix PDF generation script
-
-= 2.11.1 =
-* Fix: Fix bug on free version without pro.
-
-= 2.11.0 =
-* New: Added image loading from URL. 🔥
-* New: Added automatic detection of line breaks. 🔥
-* New: Added iframe video support. 🔥
-* Removed: Removed Multiple sheet tab option and made it default
-* Fix: Fix some bug.
-* Fix: Fix Elementor settings popup height issue.
-
-= 2.10.0 =
-* New: Added import of all styles in sheet.
-* New: Added affiliate popup.
-* Updated: Modified some UI/UX
-* Fix: Fix Elementor header already sent issue.
-
-= 2.9.0 =
-* New: Added sheet background  & font color import feature 🔥
-* Updated: Re-arranged other product section
-* Fix: Fix create table bug.
-
-= 2.8.0 =
-* New: Added Cell Hiding feature 🔥
-* Updated: Some minor code updated.
-
-= 2.7.0 =
-* Improvement: Improved UI of sheet plugin.
-* Fix: Fix row hiding issue & other minor bug Fix.
-
-= 2.6.2 =
-* New: Added changelog viewer in dashboard.
-* Fix: Fix no data text in empty cell.
-* Fix: Updated table settings saving sync with other page builders.
-* Improvement: Modified Elementor widget.
-
-= 2.6.1 =
-* Added: Added new menu for free plugin.
-* Update: Updated pro links.
-* Fix: Multiple sheet table fetching issue Fix.
-* Changed: Added other minor code changes.
-
-
-= 2.6.0 =
-* New: Added row hiding feature.
-* Improvement: Minor code improvements.
-
-= 2.5.2 =
-* Updated: Updated 20 row sync to 50 row sync.
-* Updated: Updated fluent CRM webhook.
-
-= 2.5.1 =
-* New: Added pretty link support.
-
-= 2.5.0 =
-* New: Added custom column hide feature for pro.
-* Fix: Fix link feature bug.
-* Improvement: Minor code improvements
-
-= 2.4.1 =
-* New: Horizontal drag feature for pro.
-* Improvement: Link support feature.
-* Improvement: Minor code improvement
-
-= 2.4.0 =
-* Improvement: Improved admin UI/UX
-* Improvement: Improved responsive table feature
-* Fix: Fix table caching issue & other small bug Fix
-* Added: Added popup to each individual pro feature
-* Added: Added step by step table creation procedure
-* Added: Added each individual and general settings tooltip hint
-* Added: Added collapsible table feature
-
-= 2.3.5 =
-* Improvement: Improved popup design
-* Added: Added table edit link on frontend
-
-= 2.3.4 =
-* Fix: Table pagination style Fix
-* Fix: Fix table style image issue
-
-= 2.3.3 =
-* Fix: Minor bugs Fix for pro plugin
-* Fix: Fix Elementor page builder exports buttons bug
-* Fix: Notification notice after 7 day of installation
-* Improvement: Moved documentation page
-* Improvement: Improved Plugin UI/UX
-* Added: Multiple Google Sheet\'s Tab in pro version as a new feature
-* Added: Boolean value support in pro version as a new feature
-* Added: Table Caching feature introduced in pro version as a new feature
-* Added: Added new 6 Table Style (Including Default) in pro version
-* Added: Added Custom CSS support for pro version
-
-= 2.2.3 =
-* Fix: Minor bugs Fix for pro plugin
-* Added: Added Format Table Cell feature in pro plugin
-* Added: Added Link Support feature in pro plugin
-* Added: Added plugin review reminder option in 1 day after activation
-* Added: Removed doc page from dashboard page
-* Improvement: Improved Gutenberg Table creation
-* Improvement: Improved table creation with 1 step reduced
-* Improvement: Other minor improvement for pro plugin
-
-= 1.2.3 =
-* Fix: Minor bugs Fix for pro plugin
-
-= 1.2.2 =
-* Fix: Fix admin page css issue
-* Fix: Fix Table broken issue
-* Added: Add cell formatting feature as upcoming feature
-* Added: Changed non-developed feature as upcoming feature
-* Improvement: UI/UX improved for users
-* Improvement: Added 20 row fetching from google sheet
-* Improvement: Plugins code structure updated for pro version
-
-= 1.1.2 =
-* Fix: Fix spreadsheet data fetching issue for different server
-* Improvement: Added video documentation in dashboard page
-
-= 1.0.1 =
-* Fix: Fix user subscription
-* Fix: Fix post fetching from WPPOOL
-* Improvement: Improved plugin admin layout
-
-= 1.0.0 =
-* Initial Release
+For older changelog entries, please see the [additional changelog.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/changelog.txt) delivered with the plugin.

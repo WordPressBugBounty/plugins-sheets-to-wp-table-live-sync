@@ -1,48 +1,462 @@
-................[31mE[0m....................[31mE[0m[31mE[0m.. 41 / 41 (100%)
+[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m..[31mE[0m[31mE[0m.......[31mE[0m.[31mE[0m.[31mE[0m[31mE[0m[31mE[0m........[31mE[0m.....[31mE[0m[31mE[0m[31mE[0m.. 46 / 46 (100%)
 
+
+
+[1mFILE: app\Admin.php[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 4 ERRORS AFFECTING 4 LINES[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 732 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 737 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 748 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 816 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\AI\AIManager.php[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 47 ERRORS AFFECTING 47 LINES[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+  47 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  93 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 103 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 104 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 105 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 120 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 121 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 122 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 137 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 138 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 139 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 157 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 161 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 166 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 172 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 177 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 183 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 190 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 211 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 212 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 213 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 214 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 235 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 242 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 263 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 264 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 268 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 274 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 277 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 282 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 284 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 287 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 288 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 291 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 294 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 300 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 304 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 307 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 313 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 315 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 319 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 321 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 325 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 332 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 336 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 340 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 350 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\AI\AIProvider.php[0m
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 43 ERRORS AFFECTING 43 LINES[0m
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  58 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+  66 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+  67 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+  75 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+  76 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+  77 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 101 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 102 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 108 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 113 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 132 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 143 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 148 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 150 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 158 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 161 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 165 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 170 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 175 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 179 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 182 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 187 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 194 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 200 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 212 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 216 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 223 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 224 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 234 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 241 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 245 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m (WordPress.PHP.YodaConditions.NotYoda)
+ 282 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 294 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 298 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 301 | [31mERROR[0m | [1mA function call to __() with texts containing placeholders was found, but was not accompanied by a "translators:" comment on the line above to clarify the meaning of the placeholders.[0m
+     |       | (WordPress.WP.I18n.MissingTranslatorsComment)
+ 305 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 310 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 311 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m (WordPress.PHP.YodaConditions.NotYoda)
+ 315 | [31mERROR[0m | [1mA function call to __() with texts containing placeholders was found, but was not accompanied by a "translators:" comment on the line above to clarify the meaning of the placeholders.[0m
+     |       | (WordPress.WP.I18n.MissingTranslatorsComment)
+ 325 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 326 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 364 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 367 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\AI\GeminiProvider.php[0m
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 35 ERRORS AFFECTING 31 LINES[0m
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 137 | [31mERROR[0m | [1mDoc comment for parameter "$credentials" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 154 | [31mERROR[0m | [1mDoc comment for parameter "$credentials" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 154 | [31mERROR[0m | [1mDoc comment for parameter "$model" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 164 | [31mERROR[0m | [1mUsing short ternaries is not allowed as they are rarely used correctly[0m (Universal.Operators.DisallowShortTernary.Found)
+ 166 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 185 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 187 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 193 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 198 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 203 | [31mERROR[0m | [1mA function call to __() with texts containing placeholders was found, but was not accompanied by a "translators:" comment on the line above to clarify the meaning of the placeholders.[0m
+     |       | (WordPress.WP.I18n.MissingTranslatorsComment)
+ 210 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 214 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 220 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 226 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 234 | [31mERROR[0m | [1mDoc comment for parameter "$prompt" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 234 | [31mERROR[0m | [1mDoc comment for parameter "$options" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 234 | [31mERROR[0m | [1mDoc comment for parameter "$credentials" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 238 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 243 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 249 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 253 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 257 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 294 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 297 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 309 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 311 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 313 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m (WordPress.PHP.YodaConditions.NotYoda)
+ 320 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 324 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 333 | [31mERROR[0m | [1mDoc comment for parameter "$credentials" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 342 | [31mERROR[0m | [1mDoc comment for parameter "$response_data" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 342 | [31mERROR[0m | [1mDoc comment for parameter "$response_code" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 346 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 355 | [31mERROR[0m | [1mA function call to __() with texts containing placeholders was found, but was not accompanied by a "translators:" comment on the line above to clarify the meaning of the placeholders.[0m
+     |       | (WordPress.WP.I18n.MissingTranslatorsComment)
+ 375 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\AI\OpenAIProvider.php[0m
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 23 ERRORS AFFECTING 19 LINES[0m
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 145 | [31mERROR[0m | [1mDoc comment for parameter "$credentials" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 162 | [31mERROR[0m | [1mDoc comment for parameter "$credentials" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 162 | [31mERROR[0m | [1mDoc comment for parameter "$model" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 172 | [31mERROR[0m | [1mUsing short ternaries is not allowed as they are rarely used correctly[0m (Universal.Operators.DisallowShortTernary.Found)
+ 174 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 201 | [31mERROR[0m | [1mA function call to __() with texts containing placeholders was found, but was not accompanied by a "translators:" comment on the line above to clarify the meaning of the placeholders.[0m
+     |       | (WordPress.WP.I18n.MissingTranslatorsComment)
+ 210 | [31mERROR[0m | [1mDoc comment for parameter "$prompt" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 210 | [31mERROR[0m | [1mDoc comment for parameter "$options" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 210 | [31mERROR[0m | [1mDoc comment for parameter "$credentials" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 214 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 219 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 225 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 229 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 232 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 250 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 262 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 267 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 271 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 280 | [31mERROR[0m | [1mDoc comment for parameter "$credentials" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 289 | [31mERROR[0m | [1mDoc comment for parameter "$response_data" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 289 | [31mERROR[0m | [1mDoc comment for parameter "$response_code" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 294 | [31mERROR[0m | [1mA function call to __() with texts containing placeholders was found, but was not accompanied by a "translators:" comment on the line above to clarify the meaning of the placeholders.[0m
+     |       | (WordPress.WP.I18n.MissingTranslatorsComment)
+ 300 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\Ajax\Notices.php[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 2 ERRORS AFFECTING 2 LINES[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 134 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 151 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\Ajax\Products.php[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 5 ERRORS AFFECTING 5 LINES[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+  44 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  47 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  52 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 107 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 227 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\Ajax\Settings.php[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 2 ERRORS AFFECTING 2 LINES[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+  47 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 133 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\Ajax\Tables.php[0m
+---------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 42 ERRORS AFFECTING 42 LINES[0m
+---------------------------------------------------------------------------------------------------------------------------------------------
+   55 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+   60 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+   64 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+   67 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1156 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1159 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1175 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1176 | [31mERROR[0m | [1mUsing short ternaries is not allowed as they are rarely used correctly[0m (Universal.Operators.DisallowShortTernary.Found)
+ 1178 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1183 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1213 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1216 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1220 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1222 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1236 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1239 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1252 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1261 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1361 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1368 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1370 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1386 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1398 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1408 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 1411 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1414 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1421 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1489 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1494 | [31mERROR[0m | [1mUsing short ternaries is not allowed as they are rarely used correctly[0m (Universal.Operators.DisallowShortTernary.Found)
+ 1496 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1498 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1502 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1505 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1509 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1512 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1518 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1537 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1597 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m (WordPress.PHP.YodaConditions.NotYoda)
+ 1699 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1706 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1726 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1733 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\Assets.php[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 2 ERRORS AFFECTING 2 LINES[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 306 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 355 | [31mERROR[0m | [1mDoc comment for parameter "$additional_deps" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\Cache.php[0m
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 9 ERRORS AFFECTING 9 LINES[0m
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  57 | [31mERROR[0m | [1mObject property "$lastUpdatedTimestamp" is not in valid snake_case format, try "$last_updated_timestamp"[0m (WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase)
+  60 | [31mERROR[0m | [1mObject property "$lastUpdatedTimestamp" is not in valid snake_case format, try "$last_updated_timestamp"[0m (WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase)
+  71 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 113 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m (WordPress.PHP.YodaConditions.NotYoda)
+ 146 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m (WordPress.PHP.YodaConditions.NotYoda)
+ 153 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m (WordPress.PHP.YodaConditions.NotYoda)
+ 212 | [31mERROR[0m | [1mFunction return type is void, but function contains return statement[0m (Squiz.Commenting.FunctionComment.InvalidReturnVoid)
+ 235 | [31mERROR[0m | [1mFunction return type is void, but function contains return statement[0m (Squiz.Commenting.FunctionComment.InvalidReturnVoid)
+ 246 | [31mERROR[0m | [1mFunction return type is void, but function contains return statement[0m (Squiz.Commenting.FunctionComment.InvalidReturnVoid)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 [1mFILE: app\Helpers.php[0m
--------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 25 ERRORS AFFECTING 25 LINES[0m
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  183 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  195 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  199 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  200 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m (WordPress.PHP.YodaConditions.NotYoda)
+  324 | [31mERROR[0m | [1mVariable "$isUrlUpdated" is not in valid snake_case format, try "$is_url_updated"[0m (WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase)
+  326 | [31mERROR[0m | [1mVariable "$isUrlUpdated" is not in valid snake_case format, try "$is_url_updated"[0m (WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase)
+  519 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  589 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  603 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  607 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  610 | [31mERROR[0m | [1mString concat is not required here; use a single string instead[0m (Generic.Strings.UnnecessaryStringConcat.Found)
+  614 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  705 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  776 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  782 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  784 | [31mERROR[0m | [1mString concat is not required here; use a single string instead[0m (Generic.Strings.UnnecessaryStringConcat.Found)
+  786 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  844 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  849 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  850 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m (WordPress.PHP.YodaConditions.NotYoda)
+  862 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1071 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 1166 | [31mERROR[0m | [1mDoc comment for parameter "$settings" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+ 1169 | [31mERROR[0m | [1mParameter comment must end with a full stop[0m (Squiz.Commenting.FunctionComment.ParamCommentFullStop)
+ 1177 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\Notices.php[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 14 ERRORS AFFECTING 14 LINES[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+  63 | [31mERROR[0m | [1mEmpty line required before block comment[0m (Squiz.Commenting.BlockComment.NoEmptyLineBefore)
+  64 | [31mERROR[0m | [1mBlock comments must start with a capital letter[0m (Squiz.Commenting.BlockComment.NoCapital)
+  68 | [31mERROR[0m | [1mComment closer must be on a new line[0m (Squiz.Commenting.BlockComment.CloserSameLine)
+  78 | [31mERROR[0m | [1mEmpty line required before block comment[0m (Squiz.Commenting.BlockComment.NoEmptyLineBefore)
+  79 | [31mERROR[0m | [1mBlock comments must start with a capital letter[0m (Squiz.Commenting.BlockComment.NoCapital)
+  83 | [31mERROR[0m | [1mComment closer must be on a new line[0m (Squiz.Commenting.BlockComment.CloserSameLine)
+  94 | [31mERROR[0m | [1mEmpty line required before block comment[0m (Squiz.Commenting.BlockComment.NoEmptyLineBefore)
+  95 | [31mERROR[0m | [1mBlock comments must start with a capital letter[0m (Squiz.Commenting.BlockComment.NoCapital)
+  99 | [31mERROR[0m | [1mComment closer must be on a new line[0m (Squiz.Commenting.BlockComment.CloserSameLine)
+ 160 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 168 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 176 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 187 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 207 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\Shortcode.php[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 2 ERRORS AFFECTING 2 LINES[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
+  60 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 133 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\Strings.php[0m
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 37 ERRORS AFFECTING 37 LINES[0m
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 157 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "save-and-move-dashboard" was first seen on line 156[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 362 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "select-table-for-tab" was first seen on line 170[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 576 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "get-started" was first seen on line 294[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 775 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "copy-shortcode" was first seen on line 603[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 785 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 789 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 797 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 806 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 811 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 818 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "recommended" was first seen on line 416[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 820 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 826 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 832 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 838 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 849 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 853 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 854 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "tooltip-ai-provider" was first seen on line 792[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 855 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "tooltip-openai" was first seen on line 793[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 856 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "tooltip-gemini" was first seen on line 794[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 857 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "checking" was first seen on line 795[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 859 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 860 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "top-p" was first seen on line 798[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 861 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "tooltip-top-p" was first seen on line 799[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 862 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "top-k" was first seen on line 800[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 863 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "tooltip-top-k" was first seen on line 801[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 864 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "precise" was first seen on line 802[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 865 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "diverse" was first seen on line 803[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 866 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "broad" was first seen on line 804[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 868 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 871 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 874 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 895 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 899 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 905 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 911 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+ 962 | [31mERROR[0m | [1mDuplicate array key found. The value will be overwritten. The string array key "update-summary" was first seen on line 942[0m (Universal.Arrays.DuplicateArrayKey.Found)
+ 966 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\SWPTLS.php[0m
+--------------------------------------------------------------------------------------------------------------------------------------------
 [1mFOUND 1 ERROR AFFECTING 1 LINE[0m
--------------------------------------------------------------------------------------------
- 830 | [31mERROR[0m | [1mUse Yoda Condition checks, you must.[0m
-     |       | (WordPress.PHP.YodaConditions.NotYoda)
--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 328 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: app\templates\parts\pro_fix_notice.php[0m
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[1mFOUND 2 ERRORS AFFECTING 2 LINES[0m
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 27 | [31mERROR[0m | [1mA function call to esc_html__() with texts containing placeholders was found, but was not accompanied by a "translators:" comment on the line above to clarify the meaning of the[0m
+    |       | [1mplaceholders.[0m (WordPress.WP.I18n.MissingTranslatorsComment)
+ 53 | [31mERROR[0m | [1mA function call to esc_html__() with texts containing placeholders was found, but was not accompanied by a "translators:" comment on the line above to clarify the meaning of the[0m
+    |       | [1mplaceholders.[0m (WordPress.WP.I18n.MissingTranslatorsComment)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[1mFILE: lib\wppool\class-plugin.php[0m
+--------------------------------------------------------------------------------------------------------------------
+[1mFOUND 1 ERROR AFFECTING 1 LINE[0m
+--------------------------------------------------------------------------------------------------------------------
+ 1293 | [31mERROR[0m | [1mDoc comment for parameter "$button_link" missing[0m (Squiz.Commenting.FunctionComment.MissingParamTag)
+--------------------------------------------------------------------------------------------------------------------
 
 
 [1mFILE: react\build\index.asset.php[0m
 -----------------------------------------------------------------------------
 [1mFOUND 1 ERROR AFFECTING 1 LINE[0m
 -----------------------------------------------------------------------------
- 1 | [31mERROR[0m | [1mMissing file doc comment[0m
-   |       | (Squiz.Commenting.FileComment.Missing)
+ 1 | [31mERROR[0m | [1mMissing file doc comment[0m (Squiz.Commenting.FileComment.Missing)
 -----------------------------------------------------------------------------
 
 
 [1mFILE: react\node_modules\flatted\php\flatted.php[0m
----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 [1mFOUND 20 ERRORS AFFECTING 18 LINES[0m
----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
    3 | [31mERROR[0m | [1mEmpty line not required before block comment[0m (Squiz.Commenting.BlockComment.HasEmptyLineBefore)
   22 | [31mERROR[0m | [1mYou must use "/**" style comments for a class comment[0m (Squiz.Commenting.ClassComment.WrongStyle)
   23 | [31mERROR[0m | [1mMissing doc comment for function __construct()[0m (Squiz.Commenting.FunctionComment.Missing)
-  28 | [31mERROR[0m | [1mOnly one object structure is allowed in a file[0m
-     |       | (Generic.Files.OneObjectStructurePerFile.MultipleFound)
+  28 | [31mERROR[0m | [1mOnly one object structure is allowed in a file[0m (Generic.Files.OneObjectStructurePerFile.MultipleFound)
   28 | [31mERROR[0m | [1mMissing doc comment for class Flatted[0m (Squiz.Commenting.ClassComment.Missing)
-  30 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m
-     |       | (Squiz.Commenting.InlineComment.InvalidEndChar)
-  31 | [31mERROR[0m | [1mYou must use "/**" style comments for a function comment[0m
-     |       | (Squiz.Commenting.FunctionComment.WrongStyle)
+  30 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  31 | [31mERROR[0m | [1mYou must use "/**" style comments for a function comment[0m (Squiz.Commenting.FunctionComment.WrongStyle)
   51 | [31mERROR[0m | [1mMissing doc comment for function stringify()[0m (Squiz.Commenting.FunctionComment.Missing)
-  58 | [31mERROR[0m | [1mThe use of count() inside a loop condition is not allowed; assign the return value to a variable and
-     |       | use the variable in the loop condition instead[0m (Squiz.PHP.DisallowSizeFunctionsInLoops.Found)
-  65 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m
-     |       | (Squiz.Commenting.InlineComment.InvalidEndChar)
-  66 | [31mERROR[0m | [1mMethod name "asString" in class Flatted is not in snake case format, try "as_string"[0m
-     |       | (WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid)
-  66 | [31mERROR[0m | [1mYou must use "/**" style comments for a function comment[0m
-     |       | (Squiz.Commenting.FunctionComment.WrongStyle)
+  58 | [31mERROR[0m | [1mThe use of count() inside a loop condition is not allowed; assign the return value to a variable and use the variable in the loop condition instead[0m
+     |       | (Squiz.PHP.DisallowSizeFunctionsInLoops.Found)
+  65 | [31mERROR[0m | [1mInline comments must end in full-stops, exclamation marks, or question marks[0m (Squiz.Commenting.InlineComment.InvalidEndChar)
+  66 | [31mERROR[0m | [1mMethod name "asString" in class Flatted is not in snake case format, try "as_string"[0m (WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid)
+  66 | [31mERROR[0m | [1mYou must use "/**" style comments for a function comment[0m (Squiz.Commenting.FunctionComment.WrongStyle)
   70 | [31mERROR[0m | [1mMissing doc comment for function index()[0m (Squiz.Commenting.FunctionComment.Missing)
   78 | [31mERROR[0m | [1mMissing doc comment for function keys()[0m (Squiz.Commenting.FunctionComment.Missing)
   88 | [31mERROR[0m | [1mMissing doc comment for function loop()[0m (Squiz.Commenting.FunctionComment.Missing)
@@ -51,7 +465,7 @@
  109 | [31mERROR[0m | [1mMissing doc comment for function ref()[0m (Squiz.Commenting.FunctionComment.Missing)
  124 | [31mERROR[0m | [1mMissing doc comment for function transform()[0m (Squiz.Commenting.FunctionComment.Missing)
  144 | [31mERROR[0m | [1mMissing doc comment for function wrap()[0m (Squiz.Commenting.FunctionComment.Missing)
----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Time: 2 mins, 30.34 secs; Memory: 32MB
+Time: 1 mins, 17.54 secs; Memory: 36MB
 

@@ -10,6 +10,9 @@
 #table-preview.gswpts_default-style {
 	background-color: #ffffff;
 	--pagination-colors: #828282;
+	--hover-bg-color: #F3F4F6;
+	--hover-text-color: #111827;
+
 
 	.dataTables_wrapper.no-footer .dataTables_scrollBody {
 		border: 0px solid;
@@ -85,6 +88,17 @@
 
 	a#create_tables_next {
 		border-radius: 0px 0.28571429rem 0.28571429rem 0px !important;
+	}
+
+	thead,
+	tbody {
+		tr:hover {
+
+			td,
+			th {
+				background-color: var(--hover-bg-color);
+			}
+		}
 	}
 
 
@@ -170,34 +184,38 @@
 		}
 	}
 
-	 /* Manual add : - Hide sorting and its icons for th and td elements */
-	 table.dataTable.table thead th.sorting-icon-hidden::before,
-	 table.dataTable.table thead td.sorting-icon-hidden::before {
-		 display: none;
-	 }
-	 table.dataTable.table thead th.sorting-icon-hidden.sorting_asc::before,
-	 table.dataTable.table thead td.sorting-icon-hidden.sorting_asc::before {
-		 display: none;
-	 }
-	 table.dataTable.table thead th.sorting-icon-hidden.sorting_desc::before,
-	 table.dataTable.table thead td.sorting-icon-hidden.sorting_desc::before {
-		 display: none;
-	 }
-	 table.dataTable.table thead th.sorting-icon-hidden::after,
-	 table.dataTable.table thead td.sorting-icon-hidden::after {
-		 display: none;
-	 }
-	 table.dataTable.table thead th.sorting-icon-hidden.sorting_asc::after,
-	 table.dataTable.table thead td.sorting-icon-hidden.sorting_asc::after {
-		 display: none;
-	 }
+	/* Manual add : - Hide sorting and its icons for th and td elements */
+	table.dataTable.table thead th.sorting-icon-hidden::before,
+	table.dataTable.table thead td.sorting-icon-hidden::before {
+		display: none;
+	}
 
-	 table.dataTable.table thead th.sorting-icon-hidden.sorting_desc::after,
+	table.dataTable.table thead th.sorting-icon-hidden.sorting_asc::before,
+	table.dataTable.table thead td.sorting-icon-hidden.sorting_asc::before {
+		display: none;
+	}
+
+	table.dataTable.table thead th.sorting-icon-hidden.sorting_desc::before,
+	table.dataTable.table thead td.sorting-icon-hidden.sorting_desc::before {
+		display: none;
+	}
+
+	table.dataTable.table thead th.sorting-icon-hidden::after,
+	table.dataTable.table thead td.sorting-icon-hidden::after {
+		display: none;
+	}
+
+	table.dataTable.table thead th.sorting-icon-hidden.sorting_asc::after,
+	table.dataTable.table thead td.sorting-icon-hidden.sorting_asc::after {
+		display: none;
+	}
+
+	table.dataTable.table thead th.sorting-icon-hidden.sorting_desc::after,
 	table.dataTable.table thead td.sorting-icon-hidden.sorting_desc::after {
 		display: none;
-		}
+	}
 
-	 
+
 
 }
 
