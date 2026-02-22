@@ -12,7 +12,7 @@ const Resource = () => {
 			title: 'Documentation',
 			description: 'Find comprehensive guides and step-by-step instructions to get the most out of FlexTable',
 			ctaText: 'Open Docs',
-			ctaLink: 'https://wppool.dev/flextable-documentation',
+			ctaLink: 'https://wppool.dev/docs-category/how-to-use-sheets-to-wp-table/',
 		},
 		{
 			id: 2,
@@ -28,7 +28,7 @@ const Resource = () => {
 			title: 'Get Support',
 			description: 'Need help? Our support team is ready to assist you with any questions or issues',
 			ctaText: 'Contact Support',
-			ctaLink: 'https://wordpress.org/support/plugin/sheets-to-wp-table-live-sync/',
+			ctaLink: 'https://wppool.dev/contact/',
 		},
 		{
 			id: 4,
@@ -36,7 +36,7 @@ const Resource = () => {
 			title: 'Community Forum',
 			description: 'Join our community to share ideas, get tips, and connect with other FlexTable users',
 			ctaText: 'Join Forum',
-			ctaLink: 'https://wordpress.org/support/plugin/sheets-to-wp-table-live-sync/',
+			ctaLink: 'https://www.facebook.com/groups/wppoolcommunity',
 		},
 	];
 

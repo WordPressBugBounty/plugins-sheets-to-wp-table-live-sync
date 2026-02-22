@@ -64,7 +64,7 @@ const MagicWizard = ({ isAIConfigured, tableSettings, setTableSettings }) => {
 
                         <div className="toggle-content">
                             <h4>🤖 AI Table Summary</h4>
-                            <p>Turn your data into quick and smart summarize</p>
+                            <p>Turn your data into quick and smart summary</p>
                         </div>
 
                         <label className="toggle-switch">
@@ -84,7 +84,7 @@ const MagicWizard = ({ isAIConfigured, tableSettings, setTableSettings }) => {
 
                         <div className="toggle-content">
                             <h4>💬 Ask AI</h4>
-                            <p>Lets visitors chat with table data</p>
+                            <p>Lets visitors chat with your table data</p>
                         </div>
 
                         <label className="toggle-switch">
@@ -141,7 +141,7 @@ const MagicWizard = ({ isAIConfigured, tableSettings, setTableSettings }) => {
                             {` `} Setup AI Provider
                         </a>
                         <a
-                            href="https://youtube.com/watch?v=your-tutorial-id"
+                            href="https://www.youtube.com/watch?v=Mi2VYNtMU4s"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="watch-tutorial-button"
