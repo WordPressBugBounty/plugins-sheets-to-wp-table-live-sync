@@ -438,7 +438,7 @@ const SetupWizard = () => {
 						className="btn btn-lg"
 						onClick={handleGoToDashboard}
 					>
-						{getStrings('go-to-dashboard')}
+						{getStrings('save-changes')}
 					</button>
 				</div>
 			)}

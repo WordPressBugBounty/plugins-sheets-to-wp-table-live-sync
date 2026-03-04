@@ -75,7 +75,7 @@ function EditTab() {
 						textDecoration: 'none'
 					}}
 				>
-					Help?
+					{getStrings('help-text-tooltip')}
 				</span>
 
 				<CTAVideoPlayer

@@ -17,9 +17,12 @@ defined( 'ABSPATH' ) || exit;
 				<?php esc_html_e("Let's Get Your FlexTable Pro Plugin Updated!", 'sheets-to-wp-table-live-sync'); ?>
 			</h3>
 			<p class="pro-fix-notice">
-				<?php esc_html_e('We’ve noticed a small issue with the pro plugin update process. Just click “Fix Now” button to automatically solve the issue, and everything will be back to normal', 'sheets-to-wp-table-live-sync'); ?>
-				<a href="#" class="learn-more-link"><?php esc_html_e('Learn more about what we fixed', 'sheets-to-wp-table-live-sync'); ?></a>
+				<?php esc_html_e("We've noticed a small issue with the pro plugin update process. Just click Fix Now button to automatically solve the issue, and everything will be back to normal", 'sheets-to-wp-table-live-sync'); ?>
+				<a href="#" class="learn-more-link">
+					<?php esc_html_e('Learn more about what we fixed', 'sheets-to-wp-table-live-sync'); ?>
+				</a>
 			</p>
+
 			<div class="learn-more-content" style="display: none;">
 				<p class="learn-more-text">
 					<?php

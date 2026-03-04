@@ -553,7 +553,7 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 												</div>
 											) : null;
 										})
-										: 'Select a column (optional)'}
+										: getStrings('select-column')}
 									<div className="select-arrow">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"

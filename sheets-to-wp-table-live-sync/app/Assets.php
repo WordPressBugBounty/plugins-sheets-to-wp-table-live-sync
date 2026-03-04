@@ -326,7 +326,44 @@ class Assets {
 			'strings'            => Strings::get(),
 			'iconsURL'             => $icons_urls,
 			'nonce'                => wp_create_nonce( 'gswpts_sheet_nonce_action' ),
+			'user_auth'            => $this->get_user_auth_data(),
 		]);
+	}
+
+	/**
+	 * Get current user authentication data for filtering
+	 *
+	 * @return array User authentication data
+	 * @since 2.12.15
+	 */
+	private function get_user_auth_data() {
+		$current_user = wp_get_current_user();
+		
+		if ( ! $current_user->exists() ) {
+			return [
+				'logged_in' => false,
+				'user_id'   => 0,
+				'username'  => '',
+				'email'     => '',
+				'nickname'  => '',
+				'display_name' => '',
+				'first_name' => '',
+				'last_name' => '',
+				'roles'     => [],
+			];
+		}
+
+		return [
+			'logged_in'    => true,
+			'user_id'      => $current_user->ID,
+			'username'     => $current_user->user_login,
+			'email'        => $current_user->user_email,
+			'nickname'     => $current_user->nickname,
+			'display_name' => $current_user->display_name,
+			'first_name'   => $current_user->first_name,
+			'last_name'    => $current_user->last_name,
+			'roles'        => $current_user->roles,
+		];
 	}
 
 	/**

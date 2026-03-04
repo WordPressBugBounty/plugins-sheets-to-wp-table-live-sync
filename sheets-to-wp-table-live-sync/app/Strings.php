@@ -40,6 +40,7 @@ class Strings {
 			'create-new-table'  => __( 'Create new table', 'sheets-to-wp-table-live-sync' ),
 			'need-help'  => __( 'Need help?', 'sheets-to-wp-table-live-sync' ),
 			'help-text'  => __( 'Help', 'sheets-to-wp-table-live-sync' ),
+			'help-text-tooltip'  => __( 'Help?', 'sheets-to-wp-table-live-sync' ),
 			'watch-now'  => __( 'Watch Now', 'sheets-to-wp-table-live-sync' ),
 			'search-tb'  => __( 'Search tables', 'sheets-to-wp-table-live-sync' ),
 			'search-items'  => __( 'Search items', 'sheets-to-wp-table-live-sync' ),
@@ -47,6 +48,11 @@ class Strings {
 			'search-btn'  => __( 'Search', 'sheets-to-wp-table-live-sync' ),
 			'clear-btn'  => __( 'Clear', 'sheets-to-wp-table-live-sync' ),
 
+			'get_help_creation'  => __( 'Get Help with Creating Tab Groups', 'sheets-to-wp-table-live-sync' ),
+			'tabs-description'  => __( 'Tabs let you group multiple tables into tabbed views and embed in your pages or posts', 'sheets-to-wp-table-live-sync' ),
+			'quick-tutorial'  => __( 'Quick Tutorial', 'sheets-to-wp-table-live-sync' ),
+			'get-started-tab-groups'  => __( 'Get started with Tab Groups', 'sheets-to-wp-table-live-sync' ),
+			'search-tabs'  => __( 'Search tabs', 'sheets-to-wp-table-live-sync' ),
 			/**
 			 * Tooltip
 			 */
@@ -57,6 +63,8 @@ class Strings {
 			'tooltip-3'  => __( 'If this is enabled, the box showing number of entries will be hidden for the viewers', 'sheets-to-wp-table-live-sync' ),
 			'tooltip-4'  => __( 'If enabled, the search box will be hidden for viewers', 'sheets-to-wp-table-live-sync' ),
 			'tooltip-5'  => __( 'Enable this option to hide the table title for the viewers', 'sheets-to-wp-table-live-sync' ),
+			'tooltip-5.1'  => __( 'Enable this option to show the table title for the viewers', 'sheets-to-wp-table-live-sync' ),
+			'tooltip-5.2'  => __( 'Enable this option to show table description for the viewers', 'sheets-to-wp-table-live-sync' ),
 			'tooltip-6'  => __( 'If checked, the sorting option will be enabled for viewers when they view the table', 'sheets-to-wp-table-live-sync' ),
 			'tooltip-7'  => __( 'If enabled the entry info showing number of current entries out of all the entries will be hidden', 'sheets-to-wp-table-live-sync' ),
 			'tooltip-8'  => __( 'Enable this to hide the pagination for viewers', 'sheets-to-wp-table-live-sync' ),
@@ -155,7 +163,7 @@ class Strings {
 			'save-and-move'  => __( 'Save & go to Manage Tab', 'sheets-to-wp-table-live-sync' ),
 			'save-and-move-dashboard'  => __( 'Save & go to dashboard', 'sheets-to-wp-table-live-sync' ),
 			'save-and-move-dashboard'  => __( 'Go to Dashboard', 'sheets-to-wp-table-live-sync' ),
-			'go-to-dashboard'  => __( 'Save changes', 'sheets-to-wp-table-live-sync' ),
+			
 			'copy-mail'  => __( 'COPY EMAL', 'sheets-to-wp-table-live-sync' ),
 			'id-table'  => __( 'ID: TB_', 'sheets-to-wp-table-live-sync' ),
 			'tab-short-copy'  => __( 'Copied!', 'sheets-to-wp-table-live-sync' ),
@@ -174,6 +182,7 @@ class Strings {
 			 */
 
 			'sel-pagination'  => __( 'Select Pagination', 'sheets-to-wp-table-live-sync' ),
+			'customize-theme-hint'  => __( 'Customize your theme according to your needs', 'sheets-to-wp-table-live-sync' ),
 
 			/**
 			 * Sorting
@@ -200,8 +209,8 @@ class Strings {
 			'create-table'  => __( 'Create table', 'sheets-to-wp-table-live-sync' ),
 			'create-table-from-url'  => __( 'Create table from URL', 'sheets-to-wp-table-live-sync' ),
 			'change-theme-table-style'  => __( 'Change theme and table style', 'sheets-to-wp-table-live-sync' ),
-			'change-table-theme'  => __( 'You can change table theme below. You will find more customization in the dashboard. ', 'sheets-to-wp-table-live-sync' ),
-			'get-pro'  => __( 'Get Pro ', 'sheets-to-wp-table-live-sync' ),
+			'change-table-theme'  => __( 'You can change table theme below. You will find more customization in the dashboard.', 'sheets-to-wp-table-live-sync' ),
+			'get-pro'  => __( 'Get Pro', 'sheets-to-wp-table-live-sync' ),
 			'pro'  => __( 'PRO', 'sheets-to-wp-table-live-sync' ),
 			// 'pro-lock'  => __( 'PRO', 'sheets-to-wp-table-live-sync' ),
 			'to-create-table-from-any-tab'  => __( 'to create table from any tab of your Google SpreadSheet.', 'sheets-to-wp-table-live-sync' ),
@@ -329,7 +338,7 @@ class Strings {
 			'table-desc'  => __( 'Table description', 'sheets-to-wp-table-live-sync' ),
 			'show-table-desc'  => __( 'Show Table description', 'sheets-to-wp-table-live-sync' ),
 
-			'data-source-title'  => __( 'Connect your Google Sheet ', 'sheets-to-wp-table-live-sync' ),
+			'data-source-title'  => __( 'Connect your Google Sheet', 'sheets-to-wp-table-live-sync' ),
 			'table-theme-title'  => __( 'Choose how your table appears', 'sheets-to-wp-table-live-sync' ),
 			'tc-title'  => __( 'Style and personalize your table’s look', 'sheets-to-wp-table-live-sync' ),
 			'hide-row-col-title'  => __( 'Show or hide specific rows and columns', 'sheets-to-wp-table-live-sync' ),
@@ -616,6 +625,7 @@ class Strings {
 			/**
 			 * TabSettings
 			 */
+			'select-column'  => __( 'Select a column (optional)', 'sheets-to-wp-table-live-sync' ),
 			'After-the-table'  => __( 'After the table', 'sheets-to-wp-table-live-sync' ),
 			'Before-the-table'  => __( 'Before the table', 'sheets-to-wp-table-live-sync' ),
 			'Tab-position'  => __( 'Tab position in embedded view', 'sheets-to-wp-table-live-sync' ),
@@ -751,11 +761,11 @@ class Strings {
 			  'unable-to-access' => __('Unable to access the Sheet! Please follow the instructions below:','sheets-to-wp-table-live-sync'),
 			  'on-your-google' => __('On your Google Sheet, click on the','sheets-to-wp-table-live-sync'),
 			  'button-located-at' => __('button located at the top-right corner. Then on the popup, choose the','sheets-to-wp-table-live-sync'),
-			  'anyone-with-the-link' => __('“Anyone with the link”','sheets-to-wp-table-live-sync'),
+			  'anyone-with-the-link' => __('Anyone with the link','sheets-to-wp-table-live-sync'),
 			  'option-under-general' => __('option under General access','sheets-to-wp-table-live-sync'),
 			  'click-on-the' => __('Click on the','sheets-to-wp-table-live-sync'),
 			  'icon-on-the-popup' => __('icon on the popup and ensure that the option','sheets-to-wp-table-live-sync'),
-			  'viewers-and-Commenters' => __('“Viewers and commenters can see the option to download, print, and copy”','sheets-to-wp-table-live-sync'),
+			  'viewers-and-Commenters' => __('Viewers and commenters can see the option to download, print, and copy','sheets-to-wp-table-live-sync'),
 			  'is-selected' => __('is selected','sheets-to-wp-table-live-sync'),
 			  'share' => __('Share','sheets-to-wp-table-live-sync'),
 			  'save-the-changes' => __('Save the changes by clicking on the','sheets-to-wp-table-live-sync'),
@@ -943,7 +953,7 @@ class Strings {
 
 			'edit-summary' => __('Edit','sheets-to-wp-table-live-sync'),
 			'current-backend-summary' => __('Current Stored Summary','sheets-to-wp-table-live-sync'),
-			'summary-preview-note' => __('This is exactly how the summary will appear on your frontend table. Click "Edit Summary" above to modify it.','sheets-to-wp-table-live-sync'),
+			'summary-preview-note' => __("This is exactly how the summary will appear on your frontend table. Click 'Edit Summary' above to modify it.",'sheets-to-wp-table-live-sync'),
 			'summary-content-label' => __('Summary Content','sheets-to-wp-table-live-sync'),
 			'summary-content-placeholder' => __('Generated AI Table Summary will appear here...','sheets-to-wp-table-live-sync'),
 
@@ -990,6 +1000,152 @@ class Strings {
 			'chat-gpt'  => __( 'ChatGPT', 'sheets-to-wp-table-live-sync' ),
 			'gemini-ai-studio'  => __( 'Google AI Studio', 'sheets-to-wp-table-live-sync' ),
 			'model-version'  => __( 'Model Version', 'sheets-to-wp-table-live-sync' ),
+
+
+			// Filter feature 
+			// General / UI Labels
+			'update-filter' => __( 'Update Filter', 'sheets-to-wp-table-live-sync' ),
+			'add-filter' => __( 'Add Filter', 'sheets-to-wp-table-live-sync' ),
+			'add-filter-hint' => __( 'Advanced column filtering with search, select, and multi-select options', 'sheets-to-wp-table-live-sync' ),
+
+			// Table View Modes
+			'basic-display' => __( 'Basic Display', 'sheets-to-wp-table-live-sync' ),
+			'search-only-display' => __( 'Search Only Display', 'sheets-to-wp-table-live-sync' ),
+			'filter-wise-display' => __( 'Filter Wise Display', 'sheets-to-wp-table-live-sync' ),
+
+			// Search Mode Strings 
+			'a-search-field' => __( 'Turn your table into a powerful search-engine! Visitors will initially see a search box instead of the table. Based on their input, they will receive filtered data in a streamlined table view. Ideal for searching both broad and specific ranges of information from your Google Sheets (e.g., student records, employee info, etc.).', 'sheets-to-wp-table-live-sync' ),
+			
+			//Filter – Global Settings
+			'global-filter-settings' => __( 'Global Filter Settings', 'sheets-to-wp-table-live-sync' ),
+			'enable-table-filters' => __( 'Enable Table Filters', 'sheets-to-wp-table-live-sync' ),
+			'select-primary-filter-type' => __( 'Select Primary Filter Type', 'sheets-to-wp-table-live-sync' ),
+			'text-search' => __( 'Text Search', 'sheets-to-wp-table-live-sync' ),
+			'single-select' => __( 'Single Select', 'sheets-to-wp-table-live-sync' ),
+			'multi-select' => __( 'Multi Select', 'sheets-to-wp-table-live-sync' ),
+			'mixed-filters' => __( 'Mixed Filters (All Types)', 'sheets-to-wp-table-live-sync' ),
+
+			// Filter Position
+			'filter-position' => __( 'Filter Position', 'sheets-to-wp-table-live-sync' ),
+			'filter-position-header' => __( 'Header', 'sheets-to-wp-table-live-sync' ),
+			'filter-position-footer' => __( 'Footer', 'sheets-to-wp-table-live-sync' ),
+
+			// Filter Options
+			'strict-mode' => __( 'Strict Mode', 'sheets-to-wp-table-live-sync' ),
+			'hide-filter-ui' => __( 'Hide Filter UI', 'sheets-to-wp-table-live-sync' ),
+			'auto-enable-all-columns' => __( 'Auto-Enable Filters for All Columns', 'sheets-to-wp-table-live-sync' ),
+			'load-default-filters' => __( 'Load Default Filter Values', 'sheets-to-wp-table-live-sync' ),
+
+			// Column Filter Configuration 
+			'column-filter-config' => __( 'Column-Specific Filter Configuration', 'sheets-to-wp-table-live-sync' ),
+			'auto-enable-mode' => __( 'Auto-Enable Mode', 'sheets-to-wp-table-live-sync' ),
+			'auto-enable-mode-description' => __( "All columns automatically have filters using the global settings above.  Add specific columns below to customize their individual settings, or disable 'Auto-Enable Filters for All Columns' to only show filters for manually added columns.", 'sheets-to-wp-table-live-sync' ),
+			'manual-mode' => __( 'Manual Mode', 'sheets-to-wp-table-live-sync' ),
+			'manual-mode-description' => __( "Only columns added below will have filters. Enable 'Auto-Enable Filters for All Columns' above to automatically show filters for all columns.", 'sheets-to-wp-table-live-sync' ),
+			
+			'add-column-filter' => __( 'Add Column Filter', 'sheets-to-wp-table-live-sync' ),
+			'edit-column-filter-title' => __( 'Edit Column Filter', 'sheets-to-wp-table-live-sync' ),
+
+			'add-column-filter-desc' => __( 'Add columns here to override their global settings', 'sheets-to-wp-table-live-sync' ),
+			'no-column-filters' => __( 'No column filters configured. Click "Add Column Filter" to get started.', 'sheets-to-wp-table-live-sync' ),
+
+			// Modal – Column Filter
+			'filter-type' => __( 'Filter Type', 'sheets-to-wp-table-live-sync' ),
+			'target-column' => __( 'Target Column', 'sheets-to-wp-table-live-sync' ),
+			'column' => __( 'Column', 'sheets-to-wp-table-live-sync' ),
+			'default-value' => __( 'Default Value', 'sheets-to-wp-table-live-sync' ),
+			'filter-active' => __( 'Filter Active', 'sheets-to-wp-table-live-sync' ),
+			'filter-active-desc' => __( 'Whether this filter is applied to the table - if unchecked, filter is completely disabled', 'sheets-to-wp-table-live-sync' ),
+			'user-can-modify' => __( 'User Can Modify', 'sheets-to-wp-table-live-sync' ),
+			'user-can-modify-desc' => __( 'Allow users to change filter values - if unchecked, filter becomes readonly', 'sheets-to-wp-table-live-sync' ),
+			'hide-this-filter-ui' => __( 'Hide This Filter UI', 'sheets-to-wp-table-live-sync' ),
+			'hide-this-filter-ui-desc' => __( 'Hide this specific filter UI but keep it working in background', 'sheets-to-wp-table-live-sync' ),
+
+			'strict-mode-override' => __( 'Strict Mode Override', 'sheets-to-wp-table-live-sync' ),
+			'use-global-sett' => __( 'Use Global Setting', 'sheets-to-wp-table-live-sync' ),
+			'enable-global-sett' => __( 'Enable for this filter', 'sheets-to-wp-table-live-sync' ),
+			'disable-global-sett' => __( 'Disable for this filter', 'sheets-to-wp-table-live-sync' ),
+			'global-sett-msg' => __( 'Global: Follow the "Strict Mode" setting above. Enable/Disable: Override for this specific filter.', 'sheets-to-wp-table-live-sync' ),
+
+			// User-Specific Display
+			'user-specific-display-settings' => __( 'User-specific Display Settings', 'sheets-to-wp-table-live-sync' ),
+			'enable-user-specific-display' => __( 'Enable User-specific Display', 'sheets-to-wp-table-live-sync' ),
+			'user-strict-mode' => __( 'Strict Mode (Exact Matching)', 'sheets-to-wp-table-live-sync' ),
+			'hide-user-filter-ui' => __( 'Hide All User Filter UI', 'sheets-to-wp-table-live-sync' ),
+			'user-filter-configuration' => __( 'User-Specific Filter Configuration', 'sheets-to-wp-table-live-sync' ),
+			'user-base-filtering' => __( 'User-Based Filtering:', 'sheets-to-wp-table-live-sync' ),
+			'user-base-filtering-desc' => __( "Configure which columns should be filtered based on logged-in user data. Each filter will automatically use the user's information (email, username, roles, etc.) to show relevant rows.", 'sheets-to-wp-table-live-sync' ),
+			'add-user-filter' => __( 'Add User Filter', 'sheets-to-wp-table-live-sync' ),
+			'configure-column-filter' => __( 'Configure columns to filter based on user data', 'sheets-to-wp-table-live-sync' ),
+			'user-fields' => __( 'User Fields', 'sheets-to-wp-table-live-sync' ),
+			'user-fields-enabled' => __( 'Enabled', 'sheets-to-wp-table-live-sync' ),
+			'user-can-change' => __( 'User Can Change', 'sheets-to-wp-table-live-sync' ),
+			'no-user-filters' => __( 'No user filters configured. Click "Add User Filter" to get started.', 'sheets-to-wp-table-live-sync' ),
+			'user-fields-to-match' => __( 'User Fields to Match (Multi-select)', 'sheets-to-wp-table-live-sync' ),
+			'hold-ctrl-cmd-to-select-multiple-fields' => __( 'Hold Ctrl/Cmd to select multiple fields. The filter will match if ANY of the selected fields match.', 'sheets-to-wp-table-live-sync' ),
+			'whether-this-user-filter-is-applied' => __( 'Whether this user-based filter is applied - if unchecked, filter is completely disabled', 'sheets-to-wp-table-live-sync' ),
+			'user-can-override' => __( 'User Can Override', 'sheets-to-wp-table-live-sync' ),
+			'hide-this-filter-ui' => __( 'Hide This Filter UI', 'sheets-to-wp-table-live-sync' ),
+
+			//CTA Notice 
+			'cta-notice-title' => __( 'Get Help with Table Creation', 'sheets-to-wp-table-live-sync' ),
+			'cta-notice-description' => __( 'Create awesome tables from your Google Sheets. Just paste the link and see the magic', 'sheets-to-wp-table-live-sync' ),
+			'cta-notice-quick-tutorial' => __( 'Quick Tutorial', 'sheets-to-wp-table-live-sync' ),
+			
+			'cta-notice-get-started' => __( 'Get started with table creation', 'sheets-to-wp-table-live-sync' ),
+			'quick video tutorial' => __( 'Quick Video Tutorial', 'sheets-to-wp-table-live-sync' ),
+			'cta-notice-read-docs' => __( 'Read Documentation', 'sheets-to-wp-table-live-sync' ),
+			'cta-notice-close-button-label' => __( 'Close', 'sheets-to-wp-table-live-sync' ),
+			'cta-notice-dismissing' => __( 'Closing...', 'sheets-to-wp-table-live-sync' ),
+			
+			// Maginc wizards 
+			'ai-table-summary' => __( '🤖 AI Table Summary', 'sheets-to-wp-table-live-sync' ),
+			'ai-table-summary-description' => __( 'Turn your data into quick and smart summary', 'sheets-to-wp-table-live-sync' ),
+			'ai-ask-ai' => __( '💬 Ask AI', 'sheets-to-wp-table-live-sync' ),
+			'ai-ask-ai-description' => __( 'Lets visitors chat with your table data', 'sheets-to-wp-table-live-sync' ),
+			'ai-connect-to-unlock-features' => __( 'Connect AI to Unlock Features', 'sheets-to-wp-table-live-sync' ),
+			'ai-connect-to-unlock-features-description' => __( 'Set up your preferred provider (like Gemini or OpenAI) to use these AI tools.', 'sheets-to-wp-table-live-sync' ),
+			'ai-setup-provider' => __( 'Setup AI Provider', 'sheets-to-wp-table-live-sync' ),
+			'ai-help' => __( 'Help?', 'sheets-to-wp-table-live-sync' ),
+			'ai-not-ready' => __( '💡 Not ready? No worries - you can enable AI anytime later.', 'sheets-to-wp-table-live-sync' ),
+
+			//Tooltip content
+			'table-description-tooltip' => __( 'Table description holder. Enter your table description here.', 'sheets-to-wp-table-live-sync' ),
+			
+			// Placeholder content 
+			'enter-table-description' => __( 'Enter your table description', 'sheets-to-wp-table-live-sync' ),
+			'enter-custom-css-placeholder' => __( '# # Insert custom CSS code here to modify looks and feel', 'sheets-to-wp-table-live-sync' ),
+
+			// Get started page strings 
+			'get-started-title' => __( 'Get started with your first table', 'sheets-to-wp-table-live-sync' ),
+			'get-started-description' => __( "Let's create your first table from Google Sheets – it's as easy as pie!", 'sheets-to-wp-table-live-sync' ),
+			'get-started-watch-tutorial' => __( "Watch a quick tutorial", 'sheets-to-wp-table-live-sync' ),
+			
+			'get-started-explore-resources' => __( "Explore helpful resources", 'sheets-to-wp-table-live-sync' ),
+			'get-started-pro-version' => __( "🎁 Get the pro version and unlock endless possibilities", 'sheets-to-wp-table-live-sync' ),
+			
+			// Helpful resources 
+			'help-doc-1-title'       => __( 'Documentation', 'sheets-to-wp-table-live-sync' ),
+			'help-doc-1-description' => __( 'Find comprehensive guides and step-by-step instructions to get the most out of FlexTable', 'sheets-to-wp-table-live-sync' ),
+			'help-doc-1-cta'         => __( 'Open Docs', 'sheets-to-wp-table-live-sync' ),
+
+			'help-doc-2-title'       => __( 'Video Tutorials', 'sheets-to-wp-table-live-sync' ),
+			'help-doc-2-description' => __( 'Watch detailed video tutorials to learn FlexTable features and best practices', 'sheets-to-wp-table-live-sync' ),
+			'help-doc-2-cta'         => __( 'Watch Videos', 'sheets-to-wp-table-live-sync' ),
+
+			'help-doc-3-title'       => __( 'Get Support', 'sheets-to-wp-table-live-sync' ),
+			'help-doc-3-description' => __( 'Need help? Our support team is ready to assist you with any questions or issues', 'sheets-to-wp-table-live-sync' ),
+			'help-doc-3-cta'         => __( 'Contact Support', 'sheets-to-wp-table-live-sync' ),
+
+			'help-doc-4-title'       => __( 'Community Forum', 'sheets-to-wp-table-live-sync' ),
+			'help-doc-4-description' => __( 'Join our community to share ideas, get tips, and connect with other FlexTable users', 'sheets-to-wp-table-live-sync' ),
+			'help-doc-4-cta'         => __( 'Join Forum', 'sheets-to-wp-table-live-sync' ),
+
+			'' => __( "", 'sheets-to-wp-table-live-sync' ),
+			'' => __( "", 'sheets-to-wp-table-live-sync' ),
+
+
+
 		];
 	}
 }

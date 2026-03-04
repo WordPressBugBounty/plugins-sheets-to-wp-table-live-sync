@@ -54,14 +54,14 @@ class Products {
 
 		if ( $is_woocommerce_active ) {
 			$header_data['woocommerce'] = [
-				'title' => '🛒 Boost your WooCommerce store\'s functionality',
-				'content' => 'Discover top plugins to supercharge your store with advanced tools and improvements',
+				'title'   => __( '🛒 Boost your WooCommerce stores functionality', 'sheets-to-wp-table-live-sync' ),
+				'content' => __( 'Discover top plugins to supercharge your store with advanced tools and improvements', 'sheets-to-wp-table-live-sync' ),
 			];
 		}
 
 		$header_data['general'] = [
-			'title' => '🧩 Enhance your WordPress site with powerful tools',
-			'content' => 'We\'ve selected top plugins to improve your site. Explore options tailored just for you',
+			'title'   => __( '🧩 Enhance your WordPress site with powerful tools', 'sheets-to-wp-table-live-sync' ),
+			'content' => __( 'We have selected top plugins to improve your site. Explore options tailored just for you', 'sheets-to-wp-table-live-sync' ),
 		];
 
 		// Return the HTML content and header data within the JSON response.

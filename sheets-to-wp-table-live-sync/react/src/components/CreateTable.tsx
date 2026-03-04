@@ -211,7 +211,7 @@ function CreateTable() {
 							textDecoration: 'underline'
 						}}
 					>
-						quick video tutorial
+						{getStrings('quick-video-tutorial')}
 					</span>
 				</p>
 
@@ -219,7 +219,7 @@ function CreateTable() {
 
 			<CTAVideoPlayer
 				videoUrl="https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT"
-				title="Get started with table creation"
+				title={getStrings('cta-notice-get-started')}
 				isOpen={isVideoModalOpen}
 				onClose={() => setIsVideoModalOpen(false)}
 			/>

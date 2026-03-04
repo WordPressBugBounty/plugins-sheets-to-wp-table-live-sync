@@ -1,0 +1,4817 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2026-03-03 12:42+0600\n"
+"PO-Revision-Date: 2026-03-03 12:43+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_html\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: assets\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: react/node_modules\n"
+"X-Poedit-SearchPathExcluded-4: lib\n"
+"X-Poedit-SearchPathExcluded-5: .wordpress-org\n"
+"X-Poedit-SearchPathExcluded-6: .vscode\n"
+"X-Poedit-SearchPathExcluded-7: .github\n"
+"X-Poedit-SearchPathExcluded-8: .git\n"
+
+#: app/AI/AIManager.php:111
+msgid "Invalid AI provider"
+msgstr "유효하지 않은 AI 공급자입니다"
+
+#: app/AI/AIManager.php:128 app/AI/AIManager.php:145 app/AI/AIManager.php:220
+msgid "No AI provider configured"
+msgstr "AI 공급자가 설정되지 않았습니다"
+
+#: app/AI/AIManager.php:224
+msgid "Prompt cannot be empty"
+msgstr "프롬프트는 비워둘 수 없습니다"
+
+#: app/AI/AIProvider.php:302
+#, php-format
+msgid "%1$s API request failed: %2$s"
+msgstr "%1$s API 요청에 실패했습니다: %2$s"
+
+#: app/AI/AIProvider.php:317
+#, php-format
+msgid "%1$s API error (%2$d): %3$s"
+msgstr "%1$s API 오류 (%2$d): %3$s"
+
+#: app/AI/GeminiProvider.php:78
+msgid "Google AI API Key"
+msgstr "Google AI API 키"
+
+#: app/AI/GeminiProvider.php:79
+msgid "Your Google AI Studio API key"
+msgstr "Google AI Studio API 키를 입력하세요"
+
+#: app/AI/GeminiProvider.php:86 app/AI/OpenAIProvider.php:103
+msgid "Model"
+msgstr "모델"
+
+#: app/AI/GeminiProvider.php:87
+msgid "Choose the Gemini model to use"
+msgstr "사용할 Gemini 모델을 선택하세요"
+
+#: app/AI/GeminiProvider.php:93 app/AI/OpenAIProvider.php:110
+#: app/Strings.php:831
+msgid "Max Tokens"
+msgstr "최대 토큰 수"
+
+#: app/AI/GeminiProvider.php:94 app/AI/OpenAIProvider.php:111
+msgid "Maximum tokens for the response"
+msgstr "응답에 사용할 최대 토큰 수"
+
+#: app/AI/GeminiProvider.php:102 app/AI/OpenAIProvider.php:119
+#: app/Strings.php:837
+msgid "Creativity"
+msgstr "창의성"
+
+#: app/AI/GeminiProvider.php:103 app/AI/OpenAIProvider.php:120
+msgid "Controls randomness in responses"
+msgstr "응답의 무작위성 정도를 조절합니다"
+
+#: app/AI/GeminiProvider.php:111 app/Strings.php:808 app/Strings.php:870
+msgid "Top P"
+msgstr "Top P"
+
+#: app/AI/GeminiProvider.php:112
+msgid "Controls diversity via nucleus sampling"
+msgstr "핵 샘플링을 통해 응답의 다양성을 조절합니다"
+
+#: app/AI/GeminiProvider.php:120 app/Strings.php:810 app/Strings.php:872
+msgid "Top K"
+msgstr "Top K"
+
+#: app/AI/GeminiProvider.php:121
+msgid "Controls diversity by limiting vocabulary"
+msgstr "어휘를 제한하여 응답의 다양성을 조절합니다"
+
+#: app/AI/GeminiProvider.php:144
+msgid "Gemini API key is required"
+msgstr "Gemini API 키를 입력해 주세요"
+
+#: app/AI/GeminiProvider.php:148
+msgid "Invalid Gemini API key format"
+msgstr "Gemini API 키 형식이 올바르지 않습니다"
+
+#: app/AI/GeminiProvider.php:204
+#, php-format
+msgid "Gemini API connection successful! Model: %s"
+msgstr "Gemini API 연결에 성공했습니다! 모델: %s"
+
+#: app/AI/GeminiProvider.php:232 app/AI/OpenAIProvider.php:208
+msgid "API test failed: Invalid response structure"
+msgstr "API 테스트에 실패했습니다: 응답 구조가 올바르지 않습니다"
+
+#: app/AI/GeminiProvider.php:315
+msgid "Response blocked by Gemini safety filters"
+msgstr "Gemini 안전 필터에 의해 응답이 차단되었습니다"
+
+#: app/AI/GeminiProvider.php:318
+msgid "Invalid response structure from Gemini API"
+msgstr "Gemini API의 응답 구조가 올바르지 않습니다"
+
+#: app/AI/GeminiProvider.php:356 app/AI/OpenAIProvider.php:296
+#, php-format
+msgid "API returned status code %d"
+msgstr "API가 상태 코드 %d를 반환했습니다"
+
+#: app/AI/OpenAIProvider.php:95 app/Strings.php:817
+msgid "OpenAI API Key"
+msgstr "OpenAI API 키"
+
+#: app/AI/OpenAIProvider.php:96
+msgid "Your OpenAI API key (starts with sk-)"
+msgstr "OpenAI API 키를 입력하세요 (sk-로 시작합니다)"
+
+#: app/AI/OpenAIProvider.php:104
+msgid "Choose the OpenAI model to use"
+msgstr "사용할 OpenAI 모델을 선택하세요"
+
+#: app/AI/OpenAIProvider.php:128 app/Strings.php:843
+msgid "Frequency Penalty"
+msgstr "반복 패널티"
+
+#: app/AI/OpenAIProvider.php:129
+msgid "Reduces repetition in responses"
+msgstr "응답에서 반복되는 내용을 줄여줍니다"
+
+#: app/AI/OpenAIProvider.php:152
+msgid "OpenAI API key is required"
+msgstr "OpenAI API 키를 입력해 주세요"
+
+#: app/AI/OpenAIProvider.php:156
+msgid "Invalid OpenAI API key format"
+msgstr "OpenAI API 키 형식이 올바르지 않습니다"
+
+#: app/AI/OpenAIProvider.php:202
+#, php-format
+msgid "OpenAI API connection successful! Model: %s"
+msgstr "OpenAI API 연결에 성공했습니다! 모델: %s"
+
+#: app/AI/OpenAIProvider.php:265
+msgid "Invalid response structure from OpenAI API"
+msgstr "OpenAI API의 응답 구조가 올바르지 않습니다"
+
+#: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517
+#: app/Divi/DiviModule.php:35 app/Elementor/ElementorWidget.php:58
+#: app/SWPTLS.php:265 app/templates/parts/review_notice.php:21
+msgid "FlexTable"
+msgstr "FlexTable"
+
+#: app/Admin.php:69
+msgid "Get PRO"
+msgstr "Pro 버전 구매"
+
+#: app/Admin.php:70
+msgid ""
+"<span style=\"display: flex; align-items: center; gap: 7px; color: #29be7c; "
+"font-weight: 700; text-transform:uppercase; font-size: 12px;\"> Upgrade Now "
+"<svg width=\"21\" height=\"17\" viewBox=\"0 0 21 17\" fill=\"none\" "
+"xmlns=\"http://www.w3.org/2000/svg\">\n"
+"\t\t\t\t\t<path d=\"M11.8012 7.66016L10.0813 4.26172L8.36133 7.66016C8.9104 "
+"7.69498 9.48392 7.71466 10.0813 7.71466C10.6786 7.71466 11.2522 7.69498 "
+"11.8012 7.66016Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.5164 3.93457C12.5221 4.00909 11.4463 4.05114 10.3535 "
+"4.05712L12.0518 7.41268L13.5164 3.93457Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M17.655 6.58984C18.9408 6.17882 19.7993 5.76404 20.1634 "
+"5.57337L17.6901 3.27344L16.8496 6.82924C17.1409 6.74883 17.4099 6.6682 "
+"17.655 6.58984Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.8256 4.06055L12.3262 7.62137C13.8894 7.49126 15.2336 "
+"7.24006 16.3194 6.96869L13.8256 4.06055Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.84375 6.96869C4.92956 7.24006 6.27375 7.49126 7.83695 "
+"7.62137L6.33749 4.06055L3.84375 6.96869Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M14.1152 3.88492L16.5346 6.70624L17.3326 3.33008C17.0083 "
+"3.4568 16.4276 3.60162 15.3786 3.74365C14.9823 3.79731 14.5586 3.84437 "
+"14.1152 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M9.8103 4.05712C8.71747 4.0511 7.64174 4.00905 6.64746 "
+"3.93457L8.11206 7.41268L9.8103 4.05712Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M10.0818 3.72428C11.9183 3.72428 13.7348 3.62004 15.1969 "
+"3.43079C16.4383 3.27009 17.054 3.09714 17.3042 2.98362C17.0203 2.8663 "
+"16.3914 2.69009 15.2275 2.52161C13.739 2.30616 11.9115 2.1875 10.0818 "
+"2.1875C8.25205 2.1875 6.42458 2.30616 4.93603 2.52161C3.77219 2.69009 "
+"3.14329 2.8663 2.85938 2.98362C3.10952 3.09718 3.7253 3.27009 4.96671 "
+"3.43079C6.42872 3.62004 8.24524 3.72428 10.0818 3.72428Z\" fill=\"#34D399\"/"
+">\n"
+"\t\t\t\t\t<path d=\"M10.082 8.04847C9.46536 8.04847 8.87357 8.02778 8.30762 "
+"7.99121L10.082 16.352L11.8563 7.99121C11.2904 8.02782 10.6986 8.04847 10.082 "
+"8.04847Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M6.04742 3.88492C5.60405 3.84437 5.18037 3.79731 4.78402 "
+"3.74365C3.73508 3.60167 3.15437 3.4568 2.83008 3.33008L3.62808 "
+"6.70624L6.04742 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M12.2028 7.96734L10.4326 16.3084L16.2509 7.33008C15.1406 "
+"7.59983 13.779 7.84508 12.2028 7.96734Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.7281 7.20887L11.3818 15.4589L19.7314 6.15625C19.2695 "
+"6.36611 18.6125 6.63452 17.7695 6.9046C17.4591 7.00407 17.1111 7.10714 "
+"16.7281 7.20887Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.91211 7.33008L9.73035 16.3084L7.96014 7.96734C6.38399 "
+"7.84504 5.02233 7.59979 3.91211 7.33008Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M2.39357 6.9046C1.55059 6.63452 0.893524 6.36611 "
+"0.431641 6.15625L8.78123 15.4589L3.43499 7.20887C3.05198 7.10714 2.70398 "
+"7.00407 2.39357 6.9046Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.31381 6.8292L2.47334 3.27344L0 5.57332C0.364207 5.764 "
+"1.22261 6.17878 2.50845 6.58979C2.75354 6.66816 3.02249 6.74878 3.31381 "
+"6.8292Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M1.78207 1.06487C1.84142 1.14328 1.88961 1.23343 1.92864 "
+"1.32785C1.96768 1.23347 2.01583 1.14332 2.07522 1.06487C2.21164 0.884688 "
+"2.40578 0.753868 2.57995 0.663923C2.40578 0.573979 2.21164 0.443117 2.07522 "
+"0.262978C2.01583 0.184569 1.96768 0.0943745 1.92864 0C1.88961 0.0943745 "
+"1.84146 0.184528 1.78207 0.262978C1.64565 0.443159 1.45151 0.573979 1.27734 "
+"0.663923C1.45151 0.753868 1.64565 0.884688 1.78207 1.06487Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.8194 12.844C16.76 12.7656 16.7118 12.6754 16.6728 "
+"12.5811C16.6337 12.6754 16.5856 12.7656 16.5262 12.844C16.3898 13.0242 "
+"16.1957 13.155 16.0215 13.245C16.1957 13.3349 16.3898 13.4658 16.5262 "
+"13.6459C16.5856 13.7243 16.6337 13.8145 16.6728 13.9089C16.7118 13.8145 "
+"16.76 13.7243 16.8194 13.6459C16.9558 13.4657 17.1499 13.3349 17.3241 "
+"13.245C17.1499 13.155 16.9557 13.0242 16.8194 12.844Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t</svg>\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t</span>"
+msgstr ""
+
+#: app/Ajax/Notices.php:40 app/Ajax/Notices.php:127 app/Ajax/Notices.php:161
+#: app/Ajax/Products.php:40 app/Ajax/Settings.php:35 app/Ajax/Settings.php:69
+#: app/Ajax/Tables.php:80 app/Ajax/Tables.php:121 app/Ajax/Tables.php:186
+#: app/Ajax/Tables.php:250 app/Ajax/Tables.php:288 app/Ajax/Tables.php:330
+#: app/Ajax/Tables.php:350 app/Ajax/Tables.php:425 app/Ajax/Tables.php:464
+#: app/Ajax/Tables.php:1074 app/Ajax/Tables.php:1117 app/Ajax/Tables.php:1704
+#: app/Ajax/Tables.php:1731
+msgid "Invalid action"
+msgstr "유효하지 않은 작업입니다"
+
+#: app/Ajax/Notices.php:141
+msgid "Pro plugin update has been fixed successfully!"
+msgstr "Pro 플러그인 업데이트가 성공적으로 수정되었습니다!"
+
+#: app/Ajax/Notices.php:145
+msgid "Failed to apply the fix. Please try again or contact support."
+msgstr ""
+"수정 사항을 적용하지 못했습니다. 다시 시도하거나 고객 지원에 문의해 주세요."
+
+#: app/Ajax/Notices.php:156
+msgid "Fix declined. You will not receive premium plugin updates."
+msgstr "수정을 거부했습니다. 프리미엄 플러그인 업데이트를 받을 수 없습니다."
+
+#: app/Ajax/Products.php:57
+msgid "🛒 Boost your WooCommerce stores functionality"
+msgstr "🛒 WooCommerce 스토어의 기능을 향상시키세요"
+
+#: app/Ajax/Products.php:58
+msgid ""
+"Discover top plugins to supercharge your store with advanced tools and "
+"improvements"
+msgstr ""
+"고급 도구와 다양한 개선 기능으로 스토어를 강화할 수 있는 최고의 플러그인을 찾"
+"아보세요"
+
+#: app/Ajax/Products.php:63
+msgid "🧩 Enhance your WordPress site with powerful tools"
+msgstr "🧩 강력한 도구로 WordPress 사이트를 향상시키세요"
+
+#: app/Ajax/Products.php:64
+msgid ""
+"We have selected top plugins to improve your site. Explore options tailored "
+"just for you"
+msgstr ""
+"사이트 개선을 위해 엄선한 최고의 플러그인을 소개합니다. 당신에게 맞춤화된 옵"
+"션을 살펴보세요"
+
+#: app/Ajax/Products.php:123
+msgid ""
+"Stock Sync with Google Sheets for WooCommerce | Product Sync with Google "
+"Sheet, WooCommerce Bulk Edit, Stock Management – FlexStock"
+msgstr ""
+"WooCommerce용 Google Sheets 재고 동기화 | Google Sheets 상품 동기화, "
+"WooCommerce 일괄 편집, 재고 관리 – FlexStock"
+
+#: app/Ajax/Products.php:124
+msgid ""
+"Auto-sync WooCommerce products from Google Sheets. An easy and powerful "
+"solution for WooCommerce inventory management."
+msgstr ""
+"Google Sheets에서 WooCommerce 상품을 자동으로 동기화하세요. WooCommerce 재고 "
+"관리를 위한 쉽고 강력한 솔루션입니다."
+
+#: app/Ajax/Products.php:142
+msgid "FlexOrder – Manage & Sync Orders with Google Sheets for WooCommerce"
+msgstr "FlexOrder – WooCommerce 주문을 Google Sheets로 관리하고 동기화하세요"
+
+#: app/Ajax/Products.php:143
+msgid ""
+"🔥Seamlessly connect WooCommerce with Google Sheets to manage orders, update "
+"statuses in bulk, and simplify your workflow"
+msgstr ""
+"🔥WooCommerce와 Google Sheets를 원활하게 연결하여 주문을 관리하고, 상태를 일"
+"괄 업데이트하며 업무 흐름을 간편하게 만들어 보세요"
+
+#: app/Ajax/Products.php:161
+msgid "ArchiveMaster — Auto Archive and Export Old Orders for WooCommerce"
+msgstr "ArchiveMaster — WooCommerce 오래된 주문 자동 보관 및 내보내기"
+
+#: app/Ajax/Products.php:162
+msgid ""
+"Optimize your WooCommerce store and store old data in a local or any remote "
+"database. With ArchiveMaster, easily archive old orders, export order data, "
+"and streamline database performance."
+msgstr ""
+"WooCommerce 스토어를 최적화하고 오래된 데이터를 로컬 또는 원격 데이터베이스"
+"에 저장하세요. ArchiveMaster로 오래된 주문을 손쉽게 보관하고, 주문 데이터를 "
+"내보내며 데이터베이스 성능을 향상시킬 수 있습니다."
+
+#: app/Ajax/Products.php:180
+msgid "EchoRewards — Refer-a-Friend & Referral Program for WooCommerce"
+msgstr "EchoRewards — WooCommerce용 친구 추천 및 리퍼럴 프로그램"
+
+#: app/Ajax/Products.php:181
+msgid ""
+"Create your customer referral program with a refer-a-friend plugin for "
+"WordPress. With EchoRewards, automate customer rewards and add a refer-a-"
+"friend program to your WooCommerce store"
+msgstr ""
+"WordPress용 친구 추천 플러그인으로 고객 리퍼럴 프로그램을 만들어 보세요. "
+"EchoRewards로 고객 보상을 자동화하고 WooCommerce 스토어에 친구 추천 프로그램"
+"을 추가할 수 있습니다"
+
+#: app/Ajax/Products.php:200
+msgid "WP Dark Mode"
+msgstr "WP Dark Mode"
+
+#: app/Ajax/Products.php:201
+msgid ""
+"Create a dark mode version of your website without any complicated setup. "
+"Activate the plugin and your site visitors will experience a dark mode or "
+"light mode version of your website as per their preferred operating system "
+"preference."
+msgstr ""
+"복잡한 설정 없이 웹사이트의 다크 모드 버전을 만들어 보세요. 플러그인을 활성화"
+"하면 방문자가 운영 체제 설정에 따라 다크 모드 또는 라이트 모드로 사이트를 경"
+"험할 수 있습니다."
+
+#: app/Ajax/Products.php:219
+msgid ""
+"FormToChat – Connect Contact Form to Chat Apps with Contact Form 7 "
+"Integration"
+msgstr "FormToChat – Contact Form 7 연동으로 문의 양식을 채팅 앱에 연결하세요"
+
+#: app/Ajax/Products.php:220
+msgid ""
+"WhatsApp Chat for WordPress🔥. Connect contact forms to WhatsApp. A WhatsApp "
+"notifications plugin with Contact Form 7 integration."
+msgstr ""
+"WordPress용 WhatsApp 채팅🔥. 문의 양식을 WhatsApp에 연결하세요. Contact Form "
+"7 연동을 지원하는 WhatsApp 알림 플러그인입니다."
+
+#: app/Ajax/Products.php:238
+msgid "Webinar and Video Conference with Jitsi Meet"
+msgstr "Jitsi Meet를 활용한 웨비나 및 화상 회의"
+
+#: app/Ajax/Products.php:239
+msgid ""
+"The best WordPress webinar plugin with branded meetings. Add Jitsi meetings, "
+"host webinars and video conferences on your website."
+msgstr ""
+"브랜드 맞춤 회의를 지원하는 최고의 WordPress 웨비나 플러그인입니다. Jitsi 미"
+"팅을 추가하고 웹사이트에서 웨비나와 화상 회의를 진행해 보세요."
+
+#: app/Ajax/Products.php:256
+msgid "Easy Video Reviews"
+msgstr "Easy Video Reviews"
+
+#: app/Ajax/Products.php:257
+msgid ""
+"Easy Video Reviews is the best \n"
+"\t\t\tand easiest video review plugin for WordPress, fully compatible with "
+"WooCommerce and Easy Digital Downloads plugins."
+msgstr ""
+"Easy Video Reviews는 WordPress에서 가장 뛰어나고\n"
+"\t\t\t사용하기 쉬운 동영상 리뷰 플러그인으로, WooCommerce 및 Easy Digital "
+"Downloads 플러그인과 완벽하게 호환됩니다."
+
+#: app/Ajax/Products.php:298
+#, php-format
+msgid "By %s"
+msgstr "%s 제작"
+
+#: app/Ajax/Products.php:324
+msgid "Install Now"
+msgstr "지금 설치"
+
+#: app/Ajax/Products.php:346
+msgid "Update Now"
+msgstr "지금 업데이트"
+
+#: app/Ajax/Products.php:365 app/Strings.php:146
+msgid "Activate"
+msgstr "활성화"
+
+#: app/Ajax/Products.php:378
+msgid "Network Activate"
+msgstr "네트워크 활성화"
+
+#: app/Ajax/Products.php:409
+#, php-format
+msgid "More information about %s"
+msgstr "%s에 대한 자세한 정보"
+
+#: app/Ajax/Products.php:411
+msgid "More Details"
+msgstr "자세히 보기"
+
+#: app/Ajax/Products.php:439
+msgid "This plugin doesn&#8217;t work with your versions of WordPress and PHP."
+msgstr "이 플러그인은 현재 WordPress 및 PHP 버전과 호환되지 않습니다."
+
+#: app/Ajax/Products.php:469
+msgid "This plugin doesn&#8217;t work with your version of WordPress."
+msgstr "이 플러그인은 현재 WordPress 버전과 호환되지 않습니다."
+
+#: app/Ajax/Products.php:480
+msgid "This plugin doesn&#8217;t work with your version of PHP."
+msgstr "이 플러그인은 현재 PHP 버전과 호환되지 않습니다."
+
+#: app/Ajax/Products.php:537
+#, php-format
+msgid "%s ago"
+msgstr "%s 전"
+
+#: app/Ajax/Products.php:555
+#, php-format
+msgid "%s Active Installations"
+msgstr "%s 활성 설치"
+
+#: app/Ajax/Products.php:561
+msgid "Untested with your version of WordPress"
+msgstr "현재 WordPress 버전에서 테스트되지 않았습니다"
+
+#: app/Ajax/Settings.php:125
+msgid "Settings saved successfully."
+msgstr "설정이 성공적으로 저장되었습니다."
+
+#: app/Ajax/Tables.php:90
+msgid "Invalid data to save."
+msgstr "저장할 데이터가 올바르지 않습니다."
+
+#: app/Ajax/Tables.php:104
+msgid "Table updated successfully."
+msgstr "테이블이 성공적으로 업데이트되었습니다."
+
+#: app/Ajax/Tables.php:160 app/Ajax/Tables.php:225
+msgid "Sorting updated successfully"
+msgstr "정렬이 성공적으로 업데이트되었습니다"
+
+#: app/Ajax/Tables.php:164 app/Ajax/Tables.php:229
+msgid "Failed to update sorting"
+msgstr "정렬 업데이트에 실패했습니다"
+
+#: app/Ajax/Tables.php:169 app/Ajax/Tables.php:234
+msgid "Record not found"
+msgstr "레코드를 찾을 수 없습니다"
+
+#: app/Ajax/Tables.php:174 app/Ajax/Tables.php:239
+msgid "Invalid ID or sorting value"
+msgstr "유효하지 않은 ID 또는 정렬 값입니다"
+
+#: app/Ajax/Tables.php:262
+#, php-format
+msgid "%s table deleted."
+msgstr "%s 테이블이 삭제되었습니다."
+
+#: app/Ajax/Tables.php:269
+#, php-format
+msgid "Failed to delete table with id %d"
+msgstr "ID %d 테이블 삭제에 실패했습니다"
+
+#: app/Ajax/Tables.php:276
+msgid "Invalid table to perform delete."
+msgstr "삭제할 테이블이 올바르지 않습니다."
+
+#: app/Ajax/Tables.php:300
+#, php-format
+msgid "%s table copied."
+msgstr "%s 테이블이 복사되었습니다."
+
+#: app/Ajax/Tables.php:307
+#, php-format
+msgid "Failed to copied table with id %d"
+msgstr "ID %d 테이블 복사에 실패했습니다"
+
+#: app/Ajax/Tables.php:314
+msgid "Invalid table to perform copied."
+msgstr "복사할 테이블이 올바르지 않습니다."
+
+#: app/Ajax/Tables.php:358
+msgid "Empty or invalid google sheet url."
+msgstr "Google Sheets URL이 비어 있거나 올바르지 않습니다."
+
+#: app/Ajax/Tables.php:363 app/Ajax/Tables.php:783
+msgid "Untitled"
+msgstr "제목 없음"
+
+#: app/Ajax/Tables.php:367 app/Ajax/Tables.php:787
+msgid "Invalid settings to save."
+msgstr "저장할 설정이 올바르지 않습니다."
+
+#: app/Ajax/Tables.php:375 app/Ajax/Tables.php:826 app/Ajax/Tables.php:869
+msgid ""
+"Copy the Google sheet URL from browser URL bar that includes <i>gid</i> "
+"parameter"
+msgstr ""
+"<i>gid</i> 매개변수가 포함된 브라우저 주소창의 Google Sheets URL을 복사하세요"
+
+#: app/Ajax/Tables.php:376 app/Ajax/Tables.php:827 app/Ajax/Tables.php:870
+msgid "invalid_request"
+msgstr "유효하지_않은_요청"
+
+#: app/Ajax/Tables.php:385
+msgid ""
+"The spreadsheet is restricted. Please make it public by clicking on share "
+"button at the top of the spreadsheet"
+msgstr ""
+"스프레드시트가 비공개 상태입니다. 스프레드시트 상단의 공유 버튼을 클릭하여 공"
+"개로 설정해 주세요"
+
+#: app/Ajax/Tables.php:413
+msgid "Table created successfully"
+msgstr "테이블이 성공적으로 생성되었습니다"
+
+#: app/Ajax/Tables.php:433
+msgid "Invalid table to edit."
+msgstr "편집할 테이블이 올바르지 않습니다."
+
+#: app/Ajax/Tables.php:442 app/Ajax/Tables.php:654 app/Ajax/Tables.php:712
+#: app/Ajax/Tables.php:1017
+msgid "Request is invalid"
+msgstr "요청이 올바르지 않습니다"
+
+#: app/Ajax/Tables.php:497 app/Ajax/Tables.php:688 app/Ajax/Tables.php:745
+msgid ""
+"Please make it public by clicking on share button at the top of spreadsheet"
+msgstr "스프레드시트 상단의 공유 버튼을 클릭하여 공개로 설정해 주세요"
+
+#: app/Ajax/Tables.php:516 app/Ajax/Tables.php:524 app/Ajax/Tables.php:617
+#: app/Ajax/Tables.php:646 app/Ajax/Tables.php:767
+msgid "Action is invalid"
+msgstr "작업이 올바르지 않습니다"
+
+#: app/Ajax/Tables.php:532
+msgid "Tables fetched successfully."
+msgstr "테이블을 성공적으로 불러왔습니다."
+
+#: app/Ajax/Tables.php:551
+msgid "Table ID"
+msgstr "테이블 ID"
+
+#: app/Ajax/Tables.php:552
+msgid "Type"
+msgstr "유형"
+
+#: app/Ajax/Tables.php:553 app/Strings.php:203
+msgid "Shortcode"
+msgstr "숏코드"
+
+#: app/Ajax/Tables.php:554
+msgid "Table Name"
+msgstr "테이블 이름"
+
+#: app/Ajax/Tables.php:555 app/Ajax/Tables.php:594 app/Strings.php:461
+#: app/Strings.php:963
+msgid "Delete"
+msgstr "삭제"
+
+#: app/Ajax/Tables.php:627
+msgid "Tab updated successfully"
+msgstr "탭이 성공적으로 업데이트되었습니다"
+
+#: app/Ajax/Tables.php:632
+msgid "Tab could not be updated. Try again"
+msgstr "탭을 업데이트할 수 없습니다. 다시 시도해 주세요"
+
+#: app/Ajax/Tables.php:663 app/Ajax/Tables.php:721
+msgid "No table found."
+msgstr "테이블을 찾을 수 없습니다."
+
+#: app/Ajax/Tables.php:793 app/Ajax/Tables.php:979
+msgid "Form field is empty. Please fill out the field"
+msgstr "양식 필드가 비어 있습니다. 내용을 입력해 주세요"
+
+#: app/Ajax/Tables.php:836 app/Ajax/Tables.php:879
+msgid ""
+"The spreadsheet is restricted. Please make it public by clicking on share "
+"button at the top of spreadsheet"
+msgstr ""
+"스프레드시트가 비공개 상태입니다. 스프레드시트 상단의 공유 버튼을 클릭하여 공"
+"개로 설정해 주세요"
+
+#: app/Ajax/Tables.php:905
+msgid "This Google sheet already saved. Try creating a new one"
+msgstr "이 Google Sheet는 이미 저장되어 있습니다. 새로 만들어 보세요"
+
+#: app/Ajax/Tables.php:924
+msgid "Table saved successfully"
+msgstr "테이블이 성공적으로 저장되었습니다"
+
+#: app/Ajax/Tables.php:940
+msgid "Table changes updated successfully"
+msgstr "테이블 변경 사항이 성공적으로 업데이트되었습니다"
+
+#: app/Ajax/Tables.php:1025
+msgid "Selected tables deleted successfully"
+msgstr "선택한 테이블이 성공적으로 삭제되었습니다"
+
+#: app/Ajax/Tables.php:1040
+msgid "Table name updated successfully"
+msgstr "테이블 이름이 성공적으로 업데이트되었습니다"
+
+#: app/Ajax/Tables.php:1058 app/Ajax/Tabs.php:83
+msgid "Could not update the data."
+msgstr "데이터를 업데이트할 수 없습니다."
+
+#: app/Ajax/Tables.php:1084
+msgid "API key is required"
+msgstr "API 키를 입력해 주세요"
+
+#: app/Ajax/Tables.php:1713
+msgid "CTA notice dismissed successfully"
+msgstr "CTA 알림이 성공적으로 닫혔습니다"
+
+#: app/Ajax/Tables.php:1717
+msgid "Failed to dismiss CTA notice"
+msgstr "CTA 알림 닫기에 실패했습니다"
+
+#: app/Ajax/Tables.php:1740
+msgid "CTA notice for tabs dismissed successfully"
+msgstr "탭용 CTA 알림이 성공적으로 닫혔습니다"
+
+#: app/Ajax/Tables.php:1744
+msgid "Failed to dismiss CTA notice for tabs"
+msgstr "탭용 CTA 알림 닫기에 실패했습니다"
+
+#: app/Ajax/Tabs.php:43
+msgid "Tab deleted successfully"
+msgstr "탭이 성공적으로 삭제되었습니다"
+
+#: app/Ajax/Tabs.php:49
+msgid "Unable to delete tab."
+msgstr "탭을 삭제할 수 없습니다."
+
+#: app/Ajax/Tabs.php:65
+msgid "Tab name updated successfully"
+msgstr "탭 이름이 성공적으로 업데이트되었습니다"
+
+#: app/Assets.php:515
+msgid ""
+"Display Google Spreadsheet data to WordPress table in just a few clicks\n"
+"\t\t\t\tand keep the data always synced. Organize and display all your "
+"spreadsheet data in your WordPress quickly and effortlessly."
+msgstr ""
+"몇 번의 클릭만으로 Google 스프레드시트 데이터를 WordPress 테이블에 표시하고\n"
+"\t\t\t\t데이터를 항상 최신 상태로 동기화하세요. 스프레드시트 데이터를 "
+"WordPress에서 빠르고 손쉽게 정리하고 표시할 수 있습니다."
+
+#: app/Divi/DiviModule.php:40
+msgid "Table Selection"
+msgstr "테이블 선택"
+
+#: app/Divi/DiviModule.php:49 app/Elementor/ElementorWidget.php:96
+msgid "Choose Table"
+msgstr "테이블 선택"
+
+#: app/Divi/DiviModule.php:55
+msgid "Select a table to display."
+msgstr "표시할 테이블을 선택하세요."
+
+#: app/Divi/DiviModule.php:62
+msgid "Select a table"
+msgstr "테이블을 선택하세요"
+
+#: app/Divi/DiviModule.php:84
+msgid "Please select a table to display."
+msgstr "표시할 테이블을 선택해 주세요."
+
+#: app/Elementor/TableSettings.php:80
+msgid "Table Exporting"
+msgstr "테이블 내보내기"
+
+#: app/Elementor/TableSettings.php:81
+msgid ""
+"Enable this feature in order to allow your user to download your table "
+"content as various format."
+msgstr ""
+"이 기능을 활성화하면 방문자가 테이블 내용을 다양한 형식으로 다운로드할 수 있"
+"습니다."
+
+#: app/Elementor/TableSettings.php:90
+msgid "Table Caching"
+msgstr "테이블 캐싱"
+
+#: app/Elementor/TableSettings.php:91
+msgid ""
+"Enabling this feature would cache the Google sheet data & therefore the "
+"table will load faster than before.\n"
+"                                        Also it will load the updated data "
+"when there is a change in your Google sheet."
+msgstr ""
+"이 기능을 활성화하면 Google Sheets 데이터가 캐시되어 테이블이 더 빠르게 로드"
+"됩니다.\n"
+"                                        또한 Google Sheet에 변경 사항이 있을 "
+"때 업데이트된 데이터를 자동으로 불러옵니다."
+
+#: app/Elementor/TableSettings.php:101
+msgid "Hide Column"
+msgstr "열 숨기기"
+
+#: app/Elementor/TableSettings.php:102
+msgid "Hide your table columns based on multiple screen sizes."
+msgstr "다양한 화면 크기에 따라 테이블 열을 숨길 수 있습니다."
+
+#: app/Elementor/TableSettings.php:112
+msgid "Hide Column on Mobile"
+msgstr "모바일에서 열 숨기기"
+
+#: app/Elementor/TableSettings.php:113
+msgid "Hide your table columns based on mobile screen sizes."
+msgstr "모바일 화면 크기에 따라 테이블 열을 숨길 수 있습니다."
+
+#: app/Elementor/TableSettings.php:124 app/Elementor/TableSettings.php:135
+msgid "Hide Row's"
+msgstr "행 숨기기"
+
+#: app/Elementor/TableSettings.php:125 app/Elementor/TableSettings.php:136
+msgid "Hide your table rows based on your custom selection"
+msgstr "원하는 행을 직접 선택하여 숨길 수 있습니다"
+
+#: app/Elementor/TableSettings.php:147 app/Elementor/TableSettings.php:158
+msgid "Hide Cell"
+msgstr "셀 숨기기"
+
+#: app/Elementor/TableSettings.php:148 app/Elementor/TableSettings.php:159
+msgid ""
+"Hide your specific table cell that is not going to visibile to your user's."
+msgstr "방문자에게 보이지 않도록 특정 테이블 셀을 숨길 수 있습니다."
+
+#: app/Elementor/TemplateContent.php:502 app/templates/create_tables.php:89
+#: app/templates/edit_table.php:90
+msgid "Display Settings"
+msgstr "표시 설정"
+
+#: app/Elementor/TemplateContent.php:510 app/templates/create_tables.php:99
+#: app/templates/edit_table.php:100
+msgid "Sort & Filter"
+msgstr "정렬 및 필터"
+
+#: app/Elementor/TemplateContent.php:516 app/templates/create_tables.php:109
+#: app/templates/edit_table.php:110
+msgid "Table Tools"
+msgstr "테이블 도구"
+
+#: app/Elementor/TemplateContent.php:583 app/Elementor/TemplateContent.php:598
+msgid "Choose any saved table to load data"
+msgstr "저장된 테이블을 선택하여 데이터를 불러오세요"
+
+#: app/Helpers.php:169
+msgid "You are offline."
+msgstr "오프라인 상태입니다."
+
+#: app/Helpers.php:176
+msgid "Sheet is not public or shared"
+msgstr "시트가 공개 또는 공유 상태가 아닙니다"
+
+#: app/Helpers.php:235
+msgid "The feature is not compatible or something went wrong"
+msgstr "이 기능은 호환되지 않거나 오류가 발생했습니다"
+
+#: app/Helpers.php:1201
+msgid "Generate AI-powered summary of this table data"
+msgstr "이 테이블 데이터의 AI 요약 생성하기"
+
+#: app/Notices.php:112
+msgid "Plugin"
+msgstr "플러그인"
+
+#: app/Notices.php:113
+msgid ""
+"cannot be activated - requires at least PHP 5.4. Plugin automatically "
+"deactivated."
+msgstr ""
+"활성화할 수 없습니다 - PHP 5.4 이상이 필요합니다. 플러그인이 자동으로 비활성"
+"화되었습니다."
+
+#: app/SWPTLS.php:219
+msgid ""
+"Plugin is missing required dependencies. Please contact support for more "
+"information."
+msgstr ""
+"플러그인에 필요한 구성 요소가 없습니다. 자세한 내용은 고객 지원에 문의해 주세"
+"요."
+
+#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+msgid "All Tables"
+msgstr "모든 테이블"
+
+#: app/SWPTLS.php:250 app/Strings.php:213
+msgid "Get Pro"
+msgstr "Pro 버전 구매"
+
+#: app/SWPTLS.php:288
+msgid "Grab Your Treat!"
+msgstr "혜택을 받아가세요!"
+
+#: app/SWPTLS.php:295
+msgid "Grab Your Deals!"
+msgstr "할인 혜택을 받아가세요!"
+
+#: app/Settings.php:179
+msgid "Table Title"
+msgstr "테이블 제목"
+
+#: app/Settings.php:180
+msgid ""
+"Enable this to show the table title in <i>h3</i> tag above the table in your "
+"website front-end"
+msgstr ""
+"이 옵션을 활성화하면 웹사이트 프런트엔드에서 테이블 위에 <i>h3</i> 태그로 제"
+"목이 표시됩니다"
+
+#: app/Settings.php:187
+msgid "Show info block"
+msgstr "정보 블록 표시"
+
+#: app/Settings.php:188
+msgid "Show <i>Showing X to Y of Z entries</i>block below the table"
+msgstr "테이블 아래에 <i>전체 Z개 중 X~Y번째 항목 표시</i> 블록을 표시합니다"
+
+#: app/Settings.php:196
+msgid "Show X entries"
+msgstr "X개 항목 표시"
+
+#: app/Settings.php:197
+msgid "<i>Show X entries</i> per page dropdown"
+msgstr "페이지당 <i>X개 항목 표시</i> 드롭다운"
+
+#: app/Settings.php:205
+msgid "Swap Filters"
+msgstr "필터 위치 바꾸기"
+
+#: app/Settings.php:206
+msgid "Swap the places of <i> X entries</i> dropdown & search filter input"
+msgstr "<i>X개 항목</i> 드롭다운과 검색 필터 입력란의 위치를 서로 바꿉니다"
+
+#: app/Settings.php:214
+msgid "Swap Bottom Elements"
+msgstr "하단 요소 위치 바꾸기"
+
+#: app/Settings.php:215
+msgid ""
+"Swap the places of <i>Showing X to Y of Z entries</i> with table pagination "
+"filter"
+msgstr ""
+"<i>전체 Z개 중 X~Y번째 항목 표시</i>와 테이블 페이지네이션 필터의 위치를 서"
+"로 바꿉니다"
+
+#: app/Settings.php:223
+msgid "Responsive Style"
+msgstr "반응형 스타일"
+
+#: app/Settings.php:224 app/Settings.php:237
+msgid "Allow the table to collapse or scroll on mobile and tablet screen."
+msgstr ""
+"모바일 및 태블릿 화면에서 테이블을 접거나 스크롤할 수 있도록 허용합니다."
+
+#: app/Settings.php:236
+msgid "Link Support"
+msgstr "링크 지원"
+
+#: app/Settings.php:249
+msgid "Rows per page"
+msgstr "페이지당 행 수"
+
+#: app/Settings.php:250
+msgid ""
+"This will show rows per page. The feature will allow you how many rows you "
+"want to show to your user by default."
+msgstr ""
+"페이지당 표시할 행 수를 설정합니다. 기본적으로 방문자에게 보여줄 행 수를 직"
+"접 지정할 수 있습니다."
+
+#: app/Settings.php:260
+msgid "Table Height"
+msgstr "테이블 높이"
+
+#: app/Settings.php:261
+msgid ""
+"Choose the height of the table to scroll vertically. Activating this feature "
+"will allow the table to behave as sticky header"
+msgstr ""
+"세로 스크롤을 위한 테이블 높이를 설정하세요. 이 기능을 활성화하면 테이블 헤더"
+"가 고정됩니다"
+
+#: app/Settings.php:272
+msgid "Format Cell"
+msgstr "셀 서식"
+
+#: app/Settings.php:273
+msgid ""
+"Format the table cell as like google sheet cell formatting. Format your cell "
+"as Wrap OR Expanded style"
+msgstr ""
+"Google Sheets처럼 테이블 셀의 서식을 설정하세요. 셀을 줄 바꿈 또는 확장 스타"
+"일로 지정할 수 있습니다"
+
+#: app/Settings.php:287
+msgid "Link Type"
+msgstr "링크 유형"
+
+#: app/Settings.php:288
+msgid "Choose the redirection type of all the links in this table."
+msgstr "이 테이블에 있는 모든 링크의 이동 방식을 선택하세요."
+
+#: app/Settings.php:301
+msgid "Table Style"
+msgstr "테이블 스타일"
+
+#: app/Settings.php:302
+msgid ""
+"Choose your desired table style for this table. This will change the design "
+"& color of this table according to your selected table design"
+msgstr ""
+"원하는 테이블 스타일을 선택하세요. 선택한 디자인에 따라 테이블의 모양과 색상"
+"이 변경됩니다"
+
+#: app/Settings.php:312
+msgid "Import Sheet Styles"
+msgstr "시트 스타일 가져오기"
+
+#: app/Settings.php:313
+msgid ""
+"Import cell backgorund color & cell font color from google sheet. If you "
+"activate this feature it will overrider <i>Table Style</i> setting"
+msgstr ""
+"Google Sheets에서 셀 배경색과 글꼴 색상을 가져옵니다. 이 기능을 활성화하면 "
+"<i>테이블 스타일</i> 설정보다 우선 적용됩니다"
+
+#: app/Settings.php:335
+msgid "Allow Sorting"
+msgstr "정렬 허용"
+
+#: app/Settings.php:336
+msgid "Enable this feature to sort table data for frontend."
+msgstr ""
+"프런트엔드에서 테이블 데이터를 정렬할 수 있도록 이 기능을 활성화하세요."
+
+#: app/Settings.php:343
+msgid "Search Bar"
+msgstr "검색창"
+
+#: app/Settings.php:344
+msgid ""
+"Enable this feature to show a search bar in for the table. It will help user "
+"to search data in the table"
+msgstr ""
+"테이블에 검색창을 표시하려면 이 기능을 활성화하세요. 방문자가 테이블에서 데이"
+"터를 쉽게 검색할 수 있습니다"
+
+#: app/Shortcode.php:56 app/Shortcode.php:98
+msgid "Table maybe deleted or can't be loaded."
+msgstr "테이블이 삭제되었거나 불러올 수 없습니다."
+
+#: app/Shortcode.php:73 app/templates/create_tables.php:197
+#: app/templates/edit_table.php:198 app/templates/manage_tables.php:60
+msgid "Loading"
+msgstr "불러오는 중"
+
+#: app/Strings.php:31
+msgid "Create beautiful tables from Google Sheets"
+msgstr "Google Sheets로 멋진 테이블을 만들어 보세요"
+
+#: app/Strings.php:32 app/Strings.php:40
+msgid "Create new table"
+msgstr "새 테이블 만들기"
+
+#: app/Strings.php:33
+msgid "Your Tables"
+msgstr "내 테이블"
+
+#: app/Strings.php:34
+msgid "Loading..."
+msgstr "불러오는 중..."
+
+#: app/Strings.php:36
+msgid "👋 Welcome!"
+msgstr "👋 환영합니다!"
+
+#: app/Strings.php:37
+msgid "Click the button below to create your first table!"
+msgstr "아래 버튼을 클릭하여 첫 번째 테이블을 만들어 보세요!"
+
+#: app/Strings.php:38
+msgid "Need help? Watch a"
+msgstr "도움이 필요하신가요?"
+
+#: app/Strings.php:41
+msgid "Need help?"
+msgstr "도움이 필요하신가요?"
+
+#: app/Strings.php:42
+msgid "Help"
+msgstr "도움말"
+
+#: app/Strings.php:43 app/Strings.php:1109
+msgid "Help?"
+msgstr "도움말"
+
+#: app/Strings.php:44
+msgid "Watch Now"
+msgstr "지금 보기"
+
+#: app/Strings.php:45
+msgid "Search tables"
+msgstr "테이블 검색"
+
+#: app/Strings.php:46
+msgid "Search items"
+msgstr "항목 검색"
+
+#: app/Strings.php:48
+msgid "Search"
+msgstr "검색"
+
+#: app/Strings.php:49
+msgid "Clear"
+msgstr "지우기"
+
+#: app/Strings.php:51
+msgid "Get Help with Creating Tab Groups"
+msgstr "1. 탭 만들기"
+
+#: app/Strings.php:52
+msgid ""
+"Tabs let you group multiple tables into tabbed views and embed in your pages "
+"or posts"
+msgstr ""
+
+#: app/Strings.php:53 app/Strings.php:1093
+msgid "Quick Tutorial"
+msgstr "튜토리얼"
+
+#: app/Strings.php:54
+msgid "Get started with Tab Groups"
+msgstr "탭 그룹 시작하기"
+
+#: app/Strings.php:55
+msgid "Search tabs"
+msgstr "테이블 검색"
+
+#: app/Strings.php:60
+msgid "This title will be shown on the top of your table"
+msgstr "이 제목은 테이블 상단에 표시됩니다"
+
+#: app/Strings.php:61
+msgid ""
+"Copy the URL of your Google Sheet from your browser and paste it in the box "
+"below. Make sure your sheet is public."
+msgstr ""
+"브라우저에서 Google Sheet URL을 복사하여 아래 입력란에 붙여넣으세요. 시트가 "
+"공개 상태인지 확인해 주세요."
+
+#: app/Strings.php:62
+msgid ""
+"Copy the Google Sheet URL from your browser and paste it here to create "
+"table. Changing this URL will change your table."
+msgstr ""
+"브라우저에서 Google Sheet URL을 복사하여 여기에 붙여넣으면 테이블이 생성됩니"
+"다. URL을 변경하면 테이블도 함께 변경됩니다."
+
+#: app/Strings.php:63
+msgid ""
+"If this is enabled, the box showing number of entries will be hidden for the "
+"viewers"
+msgstr "이 옵션을 활성화하면 항목 수를 표시하는 박스가 방문자에게 숨겨집니다"
+
+#: app/Strings.php:64
+msgid "If enabled, the search box will be hidden for viewers"
+msgstr "이 옵션을 활성화하면 검색창이 방문자에게 숨겨집니다"
+
+#: app/Strings.php:65
+msgid "Enable this option to hide the table title for the viewers"
+msgstr "이 옵션을 활성화하면 테이블 제목이 방문자에게 숨겨집니다"
+
+#: app/Strings.php:66
+msgid "Enable this option to show the table title for the viewers"
+msgstr "이 옵션을 활성화하면 테이블 제목이 방문자에게 숨겨집니다"
+
+#: app/Strings.php:67
+msgid "Enable this option to show table description for the viewers"
+msgstr "이 옵션을 활성화하면 테이블 제목이 방문자에게 숨겨집니다"
+
+#: app/Strings.php:68
+msgid ""
+"If checked, the sorting option will be enabled for viewers when they view "
+"the table"
+msgstr ""
+"이 항목을 체크하면 방문자가 테이블을 볼 때 정렬 기능을 사용할 수 있습니다"
+
+#: app/Strings.php:69
+msgid ""
+"If enabled the entry info showing number of current entries out of all the "
+"entries will be hidden"
+msgstr ""
+"이 옵션을 활성화하면 전체 항목 수 대비 현재 항목 수를 보여주는 정보가 숨겨집"
+"니다"
+
+#: app/Strings.php:70
+msgid "Enable this to hide the pagination for viewers"
+msgstr "이 옵션을 활성화하면 방문자에게 페이지네이션이 숨겨집니다"
+
+#: app/Strings.php:71
+msgid "Display multiple tables using tabs. Just like your google sheets"
+msgstr "Google Sheets처럼 탭을 사용하여 여러 테이블을 표시하세요"
+
+#: app/Strings.php:72
+msgid "Title of the tab group"
+msgstr "탭 그룹 제목"
+
+#: app/Strings.php:73
+msgid "Enter the title for this tab"
+msgstr "이 탭의 제목을 입력하세요"
+
+#: app/Strings.php:74
+msgid ""
+"Select the table which will be shown in this tab from the dropdown below"
+msgstr "아래 드롭다운에서 이 탭에 표시할 테이블을 선택하세요"
+
+#: app/Strings.php:75
+msgid "Enable this to hide the selected columns on mobile"
+msgstr "이 옵션을 활성화하면 선택한 열이 모바일에서 숨겨집니다"
+
+#: app/Strings.php:76
+msgid "Enable this to hide the selected column on desktop"
+msgstr "이 옵션을 활성화하면 선택한 열이 데스크톱에서 숨겨집니다"
+
+#: app/Strings.php:77
+msgid ""
+"This is the list of the hidden columns. Removing a column from this list "
+"will make them visible again"
+msgstr "숨겨진 열 목록입니다. 이 목록에서 열을 제거하면 다시 표시됩니다"
+
+#: app/Strings.php:78
+msgid ""
+"This is the list of the hidden rows. Removing a row from this list will make "
+"them visible again"
+msgstr "숨겨진 행 목록입니다. 이 목록에서 행을 제거하면 다시 표시됩니다"
+
+#: app/Strings.php:79
+msgid ""
+"This is the list of the hidden cells. Removing a cell from this list will "
+"make them visible again"
+msgstr "숨겨진 셀 목록입니다. 이 목록에서 셀을 제거하면 다시 표시됩니다"
+
+#: app/Strings.php:80
+msgid ""
+"Use direct google sheet embed link with text content, More flexiable and "
+"easy to use"
+msgstr ""
+"텍스트 콘텐츠가 포함된 Google Sheets 직접 임베드 링크를 사용하세요. 더 유연하"
+"고 사용하기 편리합니다"
+
+#: app/Strings.php:81
+msgid "Use old way [  ] pair to generate link"
+msgstr "[  ] 쌍을 사용하는 기존 방식으로 링크를 생성합니다"
+
+#: app/Strings.php:82
+msgid ""
+"Copy the URL of your Google Sheet from your browser and paste it in the box "
+"below. Make sure your sheet is public.."
+msgstr ""
+"브라우저에서 Google Sheet URL을 복사하여 아래 입력란에 붙여넣으세요. 시트가 "
+"공개 상태인지 확인해 주세요.."
+
+#: app/Strings.php:83
+msgid "Copy the URL of your Google Sheet and paste it here."
+msgstr "Google Sheet URL을 복사하여 여기에 붙여넣으세요."
+
+#: app/Strings.php:84
+msgid ""
+"Allows the users to download the table in the format that you select below"
+msgstr ""
+"방문자가 아래에서 선택한 형식으로 테이블을 다운로드할 수 있도록 허용합니다"
+
+#: app/Strings.php:85
+msgid ""
+"For the links on the table you can decide what will happen when a link is "
+"clicked"
+msgstr "테이블의 링크를 클릭했을 때 어떻게 동작할지 설정할 수 있습니다"
+
+#: app/Strings.php:86
+msgid "The link opens in the same tab where the table is"
+msgstr "링크가 테이블이 있는 현재 탭에서 열립니다"
+
+#: app/Strings.php:87
+msgid "The link will be opened on a new tab"
+msgstr "링크가 새 탭에서 열립니다"
+
+#: app/Strings.php:88
+msgid ""
+"Allow 'Smart links' to load multiple embeed links with text from Google "
+"Sheet. To use this makesure 'Smart link' support selected from 'link support "
+"mechanism' in 'Settings' menu. However, if there is no embeed links in the "
+"Sheet or your'e using pretty link format, then there is no need to use it, "
+"which will reduces loading time and makes the table load faster."
+msgstr ""
+"Google Sheets의 텍스트가 포함된 여러 임베드 링크를 불러오려면 '스마트 링"
+"크'를 허용하세요. 사용하려면 '설정' 메뉴의 '링크 지원 방식'에서 '스마트 링"
+"크' 지원을 선택해야 합니다. 시트에 임베드 링크가 없거나 pretty link 형식을 사"
+"용 중이라면 이 기능이 필요하지 않으며, 비활성화하면 로딩 시간이 줄어들고 테이"
+"블이 더 빠르게 로드됩니다."
+
+#: app/Strings.php:89
+msgid ""
+"Allow images to be loaded from sheets. You can use it to import images if "
+"you have them in Google Sheets. However, if there is no image in the Sheet, "
+"there is no need to use it, which will reduces loading time and makes the "
+"table load faster."
+msgstr ""
+"시트에서 이미지를 불러올 수 있도록 허용합니다. Google Sheets에 이미지가 있는 "
+"경우 가져올 때 사용하세요. 시트에 이미지가 없다면 이 기능이 필요하지 않으며, "
+"비활성화하면 로딩 시간이 줄어들고 테이블이 더 빠르게 로드됩니다."
+
+#: app/Strings.php:90
+msgid "If enabled the table will load faster for the viewers"
+msgstr "이 옵션을 활성화하면 방문자에게 테이블이 더 빠르게 로드됩니다"
+
+#: app/Strings.php:91
+msgid "Choose how the table cell will look"
+msgstr "테이블 셀의 표시 방식을 선택하세요"
+
+#: app/Strings.php:92
+msgid "Cell will expand according to the content"
+msgstr "셀이 내용에 맞게 확장됩니다"
+
+#: app/Strings.php:93
+msgid "Cell will be wrapped according to the content"
+msgstr "셀 내용에 맞게 줄 바꿈이 적용됩니다"
+
+#: app/Strings.php:94
+msgid "Choose how the table will look on devices with small screens"
+msgstr "작은 화면의 기기에서 테이블이 표시되는 방식을 선택하세요"
+
+#: app/Strings.php:95
+msgid "Let the browser decide the behavior of the responsiveness"
+msgstr "브라우저가 반응형 동작 방식을 자동으로 결정하도록 합니다"
+
+#: app/Strings.php:96
+msgid "The table rows will be collapse on  each other in one column"
+msgstr "테이블 행이 하나의 열로 접혀서 표시됩니다"
+
+#: app/Strings.php:97
+msgid ""
+"A horizontal scrollbar will appear for the users to scroll the table left "
+"and right"
+msgstr "방문자가 테이블을 좌우로 스크롤할 수 있도록 가로 스크롤바가 표시됩니다"
+
+#: app/Strings.php:98
+msgid ""
+"Enable this feature to showcase your Sheet's merged cells seamlessly on the "
+"WordPress frontend table."
+msgstr ""
+"이 기능을 활성화하면 Google Sheets의 병합된 셀을 WordPress 프런트엔드 테이블"
+"에 그대로 표시할 수 있습니다."
+
+#: app/Strings.php:99
+msgid "Select the number of rows to show per page"
+msgstr "페이지당 표시할 행 수를 선택하세요"
+
+#: app/Strings.php:100
+msgid ""
+"Select the table height. If the table height is lower there will be a "
+"vertical scrollbar to scroll through the rows"
+msgstr ""
+"테이블 높이를 선택하세요. 테이블 높이가 낮으면 행을 스크롤하기 위한 세로 스크"
+"롤바가 나타납니다"
+
+#: app/Strings.php:101
+msgid "Quickly change your table's look and feel using themes"
+msgstr "테마를 사용하여 테이블의 모양과 느낌을 빠르게 변경하세요"
+
+#: app/Strings.php:102
+msgid ""
+"Enable this feature to import colors and text styles directly from a Google "
+"Sheet, instead of using the predefined theme above"
+msgstr ""
+"위에 설정된 테마 대신 Google Sheets에서 직접 색상과 텍스트 스타일을 가져오려"
+"면 이 기능을 활성화하세요"
+
+#: app/Strings.php:103
+msgid ""
+"If this is checked, the tab group title will not be visible in the front end"
+msgstr "이 항목을 체크하면 탭 그룹 제목이 프런트엔드에서 표시되지 않습니다"
+
+#: app/Strings.php:104
+msgid "Choose where you want to show the tab"
+msgstr "탭을 표시할 위치를 선택하세요"
+
+#: app/Strings.php:105
+msgid "The tabs will be shown first and the table will be shown after it"
+msgstr "탭이 먼저 표시되고 그 아래에 테이블이 표시됩니다"
+
+#: app/Strings.php:106
+msgid "The table will be shown first and the tab will be shown after it"
+msgstr "테이블이 먼저 표시되고 그 아래에 탭이 표시됩니다"
+
+#: app/Strings.php:108
+msgid "Set the cursor behavior on your table"
+msgstr "테이블에서 커서 동작 방식을 설정하세요"
+
+#: app/Strings.php:109
+msgid "You can easily highlight text for copy-paste"
+msgstr "텍스트를 쉽게 드래그하여 복사할 수 있습니다"
+
+#: app/Strings.php:110
+msgid "You can effortlessly move the table horizontally (left-right)."
+msgstr "테이블을 좌우로 손쉽게 이동할 수 있습니다."
+
+#: app/Strings.php:112
+msgid ""
+"Allow checkbox to be loaded from sheets. You can use it to import checkox if "
+"you have them in Google Sheets."
+msgstr ""
+"시트에서 체크박스를 불러올 수 있도록 허용합니다. Google Sheets에 체크박스가 "
+"있는 경우 가져올 때 사용하세요."
+
+#: app/Strings.php:114 app/Strings.php:708
+msgid "Enable row and column coloring"
+msgstr "행 및 열 색상 지정 활성화"
+
+#: app/Strings.php:115
+msgid "Choose the column or row to add colors"
+msgstr "색상을 추가할 열 또는 행을 선택하세요"
+
+#: app/Strings.php:116
+msgid "Add color on column"
+msgstr "열에 색상 추가"
+
+#: app/Strings.php:117
+msgid "Add color on row"
+msgstr "행에 색상 추가"
+
+#: app/Strings.php:119
+msgid ""
+"Select which column to sort on load, or keep the format from Google Sheets."
+msgstr "로드 시 정렬할 열을 선택하거나 Google Sheets의 기본 형식을 유지하세요."
+
+#: app/Strings.php:120
+msgid "Choose the order of sorting for the selected column."
+msgstr "선택한 열의 정렬 순서를 선택하세요."
+
+#: app/Strings.php:122
+msgid ""
+"Specify the maximum time (in seconds) the plugin will wait for a response "
+"from the Google server. A higher timeout allows more time to receive a "
+"complete response, but may delay table loading; a lower timeout can speed up "
+"loading but may result in missing data if the response isn’t fully received. "
+"A setting between 10 and 15 seconds is generally recommended for balanced "
+"performance."
+msgstr ""
+"플러그인이 Google 서버의 응답을 기다리는 최대 시간(초)을 설정하세요. 시간이 "
+"길수록 완전한 응답을 받을 가능성이 높지만 테이블 로딩이 느려질 수 있고, 시간"
+"이 짧을수록 로딩은 빠르지만 응답이 완전히 수신되지 않아 데이터가 누락될 수 있"
+"습니다. 균형 잡힌 성능을 위해 일반적으로 10~15초 사이의 값을 권장합니다."
+
+#: app/Strings.php:124
+msgid ""
+"Choose how you want to sort your table on load. Select a specific column to "
+"sort by (either ascending or descending), or keep the same format as in "
+"Google Sheets."
+msgstr ""
+"테이블 로드 시 정렬 방식을 선택하세요. 특정 열을 기준으로 오름차순 또는 내림"
+"차순 정렬을 선택하거나 Google Sheets의 형식을 그대로 유지할 수 있습니다."
+
+#: app/Strings.php:126
+msgid ""
+"Select this to make the custom theme available for all tables. If unchecked, "
+"the theme will only be used for this table."
+msgstr ""
+"이 항목을 선택하면 커스텀 테마를 모든 테이블에 적용할 수 있습니다. 체크하지 "
+"않으면 이 테이블에만 적용됩니다."
+
+#: app/Strings.php:127
+msgid ""
+"If selected, any changes made to your theme will be automatically applied to "
+"all other tables with the same theme, ensuring consistency across them. If "
+"the theme does not exist in other tables, it will be cloned with update "
+"style."
+msgstr ""
+"이 항목을 선택하면 테마에 변경 사항이 생길 때 동일한 테마를 사용하는 모든 테"
+"이블에 자동으로 적용되어 일관성이 유지됩니다. 다른 테이블에 해당 테마가 없는 "
+"경우 업데이트된 스타일로 복제됩니다."
+
+#: app/Strings.php:129
+msgid ""
+"Adjust the header’s offset to prevent overlap with sticky menus or other "
+"elements at the top of the page."
+msgstr ""
+"페이지 상단의 고정 메뉴나 다른 요소와 겹치지 않도록 헤더 오프셋을 조정하세요."
+
+#: app/Strings.php:130
+msgid ""
+"Set how many columns from the left side of the table should remain fixed "
+"while scrolling."
+msgstr "스크롤 시 테이블 왼쪽에서 고정할 열의 수를 설정하세요."
+
+#: app/Strings.php:131
+msgid ""
+"Set how many columns from the right side of the table should remain fixed "
+"while scrolling."
+msgstr "스크롤 시 테이블 오른쪽에서 고정할 열의 수를 설정하세요."
+
+#: app/Strings.php:132
+msgid ""
+"When this option is enabled, the cache won't trigger any API request to "
+"update data from sheets. This helps improve performance and reduce server "
+"load. Important: If this is enabled before turning on features like merged "
+"cells, links, images, or importing table styles from Google Sheets, those "
+"features might not appear until the cache expires. To avoid this, enable all "
+"necessary features first, then active the cache feaure and then turn on this "
+"option. You can also change the cache expiry time in Settings."
+msgstr ""
+"이 옵션을 활성화하면 캐시가 시트 데이터 업데이트를 위한 API 요청을 보내지 않"
+"습니다. 이를 통해 성능을 향상시키고 서버 부하를 줄일 수 있습니다. 중요: 병합 "
+"셀, 링크, 이미지, Google Sheets 테이블 스타일 가져오기 등의 기능을 켜기 전에 "
+"이 옵션을 먼저 활성화하면 캐시가 만료될 때까지 해당 기능이 나타나지 않을 수 "
+"있습니다. 이를 방지하려면 필요한 모든 기능을 먼저 활성화한 후, 캐시 기능을 켜"
+"고 이 옵션을 설정하세요. 캐시 만료 시간은 설정에서 변경할 수 있습니다."
+
+#: app/Strings.php:133
+msgid ""
+"Set how many days the cache should be stored in transients. Once the "
+"transient expires, the data will automatically refresh from the connected "
+"Google Sheets with updated data."
+msgstr ""
+"캐시를 임시 저장소에 보관할 기간(일)을 설정하세요. 기간이 만료되면 연결된 "
+"Google Sheets에서 최신 데이터가 자동으로 새로 고쳐집니다."
+
+#: app/Strings.php:135
+msgid ""
+"Allow visitors to ask questions about the table. AI scans the data and "
+"returns accurate, easy to understand answers in real time."
+msgstr ""
+"방문자가 테이블에 대한 질문을 할 수 있도록 허용합니다. AI가 데이터를 분석하"
+"여 정확하고 이해하기 쉬운 답변을 실시간으로 제공합니다."
+
+#: app/Strings.php:140
+msgid "Add new table"
+msgstr "새 테이블 추가"
+
+#: app/Strings.php:145
+msgid "Please activate your license"
+msgstr "라이선스를 활성화해 주세요"
+
+#: app/Strings.php:151
+msgid "What’s new?"
+msgstr "새로운 소식"
+
+#: app/Strings.php:156
+msgid "Save changes"
+msgstr "변경 사항 저장"
+
+#: app/Strings.php:157
+msgid "1. Tab Creation"
+msgstr "1. 탭 만들기"
+
+#: app/Strings.php:158
+msgid "2. Tab settings"
+msgstr "2. 탭 설정"
+
+#: app/Strings.php:159
+msgid "Table Settings"
+msgstr "테이블 설정"
+
+#: app/Strings.php:161
+msgid "Create tab view with tables"
+msgstr "테이블로 탭 보기 만들기"
+
+#: app/Strings.php:162
+msgid "Adjust tab appearance and behavior"
+msgstr "탭 모양과 동작 방식 조정"
+
+#: app/Strings.php:163
+msgid "Save & go to Manage Tab"
+msgstr "저장 후 탭 관리로 이동"
+
+#: app/Strings.php:164
+msgid "Save & go to dashboard"
+msgstr "저장 후 대시보드로 이동"
+
+#: app/Strings.php:165
+msgid "Go to Dashboard"
+msgstr "대시보드로 이동"
+
+#: app/Strings.php:167
+msgid "COPY EMAL"
+msgstr "이메일 복사"
+
+#: app/Strings.php:168
+msgid "ID: TB_"
+msgstr "ID: TB_"
+
+#: app/Strings.php:169
+msgid "Copied!"
+msgstr "복사되었습니다!"
+
+#: app/Strings.php:170 app/templates/create_tables.php:37
+#: app/templates/edit_table.php:39
+msgid "Back"
+msgstr "뒤로"
+
+#: app/Strings.php:171 app/Strings.php:603
+msgid "Next"
+msgstr "다음"
+
+#: app/Strings.php:172
+msgid "Tab title"
+msgstr "탭 제목"
+
+#: app/Strings.php:173 app/Strings.php:582
+msgid "Tab Groups"
+msgstr "탭 그룹"
+
+#: app/Strings.php:174
+msgid "Organize multiple tables into tabs, just like Google Sheets!"
+msgstr "Google Sheets처럼 여러 테이블을 탭으로 정리하세요!"
+
+#: app/Strings.php:175
+msgid "Get started with tab groups"
+msgstr "탭 그룹 시작하기"
+
+#: app/Strings.php:176
+msgid "No tab group found!"
+msgstr "탭 그룹을 찾을 수 없습니다!"
+
+#: app/Strings.php:177
+msgid "No tab group matches to your search term"
+msgstr "검색어와 일치하는 탭 그룹이 없습니다"
+
+#: app/Strings.php:178
+msgid "Select table for Tab 1"
+msgstr "탭 1에 표시할 테이블을 선택하세요"
+
+#: app/Strings.php:184
+msgid "Select Pagination"
+msgstr "페이지네이션 선택"
+
+#: app/Strings.php:185
+msgid "Customize your theme according to your needs"
+msgstr "필요에 맞게 테마를 사용자 정의하세요"
+
+#: app/Strings.php:190
+msgid "Name"
+msgstr "이름"
+
+#: app/Strings.php:191
+msgid "ID"
+msgstr "ID"
+
+#: app/Strings.php:192
+msgid "Date"
+msgstr "날짜"
+
+#: app/Strings.php:193 app/Strings.php:493
+msgid "Ascending"
+msgstr "오름차순"
+
+#: app/Strings.php:194 app/Strings.php:494
+msgid "Descending"
+msgstr "내림차순"
+
+#: app/Strings.php:195
+msgid "above"
+msgstr "위"
+
+#: app/Strings.php:196
+msgid "below"
+msgstr "아래"
+
+#: app/Strings.php:197
+msgid "No tables found!"
+msgstr "테이블을 찾을 수 없습니다!"
+
+#: app/Strings.php:198
+msgid "No tables matches to your search term"
+msgstr "검색어와 일치하는 테이블이 없습니다"
+
+#: app/Strings.php:204
+msgid "1. Managing tabs"
+msgstr "1. 탭 관리"
+
+#: app/Strings.php:209
+msgid "Create table"
+msgstr "테이블 만들기"
+
+#: app/Strings.php:210
+msgid "Create table from URL"
+msgstr "URL에서 테이블 만들기"
+
+#: app/Strings.php:211
+msgid "Change theme and table style"
+msgstr "테마 및 테이블 스타일 변경"
+
+#: app/Strings.php:212
+msgid ""
+"You can change table theme below. You will find more customization in the "
+"dashboard."
+msgstr ""
+"아래에서 테이블 테마를 변경할 수 있습니다. 대시보드에서 더 많은 사용자 지정 "
+"옵션을 찾을 수 있습니다. "
+
+#: app/Strings.php:214
+msgid "PRO"
+msgstr "PRO"
+
+#: app/Strings.php:216
+msgid "to create table from any tab of your Google SpreadSheet."
+msgstr "Google 스프레드시트의 모든 탭에서 테이블을 만들 수 있습니다."
+
+#: app/Strings.php:217
+msgid "Add your Google Sheet URL to create a table"
+msgstr "테이블을 만들려면 Google 시트 URL을 추가하세요"
+
+#: app/Strings.php:218
+msgid ""
+"Paste the browser URL of your Google Sheet below, and the table will be "
+"created for you to customize"
+msgstr ""
+"아래에 Google 시트의 브라우저 URL을 붙여넣으면 사용자 지정할 수 있는 테이블"
+"이 자동으로 만들어집니다"
+
+#: app/Strings.php:219
+msgid "Creating new table"
+msgstr "새 테이블 만드는 중"
+
+#: app/Strings.php:224
+msgid "Create WooCommerce product table easily!"
+msgstr "WooCommerce 상품 테이블을 간편하게 만들어보세요!"
+
+#: app/Strings.php:226
+msgid "Install Stock Sync for WooCommerce"
+msgstr "WooCommerce용 Stock Sync 설치하기"
+
+#: app/Strings.php:228
+msgid ""
+"and sync your store products to Google Sheets. Use the synced Google Sheet "
+"to create table. It’s easy!"
+msgstr ""
+"스토어 상품을 Google 시트와 동기화하세요. 동기화된 Google 시트로 테이블을 만"
+"들면 정말 간단합니다!"
+
+#: app/Strings.php:230
+msgid "Install now"
+msgstr "지금 설치하기"
+
+#: app/Strings.php:235
+msgid "Table title"
+msgstr "테이블 제목"
+
+#: app/Strings.php:236
+msgid "Please reduce title to save."
+msgstr "저장하려면 제목을 줄여주세요."
+
+#: app/Strings.php:237
+msgid "Google Sheet URL"
+msgstr "Google 시트 URL"
+
+#: app/Strings.php:242
+msgid "Show Table title"
+msgstr "테이블 제목 표시"
+
+#: app/Strings.php:243
+msgid "Table top elements"
+msgstr "테이블 상단 요소"
+
+#: app/Strings.php:244
+msgid "Show entries"
+msgstr "항목 표시"
+
+#: app/Strings.php:245
+msgid "Show search box"
+msgstr "검색창 표시"
+
+#: app/Strings.php:246
+msgid "Swap"
+msgstr "위치 바꾸기"
+
+#: app/Strings.php:247
+msgid "Hide title"
+msgstr "제목 숨기기"
+
+#: app/Strings.php:249
+msgid "Allow Table Sorting"
+msgstr "테이블 정렬 허용"
+
+#: app/Strings.php:250
+msgid "Hide sorting controls from table"
+msgstr "테이블에서 정렬 컨트롤 숨기기"
+
+#: app/Strings.php:251
+msgid "Set Default Table Sorting on Load"
+msgstr "로드 시 기본 테이블 정렬 설정"
+
+#: app/Strings.php:252
+msgid "Sort By Column"
+msgstr "열 기준으로 정렬"
+
+#: app/Strings.php:253
+msgid "Sort By Order"
+msgstr "순서 기준으로 정렬"
+
+#: app/Strings.php:254
+msgid "Sort By"
+msgstr "정렬 기준"
+
+#: app/Strings.php:256
+msgid "Freeze Table Columns"
+msgstr "테이블 열 고정"
+
+#: app/Strings.php:257
+msgid "Left Columns Numbers"
+msgstr "왼쪽 고정 열 수"
+
+#: app/Strings.php:258
+msgid "Right Columns Numbers"
+msgstr "오른쪽 고정 열 수"
+
+#: app/Strings.php:259
+msgid "Freeze Table Header"
+msgstr "테이블 헤더 고정"
+
+#: app/Strings.php:260
+msgid "Header Offset"
+msgstr "헤더 오프셋"
+
+#: app/Strings.php:262
+msgid "Table bottom elements"
+msgstr "테이블 하단 요소"
+
+#: app/Strings.php:263
+msgid "Show entry info"
+msgstr "항목 정보 표시"
+
+#: app/Strings.php:264
+msgid "Show pagination"
+msgstr "페이지 나누기 표시"
+
+#: app/Strings.php:265
+msgid "Swap position"
+msgstr "위치 바꾸기"
+
+#: app/Strings.php:266
+msgid "Swapped position"
+msgstr "위치가 바뀌었습니다"
+
+#: app/Strings.php:267
+msgid ""
+"Themes cannot be used when the \"Import colors and text styles from sheet\" "
+"feature is enabled"
+msgstr ""
+"\"시트에서 색상 및 텍스트 스타일 가져오기\" 기능이 활성화된 경우 테마를 사용"
+"할 수 없습니다"
+
+#: app/Strings.php:273
+msgid "How does this plugin work?"
+msgstr "이 플러그인은 어떻게 사용하나요?"
+
+#: app/Strings.php:274
+msgid ""
+"Watch how to <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>get started with FlexTable</a>."
+msgstr ""
+"<a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>FlexTable 시작하기</a> 영상을 확인해"
+"보세요."
+
+#: app/Strings.php:276
+msgid "Where can I find tutorials about this plugin?"
+msgstr "이 플러그인 사용 튜토리얼은 어디서 찾을 수 있나요?"
+
+#: app/Strings.php:277
+msgid ""
+"Please visit our <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>Youtube playlist</a>, where we post "
+"tutorials on how you can use different features of the plugin."
+msgstr ""
+"플러그인의 다양한 기능 사용법을 담은 튜토리얼을 확인하려면 저희 <a "
+"target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube 재생목록</a>을 방문해주세요."
+
+#: app/Strings.php:279
+msgid "What date format can I use?"
+msgstr "어떤 날짜 형식을 사용할 수 있나요?"
+
+#: app/Strings.php:280
+msgid ""
+"When working with date formats in your table, you have various options to "
+"choose from. Avoid using a <span class='date-format'><code>comma separator</"
+"code></span>, but consider formats such as <br> e.g. <span class='date-"
+"format'><code>2005-06-07</code> | <code>2005/06/07</code> | <code>2005 06 "
+"07</code> | <code>June 7- 2005</code> | <code>June 7 2005</code> | <code>7th "
+"June 2005</code></span>"
+msgstr ""
+"테이블에서 날짜 형식을 사용할 때 다양한 옵션 중에서 선택할 수 있습니다. "
+"<span class='date-format'><code>쉼표 구분 기호</code></span>는 사용하지 마시"
+"고, 다음과 같은 형식을 사용해보세요. <br> 예: <span class='date-"
+"format'><code>2005-06-07</code> | <code>2005/06/07</code> | <code>2005 06 "
+"07</code> | <code>June 7- 2005</code> | <code>June 7 2005</code> | <code>7th "
+"June 2005</code></span>"
+
+#: app/Strings.php:282
+msgid "Which one is better for link support?"
+msgstr "링크 지원에는 어떤 방식이 더 좋은가요?"
+
+#: app/Strings.php:284
+msgid ""
+"For enhanced link functionality, it's advisable to utilize <span class='date-"
+"format'><code>Smart Link</code></span> over the <span class='date-"
+"format'><code>Pretty Link</code></span>. Smart Link is known for its robust "
+"and user-friendly features."
+msgstr ""
+"향상된 링크 기능을 위해 <span class='date-format'><code>Pretty Link</code></"
+"span> 보다는 <span class='date-format'><code>Smart Link</code></span>를 사용"
+"하는 것을 권장합니다. Smart Link는 강력하고 사용하기 편리한 기능으로 잘 알려"
+"져 있습니다."
+
+#: app/Strings.php:286
+msgid "Why my table taking too long to load?"
+msgstr "테이블 로딩이 너무 오래 걸리는 이유는 무엇인가요?"
+
+#: app/Strings.php:288
+msgid ""
+"If your table is taking too long to load, it may be due to the presence of a "
+"substantial amount of data in Google Sheets, along with images and links. If "
+"your sheet doesn't contain images or links, consider disabling <span "
+"class='date-format'><code>links and Image support</code></span> within the "
+"<span class='date-format'><code>Utility</code></span> settings of Table "
+"Customization to expedite table loading. Utilizing the cache feature can "
+"also improve loading times."
+msgstr ""
+"테이블 로딩이 너무 오래 걸린다면, Google 시트에 많은 양의 데이터와 이미지, 링"
+"크가 포함되어 있기 때문일 수 있습니다. 시트에 이미지나 링크가 없다면 테이블 "
+"사용자 지정의 <span class='date-format'><code>유틸리티</code></span> 설정에"
+"서 <span class='date-format'><code>링크 및 이미지 지원</code></span>을 비활성"
+"화하여 로딩 속도를 높여보세요. 캐시 기능을 활용하면 로딩 시간을 더욱 단축할 "
+"수 있습니다."
+
+#: app/Strings.php:290
+msgid "How long table data can take to update if Cache is activated?"
+msgstr "캐시가 활성화된 경우 테이블 데이터가 업데이트되는 데 얼마나 걸리나요?"
+
+#: app/Strings.php:292
+msgid ""
+"When the cache feature is active, updates to your table data are not reliant "
+"on your browser's cache. Changes made in your sheet may take approximately "
+"15-40 seconds to reflect. To view the latest updates, simply refresh the "
+"page after this timeframe."
+msgstr ""
+"캐시 기능이 활성화되어 있을 때 테이블 데이터 업데이트는 브라우저 캐시에 의존"
+"하지 않습니다. 시트에서 변경한 내용이 반영되는 데 약 15~40초가 소요될 수 있습"
+"니다. 최신 업데이트를 확인하려면 이 시간이 지난 후 페이지를 새로고침하면 됩니"
+"다."
+
+#: app/Strings.php:294
+msgid "How do I find tutorials about using the plugin?"
+msgstr "플러그인 사용 튜토리얼은 어디서 찾을 수 있나요?"
+
+#: app/Strings.php:296
+msgid ""
+"Please visit our <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube playlist</a>, where we post "
+"tutorials on how you can use different features of the plugin."
+msgstr ""
+"플러그인의 다양한 기능 사용법을 담은 튜토리얼을 확인하려면 저희 <a "
+"target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube 재생목록</a>을 방문해주세요."
+
+#: app/Strings.php:298
+msgid ""
+"How can I create a table from an imported XLSX file in google spreadsheets?"
+msgstr "Google 스프레드시트에서 가져온 XLSX 파일로 어떻게 테이블을 만드나요?"
+
+#: app/Strings.php:300
+msgid ""
+"Make sure to import the XLSX file into Google Spreadsheets in the following "
+"ways. Create a new blank spreadsheet, then navigate to `<span class='date-"
+"format'><code> File > Import > Upload</code></span>` Drag the XLSX files to "
+"import. Then share the spreadsheets from 'General Access'. Please visit our "
+"<a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube playlist</a>, where we post "
+"tutorials on how you can use XLSX file imported in google spreadsheets."
+msgstr ""
+"다음 방법으로 XLSX 파일을 Google 스프레드시트에 가져오세요. 새로운 빈 스프레"
+"드시트를 만든 후 `<span class='date-format'><code> 파일 > 가져오기 > 업로드</"
+"code></span>`로 이동합니다. XLSX 파일을 끌어다 놓아 가져오기 하세요. 그런 다"
+"음 '일반 액세스'에서 스프레드시트를 공유하세요. Google 스프레드시트에서 가져"
+"온 XLSX 파일 활용법을 담은 튜토리얼을 보려면 저희 <a target='_blank' "
+"href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube 재생목록</a>을 방문해주세요."
+
+#: app/Strings.php:303 app/Strings.php:585
+msgid "Get Started"
+msgstr "시작하기"
+
+#: app/Strings.php:304
+msgid "Let’s get you set up so you can start creating awesome tables"
+msgstr "멋진 테이블을 만들 수 있도록 설정을 도와드릴게요"
+
+#: app/Strings.php:306 app/Strings.php:1128
+#: app/templates/documentation_page.php:175
+msgid "Documentation"
+msgstr "문서"
+
+#: app/Strings.php:307
+msgid "Video Tutorial"
+msgstr "동영상 튜토리얼"
+
+#: app/Strings.php:308
+msgid "Get professional help via our ticketing system"
+msgstr "티켓 시스템을 통해 전문적인 도움을 받아보세요"
+
+#: app/Strings.php:309
+msgid "Frequently Asked Question"
+msgstr "자주 묻는 질문"
+
+#: app/Strings.php:310 app/templates/documentation_page.php:75
+msgid "Get the most out of the plugin. Go Pro!"
+msgstr "플러그인을 최대한 활용해보세요. Pro로 업그레이드하세요!"
+
+#: app/Strings.php:311
+msgid "Unlock all features"
+msgstr "모든 기능 잠금 해제"
+
+#: app/Strings.php:312
+msgid "Link Support to import links from sheet"
+msgstr "시트에서 링크를 가져오는 링크 지원"
+
+#: app/Strings.php:313
+msgid ""
+"Pre-built amazing table styles where Each styles is different from one "
+"another"
+msgstr "각각 고유한 디자인을 가진 멋진 테이블 스타일이 미리 준비되어 있습니다"
+
+#: app/Strings.php:314
+msgid "Hide your google sheet table rows based on your custom row selection"
+msgstr "원하는 행 선택에 따라 Google 시트 테이블 행을 숨길 수 있습니다"
+
+#: app/Strings.php:315
+msgid "Unlimited Row Sync and fetch unlimited rows from Google spreadsheet"
+msgstr "무제한 행 동기화 및 Google 스프레드시트에서 무제한으로 행 불러오기"
+
+#: app/Strings.php:320
+msgid "Export as JSON"
+msgstr "JSON으로 내보내기"
+
+#: app/Strings.php:321
+msgid "Export as CSV"
+msgstr "CSV로 내보내기"
+
+#: app/Strings.php:322
+msgid "Export as PDF"
+msgstr "PDF로 내보내기"
+
+#: app/Strings.php:323
+msgid "Export as Excel"
+msgstr "Excel로 내보내기"
+
+#: app/Strings.php:324
+msgid "Print Table"
+msgstr "테이블 인쇄"
+
+#: app/Strings.php:325
+msgid "Copy to Clipboard"
+msgstr "클립보드에 복사"
+
+#: app/Strings.php:327
+msgid "Live sync is limited to 30 rows."
+msgstr "실시간 동기화는 30행으로 제한됩니다."
+
+#: app/Strings.php:328
+msgid ""
+"In your free plan, you are limited to creating 10 tables. Upgrade to create "
+"more."
+msgstr ""
+"무료 플랜에서는 최대 10개의 테이블을 만들 수 있습니다. 더 많이 만들려면 업그"
+"레이드하세요."
+
+#: app/Strings.php:329
+msgid "Upgrade to Pro"
+msgstr "Pro로 업그레이드"
+
+#: app/Strings.php:330
+msgid "for showing full google sheet."
+msgstr "전체 Google 시트를 표시하려면."
+
+#: app/Strings.php:332
+msgid "1. Data source"
+msgstr "1. 데이터 소스"
+
+#: app/Strings.php:333
+msgid "2. Table theme"
+msgstr "2. 테이블 테마"
+
+#: app/Strings.php:334
+msgid "3. Table customization"
+msgstr "3. 테이블 사용자 지정"
+
+#: app/Strings.php:335
+msgid "4. Hide Rows/Column"
+msgstr "4. 행/열 숨기기"
+
+#: app/Strings.php:336
+msgid "5. Conditional Table View"
+msgstr "5. 조건부 테이블 보기"
+
+#: app/Strings.php:337
+msgid "6. AI Integration"
+msgstr "6. AI 연동"
+
+#: app/Strings.php:338
+msgid "Table description"
+msgstr "테이블 설명"
+
+#: app/Strings.php:339
+msgid "Show Table description"
+msgstr "테이블 설명 표시"
+
+#: app/Strings.php:341
+msgid "Connect your Google Sheet"
+msgstr "Google 시트 연결하기 "
+
+#: app/Strings.php:342
+msgid "Choose how your table appears"
+msgstr "테이블 표시 방식 선택"
+
+#: app/Strings.php:343
+msgid "Style and personalize your table’s look"
+msgstr "테이블 디자인을 스타일링하고 개인화하기"
+
+#: app/Strings.php:344
+msgid "Show or hide specific rows and columns"
+msgstr "특정 행과 열 표시 또는 숨기기"
+
+#: app/Strings.php:345
+msgid "Choose how you want to Display the table"
+msgstr "테이블 표시 방법 선택"
+
+#: app/Strings.php:346
+msgid "Auto-summarize data or let visitors ask questions using AI"
+msgstr "데이터를 자동으로 요약하거나 AI를 통해 방문자가 질문할 수 있게 하기"
+
+#: app/Strings.php:348
+msgid "Save"
+msgstr "저장"
+
+#: app/Strings.php:349
+msgid "Loading Preview..."
+msgstr "미리보기 불러오는 중..."
+
+#: app/Strings.php:355
+msgid "Upgrade"
+msgstr "업그레이드"
+
+#: app/Strings.php:361 app/Strings.php:638
+msgid "Create tables first to manage tabs"
+msgstr "탭을 관리하려면 먼저 테이블을 만드세요"
+
+#: app/Strings.php:362 app/Strings.php:637
+msgid ""
+"Manage tab is not available because you don’t have any tables yet. Please "
+"create tables first"
+msgstr ""
+"아직 테이블이 없기 때문에 탭 관리를 사용할 수 없습니다. 먼저 테이블을 만들어"
+"주세요"
+
+#: app/Strings.php:363
+msgid "Display multiple tables using tabs."
+msgstr "탭을 사용하여 여러 테이블을 표시하세요."
+
+#: app/Strings.php:364
+msgid "Create New Tab Group"
+msgstr "새 탭 그룹 만들기"
+
+#: app/Strings.php:365
+msgid "Your Tab Groups"
+msgstr "내 탭 그룹"
+
+#: app/Strings.php:366
+msgid "No tabs found with the key"
+msgstr "해당 키로 찾은 탭이 없습니다"
+
+#: app/Strings.php:371
+msgid "Select table for this tab"
+msgstr "이 탭에 사용할 테이블 선택"
+
+#: app/Strings.php:372
+msgid "Tab Title"
+msgstr "탭 제목"
+
+#: app/Strings.php:373
+msgid "Add tab"
+msgstr "탭 추가"
+
+#: app/Strings.php:374
+msgid "Tab group name"
+msgstr "탭 그룹 이름"
+
+#: app/Strings.php:379
+msgid "Let’s bring meaning to your data"
+msgstr "데이터에 의미를 불어넣어 보세요"
+
+#: app/Strings.php:380
+msgid ""
+"Create beautifully designed tables from Google sheets and customize as you "
+"need."
+msgstr ""
+"Google 시트로 아름답게 디자인된 테이블을 만들고 원하는 대로 자유롭게 꾸며보세"
+"요."
+
+#: app/Strings.php:385
+msgid "Our Other Products"
+msgstr "다른 제품 보기"
+
+#: app/Strings.php:386
+msgid ""
+"Experience remarkable WordPress products with a new level of power, beauty, "
+"and human-centered designs. Think you know WordPress products? Think Deeper!"
+msgstr ""
+"강력함, 아름다움, 그리고 사람 중심 디자인의 새로운 차원을 경험하는 놀라운 "
+"WordPress 제품들을 만나보세요. WordPress 제품을 잘 알고 있다고 생각하시나요? "
+"더 깊이 생각해보세요!"
+
+#: app/Strings.php:392
+msgid "Hidden Cells on Desktop"
+msgstr "데스크톱에서 숨긴 셀"
+
+#: app/Strings.php:393
+msgid "Hidden Cells on Mobile"
+msgstr "모바일에서 숨긴 셀"
+
+#: app/Strings.php:395
+msgid "Hide Cells"
+msgstr "셀 숨기기"
+
+#: app/Strings.php:398
+msgid "Hidden Rows on Desktop"
+msgstr "데스크톱에서 숨긴 행"
+
+#: app/Strings.php:399
+msgid "Hidden Rows on Mobile"
+msgstr "모바일에서 숨긴 행"
+
+#: app/Strings.php:401
+msgid "Hide Rows"
+msgstr "행 숨기기"
+
+#: app/Strings.php:402
+msgid "Same as desktop"
+msgstr "데스크톱과 동일"
+
+#: app/Strings.php:405
+msgid "Hidden Columns on Desktop"
+msgstr "데스크톱에서 숨긴 열"
+
+#: app/Strings.php:406
+msgid "Hidden Columns on Mobile"
+msgstr "모바일에서 숨긴 열"
+
+#: app/Strings.php:407
+msgid "Hide columns on desktop"
+msgstr "데스크톱에서 열 숨기기"
+
+#: app/Strings.php:408
+msgid "Hide columns on mobile"
+msgstr "모바일에서 열 숨기기"
+
+#: app/Strings.php:410
+msgid "Hide Columns"
+msgstr "열 숨기기"
+
+#: app/Strings.php:411
+msgid "Hide on Desktop"
+msgstr "데스크톱에서 숨기기"
+
+#: app/Strings.php:412
+msgid "Hide on Mobile"
+msgstr "모바일에서 숨기기"
+
+#: app/Strings.php:413
+msgid "Desktop"
+msgstr "데스크톱"
+
+#: app/Strings.php:414
+msgid "Mobile"
+msgstr "모바일"
+
+#: app/Strings.php:415
+msgid "Click on the cells on the table below that you want to hide"
+msgstr "아래 테이블에서 숨기고 싶은 셀을 클릭하세요"
+
+#: app/Strings.php:416
+msgid "Click on the rows on the table below that you want to hide"
+msgstr "아래 테이블에서 숨기고 싶은 행을 클릭하세요"
+
+#: app/Strings.php:417
+msgid "Click on the column on the table below that you want to hide"
+msgstr "아래 테이블에서 숨기고 싶은 열을 클릭하세요"
+
+#: app/Strings.php:422
+msgid "New"
+msgstr "새로 만들기"
+
+#: app/Strings.php:423
+msgid "Save settings"
+msgstr "설정 저장"
+
+#: app/Strings.php:424
+msgid "Custom CSS"
+msgstr "사용자 정의 CSS"
+
+#: app/Strings.php:425 app/Strings.php:828
+msgid "Recommended"
+msgstr "추천"
+
+#: app/Strings.php:426
+msgid "With Pretty link"
+msgstr "Pretty link 사용"
+
+#: app/Strings.php:427
+msgid "With Smart link"
+msgstr "Smart link 사용"
+
+#: app/Strings.php:428
+msgid "Asynchronous loading"
+msgstr "비동기 로딩"
+
+#: app/Strings.php:430
+msgid ""
+"Enable this feature to load the table faster. The table will load in the "
+"frontend after loading all content with a pre-loader. If this feature is "
+"disabled then the table will load with the reloading of browser every time."
+msgstr ""
+"테이블을 더 빠르게 로드하려면 이 기능을 활성화하세요. 테이블은 로딩 인디케이"
+"터와 함께 모든 콘텐츠가 로드된 후 프런트엔드에 표시됩니다. 이 기능을 비활성화"
+"하면 테이블이 브라우저를 새로고침할 때마다 다시 로드됩니다."
+
+#: app/Strings.php:432
+msgid "Choose your link support mechanism in WP Tables"
+msgstr "WP Tables에서 사용할 링크 지원 방식을 선택하세요"
+
+#: app/Strings.php:433
+msgid ""
+"Write your own custom CSS to design the table or the page itself. Activate "
+"the Pro extension to enable custom CSS option"
+msgstr ""
+"직접 CSS를 작성하여 테이블이나 페이지 디자인을 꾸며보세요. 사용자 정의 CSS 옵"
+"션을 사용하려면 Pro 확장 기능을 활성화하세요"
+
+#: app/Strings.php:434
+msgid "Performance"
+msgstr "성능"
+
+#: app/Strings.php:436
+msgid "Choose how you want to load your table scripts"
+msgstr "테이블 스크립트 로드 방식을 선택하세요"
+
+#: app/Strings.php:437
+msgid "Global loading"
+msgstr "전체 로딩"
+
+#: app/Strings.php:438
+msgid "Load the scripts on all the pages and posts in your website."
+msgstr "웹사이트의 모든 페이지와 게시물에 스크립트를 로드합니다."
+
+#: app/Strings.php:439
+msgid "Optimized loading"
+msgstr "최적화된 로딩"
+
+#: app/Strings.php:440
+msgid ""
+"Load scripts only on the relevant pages/posts in your website where the "
+"table is added."
+msgstr "테이블이 추가된 관련 페이지 및 게시물에만 스크립트를 로드합니다."
+
+#: app/Strings.php:445
+msgid "WPPOOL"
+msgstr "WPPOOL"
+
+#: app/Strings.php:446
+msgid "Powered by"
+msgstr "제공"
+
+#: app/Strings.php:447
+msgid "Default Email App"
+msgstr "기본 이메일 앱"
+
+#: app/Strings.php:448
+msgid "Open your default email app"
+msgstr "기본 이메일 앱 열기"
+
+#: app/Strings.php:449
+msgid "Copy email address to your clipboard"
+msgstr "이메일 주소를 클립보드에 복사"
+
+#: app/Strings.php:450
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: app/Strings.php:451
+msgid "Open Yahoo in browser"
+msgstr "브라우저에서 Yahoo 열기"
+
+#: app/Strings.php:452
+msgid "Outlook"
+msgstr "Outlook"
+
+#: app/Strings.php:453
+msgid "Open Outlook in browser"
+msgstr "브라우저에서 Outlook 열기"
+
+#: app/Strings.php:454
+msgid "Gmail"
+msgstr "Gmail"
+
+#: app/Strings.php:455
+msgid "Open Gmail in browser"
+msgstr "브라우저에서 Gmail 열기"
+
+#: app/Strings.php:456
+msgid "Select the convenient option to connect with us"
+msgstr "편리한 방법을 선택하여 저희에게 연락해주세요"
+
+#: app/Strings.php:462
+msgid ""
+"This Tab Group will be deleted. It will not appear on your website anymore, "
+"if you used it somewhere"
+msgstr ""
+"이 탭 그룹이 삭제됩니다. 사이트 어딘가에 사용 중이었다면 더 이상 표시되지 않"
+"습니다"
+
+#: app/Strings.php:463 app/templates/parts/popup_modals.php:26
+#: app/templates/parts/popup_modals.php:74
+#: app/templates/parts/popup_modals.php:107
+#: app/templates/parts/popup_modals.php:146
+#: app/templates/parts/pro_fix_notice.php:66
+msgid "Cancel"
+msgstr "취소"
+
+#: app/Strings.php:464
+msgid "Are you sure to delete this Tab Group?"
+msgstr "이 탭 그룹을 정말 삭제하시겠습니까?"
+
+#: app/Strings.php:470
+msgid "Utility"
+msgstr "유틸리티"
+
+#: app/Strings.php:471
+msgid "Styling"
+msgstr "스타일링"
+
+#: app/Strings.php:472 app/Strings.php:473
+msgid "Layout"
+msgstr "레이아웃"
+
+#: app/Strings.php:474
+msgid "Let user export table"
+msgstr "사용자가 테이블을 내보낼 수 있도록 허용"
+
+#: app/Strings.php:475
+msgid "Excel"
+msgstr "Excel"
+
+#: app/Strings.php:476
+msgid "JSON"
+msgstr "JSON"
+
+#: app/Strings.php:477
+msgid "Copy"
+msgstr "복사"
+
+#: app/Strings.php:478
+msgid "CSV"
+msgstr "CSV"
+
+#: app/Strings.php:479
+msgid "PDF"
+msgstr "PDF"
+
+#: app/Strings.php:480
+msgid "Print"
+msgstr "인쇄"
+
+#: app/Strings.php:481
+msgid "Link redirection behaviour"
+msgstr "링크 리디렉션 동작"
+
+#: app/Strings.php:482
+msgid "Opens in current window"
+msgstr "현재 창에서 열기"
+
+#: app/Strings.php:483
+msgid "Opens in a new window"
+msgstr "새 창에서 열기"
+
+#: app/Strings.php:485
+msgid "Cursor behavior inside the table"
+msgstr "테이블 내 커서 동작"
+
+#: app/Strings.php:486
+msgid "Text selection mode"
+msgstr "텍스트 선택 모드"
+
+#: app/Strings.php:487
+msgid "Table navigation mode (left-right)"
+msgstr "테이블 탐색 모드 (좌우)"
+
+#: app/Strings.php:489
+msgid "Import links from sheet"
+msgstr "시트에서 링크 가져오기"
+
+#: app/Strings.php:491
+msgid "Import checkbox from sheet"
+msgstr "시트에서 체크박스 가져오기"
+
+#: app/Strings.php:492
+msgid "Enable sorting by specific columns in"
+msgstr "특정 열 기준 정렬 활성화"
+
+#: app/Strings.php:495
+msgid "within the table"
+msgstr "테이블 내에서"
+
+#: app/Strings.php:497
+msgid "Import images from sheet"
+msgstr "시트에서 이미지 가져오기"
+
+#: app/Strings.php:498
+msgid "Cache table for faster loading time"
+msgstr "빠른 로딩을 위해 테이블 캐시하기"
+
+#: app/Strings.php:499
+msgid "Prevent frequent cache updates for faster table loading"
+msgstr "테이블 로딩 속도 향상을 위해 잦은 캐시 업데이트 방지"
+
+#: app/Strings.php:500
+msgid ""
+"New changes from Google Sheets will appear only after the cache expires. "
+"Features like links, images, and merged cells may not show until the cache "
+"refreshes. Cache expiry time can be adjusted in Settings —> Performance."
+msgstr ""
+"Google 시트의 새로운 변경 사항은 캐시가 만료된 후에만 표시됩니다. 링크, 이미"
+"지, 병합된 셀과 같은 기능은 캐시가 갱신될 때까지 표시되지 않을 수 있습니다. "
+"캐시 만료 시간은 설정 —> 성능에서 조정할 수 있습니다."
+
+#: app/Strings.php:501
+msgid "Cell formatting style"
+msgstr "셀 서식 스타일"
+
+#: app/Strings.php:502
+msgid "Expanded"
+msgstr "확장됨"
+
+#: app/Strings.php:503
+msgid "Wrapped"
+msgstr "줄 바꿈"
+
+#: app/Strings.php:504
+msgid "Responsive style"
+msgstr "반응형 스타일"
+
+#: app/Strings.php:505
+msgid "Default"
+msgstr "기본"
+
+#: app/Strings.php:506
+msgid "Collapsible Style"
+msgstr "접기 스타일"
+
+#: app/Strings.php:507
+msgid "Scrollable Style"
+msgstr "스크롤 스타일"
+
+#: app/Strings.php:508
+msgid "Rows to show per page"
+msgstr "페이지당 표시할 행 수"
+
+#: app/Strings.php:509
+msgid "All"
+msgstr "전체"
+
+#: app/Strings.php:510
+msgid "100"
+msgstr "100"
+
+#: app/Strings.php:511
+msgid "50"
+msgstr "50"
+
+#: app/Strings.php:512
+msgid "30"
+msgstr "30"
+
+#: app/Strings.php:513
+msgid "15"
+msgstr "15"
+
+#: app/Strings.php:514
+msgid "10"
+msgstr "10"
+
+#: app/Strings.php:515
+msgid "5"
+msgstr "5"
+
+#: app/Strings.php:516
+msgid "1"
+msgstr "1"
+
+#: app/Strings.php:517
+msgid "-1"
+msgstr "-1"
+
+#: app/Strings.php:518
+msgid "The table is limited to 100 rows."
+msgstr "테이블은 100행으로 제한됩니다."
+
+#: app/Strings.php:519
+msgid "to show the full Google Sheet with awesome customizations."
+msgstr "멋진 사용자 지정 옵션으로 전체 Google 시트를 표시하려면."
+
+#: app/Strings.php:521
+msgid "Upgrade Now →"
+msgstr "지금 업그레이드 →"
+
+#: app/Strings.php:522
+msgid "Table height"
+msgstr "테이블 높이"
+
+#: app/Strings.php:524
+msgid "Default height"
+msgstr "기본 높이"
+
+#: app/Strings.php:525
+msgid "400px"
+msgstr "400px"
+
+#: app/Strings.php:526
+msgid "500px"
+msgstr "500px"
+
+#: app/Strings.php:527
+msgid "600px"
+msgstr "600px"
+
+#: app/Strings.php:528
+msgid "700px"
+msgstr "700px"
+
+#: app/Strings.php:529
+msgid "800px"
+msgstr "800px"
+
+#: app/Strings.php:530
+msgid "900px"
+msgstr "900px"
+
+#: app/Strings.php:531
+msgid "1000px"
+msgstr "1000px"
+
+#: app/Strings.php:532
+msgid "Select theme"
+msgstr "테마 선택"
+
+#: app/Strings.php:534
+msgid "Import colors and text styles from sheet"
+msgstr "시트에서 색상 및 텍스트 스타일 가져오기"
+
+#: app/Strings.php:535
+msgid "Unlock"
+msgstr "잠금 해제"
+
+#: app/Strings.php:537
+msgid "Default Style"
+msgstr "기본 스타일"
+
+#: app/Strings.php:538
+msgid "Simple"
+msgstr "심플"
+
+#: app/Strings.php:540
+msgid "Dark Table"
+msgstr "다크 테이블"
+
+#: app/Strings.php:541
+msgid "Simple on dark"
+msgstr "다크 배경의 심플"
+
+#: app/Strings.php:543
+msgid "Stripped Table"
+msgstr "줄무늬 테이블"
+
+#: app/Strings.php:544
+msgid "Minimal on dark"
+msgstr "다크 배경의 미니멀"
+
+#: app/Strings.php:546
+msgid "Hover Style"
+msgstr "호버 스타일"
+
+#: app/Strings.php:547
+msgid "Minimal elegant"
+msgstr "미니멀 엘레강트"
+
+#: app/Strings.php:549
+msgid "Taliwind Style"
+msgstr "Tailwind 스타일"
+
+#: app/Strings.php:550
+msgid "Uppercase heading"
+msgstr "대문자 제목"
+
+#: app/Strings.php:551
+msgid "Table creation successfull"
+msgstr "테이블이 성공적으로 만들어졌습니다"
+
+#: app/Strings.php:553
+msgid "Colored Column"
+msgstr "컬러 열"
+
+#: app/Strings.php:554
+msgid "Vertical style"
+msgstr "세로 스타일"
+
+#: app/Strings.php:557
+msgid "Minimal"
+msgstr "미니멀"
+
+#: app/Strings.php:558
+msgid "Dark knight"
+msgstr "다크 나이트"
+
+#: app/Strings.php:559
+msgid "Uppercase elegant"
+msgstr "대문자 엘레강트"
+
+#: app/Strings.php:561
+msgid "Merge cells"
+msgstr "셀 병합"
+
+#: app/Strings.php:562
+msgid "Beta"
+msgstr "베타"
+
+#: app/Strings.php:563
+msgid ""
+"Sorting feature is disabled. Your sheet contains vertically merged cells, so "
+"you can't use the sorting feature and merge cell feature altogether."
+msgstr ""
+"정렬 기능이 비활성화되어 있습니다. 시트에 수직으로 병합된 셀이 포함되어 있어 "
+"정렬 기능과 셀 병합 기능을 동시에 사용할 수 없습니다."
+
+#: app/Strings.php:568
+msgid "Are you sure to disable?"
+msgstr "정말 비활성화하시겠습니까?"
+
+#: app/Strings.php:569
+msgid ""
+"Colors and text styles from your Google Sheet won’t be imported anymore. A "
+"default theme will be selected for you if you haven’t selected one already"
+msgstr ""
+"Google 시트의 색상과 텍스트 스타일이 더 이상 가져와지지 않습니다. 아직 테마"
+"를 선택하지 않으셨다면 기본 테마가 자동으로 적용됩니다"
+
+#: app/Strings.php:570
+msgid "Yes, Disable"
+msgstr "네, 비활성화합니다"
+
+#: app/Strings.php:572
+msgid "Enable for Faster Loading"
+msgstr "빠른 로딩을 위해 활성화"
+
+#: app/Strings.php:573
+msgid "Prevent Live Sync?"
+msgstr "실시간 동기화를 중단할까요?"
+
+#: app/Strings.php:574
+msgid ""
+"Table data will only refresh when the cache expires. This improves "
+"performance but may delay content updates. You can adjust the cache expiry "
+"time in Settings → Performance."
+msgstr ""
+"테이블 데이터는 캐시가 만료될 때만 새로고침됩니다. 이는 성능을 향상시키지만 "
+"콘텐츠 업데이트가 지연될 수 있습니다. 캐시 만료 시간은 설정 → 성능에서 조정"
+"할 수 있습니다."
+
+#: app/Strings.php:575
+msgid ""
+"Enabling this feature will skip live sync until your cache expires. Make "
+"sure your Google Sheet up to date and you've enabled all necessary features "
+"(images, links, merged cells, etc.) from the settings first."
+msgstr ""
+"이 기능을 활성화하면 캐시가 만료될 때까지 실시간 동기화를 건너뜁니다. Google "
+"시트가 최신 상태인지 확인하고, 먼저 설정에서 필요한 모든 기능 (이미지, 링크, "
+"병합된 셀 등)을 활성화했는지 확인해주세요."
+
+#: app/Strings.php:581
+msgid "Manage, create and track all your tables tables in one place"
+msgstr "모든 테이블을 한 곳에서 관리하고 만들고 추적하세요"
+
+#: app/Strings.php:583
+msgid "Global Settings"
+msgstr "전체 설정"
+
+#: app/Strings.php:584
+msgid "Configure default settings for all your tables"
+msgstr "모든 테이블의 기본 설정을 구성하세요"
+
+#: app/Strings.php:586
+msgid "Skip"
+msgstr "건너뛰기"
+
+#: app/Strings.php:587
+msgid "Add Google Sheet URL"
+msgstr "Google 시트 URL 추가"
+
+#: app/Strings.php:588
+msgid "Recommended Plugins"
+msgstr "추천 플러그인"
+
+#: app/Strings.php:594
+msgid "Show"
+msgstr "표시"
+
+#: app/Strings.php:595
+msgid "entries"
+msgstr "개 항목"
+
+#: app/Strings.php:596
+msgid "Search:"
+msgstr "검색:"
+
+#: app/Strings.php:598
+msgid "Showing"
+msgstr "표시 중"
+
+#: app/Strings.php:599
+msgid "to"
+msgstr "~"
+
+#: app/Strings.php:600
+msgid "of"
+msgstr "/"
+
+#: app/Strings.php:601
+msgid "First"
+msgstr "처음"
+
+#: app/Strings.php:602
+msgid "Previous"
+msgstr "이전"
+
+#: app/Strings.php:604
+msgid "PREV"
+msgstr "이전"
+
+#: app/Strings.php:605
+msgid "NEXT"
+msgstr "다음"
+
+#: app/Strings.php:606
+msgid "last"
+msgstr "마지막"
+
+#: app/Strings.php:607
+msgid "No matching records found"
+msgstr "일치하는 항목이 없습니다"
+
+#: app/Strings.php:612
+msgid "Copy Shortcode"
+msgstr "숏코드 복사"
+
+#: app/Strings.php:613
+msgid ""
+"Copy the shortcode to use in in any page or post. Gutenberg and Elementor "
+"blocks are also supported"
+msgstr ""
+"페이지나 게시물에서 사용할 숏코드를 복사하세요. Gutenberg 및 Elementor 블록"
+"도 지원됩니다"
+
+#: app/Strings.php:614
+msgid "Are you sure to delete the table? "
+msgstr "테이블을 정말 삭제하시겠습니까? "
+
+#: app/Strings.php:615
+msgid ""
+"You are about to delete the table. This will permanently delete the table(s)"
+msgstr ""
+"테이블을 삭제하려고 합니다. 이 작업을 수행하면 해당 테이블이 영구적으로 삭제"
+"됩니다"
+
+#: app/Strings.php:620
+msgid "Vertical merge found!"
+msgstr "수직 병합이 발견되었습니다!"
+
+#: app/Strings.php:621
+msgid ""
+"Please make sure to keep the sorting feature disabled. Google sheet doesn't "
+"filter over a range containing vertical merges."
+msgstr ""
+"정렬 기능을 비활성화 상태로 유지해주세요. Google 시트는 수직 병합이 포함된 범"
+"위에서 필터링이 되지 않습니다."
+
+#: app/Strings.php:622 app/templates/parts/pro_fix_notice.php:387
+#: app/templates/parts/pro_fix_notice.php:392
+msgid "OK"
+msgstr "확인"
+
+#: app/Strings.php:623
+msgid ""
+"Your sheet contains vertically merged cells, so you can not use the sorting "
+"feature. Sorting may break the table design and format. Please ensure that "
+"you have enabled either the vertical merge cell feature or the sorting "
+"feature, or confirm that your sheet has no vertical merges. If your table "
+"design still breaks even with sorting disabled, consider reloading the sheet "
+"or clicking save again to reflect the necessary fixes. To get the sorting "
+"feature visit Display settings > Disable sorting"
+msgstr ""
+"시트에 수직으로 병합된 셀이 있어 정렬 기능을 사용할 수 없습니다. 정렬을 사용"
+"하면 테이블 디자인과 형식이 깨질 수 있습니다. 수직 셀 병합 기능 또는 정렬 기"
+"능 중 하나만 활성화했는지 확인하거나, 시트에 수직 병합이 없는지 확인해주세"
+"요. 정렬을 비활성화해도 테이블 디자인이 깨진다면 시트를 다시 로드하거나 저장 "
+"버튼을 다시 클릭하여 필요한 수정 사항을 반영해보세요. 정렬 기능을 사용하려면 "
+"표시 설정 > 정렬 비활성화를 방문하세요"
+
+#: app/Strings.php:628
+msgid "Select a column (optional)"
+msgstr "색상 선택"
+
+#: app/Strings.php:629
+msgid "After the table"
+msgstr "테이블 아래"
+
+#: app/Strings.php:630
+msgid "Before the table"
+msgstr "테이블 위"
+
+#: app/Strings.php:631
+msgid "Tab position in embedded view"
+msgstr "임베드 보기에서 탭 위치"
+
+#: app/Strings.php:632
+msgid "Hide tab group title"
+msgstr "탭 그룹 제목 숨기기"
+
+#: app/Strings.php:639
+msgid "👋 Let's create your first tab groups"
+msgstr "👋 첫 번째 탭 그룹을 만들어볼까요"
+
+#: app/Strings.php:640
+msgid "Click the button below to create tab groups"
+msgstr "아래 버튼을 클릭하여 탭 그룹을 만드세요"
+
+#: app/Strings.php:641
+msgid "Show tab group name in embedded view"
+msgstr "임베드 보기에서 탭 그룹 이름 표시"
+
+#: app/Strings.php:647
+msgid "HEADER COLORS"
+msgstr "헤더 색상"
+
+#: app/Strings.php:648
+msgid "TEXT COLORS"
+msgstr "텍스트 색상"
+
+#: app/Strings.php:649
+msgid "BODY COLORS"
+msgstr "본문 색상"
+
+#: app/Strings.php:650
+msgid "TABLE TEXTS"
+msgstr "테이블 텍스트"
+
+#: app/Strings.php:651
+msgid "TABLE HOVER"
+msgstr "테이블 호버"
+
+#: app/Strings.php:652
+msgid "ROW COLORS"
+msgstr "행 색상"
+
+#: app/Strings.php:653
+msgid "COLUMN COLORS"
+msgstr "열 색상"
+
+#: app/Strings.php:654
+msgid "BORDER COLORS"
+msgstr "테두리 색상"
+
+#: app/Strings.php:655
+msgid "Customize Theme Options"
+msgstr "테마 옵션 사용자 지정"
+
+#: app/Strings.php:656
+msgid "Border Style"
+msgstr "테두리 스타일"
+
+#: app/Strings.php:657
+msgid "Reset"
+msgstr "초기화"
+
+#: app/Strings.php:659
+msgid "Background color"
+msgstr "배경색"
+
+#: app/Strings.php:660
+msgid "Text color"
+msgstr "텍스트 색상"
+
+#: app/Strings.php:662
+msgid "First column text color"
+msgstr "첫 번째 열 텍스트 색상"
+
+#: app/Strings.php:663
+msgid "Rest body text color"
+msgstr "나머지 본문 텍스트 색상"
+
+#: app/Strings.php:664
+msgid "Remaining column text color"
+msgstr "나머지 열 텍스트 색상"
+
+#: app/Strings.php:666
+msgid "Hover background color"
+msgstr "호버 배경색"
+
+#: app/Strings.php:667
+msgid "Hover text color"
+msgstr "호버 텍스트 색상"
+
+#: app/Strings.php:668
+msgid "Table background color"
+msgstr "테이블 배경색"
+
+#: app/Strings.php:669
+msgid "Table hover color"
+msgstr "테이블 호버 색상"
+
+#: app/Strings.php:670
+msgid "Table border color"
+msgstr "테이블 테두리 색상"
+
+#: app/Strings.php:671
+msgid "Table text color"
+msgstr "테이블 텍스트 색상"
+
+#: app/Strings.php:673
+msgid "Border Color"
+msgstr "테두리 색상"
+
+#: app/Strings.php:674
+msgid "Outside body border"
+msgstr "외부 본문 테두리"
+
+#: app/Strings.php:675
+msgid "Inside border"
+msgstr "내부 테두리"
+
+#: app/Strings.php:677
+msgid "Even row color"
+msgstr "짝수 행 색상"
+
+#: app/Strings.php:678
+msgid "Odd row color"
+msgstr "홀수 행 색상"
+
+#: app/Strings.php:680
+msgid "Even column color"
+msgstr "짝수 열 색상"
+
+#: app/Strings.php:681
+msgid "Odd column color"
+msgstr "홀수 열 색상"
+
+#: app/Strings.php:682
+msgid "Outside border type"
+msgstr "외부 테두리 유형"
+
+#: app/Strings.php:683
+msgid "Outside border"
+msgstr "외부 테두리"
+
+#: app/Strings.php:684
+msgid "Solid border"
+msgstr "실선 테두리"
+
+#: app/Strings.php:685
+msgid "Rounded border"
+msgstr "둥근 테두리"
+
+#: app/Strings.php:686
+msgid "Border radius"
+msgstr "테두리 반경"
+
+#: app/Strings.php:691
+msgid "Update Theme"
+msgstr "테마 업데이트"
+
+#: app/Strings.php:692
+msgid "Theme name"
+msgstr "테마 이름"
+
+#: app/Strings.php:693
+msgid "Theme colors"
+msgstr "테마 색상"
+
+#: app/Strings.php:694
+msgid "Column color"
+msgstr "열 색상"
+
+#: app/Strings.php:695
+msgid "Row color"
+msgstr "행 색상"
+
+#: app/Strings.php:696 app/Strings.php:954
+msgid "Edit"
+msgstr "편집"
+
+#: app/Strings.php:697
+msgid "Yes, Delete"
+msgstr "네, 삭제합니다"
+
+#: app/Strings.php:698
+msgid "Yes, Reset"
+msgstr "네, 초기화합니다"
+
+#: app/Strings.php:699
+msgid "Create Theme"
+msgstr "테마 만들기"
+
+#: app/Strings.php:700
+msgid "Can’t delete active theme!"
+msgstr "현재 사용 중인 테마는 삭제할 수 없습니다!"
+
+#: app/Strings.php:701
+msgid ""
+"The theme is active and currently in use. Please select another theme for "
+"your table before deleting this one"
+msgstr ""
+"이 테마는 현재 사용 중입니다. 삭제하기 전에 다른 테마를 먼저 선택해 주세요"
+
+#: app/Strings.php:702
+msgid "Are you sure to delete theme?"
+msgstr "정말로 이 테마를 삭제하시겠습니까?"
+
+#: app/Strings.php:703
+msgid ""
+"This theme wil be deleted and it can not be recovered. Are you sure to "
+"delete it?"
+msgstr "이 테마는 삭제되면 복구할 수 없습니다. 정말로 삭제하시겠습니까?"
+
+#: app/Strings.php:705
+msgid "Are you sure to reset?"
+msgstr "정말로 초기화하시겠습니까?"
+
+#: app/Strings.php:706
+msgid "All of your changes & customization will be lost"
+msgstr "변경 사항 및 모든 커스터마이징 내용이 사라집니다"
+
+#: app/Strings.php:709
+msgid "None"
+msgstr "없음"
+
+#: app/Strings.php:710
+msgid "Row wise"
+msgstr "행 단위"
+
+#: app/Strings.php:711
+msgid "Column wise"
+msgstr "열 단위"
+
+#: app/Strings.php:712
+msgid "Select coloring"
+msgstr "색상 선택"
+
+#: app/Strings.php:713
+msgid "Hover mode"
+msgstr "호버 모드"
+
+#: app/Strings.php:714
+msgid "+ New Theme"
+msgstr "+ 새 테마"
+
+#: app/Strings.php:716
+msgid "Apply this custom theme to all tables"
+msgstr "이 커스텀 테마를 모든 테이블에 적용"
+
+#: app/Strings.php:717
+msgid "Apply this same style for the other table"
+msgstr "이 스타일을 다른 테이블에도 동일하게 적용"
+
+#: app/Strings.php:723
+msgid "Default pagination"
+msgstr "기본 페이지네이션"
+
+#: app/Strings.php:724
+msgid "Modern pagination"
+msgstr "모던 페이지네이션"
+
+#: app/Strings.php:725
+msgid "Minimal pagination"
+msgstr "미니멀 페이지네이션"
+
+#: app/Strings.php:726
+msgid "Tailwind pagination"
+msgstr "테일윈드 페이지네이션"
+
+#: app/Strings.php:727
+msgid "Outlined pagination"
+msgstr "아웃라인 페이지네이션"
+
+#: app/Strings.php:728
+msgid "Color Picker"
+msgstr "색상 선택기"
+
+#: app/Strings.php:729
+msgid "Pagination color will change based on your selected color"
+msgstr "선택한 색상에 따라 페이지네이션 색상이 변경됩니다"
+
+#: app/Strings.php:731
+msgid "Pagination Style"
+msgstr "페이지네이션 스타일"
+
+#: app/Strings.php:732
+msgid "Pagination"
+msgstr "페이지네이션"
+
+#: app/Strings.php:733
+msgid "Active pagination color"
+msgstr "활성 페이지네이션 색상"
+
+#: app/Strings.php:734
+msgid "Keep pagination in middle"
+msgstr "페이지네이션을 가운데 정렬"
+
+#: app/Strings.php:735
+msgid "Confirm"
+msgstr "확인"
+
+#: app/Strings.php:741
+msgid "Basic Display (default)"
+msgstr "기본 표시 (기본값)"
+
+#: app/Strings.php:742
+msgid "Enable Column-Specific Search"
+msgstr "열별 검색 활성화"
+
+#: app/Strings.php:744
+msgid "Table will show by default and work accordingly. Nothing special here"
+msgstr ""
+"테이블이 기본적으로 표시되며 그에 맞게 작동합니다. 특별한 설정이 필요 없습니"
+"다"
+
+#: app/Strings.php:745 app/Strings.php:1017
+msgid ""
+"Turn your table into a powerful search-engine! Visitors will initially see a "
+"search box instead of the table. Based on their input, they will receive "
+"filtered data in a streamlined table view. Ideal for searching both broad "
+"and specific ranges of information from your Google Sheets (e.g., student "
+"records, employee info, etc.)."
+msgstr ""
+"테이블을 강력한 검색 엔진으로 바꿔보세요! 방문자에게 처음에는 테이블 대신 검"
+"색창이 표시됩니다. 입력한 내용을 바탕으로 필터링된 데이터가 깔끔한 테이블 형"
+"식으로 제공됩니다. Google Sheets의 다양한 정보(예: 학생 기록, 직원 정보 등)"
+"를 넓거나 좁은 범위로 검색하기에 최적입니다."
+
+#: app/Strings.php:747
+msgid "Search-Only Display"
+msgstr "검색 전용 표시"
+
+#: app/Strings.php:748
+msgid "User-Specific Display"
+msgstr "사용자별 맞춤 표시"
+
+#: app/Strings.php:749
+msgid "Upcoming"
+msgstr "출시 예정"
+
+#: app/Strings.php:750
+msgid ""
+"Enhance personalization with this mode. It allows the table to be displayed "
+"only to the logged-in users based on their credentials or unique data (e.g., "
+"username or email) stored in the Google Sheets. There will be no search box, "
+"preventing anyone from searching other users' data."
+msgstr ""
+"이 모드로 개인화를 강화하세요. 로그인한 사용자의 인증 정보나 Google Sheets에 "
+"저장된 고유 데이터(예: 사용자명, 이메일)를 기반으로 테이블이 해당 사용자에게"
+"만 표시됩니다. 검색창이 없어 다른 사용자의 데이터를 조회할 수 없습니다."
+
+#: app/Strings.php:752
+msgid ""
+"This mode adds an extra layer of security to your data. The table is "
+"protected by a password or PIN, ensuring that only authorized users can "
+"unlock and see the table information."
+msgstr ""
+"이 모드는 데이터에 추가적인 보안 계층을 더합니다. 테이블이 비밀번호 또는 PIN"
+"으로 보호되어 권한이 있는 사용자만 잠금을 해제하고 정보를 볼 수 있습니다."
+
+#: app/Strings.php:754
+msgid "Protected View"
+msgstr "보호된 보기"
+
+#: app/Strings.php:755
+msgid "Loading headers..."
+msgstr "헤더 불러오는 중..."
+
+#: app/Strings.php:756
+msgid "Choose Search-Result Trigger Option"
+msgstr "검색 결과 표시 방식 선택"
+
+#: app/Strings.php:757
+msgid "Show search result once Typing"
+msgstr "입력 즉시 검색 결과 표시"
+
+#: app/Strings.php:758
+msgid "Show search result after pressing Search button"
+msgstr "검색 버튼 클릭 후 결과 표시"
+
+#: app/Strings.php:759
+msgid ""
+"Select a column to search within its data. Results will only show matches "
+"from the selected column. If no column is selected, the search will apply to "
+"all data in the Google Sheet."
+msgstr ""
+"검색할 열을 선택하세요. 선택한 열의 데이터에서만 일치하는 결과가 표시됩니다. "
+"열을 선택하지 않으면 Google Sheet의 모든 데이터에서 검색됩니다."
+
+#: app/Strings.php:761
+msgid "Unable to access the Sheet! Please follow the instructions below:"
+msgstr "시트에 접근할 수 없습니다! 아래 안내를 따라 주세요:"
+
+#: app/Strings.php:762
+msgid "On your Google Sheet, click on the"
+msgstr "Google Sheet에서"
+
+#: app/Strings.php:763
+msgid "button located at the top-right corner. Then on the popup, choose the"
+msgstr "버튼을 클릭하세요. 팝업창에서"
+
+#: app/Strings.php:764
+msgid "Anyone with the link"
+msgstr "링크가 있는 모든 사용자"
+
+#: app/Strings.php:765
+msgid "option under General access"
+msgstr "일반 액세스 아래의 옵션을 선택하세요"
+
+#: app/Strings.php:766
+msgid "Click on the"
+msgstr "팝업의"
+
+#: app/Strings.php:767
+msgid "icon on the popup and ensure that the option"
+msgstr "아이콘을 클릭하고 다음 옵션이 선택되어 있는지 확인하세요"
+
+#: app/Strings.php:768
+msgid "Viewers and commenters can see the option to download, print, and copy"
+msgstr "뷰어 및 댓글 작성자가 다운로드, 인쇄, 복사 옵션을 볼 수 있음"
+
+#: app/Strings.php:769
+msgid "is selected"
+msgstr "이 선택되어 있어야 합니다"
+
+#: app/Strings.php:770
+msgid "Share"
+msgstr "공유"
+
+#: app/Strings.php:771
+msgid "Save the changes by clicking on the"
+msgstr "변경 사항을 저장하려면"
+
+#: app/Strings.php:772
+msgid "Done"
+msgstr "완료"
+
+#: app/Strings.php:773
+msgid "button"
+msgstr "버튼을 클릭하세요"
+
+#: app/Strings.php:774
+msgid "General"
+msgstr "일반"
+
+#: app/Strings.php:775
+msgid "seconds"
+msgstr "초"
+
+#: app/Strings.php:776
+msgid "Let’s make your first table"
+msgstr "첫 번째 테이블을 만들어 볼까요"
+
+#: app/Strings.php:777
+msgid ""
+"Let us help you with your first table creation. You are just a step away "
+"from creating beautiful tables from your Google Sheets"
+msgstr ""
+"첫 번째 테이블 만들기를 도와드리겠습니다. Google Sheets에서 멋진 테이블을 만"
+"들기까지 한 걸음만 남았습니다"
+
+#: app/Strings.php:779
+msgid "Day "
+msgstr "일 "
+
+#: app/Strings.php:780
+msgid "Response Timeout: "
+msgstr "응답 제한 시간: "
+
+#: app/Strings.php:781
+msgid "Timestamp: "
+msgstr "타임스탬프: "
+
+#: app/Strings.php:782
+msgid "Choose the maximum response timeout the table need to wait"
+msgstr "테이블이 기다릴 최대 응답 제한 시간을 선택하세요"
+
+#: app/Strings.php:783
+msgid "Choose the maximum day to store the cache"
+msgstr "캐시를 저장할 최대 일수를 선택하세요"
+
+#: app/Strings.php:784
+msgid "the table"
+msgstr "테이블"
+
+#: app/Strings.php:785
+msgid "Copy shortcode"
+msgstr "단축코드 복사"
+
+#: app/Strings.php:786
+msgid "Edit table"
+msgstr "테이블 편집"
+
+#: app/Strings.php:787
+msgid "Duplicate table"
+msgstr "테이블 복제"
+
+#: app/Strings.php:788
+msgid "Delete table"
+msgstr "테이블 삭제"
+
+#: app/Strings.php:789
+msgid "Name already used, please use another name for theme"
+msgstr "이미 사용 중인 이름입니다. 테마에 다른 이름을 사용해 주세요"
+
+#: app/Strings.php:790
+msgid "Name field can not be empty"
+msgstr "이름 필드는 비워둘 수 없습니다"
+
+#: app/Strings.php:796
+msgid "AI Table Summary Configuration"
+msgstr "AI 테이블 요약 설정"
+
+#: app/Strings.php:797
+msgid "Configure OpenAI integration for intelligent table summaries"
+msgstr "지능형 테이블 요약을 위한 OpenAI 연동을 설정하세요"
+
+#: app/Strings.php:800
+msgid "Engine (AI Provider)"
+msgstr "엔진 (AI 제공업체)"
+
+#: app/Strings.php:801
+msgid ""
+"Select the AI engine that will generate summaries and answer user queries."
+msgstr "요약을 생성하고 사용자 질문에 답변할 AI 엔진을 선택하세요."
+
+#: app/Strings.php:802 app/Strings.php:864
+msgid "Select your preferred AI provider for generating table summaries"
+msgstr "테이블 요약 생성에 사용할 선호하는 AI 제공업체를 선택하세요"
+
+#: app/Strings.php:803 app/Strings.php:865
+msgid "OpenAI GPT models - industry leading AI with excellent performance"
+msgstr "OpenAI GPT 모델 - 뛰어난 성능의 업계 선도 AI"
+
+#: app/Strings.php:804 app/Strings.php:866
+msgid "Google Gemini models - fast and efficient AI by Google"
+msgstr "Google Gemini 모델 - Google이 만든 빠르고 효율적인 AI"
+
+#: app/Strings.php:805 app/Strings.php:867
+msgid "Checking..."
+msgstr "확인 중..."
+
+#: app/Strings.php:809 app/Strings.php:871
+msgid ""
+"Controls diversity via nucleus sampling. Lower values make output more "
+"focused."
+msgstr ""
+"핵 샘플링을 통해 다양성을 조절합니다. 낮은 값일수록 출력이 더 집중됩니다."
+
+#: app/Strings.php:811 app/Strings.php:873
+msgid ""
+"Limits token selection to top K candidates. Lower values are more focused."
+msgstr ""
+"토큰 선택을 상위 K개 후보로 제한합니다. 낮은 값일수록 더 집중된 결과를 제공합"
+"니다."
+
+#: app/Strings.php:812 app/Strings.php:874
+msgid "Precise"
+msgstr "정밀"
+
+#: app/Strings.php:813 app/Strings.php:875
+msgid "Diverse"
+msgstr "다양"
+
+#: app/Strings.php:814 app/Strings.php:876
+msgid "Broad"
+msgstr "넓음"
+
+#: app/Strings.php:818
+msgid "Your OpenAI API key. Get one from https://platform.openai.com/api-keys"
+msgstr ""
+"OpenAI API 키를 입력하세요. https://platform.openai.com/api-keys 에서 발급받"
+"을 수 있습니다"
+
+#: app/Strings.php:819
+msgid "Test API"
+msgstr "API 테스트"
+
+#: app/Strings.php:822
+msgid "AI Model"
+msgstr "AI 모델"
+
+#: app/Strings.php:823
+msgid ""
+"Choose the OpenAI model for generating summaries. gpt-4o-mini is fast and "
+"cost-effective, gpt-4 is more accurate."
+msgstr ""
+"요약 생성에 사용할 OpenAI 모델을 선택하세요. gpt-4o-mini는 빠르고 비용 효율적"
+"이며, gpt-4는 더 정확합니다."
+
+#: app/Strings.php:824
+msgid "GPT-4o Mini"
+msgstr "GPT-4o Mini"
+
+#: app/Strings.php:825
+msgid "GPT-3.5 Turbo"
+msgstr "GPT-3.5 Turbo"
+
+#: app/Strings.php:826
+msgid "GPT-4"
+msgstr "GPT-4"
+
+#: app/Strings.php:827
+msgid "GPT-4 Turbo"
+msgstr "GPT-4 Turbo"
+
+#: app/Strings.php:832
+msgid ""
+"Maximum number of tokens for AI response. Higher values allow longer "
+"summaries but cost more."
+msgstr ""
+"AI 응답의 최대 토큰 수입니다. 값이 높을수록 더 긴 요약이 가능하지만 비용이 "
+"더 들 수 있습니다."
+
+#: app/Strings.php:833
+msgid "100 (Short)"
+msgstr "100 (짧음)"
+
+#: app/Strings.php:834
+msgid "2000 (Long)"
+msgstr "2000 (김)"
+
+#: app/Strings.php:838
+msgid ""
+"Controls randomness in AI responses. Lower values (0.1-0.3) are more "
+"focused, higher values (0.7-1.0) are more creative."
+msgstr ""
+"AI 응답의 무작위성을 조절합니다. 낮은 값(0.1-0.3)은 더 집중적이고, 높은 값"
+"(0.7-1.0)은 더 창의적입니다."
+
+#: app/Strings.php:839
+msgid "0 (Focused)"
+msgstr "0 (집중)"
+
+#: app/Strings.php:840
+msgid "1 (Creative)"
+msgstr "1 (창의적)"
+
+#: app/Strings.php:844
+msgid ""
+"Reduces repetition in AI responses. Higher values (0.3-1.0) discourage "
+"repetitive text."
+msgstr ""
+"AI 응답의 반복을 줄입니다. 높은 값(0.3-1.0)일수록 반복적인 텍스트를 억제합니"
+"다."
+
+#: app/Strings.php:845
+msgid "0 (Allow Repetition)"
+msgstr "0 (반복 허용)"
+
+#: app/Strings.php:846
+msgid "1 (Avoid Repetition)"
+msgstr "1 (반복 방지)"
+
+#: app/Strings.php:849
+msgid "Cache Duration"
+msgstr "캐시 유지 시간"
+
+#: app/Strings.php:850
+msgid "Duration:"
+msgstr "기간:"
+
+#: app/Strings.php:851
+msgid "How long to cache AI responses before making new API calls."
+msgstr "새 API 호출 전까지 AI 응답을 캐시에 저장할 기간입니다."
+
+#: app/Strings.php:852
+msgid "30 minutes"
+msgstr "30분"
+
+#: app/Strings.php:853
+msgid "1 hour"
+msgstr "1시간"
+
+#: app/Strings.php:854
+msgid "2 hours"
+msgstr "2시간"
+
+#: app/Strings.php:855
+msgid "6 hours"
+msgstr "6시간"
+
+#: app/Strings.php:856
+msgid "12 hours"
+msgstr "12시간"
+
+#: app/Strings.php:857
+msgid "24 hours"
+msgstr "24시간"
+
+#: app/Strings.php:860
+msgid "Advanced Settings"
+msgstr "고급 설정"
+
+#: app/Strings.php:861
+msgid ""
+"Configure advanced AI model parameters for fine-tuned control over response "
+"generation."
+msgstr "응답 생성을 세밀하게 제어하기 위한 고급 AI 모델 매개변수를 설정하세요."
+
+#: app/Strings.php:879
+msgid ""
+"Choose the AI model that best fits your needs. Different models have varying "
+"capabilities and costs."
+msgstr ""
+"필요에 가장 적합한 AI 모델을 선택하세요. 모델마다 기능과 비용이 다릅니다."
+
+#: app/Strings.php:882
+msgid "Enable AI Table Summary"
+msgstr "AI 테이블 요약 활성화"
+
+#: app/Strings.php:885 app/Strings.php:934
+msgid "Preview"
+msgstr "미리보기"
+
+#: app/Strings.php:887
+msgid "Summary Position"
+msgstr "요약 위치"
+
+#: app/Strings.php:888
+msgid "Above Table"
+msgstr "테이블 위"
+
+#: app/Strings.php:889
+msgid "Below Table"
+msgstr "테이블 아래"
+
+#: app/Strings.php:890
+msgid "Choose whether to display the summary above or below the table"
+msgstr "요약을 테이블 위 또는 아래에 표시할지 선택하세요"
+
+#: app/Strings.php:891
+msgid ""
+"Select the position where the AI Table Summary should be displayed relative "
+"to the table."
+msgstr "AI 테이블 요약이 테이블을 기준으로 표시될 위치를 선택하세요."
+
+#: app/Strings.php:893
+msgid "min"
+msgstr "분"
+
+#: app/Strings.php:894
+msgid "Cache time:"
+msgstr "캐시 시간:"
+
+#: app/Strings.php:895
+msgid "Cache summary for faster loading"
+msgstr "빠른 로딩을 위해 요약을 캐시에 저장"
+
+#: app/Strings.php:896 app/Strings.php:936
+msgid ""
+"Decide where the AI Table Summary will be displayed in relation to your "
+"table."
+msgstr "AI 테이블 요약이 테이블과 어떤 위치 관계로 표시될지 결정하세요."
+
+#: app/Strings.php:898
+msgid "Instant Summary"
+msgstr "즉시 요약"
+
+#: app/Strings.php:900
+msgid "Prompt for Summary"
+msgstr "요약 프롬프트"
+
+#: app/Strings.php:901
+msgid ""
+"You will generate and save the summary in advance. Visitors will see it "
+"instantly with no delay."
+msgstr ""
+"요약을 미리 생성하여 저장합니다. 방문자는 지연 없이 즉시 요약을 볼 수 있습니"
+"다."
+
+#: app/Strings.php:902
+msgid ""
+"Enable to reuse the same summary to reduce load time. Turn off to generate a "
+"fresh summary each time."
+msgstr ""
+"로딩 시간을 줄이기 위해 동일한 요약을 재사용하려면 활성화하세요. 매번 새 요약"
+"을 생성하려면 끄세요."
+
+#: app/Strings.php:903
+msgid ""
+"Write the prompt that AI will follow to generate the summary. Visitors "
+"trigger this when they click the summary button."
+msgstr ""
+"AI가 요약을 생성할 때 따를 프롬프트를 작성하세요. 방문자가 요약 버튼을 클릭하"
+"면 실행됩니다."
+
+#: app/Strings.php:906
+msgid "Show regenerate button in summary modal"
+msgstr "요약 모달에 다시 생성 버튼 표시"
+
+#: app/Strings.php:907
+msgid ""
+"Allow visitors to regenerate the AI Table Summary with fresh data by "
+"clicking the regenerate button."
+msgstr ""
+"방문자가 다시 생성 버튼을 클릭하여 최신 데이터로 AI 테이블 요약을 다시 생성"
+"할 수 있도록 허용합니다."
+
+#: app/Strings.php:910
+msgid "Always Show"
+msgstr "항상 표시"
+
+#: app/Strings.php:911 app/Strings.php:925
+msgid "Collapsed (click to expand)"
+msgstr "접힘 (클릭하여 펼치기)"
+
+#: app/Strings.php:912
+msgid ""
+"Choose how the summary appears to visitors - always visible or collapsed "
+"with click to expand"
+msgstr ""
+"방문자에게 요약이 표시되는 방식을 선택하세요 - 항상 표시 또는 클릭하여 펼치기"
+
+#: app/Strings.php:913
+msgid ""
+"Select how the AI Table Summary should be displayed to your visitors on the "
+"frontend."
+msgstr "프론트엔드에서 방문자에게 AI 테이블 요약이 표시되는 방식을 선택하세요."
+
+#: app/Strings.php:916
+msgid "Ask AI Placeholder Text"
+msgstr "AI에게 질문 입력창 안내 텍스트"
+
+#: app/Strings.php:917
+msgid "Ask AI Button Label"
+msgstr "AI에게 질문 버튼 레이블"
+
+#: app/Strings.php:918
+msgid "Customize the placeholder text shown in the AI prompt input field"
+msgstr "AI 프롬프트 입력 필드에 표시되는 안내 텍스트를 원하는 대로 변경하세요"
+
+#: app/Strings.php:919
+msgid "Customize the text displayed on the AI prompt submit button"
+msgstr "AI 프롬프트 제출 버튼에 표시되는 텍스트를 원하는 대로 변경하세요"
+
+#: app/Strings.php:922
+msgid "Summary Display"
+msgstr "요약 표시 방식"
+
+#: app/Strings.php:923
+msgid ""
+"Decide if visitors see the summary right away or only when they expand it."
+msgstr "방문자가 요약을 바로 볼지, 아니면 직접 펼쳤을 때만 볼지 결정하세요."
+
+#: app/Strings.php:924
+msgid "Always show"
+msgstr "항상 표시"
+
+#: app/Strings.php:926
+msgid "AI Table Summary Preview"
+msgstr "AI 테이블 요약 미리보기"
+
+#: app/Strings.php:927
+msgid ""
+"Review the generated summary. This what your visitors will see. Edit and "
+"save to finalize."
+msgstr ""
+"생성된 요약을 검토하세요. 방문자에게 이렇게 표시됩니다. 편집 후 저장하여 완료"
+"하세요."
+
+#: app/Strings.php:928
+msgid "Ready to create your first summary?"
+msgstr "첫 번째 요약을 만들 준비가 되셨나요?"
+
+#: app/Strings.php:929
+msgid "Add a prompt and click Generate to create one."
+msgstr "프롬프트를 추가하고 생성을 클릭하여 만들어 보세요."
+
+#: app/Strings.php:930
+msgid "Placeholder text"
+msgstr "안내 텍스트"
+
+#: app/Strings.php:931
+msgid "What visitors see before typing"
+msgstr "방문자가 입력하기 전에 보이는 내용"
+
+#: app/Strings.php:932
+msgid "Button label"
+msgstr "버튼 레이블"
+
+#: app/Strings.php:933
+msgid "Text on your Ask AI button"
+msgstr "AI에게 질문 버튼에 표시될 텍스트"
+
+#: app/Strings.php:935
+msgid "Turn on AI to create summaries of your table data."
+msgstr "AI를 켜서 테이블 데이터의 요약을 생성해 보세요."
+
+#: app/Strings.php:937
+msgid ""
+"Customize the text and colors of the summary button to match your site style."
+msgstr ""
+"사이트 스타일에 맞게 요약 버튼의 텍스트와 색상을 원하는 대로 변경하세요."
+
+#: app/Strings.php:938
+msgid "Summary Button"
+msgstr "요약 버튼"
+
+#: app/Strings.php:939
+msgid "Reset prompt"
+msgstr "프롬프트 초기화"
+
+#: app/Strings.php:941
+msgid "Tutorial"
+msgstr "튜토리얼"
+
+#: app/Strings.php:942
+msgid "Summary Source"
+msgstr "요약 소스"
+
+#: app/Strings.php:943
+msgid ""
+"Visitors will see a button to summarize the table. When they click, AI will "
+"create the summary live using your prompt."
+msgstr ""
+"방문자에게 테이블 요약 버튼이 표시됩니다. 클릭하면 AI가 설정한 프롬프트를 사"
+"용해 실시간으로 요약을 생성합니다."
+
+#: app/Strings.php:944
+msgid "Generate on Click"
+msgstr "클릭 시 생성"
+
+#: app/Strings.php:945
+msgid "Button text"
+msgstr "버튼 텍스트"
+
+#: app/Strings.php:946
+msgid "Upcomming"
+msgstr "출시 예정"
+
+#: app/Strings.php:947
+msgid "Allow visitors to ask their own questions about this table."
+msgstr "방문자가 이 테이블에 대해 직접 질문을 입력할 수 있도록 허용합니다."
+
+#: app/Strings.php:948
+msgid "Enable Ask AI"
+msgstr "AI에게 질문 활성화"
+
+#: app/Strings.php:949
+msgid "AI is analyzing your table..."
+msgstr "AI가 테이블을 분석하고 있습니다..."
+
+#: app/Strings.php:951
+msgid "Save Summary"
+msgstr "요약 저장"
+
+#: app/Strings.php:952 app/Strings.php:972
+msgid "Update Summary"
+msgstr "요약 업데이트"
+
+#: app/Strings.php:955
+msgid "Current Stored Summary"
+msgstr "현재 저장된 요약"
+
+#: app/Strings.php:956
+msgid ""
+"This is exactly how the summary will appear on your frontend table. Click "
+"'Edit Summary' above to modify it."
+msgstr ""
+"이것이 프론트엔드 테이블에 표시되는 실제 요약입니다. 위의 \"요약 편집\"을 클"
+"릭하여 수정할 수 있습니다."
+
+#: app/Strings.php:957 app/Strings.php:967
+msgid "Summary Content"
+msgstr "요약 내용"
+
+#: app/Strings.php:958
+msgid "Generated AI Table Summary will appear here..."
+msgstr "생성된 AI 테이블 요약이 여기에 표시됩니다..."
+
+#: app/Strings.php:960
+msgid ""
+"No summary has been generated yet. Click \"Generate Summary\" to create one."
+msgstr "아직 생성된 요약이 없습니다. \"요약 생성\"을 클릭하여 만들어 보세요."
+
+#: app/Strings.php:961
+msgid "Last updated"
+msgstr "마지막 업데이트"
+
+#: app/Strings.php:962
+msgid "Keep it"
+msgstr "유지하기"
+
+#: app/Strings.php:964
+msgid "Are you sure you want to delete this summary?"
+msgstr "정말로 이 요약을 삭제하시겠습니까?"
+
+#: app/Strings.php:966
+msgid ""
+"Edit and modify the AI-generated summary content before saving it to the "
+"database."
+msgstr ""
+"데이터베이스에 저장하기 전에 AI가 생성한 요약 내용을 편집하고 수정하세요."
+
+#: app/Strings.php:968
+msgid "Enter or edit the summary content here..."
+msgstr "여기에 요약 내용을 입력하거나 편집하세요..."
+
+#: app/Strings.php:969
+msgid "Regenerate Summary"
+msgstr "요약 다시 생성"
+
+#: app/Strings.php:970
+msgid "Regenerating..."
+msgstr "다시 생성 중..."
+
+#: app/Strings.php:971
+msgid "Generate a new AI Table Summary and replace the current content."
+msgstr "새로운 AI 테이블 요약을 생성하여 현재 내용을 대체합니다."
+
+#: app/Strings.php:974
+msgid "AI Configuration"
+msgstr "AI 설정"
+
+#: app/Strings.php:977
+msgid "AI provider not configured. Please add your API key in settings."
+msgstr "AI 제공업체가 설정되지 않았습니다. 설정에서 API 키를 추가해 주세요."
+
+#: app/Strings.php:978
+msgid "Configure AI Settings"
+msgstr "AI 설정 구성"
+
+#: app/Strings.php:980
+msgid "Are you sure to delete the summary? "
+msgstr "정말로 요약을 삭제하시겠습니까? "
+
+#: app/Strings.php:981
+msgid "You are about to delete the summary. This action cannot be undone."
+msgstr "요약을 삭제하려고 합니다. 이 작업은 취소할 수 없습니다."
+
+#: app/Strings.php:983
+msgid "AI Summary Preview"
+msgstr "AI 요약 미리보기"
+
+#: app/Strings.php:984
+msgid "AI Summary Editor"
+msgstr "AI 요약 편집기"
+
+#: app/Strings.php:985
+msgid "• List"
+msgstr "• 목록"
+
+#: app/Strings.php:986
+msgid "1. List"
+msgstr "1. 목록"
+
+#: app/Strings.php:987
+msgid "Section Heading"
+msgstr "섹션 제목"
+
+#: app/Strings.php:988
+msgid "Customize the main heading text for the Ask AI section"
+msgstr "AI에게 질문 섹션의 주요 제목 텍스트를 원하는 대로 변경하세요"
+
+#: app/Strings.php:989
+msgid "Ask AI Interface"
+msgstr "AI에게 질문 인터페이스"
+
+#: app/Strings.php:990
+msgid "Enter your question and get AI-powered insights about the table data"
+msgstr "질문을 입력하고 테이블 데이터에 대한 AI 기반 인사이트를 얻어보세요"
+
+#: app/Strings.php:991
+msgid "Summary Title"
+msgstr "요약 제목"
+
+#: app/Strings.php:992
+msgid "quick video"
+msgstr "빠른 영상"
+
+#: app/Strings.php:994
+msgid "OpenAI (GPT)"
+msgstr "OpenAI (GPT)"
+
+#: app/Strings.php:995
+msgid "Google Gemini"
+msgstr "Google Gemini"
+
+#: app/Strings.php:996
+msgid "API Key"
+msgstr "API 키"
+
+#: app/Strings.php:997
+msgid "Get API Key"
+msgstr "API 키 발급받기"
+
+#: app/Strings.php:998
+msgid "Get your API key from your provider dashboard"
+msgstr "제공업체 대시보드에서 API 키를 받아오세요"
+
+#: app/Strings.php:999
+msgid "and paste it here. Your key is stored securely and never shared."
+msgstr ""
+"그리고 여기에 붙여넣으세요. 키는 안전하게 저장되며 절대 공유되지 않습니다."
+
+#: app/Strings.php:1000
+msgid "ChatGPT"
+msgstr "ChatGPT"
+
+#: app/Strings.php:1001
+msgid "Google AI Studio"
+msgstr "Google AI Studio"
+
+#: app/Strings.php:1002
+msgid "Model Version"
+msgstr "모델 버전"
+
+#: app/Strings.php:1007
+msgid "Update Filter"
+msgstr "필터 업데이트"
+
+#: app/Strings.php:1008
+msgid "Add Filter"
+msgstr "필터 추가"
+
+#: app/Strings.php:1009
+msgid "Advanced column filtering with search, select, and multi-select options"
+msgstr "검색, 선택, 다중 선택 옵션이 포함된 고급 열 필터링"
+
+#: app/Strings.php:1012
+msgid "Basic Display"
+msgstr "기본 표시"
+
+#: app/Strings.php:1013
+msgid "Search Only Display"
+msgstr "검색 전용 표시"
+
+#: app/Strings.php:1014
+msgid "Filter Wise Display"
+msgstr "필터 기반 표시"
+
+#: app/Strings.php:1020
+msgid "Global Filter Settings"
+msgstr "전체 필터 설정"
+
+#: app/Strings.php:1021
+msgid "Enable Table Filters"
+msgstr "테이블 필터 활성화"
+
+#: app/Strings.php:1022
+msgid "Select Primary Filter Type"
+msgstr "기본 필터 유형 선택"
+
+#: app/Strings.php:1023
+msgid "Text Search"
+msgstr "텍스트 검색"
+
+#: app/Strings.php:1024
+msgid "Single Select"
+msgstr "단일 선택"
+
+#: app/Strings.php:1025
+msgid "Multi Select"
+msgstr "다중 선택"
+
+#: app/Strings.php:1026
+msgid "Mixed Filters (All Types)"
+msgstr "혼합 필터 (모든 유형)"
+
+#: app/Strings.php:1029
+msgid "Filter Position"
+msgstr "필터 위치"
+
+#: app/Strings.php:1030
+msgid "Header"
+msgstr "헤더"
+
+#: app/Strings.php:1031
+msgid "Footer"
+msgstr "푸터"
+
+#: app/Strings.php:1034
+msgid "Strict Mode"
+msgstr "엄격 모드"
+
+#: app/Strings.php:1035
+msgid "Hide Filter UI"
+msgstr "필터 UI 숨기기"
+
+#: app/Strings.php:1036
+msgid "Auto-Enable Filters for All Columns"
+msgstr "모든 열에 필터 자동 활성화"
+
+#: app/Strings.php:1037
+msgid "Load Default Filter Values"
+msgstr "기본 필터 값 불러오기"
+
+#: app/Strings.php:1040
+msgid "Column-Specific Filter Configuration"
+msgstr "열별 필터 설정"
+
+#: app/Strings.php:1041
+msgid "Auto-Enable Mode"
+msgstr "자동 활성화 모드"
+
+#: app/Strings.php:1042
+msgid ""
+"All columns automatically have filters using the global settings above.  Add "
+"specific columns below to customize their individual settings, or disable "
+"'Auto-Enable Filters for All Columns' to only show filters for manually "
+"added columns."
+msgstr ""
+"위의 전체 설정을 사용하여 모든 열에 자동으로 필터가 적용됩니다. 아래에 특정 "
+"열을 추가하여 개별 설정을 변경하거나, '모든 열에 필터 자동 활성화'를 비활성화"
+"하여 수동으로 추가한 열에만 필터를 표시할 수 있습니다."
+
+#: app/Strings.php:1043
+msgid "Manual Mode"
+msgstr "수동 모드"
+
+#: app/Strings.php:1044
+msgid ""
+"Only columns added below will have filters. Enable 'Auto-Enable Filters for "
+"All Columns' above to automatically show filters for all columns."
+msgstr ""
+"아래에 추가된 열에만 필터가 적용됩니다. 위의 '모든 열에 필터 자동 활성화'를 "
+"켜면 모든 열에 자동으로 필터가 표시됩니다."
+
+#: app/Strings.php:1046
+msgid "Add Column Filter"
+msgstr "열 필터 추가"
+
+#: app/Strings.php:1047
+msgid "Edit Column Filter"
+msgstr "열 필터 편집"
+
+#: app/Strings.php:1049
+msgid "Add columns here to override their global settings"
+msgstr "전체 설정을 재정의할 열을 여기에 추가하세요"
+
+#: app/Strings.php:1050
+msgid ""
+"No column filters configured. Click \"Add Column Filter\" to get started."
+msgstr "설정된 열 필터가 없습니다. \"열 필터 추가\"를 클릭하여 시작하세요."
+
+#: app/Strings.php:1053
+msgid "Filter Type"
+msgstr "필터 유형"
+
+#: app/Strings.php:1054
+msgid "Target Column"
+msgstr "대상 열"
+
+#: app/Strings.php:1055
+msgid "Column"
+msgstr "열"
+
+#: app/Strings.php:1056
+msgid "Default Value"
+msgstr "기본값"
+
+#: app/Strings.php:1057
+msgid "Filter Active"
+msgstr "필터 활성"
+
+#: app/Strings.php:1058
+msgid ""
+"Whether this filter is applied to the table - if unchecked, filter is "
+"completely disabled"
+msgstr ""
+"이 필터를 테이블에 적용할지 여부입니다 - 체크 해제 시 필터가 완전히 비활성화"
+"됩니다"
+
+#: app/Strings.php:1059
+msgid "User Can Modify"
+msgstr "사용자 수정 가능"
+
+#: app/Strings.php:1060
+msgid ""
+"Allow users to change filter values - if unchecked, filter becomes readonly"
+msgstr ""
+"사용자가 필터 값을 변경할 수 있도록 허용합니다 - 체크 해제 시 필터가 읽기 전"
+"용이 됩니다"
+
+#: app/Strings.php:1061 app/Strings.php:1088
+msgid "Hide This Filter UI"
+msgstr "이 필터 UI 숨기기"
+
+#: app/Strings.php:1062
+msgid "Hide this specific filter UI but keep it working in background"
+msgstr "이 필터 UI는 숨기되 백그라운드에서는 계속 작동하도록 유지합니다"
+
+#: app/Strings.php:1064
+msgid "Strict Mode Override"
+msgstr "엄격 모드 재정의"
+
+#: app/Strings.php:1065
+msgid "Use Global Setting"
+msgstr "전체 설정 사용"
+
+#: app/Strings.php:1066
+msgid "Enable for this filter"
+msgstr "이 필터에 대해 활성화"
+
+#: app/Strings.php:1067
+msgid "Disable for this filter"
+msgstr "이 필터에 대해 비활성화"
+
+#: app/Strings.php:1068
+msgid ""
+"Global: Follow the \"Strict Mode\" setting above. Enable/Disable: Override "
+"for this specific filter."
+msgstr ""
+"전체: 위의 \"엄격 모드\" 설정을 따릅니다. 활성화/비활성화: 이 특정 필터에 대"
+"해 재정의합니다."
+
+#: app/Strings.php:1071
+msgid "User-specific Display Settings"
+msgstr "사용자별 표시 설정"
+
+#: app/Strings.php:1072
+msgid "Enable User-specific Display"
+msgstr "사용자별 맞춤 표시 활성화"
+
+#: app/Strings.php:1073
+msgid "Strict Mode (Exact Matching)"
+msgstr "엄격 모드 (정확히 일치)"
+
+#: app/Strings.php:1074
+msgid "Hide All User Filter UI"
+msgstr "모든 사용자 필터 UI 숨기기"
+
+#: app/Strings.php:1075
+msgid "User-Specific Filter Configuration"
+msgstr "사용자별 필터 설정"
+
+#: app/Strings.php:1076
+msgid "User-Based Filtering:"
+msgstr "사용자 기반 필터링:"
+
+#: app/Strings.php:1077
+msgid ""
+"Configure which columns should be filtered based on logged-in user data. "
+"Each filter will automatically use the user's information (email, username, "
+"roles, etc.) to show relevant rows."
+msgstr ""
+"로그인한 사용자 데이터를 기반으로 필터링할 열을 설정하세요. 각 필터는 사용자 "
+"정보(이메일, 사용자명, 역할 등)를 자동으로 활용하여 관련 행을 표시합니다."
+
+#: app/Strings.php:1078
+msgid "Add User Filter"
+msgstr "사용자 필터 추가"
+
+#: app/Strings.php:1079
+msgid "Configure columns to filter based on user data"
+msgstr "사용자 데이터를 기반으로 필터링할 열을 설정하세요"
+
+#: app/Strings.php:1080
+msgid "User Fields"
+msgstr "사용자 필드"
+
+#: app/Strings.php:1081
+msgid "Enabled"
+msgstr "활성화됨"
+
+#: app/Strings.php:1082
+msgid "User Can Change"
+msgstr "사용자 변경 가능"
+
+#: app/Strings.php:1083
+msgid "No user filters configured. Click \"Add User Filter\" to get started."
+msgstr ""
+"설정된 사용자 필터가 없습니다. \"사용자 필터 추가\"를 클릭하여 시작하세요."
+
+#: app/Strings.php:1084
+msgid "User Fields to Match (Multi-select)"
+msgstr "일치시킬 사용자 필드 (다중 선택)"
+
+#: app/Strings.php:1085
+msgid ""
+"Hold Ctrl/Cmd to select multiple fields. The filter will match if ANY of the "
+"selected fields match."
+msgstr ""
+"Ctrl/Cmd를 누른 채로 여러 필드를 선택하세요. 선택한 필드 중 하나라도 일치하"
+"면 필터가 적용됩니다."
+
+#: app/Strings.php:1086
+msgid ""
+"Whether this user-based filter is applied - if unchecked, filter is "
+"completely disabled"
+msgstr ""
+"이 사용자 기반 필터를 적용할지 여부입니다 - 체크 해제 시 필터가 완전히 비활성"
+"화됩니다"
+
+#: app/Strings.php:1087
+msgid "User Can Override"
+msgstr "사용자 재정의 가능"
+
+#: app/Strings.php:1091
+msgid "Get Help with Table Creation"
+msgstr "1. 탭 만들기"
+
+#: app/Strings.php:1092
+msgid ""
+"Create awesome tables from your Google Sheets. Just paste the link and see "
+"the magic"
+msgstr ""
+"Google Sheets에서 멋진 테이블을 만들어 보세요. 링크를 붙여넣기만 하면 놀라운 "
+"결과를 확인할 수 있습니다"
+
+#: app/Strings.php:1095
+msgid "Get started with table creation"
+msgstr "탭 그룹 시작하기"
+
+#: app/Strings.php:1096
+msgid "Quick Video Tutorial"
+msgstr "동영상 튜토리얼"
+
+#: app/Strings.php:1097
+msgid "Read Documentation"
+msgstr "문서"
+
+#: app/Strings.php:1098 app/templates/parts/pro_fix_notice.php:42
+msgid "Close"
+msgstr "닫기"
+
+#: app/Strings.php:1099
+msgid "Closing..."
+msgstr "불러오는 중..."
+
+#: app/Strings.php:1102
+msgid "🤖 AI Table Summary"
+msgstr "AI 테이블 요약 활성화"
+
+#: app/Strings.php:1103
+msgid "Turn your data into quick and smart summary"
+msgstr "데이터를 빠르고 스마트한 요약으로 변환하세요"
+
+#: app/Strings.php:1104
+msgid "💬 Ask AI"
+msgstr "💬 AI에게 물어보기"
+
+#: app/Strings.php:1105
+msgid "Lets visitors chat with your table data"
+msgstr "방문자가 테이블 데이터와 채팅할 수 있도록 합니다"
+
+#: app/Strings.php:1106
+msgid "Connect AI to Unlock Features"
+msgstr "AI를 연결하여 기능 잠금 해제"
+
+#: app/Strings.php:1107
+msgid ""
+"Set up your preferred provider (like Gemini or OpenAI) to use these AI tools."
+msgstr ""
+"이 AI 도구들을 사용하려면 선호하는 제공업체(Gemini 또는 OpenAI 등)를 설정하세"
+"요."
+
+#: app/Strings.php:1108
+msgid "Setup AI Provider"
+msgstr "AI 제공업체 설정"
+
+#: app/Strings.php:1110
+msgid "💡 Not ready? No worries - you can enable AI anytime later."
+msgstr ""
+"💡 아직 준비가 안 되셨나요? 걱정 마세요. 나중에 언제든지 AI를 활성화할 수 있"
+"습니다."
+
+#: app/Strings.php:1113
+msgid "Table description holder. Enter your table description here."
+msgstr "테이블 설명 자리 표시자. 여기에 테이블 설명을 입력하세요."
+
+#: app/Strings.php:1116
+msgid "Enter your table description"
+msgstr "테이블 설명 입력"
+
+#: app/Strings.php:1117
+msgid "# # Insert custom CSS code here to modify looks and feel"
+msgstr ""
+"# # 디자인과 느낌을 수정하려면 여기에 사용자 정의 CSS 코드를 삽입하세요"
+
+#: app/Strings.php:1120
+msgid "Get started with your first table"
+msgstr "첫 번째 테이블 시작하기"
+
+#: app/Strings.php:1121
+msgid "Let's create your first table from Google Sheets – it's as easy as pie!"
+msgstr ""
+"Google Sheets로 첫 번째 테이블을 만들어 보세요 – 식은 죽 먹기보다 쉽습니다!"
+
+#: app/Strings.php:1122
+msgid "Watch a quick tutorial"
+msgstr "빠른 튜토리얼 시청"
+
+#: app/Strings.php:1124
+msgid "Explore helpful resources"
+msgstr "유용한 리소스 탐색"
+
+#: app/Strings.php:1125
+msgid "🎁 Get the pro version and unlock endless possibilities"
+msgstr "🎁 프로 버전을 구매하고 무한한 가능성을 열어보세요"
+
+#: app/Strings.php:1129
+msgid ""
+"Find comprehensive guides and step-by-step instructions to get the most out "
+"of FlexTable"
+msgstr ""
+"FlexTable을 최대한 활용하기 위한 종합 가이드와 단계별 지침을 확인하세요"
+
+#: app/Strings.php:1130
+msgid "Open Docs"
+msgstr "문서 열기"
+
+#: app/Strings.php:1132
+msgid "Video Tutorials"
+msgstr "동영상 튜토리얼"
+
+#: app/Strings.php:1133
+msgid ""
+"Watch detailed video tutorials to learn FlexTable features and best practices"
+msgstr ""
+"FlexTable 기능과 모범 사례를 배우려면 상세한 동영상 튜토리얼을 시청하세요"
+
+#: app/Strings.php:1134
+msgid "Watch Videos"
+msgstr "동영상 보기"
+
+#: app/Strings.php:1136
+msgid "Get Support"
+msgstr "지원 받기"
+
+#: app/Strings.php:1137
+msgid ""
+"Need help? Our support team is ready to assist you with any questions or "
+"issues"
+msgstr ""
+"도움이 필요하신가요? 지원 팀이 모든 질문이나 문제 해결을 도울 준비가 되어 있"
+"습니다"
+
+#: app/Strings.php:1138
+msgid "Contact Support"
+msgstr "고객 지원 문의"
+
+#: app/Strings.php:1140
+msgid "Community Forum"
+msgstr "커뮤니티 포럼"
+
+#: app/Strings.php:1141
+msgid ""
+"Join our community to share ideas, get tips, and connect with other "
+"FlexTable users"
+msgstr ""
+"커뮤니티에 가입하여 아이디어를 공유하고, 팁을 얻고, 다른 FlexTable 사용자들"
+"과 소통하세요"
+
+#: app/Strings.php:1142
+msgid "Join Forum"
+msgstr "포럼 가입하기"
+
+#: app/templates/create_tables.php:45 app/templates/edit_table.php:47
+msgid "Create New"
+msgstr "새로 만들기"
+
+#: app/templates/create_tables.php:51 app/templates/edit_table.php:53
+msgid "Save Table"
+msgstr "테이블 저장"
+
+#: app/templates/create_tables.php:51 app/templates/edit_table.php:53
+msgid "Fetch Data"
+msgstr "데이터 가져오기"
+
+#: app/templates/create_tables.php:79 app/templates/edit_table.php:80
+msgid "Data Source"
+msgstr "데이터 소스"
+
+#: app/templates/create_tables.php:130 app/templates/edit_table.php:129
+msgid "Choose Source Type"
+msgstr "소스 유형 선택"
+
+#: app/templates/create_tables.php:134 app/templates/edit_table.php:133
+msgid "Google Spreadsheet"
+msgstr "Google 스프레드시트"
+
+#: app/templates/documentation_page.php:31
+msgid "View Demo"
+msgstr "데모 보기"
+
+#: app/templates/documentation_page.php:41
+msgid "Welcome to"
+msgstr "환영합니다,"
+
+#: app/templates/documentation_page.php:57
+msgid "Need more help ?"
+msgstr "더 많은 도움이 필요하신가요?"
+
+#: app/templates/documentation_page.php:58
+msgid ""
+"We provide professional support to all our users via our ticketing system."
+msgstr "티켓 시스템을 통해 모든 사용자에게 전문적인 지원을 제공합니다."
+
+#: app/templates/documentation_page.php:59
+msgid "Get Help"
+msgstr "도움 받기"
+
+#: app/templates/documentation_page.php:73
+msgid "Get Pro ✨"
+msgstr "Pro 구매하기 ✨"
+
+#: app/templates/documentation_page.php:86
+msgid ""
+"Responsive table. The plugin allows collapsing on mobile and tablet screens"
+msgstr "반응형 테이블. 모바일 및 태블릿 화면에서 접기 기능을 지원합니다"
+
+#: app/templates/documentation_page.php:94
+msgid ""
+"Data Caching feature cache the sheet data & therefore the table will load "
+"faster."
+msgstr ""
+"데이터 캐싱 기능으로 시트 데이터를 저장하여 테이블을 더 빠르게 불러옵니다."
+
+#: app/templates/documentation_page.php:102
+msgid ""
+"Link Support to import links from sheet. All the URL's will be shown as link "
+"in table."
+msgstr ""
+"시트에서 링크를 가져오는 링크 지원 기능. 모든 URL이 테이블에서 링크로 표시됩"
+"니다."
+
+#: app/templates/documentation_page.php:110
+msgid ""
+"Table Styles. Pre-built amazing table styles. Each styles is different from "
+"one another."
+msgstr ""
+"테이블 스타일. 멋지게 미리 제작된 테이블 스타일 모음. 각 스타일은 서로 다른 "
+"디자인을 제공합니다."
+
+#: app/templates/documentation_page.php:118
+msgid ""
+"Hide your google sheet table column on desktop screen OR mobile screens."
+msgstr ""
+"Google Sheet 테이블 열을 데스크탑 또는 모바일 화면에서 숨길 수 있습니다."
+
+#: app/templates/documentation_page.php:126
+msgid ""
+"Hide Row. Hide your google sheet table rows based on your custom row "
+"selection."
+msgstr ""
+"행 숨기기. 원하는 행 선택에 따라 Google Sheet 테이블 행을 숨길 수 있습니다."
+
+#: app/templates/documentation_page.php:134
+msgid "Unlimited Row Sync. Fetch unlimited rows from Google spreadsheet"
+msgstr "무제한 행 동기화. Google 스프레드시트에서 무제한으로 행을 가져옵니다"
+
+#: app/templates/documentation_page.php:142
+msgid "And much more."
+msgstr "그리고 훨씬 더 많은 기능이 있습니다."
+
+#: app/templates/documentation_page.php:143
+msgid "All Pro features"
+msgstr "모든 Pro 기능 보기"
+
+#: app/templates/documentation_page.php:150
+msgid "Buy Now"
+msgstr "지금 구매하기"
+
+#: app/templates/documentation_page.php:180
+msgid "Support Center"
+msgstr "고객 지원 센터"
+
+#: app/templates/general_settings.php:47
+msgid "General Settings"
+msgstr "일반 설정"
+
+#: app/templates/general_settings.php:52
+msgid "Save Changes"
+msgstr "변경 사항 저장"
+
+#: app/templates/manage_tables.php:43
+msgid "Delete Selected"
+msgstr "선택 항목 삭제"
+
+#: app/templates/manage_tables.php:49
+msgid "Clear Selection"
+msgstr "선택 해제"
+
+#: app/templates/manage_tables.php:72
+msgid "Create Table"
+msgstr "테이블 만들기"
+
+#: app/templates/manage_tables.php:79
+msgid "Delete Your Table"
+msgstr "테이블 삭제"
+
+#: app/templates/manage_tables.php:86
+msgid "Yes"
+msgstr "예"
+
+#: app/templates/manage_tables.php:89
+msgid "No"
+msgstr "아니요"
+
+#: app/templates/parts/affiliate_notice.php:23
+msgid "Hey! Enjoying the FlexTable plugin? 😍 Join our "
+msgstr "안녕하세요! FlexTable 플러그인이 마음에 드시나요? 😍 저희 "
+
+#: app/templates/parts/affiliate_notice.php:24
+msgid "Influencer Program "
+msgstr "인플루언서 프로그램 "
+
+#: app/templates/parts/affiliate_notice.php:25
+msgid "to make money from your social media content. You can also check our"
+msgstr "에 참여하여 소셜 미디어 콘텐츠로 수익을 올려보세요. 또한 저희"
+
+#: app/templates/parts/affiliate_notice.php:26
+msgid "Affiliate Program "
+msgstr "제휴 프로그램 "
+
+#: app/templates/parts/affiliate_notice.php:27
+msgid "to get a "
+msgstr "도 확인하여 "
+
+#: app/templates/parts/affiliate_notice.php:28
+msgid "25% commission "
+msgstr "25% 수수료 "
+
+#: app/templates/parts/affiliate_notice.php:29
+msgid "on every sale!"
+msgstr "를 매 판매마다 받아보세요!"
+
+#: app/templates/parts/affiliate_notice.php:33
+msgid "Affiliate Program"
+msgstr "제휴 프로그램"
+
+#: app/templates/parts/affiliate_notice.php:34
+msgid "Influencer Program"
+msgstr "인플루언서 프로그램"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "Advance sheets design and many more premium features are available in "
+msgstr "고급 시트 디자인 및 다양한 프리미엄 기능들을 "
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "FlexTable Pro"
+msgstr "FlexTable Pro"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "plugin 😍"
+msgstr "플러그인에서 만나보세요 😍"
+
+#: app/templates/parts/plugin_upgrade_notice.php:25
+msgid "Upgrade Now"
+msgstr "지금 업그레이드"
+
+#: app/templates/parts/popup_modals.php:17
+msgid "Choose Table Style"
+msgstr "테이블 스타일 선택"
+
+#: app/templates/parts/popup_modals.php:29
+#: app/templates/parts/popup_modals.php:77
+msgid "Select"
+msgstr "선택"
+
+#: app/templates/parts/popup_modals.php:41
+msgid "Choose Column To Hide"
+msgstr "숨길 열 선택"
+
+#: app/templates/parts/popup_modals.php:47
+msgid "Hide columns in desktop:"
+msgstr "데스크탑에서 열 숨기기:"
+
+#: app/templates/parts/popup_modals.php:51
+#: app/templates/parts/popup_modals.php:64
+msgid "Choose Column"
+msgstr "열 선택"
+
+#: app/templates/parts/popup_modals.php:60
+msgid "Hide columns in mobile:"
+msgstr "모바일에서 열 숨기기:"
+
+#: app/templates/parts/popup_modals.php:89
+msgid "Activate Row Hiding Feature"
+msgstr "행 숨기기 기능 활성화"
+
+#: app/templates/parts/popup_modals.php:94
+msgid "Hidden Rows:"
+msgstr "숨겨진 행:"
+
+#: app/templates/parts/popup_modals.php:98
+msgid "Hidden Rows"
+msgstr "숨겨진 행"
+
+#: app/templates/parts/popup_modals.php:128
+msgid "Activate Cell Hiding Feature"
+msgstr "셀 숨기기 기능 활성화"
+
+#: app/templates/parts/popup_modals.php:133
+msgid "Hidden Cell:"
+msgstr "숨겨진 셀:"
+
+#: app/templates/parts/popup_modals.php:137
+msgid "Hidden Cells"
+msgstr "숨겨진 셀"
+
+#: app/templates/parts/pro_fix_notice.php:17
+msgid "Let's Get Your FlexTable Pro Plugin Updated!"
+msgstr "FlexTable Pro 플러그인을 업데이트해 드릴게요!"
+
+#: app/templates/parts/pro_fix_notice.php:20
+msgid ""
+"We've noticed a small issue with the pro plugin update process. Just click "
+"Fix Now button to automatically solve the issue, and everything will be back "
+"to normal"
+msgstr ""
+"Pro 플러그인 업데이트 과정에서 작은 문제가 발견되었습니다. \"지금 수정\" 버튼"
+"을 클릭하면 문제가 자동으로 해결되어 모든 것이 정상으로 돌아옵니다"
+
+#: app/templates/parts/pro_fix_notice.php:22
+#: app/templates/parts/pro_fix_notice.php:312
+msgid "Learn more about what we fixed"
+msgstr "수정된 내용 자세히 알아보기"
+
+#: app/templates/parts/pro_fix_notice.php:31
+#, php-format
+msgid ""
+"This fix resolves a temporary issue on FlexTable Pro plugin that's "
+"preventing getting automatic updates. By clicking \"Fix Now\", the update "
+"process will be restored, enabling future auto updates. You can also "
+"download the latest version anytime from %s"
+msgstr ""
+"이 수정은 자동 업데이트를 방해하는 FlexTable Pro 플러그인의 일시적인 문제를 "
+"해결합니다. \"지금 수정\"을 클릭하면 업데이트 프로세스가 복원되어 이후 자동 "
+"업데이트가 가능해집니다. 최신 버전은 언제든지 %s에서 다운로드할 수도 있습니다"
+
+#: app/templates/parts/pro_fix_notice.php:32
+#: app/templates/parts/pro_fix_notice.php:59
+msgid "portal.wppool.dev"
+msgstr "portal.wppool.dev"
+
+#: app/templates/parts/pro_fix_notice.php:39
+msgid "Fix Now"
+msgstr "지금 수정"
+
+#: app/templates/parts/pro_fix_notice.php:53
+msgid "Close without fixing the update?"
+msgstr "업데이트를 수정하지 않고 닫으시겠습니까?"
+
+#: app/templates/parts/pro_fix_notice.php:58
+#, php-format
+msgid ""
+"You can update the pro plugin anytime manually by downloading the latest "
+"version from your portal at %s"
+msgstr ""
+"%s의 포털에서 최신 버전을 다운로드하여 언제든지 Pro 플러그인을 수동으로 업데"
+"이트할 수 있습니다"
+
+#: app/templates/parts/pro_fix_notice.php:70
+msgid "Yes, Close at My Risk!"
+msgstr "네, 위험을 감수하고 닫겠습니다!"
+
+#: app/templates/parts/pro_fix_notice.php:315
+msgid "Show less"
+msgstr "간략히 보기"
+
+#: app/templates/parts/pro_fix_notice.php:331
+msgid "Applying Fix..."
+msgstr "수정 적용 중..."
+
+#: app/templates/parts/pro_fix_notice.php:343
+msgid "Fixed!"
+msgstr "수정 완료!"
+
+#: app/templates/parts/pro_fix_notice.php:348
+#: app/templates/parts/pro_fix_notice.php:353
+msgid "Auto Fix"
+msgstr "자동 수정"
+
+#: app/templates/parts/pro_fix_notice.php:349
+msgid "Failed to apply fix. Please try again."
+msgstr "수정 적용에 실패했습니다. 다시 시도해 주세요."
+
+#: app/templates/parts/pro_fix_notice.php:354
+#: app/templates/parts/pro_fix_notice.php:388
+#: app/templates/parts/pro_fix_notice.php:393
+msgid "An error occurred. Please try again."
+msgstr "오류가 발생했습니다. 다시 시도해 주세요."
+
+#: app/templates/parts/pro_fix_notice.php:372
+msgid "Processing..."
+msgstr "처리 중..."
+
+#: app/templates/parts/review_notice.php:21
+msgid "Seems like "
+msgstr "이제 "
+
+#: app/templates/parts/review_notice.php:21
+msgid " is bringing you value 🥳"
+msgstr "이(가) 도움이 되고 있는 것 같네요 🥳"
+
+#: app/templates/parts/review_notice.php:23
+msgid ""
+"Hi there! You've been using FlexTable for a while. Would you consider "
+"leaving us a 😍 5-star review? Your feedback will help us to develop better "
+"features and spread the word."
+msgstr ""
+"안녕하세요! FlexTable을 꾸준히 사용해 주셔서 감사합니다. 😍 별점 5개 리뷰를 "
+"남겨주실 수 있을까요? 여러분의 소중한 피드백은 더 나은 기능 개발과 홍보에 큰 "
+"힘이 됩니다."
+
+#: app/templates/parts/review_notice.php:34
+msgid "I already did it"
+msgstr "이미 작성했어요"
+
+#: app/templates/parts/review_notice.php:45
+msgid "Would you like to be remind in the future?"
+msgstr "나중에 다시 알려드릴까요?"
+
+#: app/templates/parts/review_notice.php:48
+msgid "Remind Me After:"
+msgstr "다음 기간 후 알림:"
+
+#: app/templates/parts/review_notice.php:50
+#: app/templates/parts/review_notice.php:53
+msgid "7 Days"
+msgstr "7일"
+
+#: app/templates/parts/review_notice.php:54
+msgid "14 Days"
+msgstr "14일"
+
+#: app/templates/parts/review_notice.php:55
+msgid "Remind me never"
+msgstr "다시 알리지 않기"
+
+#: app/templates/parts/review_notice.php:60
+msgid "Ok"
+msgstr "확인"
+
+#: sheets-to-wp-table-live-sync.php:32
+msgid "FlexTable - Pro Plugin"
+msgstr "FlexTable - Pro 플러그인"
+
+#: sheets-to-wp-table-live-sync.php:33
+msgid ""
+"cannot be activated - requires at least 3.0.0. Plugin automatically "
+"deactivated."
+msgstr ""
+"활성화할 수 없습니다 - 최소 버전 3.0.0이 필요합니다. 플러그인이 자동으로 비활"
+"성화되었습니다."
+
+#~ msgid "A search field"
+#~ msgstr "검색 필드"
+
+#~ msgid "Get PRO -sheets-to-wp-table-live-sync"
+#~ msgstr "PRO 버전 구매하기 -sheets-to-wp-table-live-sync"
+
+#~ msgid "Get Pro "
+#~ msgstr "Pro 구매하기 "

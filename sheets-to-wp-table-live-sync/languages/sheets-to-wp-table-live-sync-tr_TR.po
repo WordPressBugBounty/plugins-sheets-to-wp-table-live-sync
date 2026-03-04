@@ -1,0 +1,4997 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2026-03-03 12:41+0600\n"
+"PO-Revision-Date: 2026-03-03 12:41+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_html\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: assets\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: react/node_modules\n"
+"X-Poedit-SearchPathExcluded-4: lib\n"
+"X-Poedit-SearchPathExcluded-5: .wordpress-org\n"
+"X-Poedit-SearchPathExcluded-6: .vscode\n"
+"X-Poedit-SearchPathExcluded-7: .github\n"
+"X-Poedit-SearchPathExcluded-8: .git\n"
+
+#: app/AI/AIManager.php:111
+msgid "Invalid AI provider"
+msgstr "Geçersiz AI sağlayıcı"
+
+#: app/AI/AIManager.php:128 app/AI/AIManager.php:145 app/AI/AIManager.php:220
+msgid "No AI provider configured"
+msgstr "AI sağlayıcı yapılandırılmamış"
+
+#: app/AI/AIManager.php:224
+msgid "Prompt cannot be empty"
+msgstr "Komut boş olamaz"
+
+#: app/AI/AIProvider.php:302
+#, php-format
+msgid "%1$s API request failed: %2$s"
+msgstr "%1$s API isteği başarısız oldu: %2$s"
+
+#: app/AI/AIProvider.php:317
+#, php-format
+msgid "%1$s API error (%2$d): %3$s"
+msgstr "%1$s API hatası (%2$d): %3$s"
+
+#: app/AI/GeminiProvider.php:78
+msgid "Google AI API Key"
+msgstr "Google AI API Anahtarı"
+
+#: app/AI/GeminiProvider.php:79
+msgid "Your Google AI Studio API key"
+msgstr "Google AI Studio API anahtarınız"
+
+#: app/AI/GeminiProvider.php:86 app/AI/OpenAIProvider.php:103
+msgid "Model"
+msgstr "Model"
+
+#: app/AI/GeminiProvider.php:87
+msgid "Choose the Gemini model to use"
+msgstr "Kullanılacak Gemini modelini seçin"
+
+#: app/AI/GeminiProvider.php:93 app/AI/OpenAIProvider.php:110
+#: app/Strings.php:831
+msgid "Max Tokens"
+msgstr "Maksimum Token"
+
+#: app/AI/GeminiProvider.php:94 app/AI/OpenAIProvider.php:111
+msgid "Maximum tokens for the response"
+msgstr "Yanıt için maksimum token sayısı"
+
+#: app/AI/GeminiProvider.php:102 app/AI/OpenAIProvider.php:119
+#: app/Strings.php:837
+msgid "Creativity"
+msgstr "Yaratıcılık"
+
+#: app/AI/GeminiProvider.php:103 app/AI/OpenAIProvider.php:120
+msgid "Controls randomness in responses"
+msgstr "Yanıtlardaki rastgeleliği kontrol eder"
+
+#: app/AI/GeminiProvider.php:111 app/Strings.php:808 app/Strings.php:870
+msgid "Top P"
+msgstr "Top P"
+
+#: app/AI/GeminiProvider.php:112
+msgid "Controls diversity via nucleus sampling"
+msgstr "Nucleus örnekleme yoluyla çeşitliliği kontrol eder"
+
+#: app/AI/GeminiProvider.php:120 app/Strings.php:810 app/Strings.php:872
+msgid "Top K"
+msgstr "Top K"
+
+#: app/AI/GeminiProvider.php:121
+msgid "Controls diversity by limiting vocabulary"
+msgstr "Kelime dağarcığını sınırlayarak çeşitliliği kontrol eder"
+
+#: app/AI/GeminiProvider.php:144
+msgid "Gemini API key is required"
+msgstr "Gemini API anahtarı gereklidir"
+
+#: app/AI/GeminiProvider.php:148
+msgid "Invalid Gemini API key format"
+msgstr "Geçersiz Gemini API anahtar formatı"
+
+#: app/AI/GeminiProvider.php:204
+#, php-format
+msgid "Gemini API connection successful! Model: %s"
+msgstr "Gemini API bağlantısı başarılı! Model: %s"
+
+#: app/AI/GeminiProvider.php:232 app/AI/OpenAIProvider.php:208
+msgid "API test failed: Invalid response structure"
+msgstr "API testi başarısız: Geçersiz yanıt yapısı"
+
+#: app/AI/GeminiProvider.php:315
+msgid "Response blocked by Gemini safety filters"
+msgstr "Yanıt Gemini güvenlik filtreleri tarafından engellendi"
+
+#: app/AI/GeminiProvider.php:318
+msgid "Invalid response structure from Gemini API"
+msgstr "Gemini API'den geçersiz yanıt yapısı"
+
+#: app/AI/GeminiProvider.php:356 app/AI/OpenAIProvider.php:296
+#, php-format
+msgid "API returned status code %d"
+msgstr "API %d durum kodunu döndürdü"
+
+#: app/AI/OpenAIProvider.php:95 app/Strings.php:817
+msgid "OpenAI API Key"
+msgstr "OpenAI API Anahtarı"
+
+#: app/AI/OpenAIProvider.php:96
+msgid "Your OpenAI API key (starts with sk-)"
+msgstr "OpenAI API anahtarınız (sk- ile başlar)"
+
+#: app/AI/OpenAIProvider.php:104
+msgid "Choose the OpenAI model to use"
+msgstr "Kullanılacak OpenAI modelini seçin"
+
+#: app/AI/OpenAIProvider.php:128 app/Strings.php:843
+msgid "Frequency Penalty"
+msgstr "Frekans Cezası"
+
+#: app/AI/OpenAIProvider.php:129
+msgid "Reduces repetition in responses"
+msgstr "Yanıtlardaki tekrarları azaltır"
+
+#: app/AI/OpenAIProvider.php:152
+msgid "OpenAI API key is required"
+msgstr "OpenAI API anahtarı gereklidir"
+
+#: app/AI/OpenAIProvider.php:156
+msgid "Invalid OpenAI API key format"
+msgstr "Geçersiz OpenAI API anahtar formatı"
+
+#: app/AI/OpenAIProvider.php:202
+#, php-format
+msgid "OpenAI API connection successful! Model: %s"
+msgstr "OpenAI API bağlantısı başarılı! Model: %s"
+
+#: app/AI/OpenAIProvider.php:265
+msgid "Invalid response structure from OpenAI API"
+msgstr "OpenAI API'den geçersiz yanıt yapısı"
+
+#: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517
+#: app/Divi/DiviModule.php:35 app/Elementor/ElementorWidget.php:58
+#: app/SWPTLS.php:265 app/templates/parts/review_notice.php:21
+msgid "FlexTable"
+msgstr "FlexTable"
+
+#: app/Admin.php:69
+msgid "Get PRO"
+msgstr "Pro Sürümü Edinin"
+
+#: app/Admin.php:70
+msgid ""
+"<span style=\"display: flex; align-items: center; gap: 7px; color: #29be7c; "
+"font-weight: 700; text-transform:uppercase; font-size: 12px;\"> Upgrade Now "
+"<svg width=\"21\" height=\"17\" viewBox=\"0 0 21 17\" fill=\"none\" "
+"xmlns=\"http://www.w3.org/2000/svg\">\n"
+"\t\t\t\t\t<path d=\"M11.8012 7.66016L10.0813 4.26172L8.36133 7.66016C8.9104 "
+"7.69498 9.48392 7.71466 10.0813 7.71466C10.6786 7.71466 11.2522 7.69498 "
+"11.8012 7.66016Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.5164 3.93457C12.5221 4.00909 11.4463 4.05114 10.3535 "
+"4.05712L12.0518 7.41268L13.5164 3.93457Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M17.655 6.58984C18.9408 6.17882 19.7993 5.76404 20.1634 "
+"5.57337L17.6901 3.27344L16.8496 6.82924C17.1409 6.74883 17.4099 6.6682 "
+"17.655 6.58984Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.8256 4.06055L12.3262 7.62137C13.8894 7.49126 15.2336 "
+"7.24006 16.3194 6.96869L13.8256 4.06055Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.84375 6.96869C4.92956 7.24006 6.27375 7.49126 7.83695 "
+"7.62137L6.33749 4.06055L3.84375 6.96869Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M14.1152 3.88492L16.5346 6.70624L17.3326 3.33008C17.0083 "
+"3.4568 16.4276 3.60162 15.3786 3.74365C14.9823 3.79731 14.5586 3.84437 "
+"14.1152 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M9.8103 4.05712C8.71747 4.0511 7.64174 4.00905 6.64746 "
+"3.93457L8.11206 7.41268L9.8103 4.05712Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M10.0818 3.72428C11.9183 3.72428 13.7348 3.62004 15.1969 "
+"3.43079C16.4383 3.27009 17.054 3.09714 17.3042 2.98362C17.0203 2.8663 "
+"16.3914 2.69009 15.2275 2.52161C13.739 2.30616 11.9115 2.1875 10.0818 "
+"2.1875C8.25205 2.1875 6.42458 2.30616 4.93603 2.52161C3.77219 2.69009 "
+"3.14329 2.8663 2.85938 2.98362C3.10952 3.09718 3.7253 3.27009 4.96671 "
+"3.43079C6.42872 3.62004 8.24524 3.72428 10.0818 3.72428Z\" fill=\"#34D399\"/"
+">\n"
+"\t\t\t\t\t<path d=\"M10.082 8.04847C9.46536 8.04847 8.87357 8.02778 8.30762 "
+"7.99121L10.082 16.352L11.8563 7.99121C11.2904 8.02782 10.6986 8.04847 10.082 "
+"8.04847Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M6.04742 3.88492C5.60405 3.84437 5.18037 3.79731 4.78402 "
+"3.74365C3.73508 3.60167 3.15437 3.4568 2.83008 3.33008L3.62808 "
+"6.70624L6.04742 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M12.2028 7.96734L10.4326 16.3084L16.2509 7.33008C15.1406 "
+"7.59983 13.779 7.84508 12.2028 7.96734Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.7281 7.20887L11.3818 15.4589L19.7314 6.15625C19.2695 "
+"6.36611 18.6125 6.63452 17.7695 6.9046C17.4591 7.00407 17.1111 7.10714 "
+"16.7281 7.20887Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.91211 7.33008L9.73035 16.3084L7.96014 7.96734C6.38399 "
+"7.84504 5.02233 7.59979 3.91211 7.33008Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M2.39357 6.9046C1.55059 6.63452 0.893524 6.36611 "
+"0.431641 6.15625L8.78123 15.4589L3.43499 7.20887C3.05198 7.10714 2.70398 "
+"7.00407 2.39357 6.9046Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.31381 6.8292L2.47334 3.27344L0 5.57332C0.364207 5.764 "
+"1.22261 6.17878 2.50845 6.58979C2.75354 6.66816 3.02249 6.74878 3.31381 "
+"6.8292Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M1.78207 1.06487C1.84142 1.14328 1.88961 1.23343 1.92864 "
+"1.32785C1.96768 1.23347 2.01583 1.14332 2.07522 1.06487C2.21164 0.884688 "
+"2.40578 0.753868 2.57995 0.663923C2.40578 0.573979 2.21164 0.443117 2.07522 "
+"0.262978C2.01583 0.184569 1.96768 0.0943745 1.92864 0C1.88961 0.0943745 "
+"1.84146 0.184528 1.78207 0.262978C1.64565 0.443159 1.45151 0.573979 1.27734 "
+"0.663923C1.45151 0.753868 1.64565 0.884688 1.78207 1.06487Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.8194 12.844C16.76 12.7656 16.7118 12.6754 16.6728 "
+"12.5811C16.6337 12.6754 16.5856 12.7656 16.5262 12.844C16.3898 13.0242 "
+"16.1957 13.155 16.0215 13.245C16.1957 13.3349 16.3898 13.4658 16.5262 "
+"13.6459C16.5856 13.7243 16.6337 13.8145 16.6728 13.9089C16.7118 13.8145 "
+"16.76 13.7243 16.8194 13.6459C16.9558 13.4657 17.1499 13.3349 17.3241 "
+"13.245C17.1499 13.155 16.9557 13.0242 16.8194 12.844Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t</svg>\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t</span>"
+msgstr ""
+"<span style=\"display: flex; align-items: center; gap: 7px; color: #29be7c; "
+"font-weight: 700; text-transform:uppercase; font-size: 12px;\"> Şimdi "
+"Yükselt <svg width=\"21\" height=\"17\" viewBox=\"0 0 21 17\" fill=\"none\" "
+"xmlns=\"http://www.w3.org/2000/svg\">\n"
+"\t\t\t\t\t<path d=\"M11.8012 7.66016L10.0813 4.26172L8.36133 7.66016C8.9104 "
+"7.69498 9.48392 7.71466 10.0813 7.71466C10.6786 7.71466 11.2522 7.69498 "
+"11.8012 7.66016Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.5164 3.93457C12.5221 4.00909 11.4463 4.05114 10.3535 "
+"4.05712L12.0518 7.41268L13.5164 3.93457Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M17.655 6.58984C18.9408 6.17882 19.7993 5.76404 20.1634 "
+"5.57337L17.6901 3.27344L16.8496 6.82924C17.1409 6.74883 17.4099 6.6682 "
+"17.655 6.58984Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.8256 4.06055L12.3262 7.62137C13.8894 7.49126 15.2336 "
+"7.24006 16.3194 6.96869L13.8256 4.06055Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.84375 6.96869C4.92956 7.24006 6.27375 7.49126 7.83695 "
+"7.62137L6.33749 4.06055L3.84375 6.96869Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M14.1152 3.88492L16.5346 6.70624L17.3326 3.33008C17.0083 "
+"3.4568 16.4276 3.60162 15.3786 3.74365C14.9823 3.79731 14.5586 3.84437 "
+"14.1152 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M9.8103 4.05712C8.71747 4.0511 7.64174 4.00905 6.64746 "
+"3.93457L8.11206 7.41268L9.8103 4.05712Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M10.0818 3.72428C11.9183 3.72428 13.7348 3.62004 15.1969 "
+"3.43079C16.4383 3.27009 17.054 3.09714 17.3042 2.98362C17.0203 2.8663 "
+"16.3914 2.69009 15.2275 2.52161C13.739 2.30616 11.9115 2.1875 10.0818 "
+"2.1875C8.25205 2.1875 6.42458 2.30616 4.93603 2.52161C3.77219 2.69009 "
+"3.14329 2.8663 2.85938 2.98362C3.10952 3.09718 3.7253 3.27009 4.96671 "
+"3.43079C6.42872 3.62004 8.24524 3.72428 10.0818 3.72428Z\" fill=\"#34D399\"/"
+">\n"
+"\t\t\t\t\t<path d=\"M10.082 8.04847C9.46536 8.04847 8.87357 8.02778 8.30762 "
+"7.99121L10.082 16.352L11.8563 7.99121C11.2904 8.02782 10.6986 8.04847 10.082 "
+"8.04847Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M6.04742 3.88492C5.60405 3.84437 5.18037 3.79731 4.78402 "
+"3.74365C3.73508 3.60167 3.15437 3.4568 2.83008 3.33008L3.62808 "
+"6.70624L6.04742 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M12.2028 7.96734L10.4326 16.3084L16.2509 7.33008C15.1406 "
+"7.59983 13.779 7.84508 12.2028 7.96734Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.7281 7.20887L11.3818 15.4589L19.7314 6.15625C19.2695 "
+"6.36611 18.6125 6.63452 17.7695 6.9046C17.4591 7.00407 17.1111 7.10714 "
+"16.7281 7.20887Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.91211 7.33008L9.73035 16.3084L7.96014 7.96734C6.38399 "
+"7.84504 5.02233 7.59979 3.91211 7.33008Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M2.39357 6.9046C1.55059 6.63452 0.893524 6.36611 "
+"0.431641 6.15625L8.78123 15.4589L3.43499 7.20887C3.05198 7.10714 2.70398 "
+"7.00407 2.39357 6.9046Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.31381 6.8292L2.47334 3.27344L0 5.57332C0.364207 5.764 "
+"1.22261 6.17878 2.50845 6.58979C2.75354 6.66816 3.02249 6.74878 3.31381 "
+"6.8292Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M1.78207 1.06487C1.84142 1.14328 1.88961 1.23343 1.92864 "
+"1.32785C1.96768 1.23347 2.01583 1.14332 2.07522 1.06487C2.21164 0.884688 "
+"2.40578 0.753868 2.57995 0.663923C2.40578 0.573979 2.21164 0.443117 2.07522 "
+"0.262978C2.01583 0.184569 1.96768 0.0943745 1.92864 0C1.88961 0.0943745 "
+"1.84146 0.184528 1.78207 0.262978C1.64565 0.443159 1.45151 0.573979 1.27734 "
+"0.663923C1.45151 0.753868 1.64565 0.884688 1.78207 1.06487Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.8194 12.844C16.76 12.7656 16.7118 12.6754 16.6728 "
+"12.5811C16.6337 12.6754 16.5856 12.7656 16.5262 12.844C16.3898 13.0242 "
+"16.1957 13.155 16.0215 13.245C16.1957 13.3349 16.3898 13.4658 16.5262 "
+"13.6459C16.5856 13.7243 16.6337 13.8145 16.6728 13.9089C16.7118 13.8145 "
+"16.76 13.7243 16.8194 13.6459C16.9558 13.4657 17.1499 13.3349 17.3241 "
+"13.245C17.1499 13.155 16.9557 13.0242 16.8194 12.844Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t</svg>\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t</span>"
+
+#: app/Ajax/Notices.php:40 app/Ajax/Notices.php:127 app/Ajax/Notices.php:161
+#: app/Ajax/Products.php:40 app/Ajax/Settings.php:35 app/Ajax/Settings.php:69
+#: app/Ajax/Tables.php:80 app/Ajax/Tables.php:121 app/Ajax/Tables.php:186
+#: app/Ajax/Tables.php:250 app/Ajax/Tables.php:288 app/Ajax/Tables.php:330
+#: app/Ajax/Tables.php:350 app/Ajax/Tables.php:425 app/Ajax/Tables.php:464
+#: app/Ajax/Tables.php:1074 app/Ajax/Tables.php:1117 app/Ajax/Tables.php:1704
+#: app/Ajax/Tables.php:1731
+msgid "Invalid action"
+msgstr "Geçersiz işlem"
+
+#: app/Ajax/Notices.php:141
+msgid "Pro plugin update has been fixed successfully!"
+msgstr "Pro eklenti güncellemesi başarıyla düzeltildi!"
+
+#: app/Ajax/Notices.php:145
+msgid "Failed to apply the fix. Please try again or contact support."
+msgstr ""
+"Düzeltme uygulanamadı. Lütfen tekrar deneyin veya destek ekibiyle iletişime "
+"geçin."
+
+#: app/Ajax/Notices.php:156
+msgid "Fix declined. You will not receive premium plugin updates."
+msgstr "Düzeltme reddedildi. Premium eklenti güncellemelerini almayacaksınız."
+
+#: app/Ajax/Products.php:57
+msgid "🛒 Boost your WooCommerce stores functionality"
+msgstr "🛒 WooCommerce mağazanızın işlevselliğini artırın"
+
+#: app/Ajax/Products.php:58
+msgid ""
+"Discover top plugins to supercharge your store with advanced tools and "
+"improvements"
+msgstr ""
+"Gelişmiş araçlar ve iyileştirmelerle mağazanızı güçlendirecek en iyi "
+"eklentileri keşfedin"
+
+#: app/Ajax/Products.php:63
+msgid "🧩 Enhance your WordPress site with powerful tools"
+msgstr "🧩 Güçlü araçlarla WordPress sitenizi geliştirin"
+
+#: app/Ajax/Products.php:64
+msgid ""
+"We have selected top plugins to improve your site. Explore options tailored "
+"just for you"
+msgstr ""
+"Sitenizi geliştirmek için en iyi eklentileri seçtik. Sizin için özel olarak "
+"hazırlanmış seçenekleri keşfedin"
+
+#: app/Ajax/Products.php:123
+msgid ""
+"Stock Sync with Google Sheets for WooCommerce | Product Sync with Google "
+"Sheet, WooCommerce Bulk Edit, Stock Management – FlexStock"
+msgstr ""
+"WooCommerce için Google Sheets ile Stok Senkronizasyonu | Google Sheet ile "
+"Ürün Senkronizasyonu, WooCommerce Toplu Düzenleme, Stok Yönetimi – FlexStock"
+
+#: app/Ajax/Products.php:124
+msgid ""
+"Auto-sync WooCommerce products from Google Sheets. An easy and powerful "
+"solution for WooCommerce inventory management."
+msgstr ""
+"WooCommerce ürünlerini Google Sheets'ten otomatik senkronize edin. "
+"WooCommerce envanter yönetimi için kolay ve güçlü bir çözüm."
+
+#: app/Ajax/Products.php:142
+msgid "FlexOrder – Manage & Sync Orders with Google Sheets for WooCommerce"
+msgstr ""
+"FlexOrder – WooCommerce için Google Sheets ile Siparişleri Yönetin ve "
+"Senkronize Edin"
+
+#: app/Ajax/Products.php:143
+msgid ""
+"🔥Seamlessly connect WooCommerce with Google Sheets to manage orders, update "
+"statuses in bulk, and simplify your workflow"
+msgstr ""
+"🔥WooCommerce'i Google Sheets ile sorunsuzca bağlayın, siparişleri yönetin, "
+"durumları toplu güncelleyin ve iş akışınızı basitleştirin"
+
+#: app/Ajax/Products.php:161
+msgid "ArchiveMaster — Auto Archive and Export Old Orders for WooCommerce"
+msgstr ""
+"ArchiveMaster — WooCommerce için Eski Siparişleri Otomatik Arşivleyin ve "
+"Dışa Aktarın"
+
+#: app/Ajax/Products.php:162
+msgid ""
+"Optimize your WooCommerce store and store old data in a local or any remote "
+"database. With ArchiveMaster, easily archive old orders, export order data, "
+"and streamline database performance."
+msgstr ""
+"WooCommerce mağazanızı optimize edin ve eski verileri yerel veya herhangi "
+"bir uzak veritabanında saklayın. ArchiveMaster ile eski siparişleri kolayca "
+"arşivleyin, sipariş verilerini dışa aktarın ve veritabanı performansını "
+"iyileştirin."
+
+#: app/Ajax/Products.php:180
+msgid "EchoRewards — Refer-a-Friend & Referral Program for WooCommerce"
+msgstr ""
+"EchoRewards — WooCommerce için Arkadaşını Tavsiye Et ve Yönlendirme Programı"
+
+#: app/Ajax/Products.php:181
+msgid ""
+"Create your customer referral program with a refer-a-friend plugin for "
+"WordPress. With EchoRewards, automate customer rewards and add a refer-a-"
+"friend program to your WooCommerce store"
+msgstr ""
+"WordPress için arkadaşını tavsiye et eklentisiyle müşteri yönlendirme "
+"programınızı oluşturun. EchoRewards ile müşteri ödüllerini otomatikleştirin "
+"ve WooCommerce mağazanıza arkadaşını tavsiye et programı ekleyin"
+
+#: app/Ajax/Products.php:200
+msgid "WP Dark Mode"
+msgstr "WP Dark Mode"
+
+#: app/Ajax/Products.php:201
+msgid ""
+"Create a dark mode version of your website without any complicated setup. "
+"Activate the plugin and your site visitors will experience a dark mode or "
+"light mode version of your website as per their preferred operating system "
+"preference."
+msgstr ""
+"Karmaşık bir kurulum olmadan web sitenizin karanlık mod versiyonunu "
+"oluşturun. Eklentiyi etkinleştirin ve site ziyaretçileriniz tercih ettikleri "
+"işletim sistemi ayarına göre web sitenizin karanlık mod veya aydınlık mod "
+"versiyonunu deneyimlesin."
+
+#: app/Ajax/Products.php:219
+msgid ""
+"FormToChat – Connect Contact Form to Chat Apps with Contact Form 7 "
+"Integration"
+msgstr ""
+"FormToChat – Contact Form 7 Entegrasyonu ile İletişim Formunu Sohbet "
+"Uygulamalarına Bağlayın"
+
+#: app/Ajax/Products.php:220
+msgid ""
+"WhatsApp Chat for WordPress🔥. Connect contact forms to WhatsApp. A WhatsApp "
+"notifications plugin with Contact Form 7 integration."
+msgstr ""
+"WordPress için WhatsApp Chat🔥. İletişim formlarını WhatsApp'a bağlayın. "
+"Contact Form 7 entegrasyonlu bir WhatsApp bildirimleri eklentisi."
+
+#: app/Ajax/Products.php:238
+msgid "Webinar and Video Conference with Jitsi Meet"
+msgstr "Jitsi Meet ile Webinar ve Video Konferans"
+
+#: app/Ajax/Products.php:239
+msgid ""
+"The best WordPress webinar plugin with branded meetings. Add Jitsi meetings, "
+"host webinars and video conferences on your website."
+msgstr ""
+"Markalı toplantılarla en iyi WordPress webinar eklentisi. Jitsi toplantıları "
+"ekleyin, web sitenizde webinar ve video konferanslar düzenleyin."
+
+#: app/Ajax/Products.php:256
+msgid "Easy Video Reviews"
+msgstr "Easy Video Reviews"
+
+#: app/Ajax/Products.php:257
+msgid ""
+"Easy Video Reviews is the best \n"
+"\t\t\tand easiest video review plugin for WordPress, fully compatible with "
+"WooCommerce and Easy Digital Downloads plugins."
+msgstr ""
+"Easy Video Reviews, WordPress için en iyi \n"
+"\t\t\tve en kolay video inceleme eklentisidir, WooCommerce ve Easy Digital "
+"Downloads eklentileriyle tamamen uyumludur."
+
+#: app/Ajax/Products.php:298
+#, php-format
+msgid "By %s"
+msgstr "%s tarafından"
+
+#: app/Ajax/Products.php:324
+msgid "Install Now"
+msgstr "Şimdi Yükle"
+
+#: app/Ajax/Products.php:346
+msgid "Update Now"
+msgstr "Şimdi Güncelle"
+
+#: app/Ajax/Products.php:365 app/Strings.php:146
+msgid "Activate"
+msgstr "Etkinleştir"
+
+#: app/Ajax/Products.php:378
+msgid "Network Activate"
+msgstr "Ağ Etkinleştir"
+
+#: app/Ajax/Products.php:409
+#, php-format
+msgid "More information about %s"
+msgstr "%s hakkında daha fazla bilgi"
+
+#: app/Ajax/Products.php:411
+msgid "More Details"
+msgstr "Daha Fazla Detay"
+
+#: app/Ajax/Products.php:439
+msgid "This plugin doesn&#8217;t work with your versions of WordPress and PHP."
+msgstr "Bu eklenti WordPress ve PHP sürümlerinizle çalışmıyor."
+
+#: app/Ajax/Products.php:469
+msgid "This plugin doesn&#8217;t work with your version of WordPress."
+msgstr "Bu eklenti WordPress sürümünüzle çalışmıyor."
+
+#: app/Ajax/Products.php:480
+msgid "This plugin doesn&#8217;t work with your version of PHP."
+msgstr "Bu eklenti PHP sürümünüzle çalışmıyor."
+
+#: app/Ajax/Products.php:537
+#, php-format
+msgid "%s ago"
+msgstr "%s önce"
+
+#: app/Ajax/Products.php:555
+#, php-format
+msgid "%s Active Installations"
+msgstr "%s Aktif Kurulum"
+
+#: app/Ajax/Products.php:561
+msgid "Untested with your version of WordPress"
+msgstr "WordPress sürümünüzle test edilmemiş"
+
+#: app/Ajax/Settings.php:125
+msgid "Settings saved successfully."
+msgstr "Ayarlar başarıyla kaydedildi."
+
+#: app/Ajax/Tables.php:90
+msgid "Invalid data to save."
+msgstr "Kaydedilecek veriler geçersiz."
+
+#: app/Ajax/Tables.php:104
+msgid "Table updated successfully."
+msgstr "Tablo başarıyla güncellendi."
+
+#: app/Ajax/Tables.php:160 app/Ajax/Tables.php:225
+msgid "Sorting updated successfully"
+msgstr "Sıralama başarıyla güncellendi"
+
+#: app/Ajax/Tables.php:164 app/Ajax/Tables.php:229
+msgid "Failed to update sorting"
+msgstr "Sıralama güncellenemedi"
+
+#: app/Ajax/Tables.php:169 app/Ajax/Tables.php:234
+msgid "Record not found"
+msgstr "Kayıt bulunamadı"
+
+#: app/Ajax/Tables.php:174 app/Ajax/Tables.php:239
+msgid "Invalid ID or sorting value"
+msgstr "Geçersiz ID veya sıralama değeri"
+
+#: app/Ajax/Tables.php:262
+#, php-format
+msgid "%s table deleted."
+msgstr "%s tablo silindi."
+
+#: app/Ajax/Tables.php:269
+#, php-format
+msgid "Failed to delete table with id %d"
+msgstr "%d ID'li tablo silinemedi"
+
+#: app/Ajax/Tables.php:276
+msgid "Invalid table to perform delete."
+msgstr "Silme işlemi için geçersiz tablo."
+
+#: app/Ajax/Tables.php:300
+#, php-format
+msgid "%s table copied."
+msgstr "%s tablo kopyalandı."
+
+#: app/Ajax/Tables.php:307
+#, php-format
+msgid "Failed to copied table with id %d"
+msgstr "%d ID'li tablo kopyalanamadı"
+
+#: app/Ajax/Tables.php:314
+msgid "Invalid table to perform copied."
+msgstr "Kopyalama işlemi için geçersiz tablo."
+
+#: app/Ajax/Tables.php:358
+msgid "Empty or invalid google sheet url."
+msgstr "Boş veya geçersiz Google sheet URL'si."
+
+#: app/Ajax/Tables.php:363 app/Ajax/Tables.php:783
+msgid "Untitled"
+msgstr "Başlıksız"
+
+#: app/Ajax/Tables.php:367 app/Ajax/Tables.php:787
+msgid "Invalid settings to save."
+msgstr "Kaydedilecek ayarlar geçersiz."
+
+#: app/Ajax/Tables.php:375 app/Ajax/Tables.php:826 app/Ajax/Tables.php:869
+msgid ""
+"Copy the Google sheet URL from browser URL bar that includes <i>gid</i> "
+"parameter"
+msgstr ""
+"<i>gid</i> parametresini içeren Google sheet URL'sini tarayıcı URL "
+"çubuğundan kopyalayın"
+
+#: app/Ajax/Tables.php:376 app/Ajax/Tables.php:827 app/Ajax/Tables.php:870
+msgid "invalid_request"
+msgstr "geçersiz_istek"
+
+#: app/Ajax/Tables.php:385
+msgid ""
+"The spreadsheet is restricted. Please make it public by clicking on share "
+"button at the top of the spreadsheet"
+msgstr ""
+"Elektronik tablo kısıtlanmış. Lütfen tablonun üst kısmındaki paylaş "
+"düğmesine tıklayarak herkese açık hale getirin"
+
+#: app/Ajax/Tables.php:413
+msgid "Table created successfully"
+msgstr "Tablo başarıyla oluşturuldu"
+
+#: app/Ajax/Tables.php:433
+msgid "Invalid table to edit."
+msgstr "Düzenlenecek tablo geçersiz."
+
+#: app/Ajax/Tables.php:442 app/Ajax/Tables.php:654 app/Ajax/Tables.php:712
+#: app/Ajax/Tables.php:1017
+msgid "Request is invalid"
+msgstr "İstek geçersiz"
+
+#: app/Ajax/Tables.php:497 app/Ajax/Tables.php:688 app/Ajax/Tables.php:745
+msgid ""
+"Please make it public by clicking on share button at the top of spreadsheet"
+msgstr ""
+"Lütfen tablonun üst kısmındaki paylaş düğmesine tıklayarak herkese açık hale "
+"getirin"
+
+#: app/Ajax/Tables.php:516 app/Ajax/Tables.php:524 app/Ajax/Tables.php:617
+#: app/Ajax/Tables.php:646 app/Ajax/Tables.php:767
+msgid "Action is invalid"
+msgstr "İşlem geçersiz"
+
+#: app/Ajax/Tables.php:532
+msgid "Tables fetched successfully."
+msgstr "Tablolar başarıyla alındı."
+
+#: app/Ajax/Tables.php:551
+msgid "Table ID"
+msgstr "Tablo ID"
+
+#: app/Ajax/Tables.php:552
+msgid "Type"
+msgstr "Tür"
+
+#: app/Ajax/Tables.php:553 app/Strings.php:203
+msgid "Shortcode"
+msgstr "Kısa Kod"
+
+#: app/Ajax/Tables.php:554
+msgid "Table Name"
+msgstr "Tablo Adı"
+
+#: app/Ajax/Tables.php:555 app/Ajax/Tables.php:594 app/Strings.php:461
+#: app/Strings.php:963
+msgid "Delete"
+msgstr "Sil"
+
+#: app/Ajax/Tables.php:627
+msgid "Tab updated successfully"
+msgstr "Sekme başarıyla güncellendi"
+
+#: app/Ajax/Tables.php:632
+msgid "Tab could not be updated. Try again"
+msgstr "Sekme güncellenemedi. Tekrar deneyin"
+
+#: app/Ajax/Tables.php:663 app/Ajax/Tables.php:721
+msgid "No table found."
+msgstr "Tablo bulunamadı."
+
+#: app/Ajax/Tables.php:793 app/Ajax/Tables.php:979
+msgid "Form field is empty. Please fill out the field"
+msgstr "Form alanı boş. Lütfen alanı doldurun"
+
+#: app/Ajax/Tables.php:836 app/Ajax/Tables.php:879
+msgid ""
+"The spreadsheet is restricted. Please make it public by clicking on share "
+"button at the top of spreadsheet"
+msgstr ""
+"Elektronik tablo kısıtlanmış. Lütfen tablonun üst kısmındaki paylaş "
+"düğmesine tıklayarak herkese açık hale getirin"
+
+#: app/Ajax/Tables.php:905
+msgid "This Google sheet already saved. Try creating a new one"
+msgstr "Bu Google sheet zaten kaydedilmiş. Yeni bir tane oluşturmayı deneyin"
+
+#: app/Ajax/Tables.php:924
+msgid "Table saved successfully"
+msgstr "Tablo başarıyla kaydedildi"
+
+#: app/Ajax/Tables.php:940
+msgid "Table changes updated successfully"
+msgstr "Tablo değişiklikleri başarıyla güncellendi"
+
+#: app/Ajax/Tables.php:1025
+msgid "Selected tables deleted successfully"
+msgstr "Seçilen tablolar başarıyla silindi"
+
+#: app/Ajax/Tables.php:1040
+msgid "Table name updated successfully"
+msgstr "Tablo adı başarıyla güncellendi"
+
+#: app/Ajax/Tables.php:1058 app/Ajax/Tabs.php:83
+msgid "Could not update the data."
+msgstr "Veriler güncellenemedi."
+
+#: app/Ajax/Tables.php:1084
+msgid "API key is required"
+msgstr "API anahtarı gereklidir"
+
+#: app/Ajax/Tables.php:1713
+msgid "CTA notice dismissed successfully"
+msgstr "CTA bildirimi başarıyla kapatıldı"
+
+#: app/Ajax/Tables.php:1717
+msgid "Failed to dismiss CTA notice"
+msgstr "CTA bildirimi kapatılamadı"
+
+#: app/Ajax/Tables.php:1740
+msgid "CTA notice for tabs dismissed successfully"
+msgstr "Sekmeler için CTA bildirimi başarıyla kapatıldı"
+
+#: app/Ajax/Tables.php:1744
+msgid "Failed to dismiss CTA notice for tabs"
+msgstr "Sekmeler için CTA bildirimi kapatılamadı"
+
+#: app/Ajax/Tabs.php:43
+msgid "Tab deleted successfully"
+msgstr "Sekme başarıyla silindi"
+
+#: app/Ajax/Tabs.php:49
+msgid "Unable to delete tab."
+msgstr "Sekme silinemiyor."
+
+#: app/Ajax/Tabs.php:65
+msgid "Tab name updated successfully"
+msgstr "Sekme adı başarıyla güncellendi"
+
+#: app/Assets.php:515
+msgid ""
+"Display Google Spreadsheet data to WordPress table in just a few clicks\n"
+"\t\t\t\tand keep the data always synced. Organize and display all your "
+"spreadsheet data in your WordPress quickly and effortlessly."
+msgstr ""
+"Google Spreadsheet verilerini sadece birkaç tıklamayla WordPress tablosunda "
+"gösterin\n"
+"\t\t\t\tve verileri her zaman senkronize tutun. Tüm elektronik tablo "
+"verilerinizi WordPress'te hızlı ve zahmetsizce düzenleyin ve görüntüleyin."
+
+#: app/Divi/DiviModule.php:40
+msgid "Table Selection"
+msgstr "Tablo Seçimi"
+
+#: app/Divi/DiviModule.php:49 app/Elementor/ElementorWidget.php:96
+msgid "Choose Table"
+msgstr "Tablo Seçin"
+
+#: app/Divi/DiviModule.php:55
+msgid "Select a table to display."
+msgstr "Görüntülenecek bir tablo seçin."
+
+#: app/Divi/DiviModule.php:62
+msgid "Select a table"
+msgstr "Bir tablo seçin"
+
+#: app/Divi/DiviModule.php:84
+msgid "Please select a table to display."
+msgstr "Lütfen görüntülenecek bir tablo seçin."
+
+#: app/Elementor/TableSettings.php:80
+msgid "Table Exporting"
+msgstr "Tablo Dışa Aktarma"
+
+#: app/Elementor/TableSettings.php:81
+msgid ""
+"Enable this feature in order to allow your user to download your table "
+"content as various format."
+msgstr ""
+"Kullanıcılarınızın tablo içeriğinizi çeşitli formatlarda indirmesine izin "
+"vermek için bu özelliği etkinleştirin."
+
+#: app/Elementor/TableSettings.php:90
+msgid "Table Caching"
+msgstr "Tablo Önbellekleme"
+
+#: app/Elementor/TableSettings.php:91
+msgid ""
+"Enabling this feature would cache the Google sheet data & therefore the "
+"table will load faster than before.\n"
+"                                        Also it will load the updated data "
+"when there is a change in your Google sheet."
+msgstr ""
+"Bu özelliği etkinleştirmek Google sheet verilerini önbelleğe alacak ve bu "
+"nedenle tablo daha önce olduğundan daha hızlı yüklenecektir.\n"
+"                                        Ayrıca Google sheet'inizde bir "
+"değişiklik olduğunda güncellenmiş verileri yükleyecektir."
+
+#: app/Elementor/TableSettings.php:101
+msgid "Hide Column"
+msgstr "Sütunu Gizle"
+
+#: app/Elementor/TableSettings.php:102
+msgid "Hide your table columns based on multiple screen sizes."
+msgstr "Tablo sütunlarınızı birden fazla ekran boyutuna göre gizleyin."
+
+#: app/Elementor/TableSettings.php:112
+msgid "Hide Column on Mobile"
+msgstr "Mobilde Sütunu Gizle"
+
+#: app/Elementor/TableSettings.php:113
+msgid "Hide your table columns based on mobile screen sizes."
+msgstr "Tablo sütunlarınızı mobil ekran boyutlarına göre gizleyin."
+
+#: app/Elementor/TableSettings.php:124 app/Elementor/TableSettings.php:135
+msgid "Hide Row's"
+msgstr "Satırları Gizle"
+
+#: app/Elementor/TableSettings.php:125 app/Elementor/TableSettings.php:136
+msgid "Hide your table rows based on your custom selection"
+msgstr "Tablo satırlarınızı özel seçiminize göre gizleyin"
+
+#: app/Elementor/TableSettings.php:147 app/Elementor/TableSettings.php:158
+msgid "Hide Cell"
+msgstr "Hücreyi Gizle"
+
+#: app/Elementor/TableSettings.php:148 app/Elementor/TableSettings.php:159
+msgid ""
+"Hide your specific table cell that is not going to visibile to your user's."
+msgstr "Kullanıcılarınıza görünmeyecek olan belirli tablo hücrenizi gizleyin."
+
+#: app/Elementor/TemplateContent.php:502 app/templates/create_tables.php:89
+#: app/templates/edit_table.php:90
+msgid "Display Settings"
+msgstr "Görünüm Ayarları"
+
+#: app/Elementor/TemplateContent.php:510 app/templates/create_tables.php:99
+#: app/templates/edit_table.php:100
+msgid "Sort & Filter"
+msgstr "Sırala ve Filtrele"
+
+#: app/Elementor/TemplateContent.php:516 app/templates/create_tables.php:109
+#: app/templates/edit_table.php:110
+msgid "Table Tools"
+msgstr "Tablo Araçları"
+
+#: app/Elementor/TemplateContent.php:583 app/Elementor/TemplateContent.php:598
+msgid "Choose any saved table to load data"
+msgstr "Veri yüklemek için kayıtlı herhangi bir tablo seçin"
+
+#: app/Helpers.php:169
+msgid "You are offline."
+msgstr "Çevrimdışısınız."
+
+#: app/Helpers.php:176
+msgid "Sheet is not public or shared"
+msgstr "Sheet herkese açık değil veya paylaşılmamış"
+
+#: app/Helpers.php:235
+msgid "The feature is not compatible or something went wrong"
+msgstr "Özellik uyumlu değil veya bir şeyler ters gitti"
+
+#: app/Helpers.php:1201
+msgid "Generate AI-powered summary of this table data"
+msgstr "Bu tablo verisinin AI destekli özetini oluştur"
+
+#: app/Notices.php:112
+msgid "Plugin"
+msgstr "Eklenti"
+
+#: app/Notices.php:113
+msgid ""
+"cannot be activated - requires at least PHP 5.4. Plugin automatically "
+"deactivated."
+msgstr ""
+"etkinleştirilemiyor - en az PHP 5.4 gerektirir. Eklenti otomatik olarak "
+"devre dışı bırakıldı."
+
+#: app/SWPTLS.php:219
+msgid ""
+"Plugin is missing required dependencies. Please contact support for more "
+"information."
+msgstr ""
+"Eklentide gerekli bağımlılıklar eksik. Daha fazla bilgi için lütfen destek "
+"ekibiyle iletişime geçin."
+
+#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+msgid "All Tables"
+msgstr "Tüm Tablolar"
+
+#: app/SWPTLS.php:250 app/Strings.php:213
+msgid "Get Pro"
+msgstr "Pro Sürümü Edinin"
+
+#: app/SWPTLS.php:288
+msgid "Grab Your Treat!"
+msgstr "İndiriminizi Yakalayın!"
+
+#: app/SWPTLS.php:295
+msgid "Grab Your Deals!"
+msgstr "Fırsatları Kaçırmayın!"
+
+#: app/Settings.php:179
+msgid "Table Title"
+msgstr "Tablo Başlığı"
+
+#: app/Settings.php:180
+msgid ""
+"Enable this to show the table title in <i>h3</i> tag above the table in your "
+"website front-end"
+msgstr ""
+"Web sitenizin ön ucunda tablonun üzerinde <i>h3</i> etiketi içinde tablo "
+"başlığını göstermek için bunu etkinleştirin"
+
+#: app/Settings.php:187
+msgid "Show info block"
+msgstr "Bilgi bloğunu göster"
+
+#: app/Settings.php:188
+msgid "Show <i>Showing X to Y of Z entries</i>block below the table"
+msgstr ""
+"Tablonun altında <i>Z kayıttan X - Y arası gösteriliyor</i> bloğunu göster"
+
+#: app/Settings.php:196
+msgid "Show X entries"
+msgstr "X kayıt göster"
+
+#: app/Settings.php:197
+msgid "<i>Show X entries</i> per page dropdown"
+msgstr "Sayfa başına <i>X kayıt göster</i> açılır menüsü"
+
+#: app/Settings.php:205
+msgid "Swap Filters"
+msgstr "Filtreleri Değiştir"
+
+#: app/Settings.php:206
+msgid "Swap the places of <i> X entries</i> dropdown & search filter input"
+msgstr ""
+"<i>X kayıt</i> açılır menüsü ve arama filtresi girişinin yerlerini değiştir"
+
+#: app/Settings.php:214
+msgid "Swap Bottom Elements"
+msgstr "Alt Öğeleri Değiştir"
+
+#: app/Settings.php:215
+msgid ""
+"Swap the places of <i>Showing X to Y of Z entries</i> with table pagination "
+"filter"
+msgstr ""
+"<i>Z kayıttan X - Y arası gösteriliyor</i> ile tablo sayfalandırma "
+"filtresinin yerlerini değiştir"
+
+#: app/Settings.php:223
+msgid "Responsive Style"
+msgstr "Duyarlı Stil"
+
+#: app/Settings.php:224 app/Settings.php:237
+msgid "Allow the table to collapse or scroll on mobile and tablet screen."
+msgstr ""
+"Tablonun mobil ve tablet ekranlarında daraltılmasına veya kaydırılmasına "
+"izin verin."
+
+#: app/Settings.php:236
+msgid "Link Support"
+msgstr "Link Desteği"
+
+#: app/Settings.php:249
+msgid "Rows per page"
+msgstr "Sayfa başına satır"
+
+#: app/Settings.php:250
+msgid ""
+"This will show rows per page. The feature will allow you how many rows you "
+"want to show to your user by default."
+msgstr ""
+"Bu, sayfa başına satırları gösterecektir. Bu özellik, kullanıcılarınıza "
+"varsayılan olarak kaç satır göstermek istediğinizi belirlemenize olanak "
+"tanır."
+
+#: app/Settings.php:260
+msgid "Table Height"
+msgstr "Tablo Yüksekliği"
+
+#: app/Settings.php:261
+msgid ""
+"Choose the height of the table to scroll vertically. Activating this feature "
+"will allow the table to behave as sticky header"
+msgstr ""
+"Dikey olarak kaydırmak için tablonun yüksekliğini seçin. Bu özelliği "
+"etkinleştirmek, tablonun yapışkan başlık gibi davranmasını sağlayacaktır"
+
+#: app/Settings.php:272
+msgid "Format Cell"
+msgstr "Hücre Biçimi"
+
+#: app/Settings.php:273
+msgid ""
+"Format the table cell as like google sheet cell formatting. Format your cell "
+"as Wrap OR Expanded style"
+msgstr ""
+"Tablo hücresini Google sheet hücre biçimlendirmesi gibi biçimlendirin. "
+"Hücrenizi Sarmalı veya Genişletilmiş stil olarak biçimlendirin"
+
+#: app/Settings.php:287
+msgid "Link Type"
+msgstr "Link Türü"
+
+#: app/Settings.php:288
+msgid "Choose the redirection type of all the links in this table."
+msgstr "Bu tablodaki tüm linklerin yönlendirme türünü seçin."
+
+#: app/Settings.php:301
+msgid "Table Style"
+msgstr "Tablo Stili"
+
+#: app/Settings.php:302
+msgid ""
+"Choose your desired table style for this table. This will change the design "
+"& color of this table according to your selected table design"
+msgstr ""
+"Bu tablo için istediğiniz tablo stilini seçin. Bu, seçtiğiniz tablo "
+"tasarımına göre bu tablonun tasarımını ve rengini değiştirecektir"
+
+#: app/Settings.php:312
+msgid "Import Sheet Styles"
+msgstr "Sheet Stillerini İçe Aktar"
+
+#: app/Settings.php:313
+msgid ""
+"Import cell backgorund color & cell font color from google sheet. If you "
+"activate this feature it will overrider <i>Table Style</i> setting"
+msgstr ""
+"Google sheet'ten hücre arka plan rengini ve hücre yazı tipini içe aktarın. "
+"Bu özelliği etkinleştirirseniz <i>Tablo Stili</i> ayarını geçersiz kılacaktır"
+
+#: app/Settings.php:335
+msgid "Allow Sorting"
+msgstr "Sıralamaya İzin Ver"
+
+#: app/Settings.php:336
+msgid "Enable this feature to sort table data for frontend."
+msgstr "Ön uç için tablo verilerini sıralamak için bu özelliği etkinleştirin."
+
+#: app/Settings.php:343
+msgid "Search Bar"
+msgstr "Arama Çubuğu"
+
+#: app/Settings.php:344
+msgid ""
+"Enable this feature to show a search bar in for the table. It will help user "
+"to search data in the table"
+msgstr ""
+"Tablo için bir arama çubuğu göstermek için bu özelliği etkinleştirin. "
+"Kullanıcının tablodaki verileri aramasına yardımcı olacaktır"
+
+#: app/Shortcode.php:56 app/Shortcode.php:98
+msgid "Table maybe deleted or can't be loaded."
+msgstr "Tablo silinmiş olabilir veya yüklenemiyor."
+
+#: app/Shortcode.php:73 app/templates/create_tables.php:197
+#: app/templates/edit_table.php:198 app/templates/manage_tables.php:60
+msgid "Loading"
+msgstr "Yükleniyor"
+
+#: app/Strings.php:31
+msgid "Create beautiful tables from Google Sheets"
+msgstr "Google Sheets'ten güzel tablolar oluşturun"
+
+#: app/Strings.php:32 app/Strings.php:40
+msgid "Create new table"
+msgstr "Yeni tablo oluştur"
+
+#: app/Strings.php:33
+msgid "Your Tables"
+msgstr "Tablolarınız"
+
+#: app/Strings.php:34
+msgid "Loading..."
+msgstr "Yükleniyor..."
+
+#: app/Strings.php:36
+msgid "👋 Welcome!"
+msgstr "👋 Hoş geldiniz!"
+
+#: app/Strings.php:37
+msgid "Click the button below to create your first table!"
+msgstr "İlk tablonuzu oluşturmak için aşağıdaki düğmeye tıklayın!"
+
+#: app/Strings.php:38
+msgid "Need help? Watch a"
+msgstr "Yardıma mı ihtiyacınız var? İzleyin"
+
+#: app/Strings.php:41
+msgid "Need help?"
+msgstr "Yardıma mı ihtiyacınız var?"
+
+#: app/Strings.php:42
+msgid "Help"
+msgstr "Yardım"
+
+#: app/Strings.php:43 app/Strings.php:1109
+msgid "Help?"
+msgstr "Yardım"
+
+#: app/Strings.php:44
+msgid "Watch Now"
+msgstr "Şimdi İzle"
+
+#: app/Strings.php:45
+msgid "Search tables"
+msgstr "Tabloları ara"
+
+#: app/Strings.php:46
+msgid "Search items"
+msgstr "Öğeleri ara"
+
+#: app/Strings.php:48
+msgid "Search"
+msgstr "Ara"
+
+#: app/Strings.php:49
+msgid "Clear"
+msgstr "Temizle"
+
+#: app/Strings.php:51
+msgid "Get Help with Creating Tab Groups"
+msgstr "1. Sekme Oluşturma"
+
+#: app/Strings.php:52
+msgid ""
+"Tabs let you group multiple tables into tabbed views and embed in your pages "
+"or posts"
+msgstr ""
+
+#: app/Strings.php:53 app/Strings.php:1093
+msgid "Quick Tutorial"
+msgstr "Eğitim"
+
+#: app/Strings.php:54
+msgid "Get started with Tab Groups"
+msgstr "Sekme gruplarıyla başlayın"
+
+#: app/Strings.php:55
+msgid "Search tabs"
+msgstr "Tabloları ara"
+
+#: app/Strings.php:60
+msgid "This title will be shown on the top of your table"
+msgstr "Bu başlık tablonuzun üst kısmında gösterilecektir"
+
+#: app/Strings.php:61
+msgid ""
+"Copy the URL of your Google Sheet from your browser and paste it in the box "
+"below. Make sure your sheet is public."
+msgstr ""
+"Google Sheet'inizin URL'sini tarayıcınızdan kopyalayın ve aşağıdaki kutuya "
+"yapıştırın. Sheet'inizin herkese açık olduğundan emin olun."
+
+#: app/Strings.php:62
+msgid ""
+"Copy the Google Sheet URL from your browser and paste it here to create "
+"table. Changing this URL will change your table."
+msgstr ""
+"Tablo oluşturmak için Google Sheet URL'sini tarayıcınızdan kopyalayın ve "
+"buraya yapıştırın. Bu URL'yi değiştirmek tablonuzu değiştirecektir."
+
+#: app/Strings.php:63
+msgid ""
+"If this is enabled, the box showing number of entries will be hidden for the "
+"viewers"
+msgstr ""
+"Bu etkinleştirilirse, kayıt sayısını gösteren kutu görüntüleyenler için "
+"gizlenecektir"
+
+#: app/Strings.php:64
+msgid "If enabled, the search box will be hidden for viewers"
+msgstr "Etkinleştirilirse, arama kutusu görüntüleyenler için gizlenecektir"
+
+#: app/Strings.php:65
+msgid "Enable this option to hide the table title for the viewers"
+msgstr ""
+"Görüntüleyenler için tablo başlığını gizlemek için bu seçeneği etkinleştirin"
+
+#: app/Strings.php:66
+msgid "Enable this option to show the table title for the viewers"
+msgstr ""
+"Görüntüleyenler için tablo başlığını gizlemek için bu seçeneği etkinleştirin"
+
+#: app/Strings.php:67
+msgid "Enable this option to show table description for the viewers"
+msgstr ""
+"Görüntüleyenler için tablo başlığını gizlemek için bu seçeneği etkinleştirin"
+
+#: app/Strings.php:68
+msgid ""
+"If checked, the sorting option will be enabled for viewers when they view "
+"the table"
+msgstr ""
+"İşaretlenirse, görüntüleyenler tabloyu görüntülediklerinde sıralama seçeneği "
+"etkinleştirilecektir"
+
+#: app/Strings.php:69
+msgid ""
+"If enabled the entry info showing number of current entries out of all the "
+"entries will be hidden"
+msgstr ""
+"Etkinleştirilirse, tüm kayıtlardan mevcut kayıt sayısını gösteren kayıt "
+"bilgisi gizlenecektir"
+
+#: app/Strings.php:70
+msgid "Enable this to hide the pagination for viewers"
+msgstr "Görüntüleyenler için sayfalandırmayı gizlemek için bunu etkinleştirin"
+
+#: app/Strings.php:71
+msgid "Display multiple tables using tabs. Just like your google sheets"
+msgstr ""
+"Sekmeler kullanarak birden fazla tablo görüntüleyin. Tıpkı Google "
+"sheets'inizdeki gibi"
+
+#: app/Strings.php:72
+msgid "Title of the tab group"
+msgstr "Sekme grubunun başlığı"
+
+#: app/Strings.php:73
+msgid "Enter the title for this tab"
+msgstr "Bu sekme için başlığı girin"
+
+#: app/Strings.php:74
+msgid ""
+"Select the table which will be shown in this tab from the dropdown below"
+msgstr "Aşağıdaki açılır menüden bu sekmede gösterilecek tabloyu seçin"
+
+#: app/Strings.php:75
+msgid "Enable this to hide the selected columns on mobile"
+msgstr "Mobilde seçilen sütunları gizlemek için bunu etkinleştirin"
+
+#: app/Strings.php:76
+msgid "Enable this to hide the selected column on desktop"
+msgstr "Masaüstünde seçilen sütunu gizlemek için bunu etkinleştirin"
+
+#: app/Strings.php:77
+msgid ""
+"This is the list of the hidden columns. Removing a column from this list "
+"will make them visible again"
+msgstr ""
+"Bu, gizli sütunların listesidir. Bu listeden bir sütunu kaldırmak onları "
+"tekrar görünür hale getirecektir"
+
+#: app/Strings.php:78
+msgid ""
+"This is the list of the hidden rows. Removing a row from this list will make "
+"them visible again"
+msgstr ""
+"Bu, gizli satırların listesidir. Bu listeden bir satırı kaldırmak onları "
+"tekrar görünür hale getirecektir"
+
+#: app/Strings.php:79
+msgid ""
+"This is the list of the hidden cells. Removing a cell from this list will "
+"make them visible again"
+msgstr ""
+"Bu, gizli hücrelerin listesidir. Bu listeden bir hücreyi kaldırmak onları "
+"tekrar görünür hale getirecektir"
+
+#: app/Strings.php:80
+msgid ""
+"Use direct google sheet embed link with text content, More flexiable and "
+"easy to use"
+msgstr ""
+"Metin içeriğiyle doğrudan Google sheet yerleştirme linkini kullanın, Daha "
+"esnek ve kullanımı kolay"
+
+#: app/Strings.php:81
+msgid "Use old way [  ] pair to generate link"
+msgstr "Link oluşturmak için eski yöntemi [  ] kullanın"
+
+#: app/Strings.php:82
+msgid ""
+"Copy the URL of your Google Sheet from your browser and paste it in the box "
+"below. Make sure your sheet is public.."
+msgstr ""
+"Google Sheet'inizin URL'sini tarayıcınızdan kopyalayın ve aşağıdaki kutuya "
+"yapıştırın. Sheet'inizin herkese açık olduğundan emin olun."
+
+#: app/Strings.php:83
+msgid "Copy the URL of your Google Sheet and paste it here."
+msgstr "Google Sheet'inizin URL'sini kopyalayın ve buraya yapıştırın."
+
+#: app/Strings.php:84
+msgid ""
+"Allows the users to download the table in the format that you select below"
+msgstr ""
+"Kullanıcıların tabloyu aşağıda seçtiğiniz formatta indirmesine olanak tanır"
+
+#: app/Strings.php:85
+msgid ""
+"For the links on the table you can decide what will happen when a link is "
+"clicked"
+msgstr ""
+"Tablodaki linkler için bir linke tıklandığında ne olacağına karar "
+"verebilirsiniz"
+
+#: app/Strings.php:86
+msgid "The link opens in the same tab where the table is"
+msgstr "Link, tablonun bulunduğu aynı sekmede açılır"
+
+#: app/Strings.php:87
+msgid "The link will be opened on a new tab"
+msgstr "Link yeni bir sekmede açılacaktır"
+
+#: app/Strings.php:88
+msgid ""
+"Allow 'Smart links' to load multiple embeed links with text from Google "
+"Sheet. To use this makesure 'Smart link' support selected from 'link support "
+"mechanism' in 'Settings' menu. However, if there is no embeed links in the "
+"Sheet or your'e using pretty link format, then there is no need to use it, "
+"which will reduces loading time and makes the table load faster."
+msgstr ""
+"'Akıllı linklerin' Google Sheet'ten metinle birlikte birden fazla gömülü "
+"link yüklemesine izin verin. Bunu kullanmak için 'Ayarlar' menüsündeki 'link "
+"destek mekanizmasından' 'Akıllı link' desteğinin seçildiğinden emin olun. "
+"Ancak, Sheet'te gömülü link yoksa veya güzel link formatı kullanıyorsanız, "
+"bunu kullanmanıza gerek yoktur, bu da yükleme süresini azaltır ve tablonun "
+"daha hızlı yüklenmesini sağlar."
+
+#: app/Strings.php:89
+msgid ""
+"Allow images to be loaded from sheets. You can use it to import images if "
+"you have them in Google Sheets. However, if there is no image in the Sheet, "
+"there is no need to use it, which will reduces loading time and makes the "
+"table load faster."
+msgstr ""
+"Resimlerin sheet'lerden yüklenmesine izin verin. Google Sheets'te "
+"resimleriniz varsa bunları içe aktarmak için kullanabilirsiniz. Ancak, "
+"Sheet'te resim yoksa, bunu kullanmanıza gerek yoktur, bu da yükleme süresini "
+"azaltır ve tablonun daha hızlı yüklenmesini sağlar."
+
+#: app/Strings.php:90
+msgid "If enabled the table will load faster for the viewers"
+msgstr "Etkinleştirilirse tablo görüntüleyenler için daha hızlı yüklenecektir"
+
+#: app/Strings.php:91
+msgid "Choose how the table cell will look"
+msgstr "Tablo hücresinin nasıl görüneceğini seçin"
+
+#: app/Strings.php:92
+msgid "Cell will expand according to the content"
+msgstr "Hücre içeriğe göre genişleyecektir"
+
+#: app/Strings.php:93
+msgid "Cell will be wrapped according to the content"
+msgstr "Hücre içeriğe göre sarmalanacaktır"
+
+#: app/Strings.php:94
+msgid "Choose how the table will look on devices with small screens"
+msgstr "Tablonun küçük ekranlı cihazlarda nasıl görüneceğini seçin"
+
+#: app/Strings.php:95
+msgid "Let the browser decide the behavior of the responsiveness"
+msgstr "Duyarlılığın davranışını tarayıcının belirlemesine izin verin"
+
+#: app/Strings.php:96
+msgid "The table rows will be collapse on  each other in one column"
+msgstr "Tablo satırları tek bir sütunda birbirinin üzerine çökecektir"
+
+#: app/Strings.php:97
+msgid ""
+"A horizontal scrollbar will appear for the users to scroll the table left "
+"and right"
+msgstr ""
+"Kullanıcıların tabloyu sağa ve sola kaydırması için yatay bir kaydırma "
+"çubuğu görünecektir"
+
+#: app/Strings.php:98
+msgid ""
+"Enable this feature to showcase your Sheet's merged cells seamlessly on the "
+"WordPress frontend table."
+msgstr ""
+"Sheet'inizin birleştirilmiş hücrelerini WordPress ön uç tablosunda sorunsuz "
+"bir şekilde sergilemek için bu özelliği etkinleştirin."
+
+#: app/Strings.php:99
+msgid "Select the number of rows to show per page"
+msgstr "Sayfa başına gösterilecek satır sayısını seçin"
+
+#: app/Strings.php:100
+msgid ""
+"Select the table height. If the table height is lower there will be a "
+"vertical scrollbar to scroll through the rows"
+msgstr ""
+"Tablo yüksekliğini seçin. Tablo yüksekliği düşükse satırlar arasında "
+"gezinmek için dikey bir kaydırma çubuğu olacaktır"
+
+#: app/Strings.php:101
+msgid "Quickly change your table's look and feel using themes"
+msgstr "Temaları kullanarak tablonuzun görünümünü hızlıca değiştirin"
+
+#: app/Strings.php:102
+msgid ""
+"Enable this feature to import colors and text styles directly from a Google "
+"Sheet, instead of using the predefined theme above"
+msgstr ""
+"Yukarıdaki önceden tanımlanmış temayı kullanmak yerine renkleri ve metin "
+"stillerini doğrudan bir Google Sheet'ten içe aktarmak için bu özelliği "
+"etkinleştirin"
+
+#: app/Strings.php:103
+msgid ""
+"If this is checked, the tab group title will not be visible in the front end"
+msgstr "Bu işaretlenirse, sekme grubu başlığı ön uçta görünmeyecektir"
+
+#: app/Strings.php:104
+msgid "Choose where you want to show the tab"
+msgstr "Sekmeyi nerede göstermek istediğinizi seçin"
+
+#: app/Strings.php:105
+msgid "The tabs will be shown first and the table will be shown after it"
+msgstr "Sekmeler önce gösterilecek ve tablo ondan sonra gösterilecektir"
+
+#: app/Strings.php:106
+msgid "The table will be shown first and the tab will be shown after it"
+msgstr "Tablo önce gösterilecek ve sekme ondan sonra gösterilecektir"
+
+#: app/Strings.php:108
+msgid "Set the cursor behavior on your table"
+msgstr "Tablonuzdaki imleç davranışını ayarlayın"
+
+#: app/Strings.php:109
+msgid "You can easily highlight text for copy-paste"
+msgstr "Kopyala-yapıştır için metni kolayca vurgulayabilirsiniz"
+
+#: app/Strings.php:110
+msgid "You can effortlessly move the table horizontally (left-right)."
+msgstr "Tabloyu yatay olarak (sağa-sola) zahmetsizce hareket ettirebilirsiniz."
+
+#: app/Strings.php:112
+msgid ""
+"Allow checkbox to be loaded from sheets. You can use it to import checkox if "
+"you have them in Google Sheets."
+msgstr ""
+"Onay kutularının sheet'lerden yüklenmesine izin verin. Google Sheets'te onay "
+"kutularınız varsa bunları içe aktarmak için kullanabilirsiniz."
+
+#: app/Strings.php:114 app/Strings.php:708
+msgid "Enable row and column coloring"
+msgstr "Satır ve sütun renklendirmeyi etkinleştir"
+
+#: app/Strings.php:115
+msgid "Choose the column or row to add colors"
+msgstr "Renk eklemek için sütun veya satır seçin"
+
+#: app/Strings.php:116
+msgid "Add color on column"
+msgstr "Sütuna renk ekle"
+
+#: app/Strings.php:117
+msgid "Add color on row"
+msgstr "Satıra renk ekle"
+
+#: app/Strings.php:119
+msgid ""
+"Select which column to sort on load, or keep the format from Google Sheets."
+msgstr ""
+"Yüklemede hangi sütunun sıralanacağını seçin veya Google Sheets'teki formatı "
+"koruyun."
+
+#: app/Strings.php:120
+msgid "Choose the order of sorting for the selected column."
+msgstr "Seçilen sütun için sıralama düzenini seçin."
+
+#: app/Strings.php:122
+msgid ""
+"Specify the maximum time (in seconds) the plugin will wait for a response "
+"from the Google server. A higher timeout allows more time to receive a "
+"complete response, but may delay table loading; a lower timeout can speed up "
+"loading but may result in missing data if the response isn’t fully received. "
+"A setting between 10 and 15 seconds is generally recommended for balanced "
+"performance."
+msgstr ""
+"Eklentinin Google sunucusundan yanıt bekleyeceği maksimum süreyi (saniye "
+"cinsinden) belirtin. Daha yüksek bir zaman aşımı, tam bir yanıt almak için "
+"daha fazla zaman sağlar, ancak tablo yüklemesini geciktirebilir; daha düşük "
+"bir zaman aşımı yüklemeyi hızlandırabilir, ancak yanıt tam olarak alınmazsa "
+"veri kaybına neden olabilir. Dengeli performans için genellikle 10 ile 15 "
+"saniye arasında bir ayar önerilir."
+
+#: app/Strings.php:124
+msgid ""
+"Choose how you want to sort your table on load. Select a specific column to "
+"sort by (either ascending or descending), or keep the same format as in "
+"Google Sheets."
+msgstr ""
+"Tablonuzun yüklemede nasıl sıralanacağını seçin. Sıralanacak belirli bir "
+"sütun seçin (artan veya azalan), veya Google Sheets'teki formatı koruyun."
+
+#: app/Strings.php:126
+msgid ""
+"Select this to make the custom theme available for all tables. If unchecked, "
+"the theme will only be used for this table."
+msgstr ""
+"Özel temayı tüm tablolar için kullanılabilir hale getirmek için bunu seçin. "
+"İşaretlenmezse, tema yalnızca bu tablo için kullanılacaktır."
+
+#: app/Strings.php:127
+msgid ""
+"If selected, any changes made to your theme will be automatically applied to "
+"all other tables with the same theme, ensuring consistency across them. If "
+"the theme does not exist in other tables, it will be cloned with update "
+"style."
+msgstr ""
+"Seçilirse, temanızda yapılan herhangi bir değişiklik, aynı temaya sahip "
+"diğer tüm tablolara otomatik olarak uygulanarak aralarında tutarlılık "
+"sağlanır. Tema diğer tablolarda mevcut değilse, güncelleme stiliyle "
+"klonlanacaktır."
+
+#: app/Strings.php:129
+msgid ""
+"Adjust the header’s offset to prevent overlap with sticky menus or other "
+"elements at the top of the page."
+msgstr ""
+"Sayfanın üst kısmındaki yapışkan menüler veya diğer öğelerle çakışmayı "
+"önlemek için başlığın ofsetini ayarlayın."
+
+#: app/Strings.php:130
+msgid ""
+"Set how many columns from the left side of the table should remain fixed "
+"while scrolling."
+msgstr ""
+"Kaydırma sırasında tablonun sol tarafından kaç sütunun sabit kalması "
+"gerektiğini ayarlayın."
+
+#: app/Strings.php:131
+msgid ""
+"Set how many columns from the right side of the table should remain fixed "
+"while scrolling."
+msgstr ""
+"Kaydırma sırasında tablonun sağ tarafından kaç sütunun sabit kalması "
+"gerektiğini ayarlayın."
+
+#: app/Strings.php:132
+msgid ""
+"When this option is enabled, the cache won't trigger any API request to "
+"update data from sheets. This helps improve performance and reduce server "
+"load. Important: If this is enabled before turning on features like merged "
+"cells, links, images, or importing table styles from Google Sheets, those "
+"features might not appear until the cache expires. To avoid this, enable all "
+"necessary features first, then active the cache feaure and then turn on this "
+"option. You can also change the cache expiry time in Settings."
+msgstr ""
+"Bu seçenek etkinleştirildiğinde, önbellek sheet'lerden veri güncellemek için "
+"herhangi bir API isteğini tetiklemeyecektir. Bu, performansı artırmaya ve "
+"sunucu yükünü azaltmaya yardımcı olur. Önemli: Birleştirilmiş hücreler, "
+"linkler, resimler veya Google Sheets'ten tablo stillerini içe aktarma gibi "
+"özellikler açılmadan önce bu etkinleştirilirse, önbelleğin süresi dolana "
+"kadar bu özellikler görünmeyebilir. Bunu önlemek için önce tüm gerekli "
+"özellikleri etkinleştirin, ardından önbellek özelliğini etkinleştirin ve "
+"ardından bu seçeneği açın. Ayarlar'da önbellek sona erme süresini de "
+"değiştirebilirsiniz."
+
+#: app/Strings.php:133
+msgid ""
+"Set how many days the cache should be stored in transients. Once the "
+"transient expires, the data will automatically refresh from the connected "
+"Google Sheets with updated data."
+msgstr ""
+"Önbelleğin geçici verilerde kaç gün saklanması gerektiğini ayarlayın. Geçici "
+"veri süresi dolduğunda, veriler bağlı Google Sheets'ten güncellenmiş "
+"verilerle otomatik olarak yenilenecektir."
+
+#: app/Strings.php:135
+msgid ""
+"Allow visitors to ask questions about the table. AI scans the data and "
+"returns accurate, easy to understand answers in real time."
+msgstr ""
+"Ziyaretçilerin tablo hakkında soru sormasına izin verin. AI verileri tarar "
+"ve gerçek zamanlı olarak doğru, anlaşılması kolay yanıtlar döndürür."
+
+#: app/Strings.php:140
+msgid "Add new table"
+msgstr "Yeni tablo ekle"
+
+#: app/Strings.php:145
+msgid "Please activate your license"
+msgstr "Lütfen lisansınızı etkinleştirin"
+
+#: app/Strings.php:151
+msgid "What’s new?"
+msgstr "Yenilikler neler?"
+
+#: app/Strings.php:156
+msgid "Save changes"
+msgstr "Değişiklikleri kaydet"
+
+#: app/Strings.php:157
+msgid "1. Tab Creation"
+msgstr "1. Sekme Oluşturma"
+
+#: app/Strings.php:158
+msgid "2. Tab settings"
+msgstr "2. Sekme ayarları"
+
+#: app/Strings.php:159
+msgid "Table Settings"
+msgstr "Tablo Ayarları"
+
+#: app/Strings.php:161
+msgid "Create tab view with tables"
+msgstr "Tablolarla sekme görünümü oluştur"
+
+#: app/Strings.php:162
+msgid "Adjust tab appearance and behavior"
+msgstr "Sekme görünümünü ve davranışını ayarlayın"
+
+#: app/Strings.php:163
+msgid "Save & go to Manage Tab"
+msgstr "Kaydet ve Sekme Yönetimi'ne git"
+
+#: app/Strings.php:164
+msgid "Save & go to dashboard"
+msgstr "Kaydet ve panoya git"
+
+#: app/Strings.php:165
+msgid "Go to Dashboard"
+msgstr "Panoya Git"
+
+#: app/Strings.php:167
+msgid "COPY EMAL"
+msgstr "E-POSTA KOPYALA"
+
+#: app/Strings.php:168
+msgid "ID: TB_"
+msgstr "ID: TB_"
+
+#: app/Strings.php:169
+msgid "Copied!"
+msgstr "Kopyalandı!"
+
+#: app/Strings.php:170 app/templates/create_tables.php:37
+#: app/templates/edit_table.php:39
+msgid "Back"
+msgstr "Geri"
+
+#: app/Strings.php:171 app/Strings.php:603
+msgid "Next"
+msgstr "İleri"
+
+#: app/Strings.php:172
+msgid "Tab title"
+msgstr "Sekme başlığı"
+
+#: app/Strings.php:173 app/Strings.php:582
+msgid "Tab Groups"
+msgstr "Sekme Grupları"
+
+#: app/Strings.php:174
+msgid "Organize multiple tables into tabs, just like Google Sheets!"
+msgstr "Tıpkı Google Sheets gibi birden fazla tabloyu sekmelerde düzenleyin!"
+
+#: app/Strings.php:175
+msgid "Get started with tab groups"
+msgstr "Sekme gruplarıyla başlayın"
+
+#: app/Strings.php:176
+msgid "No tab group found!"
+msgstr "Sekme grubu bulunamadı!"
+
+#: app/Strings.php:177
+msgid "No tab group matches to your search term"
+msgstr "Arama tereminizle eşleşen sekme grubu yok"
+
+#: app/Strings.php:178
+msgid "Select table for Tab 1"
+msgstr "Sekme 1 için tablo seçin"
+
+#: app/Strings.php:184
+msgid "Select Pagination"
+msgstr "Sayfalandırma Seçin"
+
+#: app/Strings.php:185
+msgid "Customize your theme according to your needs"
+msgstr "Temanızı ihtiyaçlarınıza göre özelleştirin"
+
+#: app/Strings.php:190
+msgid "Name"
+msgstr "İsim"
+
+#: app/Strings.php:191
+msgid "ID"
+msgstr "ID"
+
+#: app/Strings.php:192
+msgid "Date"
+msgstr "Tarih"
+
+#: app/Strings.php:193 app/Strings.php:493
+msgid "Ascending"
+msgstr "Artan"
+
+#: app/Strings.php:194 app/Strings.php:494
+msgid "Descending"
+msgstr "Azalan"
+
+#: app/Strings.php:195
+msgid "above"
+msgstr "üst"
+
+#: app/Strings.php:196
+msgid "below"
+msgstr "alt"
+
+#: app/Strings.php:197
+msgid "No tables found!"
+msgstr "Tablo bulunamadı!"
+
+#: app/Strings.php:198
+msgid "No tables matches to your search term"
+msgstr "Arama tereminizle eşleşen tablo yok"
+
+#: app/Strings.php:204
+msgid "1. Managing tabs"
+msgstr "1. Sekmeleri yönetme"
+
+#: app/Strings.php:209
+msgid "Create table"
+msgstr "Tablo oluştur"
+
+#: app/Strings.php:210
+msgid "Create table from URL"
+msgstr "URL'den tablo oluştur"
+
+#: app/Strings.php:211
+msgid "Change theme and table style"
+msgstr "Tema ve tablo stilini değiştir"
+
+#: app/Strings.php:212
+msgid ""
+"You can change table theme below. You will find more customization in the "
+"dashboard."
+msgstr ""
+"Aşağıda tablo temasını değiştirebilirsiniz. Panelde daha fazla özelleştirme "
+"bulacaksınız. "
+
+#: app/Strings.php:214
+msgid "PRO"
+msgstr "PRO"
+
+#: app/Strings.php:216
+msgid "to create table from any tab of your Google SpreadSheet."
+msgstr ""
+"Google Spreadsheet'inizin herhangi bir sekmesinden tablo oluşturmak için."
+
+#: app/Strings.php:217
+msgid "Add your Google Sheet URL to create a table"
+msgstr "Bir tablo oluşturmak için Google Sheet URL'nizi ekleyin"
+
+#: app/Strings.php:218
+msgid ""
+"Paste the browser URL of your Google Sheet below, and the table will be "
+"created for you to customize"
+msgstr ""
+"Google Sheet'inizin tarayıcı URL'sini aşağıya yapıştırın ve özelleştirmeniz "
+"için tablo oluşturulacaktır"
+
+#: app/Strings.php:219
+msgid "Creating new table"
+msgstr "Yeni tablo oluşturuluyor"
+
+#: app/Strings.php:224
+msgid "Create WooCommerce product table easily!"
+msgstr "WooCommerce ürün tablosunu kolayca oluşturun!"
+
+#: app/Strings.php:226
+msgid "Install Stock Sync for WooCommerce"
+msgstr "WooCommerce için Stock Sync'i Yükleyin"
+
+#: app/Strings.php:228
+msgid ""
+"and sync your store products to Google Sheets. Use the synced Google Sheet "
+"to create table. It’s easy!"
+msgstr ""
+"ve mağaza ürünlerinizi Google Sheets ile senkronize edin. Tablo oluşturmak "
+"için senkronize edilmiş Google Sheet'i kullanın. Çok kolay!"
+
+#: app/Strings.php:230
+msgid "Install now"
+msgstr "Şimdi yükle"
+
+#: app/Strings.php:235
+msgid "Table title"
+msgstr "Tablo başlığı"
+
+#: app/Strings.php:236
+msgid "Please reduce title to save."
+msgstr "Kaydetmek için lütfen başlığı kısaltın."
+
+#: app/Strings.php:237
+msgid "Google Sheet URL"
+msgstr "Google Sheet URL'si"
+
+#: app/Strings.php:242
+msgid "Show Table title"
+msgstr "Tablo başlığını göster"
+
+#: app/Strings.php:243
+msgid "Table top elements"
+msgstr "Tablo üst öğeleri"
+
+#: app/Strings.php:244
+msgid "Show entries"
+msgstr "Kayıtları göster"
+
+#: app/Strings.php:245
+msgid "Show search box"
+msgstr "Arama kutusunu göster"
+
+#: app/Strings.php:246
+msgid "Swap"
+msgstr "Değiştir"
+
+#: app/Strings.php:247
+msgid "Hide title"
+msgstr "Başlığı gizle"
+
+#: app/Strings.php:249
+msgid "Allow Table Sorting"
+msgstr "Tablo Sıralamasına İzin Ver"
+
+#: app/Strings.php:250
+msgid "Hide sorting controls from table"
+msgstr "Sıralama kontrollerini tablodan gizle"
+
+#: app/Strings.php:251
+msgid "Set Default Table Sorting on Load"
+msgstr "Yüklemede Varsayılan Tablo Sıralamasını Ayarla"
+
+#: app/Strings.php:252
+msgid "Sort By Column"
+msgstr "Sütuna Göre Sırala"
+
+#: app/Strings.php:253
+msgid "Sort By Order"
+msgstr "Sıraya Göre Sırala"
+
+#: app/Strings.php:254
+msgid "Sort By"
+msgstr "Sıralama Ölçütü"
+
+#: app/Strings.php:256
+msgid "Freeze Table Columns"
+msgstr "Tablo Sütunlarını Dondur"
+
+#: app/Strings.php:257
+msgid "Left Columns Numbers"
+msgstr "Sol Sütun Sayıları"
+
+#: app/Strings.php:258
+msgid "Right Columns Numbers"
+msgstr "Sağ Sütun Sayıları"
+
+#: app/Strings.php:259
+msgid "Freeze Table Header"
+msgstr "Tablo Başlığını Dondur"
+
+#: app/Strings.php:260
+msgid "Header Offset"
+msgstr "Başlık Ofseti"
+
+#: app/Strings.php:262
+msgid "Table bottom elements"
+msgstr "Tablo alt öğeleri"
+
+#: app/Strings.php:263
+msgid "Show entry info"
+msgstr "Kayıt bilgisini göster"
+
+#: app/Strings.php:264
+msgid "Show pagination"
+msgstr "Sayfalandırmayı göster"
+
+#: app/Strings.php:265
+msgid "Swap position"
+msgstr "Konumu değiştir"
+
+#: app/Strings.php:266
+msgid "Swapped position"
+msgstr "Değiştirilmiş konum"
+
+#: app/Strings.php:267
+msgid ""
+"Themes cannot be used when the \"Import colors and text styles from sheet\" "
+"feature is enabled"
+msgstr ""
+"\"Sheet'ten renkleri ve metin stillerini içe aktar\" özelliği "
+"etkinleştirildiğinde temalar kullanılamaz"
+
+#: app/Strings.php:273
+msgid "How does this plugin work?"
+msgstr "Bu eklenti nasıl çalışır?"
+
+#: app/Strings.php:274
+msgid ""
+"Watch how to <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>get started with FlexTable</a>."
+msgstr ""
+"<a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>FlexTable ile nasıl "
+"başlayacağınızı</a> izleyin."
+
+#: app/Strings.php:276
+msgid "Where can I find tutorials about this plugin?"
+msgstr "Bu eklenti hakkında eğitimleri nerede bulabilirim?"
+
+#: app/Strings.php:277
+msgid ""
+"Please visit our <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>Youtube playlist</a>, where we post "
+"tutorials on how you can use different features of the plugin."
+msgstr ""
+"Lütfen <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>Youtube oynatma listemizi</a> "
+"ziyaret edin, burada eklentinin farklı özelliklerini nasıl "
+"kullanabileceğinize dair eğitimler paylaşıyoruz."
+
+#: app/Strings.php:279
+msgid "What date format can I use?"
+msgstr "Hangi tarih formatını kullanabilirim?"
+
+#: app/Strings.php:280
+msgid ""
+"When working with date formats in your table, you have various options to "
+"choose from. Avoid using a <span class='date-format'><code>comma separator</"
+"code></span>, but consider formats such as <br> e.g. <span class='date-"
+"format'><code>2005-06-07</code> | <code>2005/06/07</code> | <code>2005 06 "
+"07</code> | <code>June 7- 2005</code> | <code>June 7 2005</code> | <code>7th "
+"June 2005</code></span>"
+msgstr ""
+"Tablonuzda tarih formatlarıyla çalışırken aralarından seçim yapabileceğiniz "
+"çeşitli seçenekleriniz var. <span class='date-format'><code>virgülle "
+"ayırıcı</code></span> kullanmaktan kaçının, ancak şu gibi formatları düşünün "
+"<br> örn. <span class='date-format'><code>2005-06-07</code> | "
+"<code>2005/06/07</code> | <code>2005 06 07</code> | <code>7 Haziran 2005</"
+"code> | <code>7 Haziran 2005</code> | <code>7 Haziran 2005</code></span>"
+
+#: app/Strings.php:282
+msgid "Which one is better for link support?"
+msgstr "Link desteği için hangisi daha iyi?"
+
+#: app/Strings.php:284
+msgid ""
+"For enhanced link functionality, it's advisable to utilize <span class='date-"
+"format'><code>Smart Link</code></span> over the <span class='date-"
+"format'><code>Pretty Link</code></span>. Smart Link is known for its robust "
+"and user-friendly features."
+msgstr ""
+"Gelişmiş link işlevselliği için, <span class='date-format'><code>Pretty "
+"Link</code></span> yerine <span class='date-format'><code>Akıllı Link</"
+"code></span> kullanmanız tavsiye edilir. Akıllı Link, sağlam ve kullanıcı "
+"dostu özellikleriyle bilinir."
+
+#: app/Strings.php:286
+msgid "Why my table taking too long to load?"
+msgstr "Tablom neden yüklenmesi çok uzun sürüyor?"
+
+#: app/Strings.php:288
+msgid ""
+"If your table is taking too long to load, it may be due to the presence of a "
+"substantial amount of data in Google Sheets, along with images and links. If "
+"your sheet doesn't contain images or links, consider disabling <span "
+"class='date-format'><code>links and Image support</code></span> within the "
+"<span class='date-format'><code>Utility</code></span> settings of Table "
+"Customization to expedite table loading. Utilizing the cache feature can "
+"also improve loading times."
+msgstr ""
+"Tablonuz yüklemesi çok uzun sürüyorsa, bu Google Sheets'te önemli miktarda "
+"verinin yanı sıra resim ve linklerin bulunmasından kaynaklanıyor olabilir. "
+"Sheet'inizde resim veya link yoksa, tablo yüklemesini hızlandırmak için "
+"Tablo Özelleştirme'nin <span class='date-format'><code>Yardımcı Program</"
+"code></span> ayarları içinde <span class='date-format'><code>linkler ve "
+"Resim desteğini</code></span> devre dışı bırakmayı düşünün. Önbellek "
+"özelliğini kullanmak da yükleme sürelerini iyileştirebilir."
+
+#: app/Strings.php:290
+msgid "How long table data can take to update if Cache is activated?"
+msgstr ""
+"Önbellek etkinleştirilirse tablo verilerinin güncellenmesi ne kadar "
+"sürebilir?"
+
+#: app/Strings.php:292
+msgid ""
+"When the cache feature is active, updates to your table data are not reliant "
+"on your browser's cache. Changes made in your sheet may take approximately "
+"15-40 seconds to reflect. To view the latest updates, simply refresh the "
+"page after this timeframe."
+msgstr ""
+"Önbellek özelliği etkin olduğunda, tablo verilerinize yapılan güncellemeler "
+"tarayıcınızın önbelleğine bağlı değildir. Sheet'inizde yapılan "
+"değişikliklerin yansıması yaklaşık 15-40 saniye sürebilir. En son "
+"güncellemeleri görüntülemek için bu sürenin ardından sayfayı yenileyin."
+
+#: app/Strings.php:294
+msgid "How do I find tutorials about using the plugin?"
+msgstr "Eklentinin kullanımıyla ilgili eğitimleri nasıl bulabilirim?"
+
+#: app/Strings.php:296
+msgid ""
+"Please visit our <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube playlist</a>, where we post "
+"tutorials on how you can use different features of the plugin."
+msgstr ""
+"Lütfen <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube oynatma listemizi</a> "
+"ziyaret edin, burada eklentinin farklı özelliklerini nasıl "
+"kullanabileceğinize dair eğitimler paylaşıyoruz."
+
+#: app/Strings.php:298
+msgid ""
+"How can I create a table from an imported XLSX file in google spreadsheets?"
+msgstr ""
+"Google spreadsheets'te içe aktarılan bir XLSX dosyasından nasıl tablo "
+"oluşturabilirim?"
+
+#: app/Strings.php:300
+msgid ""
+"Make sure to import the XLSX file into Google Spreadsheets in the following "
+"ways. Create a new blank spreadsheet, then navigate to `<span class='date-"
+"format'><code> File > Import > Upload</code></span>` Drag the XLSX files to "
+"import. Then share the spreadsheets from 'General Access'. Please visit our "
+"<a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube playlist</a>, where we post "
+"tutorials on how you can use XLSX file imported in google spreadsheets."
+msgstr ""
+"XLSX dosyasını aşağıdaki şekillerde Google Spreadsheets'e aktardığınızdan "
+"emin olun. Yeni bir boş elektronik tablo oluşturun, ardından `<span "
+"class='date-format'><code> Dosya > İçe Aktar > Yükle</code></span>` bölümüne "
+"gidin. İçe aktarmak için XLSX dosyalarını sürükleyin. Ardından elektronik "
+"tabloları 'Genel Erişim'den paylaşın. Lütfen <a target='_blank' "
+"href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube oynatma listemizi</a> "
+"ziyaret edin, burada Google spreadsheets'e aktarılan XLSX dosyasını nasıl "
+"kullanabileceğinize dair eğitimler paylaşıyoruz."
+
+#: app/Strings.php:303 app/Strings.php:585
+msgid "Get Started"
+msgstr "Başlayın"
+
+#: app/Strings.php:304
+msgid "Let’s get you set up so you can start creating awesome tables"
+msgstr "Harika tablolar oluşturmaya başlayabilmeniz için sizi ayarlayalım"
+
+#: app/Strings.php:306 app/Strings.php:1128
+#: app/templates/documentation_page.php:175
+msgid "Documentation"
+msgstr "Dokümantasyon"
+
+#: app/Strings.php:307
+msgid "Video Tutorial"
+msgstr "Video Eğitimi"
+
+#: app/Strings.php:308
+msgid "Get professional help via our ticketing system"
+msgstr "Destek sistemimiz üzerinden profesyonel yardım alın"
+
+#: app/Strings.php:309
+msgid "Frequently Asked Question"
+msgstr "Sıkça Sorulan Sorular"
+
+#: app/Strings.php:310 app/templates/documentation_page.php:75
+msgid "Get the most out of the plugin. Go Pro!"
+msgstr "Eklentiden en iyi şekilde yararlanın. Pro'ya geçin!"
+
+#: app/Strings.php:311
+msgid "Unlock all features"
+msgstr "Tüm özelliklerin kilidini açın"
+
+#: app/Strings.php:312
+msgid "Link Support to import links from sheet"
+msgstr "Sheet'ten linkleri içe aktarmak için Link Desteği"
+
+#: app/Strings.php:313
+msgid ""
+"Pre-built amazing table styles where Each styles is different from one "
+"another"
+msgstr ""
+"Her stilin birbirinden farklı olduğu önceden hazırlanmış harika tablo "
+"stilleri"
+
+#: app/Strings.php:314
+msgid "Hide your google sheet table rows based on your custom row selection"
+msgstr "Özel satır seçiminize göre Google sheet tablo satırlarınızı gizleyin"
+
+#: app/Strings.php:315
+msgid "Unlimited Row Sync and fetch unlimited rows from Google spreadsheet"
+msgstr ""
+"Sınırsız Satır Senkronizasyonu ve Google spreadsheet'ten sınırsız satır "
+"getirme"
+
+#: app/Strings.php:320
+msgid "Export as JSON"
+msgstr "JSON olarak Dışa Aktar"
+
+#: app/Strings.php:321
+msgid "Export as CSV"
+msgstr "CSV olarak Dışa Aktar"
+
+#: app/Strings.php:322
+msgid "Export as PDF"
+msgstr "PDF olarak Dışa Aktar"
+
+#: app/Strings.php:323
+msgid "Export as Excel"
+msgstr "Excel olarak Dışa Aktar"
+
+#: app/Strings.php:324
+msgid "Print Table"
+msgstr "Tabloyu Yazdır"
+
+#: app/Strings.php:325
+msgid "Copy to Clipboard"
+msgstr "Panoya Kopyala"
+
+#: app/Strings.php:327
+msgid "Live sync is limited to 30 rows."
+msgstr "Canlı senkronizasyon 30 satırla sınırlıdır."
+
+#: app/Strings.php:328
+msgid ""
+"In your free plan, you are limited to creating 10 tables. Upgrade to create "
+"more."
+msgstr ""
+"Ücretsiz planınızda 10 tablo oluşturmakla sınırlısınız. Daha fazlası için "
+"yükseltin."
+
+#: app/Strings.php:329
+msgid "Upgrade to Pro"
+msgstr "Pro'ya Yükseltin"
+
+#: app/Strings.php:330
+msgid "for showing full google sheet."
+msgstr "tam Google sheet'i göstermek için."
+
+#: app/Strings.php:332
+msgid "1. Data source"
+msgstr "1. Veri kaynağı"
+
+#: app/Strings.php:333
+msgid "2. Table theme"
+msgstr "2. Tablo teması"
+
+#: app/Strings.php:334
+msgid "3. Table customization"
+msgstr "3. Tablo özelleştirme"
+
+#: app/Strings.php:335
+msgid "4. Hide Rows/Column"
+msgstr "4. Satırları/Sütunu Gizle"
+
+#: app/Strings.php:336
+msgid "5. Conditional Table View"
+msgstr "5. Koşullu Tablo Görünümü"
+
+#: app/Strings.php:337
+msgid "6. AI Integration"
+msgstr "6. AI Entegrasyonu"
+
+#: app/Strings.php:338
+msgid "Table description"
+msgstr "Tablo açıklaması"
+
+#: app/Strings.php:339
+msgid "Show Table description"
+msgstr "Tablo açıklamasını göster"
+
+#: app/Strings.php:341
+msgid "Connect your Google Sheet"
+msgstr "Google Sheet'inizi bağlayın "
+
+#: app/Strings.php:342
+msgid "Choose how your table appears"
+msgstr "Tablonuzun nasıl görüneceğini seçin"
+
+#: app/Strings.php:343
+msgid "Style and personalize your table’s look"
+msgstr "Tablonuzun görünümünü stilize edin ve kişiselleştirin"
+
+#: app/Strings.php:344
+msgid "Show or hide specific rows and columns"
+msgstr "Belirli satırları ve sütunları gösterin veya gizleyin"
+
+#: app/Strings.php:345
+msgid "Choose how you want to Display the table"
+msgstr "Tabloyu nasıl görüntülemek istediğinizi seçin"
+
+#: app/Strings.php:346
+msgid "Auto-summarize data or let visitors ask questions using AI"
+msgstr ""
+"Verileri otomatik olarak özetleyin veya ziyaretçilerin AI kullanarak soru "
+"sormasına izin verin"
+
+#: app/Strings.php:348
+msgid "Save"
+msgstr "Kaydet"
+
+#: app/Strings.php:349
+msgid "Loading Preview..."
+msgstr "Önizleme Yükleniyor..."
+
+#: app/Strings.php:355
+msgid "Upgrade"
+msgstr "Yükselt"
+
+#: app/Strings.php:361 app/Strings.php:638
+msgid "Create tables first to manage tabs"
+msgstr "Sekmeleri yönetmek için önce tablolar oluşturun"
+
+#: app/Strings.php:362 app/Strings.php:637
+msgid ""
+"Manage tab is not available because you don’t have any tables yet. Please "
+"create tables first"
+msgstr ""
+"Sekme yönetimi kullanılamıyor çünkü henüz hiç tablonuz yok. Lütfen önce "
+"tablo oluşturun"
+
+#: app/Strings.php:363
+msgid "Display multiple tables using tabs."
+msgstr "Sekmeler kullanarak birden fazla tablo görüntüleyin."
+
+#: app/Strings.php:364
+msgid "Create New Tab Group"
+msgstr "Yeni Sekme Grubu Oluştur"
+
+#: app/Strings.php:365
+msgid "Your Tab Groups"
+msgstr "Sekme Gruplarınız"
+
+#: app/Strings.php:366
+msgid "No tabs found with the key"
+msgstr "Bu anahtarla eşleşen sekme bulunamadı"
+
+#: app/Strings.php:371
+msgid "Select table for this tab"
+msgstr "Bu sekme için tablo seçin"
+
+#: app/Strings.php:372
+msgid "Tab Title"
+msgstr "Sekme Başlığı"
+
+#: app/Strings.php:373
+msgid "Add tab"
+msgstr "Sekme ekle"
+
+#: app/Strings.php:374
+msgid "Tab group name"
+msgstr "Sekme grubu adı"
+
+#: app/Strings.php:379
+msgid "Let’s bring meaning to your data"
+msgstr "Verilerinize anlam katalım"
+
+#: app/Strings.php:380
+msgid ""
+"Create beautifully designed tables from Google sheets and customize as you "
+"need."
+msgstr ""
+"Google tablolarından güzel tasarlanmış tablolar oluşturun ve ihtiyacınıza "
+"göre özelleştirin."
+
+#: app/Strings.php:385
+msgid "Our Other Products"
+msgstr "Diğer Ürünlerimiz"
+
+#: app/Strings.php:386
+msgid ""
+"Experience remarkable WordPress products with a new level of power, beauty, "
+"and human-centered designs. Think you know WordPress products? Think Deeper!"
+msgstr ""
+"Yeni bir güç, güzellik ve insan odaklı tasarım seviyesiyle olağanüstü "
+"WordPress ürünlerini deneyimleyin. WordPress ürünlerini bildiğinizi mi "
+"düşünüyorsunuz? Daha Derine Düşünün!"
+
+#: app/Strings.php:392
+msgid "Hidden Cells on Desktop"
+msgstr "Masaüstünde Gizli Hücreler"
+
+#: app/Strings.php:393
+msgid "Hidden Cells on Mobile"
+msgstr "Mobilde Gizli Hücreler"
+
+#: app/Strings.php:395
+msgid "Hide Cells"
+msgstr "Hücreleri Gizle"
+
+#: app/Strings.php:398
+msgid "Hidden Rows on Desktop"
+msgstr "Masaüstünde Gizli Satırlar"
+
+#: app/Strings.php:399
+msgid "Hidden Rows on Mobile"
+msgstr "Mobilde Gizli Satırlar"
+
+#: app/Strings.php:401
+msgid "Hide Rows"
+msgstr "Satırları Gizle"
+
+#: app/Strings.php:402
+msgid "Same as desktop"
+msgstr "Masaüstü ile aynı"
+
+#: app/Strings.php:405
+msgid "Hidden Columns on Desktop"
+msgstr "Masaüstünde Gizli Sütunlar"
+
+#: app/Strings.php:406
+msgid "Hidden Columns on Mobile"
+msgstr "Mobilde Gizli Sütunlar"
+
+#: app/Strings.php:407
+msgid "Hide columns on desktop"
+msgstr "Masaüstünde sütunları gizle"
+
+#: app/Strings.php:408
+msgid "Hide columns on mobile"
+msgstr "Mobilde sütunları gizle"
+
+#: app/Strings.php:410
+msgid "Hide Columns"
+msgstr "Sütunları Gizle"
+
+#: app/Strings.php:411
+msgid "Hide on Desktop"
+msgstr "Masaüstünde Gizle"
+
+#: app/Strings.php:412
+msgid "Hide on Mobile"
+msgstr "Mobilde Gizle"
+
+#: app/Strings.php:413
+msgid "Desktop"
+msgstr "Masaüstü"
+
+#: app/Strings.php:414
+msgid "Mobile"
+msgstr "Mobil"
+
+#: app/Strings.php:415
+msgid "Click on the cells on the table below that you want to hide"
+msgstr "Aşağıdaki tabloda gizlemek istediğiniz hücrelere tıklayın"
+
+#: app/Strings.php:416
+msgid "Click on the rows on the table below that you want to hide"
+msgstr "Aşağıdaki tabloda gizlemek istediğiniz satırlara tıklayın"
+
+#: app/Strings.php:417
+msgid "Click on the column on the table below that you want to hide"
+msgstr "Aşağıdaki tabloda gizlemek istediğiniz sütunlara tıklayın"
+
+#: app/Strings.php:422
+msgid "New"
+msgstr "Yeni"
+
+#: app/Strings.php:423
+msgid "Save settings"
+msgstr "Ayarları kaydet"
+
+#: app/Strings.php:424
+msgid "Custom CSS"
+msgstr "Özel CSS"
+
+#: app/Strings.php:425 app/Strings.php:828
+msgid "Recommended"
+msgstr "Önerilen"
+
+#: app/Strings.php:426
+msgid "With Pretty link"
+msgstr "Güzel bağlantı ile"
+
+#: app/Strings.php:427
+msgid "With Smart link"
+msgstr "Akıllı bağlantı ile"
+
+#: app/Strings.php:428
+msgid "Asynchronous loading"
+msgstr "Eşzamansız yükleme"
+
+#: app/Strings.php:430
+msgid ""
+"Enable this feature to load the table faster. The table will load in the "
+"frontend after loading all content with a pre-loader. If this feature is "
+"disabled then the table will load with the reloading of browser every time."
+msgstr ""
+"Tabloyu daha hızlı yüklemek için bu özelliği etkinleştirin. Tablo, tüm "
+"içerik bir ön yükleyici ile yüklendikten sonra ön yüzde görünecektir. Bu "
+"özellik devre dışıysa tablo her seferinde tarayıcının yenilenmesiyle "
+"birlikte yüklenecektir."
+
+#: app/Strings.php:432
+msgid "Choose your link support mechanism in WP Tables"
+msgstr "WP Tables'da bağlantı destek mekanizmanızı seçin"
+
+#: app/Strings.php:433
+msgid ""
+"Write your own custom CSS to design the table or the page itself. Activate "
+"the Pro extension to enable custom CSS option"
+msgstr ""
+"Tabloyu veya sayfanın kendisini tasarlamak için kendi özel CSS'inizi yazın. "
+"Özel CSS seçeneğini etkinleştirmek için Pro uzantısını aktifleştirin"
+
+#: app/Strings.php:434
+msgid "Performance"
+msgstr "Performans"
+
+#: app/Strings.php:436
+msgid "Choose how you want to load your table scripts"
+msgstr "Tablo betiklerinizi nasıl yüklemek istediğinizi seçin"
+
+#: app/Strings.php:437
+msgid "Global loading"
+msgstr "Genel yükleme"
+
+#: app/Strings.php:438
+msgid "Load the scripts on all the pages and posts in your website."
+msgstr "Betikleri web sitenizin tüm sayfalarında ve yazılarında yükleyin."
+
+#: app/Strings.php:439
+msgid "Optimized loading"
+msgstr "Optimize edilmiş yükleme"
+
+#: app/Strings.php:440
+msgid ""
+"Load scripts only on the relevant pages/posts in your website where the "
+"table is added."
+msgstr ""
+"Betikleri yalnızca tablonun eklendiği web sitenizdeki ilgili sayfalarda/"
+"yazılarda yükleyin."
+
+#: app/Strings.php:445
+msgid "WPPOOL"
+msgstr "WPPOOL"
+
+#: app/Strings.php:446
+msgid "Powered by"
+msgstr "Destekleyen"
+
+#: app/Strings.php:447
+msgid "Default Email App"
+msgstr "Varsayılan E-posta Uygulaması"
+
+#: app/Strings.php:448
+msgid "Open your default email app"
+msgstr "Varsayılan e-posta uygulamanızı açın"
+
+#: app/Strings.php:449
+msgid "Copy email address to your clipboard"
+msgstr "E-posta adresini panonuza kopyalayın"
+
+#: app/Strings.php:450
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: app/Strings.php:451
+msgid "Open Yahoo in browser"
+msgstr "Yahoo'yu tarayıcıda açın"
+
+#: app/Strings.php:452
+msgid "Outlook"
+msgstr "Outlook"
+
+#: app/Strings.php:453
+msgid "Open Outlook in browser"
+msgstr "Outlook'u tarayıcıda açın"
+
+#: app/Strings.php:454
+msgid "Gmail"
+msgstr "Gmail"
+
+#: app/Strings.php:455
+msgid "Open Gmail in browser"
+msgstr "Gmail'i tarayıcıda açın"
+
+#: app/Strings.php:456
+msgid "Select the convenient option to connect with us"
+msgstr "Bizimle iletişim kurmak için uygun seçeneği seçin"
+
+#: app/Strings.php:462
+msgid ""
+"This Tab Group will be deleted. It will not appear on your website anymore, "
+"if you used it somewhere"
+msgstr ""
+"Bu Sekme Grubu silinecek. Bir yerde kullandıysanız artık web sitenizde "
+"görünmeyecektir"
+
+#: app/Strings.php:463 app/templates/parts/popup_modals.php:26
+#: app/templates/parts/popup_modals.php:74
+#: app/templates/parts/popup_modals.php:107
+#: app/templates/parts/popup_modals.php:146
+#: app/templates/parts/pro_fix_notice.php:66
+msgid "Cancel"
+msgstr "İptal"
+
+#: app/Strings.php:464
+msgid "Are you sure to delete this Tab Group?"
+msgstr "Bu Sekme Grubunu silmek istediğinizden emin misiniz?"
+
+#: app/Strings.php:470
+msgid "Utility"
+msgstr "Araçlar"
+
+#: app/Strings.php:471
+msgid "Styling"
+msgstr "Stil"
+
+#: app/Strings.php:472 app/Strings.php:473
+msgid "Layout"
+msgstr "Düzen"
+
+#: app/Strings.php:474
+msgid "Let user export table"
+msgstr "Kullanıcının tabloyu dışa aktarmasına izin ver"
+
+#: app/Strings.php:475
+msgid "Excel"
+msgstr "Excel"
+
+#: app/Strings.php:476
+msgid "JSON"
+msgstr "JSON"
+
+#: app/Strings.php:477
+msgid "Copy"
+msgstr "Kopyala"
+
+#: app/Strings.php:478
+msgid "CSV"
+msgstr "CSV"
+
+#: app/Strings.php:479
+msgid "PDF"
+msgstr "PDF"
+
+#: app/Strings.php:480
+msgid "Print"
+msgstr "Yazdır"
+
+#: app/Strings.php:481
+msgid "Link redirection behaviour"
+msgstr "Bağlantı yönlendirme davranışı"
+
+#: app/Strings.php:482
+msgid "Opens in current window"
+msgstr "Mevcut pencerede açılır"
+
+#: app/Strings.php:483
+msgid "Opens in a new window"
+msgstr "Yeni pencerede açılır"
+
+#: app/Strings.php:485
+msgid "Cursor behavior inside the table"
+msgstr "Tablo içinde imleç davranışı"
+
+#: app/Strings.php:486
+msgid "Text selection mode"
+msgstr "Metin seçim modu"
+
+#: app/Strings.php:487
+msgid "Table navigation mode (left-right)"
+msgstr "Tablo gezinme modu (sol-sağ)"
+
+#: app/Strings.php:489
+msgid "Import links from sheet"
+msgstr "Tablodan bağlantıları içe aktar"
+
+#: app/Strings.php:491
+msgid "Import checkbox from sheet"
+msgstr "Tablodan onay kutularını içe aktar"
+
+#: app/Strings.php:492
+msgid "Enable sorting by specific columns in"
+msgstr "Belirli sütunlara göre sıralamayı etkinleştir"
+
+#: app/Strings.php:495
+msgid "within the table"
+msgstr "tablo içinde"
+
+#: app/Strings.php:497
+msgid "Import images from sheet"
+msgstr "Tablodan görselleri içe aktar"
+
+#: app/Strings.php:498
+msgid "Cache table for faster loading time"
+msgstr "Daha hızlı yükleme için tabloyu önbelleğe al"
+
+#: app/Strings.php:499
+msgid "Prevent frequent cache updates for faster table loading"
+msgstr "Daha hızlı tablo yüklemesi için sık önbellek güncellemelerini önle"
+
+#: app/Strings.php:500
+msgid ""
+"New changes from Google Sheets will appear only after the cache expires. "
+"Features like links, images, and merged cells may not show until the cache "
+"refreshes. Cache expiry time can be adjusted in Settings —> Performance."
+msgstr ""
+"Google Sheets'teki yeni değişiklikler yalnızca önbellek süresi dolduktan "
+"sonra görünecektir. Bağlantılar, görseller ve birleştirilmiş hücreler gibi "
+"özellikler önbellek yenilenene kadar görünmeyebilir. Önbellek sona erme "
+"süresi Ayarlar —> Performans bölümünden ayarlanabilir."
+
+#: app/Strings.php:501
+msgid "Cell formatting style"
+msgstr "Hücre biçimlendirme stili"
+
+#: app/Strings.php:502
+msgid "Expanded"
+msgstr "Genişletilmiş"
+
+#: app/Strings.php:503
+msgid "Wrapped"
+msgstr "Sarmalanmış"
+
+#: app/Strings.php:504
+msgid "Responsive style"
+msgstr "Duyarlı stil"
+
+#: app/Strings.php:505
+msgid "Default"
+msgstr "Varsayılan"
+
+#: app/Strings.php:506
+msgid "Collapsible Style"
+msgstr "Daraltılabilir Stil"
+
+#: app/Strings.php:507
+msgid "Scrollable Style"
+msgstr "Kaydırılabilir Stil"
+
+#: app/Strings.php:508
+msgid "Rows to show per page"
+msgstr "Sayfa başına gösterilecek satır sayısı"
+
+#: app/Strings.php:509
+msgid "All"
+msgstr "Tümü"
+
+#: app/Strings.php:510
+msgid "100"
+msgstr "100"
+
+#: app/Strings.php:511
+msgid "50"
+msgstr "50"
+
+#: app/Strings.php:512
+msgid "30"
+msgstr "30"
+
+#: app/Strings.php:513
+msgid "15"
+msgstr "15"
+
+#: app/Strings.php:514
+msgid "10"
+msgstr "10"
+
+#: app/Strings.php:515
+msgid "5"
+msgstr "5"
+
+#: app/Strings.php:516
+msgid "1"
+msgstr "1"
+
+#: app/Strings.php:517
+msgid "-1"
+msgstr "-1"
+
+#: app/Strings.php:518
+msgid "The table is limited to 100 rows."
+msgstr "Tablo 100 satırla sınırlıdır."
+
+#: app/Strings.php:519
+msgid "to show the full Google Sheet with awesome customizations."
+msgstr "harika özelleştirmelerle tam Google Sheet'i göstermek için."
+
+#: app/Strings.php:521
+msgid "Upgrade Now →"
+msgstr "Şimdi Yükselt →"
+
+#: app/Strings.php:522
+msgid "Table height"
+msgstr "Tablo yüksekliği"
+
+#: app/Strings.php:524
+msgid "Default height"
+msgstr "Varsayılan yükseklik"
+
+#: app/Strings.php:525
+msgid "400px"
+msgstr "400px"
+
+#: app/Strings.php:526
+msgid "500px"
+msgstr "500px"
+
+#: app/Strings.php:527
+msgid "600px"
+msgstr "600px"
+
+#: app/Strings.php:528
+msgid "700px"
+msgstr "700px"
+
+#: app/Strings.php:529
+msgid "800px"
+msgstr "800px"
+
+#: app/Strings.php:530
+msgid "900px"
+msgstr "900px"
+
+#: app/Strings.php:531
+msgid "1000px"
+msgstr "1000px"
+
+#: app/Strings.php:532
+msgid "Select theme"
+msgstr "Tema seç"
+
+#: app/Strings.php:534
+msgid "Import colors and text styles from sheet"
+msgstr "Tablodan renkleri ve metin stillerini içe aktar"
+
+#: app/Strings.php:535
+msgid "Unlock"
+msgstr "Kilidi Aç"
+
+#: app/Strings.php:537
+msgid "Default Style"
+msgstr "Varsayılan Stil"
+
+#: app/Strings.php:538
+msgid "Simple"
+msgstr "Basit"
+
+#: app/Strings.php:540
+msgid "Dark Table"
+msgstr "Koyu Tablo"
+
+#: app/Strings.php:541
+msgid "Simple on dark"
+msgstr "Koyu üzerinde basit"
+
+#: app/Strings.php:543
+msgid "Stripped Table"
+msgstr "Şeritli Tablo"
+
+#: app/Strings.php:544
+msgid "Minimal on dark"
+msgstr "Koyu üzerinde minimal"
+
+#: app/Strings.php:546
+msgid "Hover Style"
+msgstr "Üzerine Gelme Stili"
+
+#: app/Strings.php:547
+msgid "Minimal elegant"
+msgstr "Minimal zarif"
+
+#: app/Strings.php:549
+msgid "Taliwind Style"
+msgstr "Tailwind Stili"
+
+#: app/Strings.php:550
+msgid "Uppercase heading"
+msgstr "Büyük harf başlık"
+
+#: app/Strings.php:551
+msgid "Table creation successfull"
+msgstr "Tablo başarıyla oluşturuldu"
+
+#: app/Strings.php:553
+msgid "Colored Column"
+msgstr "Renkli Sütun"
+
+#: app/Strings.php:554
+msgid "Vertical style"
+msgstr "Dikey stil"
+
+#: app/Strings.php:557
+msgid "Minimal"
+msgstr "Minimal"
+
+#: app/Strings.php:558
+msgid "Dark knight"
+msgstr "Karanlık şövalye"
+
+#: app/Strings.php:559
+msgid "Uppercase elegant"
+msgstr "Büyük harf zarif"
+
+#: app/Strings.php:561
+msgid "Merge cells"
+msgstr "Hücreleri birleştir"
+
+#: app/Strings.php:562
+msgid "Beta"
+msgstr "Beta"
+
+#: app/Strings.php:563
+msgid ""
+"Sorting feature is disabled. Your sheet contains vertically merged cells, so "
+"you can't use the sorting feature and merge cell feature altogether."
+msgstr ""
+"Sıralama özelliği devre dışı. Tablonuzda dikey olarak birleştirilmiş "
+"hücreler bulunuyor, bu nedenle sıralama özelliğini ve hücre birleştirme "
+"özelliğini birlikte kullanamazsınız."
+
+#: app/Strings.php:568
+msgid "Are you sure to disable?"
+msgstr "Devre dışı bırakmak istediğinizden emin misiniz?"
+
+#: app/Strings.php:569
+msgid ""
+"Colors and text styles from your Google Sheet won’t be imported anymore. A "
+"default theme will be selected for you if you haven’t selected one already"
+msgstr ""
+"Google Sheet'inizdeki renkler ve metin stilleri artık içe aktarılmayacak. "
+"Henüz bir tane seçmediyseniz sizin için varsayılan bir tema seçilecektir"
+
+#: app/Strings.php:570
+msgid "Yes, Disable"
+msgstr "Evet, Devre Dışı Bırak"
+
+#: app/Strings.php:572
+msgid "Enable for Faster Loading"
+msgstr "Daha Hızlı Yükleme için Etkinleştir"
+
+#: app/Strings.php:573
+msgid "Prevent Live Sync?"
+msgstr "Canlı Senkronizasyon Engellensin mi?"
+
+#: app/Strings.php:574
+msgid ""
+"Table data will only refresh when the cache expires. This improves "
+"performance but may delay content updates. You can adjust the cache expiry "
+"time in Settings → Performance."
+msgstr ""
+"Tablo verileri yalnızca önbellek süresi dolduğunda yenilenecektir. Bu, "
+"performansı artırır ancak içerik güncellemelerini geciktirebilir. Önbellek "
+"sona erme süresini Ayarlar → Performans bölümünden ayarlayabilirsiniz."
+
+#: app/Strings.php:575
+msgid ""
+"Enabling this feature will skip live sync until your cache expires. Make "
+"sure your Google Sheet up to date and you've enabled all necessary features "
+"(images, links, merged cells, etc.) from the settings first."
+msgstr ""
+"Bu özelliği etkinleştirmek, önbelleğinizin süresi dolana kadar canlı "
+"senkronizasyonu atlayacaktır. Google Sheet'inizin güncel olduğundan ve önce "
+"ayarlardan tüm gerekli özellikleri (görseller, bağlantılar, birleştirilmiş "
+"hücreler vb.) etkinleştirdiğinizden emin olun."
+
+#: app/Strings.php:581
+msgid "Manage, create and track all your tables tables in one place"
+msgstr "Tüm tablolarınızı tek bir yerden yönetin, oluşturun ve takip edin"
+
+#: app/Strings.php:583
+msgid "Global Settings"
+msgstr "Genel Ayarlar"
+
+#: app/Strings.php:584
+msgid "Configure default settings for all your tables"
+msgstr "Tüm tablolarınız için varsayılan ayarları yapılandırın"
+
+#: app/Strings.php:586
+msgid "Skip"
+msgstr "Geç"
+
+#: app/Strings.php:587
+msgid "Add Google Sheet URL"
+msgstr "Google Sheet URL'si Ekle"
+
+#: app/Strings.php:588
+msgid "Recommended Plugins"
+msgstr "Önerilen Eklentiler"
+
+#: app/Strings.php:594
+msgid "Show"
+msgstr "Göster"
+
+#: app/Strings.php:595
+msgid "entries"
+msgstr "kayıt"
+
+#: app/Strings.php:596
+msgid "Search:"
+msgstr "Ara:"
+
+#: app/Strings.php:598
+msgid "Showing"
+msgstr "Gösteriliyor"
+
+#: app/Strings.php:599
+msgid "to"
+msgstr "ile"
+
+#: app/Strings.php:600
+msgid "of"
+msgstr "toplam"
+
+#: app/Strings.php:601
+msgid "First"
+msgstr "İlk"
+
+#: app/Strings.php:602
+msgid "Previous"
+msgstr "Önceki"
+
+#: app/Strings.php:604
+msgid "PREV"
+msgstr "ÖNCEKİ"
+
+#: app/Strings.php:605
+msgid "NEXT"
+msgstr "SONRAKİ"
+
+#: app/Strings.php:606
+msgid "last"
+msgstr "son"
+
+#: app/Strings.php:607
+msgid "No matching records found"
+msgstr "Eşleşen kayıt bulunamadı"
+
+#: app/Strings.php:612
+msgid "Copy Shortcode"
+msgstr "Kısa Kodu Kopyala"
+
+#: app/Strings.php:613
+msgid ""
+"Copy the shortcode to use in in any page or post. Gutenberg and Elementor "
+"blocks are also supported"
+msgstr ""
+"Herhangi bir sayfada veya yazıda kullanmak için kısa kodu kopyalayın. "
+"Gutenberg ve Elementor blokları da desteklenmektedir"
+
+#: app/Strings.php:614
+msgid "Are you sure to delete the table? "
+msgstr "Tabloyu silmek istediğinizden emin misiniz? "
+
+#: app/Strings.php:615
+msgid ""
+"You are about to delete the table. This will permanently delete the table(s)"
+msgstr "Tabloyu silmek üzeresiniz. Bu, tablo(lar)ı kalıcı olarak silecektir"
+
+#: app/Strings.php:620
+msgid "Vertical merge found!"
+msgstr "Dikey birleştirme bulundu!"
+
+#: app/Strings.php:621
+msgid ""
+"Please make sure to keep the sorting feature disabled. Google sheet doesn't "
+"filter over a range containing vertical merges."
+msgstr ""
+"Lütfen sıralama özelliğini devre dışı tuttuğunuzdan emin olun. Google sheet "
+"dikey birleştirmeler içeren bir aralıkta filtreleme yapmaz."
+
+#: app/Strings.php:622 app/templates/parts/pro_fix_notice.php:387
+#: app/templates/parts/pro_fix_notice.php:392
+msgid "OK"
+msgstr "TAMAM"
+
+#: app/Strings.php:623
+msgid ""
+"Your sheet contains vertically merged cells, so you can not use the sorting "
+"feature. Sorting may break the table design and format. Please ensure that "
+"you have enabled either the vertical merge cell feature or the sorting "
+"feature, or confirm that your sheet has no vertical merges. If your table "
+"design still breaks even with sorting disabled, consider reloading the sheet "
+"or clicking save again to reflect the necessary fixes. To get the sorting "
+"feature visit Display settings > Disable sorting"
+msgstr ""
+"Tablonuz dikey olarak birleştirilmiş hücreler içeriyor, bu nedenle sıralama "
+"özelliğini kullanamazsınız. Sıralama, tablo tasarımını ve formatını "
+"bozabilir. Lütfen dikey hücre birleştirme özelliğini veya sıralama "
+"özelliğini etkinleştirdiğinizden ya da tablonuzda dikey birleştirme "
+"olmadığını doğruladığınızdan emin olun. Sıralama devre dışı olsa bile tablo "
+"tasarımınız hala bozuluyorsa, tabloyu yeniden yüklemeyi veya gerekli "
+"düzeltmeleri yansıtmak için tekrar kaydet'e tıklamayı düşünün. Sıralama "
+"özelliğini devre dışı bırakmak için Görüntüleme ayarları > Sıralamayı devre "
+"dışı bırak bölümünü ziyaret edin"
+
+#: app/Strings.php:628
+msgid "Select a column (optional)"
+msgstr "Renklendirme seç"
+
+#: app/Strings.php:629
+msgid "After the table"
+msgstr "Tablodan sonra"
+
+#: app/Strings.php:630
+msgid "Before the table"
+msgstr "Tablodan önce"
+
+#: app/Strings.php:631
+msgid "Tab position in embedded view"
+msgstr "Gömülü görünümde sekme konumu"
+
+#: app/Strings.php:632
+msgid "Hide tab group title"
+msgstr "Sekme grubu başlığını gizle"
+
+#: app/Strings.php:639
+msgid "👋 Let's create your first tab groups"
+msgstr "👋 İlk sekme gruplarınızı oluşturalım"
+
+#: app/Strings.php:640
+msgid "Click the button below to create tab groups"
+msgstr "Sekme grupları oluşturmak için aşağıdaki düğmeye tıklayın"
+
+#: app/Strings.php:641
+msgid "Show tab group name in embedded view"
+msgstr "Gömülü görünümde sekme grubu adını göster"
+
+#: app/Strings.php:647
+msgid "HEADER COLORS"
+msgstr "BAŞLIK RENKLERİ"
+
+#: app/Strings.php:648
+msgid "TEXT COLORS"
+msgstr "METİN RENKLERİ"
+
+#: app/Strings.php:649
+msgid "BODY COLORS"
+msgstr "GÖVDE RENKLERİ"
+
+#: app/Strings.php:650
+msgid "TABLE TEXTS"
+msgstr "TABLO METİNLERİ"
+
+#: app/Strings.php:651
+msgid "TABLE HOVER"
+msgstr "TABLO ÜZERİNE GELME"
+
+#: app/Strings.php:652
+msgid "ROW COLORS"
+msgstr "SATIR RENKLERİ"
+
+#: app/Strings.php:653
+msgid "COLUMN COLORS"
+msgstr "SÜTUN RENKLERİ"
+
+#: app/Strings.php:654
+msgid "BORDER COLORS"
+msgstr "KENARLIK RENKLERİ"
+
+#: app/Strings.php:655
+msgid "Customize Theme Options"
+msgstr "Tema Seçeneklerini Özelleştir"
+
+#: app/Strings.php:656
+msgid "Border Style"
+msgstr "Kenarlık Stili"
+
+#: app/Strings.php:657
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: app/Strings.php:659
+msgid "Background color"
+msgstr "Arka plan rengi"
+
+#: app/Strings.php:660
+msgid "Text color"
+msgstr "Metin rengi"
+
+#: app/Strings.php:662
+msgid "First column text color"
+msgstr "İlk sütun metin rengi"
+
+#: app/Strings.php:663
+msgid "Rest body text color"
+msgstr "Kalan gövde metin rengi"
+
+#: app/Strings.php:664
+msgid "Remaining column text color"
+msgstr "Kalan sütun metin rengi"
+
+#: app/Strings.php:666
+msgid "Hover background color"
+msgstr "Üzerine gelme arka plan rengi"
+
+#: app/Strings.php:667
+msgid "Hover text color"
+msgstr "Üzerine gelme metin rengi"
+
+#: app/Strings.php:668
+msgid "Table background color"
+msgstr "Tablo arka plan rengi"
+
+#: app/Strings.php:669
+msgid "Table hover color"
+msgstr "Tablo üzerine gelme rengi"
+
+#: app/Strings.php:670
+msgid "Table border color"
+msgstr "Tablo kenarlık rengi"
+
+#: app/Strings.php:671
+msgid "Table text color"
+msgstr "Tablo metin rengi"
+
+#: app/Strings.php:673
+msgid "Border Color"
+msgstr "Kenarlık Rengi"
+
+#: app/Strings.php:674
+msgid "Outside body border"
+msgstr "Dış gövde kenarlığı"
+
+#: app/Strings.php:675
+msgid "Inside border"
+msgstr "İç kenarlık"
+
+#: app/Strings.php:677
+msgid "Even row color"
+msgstr "Çift satır rengi"
+
+#: app/Strings.php:678
+msgid "Odd row color"
+msgstr "Tek satır rengi"
+
+#: app/Strings.php:680
+msgid "Even column color"
+msgstr "Çift sütun rengi"
+
+#: app/Strings.php:681
+msgid "Odd column color"
+msgstr "Tek sütun rengi"
+
+#: app/Strings.php:682
+msgid "Outside border type"
+msgstr "Dış kenarlık tipi"
+
+#: app/Strings.php:683
+msgid "Outside border"
+msgstr "Dış kenarlık"
+
+#: app/Strings.php:684
+msgid "Solid border"
+msgstr "Düz kenarlık"
+
+#: app/Strings.php:685
+msgid "Rounded border"
+msgstr "Yuvarlatılmış kenarlık"
+
+#: app/Strings.php:686
+msgid "Border radius"
+msgstr "Kenarlık yarıçapı"
+
+#: app/Strings.php:691
+msgid "Update Theme"
+msgstr "Temayı Güncelle"
+
+#: app/Strings.php:692
+msgid "Theme name"
+msgstr "Tema adı"
+
+#: app/Strings.php:693
+msgid "Theme colors"
+msgstr "Tema renkleri"
+
+#: app/Strings.php:694
+msgid "Column color"
+msgstr "Sütun rengi"
+
+#: app/Strings.php:695
+msgid "Row color"
+msgstr "Satır rengi"
+
+#: app/Strings.php:696 app/Strings.php:954
+msgid "Edit"
+msgstr "Düzenle"
+
+#: app/Strings.php:697
+msgid "Yes, Delete"
+msgstr "Evet, Sil"
+
+#: app/Strings.php:698
+msgid "Yes, Reset"
+msgstr "Evet, Sıfırla"
+
+#: app/Strings.php:699
+msgid "Create Theme"
+msgstr "Tema Oluştur"
+
+#: app/Strings.php:700
+msgid "Can’t delete active theme!"
+msgstr "Aktif tema silinemez!"
+
+#: app/Strings.php:701
+msgid ""
+"The theme is active and currently in use. Please select another theme for "
+"your table before deleting this one"
+msgstr ""
+"Tema aktif ve şu anda kullanılıyor. Bu temayı silmeden önce lütfen tablonuz "
+"için başka bir tema seçin"
+
+#: app/Strings.php:702
+msgid "Are you sure to delete theme?"
+msgstr "Temayı silmek istediğinizden emin misiniz?"
+
+#: app/Strings.php:703
+msgid ""
+"This theme wil be deleted and it can not be recovered. Are you sure to "
+"delete it?"
+msgstr ""
+"Bu tema silinecek ve kurtarılamayacak. Silmek istediğinizden emin misiniz?"
+
+#: app/Strings.php:705
+msgid "Are you sure to reset?"
+msgstr "Sıfırlamak istediğinizden emin misiniz?"
+
+#: app/Strings.php:706
+msgid "All of your changes & customization will be lost"
+msgstr "Tüm değişiklikleriniz ve özelleştirmeleriniz kaybolacak"
+
+#: app/Strings.php:709
+msgid "None"
+msgstr "Hiçbiri"
+
+#: app/Strings.php:710
+msgid "Row wise"
+msgstr "Satır bazında"
+
+#: app/Strings.php:711
+msgid "Column wise"
+msgstr "Sütun bazında"
+
+#: app/Strings.php:712
+msgid "Select coloring"
+msgstr "Renklendirme seç"
+
+#: app/Strings.php:713
+msgid "Hover mode"
+msgstr "Üzerine gelme modu"
+
+#: app/Strings.php:714
+msgid "+ New Theme"
+msgstr "+ Yeni Tema"
+
+#: app/Strings.php:716
+msgid "Apply this custom theme to all tables"
+msgstr "Bu özel temayı tüm tablolara uygula"
+
+#: app/Strings.php:717
+msgid "Apply this same style for the other table"
+msgstr "Bu aynı stili diğer tablo için uygula"
+
+#: app/Strings.php:723
+msgid "Default pagination"
+msgstr "Varsayılan sayfalama"
+
+#: app/Strings.php:724
+msgid "Modern pagination"
+msgstr "Modern sayfalama"
+
+#: app/Strings.php:725
+msgid "Minimal pagination"
+msgstr "Minimal sayfalama"
+
+#: app/Strings.php:726
+msgid "Tailwind pagination"
+msgstr "Tailwind sayfalama"
+
+#: app/Strings.php:727
+msgid "Outlined pagination"
+msgstr "Çerçeveli sayfalama"
+
+#: app/Strings.php:728
+msgid "Color Picker"
+msgstr "Renk Seçici"
+
+#: app/Strings.php:729
+msgid "Pagination color will change based on your selected color"
+msgstr "Sayfalama rengi seçtiğiniz renge göre değişecektir"
+
+#: app/Strings.php:731
+msgid "Pagination Style"
+msgstr "Sayfalama Stili"
+
+#: app/Strings.php:732
+msgid "Pagination"
+msgstr "Sayfalama"
+
+#: app/Strings.php:733
+msgid "Active pagination color"
+msgstr "Aktif sayfalama rengi"
+
+#: app/Strings.php:734
+msgid "Keep pagination in middle"
+msgstr "Sayfalamayi ortada tut"
+
+#: app/Strings.php:735
+msgid "Confirm"
+msgstr "Onayla"
+
+#: app/Strings.php:741
+msgid "Basic Display (default)"
+msgstr "Temel Görünüm (varsayılan)"
+
+#: app/Strings.php:742
+msgid "Enable Column-Specific Search"
+msgstr "Sütuna Özel Aramayı Etkinleştir"
+
+#: app/Strings.php:744
+msgid "Table will show by default and work accordingly. Nothing special here"
+msgstr ""
+"Tablo varsayılan olarak gösterilecek ve buna göre çalışacaktır. Burada özel "
+"bir şey yok"
+
+#: app/Strings.php:745 app/Strings.php:1017
+msgid ""
+"Turn your table into a powerful search-engine! Visitors will initially see a "
+"search box instead of the table. Based on their input, they will receive "
+"filtered data in a streamlined table view. Ideal for searching both broad "
+"and specific ranges of information from your Google Sheets (e.g., student "
+"records, employee info, etc.)."
+msgstr ""
+"Tablonuzu güçlü bir arama motoruna dönüştürün! Ziyaretçiler önce tablo "
+"yerine bir arama kutusu görecekler. Girdilerine göre, düzenli bir tablo "
+"görünümünde filtrelenmiş veri alacaklardır. Google Sheets'inizden hem geniş "
+"hem de belirli bilgi aralıklarını aramak için idealdir (örn. öğrenci "
+"kayıtları, çalışan bilgileri vb.)."
+
+#: app/Strings.php:747
+msgid "Search-Only Display"
+msgstr "Yalnızca Arama Görünümü"
+
+#: app/Strings.php:748
+msgid "User-Specific Display"
+msgstr "Kullanıcıya Özel Görünüm"
+
+#: app/Strings.php:749
+msgid "Upcoming"
+msgstr "Yakında"
+
+#: app/Strings.php:750
+msgid ""
+"Enhance personalization with this mode. It allows the table to be displayed "
+"only to the logged-in users based on their credentials or unique data (e.g., "
+"username or email) stored in the Google Sheets. There will be no search box, "
+"preventing anyone from searching other users' data."
+msgstr ""
+"Bu mod ile kişiselleştirmeyi artırın. Tablonun yalnızca giriş yapmış "
+"kullanıcılara, kimlik bilgilerine veya Google Sheets'te saklanan benzersiz "
+"verilerine (örn. kullanıcı adı veya e-posta) göre görüntülenmesini sağlar. "
+"Arama kutusu olmayacağından, kimse diğer kullanıcıların verilerini arayamaz."
+
+#: app/Strings.php:752
+msgid ""
+"This mode adds an extra layer of security to your data. The table is "
+"protected by a password or PIN, ensuring that only authorized users can "
+"unlock and see the table information."
+msgstr ""
+"Bu mod verilerinize ekstra bir güvenlik katmanı ekler. Tablo bir parola veya "
+"PIN ile korunur, böylece yalnızca yetkili kullanıcılar tablo bilgilerinin "
+"kilidini açıp görebilir."
+
+#: app/Strings.php:754
+msgid "Protected View"
+msgstr "Korumalı Görünüm"
+
+#: app/Strings.php:755
+msgid "Loading headers..."
+msgstr "Başlıklar yükleniyor..."
+
+#: app/Strings.php:756
+msgid "Choose Search-Result Trigger Option"
+msgstr "Arama Sonucu Tetikleme Seçeneğini Seçin"
+
+#: app/Strings.php:757
+msgid "Show search result once Typing"
+msgstr "Yazarken arama sonucunu göster"
+
+#: app/Strings.php:758
+msgid "Show search result after pressing Search button"
+msgstr "Ara düğmesine bastıktan sonra arama sonucunu göster"
+
+#: app/Strings.php:759
+msgid ""
+"Select a column to search within its data. Results will only show matches "
+"from the selected column. If no column is selected, the search will apply to "
+"all data in the Google Sheet."
+msgstr ""
+"Verileri içinde aramak için bir sütun seçin. Sonuçlar yalnızca seçilen "
+"sütundaki eşleşmeleri gösterecektir. Sütun seçilmezse, arama Google "
+"Sheet'teki tüm verilere uygulanacaktır."
+
+#: app/Strings.php:761
+msgid "Unable to access the Sheet! Please follow the instructions below:"
+msgstr "Tabloya erişilemiyor! Lütfen aşağıdaki talimatları izleyin:"
+
+#: app/Strings.php:762
+msgid "On your Google Sheet, click on the"
+msgstr "Google Sheet'inizde"
+
+#: app/Strings.php:763
+msgid "button located at the top-right corner. Then on the popup, choose the"
+msgstr "düğmesine tıklayın (sağ üst köşede). Ardından açılan pencerede"
+
+#: app/Strings.php:764
+msgid "Anyone with the link"
+msgstr "Bağlantıya sahip olan herkes"
+
+#: app/Strings.php:765
+msgid "option under General access"
+msgstr "seçeneğini Genel erişim altında seçin"
+
+#: app/Strings.php:766
+msgid "Click on the"
+msgstr "Tıklayın"
+
+#: app/Strings.php:767
+msgid "icon on the popup and ensure that the option"
+msgstr "simgesine açılan pencerede ve şu seçeneğin"
+
+#: app/Strings.php:768
+msgid "Viewers and commenters can see the option to download, print, and copy"
+msgstr ""
+"Görüntüleyenler ve yorum yapanlar indirme, yazdırma ve kopyalama seçeneğini "
+"görebilir"
+
+#: app/Strings.php:769
+msgid "is selected"
+msgstr "seçildiğinden emin olun"
+
+#: app/Strings.php:770
+msgid "Share"
+msgstr "Paylaş"
+
+#: app/Strings.php:771
+msgid "Save the changes by clicking on the"
+msgstr "Değişiklikleri kaydetmek için"
+
+#: app/Strings.php:772
+msgid "Done"
+msgstr "Bitti"
+
+#: app/Strings.php:773
+msgid "button"
+msgstr "düğmesine tıklayın"
+
+#: app/Strings.php:774
+msgid "General"
+msgstr "Genel"
+
+#: app/Strings.php:775
+msgid "seconds"
+msgstr "saniye"
+
+#: app/Strings.php:776
+msgid "Let’s make your first table"
+msgstr "İlk tablonuzu oluşturalım"
+
+#: app/Strings.php:777
+msgid ""
+"Let us help you with your first table creation. You are just a step away "
+"from creating beautiful tables from your Google Sheets"
+msgstr ""
+"İlk tablo oluşturmanızda size yardımcı olalım. Google Sheets'inizden güzel "
+"tablolar oluşturmaya sadece bir adım uzaklıktasınız"
+
+#: app/Strings.php:779
+msgid "Day "
+msgstr "Gün "
+
+#: app/Strings.php:780
+msgid "Response Timeout: "
+msgstr "Yanıt Zaman Aşımı: "
+
+#: app/Strings.php:781
+msgid "Timestamp: "
+msgstr "Zaman Damgası: "
+
+#: app/Strings.php:782
+msgid "Choose the maximum response timeout the table need to wait"
+msgstr "Tablonun beklemesi gereken maksimum yanıt zaman aşımını seçin"
+
+#: app/Strings.php:783
+msgid "Choose the maximum day to store the cache"
+msgstr "Önbelleğin saklanacağı maksimum gün sayısını seçin"
+
+#: app/Strings.php:784
+msgid "the table"
+msgstr "tablo"
+
+#: app/Strings.php:785
+msgid "Copy shortcode"
+msgstr "Kısa kodu kopyala"
+
+#: app/Strings.php:786
+msgid "Edit table"
+msgstr "Tabloyu düzenle"
+
+#: app/Strings.php:787
+msgid "Duplicate table"
+msgstr "Tabloyu çoğalt"
+
+#: app/Strings.php:788
+msgid "Delete table"
+msgstr "Tabloyu sil"
+
+#: app/Strings.php:789
+msgid "Name already used, please use another name for theme"
+msgstr "İsim zaten kullanılıyor, lütfen tema için başka bir isim kullanın"
+
+#: app/Strings.php:790
+msgid "Name field can not be empty"
+msgstr "İsim alanı boş bırakılamaz"
+
+#: app/Strings.php:796
+msgid "AI Table Summary Configuration"
+msgstr "AI Tablo Özeti Yapılandırması"
+
+#: app/Strings.php:797
+msgid "Configure OpenAI integration for intelligent table summaries"
+msgstr "Akıllı tablo özetleri için OpenAI entegrasyonunu yapılandırın"
+
+#: app/Strings.php:800
+msgid "Engine (AI Provider)"
+msgstr "Motor (AI Sağlayıcı)"
+
+#: app/Strings.php:801
+msgid ""
+"Select the AI engine that will generate summaries and answer user queries."
+msgstr ""
+"Özetler oluşturacak ve kullanıcı sorgularını yanıtlayacak AI motorunu seçin."
+
+#: app/Strings.php:802 app/Strings.php:864
+msgid "Select your preferred AI provider for generating table summaries"
+msgstr "Tablo özetleri oluşturmak için tercih ettiğiniz AI sağlayıcıyı seçin"
+
+#: app/Strings.php:803 app/Strings.php:865
+msgid "OpenAI GPT models - industry leading AI with excellent performance"
+msgstr "OpenAI GPT modelleri - mükemmel performansa sahip sektör lideri AI"
+
+#: app/Strings.php:804 app/Strings.php:866
+msgid "Google Gemini models - fast and efficient AI by Google"
+msgstr "Google Gemini modelleri - Google'ın hızlı ve verimli AI'sı"
+
+#: app/Strings.php:805 app/Strings.php:867
+msgid "Checking..."
+msgstr "Kontrol ediliyor..."
+
+#: app/Strings.php:809 app/Strings.php:871
+msgid ""
+"Controls diversity via nucleus sampling. Lower values make output more "
+"focused."
+msgstr ""
+"Nucleus örneklemesi yoluyla çeşitliliği kontrol eder. Düşük değerler çıktıyı "
+"daha odaklı yapar."
+
+#: app/Strings.php:811 app/Strings.php:873
+msgid ""
+"Limits token selection to top K candidates. Lower values are more focused."
+msgstr "Token seçimini en iyi K adaya sınırlar. Düşük değerler daha odaklıdır."
+
+#: app/Strings.php:812 app/Strings.php:874
+msgid "Precise"
+msgstr "Hassas"
+
+#: app/Strings.php:813 app/Strings.php:875
+msgid "Diverse"
+msgstr "Çeşitli"
+
+#: app/Strings.php:814 app/Strings.php:876
+msgid "Broad"
+msgstr "Geniş"
+
+#: app/Strings.php:818
+msgid "Your OpenAI API key. Get one from https://platform.openai.com/api-keys"
+msgstr ""
+"OpenAI API anahtarınız. https://platform.openai.com/api-keys adresinden "
+"edinin"
+
+#: app/Strings.php:819
+msgid "Test API"
+msgstr "API'yi Test Et"
+
+#: app/Strings.php:822
+msgid "AI Model"
+msgstr "AI Modeli"
+
+#: app/Strings.php:823
+msgid ""
+"Choose the OpenAI model for generating summaries. gpt-4o-mini is fast and "
+"cost-effective, gpt-4 is more accurate."
+msgstr ""
+"Özet oluşturmak için OpenAI modelini seçin. gpt-4o-mini hızlı ve uygun "
+"maliyetli, gpt-4 daha doğrudur."
+
+#: app/Strings.php:824
+msgid "GPT-4o Mini"
+msgstr "GPT-4o Mini"
+
+#: app/Strings.php:825
+msgid "GPT-3.5 Turbo"
+msgstr "GPT-3.5 Turbo"
+
+#: app/Strings.php:826
+msgid "GPT-4"
+msgstr "GPT-4"
+
+#: app/Strings.php:827
+msgid "GPT-4 Turbo"
+msgstr "GPT-4 Turbo"
+
+#: app/Strings.php:832
+msgid ""
+"Maximum number of tokens for AI response. Higher values allow longer "
+"summaries but cost more."
+msgstr ""
+"AI yanıtı için maksimum token sayısı. Yüksek değerler daha uzun özetlere "
+"izin verir ancak daha maliyetlidir."
+
+#: app/Strings.php:833
+msgid "100 (Short)"
+msgstr "100 (Kısa)"
+
+#: app/Strings.php:834
+msgid "2000 (Long)"
+msgstr "2000 (Uzun)"
+
+#: app/Strings.php:838
+msgid ""
+"Controls randomness in AI responses. Lower values (0.1-0.3) are more "
+"focused, higher values (0.7-1.0) are more creative."
+msgstr ""
+"AI yanıtlarında rastgeleliği kontrol eder. Düşük değerler (0.1-0.3) daha "
+"odaklı, yüksek değerler (0.7-1.0) daha yaratıcıdır."
+
+#: app/Strings.php:839
+msgid "0 (Focused)"
+msgstr "0 (Odaklı)"
+
+#: app/Strings.php:840
+msgid "1 (Creative)"
+msgstr "1 (Yaratıcı)"
+
+#: app/Strings.php:844
+msgid ""
+"Reduces repetition in AI responses. Higher values (0.3-1.0) discourage "
+"repetitive text."
+msgstr ""
+"AI yanıtlarında tekrarı azaltır. Yüksek değerler (0.3-1.0) tekrarlayan metni "
+"engeller."
+
+#: app/Strings.php:845
+msgid "0 (Allow Repetition)"
+msgstr "0 (Tekrara İzin Ver)"
+
+#: app/Strings.php:846
+msgid "1 (Avoid Repetition)"
+msgstr "1 (Tekrardan Kaçın)"
+
+#: app/Strings.php:849
+msgid "Cache Duration"
+msgstr "Önbellek Süresi"
+
+#: app/Strings.php:850
+msgid "Duration:"
+msgstr "Süre:"
+
+#: app/Strings.php:851
+msgid "How long to cache AI responses before making new API calls."
+msgstr ""
+"Yeni API çağrıları yapmadan önce AI yanıtlarının ne kadar süre önbelleğe "
+"alınacağı."
+
+#: app/Strings.php:852
+msgid "30 minutes"
+msgstr "30 dakika"
+
+#: app/Strings.php:853
+msgid "1 hour"
+msgstr "1 saat"
+
+#: app/Strings.php:854
+msgid "2 hours"
+msgstr "2 saat"
+
+#: app/Strings.php:855
+msgid "6 hours"
+msgstr "6 saat"
+
+#: app/Strings.php:856
+msgid "12 hours"
+msgstr "12 saat"
+
+#: app/Strings.php:857
+msgid "24 hours"
+msgstr "24 saat"
+
+#: app/Strings.php:860
+msgid "Advanced Settings"
+msgstr "Gelişmiş Ayarlar"
+
+#: app/Strings.php:861
+msgid ""
+"Configure advanced AI model parameters for fine-tuned control over response "
+"generation."
+msgstr ""
+"Yanıt oluşturma üzerinde ince ayarlı kontrol için gelişmiş AI model "
+"parametrelerini yapılandırın."
+
+#: app/Strings.php:879
+msgid ""
+"Choose the AI model that best fits your needs. Different models have varying "
+"capabilities and costs."
+msgstr ""
+"İhtiyaçlarınıza en uygun AI modelini seçin. Farklı modellerin farklı "
+"yetenekleri ve maliyetleri vardır."
+
+#: app/Strings.php:882
+msgid "Enable AI Table Summary"
+msgstr "AI Tablo Özetini Etkinleştir"
+
+#: app/Strings.php:885 app/Strings.php:934
+msgid "Preview"
+msgstr "Önizleme"
+
+#: app/Strings.php:887
+msgid "Summary Position"
+msgstr "Özet Konumu"
+
+#: app/Strings.php:888
+msgid "Above Table"
+msgstr "Tablonun Üstünde"
+
+#: app/Strings.php:889
+msgid "Below Table"
+msgstr "Tablonun Altında"
+
+#: app/Strings.php:890
+msgid "Choose whether to display the summary above or below the table"
+msgstr "Özetin tablonun üstünde mi altında mı görüntüleneceğini seçin"
+
+#: app/Strings.php:891
+msgid ""
+"Select the position where the AI Table Summary should be displayed relative "
+"to the table."
+msgstr ""
+"AI Tablo Özetinin tabloya göre nerede görüntülenmesi gerektiğini seçin."
+
+#: app/Strings.php:893
+msgid "min"
+msgstr "dk"
+
+#: app/Strings.php:894
+msgid "Cache time:"
+msgstr "Önbellek süresi:"
+
+#: app/Strings.php:895
+msgid "Cache summary for faster loading"
+msgstr "Daha hızlı yükleme için özeti önbelleğe al"
+
+#: app/Strings.php:896 app/Strings.php:936
+msgid ""
+"Decide where the AI Table Summary will be displayed in relation to your "
+"table."
+msgstr "AI Tablo Özetinin tablonuza göre nerede görüntüleneceğine karar verin."
+
+#: app/Strings.php:898
+msgid "Instant Summary"
+msgstr "Anında Özet"
+
+#: app/Strings.php:900
+msgid "Prompt for Summary"
+msgstr "Özet için Yönerge"
+
+#: app/Strings.php:901
+msgid ""
+"You will generate and save the summary in advance. Visitors will see it "
+"instantly with no delay."
+msgstr ""
+"Özeti önceden oluşturup kaydedeceksiniz. Ziyaretçiler onu gecikmesiz anında "
+"görecekler."
+
+#: app/Strings.php:902
+msgid ""
+"Enable to reuse the same summary to reduce load time. Turn off to generate a "
+"fresh summary each time."
+msgstr ""
+"Yükleme süresini azaltmak için aynı özeti yeniden kullanmak için "
+"etkinleştirin. Her seferinde yeni bir özet oluşturmak için kapatın."
+
+#: app/Strings.php:903
+msgid ""
+"Write the prompt that AI will follow to generate the summary. Visitors "
+"trigger this when they click the summary button."
+msgstr ""
+"AI'nın özeti oluşturmak için takip edeceği yönergeyi yazın. Ziyaretçiler "
+"özet düğmesine tıkladıklarında bunu tetiklerler."
+
+#: app/Strings.php:906
+msgid "Show regenerate button in summary modal"
+msgstr "Özet penceresinde yeniden oluştur düğmesini göster"
+
+#: app/Strings.php:907
+msgid ""
+"Allow visitors to regenerate the AI Table Summary with fresh data by "
+"clicking the regenerate button."
+msgstr ""
+"Ziyaretçilerin yeniden oluştur düğmesine tıklayarak AI Tablo Özetini yeni "
+"verilerle yeniden oluşturmasına izin verin."
+
+#: app/Strings.php:910
+msgid "Always Show"
+msgstr "Her Zaman Göster"
+
+#: app/Strings.php:911 app/Strings.php:925
+msgid "Collapsed (click to expand)"
+msgstr "Daraltılmış (genişletmek için tıklayın)"
+
+#: app/Strings.php:912
+msgid ""
+"Choose how the summary appears to visitors - always visible or collapsed "
+"with click to expand"
+msgstr ""
+"Özetin ziyaretçilere nasıl görüneceğini seçin - her zaman görünür veya "
+"genişletmek için tıklama ile daraltılmış"
+
+#: app/Strings.php:913
+msgid ""
+"Select how the AI Table Summary should be displayed to your visitors on the "
+"frontend."
+msgstr ""
+"AI Tablo Özetinin ön yüzde ziyaretçilerinize nasıl görüntülenmesi "
+"gerektiğini seçin."
+
+#: app/Strings.php:916
+msgid "Ask AI Placeholder Text"
+msgstr "AI'ya Sor Yer Tutucu Metni"
+
+#: app/Strings.php:917
+msgid "Ask AI Button Label"
+msgstr "AI'ya Sor Düğme Etiketi"
+
+#: app/Strings.php:918
+msgid "Customize the placeholder text shown in the AI prompt input field"
+msgstr "AI yönerge giriş alanında gösterilen yer tutucu metnini özelleştirin"
+
+#: app/Strings.php:919
+msgid "Customize the text displayed on the AI prompt submit button"
+msgstr "AI yönerge gönder düğmesinde görüntülenen metni özelleştirin"
+
+#: app/Strings.php:922
+msgid "Summary Display"
+msgstr "Özet Görünümü"
+
+#: app/Strings.php:923
+msgid ""
+"Decide if visitors see the summary right away or only when they expand it."
+msgstr ""
+"Ziyaretçilerin özeti hemen mi yoksa yalnızca genişlettiklerinde mi "
+"göreceğine karar verin."
+
+#: app/Strings.php:924
+msgid "Always show"
+msgstr "Her zaman göster"
+
+#: app/Strings.php:926
+msgid "AI Table Summary Preview"
+msgstr "AI Tablo Özeti Önizlemesi"
+
+#: app/Strings.php:927
+msgid ""
+"Review the generated summary. This what your visitors will see. Edit and "
+"save to finalize."
+msgstr ""
+"Oluşturulan özeti inceleyin. Ziyaretçileriniz bunu görecek. Düzenleyin ve "
+"kaydedin."
+
+#: app/Strings.php:928
+msgid "Ready to create your first summary?"
+msgstr "İlk özetinizi oluşturmaya hazır mısınız?"
+
+#: app/Strings.php:929
+msgid "Add a prompt and click Generate to create one."
+msgstr "Bir yönerge ekleyin ve oluşturmak için Oluştur'a tıklayın."
+
+#: app/Strings.php:930
+msgid "Placeholder text"
+msgstr "Yer tutucu metin"
+
+#: app/Strings.php:931
+msgid "What visitors see before typing"
+msgstr "Ziyaretçilerin yazmadan önce gördüğü"
+
+#: app/Strings.php:932
+msgid "Button label"
+msgstr "Düğme etiketi"
+
+#: app/Strings.php:933
+msgid "Text on your Ask AI button"
+msgstr "AI'ya Sor düğmenizin metni"
+
+#: app/Strings.php:935
+msgid "Turn on AI to create summaries of your table data."
+msgstr "Tablo verilerinizin özetlerini oluşturmak için AI'yı açın."
+
+#: app/Strings.php:937
+msgid ""
+"Customize the text and colors of the summary button to match your site style."
+msgstr ""
+"Site stilinize uyması için özet düğmesinin metin ve renklerini özelleştirin."
+
+#: app/Strings.php:938
+msgid "Summary Button"
+msgstr "Özet Düğmesi"
+
+#: app/Strings.php:939
+msgid "Reset prompt"
+msgstr "Yönergeyi sıfırla"
+
+#: app/Strings.php:941
+msgid "Tutorial"
+msgstr "Eğitim"
+
+#: app/Strings.php:942
+msgid "Summary Source"
+msgstr "Özet Kaynağı"
+
+#: app/Strings.php:943
+msgid ""
+"Visitors will see a button to summarize the table. When they click, AI will "
+"create the summary live using your prompt."
+msgstr ""
+"Ziyaretçiler tabloyu özetlemek için bir düğme görecekler. Tıkladıklarında, "
+"AI yönergenizi kullanarak özeti canlı olarak oluşturacak."
+
+#: app/Strings.php:944
+msgid "Generate on Click"
+msgstr "Tıklamada Oluştur"
+
+#: app/Strings.php:945
+msgid "Button text"
+msgstr "Düğme metni"
+
+#: app/Strings.php:946
+msgid "Upcomming"
+msgstr "Yakında"
+
+#: app/Strings.php:947
+msgid "Allow visitors to ask their own questions about this table."
+msgstr ""
+"Ziyaretçilerin bu tablo hakkında kendi sorularını sormasına izin verin."
+
+#: app/Strings.php:948
+msgid "Enable Ask AI"
+msgstr "AI'ya Sor'u Etkinleştir"
+
+#: app/Strings.php:949
+msgid "AI is analyzing your table..."
+msgstr "AI tablonuzu analiz ediyor..."
+
+#: app/Strings.php:951
+msgid "Save Summary"
+msgstr "Özeti Kaydet"
+
+#: app/Strings.php:952 app/Strings.php:972
+msgid "Update Summary"
+msgstr "Özeti Güncelle"
+
+#: app/Strings.php:955
+msgid "Current Stored Summary"
+msgstr "Mevcut Kayıtlı Özet"
+
+#: app/Strings.php:956
+msgid ""
+"This is exactly how the summary will appear on your frontend table. Click "
+"'Edit Summary' above to modify it."
+msgstr ""
+"Özet tam olarak ön yüz tablonuzda böyle görünecek. Değiştirmek için "
+"yukarıdaki \"Özeti Düzenle\"ye tıklayın."
+
+#: app/Strings.php:957 app/Strings.php:967
+msgid "Summary Content"
+msgstr "Özet İçeriği"
+
+#: app/Strings.php:958
+msgid "Generated AI Table Summary will appear here..."
+msgstr "Oluşturulan AI Tablo Özeti burada görünecek..."
+
+#: app/Strings.php:960
+msgid ""
+"No summary has been generated yet. Click \"Generate Summary\" to create one."
+msgstr ""
+"Henüz özet oluşturulmadı. Bir tane oluşturmak için \"Özet Oluştur\"a "
+"tıklayın."
+
+#: app/Strings.php:961
+msgid "Last updated"
+msgstr "Son güncelleme"
+
+#: app/Strings.php:962
+msgid "Keep it"
+msgstr "Koru"
+
+#: app/Strings.php:964
+msgid "Are you sure you want to delete this summary?"
+msgstr "Bu özeti silmek istediğinizden emin misiniz?"
+
+#: app/Strings.php:966
+msgid ""
+"Edit and modify the AI-generated summary content before saving it to the "
+"database."
+msgstr ""
+"Veritabanına kaydetmeden önce AI tarafından oluşturulan özet içeriğini "
+"düzenleyin ve değiştirin."
+
+#: app/Strings.php:968
+msgid "Enter or edit the summary content here..."
+msgstr "Özet içeriğini buraya girin veya düzenleyin..."
+
+#: app/Strings.php:969
+msgid "Regenerate Summary"
+msgstr "Özeti Yeniden Oluştur"
+
+#: app/Strings.php:970
+msgid "Regenerating..."
+msgstr "Yeniden oluşturuluyor..."
+
+#: app/Strings.php:971
+msgid "Generate a new AI Table Summary and replace the current content."
+msgstr "Yeni bir AI Tablo Özeti oluşturun ve mevcut içeriği değiştirin."
+
+#: app/Strings.php:974
+msgid "AI Configuration"
+msgstr "AI Yapılandırması"
+
+#: app/Strings.php:977
+msgid "AI provider not configured. Please add your API key in settings."
+msgstr ""
+"AI sağlayıcı yapılandırılmamış. Lütfen ayarlarda API anahtarınızı ekleyin."
+
+#: app/Strings.php:978
+msgid "Configure AI Settings"
+msgstr "AI Ayarlarını Yapılandır"
+
+#: app/Strings.php:980
+msgid "Are you sure to delete the summary? "
+msgstr "Özeti silmek istediğinizden emin misiniz? "
+
+#: app/Strings.php:981
+msgid "You are about to delete the summary. This action cannot be undone."
+msgstr "Özeti silmek üzeresiniz. Bu işlem geri alınamaz."
+
+#: app/Strings.php:983
+msgid "AI Summary Preview"
+msgstr "AI Özet Önizlemesi"
+
+#: app/Strings.php:984
+msgid "AI Summary Editor"
+msgstr "AI Özet Düzenleyici"
+
+#: app/Strings.php:985
+msgid "• List"
+msgstr "• Liste"
+
+#: app/Strings.php:986
+msgid "1. List"
+msgstr "1. Liste"
+
+#: app/Strings.php:987
+msgid "Section Heading"
+msgstr "Bölüm Başlığı"
+
+#: app/Strings.php:988
+msgid "Customize the main heading text for the Ask AI section"
+msgstr "AI'ya Sor bölümü için ana başlık metnini özelleştirin"
+
+#: app/Strings.php:989
+msgid "Ask AI Interface"
+msgstr "AI'ya Sor Arayüzü"
+
+#: app/Strings.php:990
+msgid "Enter your question and get AI-powered insights about the table data"
+msgstr "Sorunuzu girin ve tablo verileri hakkında AI destekli bilgiler alın"
+
+#: app/Strings.php:991
+msgid "Summary Title"
+msgstr "Özet Başlığı"
+
+#: app/Strings.php:992
+msgid "quick video"
+msgstr "hızlı video"
+
+#: app/Strings.php:994
+msgid "OpenAI (GPT)"
+msgstr "OpenAI (GPT)"
+
+#: app/Strings.php:995
+msgid "Google Gemini"
+msgstr "Google Gemini"
+
+#: app/Strings.php:996
+msgid "API Key"
+msgstr "API Anahtarı"
+
+#: app/Strings.php:997
+msgid "Get API Key"
+msgstr "API Anahtarı Al"
+
+#: app/Strings.php:998
+msgid "Get your API key from your provider dashboard"
+msgstr "API anahtarınızı sağlayıcı kontrol panelinizden alın"
+
+#: app/Strings.php:999
+msgid "and paste it here. Your key is stored securely and never shared."
+msgstr ""
+"ve buraya yapıştırın. Anahtarınız güvenli bir şekilde saklanır ve asla "
+"paylaşılmaz."
+
+#: app/Strings.php:1000
+msgid "ChatGPT"
+msgstr "ChatGPT"
+
+#: app/Strings.php:1001
+msgid "Google AI Studio"
+msgstr "Google AI Studio"
+
+#: app/Strings.php:1002
+msgid "Model Version"
+msgstr "Model Sürümü"
+
+#: app/Strings.php:1007
+msgid "Update Filter"
+msgstr "Filtreyi Güncelle"
+
+#: app/Strings.php:1008
+msgid "Add Filter"
+msgstr "Filtre Ekle"
+
+#: app/Strings.php:1009
+msgid "Advanced column filtering with search, select, and multi-select options"
+msgstr "Arama, seçim ve çoklu seçim seçenekleriyle gelişmiş sütun filtreleme"
+
+#: app/Strings.php:1012
+msgid "Basic Display"
+msgstr "Temel Görünüm"
+
+#: app/Strings.php:1013
+msgid "Search Only Display"
+msgstr "Yalnızca Arama Görünümü"
+
+#: app/Strings.php:1014
+msgid "Filter Wise Display"
+msgstr "Filtre Bazlı Görünüm"
+
+#: app/Strings.php:1020
+msgid "Global Filter Settings"
+msgstr "Genel Filtre Ayarları"
+
+#: app/Strings.php:1021
+msgid "Enable Table Filters"
+msgstr "Tablo Filtrelerini Etkinleştir"
+
+#: app/Strings.php:1022
+msgid "Select Primary Filter Type"
+msgstr "Birincil Filtre Türünü Seçin"
+
+#: app/Strings.php:1023
+msgid "Text Search"
+msgstr "Metin Arama"
+
+#: app/Strings.php:1024
+msgid "Single Select"
+msgstr "Tek Seçim"
+
+#: app/Strings.php:1025
+msgid "Multi Select"
+msgstr "Çoklu Seçim"
+
+#: app/Strings.php:1026
+msgid "Mixed Filters (All Types)"
+msgstr "Karışık Filtreler (Tüm Türler)"
+
+#: app/Strings.php:1029
+msgid "Filter Position"
+msgstr "Filtre Konumu"
+
+#: app/Strings.php:1030
+msgid "Header"
+msgstr "Başlık"
+
+#: app/Strings.php:1031
+msgid "Footer"
+msgstr "Alt Bilgi"
+
+#: app/Strings.php:1034
+msgid "Strict Mode"
+msgstr "Katı Mod"
+
+#: app/Strings.php:1035
+msgid "Hide Filter UI"
+msgstr "Filtre Arayüzünü Gizle"
+
+#: app/Strings.php:1036
+msgid "Auto-Enable Filters for All Columns"
+msgstr "Tüm Sütunlar için Filtreleri Otomatik Etkinleştir"
+
+#: app/Strings.php:1037
+msgid "Load Default Filter Values"
+msgstr "Varsayılan Filtre Değerlerini Yükle"
+
+#: app/Strings.php:1040
+msgid "Column-Specific Filter Configuration"
+msgstr "Sütuna Özel Filtre Yapılandırması"
+
+#: app/Strings.php:1041
+msgid "Auto-Enable Mode"
+msgstr "Otomatik Etkinleştirme Modu"
+
+#: app/Strings.php:1042
+msgid ""
+"All columns automatically have filters using the global settings above.  Add "
+"specific columns below to customize their individual settings, or disable "
+"'Auto-Enable Filters for All Columns' to only show filters for manually "
+"added columns."
+msgstr ""
+"Tüm sütunlar yukarıdaki genel ayarları kullanarak otomatik olarak filtrelere "
+"sahiptir. Bireysel ayarlarını özelleştirmek için aşağıya belirli sütunlar "
+"ekleyin veya yalnızca manuel olarak eklenen sütunlar için filtreleri "
+"göstermek üzere 'Tüm Sütunlar için Filtreleri Otomatik Etkinleştir'i devre "
+"dışı bırakın."
+
+#: app/Strings.php:1043
+msgid "Manual Mode"
+msgstr "Manuel Mod"
+
+#: app/Strings.php:1044
+msgid ""
+"Only columns added below will have filters. Enable 'Auto-Enable Filters for "
+"All Columns' above to automatically show filters for all columns."
+msgstr ""
+"Yalnızca aşağıya eklenen sütunlar filtrelere sahip olacaktır. Tüm sütunlar "
+"için filtreleri otomatik olarak göstermek üzere yukarıdaki 'Tüm Sütunlar "
+"için Filtreleri Otomatik Etkinleştir'i etkinleştirin."
+
+#: app/Strings.php:1046
+msgid "Add Column Filter"
+msgstr "Sütun Filtresi Ekle"
+
+#: app/Strings.php:1047
+msgid "Edit Column Filter"
+msgstr "Sütun Filtresini Düzenle"
+
+#: app/Strings.php:1049
+msgid "Add columns here to override their global settings"
+msgstr "Genel ayarlarını geçersiz kılmak için buraya sütunlar ekleyin"
+
+#: app/Strings.php:1050
+msgid ""
+"No column filters configured. Click \"Add Column Filter\" to get started."
+msgstr ""
+"Sütun filtresi yapılandırılmamış. Başlamak için \"Sütun Filtresi Ekle\"ye "
+"tıklayın."
+
+#: app/Strings.php:1053
+msgid "Filter Type"
+msgstr "Filtre Türü"
+
+#: app/Strings.php:1054
+msgid "Target Column"
+msgstr "Hedef Sütun"
+
+#: app/Strings.php:1055
+msgid "Column"
+msgstr "Sütun"
+
+#: app/Strings.php:1056
+msgid "Default Value"
+msgstr "Varsayılan Değer"
+
+#: app/Strings.php:1057
+msgid "Filter Active"
+msgstr "Filtre Aktif"
+
+#: app/Strings.php:1058
+msgid ""
+"Whether this filter is applied to the table - if unchecked, filter is "
+"completely disabled"
+msgstr ""
+"Bu filtrenin tabloya uygulanıp uygulanmadığı - işaretlenmezse, filtre "
+"tamamen devre dışı bırakılır"
+
+#: app/Strings.php:1059
+msgid "User Can Modify"
+msgstr "Kullanıcı Değiştirebilir"
+
+#: app/Strings.php:1060
+msgid ""
+"Allow users to change filter values - if unchecked, filter becomes readonly"
+msgstr ""
+"Kullanıcıların filtre değerlerini değiştirmesine izin verin - "
+"işaretlenmezse, filtre salt okunur olur"
+
+#: app/Strings.php:1061 app/Strings.php:1088
+msgid "Hide This Filter UI"
+msgstr "Bu Filtre Arayüzünü Gizle"
+
+#: app/Strings.php:1062
+msgid "Hide this specific filter UI but keep it working in background"
+msgstr ""
+"Bu belirli filtre arayüzünü gizleyin ancak arka planda çalışmaya devam etsin"
+
+#: app/Strings.php:1064
+msgid "Strict Mode Override"
+msgstr "Katı Mod Geçersiz Kılma"
+
+#: app/Strings.php:1065
+msgid "Use Global Setting"
+msgstr "Genel Ayarı Kullan"
+
+#: app/Strings.php:1066
+msgid "Enable for this filter"
+msgstr "Bu filtre için etkinleştir"
+
+#: app/Strings.php:1067
+msgid "Disable for this filter"
+msgstr "Bu filtre için devre dışı bırak"
+
+#: app/Strings.php:1068
+msgid ""
+"Global: Follow the \"Strict Mode\" setting above. Enable/Disable: Override "
+"for this specific filter."
+msgstr ""
+"Genel: Yukarıdaki \"Katı Mod\" ayarını takip edin. Etkinleştir/Devre Dışı "
+"Bırak: Bu belirli filtre için geçersiz kılın."
+
+#: app/Strings.php:1071
+msgid "User-specific Display Settings"
+msgstr "Kullanıcıya Özel Görünüm Ayarları"
+
+#: app/Strings.php:1072
+msgid "Enable User-specific Display"
+msgstr "Kullanıcıya Özel Görünümü Etkinleştir"
+
+#: app/Strings.php:1073
+msgid "Strict Mode (Exact Matching)"
+msgstr "Katı Mod (Tam Eşleştirme)"
+
+#: app/Strings.php:1074
+msgid "Hide All User Filter UI"
+msgstr "Tüm Kullanıcı Filtresi Arayüzünü Gizle"
+
+#: app/Strings.php:1075
+msgid "User-Specific Filter Configuration"
+msgstr "Kullanıcıya Özel Filtre Yapılandırması"
+
+#: app/Strings.php:1076
+msgid "User-Based Filtering:"
+msgstr "Kullanıcı Bazlı Filtreleme:"
+
+#: app/Strings.php:1077
+msgid ""
+"Configure which columns should be filtered based on logged-in user data. "
+"Each filter will automatically use the user's information (email, username, "
+"roles, etc.) to show relevant rows."
+msgstr ""
+"Giriş yapmış kullanıcı verilerine göre hangi sütunların filtreleneceğini "
+"yapılandırın. Her filtre, ilgili satırları göstermek için kullanıcının "
+"bilgilerini (e-posta, kullanıcı adı, roller vb.) otomatik olarak "
+"kullanacaktır."
+
+#: app/Strings.php:1078
+msgid "Add User Filter"
+msgstr "Kullanıcı Filtresi Ekle"
+
+#: app/Strings.php:1079
+msgid "Configure columns to filter based on user data"
+msgstr "Kullanıcı verilerine göre filtrelenecek sütunları yapılandırın"
+
+#: app/Strings.php:1080
+msgid "User Fields"
+msgstr "Kullanıcı Alanları"
+
+#: app/Strings.php:1081
+msgid "Enabled"
+msgstr "Etkin"
+
+#: app/Strings.php:1082
+msgid "User Can Change"
+msgstr "Kullanıcı Değiştirebilir"
+
+#: app/Strings.php:1083
+msgid "No user filters configured. Click \"Add User Filter\" to get started."
+msgstr ""
+"Kullanıcı filtresi yapılandırılmamış. Başlamak için \"Kullanıcı Filtresi "
+"Ekle\"ye tıklayın."
+
+#: app/Strings.php:1084
+msgid "User Fields to Match (Multi-select)"
+msgstr "Eşleştirilecek Kullanıcı Alanları (Çoklu seçim)"
+
+#: app/Strings.php:1085
+msgid ""
+"Hold Ctrl/Cmd to select multiple fields. The filter will match if ANY of the "
+"selected fields match."
+msgstr ""
+"Birden fazla alan seçmek için Ctrl/Cmd tuşunu basılı tutun. Seçilen "
+"alanlardan HERHANGİ BİRİ eşleşirse filtre eşleşecektir."
+
+#: app/Strings.php:1086
+msgid ""
+"Whether this user-based filter is applied - if unchecked, filter is "
+"completely disabled"
+msgstr ""
+"Bu kullanıcı tabanlı filtrenin uygulanıp uygulanmadığı - işaretlenmezse, "
+"filtre tamamen devre dışı bırakılır"
+
+#: app/Strings.php:1087
+msgid "User Can Override"
+msgstr "Kullanıcı Geçersiz Kılabilir"
+
+#: app/Strings.php:1091
+msgid "Get Help with Table Creation"
+msgstr "1. Sekme Oluşturma"
+
+#: app/Strings.php:1092
+msgid ""
+"Create awesome tables from your Google Sheets. Just paste the link and see "
+"the magic"
+msgstr ""
+
+#: app/Strings.php:1095
+msgid "Get started with table creation"
+msgstr "Sekme gruplarıyla başlayın"
+
+#: app/Strings.php:1096
+msgid "Quick Video Tutorial"
+msgstr "Video Eğitimi"
+
+#: app/Strings.php:1097
+msgid "Read Documentation"
+msgstr "Dokümantasyon"
+
+#: app/Strings.php:1098 app/templates/parts/pro_fix_notice.php:42
+msgid "Close"
+msgstr "Kapat"
+
+#: app/Strings.php:1099
+msgid "Closing..."
+msgstr "Yükleniyor..."
+
+#: app/Strings.php:1102
+msgid "🤖 AI Table Summary"
+msgstr "AI Tablo Özetini Etkinleştir"
+
+#: app/Strings.php:1103
+msgid "Turn your data into quick and smart summary"
+msgstr "Verilerinizi hızlı ve akıllı özetlere dönüştürün"
+
+#: app/Strings.php:1104
+msgid "💬 Ask AI"
+msgstr "💬 Yapay Zekaya Sor"
+
+#: app/Strings.php:1105
+msgid "Lets visitors chat with your table data"
+msgstr "Ziyaretçilerin tablo verilerinizle sohbet etmesine olanak tanır"
+
+#: app/Strings.php:1106
+msgid "Connect AI to Unlock Features"
+msgstr "Özelliklerin Kilidini Açmak İçin Yapay Zekayı Bağlayın"
+
+#: app/Strings.php:1107
+msgid ""
+"Set up your preferred provider (like Gemini or OpenAI) to use these AI tools."
+msgstr ""
+"Bu yapay zeka araçlarını kullanmak için tercih ettiğiniz sağlayıcıyı (Gemini "
+"veya OpenAI gibi) ayarlayın."
+
+#: app/Strings.php:1108
+msgid "Setup AI Provider"
+msgstr "Yapay Zeka Sağlayıcısını Ayarla"
+
+#: app/Strings.php:1110
+msgid "💡 Not ready? No worries - you can enable AI anytime later."
+msgstr ""
+"💡 Hazır değil misiniz? Endişelenmeyin - yapay zekayı daha sonra istediğiniz "
+"zaman etkinleştirebilirsiniz."
+
+#: app/Strings.php:1113
+msgid "Table description holder. Enter your table description here."
+msgstr "Tablo açıklaması alanı. Tablo açıklamanızı buraya girin."
+
+#: app/Strings.php:1116
+msgid "Enter your table description"
+msgstr "Tablo açıklamasını girin"
+
+#: app/Strings.php:1117
+msgid "# # Insert custom CSS code here to modify looks and feel"
+msgstr ""
+"# # Görünümü ve hissiyatı değiştirmek için buraya özel CSS kodu ekleyin"
+
+#: app/Strings.php:1120
+msgid "Get started with your first table"
+msgstr "İlk tablonuzla başlayın"
+
+#: app/Strings.php:1121
+msgid "Let's create your first table from Google Sheets – it's as easy as pie!"
+msgstr "Google Sheets'ten ilk tablonuzu oluşturalım – çocuk oyuncağı!"
+
+#: app/Strings.php:1122
+msgid "Watch a quick tutorial"
+msgstr "Hızlı bir öğretici izleyin"
+
+#: app/Strings.php:1124
+msgid "Explore helpful resources"
+msgstr "Yardımcı kaynaklara göz atın"
+
+#: app/Strings.php:1125
+msgid "🎁 Get the pro version and unlock endless possibilities"
+msgstr "🎁 Pro sürümünü edinin ve sonsuz olasılıkların kilidini açın"
+
+#: app/Strings.php:1129
+msgid ""
+"Find comprehensive guides and step-by-step instructions to get the most out "
+"of FlexTable"
+msgstr ""
+"FlexTable'dan en iyi şekilde yararlanmak için kapsamlı kılavuzları ve adım "
+"adım talimatları bulun"
+
+#: app/Strings.php:1130
+msgid "Open Docs"
+msgstr "Dokümanları Aç"
+
+#: app/Strings.php:1132
+msgid "Video Tutorials"
+msgstr "Video Eğitimleri"
+
+#: app/Strings.php:1133
+msgid ""
+"Watch detailed video tutorials to learn FlexTable features and best practices"
+msgstr ""
+"FlexTable özelliklerini ve en iyi uygulamaları öğrenmek için detaylı video "
+"eğitimlerini izleyin"
+
+#: app/Strings.php:1134
+msgid "Watch Videos"
+msgstr "Videoları İzle"
+
+#: app/Strings.php:1136
+msgid "Get Support"
+msgstr "Destek Al"
+
+#: app/Strings.php:1137
+msgid ""
+"Need help? Our support team is ready to assist you with any questions or "
+"issues"
+msgstr ""
+"Yardıma mı ihtiyacınız var? Destek ekibimiz her türlü soru veya sorunda size "
+"yardımcı olmaya hazır"
+
+#: app/Strings.php:1138
+msgid "Contact Support"
+msgstr "Destekle İletişime Geç"
+
+#: app/Strings.php:1140
+msgid "Community Forum"
+msgstr "Topluluk Forumu"
+
+#: app/Strings.php:1141
+msgid ""
+"Join our community to share ideas, get tips, and connect with other "
+"FlexTable users"
+msgstr ""
+"Fikir paylaşmak, ipuçları almak ve diğer FlexTable kullanıcılarıyla bağlantı "
+"kurmak için topluluğumuza katılın"
+
+#: app/Strings.php:1142
+msgid "Join Forum"
+msgstr "Foruma Katıl"
+
+#: app/templates/create_tables.php:45 app/templates/edit_table.php:47
+msgid "Create New"
+msgstr "Yeni Oluştur"
+
+#: app/templates/create_tables.php:51 app/templates/edit_table.php:53
+msgid "Save Table"
+msgstr "Tabloyu Kaydet"
+
+#: app/templates/create_tables.php:51 app/templates/edit_table.php:53
+msgid "Fetch Data"
+msgstr "Veri Getir"
+
+#: app/templates/create_tables.php:79 app/templates/edit_table.php:80
+msgid "Data Source"
+msgstr "Veri Kaynağı"
+
+#: app/templates/create_tables.php:130 app/templates/edit_table.php:129
+msgid "Choose Source Type"
+msgstr "Kaynak Türünü Seçin"
+
+#: app/templates/create_tables.php:134 app/templates/edit_table.php:133
+msgid "Google Spreadsheet"
+msgstr "Google Tablosu"
+
+#: app/templates/documentation_page.php:31
+msgid "View Demo"
+msgstr "Demo'yu Görüntüle"
+
+#: app/templates/documentation_page.php:41
+msgid "Welcome to"
+msgstr "Hoş Geldiniz"
+
+#: app/templates/documentation_page.php:57
+msgid "Need more help ?"
+msgstr "Daha fazla yardıma mı ihtiyacınız var?"
+
+#: app/templates/documentation_page.php:58
+msgid ""
+"We provide professional support to all our users via our ticketing system."
+msgstr ""
+"Tüm kullanıcılarımıza destek talep sistemimiz aracılığıyla profesyonel "
+"destek sağlıyoruz."
+
+#: app/templates/documentation_page.php:59
+msgid "Get Help"
+msgstr "Yardım Alın"
+
+#: app/templates/documentation_page.php:73
+msgid "Get Pro ✨"
+msgstr "Pro Sürümü Edinin ✨"
+
+#: app/templates/documentation_page.php:86
+msgid ""
+"Responsive table. The plugin allows collapsing on mobile and tablet screens"
+msgstr ""
+"Duyarlı tablo. Eklenti mobil ve tablet ekranlarında daraltmaya izin verir"
+
+#: app/templates/documentation_page.php:94
+msgid ""
+"Data Caching feature cache the sheet data & therefore the table will load "
+"faster."
+msgstr ""
+"Veri Önbellekleme özelliği tablo verilerini önbelleğe alır ve böylece tablo "
+"daha hızlı yüklenir."
+
+#: app/templates/documentation_page.php:102
+msgid ""
+"Link Support to import links from sheet. All the URL's will be shown as link "
+"in table."
+msgstr ""
+"Tablodan bağlantıları içe aktarmak için Bağlantı Desteği. Tüm URL'ler "
+"tabloda bağlantı olarak gösterilecektir."
+
+#: app/templates/documentation_page.php:110
+msgid ""
+"Table Styles. Pre-built amazing table styles. Each styles is different from "
+"one another."
+msgstr ""
+"Tablo Stilleri. Önceden oluşturulmuş harika tablo stilleri. Her stil "
+"birbirinden farklıdır."
+
+#: app/templates/documentation_page.php:118
+msgid ""
+"Hide your google sheet table column on desktop screen OR mobile screens."
+msgstr ""
+"Google tablo sütununuzu masaüstü ekranında VEYA mobil ekranlarda gizleyin."
+
+#: app/templates/documentation_page.php:126
+msgid ""
+"Hide Row. Hide your google sheet table rows based on your custom row "
+"selection."
+msgstr ""
+"Satırı Gizle. Özel satır seçiminize göre google tablo satırlarınızı gizleyin."
+
+#: app/templates/documentation_page.php:134
+msgid "Unlimited Row Sync. Fetch unlimited rows from Google spreadsheet"
+msgstr ""
+"Sınırsız Satır Senkronizasyonu. Google tablosundan sınırsız satır getirin"
+
+#: app/templates/documentation_page.php:142
+msgid "And much more."
+msgstr "Ve çok daha fazlası."
+
+#: app/templates/documentation_page.php:143
+msgid "All Pro features"
+msgstr "Tüm Pro özellikleri"
+
+#: app/templates/documentation_page.php:150
+msgid "Buy Now"
+msgstr "Şimdi Satın Alın"
+
+#: app/templates/documentation_page.php:180
+msgid "Support Center"
+msgstr "Destek Merkezi"
+
+#: app/templates/general_settings.php:47
+msgid "General Settings"
+msgstr "Genel Ayarlar"
+
+#: app/templates/general_settings.php:52
+msgid "Save Changes"
+msgstr "Değişiklikleri Kaydet"
+
+#: app/templates/manage_tables.php:43
+msgid "Delete Selected"
+msgstr "Seçilenleri Sil"
+
+#: app/templates/manage_tables.php:49
+msgid "Clear Selection"
+msgstr "Seçimi Temizle"
+
+#: app/templates/manage_tables.php:72
+msgid "Create Table"
+msgstr "Tablo Oluştur"
+
+#: app/templates/manage_tables.php:79
+msgid "Delete Your Table"
+msgstr "Tablonuzu Silin"
+
+#: app/templates/manage_tables.php:86
+msgid "Yes"
+msgstr "Evet"
+
+#: app/templates/manage_tables.php:89
+msgid "No"
+msgstr "Hayır"
+
+#: app/templates/parts/affiliate_notice.php:23
+msgid "Hey! Enjoying the FlexTable plugin? 😍 Join our "
+msgstr "Hey! FlexTable eklentisinden keyif alıyor musunuz? 😍 Katılın "
+
+#: app/templates/parts/affiliate_notice.php:24
+msgid "Influencer Program "
+msgstr "Influencer Programımıza "
+
+#: app/templates/parts/affiliate_notice.php:25
+msgid "to make money from your social media content. You can also check our"
+msgstr ""
+"sosyal medya içeriğinizden para kazanmak için. Ayrıca kontrol edebilirsiniz"
+
+#: app/templates/parts/affiliate_notice.php:26
+msgid "Affiliate Program "
+msgstr "Ortaklık Programımızı "
+
+#: app/templates/parts/affiliate_notice.php:27
+msgid "to get a "
+msgstr "almak için "
+
+#: app/templates/parts/affiliate_notice.php:28
+msgid "25% commission "
+msgstr "%25 komisyon "
+
+#: app/templates/parts/affiliate_notice.php:29
+msgid "on every sale!"
+msgstr "her satıştan!"
+
+#: app/templates/parts/affiliate_notice.php:33
+msgid "Affiliate Program"
+msgstr "Ortaklık Programı"
+
+#: app/templates/parts/affiliate_notice.php:34
+msgid "Influencer Program"
+msgstr "Influencer Programı"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "Advance sheets design and many more premium features are available in "
+msgstr "Gelişmiş tablo tasarımı ve çok daha fazla premium özellik mevcut "
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "FlexTable Pro"
+msgstr "FlexTable Pro"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "plugin 😍"
+msgstr "eklentisinde 😍"
+
+#: app/templates/parts/plugin_upgrade_notice.php:25
+msgid "Upgrade Now"
+msgstr "Şimdi Yükselt"
+
+#: app/templates/parts/popup_modals.php:17
+msgid "Choose Table Style"
+msgstr "Tablo Stilini Seçin"
+
+#: app/templates/parts/popup_modals.php:29
+#: app/templates/parts/popup_modals.php:77
+msgid "Select"
+msgstr "Seç"
+
+#: app/templates/parts/popup_modals.php:41
+msgid "Choose Column To Hide"
+msgstr "Gizlenecek Sütunu Seçin"
+
+#: app/templates/parts/popup_modals.php:47
+msgid "Hide columns in desktop:"
+msgstr "Masaüstünde sütunları gizle:"
+
+#: app/templates/parts/popup_modals.php:51
+#: app/templates/parts/popup_modals.php:64
+msgid "Choose Column"
+msgstr "Sütun Seçin"
+
+#: app/templates/parts/popup_modals.php:60
+msgid "Hide columns in mobile:"
+msgstr "Mobilde sütunları gizle:"
+
+#: app/templates/parts/popup_modals.php:89
+msgid "Activate Row Hiding Feature"
+msgstr "Satır Gizleme Özelliğini Etkinleştir"
+
+#: app/templates/parts/popup_modals.php:94
+msgid "Hidden Rows:"
+msgstr "Gizli Satırlar:"
+
+#: app/templates/parts/popup_modals.php:98
+msgid "Hidden Rows"
+msgstr "Gizli Satırlar"
+
+#: app/templates/parts/popup_modals.php:128
+msgid "Activate Cell Hiding Feature"
+msgstr "Hücre Gizleme Özelliğini Etkinleştir"
+
+#: app/templates/parts/popup_modals.php:133
+msgid "Hidden Cell:"
+msgstr "Gizli Hücre:"
+
+#: app/templates/parts/popup_modals.php:137
+msgid "Hidden Cells"
+msgstr "Gizli Hücreler"
+
+#: app/templates/parts/pro_fix_notice.php:17
+msgid "Let's Get Your FlexTable Pro Plugin Updated!"
+msgstr "FlexTable Pro Eklentinizi Güncelleyelim!"
+
+#: app/templates/parts/pro_fix_notice.php:20
+msgid ""
+"We've noticed a small issue with the pro plugin update process. Just click "
+"Fix Now button to automatically solve the issue, and everything will be back "
+"to normal"
+msgstr ""
+"Pro eklenti güncelleme sürecinde küçük bir sorun fark ettik. Sorunu otomatik "
+"olarak çözmek için \"Şimdi Düzelt\" düğmesine tıklamanız yeterli ve her şey "
+"normale dönecek"
+
+#: app/templates/parts/pro_fix_notice.php:22
+#: app/templates/parts/pro_fix_notice.php:312
+msgid "Learn more about what we fixed"
+msgstr "Ne düzelttiğimiz hakkında daha fazla bilgi edinin"
+
+#: app/templates/parts/pro_fix_notice.php:31
+#, php-format
+msgid ""
+"This fix resolves a temporary issue on FlexTable Pro plugin that's "
+"preventing getting automatic updates. By clicking \"Fix Now\", the update "
+"process will be restored, enabling future auto updates. You can also "
+"download the latest version anytime from %s"
+msgstr ""
+"Bu düzeltme, FlexTable Pro eklentisinde otomatik güncellemelerin alınmasını "
+"engelleyen geçici bir sorunu çözer. \"Şimdi Düzelt\"e tıklayarak, güncelleme "
+"süreci geri yüklenecek ve gelecekteki otomatik güncellemeler "
+"etkinleştirilecektir. Ayrıca en son sürümü her zaman %s adresinden "
+"indirebilirsiniz"
+
+#: app/templates/parts/pro_fix_notice.php:32
+#: app/templates/parts/pro_fix_notice.php:59
+msgid "portal.wppool.dev"
+msgstr "portal.wppool.dev"
+
+#: app/templates/parts/pro_fix_notice.php:39
+msgid "Fix Now"
+msgstr "Şimdi Düzelt"
+
+#: app/templates/parts/pro_fix_notice.php:53
+msgid "Close without fixing the update?"
+msgstr "Güncellemeyi düzeltmeden kapatılsın mı?"
+
+#: app/templates/parts/pro_fix_notice.php:58
+#, php-format
+msgid ""
+"You can update the pro plugin anytime manually by downloading the latest "
+"version from your portal at %s"
+msgstr ""
+"Pro eklentiyi istediğiniz zaman manuel olarak %s adresindeki portalınızdan "
+"en son sürümü indirerek güncelleyebilirsiniz"
+
+#: app/templates/parts/pro_fix_notice.php:70
+msgid "Yes, Close at My Risk!"
+msgstr "Evet, Kendi Riskimle Kapat!"
+
+#: app/templates/parts/pro_fix_notice.php:315
+msgid "Show less"
+msgstr "Daha az göster"
+
+#: app/templates/parts/pro_fix_notice.php:331
+msgid "Applying Fix..."
+msgstr "Düzeltme Uygulanıyor..."
+
+#: app/templates/parts/pro_fix_notice.php:343
+msgid "Fixed!"
+msgstr "Düzeltildi!"
+
+#: app/templates/parts/pro_fix_notice.php:348
+#: app/templates/parts/pro_fix_notice.php:353
+msgid "Auto Fix"
+msgstr "Otomatik Düzelt"
+
+#: app/templates/parts/pro_fix_notice.php:349
+msgid "Failed to apply fix. Please try again."
+msgstr "Düzeltme uygulanamadı. Lütfen tekrar deneyin."
+
+#: app/templates/parts/pro_fix_notice.php:354
+#: app/templates/parts/pro_fix_notice.php:388
+#: app/templates/parts/pro_fix_notice.php:393
+msgid "An error occurred. Please try again."
+msgstr "Bir hata oluştu. Lütfen tekrar deneyin."
+
+#: app/templates/parts/pro_fix_notice.php:372
+msgid "Processing..."
+msgstr "İşleniyor..."
+
+#: app/templates/parts/review_notice.php:21
+msgid "Seems like "
+msgstr "Görünüşe göre "
+
+#: app/templates/parts/review_notice.php:21
+msgid " is bringing you value 🥳"
+msgstr " size değer katıyor 🥳"
+
+#: app/templates/parts/review_notice.php:23
+msgid ""
+"Hi there! You've been using FlexTable for a while. Would you consider "
+"leaving us a 😍 5-star review? Your feedback will help us to develop better "
+"features and spread the word."
+msgstr ""
+"Merhaba! FlexTable'ı bir süredir kullanıyorsunuz. Bize 😍 5 yıldızlı bir "
+"değerlendirme bırakmayı düşünür müsünüz? Geri bildiriminiz daha iyi "
+"özellikler geliştirmemize ve sözü yaymamıza yardımcı olacaktır."
+
+#: app/templates/parts/review_notice.php:34
+msgid "I already did it"
+msgstr "Zaten yaptım"
+
+#: app/templates/parts/review_notice.php:45
+msgid "Would you like to be remind in the future?"
+msgstr "Gelecekte hatırlatılmak ister misiniz?"
+
+#: app/templates/parts/review_notice.php:48
+msgid "Remind Me After:"
+msgstr "Bana Şu Zaman Sonra Hatırlat:"
+
+#: app/templates/parts/review_notice.php:50
+#: app/templates/parts/review_notice.php:53
+msgid "7 Days"
+msgstr "7 Gün"
+
+#: app/templates/parts/review_notice.php:54
+msgid "14 Days"
+msgstr "14 Gün"
+
+#: app/templates/parts/review_notice.php:55
+msgid "Remind me never"
+msgstr "Bana asla hatırlatma"
+
+#: app/templates/parts/review_notice.php:60
+msgid "Ok"
+msgstr "Tamam"
+
+#: sheets-to-wp-table-live-sync.php:32
+msgid "FlexTable - Pro Plugin"
+msgstr "FlexTable - Pro Eklentisi"
+
+#: sheets-to-wp-table-live-sync.php:33
+msgid ""
+"cannot be activated - requires at least 3.0.0. Plugin automatically "
+"deactivated."
+msgstr ""
+"etkinleştirilemiyor - en az 3.0.0 sürümü gereklidir. Eklenti otomatik olarak "
+"devre dışı bırakıldı."
+
+#~ msgid "A search field"
+#~ msgstr "Bir arama alanı"
+
+#~ msgid "Get PRO -sheets-to-wp-table-live-sync"
+#~ msgstr "PRO Sürümü Edinin -sheets-to-wp-table-live-sync"
+
+#~ msgid "Get Pro "
+#~ msgstr "Pro Edinin "

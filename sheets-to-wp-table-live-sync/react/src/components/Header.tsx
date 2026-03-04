@@ -25,7 +25,7 @@ function Header({
 	showProFeatures = true,
 	showYoutubeTutorial = true,
 	customClass = '',
-	modalTitle = 'Get started with table creation',
+	modalTitle = getStrings('cta-notice-get-started'),
 	videoURL = 'https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT'
 }: HeaderProps) {
 	const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);

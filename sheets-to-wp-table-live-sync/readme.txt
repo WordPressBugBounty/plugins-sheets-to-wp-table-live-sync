@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.2
-Stable tag: 3.22.1
+Stable tag: 3.22.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -233,6 +233,9 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 == Changelog ==
 
+= 3.22.2 - 04 Mar 2026 =
+* **Improvement:** Added built-in support for 16 languages, ready to use out of the box: **Bengali, Spanish (Spain), German, French, Portuguese (Brazil), Hindi, Arabic, Chinese (Simplified), Japanese, Italian, Russian, Indonesian, Turkish, Dutch,   Korean, and Polish.**
+
 = 3.22.1 - 22 Feb 2026 =
 * **Fix:** Updated the "Get Support" and contact page links and Improved UX copy
 * **Fix:** Updated the AI Integration help video
@@ -246,30 +249,6 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 = 3.20.1 - 30 Dec 2025 =
 * **New:** Added hover effects to all table presets with customizable hover background and text colors.
-
-= 3.20.0 - 24 Nov 2025 =
-* **New:** Introduced "Ask AI from Table Data" feature that allows users to retrieve table data using natural language questions. No manual searching required! 
-* **Improvement:** Enhanced the "Instant Summary" mode with smoother UX and improved UI flow 
-* **Fix:** Resolved an issue where single-value search results were not displaying 
-* **Fix:** Fixed incomplete pagination display in search results 
-* **Fix:** Fixed translation issues with the pagination Next / Previous buttons
-
-= 3.19.2 - 04 Dec 2025 =
-* **Improvement:** Improved codebase to ensure enhanced protection and overall stability.
-* **Improvement:** Added full compatibility support for WordPress 6.9 
-
-= 3.19.1 - 30 Nov 2025 =
-* **Fix:** Resolved error that occurred when adding the shortcode.
-
-= 3.19.0 - 24 Nov 2025 =
-* **New:** Added AI Summary feature with two modes *Generate on Click* and *Instant Summary*
-* **Improvement:** Fixed Moment.js library compatibility issues
-* **Improvement:** Enhanced overall UX for smoother interactions
-* **Fix:** Addressed line break inconsistencies
-* **Fix:** Corrected data missing issues in the wp table 
-
-= 3.18.3 - 24 Oct 2025 =
-* **Fix:** Fixed issues to ensure smoother update functionality
 
 
 For older changelog entries, please see the [additional changelog.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/changelog.txt) delivered with the plugin.

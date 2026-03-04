@@ -3,6 +3,7 @@ import { PlayerRound, Cross } from '../icons';
 import how_to_install_video_player from '../images/how-to-install-video-player.png';
 
 import '../styles/_ctaVideoPlayer.scss';
+import { getStrings } from '../Helpers';
 
 interface CTAVideoPlayerProps {
     videoUrl: string;
@@ -15,7 +16,7 @@ interface CTAVideoPlayerProps {
 const CTAVideoPlayer: React.FC<CTAVideoPlayerProps> = ({
     videoUrl,
     thumbnailUrl = how_to_install_video_player,
-    title = "Get started with table creation",
+    title = getStrings('cta-notice-get-started'),
     isOpen,
     onClose,
 }) => {
@@ -82,14 +83,14 @@ const CTAVideoPlayer: React.FC<CTAVideoPlayerProps> = ({
                                 onClick={() => window.open('https://wppool.dev/docs/what-is-sheets-to-wp-table-live-sync/', '_blank', 'noopener,noreferrer')}
                                 aria-label="Read documentation - opens in new tab"
                             >
-                                Read Documentation
+                                {getStrings('cta-notice-read-docs')}
                             </button>
                             <button
                                 className="modal-close-button"
                                 onClick={handleClose}
                                 aria-label="Close modal"
                             >
-                                Close
+                                {getStrings('cta-notice-close-button-label')}
                             </button>
                         </div>
                     </div>

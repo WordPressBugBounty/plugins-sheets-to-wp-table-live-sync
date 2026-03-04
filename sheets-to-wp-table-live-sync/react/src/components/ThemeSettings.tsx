@@ -1640,7 +1640,7 @@ const ThemeSettings = ({ tableSettings, setTableSettings }) => {
 						<h4>
 							{getStrings('select-theme')}{' '}
 							<Tooltip
-								content={`Quickly change your table's look and feel using themes`}
+								content={getStrings('tooltip-39')}
 							/>
 						</h4>
 

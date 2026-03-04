@@ -1093,7 +1093,7 @@ function Settings() {
 							<CodeEditor
 								value={settings.css_code_value}
 								language="css"
-								placeholder="# # Insert custom CSS code here to modify looks and feel"
+								placeholder={getStrings('enter-custom-css-placeholder')}
 								onChange={(evn) =>
 									setSettings({
 										...settings,

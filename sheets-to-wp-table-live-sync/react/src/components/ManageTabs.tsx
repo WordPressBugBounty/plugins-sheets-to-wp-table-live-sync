@@ -231,7 +231,7 @@ const ManageTabs = () => {
 							<div className="table-search-box">
 								<input
 									type="text"
-									placeholder="Search tabs"
+									placeholder={getStrings('search-tabs')}
 									onChange={(e) =>
 										setSearchKey(e.target.value.trim())
 									}

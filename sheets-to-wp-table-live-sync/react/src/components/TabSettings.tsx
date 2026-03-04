@@ -5,7 +5,7 @@ import '../styles/_tabSettings.scss';
 // import Tooltip from './Tooltip';
 import Tooltip from './TooltipTab';
 
-const TabSettings = ( { currentTab, setCurrentTab } ) => {
+const TabSettings = ({ currentTab, setCurrentTab }) => {
 	return (
 		<div className="tab-settings-wrap">
 			<div className="hide-tab-group-title-wrap">
@@ -17,18 +17,18 @@ const TabSettings = ( { currentTab, setCurrentTab } ) => {
 						currentTab?.show_name === '1' ||
 						currentTab?.show_name === 1
 					}
-					onChange={ ( e ) => {
-						setCurrentTab( {
+					onChange={(e) => {
+						setCurrentTab({
 							...currentTab,
 							show_name: e.target.checked ? 1 : 0,
-						} );
-					} }
+						});
+					}}
 				/>
 				<label htmlFor="hide-tab-group-title">
-					{ getStrings( 'tab-grp-title' ) }
+					{getStrings('tab-grp-title')}
 					<span>
 						<Tooltip
-							content={ `If this is checked, the tab group title will not be visible in the front end` }
+							content={getStrings('tooltip-41')}
 						/>
 					</span>
 				</label>
@@ -36,50 +36,48 @@ const TabSettings = ( { currentTab, setCurrentTab } ) => {
 
 			<div className="tab-position-title">
 				<label htmlFor="select-table-for-tab">
-					{ getStrings( 'Tab-position' ) }
+					{getStrings('Tab-position')}
 					<span>
 						<Tooltip
-							content={ `Choose where you want to show the tab` }
+							content={getStrings('tooltip-42')}
 						/>
 					</span>
 				</label>
 			</div>
 			<div className="tab-positions-wrap">
 				<button
-					className={ `tab-position after-table${
-						! parseInt( currentTab?.reverse_mode ) ? ' active' : ''
-					}` }
-					onClick={ ( e ) => {
-						setCurrentTab( {
+					className={`tab-position after-table${!parseInt(currentTab?.reverse_mode) ? ' active' : ''
+						}`}
+					onClick={(e) => {
+						setCurrentTab({
 							...currentTab,
 							reverse_mode: 0,
-						} );
-					} }
+						});
+					}}
 				>
 					<span>
-						{ getStrings( 'Before-the-table' ) }
+						{getStrings('Before-the-table')}
 						<Tooltip
-							content={ `The tabs will be shown first and the table will be shown after it` }
+							content={getStrings('tooltip-43')}
 						/>
 					</span>
 					<div className="control__indicator"></div>
 				</button>
 
 				<button
-					className={ `tab-position before-table${
-						parseInt( currentTab?.reverse_mode ) ? ' active' : ''
-					}` }
-					onClick={ ( e ) => {
-						setCurrentTab( {
+					className={`tab-position before-table${parseInt(currentTab?.reverse_mode) ? ' active' : ''
+						}`}
+					onClick={(e) => {
+						setCurrentTab({
 							...currentTab,
 							reverse_mode: 1,
-						} );
-					} }
+						});
+					}}
 				>
 					<span>
-						{ getStrings( 'After-the-table' ) }
+						{getStrings('After-the-table')}
 						<Tooltip
-							content={ `The table will be shown first and the tab will be shown after it` }
+							content={getStrings('tooltip-44')}
 						/>
 					</span>
 					<div className="control__indicator"></div>

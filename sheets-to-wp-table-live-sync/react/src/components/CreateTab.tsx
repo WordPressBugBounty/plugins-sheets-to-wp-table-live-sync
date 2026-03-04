@@ -73,7 +73,7 @@ function CreateTab() {
 						textDecoration: 'none'
 					}}
 				>
-					Help?
+					{getStrings('help-text-tooltip')}
 				</span>
 
 				<CTAVideoPlayer

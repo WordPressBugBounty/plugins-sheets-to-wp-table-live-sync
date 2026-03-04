@@ -50,9 +50,9 @@ const CtaNoticeTabs: React.FC<CtaNoticeTabsProps> = ({ onDismiss }) => {
 				<div className="gradient-border">
 					<div className="content">
 						<div className="leftside-content">
-							<h6 className="cta-title">Get Help with Creating Tab Groups</h6>
+							<h6 className="cta-title">{getStrings('get_help_creation')}</h6>
 							<p className="cta-description">
-								Tabs let you group multiple tables into tabbed views and embed in your pages or posts
+								{getStrings('tabs-description')}
 							</p>
 						</div>
 						<div className="rightside-content">
@@ -63,7 +63,7 @@ const CtaNoticeTabs: React.FC<CtaNoticeTabsProps> = ({ onDismiss }) => {
 									aria-label="Open quick tutorial video for tab groups"
 								>
 									{YTiconmini}
-									Quick Tutorial
+									{getStrings('quick-tutorial')}
 								</button>
 								<button
 									className="cta-close-button"
@@ -84,7 +84,7 @@ const CtaNoticeTabs: React.FC<CtaNoticeTabsProps> = ({ onDismiss }) => {
 				<div className="cta-modal-overlay" onClick={handleCloseModal}>
 					<div className="cta-modal-content" onClick={(e) => e.stopPropagation()}>
 						<div className="cta-modal-header">
-							<h3>Get started with Tab Groups</h3>
+							<h3> {getStrings('get-started-tab-groups')}</h3>
 							<button
 								className="cta-modal-close"
 								onClick={handleCloseModal}
@@ -117,7 +117,7 @@ const CtaNoticeTabs: React.FC<CtaNoticeTabsProps> = ({ onDismiss }) => {
 										<div className="cta-video-embed">
 											<iframe
 												src="https://www.youtube.com/embed/nG-9-7wM0l0?si=NqhL8C-Z6Eq-4AKL"
-												title="Get started with tab groups"
+												title={getStrings('get-started-tab-groups')}
 												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 												allowFullScreen
 											></iframe>
@@ -135,14 +135,14 @@ const CtaNoticeTabs: React.FC<CtaNoticeTabsProps> = ({ onDismiss }) => {
 										onClick={() => window.open('https://wppool.dev/docs/what-is-sheets-to-wp-table-live-sync/', '_blank', 'noopener,noreferrer')}
 										aria-label="Read documentation - opens in new tab"
 									>
-										Read Documentation
+										{getStrings('cta-notice-read-docs')}
 									</button>
 									<button
 										className="modal-close-button"
 										onClick={handleCloseModal}
 										aria-label="Close modal"
 									>
-										Close
+										{getStrings('cta-notice-close-button-label')}
 									</button>
 								</div>
 							</div>

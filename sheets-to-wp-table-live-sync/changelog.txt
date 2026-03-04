@@ -5,6 +5,29 @@
 This file contains older changelog entries, so we can keep the size of the standard WordPress readme.txt file reasonable. 
 For the latest changes, please see the "Changelog" section of the [readme.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/readme.txt).
 
+= 3.20.0 - 24 Nov 2025 =
+* **New:** Introduced "Ask AI from Table Data" feature that allows users to retrieve table data using natural language questions. No manual searching required! 
+* **Improvement:** Enhanced the "Instant Summary" mode with smoother UX and improved UI flow 
+* **Fix:** Resolved an issue where single-value search results were not displaying 
+* **Fix:** Fixed incomplete pagination display in search results 
+* **Fix:** Fixed translation issues with the pagination Next / Previous buttons
+
+= 3.19.2 - 04 Dec 2025 =
+* **Improvement:** Improved codebase to ensure enhanced protection and overall stability.
+* **Improvement:** Added full compatibility support for WordPress 6.9 
+
+= 3.19.1 - 30 Nov 2025 =
+* **Fix:** Resolved error that occurred when adding the shortcode.
+
+= 3.19.0 - 24 Nov 2025 =
+* **New:** Added AI Summary feature with two modes *Generate on Click* and *Instant Summary*
+* **Improvement:** Fixed Moment.js library compatibility issues
+* **Improvement:** Enhanced overall UX for smoother interactions
+* **Fix:** Addressed line break inconsistencies
+* **Fix:** Corrected data missing issues in the wp table 
+
+= 3.18.3 - 24 Oct 2025 =
+* **Fix:** Fixed issues to ensure smoother update functionality
 
 = 3.18.2 - 23 Aug 2025 =
 * **Fix:** Resolved conflict causing `dataTable.moment` error in DataTables.

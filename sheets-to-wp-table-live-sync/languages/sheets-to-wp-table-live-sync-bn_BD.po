@@ -1,0 +1,4800 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2026-03-03 12:44+0600\n"
+"PO-Revision-Date: 2026-03-03 12:45+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_html\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: assets\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: react/node_modules\n"
+"X-Poedit-SearchPathExcluded-4: lib\n"
+"X-Poedit-SearchPathExcluded-5: .wordpress-org\n"
+"X-Poedit-SearchPathExcluded-6: .vscode\n"
+"X-Poedit-SearchPathExcluded-7: .github\n"
+"X-Poedit-SearchPathExcluded-8: .git\n"
+
+#: app/AI/AIManager.php:111
+msgid "Invalid AI provider"
+msgstr "সেভ করার জন্য অবৈধ সেটিংস"
+
+#: app/AI/AIManager.php:128 app/AI/AIManager.php:145 app/AI/AIManager.php:220
+msgid "No AI provider configured"
+msgstr "কোনো AI প্রোভাইডার কনফিগার করা হয়নি"
+
+#: app/AI/AIManager.php:224
+msgid "Prompt cannot be empty"
+msgstr "প্রম্পট খালি রাখা যাবে না"
+
+#: app/AI/AIProvider.php:302
+#, php-format
+msgid "%1$s API request failed: %2$s"
+msgstr "%1$s API অনুরোধ ব্যর্থ হয়েছে: %2$s"
+
+#: app/AI/AIProvider.php:317
+#, php-format
+msgid "%1$s API error (%2$d): %3$s"
+msgstr "%1$s API ত্রুটি (%2$d): %3$s"
+
+#: app/AI/GeminiProvider.php:78
+msgid "Google AI API Key"
+msgstr "গুগল AI API কী"
+
+#: app/AI/GeminiProvider.php:79
+msgid "Your Google AI Studio API key"
+msgstr "আপনার Google AI Studio API কী"
+
+#: app/AI/GeminiProvider.php:86 app/AI/OpenAIProvider.php:103
+msgid "Model"
+msgstr "মডেল"
+
+#: app/AI/GeminiProvider.php:87
+msgid "Choose the Gemini model to use"
+msgstr "ব্যবহারের জন্য Gemini মডেল নির্বাচন করুন"
+
+#: app/AI/GeminiProvider.php:93 app/AI/OpenAIProvider.php:110 app/Strings.php:831
+msgid "Max Tokens"
+msgstr "সর্বোচ্চ টোকেন"
+
+#: app/AI/GeminiProvider.php:94 app/AI/OpenAIProvider.php:111
+msgid "Maximum tokens for the response"
+msgstr "রেসপন্সের জন্য সর্বোচ্চ টোকেন সংখ্যা"
+
+#: app/AI/GeminiProvider.php:102 app/AI/OpenAIProvider.php:119 app/Strings.php:837
+msgid "Creativity"
+msgstr "সৃজনশীলতা"
+
+#: app/AI/GeminiProvider.php:103 app/AI/OpenAIProvider.php:120
+msgid "Controls randomness in responses"
+msgstr "রেসপন্সের এলোমেলোভাব নিয়ন্ত্রণ করে"
+
+#: app/AI/GeminiProvider.php:111 app/Strings.php:808 app/Strings.php:870
+msgid "Top P"
+msgstr "Top P"
+
+#: app/AI/GeminiProvider.php:112
+msgid "Controls diversity via nucleus sampling"
+msgstr "নিউক্লিয়াস স্যাম্পলিংয়ের মাধ্যমে বৈচিত্র্য নিয়ন্ত্রণ করে"
+
+#: app/AI/GeminiProvider.php:120 app/Strings.php:810 app/Strings.php:872
+msgid "Top K"
+msgstr "Top K"
+
+#: app/AI/GeminiProvider.php:121
+msgid "Controls diversity by limiting vocabulary"
+msgstr "শব্দভাণ্ডার সীমিত করে বৈচিত্র্য নিয়ন্ত্রণ করে"
+
+#: app/AI/GeminiProvider.php:144
+msgid "Gemini API key is required"
+msgstr "Gemini API কী প্রয়োজন"
+
+#: app/AI/GeminiProvider.php:148
+msgid "Invalid Gemini API key format"
+msgstr "Gemini API কী এর ফরম্যাট সঠিক নয়"
+
+#: app/AI/GeminiProvider.php:204
+#, php-format
+msgid "Gemini API connection successful! Model: %s"
+msgstr "Gemini API সংযোগ সফল হয়েছে! মডেল: %s"
+
+#: app/AI/GeminiProvider.php:232 app/AI/OpenAIProvider.php:208
+msgid "API test failed: Invalid response structure"
+msgstr "API টেস্ট ব্যর্থ হয়েছে: রেসপন্স স্ট্রাকচার সঠিক নয়"
+
+#: app/AI/GeminiProvider.php:315
+msgid "Response blocked by Gemini safety filters"
+msgstr "Gemini নিরাপত্তা ফিল্টারের কারণে রেসপন্স ব্লক করা হয়েছে"
+
+#: app/AI/GeminiProvider.php:318
+msgid "Invalid response structure from Gemini API"
+msgstr "Gemini API থেকে প্রাপ্ত রেসপন্স স্ট্রাকচার সঠিক নয়"
+
+#: app/AI/GeminiProvider.php:356 app/AI/OpenAIProvider.php:296
+#, php-format
+msgid "API returned status code %d"
+msgstr "API স্ট্যাটাস কোড %d রিটার্ন করেছে"
+
+#: app/AI/OpenAIProvider.php:95 app/Strings.php:817
+msgid "OpenAI API Key"
+msgstr "OpenAI API কী"
+
+#: app/AI/OpenAIProvider.php:96
+msgid "Your OpenAI API key (starts with sk-)"
+msgstr "আপনার OpenAI API কী (sk- দিয়ে শুরু হয়)"
+
+#: app/AI/OpenAIProvider.php:104
+msgid "Choose the OpenAI model to use"
+msgstr "ব্যবহারের জন্য OpenAI মডেল নির্বাচন করুন"
+
+#: app/AI/OpenAIProvider.php:128 app/Strings.php:843
+msgid "Frequency Penalty"
+msgstr "ফ্রিকোয়েন্সি পেনাল্টি"
+
+#: app/AI/OpenAIProvider.php:129
+msgid "Reduces repetition in responses"
+msgstr "রেসপন্সে বারবার একই কথা হওয়া কমায়"
+
+#: app/AI/OpenAIProvider.php:152
+msgid "OpenAI API key is required"
+msgstr "OpenAI API কী প্রয়োজন"
+
+#: app/AI/OpenAIProvider.php:156
+msgid "Invalid OpenAI API key format"
+msgstr "OpenAI API কী এর ফরম্যাট সঠিক নয়"
+
+#: app/AI/OpenAIProvider.php:202
+#, php-format
+msgid "OpenAI API connection successful! Model: %s"
+msgstr "OpenAI API সংযোগ সফল হয়েছে! মডেল: %s"
+
+#: app/AI/OpenAIProvider.php:265
+msgid "Invalid response structure from OpenAI API"
+msgstr "OpenAI API থেকে প্রাপ্ত রেসপন্স স্ট্রাকচার সঠিক নয়"
+
+#: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517 app/Divi/DiviModule.php:35
+#: app/Elementor/ElementorWidget.php:58 app/SWPTLS.php:265
+#: app/templates/parts/review_notice.php:21
+msgid "FlexTable"
+msgstr "WP টেবিল লাইভ সিঙ্কে পত্রক"
+
+#: app/Admin.php:69
+msgid "Get PRO"
+msgstr "প্রো কিনে ফেলুন"
+
+#: app/Admin.php:70
+msgid ""
+"<span style=\"display: flex; align-items: center; gap: 7px; color: #29be7c; font-weight: "
+"700; text-transform:uppercase; font-size: 12px;\"> Upgrade Now <svg width=\"21\" "
+"height=\"17\" viewBox=\"0 0 21 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n"
+"\t\t\t\t\t<path d=\"M11.8012 7.66016L10.0813 4.26172L8.36133 7.66016C8.9104 7.69498 "
+"9.48392 7.71466 10.0813 7.71466C10.6786 7.71466 11.2522 7.69498 11.8012 7.66016Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.5164 3.93457C12.5221 4.00909 11.4463 4.05114 10.3535 "
+"4.05712L12.0518 7.41268L13.5164 3.93457Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M17.655 6.58984C18.9408 6.17882 19.7993 5.76404 20.1634 "
+"5.57337L17.6901 3.27344L16.8496 6.82924C17.1409 6.74883 17.4099 6.6682 17.655 6.58984Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.8256 4.06055L12.3262 7.62137C13.8894 7.49126 15.2336 7.24006 "
+"16.3194 6.96869L13.8256 4.06055Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.84375 6.96869C4.92956 7.24006 6.27375 7.49126 7.83695 "
+"7.62137L6.33749 4.06055L3.84375 6.96869Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M14.1152 3.88492L16.5346 6.70624L17.3326 3.33008C17.0083 3.4568 "
+"16.4276 3.60162 15.3786 3.74365C14.9823 3.79731 14.5586 3.84437 14.1152 3.88492Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M9.8103 4.05712C8.71747 4.0511 7.64174 4.00905 6.64746 3.93457L8.11206 "
+"7.41268L9.8103 4.05712Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M10.0818 3.72428C11.9183 3.72428 13.7348 3.62004 15.1969 "
+"3.43079C16.4383 3.27009 17.054 3.09714 17.3042 2.98362C17.0203 2.8663 16.3914 2.69009 "
+"15.2275 2.52161C13.739 2.30616 11.9115 2.1875 10.0818 2.1875C8.25205 2.1875 6.42458 "
+"2.30616 4.93603 2.52161C3.77219 2.69009 3.14329 2.8663 2.85938 2.98362C3.10952 3.09718 "
+"3.7253 3.27009 4.96671 3.43079C6.42872 3.62004 8.24524 3.72428 10.0818 3.72428Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M10.082 8.04847C9.46536 8.04847 8.87357 8.02778 8.30762 7.99121L10.082 "
+"16.352L11.8563 7.99121C11.2904 8.02782 10.6986 8.04847 10.082 8.04847Z\" fill=\"#34D399\"/"
+">\n"
+"\t\t\t\t\t<path d=\"M6.04742 3.88492C5.60405 3.84437 5.18037 3.79731 4.78402 "
+"3.74365C3.73508 3.60167 3.15437 3.4568 2.83008 3.33008L3.62808 6.70624L6.04742 3.88492Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M12.2028 7.96734L10.4326 16.3084L16.2509 7.33008C15.1406 7.59983 "
+"13.779 7.84508 12.2028 7.96734Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.7281 7.20887L11.3818 15.4589L19.7314 6.15625C19.2695 6.36611 "
+"18.6125 6.63452 17.7695 6.9046C17.4591 7.00407 17.1111 7.10714 16.7281 7.20887Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.91211 7.33008L9.73035 16.3084L7.96014 7.96734C6.38399 7.84504 "
+"5.02233 7.59979 3.91211 7.33008Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M2.39357 6.9046C1.55059 6.63452 0.893524 6.36611 0.431641 "
+"6.15625L8.78123 15.4589L3.43499 7.20887C3.05198 7.10714 2.70398 7.00407 2.39357 6.9046Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.31381 6.8292L2.47334 3.27344L0 5.57332C0.364207 5.764 1.22261 "
+"6.17878 2.50845 6.58979C2.75354 6.66816 3.02249 6.74878 3.31381 6.8292Z\" fill=\"#34D399\"/"
+">\n"
+"\t\t\t\t\t<path d=\"M1.78207 1.06487C1.84142 1.14328 1.88961 1.23343 1.92864 "
+"1.32785C1.96768 1.23347 2.01583 1.14332 2.07522 1.06487C2.21164 0.884688 2.40578 0.753868 "
+"2.57995 0.663923C2.40578 0.573979 2.21164 0.443117 2.07522 0.262978C2.01583 0.184569 "
+"1.96768 0.0943745 1.92864 0C1.88961 0.0943745 1.84146 0.184528 1.78207 0.262978C1.64565 "
+"0.443159 1.45151 0.573979 1.27734 0.663923C1.45151 0.753868 1.64565 0.884688 1.78207 "
+"1.06487Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.8194 12.844C16.76 12.7656 16.7118 12.6754 16.6728 12.5811C16.6337 "
+"12.6754 16.5856 12.7656 16.5262 12.844C16.3898 13.0242 16.1957 13.155 16.0215 "
+"13.245C16.1957 13.3349 16.3898 13.4658 16.5262 13.6459C16.5856 13.7243 16.6337 13.8145 "
+"16.6728 13.9089C16.7118 13.8145 16.76 13.7243 16.8194 13.6459C16.9558 13.4657 17.1499 "
+"13.3349 17.3241 13.245C17.1499 13.155 16.9557 13.0242 16.8194 12.844Z\" fill=\"#34D399\"/"
+">\n"
+"\t\t\t\t\t</svg>\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t</span>"
+msgstr "এখন উন্নতি কর"
+
+#: app/Ajax/Notices.php:40 app/Ajax/Notices.php:127 app/Ajax/Notices.php:161
+#: app/Ajax/Products.php:40 app/Ajax/Settings.php:35 app/Ajax/Settings.php:69
+#: app/Ajax/Tables.php:80 app/Ajax/Tables.php:121 app/Ajax/Tables.php:186
+#: app/Ajax/Tables.php:250 app/Ajax/Tables.php:288 app/Ajax/Tables.php:330
+#: app/Ajax/Tables.php:350 app/Ajax/Tables.php:425 app/Ajax/Tables.php:464
+#: app/Ajax/Tables.php:1074 app/Ajax/Tables.php:1117 app/Ajax/Tables.php:1704
+#: app/Ajax/Tables.php:1731
+msgid "Invalid action"
+msgstr "অবৈধ কর্ম"
+
+#: app/Ajax/Notices.php:141
+msgid "Pro plugin update has been fixed successfully!"
+msgstr "বাছাই সফলভাবে আপডেট করা হয়েছে৷"
+
+#: app/Ajax/Notices.php:145
+msgid "Failed to apply the fix. Please try again or contact support."
+msgstr "ফিক্স প্রয়োগ করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন অথবা সাপোর্টে যোগাযোগ করুন।"
+
+#: app/Ajax/Notices.php:156
+msgid "Fix declined. You will not receive premium plugin updates."
+msgstr "ফিক্স প্রত্যাখ্যান করা হয়েছে। আপনি প্রিমিয়াম প্লাগইন আপডেট পাবেন না।"
+
+#: app/Ajax/Products.php:57
+msgid "🛒 Boost your WooCommerce stores functionality"
+msgstr "🛒 আপনার WooCommerce স্টোরের কার্যকারিতা বাড়ান"
+
+#: app/Ajax/Products.php:58
+msgid "Discover top plugins to supercharge your store with advanced tools and improvements"
+msgstr "উন্নত টুল ও ফিচারের মাধ্যমে আপনার স্টোরকে আরও শক্তিশালী করতে সেরা প্লাগইনগুলো আবিষ্কার করুন"
+
+#: app/Ajax/Products.php:63
+msgid "🧩 Enhance your WordPress site with powerful tools"
+msgstr "🧩 শক্তিশালী টুলের মাধ্যমে আপনার WordPress সাইটকে আরও উন্নত করুন"
+
+#: app/Ajax/Products.php:64
+msgid ""
+"We have selected top plugins to improve your site. Explore options tailored just for you"
+msgstr ""
+"আপনার সাইট উন্নত করার জন্য আমরা সেরা প্লাগইনগুলো বেছে নিয়েছি। আপনার প্রয়োজন অনুযায়ী উপযুক্ত "
+"অপশনগুলো ঘুরে দেখুন"
+
+#: app/Ajax/Products.php:123
+msgid ""
+"Stock Sync with Google Sheets for WooCommerce | Product Sync with Google Sheet, "
+"WooCommerce Bulk Edit, Stock Management – FlexStock"
+msgstr ""
+"WooCommerce-এর জন্য Google Sheets-এর সাথে স্টক সিঙ্ক | Google Sheet থেকে পণ্য সিঙ্ক, "
+"WooCommerce বাল্ক এডিট ও স্টক ম্যানেজমেন্ট – FlexStock"
+
+#: app/Ajax/Products.php:124
+msgid ""
+"Auto-sync WooCommerce products from Google Sheets. An easy and powerful solution for "
+"WooCommerce inventory management."
+msgstr ""
+"Google পত্রক থেকে WooCommerce পণ্য অটো-সিঙ্ক করুন। WooCommerce ইনভেন্টরি ম্যানেজমেন্টের জন্য একটি "
+"সহজ এবং শক্তিশালী সমাধান।"
+
+#: app/Ajax/Products.php:142
+msgid "FlexOrder – Manage & Sync Orders with Google Sheets for WooCommerce"
+msgstr "FlexOrder – WooCommerce-এর জন্য Google Sheets-এর সাথে অর্ডার ম্যানেজ ও সিঙ্ক করুন"
+
+#: app/Ajax/Products.php:143
+msgid ""
+"🔥Seamlessly connect WooCommerce with Google Sheets to manage orders, update statuses in "
+"bulk, and simplify your workflow"
+msgstr ""
+"🔥 WooCommerce-কে Google Sheets-এর সাথে সহজে সংযুক্ত করে অর্ডার ম্যানেজ করুন, বাল্কে স্ট্যাটাস "
+"আপডেট করুন এবং আপনার কাজের প্রবাহ সহজ করুন"
+
+#: app/Ajax/Products.php:161
+msgid "ArchiveMaster — Auto Archive and Export Old Orders for WooCommerce"
+msgstr "ArchiveMaster — WooCommerce-এর জন্য পুরোনো অর্ডার স্বয়ংক্রিয়ভাবে আর্কাইভ ও এক্সপোর্ট করুন"
+
+#: app/Ajax/Products.php:162
+msgid ""
+"Optimize your WooCommerce store and store old data in a local or any remote database. With "
+"ArchiveMaster, easily archive old orders, export order data, and streamline database "
+"performance."
+msgstr ""
+"আপনার WooCommerce স্টোর অপ্টিমাইজ করুন এবং পুরোনো ডাটা লোকাল বা যেকোনো রিমোট ডাটাবেজে সংরক্ষণ "
+"করুন। ArchiveMaster দিয়ে সহজেই পুরোনো অর্ডার আর্কাইভ, অর্ডার ডাটা এক্সপোর্ট এবং ডাটাবেজ "
+"পারফরম্যান্স উন্নত করুন।"
+
+#: app/Ajax/Products.php:180
+msgid "EchoRewards — Refer-a-Friend & Referral Program for WooCommerce"
+msgstr "EchoRewards — WooCommerce-এর জন্য Refer-a-Friend ও রেফারেল প্রোগ্রাম"
+
+#: app/Ajax/Products.php:181
+msgid ""
+"Create your customer referral program with a refer-a-friend plugin for WordPress. With "
+"EchoRewards, automate customer rewards and add a refer-a-friend program to your "
+"WooCommerce store"
+msgstr ""
+"WordPress-এর জন্য refer-a-friend প্লাগইন ব্যবহার করে আপনার কাস্টমার রেফারেল প্রোগ্রাম তৈরি করুন। "
+"EchoRewards দিয়ে কাস্টমার রিওয়ার্ড অটোমেট করুন এবং আপনার WooCommerce স্টোরে রেফারেল প্রোগ্রাম "
+"যোগ করুন।"
+
+#: app/Ajax/Products.php:200
+msgid "WP Dark Mode"
+msgstr "WP ডার্ক মোড"
+
+#: app/Ajax/Products.php:201
+msgid ""
+"Create a dark mode version of your website without any complicated setup. Activate the "
+"plugin and your site visitors will experience a dark mode or light mode version of your "
+"website as per their preferred operating system preference."
+msgstr ""
+"কোনো জটিল সেটআপ ছাড়াই আপনার ওয়েবসাইটের ডার্ক মোড সংস্করণ তৈরি করুন। প্লাগইনটি সক্রিয় করলে "
+"ভিজিটররা তাদের অপারেটিং সিস্টেমের পছন্দ অনুযায়ী ডার্ক বা লাইট মোডে সাইটটি দেখতে পারবে।"
+
+#: app/Ajax/Products.php:219
+msgid "FormToChat – Connect Contact Form to Chat Apps with Contact Form 7 Integration"
+msgstr "FormToChat – কন্টাক্ট ফর্ম 7 ইন্টিগ্রেশন সহ চ্যাট অ্যাপের সাথে যোগাযোগ ফর্ম সংযুক্ত করুন"
+
+#: app/Ajax/Products.php:220
+msgid ""
+"WhatsApp Chat for WordPress🔥. Connect contact forms to WhatsApp. A WhatsApp notifications "
+"plugin with Contact Form 7 integration."
+msgstr ""
+"ওয়ার্ডপ্রেসের জন্য হোয়াটসঅ্যাপ চ্যাট🔥 যোগাযোগের ফর্মগুলি হোয়াটসঅ্যাপে সংযুক্ত করুন। যোগাযোগ ফর্ম 7 "
+"ইন্টিগ্রেশন সহ একটি WhatsApp বিজ্ঞপ্তি প্লাগইন।"
+
+#: app/Ajax/Products.php:238
+msgid "Webinar and Video Conference with Jitsi Meet"
+msgstr "জিতসি মিটের সাথে ওয়েবিনার এবং ভিডিও কনফারেন্স"
+
+#: app/Ajax/Products.php:239
+msgid ""
+"The best WordPress webinar plugin with branded meetings. Add Jitsi meetings, host webinars "
+"and video conferences on your website."
+msgstr ""
+"ব্র্যান্ডেড মিটিং সহ সেরা ওয়ার্ডপ্রেস ওয়েবিনার প্লাগইন। আপনার ওয়েবসাইটে Jitsi মিটিং, হোস্ট "
+"ওয়েবিনার এবং ভিডিও কনফারেন্স যোগ করুন।"
+
+#: app/Ajax/Products.php:256
+msgid "Easy Video Reviews"
+msgstr "সহজ ভিডিও পর্যালোচনা"
+
+#: app/Ajax/Products.php:257
+msgid ""
+"Easy Video Reviews is the best \n"
+"\t\t\tand easiest video review plugin for WordPress, fully compatible with WooCommerce and "
+"Easy Digital Downloads plugins."
+msgstr ""
+"সহজ ভিডিও পর্যালোচনা সেরা\n"
+"এবং ওয়ার্ডপ্রেসের জন্য সবচেয়ে সহজ ভিডিও পর্যালোচনা প্লাগইন, WooCommerce এবং Easy Digital "
+"Downloads প্লাগইনগুলির সাথে সম্পূর্ণ সামঞ্জস্যপূর্ণ।"
+
+#: app/Ajax/Products.php:298
+#, php-format
+msgid "By %s"
+msgstr "%s দ্বারা"
+
+#: app/Ajax/Products.php:324
+msgid "Install Now"
+msgstr "এখন ইন্সটল করুন"
+
+#: app/Ajax/Products.php:346
+msgid "Update Now"
+msgstr "এখন হালনাগাদ করুন"
+
+#: app/Ajax/Products.php:365 app/Strings.php:146
+msgid "Activate"
+msgstr "সক্রিয় করুন"
+
+#: app/Ajax/Products.php:378
+msgid "Network Activate"
+msgstr "নেটওয়ার্ক সক্রিয় করুন"
+
+#: app/Ajax/Products.php:409
+#, php-format
+msgid "More information about %s"
+msgstr "%s সম্পর্কে আরও তথ্য"
+
+#: app/Ajax/Products.php:411
+msgid "More Details"
+msgstr "আরো বিস্তারিত"
+
+#: app/Ajax/Products.php:439
+msgid "This plugin doesn&#8217;t work with your versions of WordPress and PHP."
+msgstr "এই প্লাগইনটি আপনার WordPress এবং PHP এর সংস্করণগুলির সাথে কাজ করে না৷"
+
+#: app/Ajax/Products.php:469
+msgid "This plugin doesn&#8217;t work with your version of WordPress."
+msgstr "এই প্লাগইনটি আপনার ওয়ার্ডপ্রেসের সংস্করণের সাথে কাজ করে না।"
+
+#: app/Ajax/Products.php:480
+msgid "This plugin doesn&#8217;t work with your version of PHP."
+msgstr "এই প্লাগইন আপনার PHP সংস্করণের সাথে কাজ করে না৷"
+
+#: app/Ajax/Products.php:537
+#, php-format
+msgid "%s ago"
+msgstr "%s আগে"
+
+#: app/Ajax/Products.php:555
+#, php-format
+msgid "%s Active Installations"
+msgstr "%s সক্রিয় ইনস্টলেশন"
+
+#: app/Ajax/Products.php:561
+msgid "Untested with your version of WordPress"
+msgstr "ওয়ার্ডপ্রেসের আপনার সংস্করণের সাথে পরীক্ষা করা হয়নি"
+
+#: app/Ajax/Settings.php:125
+msgid "Settings saved successfully."
+msgstr "সেটিংস সফলভাবে সংরক্ষিত হয়েছে৷"
+
+#: app/Ajax/Tables.php:90
+msgid "Invalid data to save."
+msgstr "সংরক্ষণ করার জন্য অবৈধ ডেটা।"
+
+#: app/Ajax/Tables.php:104
+msgid "Table updated successfully."
+msgstr "সারণী সফলভাবে আপডেট করা হয়েছে।"
+
+#: app/Ajax/Tables.php:160 app/Ajax/Tables.php:225
+msgid "Sorting updated successfully"
+msgstr "বাছাই সফলভাবে আপডেট করা হয়েছে৷"
+
+#: app/Ajax/Tables.php:164 app/Ajax/Tables.php:229
+msgid "Failed to update sorting"
+msgstr "বাছাই আপডেট করতে ব্যর্থ হয়েছে"
+
+#: app/Ajax/Tables.php:169 app/Ajax/Tables.php:234
+msgid "Record not found"
+msgstr "রেকর্ড পাওয়া যায়নি"
+
+#: app/Ajax/Tables.php:174 app/Ajax/Tables.php:239
+msgid "Invalid ID or sorting value"
+msgstr "সেভ করার জন্য অবৈধ সেটিংস"
+
+#: app/Ajax/Tables.php:262
+#, php-format
+msgid "%s table deleted."
+msgstr "%s টেবিল মুছে ফেলা হয়েছে।"
+
+#: app/Ajax/Tables.php:269
+#, php-format
+msgid "Failed to delete table with id %d"
+msgstr "%d আইডি সহ সারণি মুছতে ব্যর্থ হয়েছে৷"
+
+#: app/Ajax/Tables.php:276
+msgid "Invalid table to perform delete."
+msgstr "মুছে ফেলার জন্য অবৈধ টেবিল।"
+
+#: app/Ajax/Tables.php:300
+#, php-format
+msgid "%s table copied."
+msgstr "%s টেবিল মুছে ফেলা হয়েছে।"
+
+#: app/Ajax/Tables.php:307
+#, php-format
+msgid "Failed to copied table with id %d"
+msgstr "%d আইডি সহ সারণি মুছতে ব্যর্থ হয়েছে৷"
+
+#: app/Ajax/Tables.php:314
+msgid "Invalid table to perform copied."
+msgstr "মুছে ফেলার জন্য অবৈধ টেবিল।"
+
+#: app/Ajax/Tables.php:358
+msgid "Empty or invalid google sheet url."
+msgstr "খালি বা অবৈধ google পত্রক url."
+
+#: app/Ajax/Tables.php:363 app/Ajax/Tables.php:783
+msgid "Untitled"
+msgstr "শিরোনামহীন"
+
+#: app/Ajax/Tables.php:367 app/Ajax/Tables.php:787
+msgid "Invalid settings to save."
+msgstr "সেভ করার জন্য অবৈধ সেটিংস।"
+
+#: app/Ajax/Tables.php:375 app/Ajax/Tables.php:826 app/Ajax/Tables.php:869
+msgid "Copy the Google sheet URL from browser URL bar that includes <i>gid</i> parameter"
+msgstr "ব্রাউজার ইউআরএল বার থেকে Google শীট URL কপি করুন যাতে <i>gid</i> প্যারামিটার রয়েছে"
+
+#: app/Ajax/Tables.php:376 app/Ajax/Tables.php:827 app/Ajax/Tables.php:870
+msgid "invalid_request"
+msgstr "অনুরোধ অগ্রহণযোগ্য"
+
+#: app/Ajax/Tables.php:385
+msgid ""
+"The spreadsheet is restricted. Please make it public by clicking on share button at the "
+"top of the spreadsheet"
+msgstr "স্প্রেডশীট সীমাবদ্ধ. দয়া করে স্প্রেডশীটের শীর্ষে শেয়ার বোতামে ক্লিক করে এটিকে সর্বজনীন করুন৷"
+
+#: app/Ajax/Tables.php:413
+msgid "Table created successfully"
+msgstr "সারণি সফলভাবে তৈরি করা হয়েছে"
+
+#: app/Ajax/Tables.php:433
+msgid "Invalid table to edit."
+msgstr "সম্পাদনা করার জন্য অবৈধ সারণী৷"
+
+#: app/Ajax/Tables.php:442 app/Ajax/Tables.php:654 app/Ajax/Tables.php:712
+#: app/Ajax/Tables.php:1017
+msgid "Request is invalid"
+msgstr "অনুরোধ অবৈধ"
+
+#: app/Ajax/Tables.php:497 app/Ajax/Tables.php:688 app/Ajax/Tables.php:745
+msgid "Please make it public by clicking on share button at the top of spreadsheet"
+msgstr "দয়া করে স্প্রেডশীটের শীর্ষে শেয়ার বোতামে ক্লিক করে এটিকে সর্বজনীন করুন৷"
+
+#: app/Ajax/Tables.php:516 app/Ajax/Tables.php:524 app/Ajax/Tables.php:617
+#: app/Ajax/Tables.php:646 app/Ajax/Tables.php:767
+msgid "Action is invalid"
+msgstr "কর্ম অবৈধ"
+
+#: app/Ajax/Tables.php:532
+msgid "Tables fetched successfully."
+msgstr "সারণী সফলভাবে আনা হয়েছে।"
+
+#: app/Ajax/Tables.php:551
+msgid "Table ID"
+msgstr "টেবিল আইডি"
+
+#: app/Ajax/Tables.php:552
+msgid "Type"
+msgstr "টাইপ"
+
+#: app/Ajax/Tables.php:553 app/Strings.php:203
+msgid "Shortcode"
+msgstr "শর্ট কোড"
+
+#: app/Ajax/Tables.php:554
+msgid "Table Name"
+msgstr "টেবিলের নাম"
+
+#: app/Ajax/Tables.php:555 app/Ajax/Tables.php:594 app/Strings.php:461 app/Strings.php:963
+msgid "Delete"
+msgstr "মুছে ফেলা"
+
+#: app/Ajax/Tables.php:627
+msgid "Tab updated successfully"
+msgstr "ট্যাব সফলভাবে আপডেট হয়েছে"
+
+#: app/Ajax/Tables.php:632
+msgid "Tab could not be updated. Try again"
+msgstr "ট্যাব আপডেট করা যায়নি। আবার চেষ্টা কর"
+
+#: app/Ajax/Tables.php:663 app/Ajax/Tables.php:721
+msgid "No table found."
+msgstr "কোনো টেবিল পাওয়া যায়নি।"
+
+#: app/Ajax/Tables.php:793 app/Ajax/Tables.php:979
+msgid "Form field is empty. Please fill out the field"
+msgstr "ফর্ম ক্ষেত্র খালি। ক্ষেত্র পূরণ করুন"
+
+#: app/Ajax/Tables.php:836 app/Ajax/Tables.php:879
+msgid ""
+"The spreadsheet is restricted. Please make it public by clicking on share button at the "
+"top of spreadsheet"
+msgstr "স্প্রেডশীট সীমাবদ্ধ. দয়া করে স্প্রেডশীটের শীর্ষে শেয়ার বোতামে ক্লিক করে এটিকে সর্বজনীন করুন৷"
+
+#: app/Ajax/Tables.php:905
+msgid "This Google sheet already saved. Try creating a new one"
+msgstr "এই Google পত্রকটি ইতিমধ্যে সংরক্ষিত হয়েছে৷ একটি নতুন তৈরি করার চেষ্টা করুন"
+
+#: app/Ajax/Tables.php:924
+msgid "Table saved successfully"
+msgstr "টেবিল সফলভাবে সংরক্ষণ করা হয়েছে"
+
+#: app/Ajax/Tables.php:940
+msgid "Table changes updated successfully"
+msgstr "সারণী পরিবর্তন সফলভাবে আপডেট করা হয়েছে"
+
+#: app/Ajax/Tables.php:1025
+msgid "Selected tables deleted successfully"
+msgstr "নির্বাচিত টেবিল সফলভাবে মুছে ফেলা হয়েছে৷"
+
+#: app/Ajax/Tables.php:1040
+msgid "Table name updated successfully"
+msgstr "টেবিলের নাম সফলভাবে আপডেট করা হয়েছে"
+
+#: app/Ajax/Tables.php:1058 app/Ajax/Tabs.php:83
+msgid "Could not update the data."
+msgstr "ডেটা আপডেট করা যায়নি।"
+
+#: app/Ajax/Tables.php:1084
+msgid "API key is required"
+msgstr "API কী প্রয়োজন"
+
+#: app/Ajax/Tables.php:1713
+msgid "CTA notice dismissed successfully"
+msgstr "ট্যাবের নাম সফলভাবে আপডেট করা হয়েছে"
+
+#: app/Ajax/Tables.php:1717
+msgid "Failed to dismiss CTA notice"
+msgstr "CTA নোটিস সরানো যায়নি"
+
+#: app/Ajax/Tables.php:1740
+msgid "CTA notice for tabs dismissed successfully"
+msgstr "নির্বাচিত টেবিল সফলভাবে মুছে ফেলা হয়েছে৷"
+
+#: app/Ajax/Tables.php:1744
+msgid "Failed to dismiss CTA notice for tabs"
+msgstr "ট্যাবের জন্য CTA নোটিস সরানো যায়নি"
+
+#: app/Ajax/Tabs.php:43
+msgid "Tab deleted successfully"
+msgstr "ট্যাব সফলভাবে মুছে ফেলা হয়েছে"
+
+#: app/Ajax/Tabs.php:49
+msgid "Unable to delete tab."
+msgstr "ট্যাব মুছতে অক্ষম৷"
+
+#: app/Ajax/Tabs.php:65
+msgid "Tab name updated successfully"
+msgstr "ট্যাবের নাম সফলভাবে আপডেট করা হয়েছে"
+
+#: app/Assets.php:515
+msgid ""
+"Display Google Spreadsheet data to WordPress table in just a few clicks\n"
+"\t\t\t\tand keep the data always synced. Organize and display all your spreadsheet data in "
+"your WordPress quickly and effortlessly."
+msgstr ""
+"ওয়ার্ডপ্রেস টেবিলে গুগল স্প্রেডশীট ডেটা প্রদর্শন করুন মাত্র কয়েকটি ক্লিকে\n"
+"এবং ডেটা সবসময় সিঙ্ক রাখুন। দ্রুত এবং অনায়াসে আপনার ওয়ার্ডপ্রেসে আপনার সমস্ত স্প্রেডশীট ডেটা সংগঠিত "
+"করুন এবং প্রদর্শন করুন।"
+
+#: app/Divi/DiviModule.php:40
+msgid "Table Selection"
+msgstr "সিলেক্টেড গুলো সরিয়ে দিন"
+
+#: app/Divi/DiviModule.php:49 app/Elementor/ElementorWidget.php:96
+msgid "Choose Table"
+msgstr "টেবিল শৈলী পছন্দ করুন"
+
+#: app/Divi/DiviModule.php:55
+msgid "Select a table to display."
+msgstr "এই ট্যাবের জন্য টেবিল নির্বাচন করুন।"
+
+#: app/Divi/DiviModule.php:62
+msgid "Select a table"
+msgstr "টেবিল ডিলিট করুন"
+
+#: app/Divi/DiviModule.php:84
+msgid "Please select a table to display."
+msgstr "সংরক্ষণ করতে শিরোনাম কম করুন."
+
+#: app/Elementor/TableSettings.php:80
+msgid "Table Exporting"
+msgstr "বাছাই অক্ষম করুন"
+
+#: app/Elementor/TableSettings.php:81
+msgid ""
+"Enable this feature in order to allow your user to download your table content as various "
+"format."
+msgstr "ইউজারদের বিভিন্ন ফরম্যাটে টেবিলের কনটেন্ট ডাউনলোড করার সুযোগ দিতে এই ফিচারটি সক্রিয় করুন।"
+
+#: app/Elementor/TableSettings.php:90
+msgid "Table Caching"
+msgstr "টেবিলের উচ্চতা"
+
+#: app/Elementor/TableSettings.php:91
+msgid ""
+"Enabling this feature would cache the Google sheet data & therefore the table will load "
+"faster than before.\n"
+"                                        Also it will load the updated data when there is a "
+"change in your Google sheet."
+msgstr ""
+"এই ফিচারটি চালু করলে Google Sheet-এর ডাটা ক্যাশ করা হবে, ফলে টেবিল আগের চেয়ে দ্রুত লোড হবে।\n"
+"                                        পাশাপাশি Google Sheet-এ কোনো পরিবর্তন হলে আপডেটেড "
+"ডাটাও লোড হবে।"
+
+#: app/Elementor/TableSettings.php:101
+msgid "Hide Column"
+msgstr "কলাম লুকান"
+
+#: app/Elementor/TableSettings.php:102
+msgid "Hide your table columns based on multiple screen sizes."
+msgstr "ডেস্কটপ স্ক্রীন বা মোবাইল স্ক্রিনে আপনার গুগল শীট টেবিল কলাম লুকান।"
+
+#: app/Elementor/TableSettings.php:112
+msgid "Hide Column on Mobile"
+msgstr "মোবাইলে কলাম লুকান:"
+
+#: app/Elementor/TableSettings.php:113
+msgid "Hide your table columns based on mobile screen sizes."
+msgstr "ডেস্কটপ স্ক্রীন বা মোবাইল স্ক্রিনে আপনার গুগল শীট টেবিল কলাম লুকান।"
+
+#: app/Elementor/TableSettings.php:124 app/Elementor/TableSettings.php:135
+msgid "Hide Row's"
+msgstr "সারি লুকান"
+
+#: app/Elementor/TableSettings.php:125 app/Elementor/TableSettings.php:136
+msgid "Hide your table rows based on your custom selection"
+msgstr "আপনার কাস্টম সারি নির্বাচনের উপর ভিত্তি করে আপনার google শীট টেবিলের সারিগুলি লুকান৷"
+
+#: app/Elementor/TableSettings.php:147 app/Elementor/TableSettings.php:158
+msgid "Hide Cell"
+msgstr "সেল লুকান"
+
+#: app/Elementor/TableSettings.php:148 app/Elementor/TableSettings.php:159
+msgid "Hide your specific table cell that is not going to visibile to your user's."
+msgstr "ইউজারদের জন্য দৃশ্যমান হবে না—এমন নির্দিষ্ট টেবিল সেল লুকান।"
+
+#: app/Elementor/TemplateContent.php:502 app/templates/create_tables.php:89
+#: app/templates/edit_table.php:90
+msgid "Display Settings"
+msgstr "প্রদর্শন সেটিং"
+
+#: app/Elementor/TemplateContent.php:510 app/templates/create_tables.php:99
+#: app/templates/edit_table.php:100
+msgid "Sort & Filter"
+msgstr "বাছাই এবং ফিল্টার"
+
+#: app/Elementor/TemplateContent.php:516 app/templates/create_tables.php:109
+#: app/templates/edit_table.php:110
+msgid "Table Tools"
+msgstr "টেবিল টুলস"
+
+#: app/Elementor/TemplateContent.php:583 app/Elementor/TemplateContent.php:598
+msgid "Choose any saved table to load data"
+msgstr "ডাটা লোড করার জন্য যেকোনো সংরক্ষিত টেবিল নির্বাচন করুন"
+
+#: app/Helpers.php:169
+msgid "You are offline."
+msgstr "আপনি অফলাইনে."
+
+#: app/Helpers.php:176
+msgid "Sheet is not public or shared"
+msgstr "পত্রক সর্বজনীন বা ভাগ করা হয় না৷"
+
+#: app/Helpers.php:235
+msgid "The feature is not compatible or something went wrong"
+msgstr "এই ফিচারটি সমর্থিত নয় অথবা কোনো সমস্যা হয়েছে"
+
+#: app/Helpers.php:1201
+msgid "Generate AI-powered summary of this table data"
+msgstr "এই টেবিলের ডাটার জন্য AI-চালিত সারাংশ তৈরি করুন"
+
+#: app/Notices.php:112
+msgid "Plugin"
+msgstr "প্লাগিন"
+
+#: app/Notices.php:113
+msgid "cannot be activated - requires at least PHP 5.4. Plugin automatically deactivated."
+msgstr "সক্রিয় করা যাবে না - অন্তত PHP 5.4 প্রয়োজন৷ প্লাগইন স্বয়ংক্রিয়ভাবে নিষ্ক্রিয়."
+
+#: app/SWPTLS.php:219
+msgid "Plugin is missing required dependencies. Please contact support for more information."
+msgstr "প্লাগইন প্রয়োজনীয় নির্ভরতা অনুপস্থিত. আরো তথ্যের জন্য সমর্থন যোগাযোগ করুন."
+
+#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+msgid "All Tables"
+msgstr "WP টেবিল লাইভ সিঙ্কে পত্রক"
+
+#: app/SWPTLS.php:250 app/Strings.php:213
+msgid "Get Pro"
+msgstr "প্রো পান"
+
+#: app/SWPTLS.php:288
+msgid "Grab Your Treat!"
+msgstr "আপনার উপহারটি নিয়ে নিন!"
+
+#: app/SWPTLS.php:295
+msgid "Grab Your Deals!"
+msgstr "আপনার অফারটি এখনই নিন!"
+
+#: app/Settings.php:179
+msgid "Table Title"
+msgstr "টেবিল শিরোনাম"
+
+#: app/Settings.php:180
+msgid ""
+"Enable this to show the table title in <i>h3</i> tag above the table in your website front-"
+"end"
+msgstr ""
+"আপনার ওয়েবসাইট ফ্রন্ট-এন্ডে টেবিলের উপরে <i>h3</i> ট্যাগে টেবিলের শিরোনাম দেখানোর জন্য এটি সক্ষম "
+"করুন"
+
+#: app/Settings.php:187
+msgid "Show info block"
+msgstr "তথ্য ব্লক দেখান"
+
+#: app/Settings.php:188
+msgid "Show <i>Showing X to Y of Z entries</i>block below the table"
+msgstr "টেবিলের নীচে <i>Z এন্ট্রিগুলির X থেকে Y দেখানো</i>ব্লক দেখান৷"
+
+#: app/Settings.php:196
+msgid "Show X entries"
+msgstr "এক্স এন্ট্রি দেখান"
+
+#: app/Settings.php:197
+msgid "<i>Show X entries</i> per page dropdown"
+msgstr "প্রতি পৃষ্ঠা ড্রপডাউনে <i>এক্স এন্ট্রি দেখান</i>"
+
+#: app/Settings.php:205
+msgid "Swap Filters"
+msgstr "অদলবদল ফিল্টার"
+
+#: app/Settings.php:206
+msgid "Swap the places of <i> X entries</i> dropdown & search filter input"
+msgstr "<i> X এন্ট্রি</in> ড্রপডাউন এবং অনুসন্ধান ফিল্টার ইনপুটের স্থানগুলি অদলবদল করুন"
+
+#: app/Settings.php:214
+msgid "Swap Bottom Elements"
+msgstr "নীচের উপাদানগুলি অদলবদল করুন৷"
+
+#: app/Settings.php:215
+msgid "Swap the places of <i>Showing X to Y of Z entries</i> with table pagination filter"
+msgstr "টেবিল পেজিনেশন ফিল্টার দিয়ে <i>Z এন্ট্রির X থেকে Y দেখানো হচ্ছে</i> জায়গাগুলি অদলবদল করুন"
+
+#: app/Settings.php:223
+msgid "Responsive Style"
+msgstr "প্রতিক্রিয়াশীল শৈলী"
+
+#: app/Settings.php:224 app/Settings.php:237
+msgid "Allow the table to collapse or scroll on mobile and tablet screen."
+msgstr "মোবাইল এবং ট্যাবলেটের স্ক্রিনে টেবিলটি ভেঙে পড়ার বা স্ক্রোল করার অনুমতি দিন।"
+
+#: app/Settings.php:236
+msgid "Link Support"
+msgstr "লিঙ্ক সমর্থন"
+
+#: app/Settings.php:249
+msgid "Rows per page"
+msgstr "প্রতি পৃষ্ঠায় সারি"
+
+#: app/Settings.php:250
+msgid ""
+"This will show rows per page. The feature will allow you how many rows you want to show to "
+"your user by default."
+msgstr ""
+"এটি প্রতি পৃষ্ঠায় সারি দেখাবে। বৈশিষ্ট্যটি আপনাকে অনুমতি দেবে যে আপনি ডিফল্টরূপে আপনার "
+"ব্যবহারকারীকে কতগুলি সারি দেখাতে চান।"
+
+#: app/Settings.php:260
+msgid "Table Height"
+msgstr "টেবিলের উচ্চতা"
+
+#: app/Settings.php:261
+msgid ""
+"Choose the height of the table to scroll vertically. Activating this feature will allow "
+"the table to behave as sticky header"
+msgstr ""
+"উল্লম্বভাবে স্ক্রোল করতে টেবিলের উচ্চতা চয়ন করুন। এই বৈশিষ্ট্যটি সক্রিয় করা টেবিলটিকে স্টিকি হেডার "
+"হিসাবে আচরণ করার অনুমতি দেবে"
+
+#: app/Settings.php:272
+msgid "Format Cell"
+msgstr "বিন্যাস সেল"
+
+#: app/Settings.php:273
+msgid ""
+"Format the table cell as like google sheet cell formatting. Format your cell as Wrap OR "
+"Expanded style"
+msgstr ""
+"গুগল শীট সেল ফরম্যাটিং এর মত টেবিল সেল ফর্ম্যাট করুন। আপনার সেলকে মোড়ানো বা প্রসারিত শৈলী হিসাবে "
+"ফর্ম্যাট করুন"
+
+#: app/Settings.php:287
+msgid "Link Type"
+msgstr "লিঙ্কের ধরন"
+
+#: app/Settings.php:288
+msgid "Choose the redirection type of all the links in this table."
+msgstr "এই টেবিলের সমস্ত লিঙ্কের পুনর্নির্দেশের ধরন নির্বাচন করুন।"
+
+#: app/Settings.php:301
+msgid "Table Style"
+msgstr "টেবিল স্টাইল"
+
+#: app/Settings.php:302
+msgid ""
+"Choose your desired table style for this table. This will change the design & color of "
+"this table according to your selected table design"
+msgstr ""
+"এই টেবিলের জন্য আপনার পছন্দসই টেবিল শৈলী চয়ন করুন. এটি আপনার নির্বাচিত টেবিলের নকশা অনুযায়ী এই "
+"টেবিলের নকশা এবং রঙ পরিবর্তন করবে"
+
+#: app/Settings.php:312
+msgid "Import Sheet Styles"
+msgstr "শীট শৈলী আমদানি করুন"
+
+#: app/Settings.php:313
+msgid ""
+"Import cell backgorund color & cell font color from google sheet. If you activate this "
+"feature it will overrider <i>Table Style</i> setting"
+msgstr ""
+"গুগল শীট থেকে সেল ব্যাকগ্রাউন্ডের রঙ এবং সেল ফন্টের রঙ আমদানি করুন। আপনি যদি এই বৈশিষ্ট্যটি সক্রিয় "
+"করেন তবে এটি <a>টেবিল শৈলী</i> সেটিংসকে ওভাররাইড করবে৷"
+
+#: app/Settings.php:335
+msgid "Allow Sorting"
+msgstr "সাজানোর অনুমতি দিন"
+
+#: app/Settings.php:336
+msgid "Enable this feature to sort table data for frontend."
+msgstr "ফ্রন্টএন্ডের জন্য টেবিল ডেটা সাজাতে এই বৈশিষ্ট্যটি সক্ষম করুন।"
+
+#: app/Settings.php:343
+msgid "Search Bar"
+msgstr "সার্চ বার"
+
+#: app/Settings.php:344
+msgid ""
+"Enable this feature to show a search bar in for the table. It will help user to search "
+"data in the table"
+msgstr ""
+"টেবিলের জন্য একটি অনুসন্ধান বার দেখাতে এই বৈশিষ্ট্যটি সক্ষম করুন৷ এটি ব্যবহারকারীকে টেবিলে ডেটা "
+"অনুসন্ধান করতে সহায়তা করবে"
+
+#: app/Shortcode.php:56 app/Shortcode.php:98
+msgid "Table maybe deleted or can't be loaded."
+msgstr "টেবিল মুছে ফেলা হতে পারে বা লোড করা যাবে না।"
+
+#: app/Shortcode.php:73 app/templates/create_tables.php:197 app/templates/edit_table.php:198
+#: app/templates/manage_tables.php:60
+msgid "Loading"
+msgstr "লোড হচ্ছে"
+
+#: app/Strings.php:31
+msgid "Create beautiful tables from Google Sheets"
+msgstr "Google পত্রক থেকে সুন্দর টেবিল তৈরি করুন"
+
+#: app/Strings.php:32 app/Strings.php:40
+msgid "Create new table"
+msgstr "নতুন টেবিল তৈরি করুন"
+
+#: app/Strings.php:33
+msgid "Your Tables"
+msgstr "টেবিল ডিলিট করুন"
+
+#: app/Strings.php:34
+msgid "Loading..."
+msgstr "লোড নিচ্ছে...."
+
+#: app/Strings.php:36
+msgid "👋 Welcome!"
+msgstr "স্বাগতম"
+
+#: app/Strings.php:37
+msgid "Click the button below to create your first table!"
+msgstr "আপনার প্রথম টেবিল তৈরি করতে নিচের বাটনে ক্লিক করুন!"
+
+#: app/Strings.php:38
+msgid "Need help? Watch a"
+msgstr "সাহায্য দরকার?"
+
+#: app/Strings.php:41
+msgid "Need help?"
+msgstr "সাহায্য দরকার?"
+
+#: app/Strings.php:42
+msgid "Help"
+msgstr "সাহায্য পান"
+
+#: app/Strings.php:43 app/Strings.php:1109
+msgid "Help?"
+msgstr "সাহায্য পান"
+
+#: app/Strings.php:44
+msgid "Watch Now"
+msgstr "এখন দেখো"
+
+#: app/Strings.php:45
+msgid "Search tables"
+msgstr "সার্চ টেবিল"
+
+#: app/Strings.php:46
+msgid "Search items"
+msgstr "সার্চ আইটেম"
+
+#: app/Strings.php:48
+msgid "Search"
+msgstr "খোঁজো"
+
+#: app/Strings.php:49
+msgid "Clear"
+msgstr "মুছুন"
+
+#: app/Strings.php:51
+msgid "Get Help with Creating Tab Groups"
+msgstr "ট্যাব সেটিংস"
+
+#: app/Strings.php:52
+msgid "Tabs let you group multiple tables into tabbed views and embed in your pages or posts"
+msgstr ""
+"ট্যাবগুলো আপনাকে একাধিক টেবিলকে একটি ট্যাব ভিউতে সাজাতে এবং আপনার পেজ বা পোস্টে এমবেড করতে "
+"সাহায্য করে"
+
+#: app/Strings.php:53 app/Strings.php:1093
+msgid "Quick Tutorial"
+msgstr "টিউটোরিয়াল"
+
+#: app/Strings.php:54
+msgid "Get started with Tab Groups"
+msgstr "ট্যাব গ্রুপের শিরোনাম"
+
+#: app/Strings.php:55
+msgid "Search tabs"
+msgstr "সার্চ টেবিল"
+
+#: app/Strings.php:60
+msgid "This title will be shown on the top of your table"
+msgstr "এই শিরোনামটি আপনার টেবিলের উপরে দেখানো হবে"
+
+#: app/Strings.php:61
+msgid ""
+"Copy the URL of your Google Sheet from your browser and paste it in the box below. Make "
+"sure your sheet is public."
+msgstr "আপনার Google পত্রকের URL কপি করুন এবং এটি এখানে পেস্ট করুন।"
+
+#: app/Strings.php:62
+msgid ""
+"Copy the Google Sheet URL from your browser and paste it here to create table. Changing "
+"this URL will change your table."
+msgstr ""
+"আপনার ব্রাউজার থেকে Google শিট URL কপি করুন এবং টেবিল তৈরি করতে এখানে পেস্ট করুন। এই URL "
+"পরিবর্তন করা আপনার টেবিল পরিবর্তন হবে."
+
+#: app/Strings.php:63
+msgid "If this is enabled, the box showing number of entries will be hidden for the viewers"
+msgstr "এটি সক্ষম হলে, দর্শকদের জন্য এন্ট্রির সংখ্যা দেখানো বাক্সটি লুকানো হবে"
+
+#: app/Strings.php:64
+msgid "If enabled, the search box will be hidden for viewers"
+msgstr "সক্ষম হলে, অনুসন্ধান বাক্সটি দর্শকদের জন্য লুকানো হবে৷"
+
+#: app/Strings.php:65
+msgid "Enable this option to hide the table title for the viewers"
+msgstr "ফ্রন্টএন্ডের জন্য টেবিল ডেটা সাজাতে এই বৈশিষ্ট্যটি সক্ষম করুন।"
+
+#: app/Strings.php:66
+msgid "Enable this option to show the table title for the viewers"
+msgstr "ফ্রন্টএন্ডের জন্য টেবিল ডেটা সাজাতে এই বৈশিষ্ট্যটি সক্ষম করুন।"
+
+#: app/Strings.php:67
+msgid "Enable this option to show table description for the viewers"
+msgstr "ফ্রন্টএন্ডের জন্য টেবিল ডেটা সাজাতে এই বৈশিষ্ট্যটি সক্ষম করুন।"
+
+#: app/Strings.php:68
+msgid "If checked, the sorting option will be enabled for viewers when they view the table"
+msgstr "চেক করা থাকলে, সারণি দেখার সময় দর্শকদের জন্য সাজানোর বিকল্পটি নিষ্ক্রিয় হয়ে যাবে"
+
+#: app/Strings.php:69
+msgid ""
+"If enabled the entry info showing number of current entries out of all the entries will be "
+"hidden"
+msgstr "সক্রিয় করা হলে সমস্ত এন্ট্রির মধ্যে বর্তমান এন্ট্রির সংখ্যা দেখানো এন্ট্রি তথ্য লুকানো হবে"
+
+#: app/Strings.php:70
+msgid "Enable this to hide the pagination for viewers"
+msgstr "দর্শকদের জন্য পৃষ্ঠা সংখ্যা লুকাতে এটি সক্ষম করুন৷"
+
+#: app/Strings.php:71
+msgid "Display multiple tables using tabs. Just like your google sheets"
+msgstr "ট্যাব ব্যবহার করে একাধিক টেবিল প্রদর্শন করুন।"
+
+#: app/Strings.php:72
+msgid "Title of the tab group"
+msgstr "ট্যাব গ্রুপের শিরোনাম"
+
+#: app/Strings.php:73
+msgid "Enter the title for this tab"
+msgstr "এই ট্যাবের জন্য টেবিল নির্বাচন করুন।"
+
+#: app/Strings.php:74
+msgid "Select the table which will be shown in this tab from the dropdown below"
+msgstr "নীচের ড্রপডাউন থেকে এই ট্যাবে দেখানো টেবিলটি নির্বাচন করুন"
+
+#: app/Strings.php:75
+msgid "Enable this to hide the selected columns on mobile"
+msgstr "মোবাইলে নির্বাচিত কলামগুলি লুকানোর জন্য এটি সক্রিয় করুন৷"
+
+#: app/Strings.php:76
+msgid "Enable this to hide the selected column on desktop"
+msgstr "ডেস্কটপে নির্বাচিত কলাম লুকানোর জন্য এটি সক্রিয় করুন"
+
+#: app/Strings.php:77
+msgid ""
+"This is the list of the hidden columns. Removing a column from this list will make them "
+"visible again"
+msgstr "এটি লুকানো কলামের তালিকা। এই তালিকা থেকে একটি কলাম সরানো হলে সেগুলি আবার দৃশ্যমান হবে৷"
+
+#: app/Strings.php:78
+msgid ""
+"This is the list of the hidden rows. Removing a row from this list will make them visible "
+"again"
+msgstr "এই লুকানো সারি তালিকা. এই তালিকা থেকে একটি সারি সরানো তাদের আবার দৃশ্যমান হবে"
+
+#: app/Strings.php:79
+msgid ""
+"This is the list of the hidden cells. Removing a cell from this list will make them "
+"visible again"
+msgstr "এটি লুকানো কোষের তালিকা। এই তালিকা থেকে একটি ঘর সরানো হলে সেগুলি আবার দৃশ্যমান হবে৷"
+
+#: app/Strings.php:80
+msgid "Use direct google sheet embed link with text content, More flexiable and easy to use"
+msgstr "টেক্সট কন্টেন্ট সহ সরাসরি গুগল শীট এম্বেড লিঙ্ক ব্যবহার করুন, আরও নমনীয় এবং ব্যবহার করা সহজ"
+
+#: app/Strings.php:81
+msgid "Use old way [  ] pair to generate link"
+msgstr "লিঙ্ক তৈরি করতে পুরানো উপায় [ ] জোড়া ব্যবহার করুন"
+
+#: app/Strings.php:82
+msgid ""
+"Copy the URL of your Google Sheet from your browser and paste it in the box below. Make "
+"sure your sheet is public.."
+msgstr "আপনার Google পত্রকের URL কপি করুন এবং এটি এখানে পেস্ট করুন।"
+
+#: app/Strings.php:83
+msgid "Copy the URL of your Google Sheet and paste it here."
+msgstr "আপনার Google পত্রকের URL কপি করুন এবং এটি এখানে পেস্ট করুন।"
+
+#: app/Strings.php:84
+msgid "Allows the users to download the table in the format that you select below"
+msgstr ""
+"ব্যবহারকারীদের আপনি নীচের যে বিন্যাসে নির্বাচন করেছেন সেই বিন্যাসে টেবিলটি ডাউনলোড করার অনুমতি "
+"দেয়৷"
+
+#: app/Strings.php:85
+msgid "For the links on the table you can decide what will happen when a link is clicked"
+msgstr "টেবিলের লিঙ্কগুলির জন্য আপনি সিদ্ধান্ত নিতে পারেন যে একটি লিঙ্কে ক্লিক করা হলে কী ঘটবে৷"
+
+#: app/Strings.php:86
+msgid "The link opens in the same tab where the table is"
+msgstr "লিঙ্কটি একই ট্যাবে খোলে যেখানে টেবিলটি রয়েছে"
+
+#: app/Strings.php:87
+msgid "The link will be opened on a new tab"
+msgstr "লিঙ্কটি একটি নতুন ট্যাবে খোলা হবে"
+
+#: app/Strings.php:88
+msgid ""
+"Allow 'Smart links' to load multiple embeed links with text from Google Sheet. To use this "
+"makesure 'Smart link' support selected from 'link support mechanism' in 'Settings' menu. "
+"However, if there is no embeed links in the Sheet or your'e using pretty link format, then "
+"there is no need to use it, which will reduces loading time and makes the table load "
+"faster."
+msgstr ""
+"Google পত্রক থেকে পাঠ্য সহ একাধিক এম্বেড লিঙ্ক লোড করার জন্য 'স্মার্ট লিঙ্ক'-কে অনুমতি দিন। এই "
+"মেকচার ব্যবহার করতে 'সেটিংস' মেনুতে 'লিঙ্ক সাপোর্ট মেকানিজম' থেকে নির্বাচিত 'স্মার্ট লিঙ্ক' সমর্থন। "
+"যাইহোক, যদি শীটে কোন এম্বেড লিঙ্ক না থাকে বা আপনি সুন্দর লিঙ্ক ফরম্যাট ব্যবহার করছেন, তাহলে এটি "
+"ব্যবহার করার কোন প্রয়োজন নেই, যা লোডিং সময় কমিয়ে দেবে এবং টেবিলটি দ্রুত লোড করবে।"
+
+#: app/Strings.php:89
+msgid ""
+"Allow images to be loaded from sheets. You can use it to import images if you have them in "
+"Google Sheets. However, if there is no image in the Sheet, there is no need to use it, "
+"which will reduces loading time and makes the table load faster."
+msgstr ""
+"শীট থেকে ছবি লোড করার অনুমতি দিন। আপনি Google পত্রকগুলিতে ছবিগুলি আমদানি করতে এটি ব্যবহার করতে "
+"পারেন৷ যাইহোক, যদি শীটে কোনও চিত্র না থাকে তবে এটি ব্যবহার করার দরকার নেই, যা লোডিং সময় "
+"কমিয়ে দেবে এবং টেবিলটি দ্রুত লোড করবে।"
+
+#: app/Strings.php:90
+msgid "If enabled the table will load faster for the viewers"
+msgstr "সক্ষম হলে দর্শকদের জন্য টেবিলটি দ্রুত লোড হবে"
+
+#: app/Strings.php:91
+msgid "Choose how the table cell will look"
+msgstr "টেবিল সেল দেখতে কেমন হবে তা চয়ন করুন"
+
+#: app/Strings.php:92
+msgid "Cell will expand according to the content"
+msgstr "কন্টেন্ট অনুযায়ী সেল প্রসারিত হবে"
+
+#: app/Strings.php:93
+msgid "Cell will be wrapped according to the content"
+msgstr "কন্টেন্ট অনুযায়ী সেল মোড়ানো হবে"
+
+#: app/Strings.php:94
+msgid "Choose how the table will look on devices with small screens"
+msgstr "ছোট পর্দা সহ ডিভাইসগুলিতে টেবিলটি কেমন দেখাবে তা চয়ন করুন"
+
+#: app/Strings.php:95
+msgid "Let the browser decide the behavior of the responsiveness"
+msgstr "ব্রাউজারকে প্রতিক্রিয়াশীলতার আচরণের সিদ্ধান্ত নিতে দিন"
+
+#: app/Strings.php:96
+msgid "The table rows will be collapse on  each other in one column"
+msgstr "টেবিলের সারিগুলি একটি কলামে একে অপরের উপর ভেঙে পড়বে"
+
+#: app/Strings.php:97
+msgid "A horizontal scrollbar will appear for the users to scroll the table left and right"
+msgstr "একটি অনুভূমিক স্ক্রলবার প্রদর্শিত হবে ব্যবহারকারীদের টেবিলটি বাম এবং ডানে স্ক্রোল করার জন্য"
+
+#: app/Strings.php:98
+msgid ""
+"Enable this feature to showcase your Sheet's merged cells seamlessly on the WordPress "
+"frontend table."
+msgstr "ফ্রন্টএন্ডের জন্য টেবিল ডেটা সাজাতে এই বৈশিষ্ট্যটি সক্ষম করুন।"
+
+#: app/Strings.php:99
+msgid "Select the number of rows to show per page"
+msgstr "প্রতি পৃষ্ঠায় দেখানোর জন্য সারি"
+
+#: app/Strings.php:100
+msgid ""
+"Select the table height. If the table height is lower there will be a vertical scrollbar "
+"to scroll through the rows"
+msgstr ""
+"টেবিলের উচ্চতা নির্বাচন করুন। যদি টেবিলের উচ্চতা কম হয় তবে সারিগুলির মধ্য দিয়ে স্ক্রোল করার জন্য "
+"একটি উল্লম্ব স্ক্রলবার থাকবে"
+
+#: app/Strings.php:101
+msgid "Quickly change your table's look and feel using themes"
+msgstr "থিম ব্যবহার করে দ্রুত আপনার টেবিলের চেহারা পরিবর্তন করুন"
+
+#: app/Strings.php:102
+msgid ""
+"Enable this feature to import colors and text styles directly from a Google Sheet, instead "
+"of using the predefined theme above"
+msgstr ""
+"উপরে পূর্বনির্ধারিত থিম ব্যবহার না করে সরাসরি একটি Google পত্রক থেকে রঙ এবং পাঠ্য শৈলী আমদানি "
+"করতে এই বৈশিষ্ট্যটি সক্ষম করুন"
+
+#: app/Strings.php:103
+msgid "If this is checked, the tab group title will not be visible in the front end"
+msgstr "এটি চেক করা থাকলে, ট্যাব গ্রুপ শিরোনাম সামনের প্রান্তে দৃশ্যমান হবে না"
+
+#: app/Strings.php:104
+msgid "Choose where you want to show the tab"
+msgstr "আপনি ট্যাবটি কোথায় দেখাতে চান তা চয়ন করুন৷"
+
+#: app/Strings.php:105
+msgid "The tabs will be shown first and the table will be shown after it"
+msgstr "ট্যাবগুলি প্রথমে দেখানো হবে এবং টেবিলটি তার পরে দেখানো হবে"
+
+#: app/Strings.php:106
+msgid "The table will be shown first and the tab will be shown after it"
+msgstr "টেবিলটি প্রথমে দেখানো হবে এবং এর পরে ট্যাবটি দেখানো হবে"
+
+#: app/Strings.php:108
+msgid "Set the cursor behavior on your table"
+msgstr "টেবিলে কার্সরের আচরণ নির্ধারণ করুন"
+
+#: app/Strings.php:109
+msgid "You can easily highlight text for copy-paste"
+msgstr "কপি-পেস্ট করার জন্য সহজেই টেক্সট নির্বাচন করতে পারবেন"
+
+#: app/Strings.php:110
+msgid "You can effortlessly move the table horizontally (left-right)."
+msgstr "সহজেই টেবিলটি বাম-ডানে (হরাইজন্টালি) সরাতে পারবেন"
+
+#: app/Strings.php:112
+msgid ""
+"Allow checkbox to be loaded from sheets. You can use it to import checkox if you have them "
+"in Google Sheets."
+msgstr ""
+"Sheets থেকে চেকবক্স লোড করার অনুমতি দিন। আপনার Google Sheets-এ চেকবক্স থাকলে সেগুলো ইমপোর্ট "
+"করতে এটি ব্যবহার করতে পারেন।"
+
+#: app/Strings.php:114 app/Strings.php:708
+msgid "Enable row and column coloring"
+msgstr "রো এবং কলামে রঙ চালু করুন"
+
+#: app/Strings.php:115
+msgid "Choose the column or row to add colors"
+msgstr "রঙ যোগ করার জন্য রো বা কলাম নির্বাচন করুন"
+
+#: app/Strings.php:116
+msgid "Add color on column"
+msgstr "রঙিন কলাম"
+
+#: app/Strings.php:117
+msgid "Add color on row"
+msgstr "রোতে রঙ যোগ করুন"
+
+#: app/Strings.php:119
+msgid "Select which column to sort on load, or keep the format from Google Sheets."
+msgstr ""
+"লোড হওয়ার সময় কোন কলাম অনুযায়ী সাজানো হবে তা নির্বাচন করুন, অথবা Google Sheets-এর ফরম্যাট 그대"
+"로 রাখুন"
+
+#: app/Strings.php:120
+msgid "Choose the order of sorting for the selected column."
+msgstr "নির্বাচিত কলামের জন্য সাজানোর ক্রম নির্বাচন করুন"
+
+#: app/Strings.php:122
+msgid ""
+"Specify the maximum time (in seconds) the plugin will wait for a response from the Google "
+"server. A higher timeout allows more time to receive a complete response, but may delay "
+"table loading; a lower timeout can speed up loading but may result in missing data if the "
+"response isn’t fully received. A setting between 10 and 15 seconds is generally "
+"recommended for balanced performance."
+msgstr ""
+"Google সার্ভার থেকে রেসপন্স পাওয়ার জন্য প্লাগইনটি সর্বোচ্চ কত সেকেন্ড অপেক্ষা করবে তা নির্ধারণ করুন। "
+"বেশি টাইমআউট দিলে সম্পূর্ণ ডাটা পাওয়ার সুযোগ বাড়ে, তবে এতে টেবিল লোড হতে কিছুটা দেরি হতে পারে। "
+"কম টাইমআউট দিলে লোডিং দ্রুত হয়, কিন্তু রেসপন্স সম্পূর্ণ না হলে কিছু ডাটা বাদ পড়তে পারে। ভারসাম্যপূর্ণ "
+"পারফরম্যান্সের জন্য সাধারণত ১০ থেকে ১৫ সেকেন্ড সেট করা ভালো।"
+
+#: app/Strings.php:124
+msgid ""
+"Choose how you want to sort your table on load. Select a specific column to sort by "
+"(either ascending or descending), or keep the same format as in Google Sheets."
+msgstr ""
+"টেবিল লোড হওয়ার সময় কীভাবে সাজানো হবে তা নির্বাচন করুন। নির্দিষ্ট কোনো কলাম অনুযায়ী (উর্ধ্বক্রম বা "
+"নিম্নক্রমে) সাজাতে পারেন, অথবা Google Sheets-এর ফরম্যাট 그대로 রাখতে পারেন।"
+
+#: app/Strings.php:126
+msgid ""
+"Select this to make the custom theme available for all tables. If unchecked, the theme "
+"will only be used for this table."
+msgstr ""
+"এই অপশনটি চালু করলে কাস্টম থিমটি সব টেবিলের জন্য ব্যবহার করা যাবে। এটি বন্ধ থাকলে থিমটি শুধু এই "
+"টেবিলেই প্রযোজ্য হবে।"
+
+#: app/Strings.php:127
+msgid ""
+"If selected, any changes made to your theme will be automatically applied to all other "
+"tables with the same theme, ensuring consistency across them. If the theme does not exist "
+"in other tables, it will be cloned with update style."
+msgstr ""
+"এই অপশনটি নির্বাচন করলে থিমে করা যেকোনো পরিবর্তন স্বয়ংক্রিয়ভাবে একই থিম ব্যবহার করা অন্যান্য সব "
+"টেবিলেও প্রয়োগ হবে, ফলে সব টেবিলে একরকম ডিজাইন থাকবে। অন্য টেবিলে যদি এই থিমটি না থাকে, "
+"তাহলে আপডেট করা স্টাইলসহ থিমটি কপি করে প্রয়োগ করা হবে।"
+
+#: app/Strings.php:129
+msgid ""
+"Adjust the header’s offset to prevent overlap with sticky menus or other elements at the "
+"top of the page."
+msgstr ""
+"পেজের উপরের দিকে থাকা স্টিকি মেনু বা অন্যান্য এলিমেন্টের সাথে যেন হেডার ওভারল্যাপ না হয়, সেজন্য "
+"হেডারের অফসেট সমন্বয় করুন।"
+
+#: app/Strings.php:130
+msgid ""
+"Set how many columns from the left side of the table should remain fixed while scrolling."
+msgstr "স্ক্রল করার সময় টেবিলের বাম দিক থেকে কতগুলো কলাম স্থির থাকবে তা নির্ধারণ করুন।"
+
+#: app/Strings.php:131
+msgid ""
+"Set how many columns from the right side of the table should remain fixed while scrolling."
+msgstr "স্ক্রল করার সময় টেবিলের ডান দিক থেকে কতগুলো কলাম স্থির থাকবে তা নির্ধারণ করুন।"
+
+#: app/Strings.php:132
+msgid ""
+"When this option is enabled, the cache won't trigger any API request to update data from "
+"sheets. This helps improve performance and reduce server load. Important: If this is "
+"enabled before turning on features like merged cells, links, images, or importing table "
+"styles from Google Sheets, those features might not appear until the cache expires. To "
+"avoid this, enable all necessary features first, then active the cache feaure and then "
+"turn on this option. You can also change the cache expiry time in Settings."
+msgstr ""
+"এই অপশনটি চালু করলে ক্যাশ সক্রিয় অবস্থায় Google Sheets থেকে ডাটা আপডেট করার জন্য কোনো API "
+"রিকোয়েস্ট পাঠানো হবে না। এতে পারফরম্যান্স উন্নত হয় এবং সার্ভারের লোড কমে। গুরুত্বপূর্ণ: merged "
+"cells, লিংক, ছবি বা Google Sheets থেকে টেবিল স্টাইল ইমপোর্ট করার মতো ফিচারগুলো চালু করার আগেই "
+"যদি এটি সক্রিয় করা হয়, তাহলে ক্যাশের মেয়াদ শেষ না হওয়া পর্যন্ত সেগুলো দেখা নাও যেতে পারে। সমস্যা "
+"এড়াতে আগে প্রয়োজনীয় সব ফিচার চালু করুন, তারপর ক্যাশ ফিচার সক্রিয় করে এই অপশনটি চালু করুন। চাইলে "
+"Settings থেকে ক্যাশের মেয়াদও পরিবর্তন করতে পারবেন।"
+
+#: app/Strings.php:133
+msgid ""
+"Set how many days the cache should be stored in transients. Once the transient expires, "
+"the data will automatically refresh from the connected Google Sheets with updated data."
+msgstr ""
+"কতদিন পর্যন্ত ক্যাশ ট্রানজিয়েন্টে সংরক্ষণ থাকবে তা নির্ধারণ করুন। ট্রানজিয়েন্টের মেয়াদ শেষ হলে সংযুক্ত "
+"Google Sheets থেকে স্বয়ংক্রিয়ভাবে সর্বশেষ ডাটা নিয়ে টেবিল আপডেট হবে।"
+
+#: app/Strings.php:135
+msgid ""
+"Allow visitors to ask questions about the table. AI scans the data and returns accurate, "
+"easy to understand answers in real time."
+msgstr ""
+"ভিজিটরদের টেবিল সম্পর্কিত প্রশ্ন করার সুযোগ দিন। AI ডাটাগুলো বিশ্লেষণ করে রিয়েল-টাইমে সঠিক ও "
+"সহজবোধ্য উত্তর প্রদান করবে।"
+
+#: app/Strings.php:140
+msgid "Add new table"
+msgstr "নতুন টেবিল যোগ করুন"
+
+#: app/Strings.php:145
+msgid "Please activate your license"
+msgstr "আপনার লাইসেন্স সক্রিয় করুন"
+
+#: app/Strings.php:151
+msgid "What’s new?"
+msgstr "নতুন কি?"
+
+#: app/Strings.php:156
+msgid "Save changes"
+msgstr "পরিবর্তনগুলোর সংরক্ষন"
+
+#: app/Strings.php:157
+msgid "1. Tab Creation"
+msgstr "ট্যাব সেটিংস"
+
+#: app/Strings.php:158
+msgid "2. Tab settings"
+msgstr "ট্যাব সেটিংস"
+
+#: app/Strings.php:159
+msgid "Table Settings"
+msgstr "টেবিল সেটিংস"
+
+#: app/Strings.php:161
+msgid "Create tab view with tables"
+msgstr "নতুন টেবিল তৈরি করুন"
+
+#: app/Strings.php:162
+msgid "Adjust tab appearance and behavior"
+msgstr "ট্যাবের চেহারা ও আচরণ সমন্বয় করুন"
+
+#: app/Strings.php:163
+msgid "Save & go to Manage Tab"
+msgstr "ট্যাব পরিচালনা করুন"
+
+#: app/Strings.php:164
+msgid "Save & go to dashboard"
+msgstr "সংরক্ষণ করুন ও ড্যাশবোর্ডে যান"
+
+#: app/Strings.php:165
+msgid "Go to Dashboard"
+msgstr "ড্যাশবোর্ড"
+
+#: app/Strings.php:167
+msgid "COPY EMAL"
+msgstr "ইমেইল কপি করুন"
+
+#: app/Strings.php:168
+msgid "ID: TB_"
+msgstr "আইডি: TB_"
+
+#: app/Strings.php:169
+msgid "Copied!"
+msgstr "কপি হয়েছে!"
+
+#: app/Strings.php:170 app/templates/create_tables.php:37 app/templates/edit_table.php:39
+msgid "Back"
+msgstr "ফিরে যান"
+
+#: app/Strings.php:171 app/Strings.php:603
+msgid "Next"
+msgstr "পরবর্তী"
+
+#: app/Strings.php:172
+msgid "Tab title"
+msgstr "টেবিল শিরোনাম"
+
+#: app/Strings.php:173 app/Strings.php:582
+msgid "Tab Groups"
+msgstr "ট্যাব গ্রুপ শিরোনাম"
+
+#: app/Strings.php:174
+msgid "Organize multiple tables into tabs, just like Google Sheets!"
+msgstr "ট্যাব ব্যবহার করে একাধিক টেবিল প্রদর্শন করুন।"
+
+#: app/Strings.php:175
+msgid "Get started with tab groups"
+msgstr "ট্যাব গ্রুপের শিরোনাম"
+
+#: app/Strings.php:176
+msgid "No tab group found!"
+msgstr "কোনো টেবিল পাওয়া যায়নি।"
+
+#: app/Strings.php:177
+msgid "No tab group matches to your search term"
+msgstr "আপনার অনুসন্ধানের সাথে কোনো ট্যাব গ্রুপ মেলেনি"
+
+#: app/Strings.php:178
+msgid "Select table for Tab 1"
+msgstr "এই ট্যাবের জন্য টেবিল নির্বাচন করুন।"
+
+#: app/Strings.php:184
+msgid "Select Pagination"
+msgstr "পৃষ্ঠা সংখ্যা লুকান"
+
+#: app/Strings.php:185
+msgid "Customize your theme according to your needs"
+msgstr "আপনার প্রয়োজন অনুযায়ী আপনার থিম কাস্টমাইজ করুন"
+
+#: app/Strings.php:190
+msgid "Name"
+msgstr "নাম"
+
+#: app/Strings.php:191
+msgid "ID"
+msgstr "আইডি"
+
+#: app/Strings.php:192
+msgid "Date"
+msgstr "তারিখ"
+
+#: app/Strings.php:193 app/Strings.php:493
+msgid "Ascending"
+msgstr "উর্ধ্বক্রম"
+
+#: app/Strings.php:194 app/Strings.php:494
+msgid "Descending"
+msgstr "নিম্নক্রম"
+
+#: app/Strings.php:195
+msgid "above"
+msgstr "উপরে"
+
+#: app/Strings.php:196
+msgid "below"
+msgstr "নিচে"
+
+#: app/Strings.php:197
+msgid "No tables found!"
+msgstr "কোনো টেবিল পাওয়া যায়নি।"
+
+#: app/Strings.php:198
+msgid "No tables matches to your search term"
+msgstr "আপনার অনুসন্ধানের সাথে কোনো টেবিল মেলেনি"
+
+#: app/Strings.php:204
+msgid "1. Managing tabs"
+msgstr "ট্যাব পরিচালনা"
+
+#: app/Strings.php:209
+msgid "Create table"
+msgstr "ছক তৈরি কর"
+
+#: app/Strings.php:210
+msgid "Create table from URL"
+msgstr "ছক তৈরি কর"
+
+#: app/Strings.php:211
+msgid "Change theme and table style"
+msgstr "থিম ও টেবিলের স্টাইল পরিবর্তন করুন"
+
+#: app/Strings.php:212
+msgid "You can change table theme below. You will find more customization in the dashboard."
+msgstr "নিচে থেকে টেবিলের থিম পরিবর্তন করতে পারেন। ড্যাশবোর্ডে আরও কাস্টমাইজেশন অপশন পাবেন।"
+
+#: app/Strings.php:214
+msgid "PRO"
+msgstr "প্রো"
+
+#: app/Strings.php:216
+msgid "to create table from any tab of your Google SpreadSheet."
+msgstr "আপনার Google স্প্রেডশিটের যেকোনো ট্যাব থেকে টেবিল তৈরি করতে।"
+
+#: app/Strings.php:217
+msgid "Add your Google Sheet URL to create a table"
+msgstr "Google পত্রক URL যোগ করুন"
+
+#: app/Strings.php:218
+msgid ""
+"Paste the browser URL of your Google Sheet below, and the table will be created for you to "
+"customize"
+msgstr ""
+"নিচে আপনার Google Sheet-এর ব্রাউজার URL পেস্ট করুন, এরপর কাস্টমাইজ করার জন্য টেবিলটি "
+"স্বয়ংক্রিয়ভাবে তৈরি হয়ে যাবে"
+
+#: app/Strings.php:219
+msgid "Creating new table"
+msgstr "নতুন টেবিল তৈরি করা হচ্ছে"
+
+#: app/Strings.php:224
+msgid "Create WooCommerce product table easily!"
+msgstr "সহজেই WooCommerce পণ্য টেবিল তৈরি করুন!"
+
+#: app/Strings.php:226
+msgid "Install Stock Sync for WooCommerce"
+msgstr "WooCommerce এর জন্য স্টক সিঙ্ক ইনস্টল করুন"
+
+#: app/Strings.php:228
+msgid ""
+"and sync your store products to Google Sheets. Use the synced Google Sheet to create "
+"table. It’s easy!"
+msgstr ""
+"এবং আপনার দোকানের পণ্যগুলিকে Google পত্রকের সাথে সিঙ্ক করুন৷ টেবিল তৈরি করতে সিঙ্ক করা Google "
+"পত্রক ব্যবহার করুন। এটি সহজ!"
+
+#: app/Strings.php:230
+msgid "Install now"
+msgstr "এখন ইন্সটল করুন"
+
+#: app/Strings.php:235
+msgid "Table title"
+msgstr "টেবিল শিরোনাম"
+
+#: app/Strings.php:236
+msgid "Please reduce title to save."
+msgstr "সংরক্ষণ করতে শিরোনাম কম করুন."
+
+#: app/Strings.php:237
+msgid "Google Sheet URL"
+msgstr "Google পত্রক URL"
+
+#: app/Strings.php:242
+msgid "Show Table title"
+msgstr "টেবিল শিরোনাম"
+
+#: app/Strings.php:243
+msgid "Table top elements"
+msgstr "টেবিল শীর্ষ উপাদান"
+
+#: app/Strings.php:244
+msgid "Show entries"
+msgstr "এক্স এন্ট্রি দেখান"
+
+#: app/Strings.php:245
+msgid "Show search box"
+msgstr "অনুসন্ধান বাক্স লুকান"
+
+#: app/Strings.php:246
+msgid "Swap"
+msgstr "অদলবদল"
+
+#: app/Strings.php:247
+msgid "Hide title"
+msgstr "শিরোনাম লুকান"
+
+#: app/Strings.php:249
+msgid "Allow Table Sorting"
+msgstr "সাজানোর অনুমতি দিন"
+
+#: app/Strings.php:250
+msgid "Hide sorting controls from table"
+msgstr "টেবিল থেকে সাজানোর কন্ট্রোল লুকান"
+
+#: app/Strings.php:251
+msgid "Set Default Table Sorting on Load"
+msgstr "লোড হওয়ার সময় ডিফল্ট টেবিল সাজানো নির্ধারণ করুন"
+
+#: app/Strings.php:252
+msgid "Sort By Column"
+msgstr "কলাম অনুযায়ী সাজান"
+
+#: app/Strings.php:253
+msgid "Sort By Order"
+msgstr "বাছাই এবং ফিল্টার"
+
+#: app/Strings.php:254
+msgid "Sort By"
+msgstr "বাছাই এবং ফিল্টার"
+
+#: app/Strings.php:256
+msgid "Freeze Table Columns"
+msgstr "টেবিলের কলাম স্থির করুন"
+
+#: app/Strings.php:257
+msgid "Left Columns Numbers"
+msgstr "বাম দিকের কলামের সংখ্যা"
+
+#: app/Strings.php:258
+msgid "Right Columns Numbers"
+msgstr "ডান দিকের কলামের সংখ্যা"
+
+#: app/Strings.php:259
+msgid "Freeze Table Header"
+msgstr "টেবিলের হেডার স্থির করুন"
+
+#: app/Strings.php:260
+msgid "Header Offset"
+msgstr "হেডার অফসেট"
+
+#: app/Strings.php:262
+msgid "Table bottom elements"
+msgstr "টেবিলের নিচের উপাদান"
+
+#: app/Strings.php:263
+msgid "Show entry info"
+msgstr "এন্ট্রি তথ্য লুকান"
+
+#: app/Strings.php:264
+msgid "Show pagination"
+msgstr "পৃষ্ঠা সংখ্যা লুকান"
+
+#: app/Strings.php:265
+msgid "Swap position"
+msgstr "ট্যাব অবস্থান"
+
+#: app/Strings.php:266
+msgid "Swapped position"
+msgstr "ট্যাব অবস্থান"
+
+#: app/Strings.php:267
+msgid ""
+"Themes cannot be used when the \"Import colors and text styles from sheet\" feature is "
+"enabled"
+msgstr "শীট থেকে রং এবং পাঠ্য শৈলী আপনার টেবিলে আনুন"
+
+#: app/Strings.php:273
+msgid "How does this plugin work?"
+msgstr "এই প্লাগইনটি কীভাবে কাজ করে?"
+
+#: app/Strings.php:274
+msgid ""
+"Watch how to <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>get started with FlexTable</a>."
+msgstr ""
+"অনুগ্রহ করে আমাদের <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>ইউটিউব প্লেলিস্ট</a> দেখুন, যেখানে আমরা টিউটোরিয়াল "
+"পোস্ট করি আপনি কীভাবে বিভিন্ন বৈশিষ্ট্য ব্যবহার করতে পারেন তার উপর প্লাগইন এর।"
+
+#: app/Strings.php:276
+msgid "Where can I find tutorials about this plugin?"
+msgstr "আমি কিভাবে প্লাগইন ব্যবহার সম্পর্কে টিউটোরিয়াল খুঁজে পেতে পারি?"
+
+#: app/Strings.php:277
+msgid ""
+"Please visit our <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>Youtube playlist</a>, where we post tutorials on "
+"how you can use different features of the plugin."
+msgstr ""
+"অনুগ্রহ করে আমাদের <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>ইউটিউব প্লেলিস্ট</a> দেখুন, যেখানে আমরা টিউটোরিয়াল "
+"পোস্ট করি আপনি কীভাবে বিভিন্ন বৈশিষ্ট্য ব্যবহার করতে পারেন তার উপর প্লাগইন এর।"
+
+#: app/Strings.php:279
+msgid "What date format can I use?"
+msgstr "আমি কি তারিখ বিন্যাস ব্যবহার করতে পারি?"
+
+#: app/Strings.php:280
+msgid ""
+"When working with date formats in your table, you have various options to choose from. "
+"Avoid using a <span class='date-format'><code>comma separator</code></span>, but consider "
+"formats such as <br> e.g. <span class='date-format'><code>2005-06-07</code> | "
+"<code>2005/06/07</code> | <code>2005 06 07</code> | <code>June 7- 2005</code> | <code>June "
+"7 2005</code> | <code>7th June 2005</code></span>"
+msgstr ""
+"আপনার টেবিলে তারিখ বিন্যাস নিয়ে কাজ করার সময়, আপনার কাছে বেছে নেওয়ার জন্য বিভিন্ন বিকল্প "
+"রয়েছে। <span class='date-format'><code>কমা বিভাজক</code></span> ব্যবহার করা এড়িয়ে চলুন, তবে "
+"<br> যেমন ফর্ম্যাট বিবেচনা করুন <span class='date-format'><code>2005-06-07</code> | "
+"<code>2005/06/07</code> | <code>2005 06 07</code> | <code>জুন 7- 2005</code> | <code>7 জুন "
+"2005</code> | <code>7ই জুন 2005</code></span>"
+
+#: app/Strings.php:282
+msgid "Which one is better for link support?"
+msgstr "কোনটি লিঙ্ক সমর্থনের জন্য ভাল?"
+
+#: app/Strings.php:284
+msgid ""
+"For enhanced link functionality, it's advisable to utilize <span class='date-"
+"format'><code>Smart Link</code></span> over the <span class='date-format'><code>Pretty "
+"Link</code></span>. Smart Link is known for its robust and user-friendly features."
+msgstr ""
+"উন্নত লিঙ্ক কার্যকারিতার জন্য, <span class='date-format'><code>Pretty Link< এর উপর <span "
+"class='date-format'><code>Smart Link</code></span> ব্যবহার করার পরামর্শ দেওয়া হয় /code></"
+"span>। স্মার্ট লিঙ্ক তার শক্তিশালী এবং ব্যবহারকারী-বান্ধব বৈশিষ্ট্যগুলির জন্য পরিচিত।"
+
+#: app/Strings.php:286
+msgid "Why my table taking too long to load?"
+msgstr "কেন আমার টেবিল লোড করতে খুব বেশি সময় নিচ্ছে?"
+
+#: app/Strings.php:288
+msgid ""
+"If your table is taking too long to load, it may be due to the presence of a substantial "
+"amount of data in Google Sheets, along with images and links. If your sheet doesn't "
+"contain images or links, consider disabling <span class='date-format'><code>links and "
+"Image support</code></span> within the <span class='date-format'><code>Utility</code></"
+"span> settings of Table Customization to expedite table loading. Utilizing the cache "
+"feature can also improve loading times."
+msgstr ""
+"যদি আপনার টেবিলটি লোড হতে খুব বেশি সময় নেয়, তবে এটি ছবি এবং লিঙ্ক সহ Google পত্রকগুলিতে যথেষ্ট "
+"পরিমাণ ডেটা উপস্থিতির কারণে হতে পারে৷ আপনার শীটে ছবি বা লিঙ্ক না থাকলে, <span class='date-"
+"format'>-এর মধ্যে <span class='date-format'><code>লিঙ্ক এবং ছবি সমর্থন</code></span> অক্ষম "
+"করার কথা বিবেচনা করুন টেবিল লোডিং ত্বরান্বিত করতে টেবিল কাস্টমাইজেশনের <code>ইউটিলিটি</code></"
+"span> সেটিংস। ক্যাশে বৈশিষ্ট্য ব্যবহার করা লোডিং সময় উন্নত করতে পারে।"
+
+#: app/Strings.php:290
+msgid "How long table data can take to update if Cache is activated?"
+msgstr "ক্যাশে সক্রিয় হলে টেবিলের ডেটা আপডেট হতে কতক্ষণ সময় লাগতে পারে?"
+
+#: app/Strings.php:292
+msgid ""
+"When the cache feature is active, updates to your table data are not reliant on your "
+"browser's cache. Changes made in your sheet may take approximately 15-40 seconds to "
+"reflect. To view the latest updates, simply refresh the page after this timeframe."
+msgstr ""
+"যখন ক্যাশে বৈশিষ্ট্য সক্রিয় থাকে, তখন আপনার টেবিল ডেটার আপডেটগুলি আপনার ব্রাউজারের ক্যাশে নির্ভর "
+"করে না। আপনার শীটে করা পরিবর্তনগুলি প্রতিফলিত হতে প্রায় 15-40 সেকেন্ড সময় নিতে পারে। সর্বশেষ "
+"আপডেটগুলি দেখতে, এই সময়সীমার পরে কেবল পৃষ্ঠাটি রিফ্রেশ করুন৷"
+
+#: app/Strings.php:294
+msgid "How do I find tutorials about using the plugin?"
+msgstr "আমি কিভাবে প্লাগইন ব্যবহার সম্পর্কে টিউটোরিয়াল খুঁজে পেতে পারি?"
+
+#: app/Strings.php:296
+msgid ""
+"Please visit our <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube playlist</a>, where we post tutorials on "
+"how you can use different features of the plugin."
+msgstr ""
+"অনুগ্রহ করে আমাদের <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>ইউটিউব প্লেলিস্ট</a> দেখুন, যেখানে আমরা টিউটোরিয়াল "
+"পোস্ট করি আপনি কীভাবে বিভিন্ন বৈশিষ্ট্য ব্যবহার করতে পারেন তার উপর প্লাগইন এর।"
+
+#: app/Strings.php:298
+msgid "How can I create a table from an imported XLSX file in google spreadsheets?"
+msgstr "আপনার Google স্প্রেডশিটের যেকোনো ট্যাব থেকে টেবিল তৈরি করতে।"
+
+#: app/Strings.php:300
+msgid ""
+"Make sure to import the XLSX file into Google Spreadsheets in the following ways. Create a "
+"new blank spreadsheet, then navigate to `<span class='date-format'><code> File > Import > "
+"Upload</code></span>` Drag the XLSX files to import. Then share the spreadsheets from "
+"'General Access'. Please visit our <a target='_blank' href='https://www.youtube.com/"
+"playlist?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube playlist</a>, where we post "
+"tutorials on how you can use XLSX file imported in google spreadsheets."
+msgstr ""
+"নিচের পদ্ধতিতে XLSX ফাইলটি Google Spreadsheets-এ ইমপোর্ট করতে নিশ্চিত করুন। প্রথমে একটি নতুন "
+"ফাঁকা স্প্রেডশিট তৈরি করুন, তারপর `<span class='date-format'><code> File > Import > Upload</"
+"code></span>` এ যান। ইমপোর্ট করার জন্য XLSX ফাইলটি ড্র্যাগ করুন। এরপর ‘General Access’ থেকে "
+"স্প্রেডশিটটি শেয়ার করুন। আরও জানতে আমাদের <a target='_blank' href='https://www.youtube.com/"
+"playlist?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube প্লেলিস্ট</a> দেখুন, যেখানে Google "
+"Spreadsheets-এ ইমপোর্ট করা XLSX ফাইল ব্যবহারের টিউটোরিয়াল দেওয়া আছে।"
+
+#: app/Strings.php:303 app/Strings.php:585
+msgid "Get Started"
+msgstr "শুরু করা যাক"
+
+#: app/Strings.php:304
+msgid "Let’s get you set up so you can start creating awesome tables"
+msgstr "চলুন সেটআপ সম্পন্ন করি, যাতে আপনি দারুণ টেবিল তৈরি করা শুরু করতে পারেন"
+
+#: app/Strings.php:306 app/Strings.php:1128 app/templates/documentation_page.php:175
+msgid "Documentation"
+msgstr "ডকুমেন্টেশন"
+
+#: app/Strings.php:307
+msgid "Video Tutorial"
+msgstr "চলচ্চিত্র মাধ্যমে শিক্ষা"
+
+#: app/Strings.php:308
+msgid "Get professional help via our ticketing system"
+msgstr "আমাদের টিকিট সিস্টেমের মাধ্যমে পেশাদার সাহায্য পান"
+
+#: app/Strings.php:309
+msgid "Frequently Asked Question"
+msgstr "আপনার সম্ভাব্য প্রশ্নাবলী"
+
+#: app/Strings.php:310 app/templates/documentation_page.php:75
+msgid "Get the most out of the plugin. Go Pro!"
+msgstr "প্লাগইন থেকে সর্বাধিক পান। গো প্রো!"
+
+#: app/Strings.php:311
+msgid "Unlock all features"
+msgstr "সমস্ত বৈশিষ্ট্য আনলক করুন"
+
+#: app/Strings.php:312
+msgid "Link Support to import links from sheet"
+msgstr "শীট থেকে লিঙ্ক আমদানি করতে লিঙ্ক সমর্থন"
+
+#: app/Strings.php:313
+msgid "Pre-built amazing table styles where Each styles is different from one another"
+msgstr "পূর্ব-নির্মিত আশ্চর্যজনক টেবিল শৈলী যেখানে প্রতিটি শৈলী একে অপরের থেকে আলাদা"
+
+#: app/Strings.php:314
+msgid "Hide your google sheet table rows based on your custom row selection"
+msgstr "আপনার কাস্টম সারি নির্বাচনের উপর ভিত্তি করে আপনার google শীট টেবিলের সারিগুলি লুকান৷"
+
+#: app/Strings.php:315
+msgid "Unlimited Row Sync and fetch unlimited rows from Google spreadsheet"
+msgstr "সীমাহীন সারি সিঙ্ক করুন এবং Google স্প্রেডশীট থেকে সীমাহীন সারি আনুন৷"
+
+#: app/Strings.php:320
+msgid "Export as JSON"
+msgstr "জেসন ফরমেটে প্রিন্ট করুন"
+
+#: app/Strings.php:321
+msgid "Export as CSV"
+msgstr "CSV ফরমেটে প্রিন্ট করুন"
+
+#: app/Strings.php:322
+msgid "Export as PDF"
+msgstr "PDF  ফরমেটে প্রিন্ট করুন"
+
+#: app/Strings.php:323
+msgid "Export as Excel"
+msgstr "Excel ফরমেটে প্রিন্ট করুন"
+
+#: app/Strings.php:324
+msgid "Print Table"
+msgstr "টেবিলটি প্রিন্ট করুন"
+
+#: app/Strings.php:325
+msgid "Copy to Clipboard"
+msgstr "কপি করুন"
+
+#: app/Strings.php:327
+msgid "Live sync is limited to 30 rows."
+msgstr "লাইভ সিঙ্ক 30 সারিতে সীমাবদ্ধ।"
+
+#: app/Strings.php:328
+msgid "In your free plan, you are limited to creating 10 tables. Upgrade to create more."
+msgstr "আপনার ফ্রি প্ল্যানে সর্বোচ্চ ১০টি টেবিল তৈরি করা যাবে। আরও তৈরি করতে আপগ্রেড করুন।"
+
+#: app/Strings.php:329
+msgid "Upgrade to Pro"
+msgstr "প্রো তে উন্নত করা"
+
+#: app/Strings.php:330
+msgid "for showing full google sheet."
+msgstr "সম্পূর্ণ গুগল শীট দেখানোর জন্য।"
+
+#: app/Strings.php:332
+msgid "1. Data source"
+msgstr "তথ্য সূত্র"
+
+#: app/Strings.php:333
+msgid "2. Table theme"
+msgstr "টেবিলের নাম"
+
+#: app/Strings.php:334
+msgid "3. Table customization"
+msgstr "টেবিল কাস্টমাইজেশন"
+
+#: app/Strings.php:335
+msgid "4. Hide Rows/Column"
+msgstr "সারি/কলাম লুকান"
+
+#: app/Strings.php:336
+msgid "5. Conditional Table View"
+msgstr "৫. শর্তভিত্তিক টেবিল ভিউ"
+
+#: app/Strings.php:337
+msgid "6. AI Integration"
+msgstr "৬. AI ইন্টিগ্রেশন"
+
+#: app/Strings.php:338
+msgid "Table description"
+msgstr "ট্যাব অবস্থান"
+
+#: app/Strings.php:339
+msgid "Show Table description"
+msgstr "ট্যাব অবস্থান"
+
+#: app/Strings.php:341
+msgid "Connect your Google Sheet"
+msgstr "Google পত্রক URL"
+
+#: app/Strings.php:342
+msgid "Choose how your table appears"
+msgstr "আপনি ট্যাবটি কোথায় দেখাতে চান তা চয়ন করুন৷"
+
+#: app/Strings.php:343
+msgid "Style and personalize your table’s look"
+msgstr "টেবিলের চেহারা স্টাইল ও ব্যক্তিগতভাবে কাস্টমাইজ করুন"
+
+#: app/Strings.php:344
+msgid "Show or hide specific rows and columns"
+msgstr "নির্দিষ্ট রো ও কলাম দেখান বা লুকান"
+
+#: app/Strings.php:345
+msgid "Choose how you want to Display the table"
+msgstr "আপনি ট্যাবটি কোথায় দেখাতে চান তা চয়ন করুন৷"
+
+#: app/Strings.php:346
+msgid "Auto-summarize data or let visitors ask questions using AI"
+msgstr "AI ব্যবহার করে স্বয়ংক্রিয়ভাবে ডাটা সারাংশ তৈরি করুন অথবা ভিজিটরদের প্রশ্ন করার সুযোগ দিন"
+
+#: app/Strings.php:348
+msgid "Save"
+msgstr "সংরক্ষণ"
+
+#: app/Strings.php:349
+msgid "Loading Preview..."
+msgstr "লোড হচ্ছে..."
+
+#: app/Strings.php:355
+msgid "Upgrade"
+msgstr "এখন উন্নতি কর"
+
+#: app/Strings.php:361 app/Strings.php:638
+msgid "Create tables first to manage tabs"
+msgstr "ট্যাব পরিচালনা করতে প্রথমে টেবিল তৈরি করুন"
+
+#: app/Strings.php:362 app/Strings.php:637
+msgid ""
+"Manage tab is not available because you don’t have any tables yet. Please create tables "
+"first"
+msgstr "ম্যানেজ ট্যাব উপলব্ধ নেই কারণ আপনার কাছে এখনও কোনো টেবিল নেই। প্রথমে টেবিল তৈরি করুন"
+
+#: app/Strings.php:363
+msgid "Display multiple tables using tabs."
+msgstr "ট্যাব ব্যবহার করে একাধিক টেবিল প্রদর্শন করুন।"
+
+#: app/Strings.php:364
+msgid "Create New Tab Group"
+msgstr "নতুন বানান"
+
+#: app/Strings.php:365
+msgid "Your Tab Groups"
+msgstr "আপনার ট্যাব গ্রুপসমূহ"
+
+#: app/Strings.php:366
+msgid "No tabs found with the key"
+msgstr "কী সহ কোনো ট্যাব পাওয়া যায়নি"
+
+#: app/Strings.php:371
+msgid "Select table for this tab"
+msgstr "এই ট্যাবের জন্য টেবিল নির্বাচন করুন।"
+
+#: app/Strings.php:372
+msgid "Tab Title"
+msgstr "ট্যাব শিরোনাম"
+
+#: app/Strings.php:373
+msgid "Add tab"
+msgstr "ট্যাব যোগ করুন"
+
+#: app/Strings.php:374
+msgid "Tab group name"
+msgstr "ট্যাব গ্রুপ শিরোনাম"
+
+#: app/Strings.php:379
+msgid "Let’s bring meaning to your data"
+msgstr "আসুন আপনার ডেটার অর্থ নিয়ে আসুন"
+
+#: app/Strings.php:380
+msgid "Create beautifully designed tables from Google sheets and customize as you need."
+msgstr ""
+"Google শীট থেকে সুন্দরভাবে ডিজাইন করা টেবিল তৈরি করুন এবং আপনার প্রয়োজন অনুযায়ী কাস্টমাইজ করুন।"
+
+#: app/Strings.php:385
+msgid "Our Other Products"
+msgstr "আমাদের অন্যান্য পণ্য"
+
+#: app/Strings.php:386
+msgid ""
+"Experience remarkable WordPress products with a new level of power, beauty, and human-"
+"centered designs. Think you know WordPress products? Think Deeper!"
+msgstr ""
+"একটি নতুন স্তরের ক্ষমতা, সৌন্দর্য এবং মানব-কেন্দ্রিক ডিজাইনের সাথে অসাধারণ ওয়ার্ডপ্রেস পণ্যের "
+"অভিজ্ঞতা নিন। আপনি ওয়ার্ডপ্রেস পণ্য জানেন? গভীরভাবে চিন্তা করুন!"
+
+#: app/Strings.php:392
+msgid "Hidden Cells on Desktop"
+msgstr "ডেস্কটপে লুকান"
+
+#: app/Strings.php:393
+msgid "Hidden Cells on Mobile"
+msgstr "মোবাইলে লুকান"
+
+#: app/Strings.php:395
+msgid "Hide Cells"
+msgstr "সেল লুকান"
+
+#: app/Strings.php:398
+msgid "Hidden Rows on Desktop"
+msgstr "ডেস্কটপে লুকান"
+
+#: app/Strings.php:399
+msgid "Hidden Rows on Mobile"
+msgstr "মোবাইলে লুকান"
+
+#: app/Strings.php:401
+msgid "Hide Rows"
+msgstr "সারি লুকান"
+
+#: app/Strings.php:402
+msgid "Same as desktop"
+msgstr "ডেস্কটপে লুকান"
+
+#: app/Strings.php:405
+msgid "Hidden Columns on Desktop"
+msgstr "ডেস্কটপে কলাম লুকান:"
+
+#: app/Strings.php:406
+msgid "Hidden Columns on Mobile"
+msgstr "মোবাইলে কলাম লুকান:"
+
+#: app/Strings.php:407
+msgid "Hide columns on desktop"
+msgstr "ডেস্কটপে কলাম লুকান:"
+
+#: app/Strings.php:408
+msgid "Hide columns on mobile"
+msgstr "মোবাইলে কলাম লুকান:"
+
+#: app/Strings.php:410
+msgid "Hide Columns"
+msgstr "কলাম লুকান"
+
+#: app/Strings.php:411
+msgid "Hide on Desktop"
+msgstr "ডেস্কটপে লুকান"
+
+#: app/Strings.php:412
+msgid "Hide on Mobile"
+msgstr "মোবাইলে লুকান"
+
+#: app/Strings.php:413
+msgid "Desktop"
+msgstr "ডেস্কটপে লুকান"
+
+#: app/Strings.php:414
+msgid "Mobile"
+msgstr "মোবাইলে লুকান"
+
+#: app/Strings.php:415
+msgid "Click on the cells on the table below that you want to hide"
+msgstr "নীচের টেবিলের ঘরগুলিতে ক্লিক করুন যা আপনি লুকাতে চান"
+
+#: app/Strings.php:416
+msgid "Click on the rows on the table below that you want to hide"
+msgstr "নীচের টেবিলের সারিগুলিতে ক্লিক করুন যা আপনি লুকাতে চান"
+
+#: app/Strings.php:417
+msgid "Click on the column on the table below that you want to hide"
+msgstr "নীচের টেবিলের কলামে ক্লিক করুন যা আপনি লুকাতে চান"
+
+#: app/Strings.php:422
+msgid "New"
+msgstr "নতুন"
+
+#: app/Strings.php:423
+msgid "Save settings"
+msgstr "সেটিংস সংরক্ষণ করুন"
+
+#: app/Strings.php:424
+msgid "Custom CSS"
+msgstr "কাস্টম সিএসএস"
+
+#: app/Strings.php:425 app/Strings.php:828
+msgid "Recommended"
+msgstr "প্রস্তাবিত"
+
+#: app/Strings.php:426
+msgid "With Pretty link"
+msgstr "সুন্দর লিঙ্ক সহ"
+
+#: app/Strings.php:427
+msgid "With Smart link"
+msgstr "স্মার্ট লিঙ্ক সহ"
+
+#: app/Strings.php:428
+msgid "Asynchronous loading"
+msgstr "অ্যাসিঙ্ক্রোনাস লোড হচ্ছে"
+
+#: app/Strings.php:430
+msgid ""
+"Enable this feature to load the table faster. The table will load in the frontend after "
+"loading all content with a pre-loader. If this feature is disabled then the table will "
+"load with the reloading of browser every time."
+msgstr ""
+"টেবিলটি দ্রুত লোড করতে এই বৈশিষ্ট্যটি সক্ষম করুন৷ একটি প্রি-লোডার দিয়ে সমস্ত সামগ্রী লোড করার পরে "
+"টেবিলটি ফ্রন্টএন্ডে লোড হবে। যদি এই বৈশিষ্ট্যটি অক্ষম করা হয় তবে প্রতিবার ব্রাউজার পুনরায় লোড করার "
+"সাথে টেবিলটি লোড হবে।"
+
+#: app/Strings.php:432
+msgid "Choose your link support mechanism in WP Tables"
+msgstr "WP টেবিলে আপনার লিঙ্ক সমর্থন প্রক্রিয়া চয়ন করুন"
+
+#: app/Strings.php:433
+msgid ""
+"Write your own custom CSS to design the table or the page itself. Activate the Pro "
+"extension to enable custom CSS option"
+msgstr ""
+"টেবিল বা পৃষ্ঠা নিজেই ডিজাইন করতে আপনার নিজস্ব কাস্টম CSS লিখুন। কাস্টম সিএসএস বিকল্প সক্ষম করতে "
+"প্রো এক্সটেনশন সক্রিয় করুন"
+
+#: app/Strings.php:434
+msgid "Performance"
+msgstr "পারফরম্যান্স"
+
+#: app/Strings.php:436
+msgid "Choose how you want to load your table scripts"
+msgstr "টেবিল স্ক্রিপ্ট কীভাবে লোড করতে চান তা নির্বাচন করুন"
+
+#: app/Strings.php:437
+msgid "Global loading"
+msgstr "গ্লোবাল লোডিং"
+
+#: app/Strings.php:438
+msgid "Load the scripts on all the pages and posts in your website."
+msgstr "আপনার ওয়েবসাইটের সব পেজ ও পোস্টে স্ক্রিপ্ট লোড করুন।"
+
+#: app/Strings.php:439
+msgid "Optimized loading"
+msgstr "অপ্টিমাইজড লোডিং"
+
+#: app/Strings.php:440
+msgid ""
+"Load scripts only on the relevant pages/posts in your website where the table is added."
+msgstr "শুধুমাত্র যেসব পেজ বা পোস্টে টেবিল যুক্ত করা হয়েছে, সেখানেই স্ক্রিপ্ট লোড করুন।"
+
+#: app/Strings.php:445
+msgid "WPPOOL"
+msgstr "WPPOOL"
+
+#: app/Strings.php:446
+msgid "Powered by"
+msgstr "পরিচালিত করছে"
+
+#: app/Strings.php:447
+msgid "Default Email App"
+msgstr "ডিফল্ট ইমেল অ্যাপ"
+
+#: app/Strings.php:448
+msgid "Open your default email app"
+msgstr "আপনার ডিফল্ট ইমেল অ্যাপ্লিকেশন খুলুন"
+
+#: app/Strings.php:449
+msgid "Copy email address to your clipboard"
+msgstr "আপনার ক্লিপবোর্ডে ইমেল ঠিকানা অনুলিপি করুন"
+
+#: app/Strings.php:450
+msgid "Yahoo"
+msgstr "ইয়াহু"
+
+#: app/Strings.php:451
+msgid "Open Yahoo in browser"
+msgstr "ব্রাউজারে ইয়াহু খুলুন"
+
+#: app/Strings.php:452
+msgid "Outlook"
+msgstr "Outlook "
+
+#: app/Strings.php:453
+msgid "Open Outlook in browser"
+msgstr "ব্রাউজারে Outlook খুলুন"
+
+#: app/Strings.php:454
+msgid "Gmail"
+msgstr "জিমেইল"
+
+#: app/Strings.php:455
+msgid "Open Gmail in browser"
+msgstr "ব্রাউজারে জিমেইল খুলুন"
+
+#: app/Strings.php:456
+msgid "Select the convenient option to connect with us"
+msgstr "আমাদের সাথে সংযোগ করতে সুবিধাজনক বিকল্প নির্বাচন করুন"
+
+#: app/Strings.php:462
+msgid ""
+"This Tab Group will be deleted. It will not appear on your website anymore, if you used it "
+"somewhere"
+msgstr ""
+"এই ট্যাব গ্রুপ মুছে ফেলা হবে. এটি আপনার ওয়েবসাইটে আর প্রদর্শিত হবে না, যদি আপনি এটি কোথাও ব্যবহার "
+"করেন"
+
+#: app/Strings.php:463 app/templates/parts/popup_modals.php:26
+#: app/templates/parts/popup_modals.php:74 app/templates/parts/popup_modals.php:107
+#: app/templates/parts/popup_modals.php:146 app/templates/parts/pro_fix_notice.php:66
+msgid "Cancel"
+msgstr "বাতিল করুন"
+
+#: app/Strings.php:464
+msgid "Are you sure to delete this Tab Group?"
+msgstr "আপনি কি এই ট্যাব গ্রুপ মুছে ফেলার বিষয়ে নিশ্চিত?"
+
+#: app/Strings.php:470
+msgid "Utility"
+msgstr "ইউটিলিটি"
+
+#: app/Strings.php:471
+msgid "Styling"
+msgstr "শৈলী"
+
+#: app/Strings.php:472 app/Strings.php:473
+msgid "Layout"
+msgstr "লেআউট"
+
+#: app/Strings.php:474
+msgid "Let user export table"
+msgstr "ব্যবহারকারীকে টেবিল এক্সপোর্ট করার সুযোগ দিন"
+
+#: app/Strings.php:475
+msgid "Excel"
+msgstr "এক্সেল"
+
+#: app/Strings.php:476
+msgid "JSON"
+msgstr "জেসন"
+
+#: app/Strings.php:477
+msgid "Copy"
+msgstr "কপি"
+
+#: app/Strings.php:478
+msgid "CSV"
+msgstr "সিএসভি"
+
+#: app/Strings.php:479
+msgid "PDF"
+msgstr "পিডিএফ"
+
+#: app/Strings.php:480
+msgid "Print"
+msgstr "ছাপা"
+
+#: app/Strings.php:481
+msgid "Link redirection behaviour"
+msgstr "লিঙ্ক পুনর্নির্দেশ আচরণ"
+
+#: app/Strings.php:482
+msgid "Opens in current window"
+msgstr "বর্তমান উইন্ডোতে খোলে"
+
+#: app/Strings.php:483
+msgid "Opens in a new window"
+msgstr "একটি নতুন উইন্ডোতে খোলে৷"
+
+#: app/Strings.php:485
+msgid "Cursor behavior inside the table"
+msgstr "টেবিল বানান"
+
+#: app/Strings.php:486
+msgid "Text selection mode"
+msgstr "টেক্সট নির্বাচন মোড"
+
+#: app/Strings.php:487
+msgid "Table navigation mode (left-right)"
+msgstr "টেবিল নেভিগেশন মোড (বাম-ডান)"
+
+#: app/Strings.php:489
+msgid "Import links from sheet"
+msgstr "পত্রক থেকে লিঙ্ক আমদানি করুন"
+
+#: app/Strings.php:491
+msgid "Import checkbox from sheet"
+msgstr "পত্রক থেকে লিঙ্ক আমদানি করুন"
+
+#: app/Strings.php:492
+msgid "Enable sorting by specific columns in"
+msgstr "নির্দিষ্ট কলাম অনুযায়ী সাজানো সক্রিয় করুন"
+
+#: app/Strings.php:495
+msgid "within the table"
+msgstr "টেবিলের পরে"
+
+#: app/Strings.php:497
+msgid "Import images from sheet"
+msgstr "শীট থেকে ইমেজ আমদানি করুন"
+
+#: app/Strings.php:498
+msgid "Cache table for faster loading time"
+msgstr "দ্রুত লোডিং সময়ের জন্য ক্যাশে টেবিল"
+
+#: app/Strings.php:499
+msgid "Prevent frequent cache updates for faster table loading"
+msgstr "দ্রুত টেবিল লোডের জন্য ঘন ঘন ক্যাশ আপডেট বন্ধ করুন"
+
+#: app/Strings.php:500
+msgid ""
+"New changes from Google Sheets will appear only after the cache expires. Features like "
+"links, images, and merged cells may not show until the cache refreshes. Cache expiry time "
+"can be adjusted in Settings —> Performance."
+msgstr ""
+"Google Sheets থেকে নতুন পরিবর্তনগুলো ক্যাশের মেয়াদ শেষ হওয়ার পরেই দেখা যাবে। লিংক, ছবি ও "
+"merged cells-এর মতো ফিচারগুলো ক্যাশ রিফ্রেশ না হওয়া পর্যন্ত নাও দেখা যেতে পারে। ক্যাশের মেয়াদ "
+"Settings → Performance থেকে পরিবর্তন করা যাবে।"
+
+#: app/Strings.php:501
+msgid "Cell formatting style"
+msgstr "সেল বিন্যাস শৈলী"
+
+#: app/Strings.php:502
+msgid "Expanded"
+msgstr "প্রসারিত"
+
+#: app/Strings.php:503
+msgid "Wrapped"
+msgstr "জড়ান"
+
+#: app/Strings.php:504
+msgid "Responsive style"
+msgstr "প্রতিক্রিয়াশীল শৈলী"
+
+#: app/Strings.php:505
+msgid "Default"
+msgstr "ডিফল্ট"
+
+#: app/Strings.php:506
+msgid "Collapsible Style"
+msgstr "সংকোচনশীল শৈলী"
+
+#: app/Strings.php:507
+msgid "Scrollable Style"
+msgstr "স্ক্রোলযোগ্য শৈলী"
+
+#: app/Strings.php:508
+msgid "Rows to show per page"
+msgstr "প্রতি পৃষ্ঠায় দেখানোর জন্য সারি"
+
+#: app/Strings.php:509
+msgid "All"
+msgstr "সব"
+
+#: app/Strings.php:510
+msgid "100"
+msgstr "১০০ "
+
+#: app/Strings.php:511
+msgid "50"
+msgstr "৫০ "
+
+#: app/Strings.php:512
+msgid "30"
+msgstr "৩০"
+
+#: app/Strings.php:513
+msgid "15"
+msgstr "১৫ "
+
+#: app/Strings.php:514
+msgid "10"
+msgstr "১০ "
+
+#: app/Strings.php:515
+msgid "5"
+msgstr "৫ "
+
+#: app/Strings.php:516
+msgid "1"
+msgstr "১ "
+
+#: app/Strings.php:517
+msgid "-1"
+msgstr "-১ "
+
+#: app/Strings.php:518
+msgid "The table is limited to 100 rows."
+msgstr "লাইভ সিঙ্ক 30 সারিতে সীমাবদ্ধ।"
+
+#: app/Strings.php:519
+msgid "to show the full Google Sheet with awesome customizations."
+msgstr "চমৎকার কাস্টমাইজেশনসহ সম্পূর্ণ Google Sheet প্রদর্শনের জন্য।"
+
+#: app/Strings.php:521
+msgid "Upgrade Now →"
+msgstr "এখন উন্নতি কর"
+
+#: app/Strings.php:522
+msgid "Table height"
+msgstr "টেবিলের উচ্চতা"
+
+#: app/Strings.php:524
+msgid "Default height"
+msgstr "ডিফল্ট উচ্চতা"
+
+#: app/Strings.php:525
+msgid "400px"
+msgstr "৪০০px"
+
+#: app/Strings.php:526
+msgid "500px"
+msgstr "৫০০px"
+
+#: app/Strings.php:527
+msgid "600px"
+msgstr "৬০০px"
+
+#: app/Strings.php:528
+msgid "700px"
+msgstr "৭০০px"
+
+#: app/Strings.php:529
+msgid "800px"
+msgstr "৮০০px"
+
+#: app/Strings.php:530
+msgid "900px"
+msgstr "৯০০px"
+
+#: app/Strings.php:531
+msgid "1000px"
+msgstr "১০০০px"
+
+#: app/Strings.php:532
+msgid "Select theme"
+msgstr "থিম নির্বাচন কর"
+
+#: app/Strings.php:534
+msgid "Import colors and text styles from sheet"
+msgstr "শীট থেকে রং এবং পাঠ্য শৈলী আপনার টেবিলে আনুন"
+
+#: app/Strings.php:535
+msgid "Unlock"
+msgstr "আনলক"
+
+#: app/Strings.php:537
+msgid "Default Style"
+msgstr "ডিফল্ট শৈলী"
+
+#: app/Strings.php:538
+msgid "Simple"
+msgstr "সাধারণ"
+
+#: app/Strings.php:540
+msgid "Dark Table"
+msgstr "ডার্ক টেবিল"
+
+#: app/Strings.php:541
+msgid "Simple on dark"
+msgstr "ডার্কে সাধারণ"
+
+#: app/Strings.php:543
+msgid "Stripped Table"
+msgstr "ডোরাকাটা টেবিল"
+
+#: app/Strings.php:544
+msgid "Minimal on dark"
+msgstr "ডার্কে মিনিমাল"
+
+#: app/Strings.php:546
+msgid "Hover Style"
+msgstr "হোভার স্টাইল"
+
+#: app/Strings.php:547
+msgid "Minimal elegant"
+msgstr "মিনিমাল এলিগ্যান্ট"
+
+#: app/Strings.php:549
+msgid "Taliwind Style"
+msgstr "টেবিল স্টাইল"
+
+#: app/Strings.php:550
+msgid "Uppercase heading"
+msgstr "বড় হাতের হেডিং"
+
+#: app/Strings.php:551
+msgid "Table creation successfull"
+msgstr "সারণি সফলভাবে তৈরি করা হয়েছে"
+
+#: app/Strings.php:553
+msgid "Colored Column"
+msgstr "রঙিন কলাম"
+
+#: app/Strings.php:554
+msgid "Vertical style"
+msgstr "উল্লম্ব স্টাইল"
+
+#: app/Strings.php:557
+msgid "Minimal"
+msgstr "মিনিমাল"
+
+#: app/Strings.php:558
+msgid "Dark knight"
+msgstr "ডার্ক নাইট"
+
+#: app/Strings.php:559
+msgid "Uppercase elegant"
+msgstr "বড় হাতের এলিগ্যান্ট"
+
+#: app/Strings.php:561
+msgid "Merge cells"
+msgstr "লুকানো সেল"
+
+#: app/Strings.php:562
+msgid "Beta"
+msgstr "বেটা"
+
+#: app/Strings.php:563
+msgid ""
+"Sorting feature is disabled. Your sheet contains vertically merged cells, so you can't use "
+"the sorting feature and merge cell feature altogether."
+msgstr ""
+"সাজানোর ফিচারটি বন্ধ রয়েছে। আপনার শিটে উল্লম্বভাবে মার্জ করা সেল আছে, তাই একসাথে সাজানোর ফিচার "
+"এবং মার্জ সেল ফিচার ব্যবহার করা যাবে না।"
+
+#: app/Strings.php:568
+msgid "Are you sure to disable?"
+msgstr "আপনি কি এটি নিষ্ক্রিয় করতে নিশ্চিত?"
+
+#: app/Strings.php:569
+msgid ""
+"Colors and text styles from your Google Sheet won’t be imported anymore. A default theme "
+"will be selected for you if you haven’t selected one already"
+msgstr ""
+"আপনার Google Sheet থেকে রঙ ও টেক্সট স্টাইল আর ইমপোর্ট করা হবে না। আপনি আগে কোনো থিম নির্বাচন "
+"না করলে একটি ডিফল্ট থিম স্বয়ংক্রিয়ভাবে নির্বাচন করা হবে।"
+
+#: app/Strings.php:570
+msgid "Yes, Disable"
+msgstr "হ্যাঁ, নিষ্ক্রিয় করুন"
+
+#: app/Strings.php:572
+msgid "Enable for Faster Loading"
+msgstr "দ্রুত লোডিংয়ের জন্য সক্রিয় করুন"
+
+#: app/Strings.php:573
+msgid "Prevent Live Sync?"
+msgstr "লাইভ সিঙ্ক বন্ধ করবেন?"
+
+#: app/Strings.php:574
+msgid ""
+"Table data will only refresh when the cache expires. This improves performance but may "
+"delay content updates. You can adjust the cache expiry time in Settings → Performance."
+msgstr ""
+"ক্যাশের মেয়াদ শেষ হলে তবেই টেবিলের ডাটা রিফ্রেশ হবে। এতে পারফরম্যান্স ভালো হয়, তবে কনটেন্ট "
+"আপডেটে দেরি হতে পারে। Settings → Performance থেকে ক্যাশের মেয়াদ পরিবর্তন করতে পারবেন।"
+
+#: app/Strings.php:575
+msgid ""
+"Enabling this feature will skip live sync until your cache expires. Make sure your Google "
+"Sheet up to date and you've enabled all necessary features (images, links, merged cells, "
+"etc.) from the settings first."
+msgstr ""
+"এই ফিচারটি চালু করলে ক্যাশের মেয়াদ শেষ না হওয়া পর্যন্ত লাইভ সিঙ্ক বন্ধ থাকবে। আগে নিশ্চিত করুন "
+"আপনার Google Sheet আপডেট রয়েছে এবং Settings থেকে প্রয়োজনীয় সব ফিচার (ছবি, লিংক, মার্জ সেল "
+"ইত্যাদি) চালু করা আছে।"
+
+#: app/Strings.php:581
+msgid "Manage, create and track all your tables tables in one place"
+msgstr "এক জায়গা থেকে আপনার সব টেবিল তৈরি, পরিচালনা ও ট্র্যাক করুন"
+
+#: app/Strings.php:583
+msgid "Global Settings"
+msgstr "গ্লোবাল সেটিংস"
+
+#: app/Strings.php:584
+msgid "Configure default settings for all your tables"
+msgstr "সব টেবিলের জন্য ডিফল্ট সেটিংস কনফিগার করুন"
+
+#: app/Strings.php:586
+msgid "Skip"
+msgstr "স্কিপ করুন"
+
+#: app/Strings.php:587
+msgid "Add Google Sheet URL"
+msgstr "Google পত্রক URL যোগ করুন"
+
+#: app/Strings.php:588
+msgid "Recommended Plugins"
+msgstr "প্রস্তাবিত প্লাগইন"
+
+#: app/Strings.php:594
+msgid "Show"
+msgstr "দেখান"
+
+#: app/Strings.php:595
+msgid "entries"
+msgstr "এন্ট্রি"
+
+#: app/Strings.php:596
+msgid "Search:"
+msgstr "সার্চ বার:"
+
+#: app/Strings.php:598
+msgid "Showing"
+msgstr "দেখানো হচ্ছে"
+
+#: app/Strings.php:599
+msgid "to"
+msgstr "থেকে"
+
+#: app/Strings.php:600
+msgid "of"
+msgstr "মোট"
+
+#: app/Strings.php:601
+msgid "First"
+msgstr "প্রথম"
+
+#: app/Strings.php:602
+msgid "Previous"
+msgstr "আগে"
+
+#: app/Strings.php:604
+msgid "PREV"
+msgstr "পেছনে"
+
+#: app/Strings.php:605
+msgid "NEXT"
+msgstr "পরবর্তী"
+
+#: app/Strings.php:606
+msgid "last"
+msgstr "শেষ"
+
+#: app/Strings.php:607
+msgid "No matching records found"
+msgstr "কোনো মিলে যাওয়া রেকর্ড পাওয়া যায়নি"
+
+#: app/Strings.php:612
+msgid "Copy Shortcode"
+msgstr "শর্টকোড কপি করুন"
+
+#: app/Strings.php:613
+msgid ""
+"Copy the shortcode to use in in any page or post. Gutenberg and Elementor blocks are also "
+"supported"
+msgstr ""
+"যেকোনো পেজ বা পোস্টে ব্যবহার করার জন্য শর্টকোডটি কপি করুন। Gutenberg এবং Elementor ব্লকও সাপোর্ট "
+"করে।"
+
+#: app/Strings.php:614
+msgid "Are you sure to delete the table? "
+msgstr "আপনি টেবিল মুছে ফেলার বিষয়ে নিশ্চিত?"
+
+#: app/Strings.php:615
+msgid "You are about to delete the table. This will permanently delete the table(s)"
+msgstr "আপনি টেবিলটি মুছে ফেলতে চলেছেন৷ এটি স্থায়ীভাবে টেবিল(গুলি) মুছে ফেলবে"
+
+#: app/Strings.php:620
+msgid "Vertical merge found!"
+msgstr "উল্লম্ব মার্জ পাওয়া গেছে!"
+
+#: app/Strings.php:621
+msgid ""
+"Please make sure to keep the sorting feature disabled. Google sheet doesn't filter over a "
+"range containing vertical merges."
+msgstr ""
+"অনুগ্রহ করে বাছাই বৈশিষ্ট্য নিষ্ক্রিয় রাখা নিশ্চিত করুন. Google শীট উল্লম্ব মার্জ সমন্বিত একটি পরিসরে "
+"ফিল্টার করে না।"
+
+#: app/Strings.php:622 app/templates/parts/pro_fix_notice.php:387
+#: app/templates/parts/pro_fix_notice.php:392
+msgid "OK"
+msgstr "ঠিক আছে"
+
+#: app/Strings.php:623
+msgid ""
+"Your sheet contains vertically merged cells, so you can not use the sorting feature. "
+"Sorting may break the table design and format. Please ensure that you have enabled either "
+"the vertical merge cell feature or the sorting feature, or confirm that your sheet has no "
+"vertical merges. If your table design still breaks even with sorting disabled, consider "
+"reloading the sheet or clicking save again to reflect the necessary fixes. To get the "
+"sorting feature visit Display settings > Disable sorting"
+msgstr ""
+"আপনার শীটে উল্লম্বভাবে মার্জ করা কক্ষ রয়েছে, তাই আপনি সাজানোর বৈশিষ্ট্যটি ব্যবহার করতে পারবেন না। "
+"সাজানোর ফলে টেবিলের নকশা এবং বিন্যাস ভেঙ্গে যেতে পারে। অনুগ্রহ করে নিশ্চিত করুন যে আপনি হয় উল্লম্ব "
+"মার্জ সেল বৈশিষ্ট্য বা বাছাই বৈশিষ্ট্য সক্রিয় করেছেন, অথবা নিশ্চিত করুন যে আপনার পত্রকের কোনো উল্লম্ব "
+"মার্জ নেই৷ বাছাই অক্ষম থাকা সত্ত্বেও যদি আপনার টেবিলের নকশা এখনও ভেঙে যায়, তাহলে শীটটি পুনরায় "
+"লোড করার কথা বিবেচনা করুন বা প্রয়োজনীয় সংশোধনগুলি প্রতিফলিত করতে আবার সংরক্ষণ করুন ক্লিক করুন৷ "
+"সাজানোর বৈশিষ্ট্য পেতে প্রদর্শন সেটিংসে যান > সাজানো অক্ষম করুন"
+
+#: app/Strings.php:628
+msgid "Select a column (optional)"
+msgstr "Column নির্বাচন করুন"
+
+#: app/Strings.php:629
+msgid "After the table"
+msgstr "টেবিলের পরে"
+
+#: app/Strings.php:630
+msgid "Before the table"
+msgstr "টেবিলের আগে"
+
+#: app/Strings.php:631
+msgid "Tab position in embedded view"
+msgstr "এমবেডেড ভিউতে ট্যাবের অবস্থান"
+
+#: app/Strings.php:632
+msgid "Hide tab group title"
+msgstr "ট্যাব গ্রুপ শিরোনাম লুকান"
+
+#: app/Strings.php:639
+msgid "👋 Let's create your first tab groups"
+msgstr "👋 চলুন আপনার প্রথম ট্যাব গ্রুপ তৈরি করি"
+
+#: app/Strings.php:640
+msgid "Click the button below to create tab groups"
+msgstr "ট্যাব গ্রুপ তৈরি করতে নিচের বাটনে ক্লিক করুন"
+
+#: app/Strings.php:641
+msgid "Show tab group name in embedded view"
+msgstr "এমবেডেড ভিউতে ট্যাব গ্রুপের নাম দেখান"
+
+#: app/Strings.php:647
+msgid "HEADER COLORS"
+msgstr "হেডার রঙ"
+
+#: app/Strings.php:648
+msgid "TEXT COLORS"
+msgstr "টেক্সট রঙ"
+
+#: app/Strings.php:649
+msgid "BODY COLORS"
+msgstr "বডি রঙ"
+
+#: app/Strings.php:650
+msgid "TABLE TEXTS"
+msgstr "টেবিল টেক্সট"
+
+#: app/Strings.php:651
+msgid "TABLE HOVER"
+msgstr "টেবিল হোভার"
+
+#: app/Strings.php:652
+msgid "ROW COLORS"
+msgstr "রো রঙ"
+
+#: app/Strings.php:653
+msgid "COLUMN COLORS"
+msgstr "কলাম রঙ"
+
+#: app/Strings.php:654
+msgid "BORDER COLORS"
+msgstr "বর্ডার রঙ"
+
+#: app/Strings.php:655
+msgid "Customize Theme Options"
+msgstr "থিম অপশন কাস্টমাইজ করুন"
+
+#: app/Strings.php:656
+msgid "Border Style"
+msgstr "বর্ডার স্টাইল"
+
+#: app/Strings.php:657
+msgid "Reset"
+msgstr "রিসেট করুন"
+
+#: app/Strings.php:659
+msgid "Background color"
+msgstr "ব্যাকগ্রাউন্ড রঙ"
+
+#: app/Strings.php:660
+msgid "Text color"
+msgstr "টেক্সট রঙ"
+
+#: app/Strings.php:662
+msgid "First column text color"
+msgstr "প্রথম কলামের টেক্সট রঙ"
+
+#: app/Strings.php:663
+msgid "Rest body text color"
+msgstr "বাকি বডি টেক্সটের রঙ"
+
+#: app/Strings.php:664
+msgid "Remaining column text color"
+msgstr "অবশিষ্ট কলামের টেক্সট রঙ"
+
+#: app/Strings.php:666
+msgid "Hover background color"
+msgstr "হোভার ব্যাকগ্রাউন্ড রঙ"
+
+#: app/Strings.php:667
+msgid "Hover text color"
+msgstr "হোভার টেক্সট রঙ"
+
+#: app/Strings.php:668
+msgid "Table background color"
+msgstr "টেবিল ব্যাকগ্রাউন্ড রঙ"
+
+#: app/Strings.php:669
+msgid "Table hover color"
+msgstr "টেবিল হোভার রঙ"
+
+#: app/Strings.php:670
+msgid "Table border color"
+msgstr "টেবিল বর্ডার রঙ"
+
+#: app/Strings.php:671
+msgid "Table text color"
+msgstr "টেবিল টেক্সট রঙ"
+
+#: app/Strings.php:673
+msgid "Border Color"
+msgstr "বর্ডার রঙ"
+
+#: app/Strings.php:674
+msgid "Outside body border"
+msgstr "বডির বাইরের বর্ডার"
+
+#: app/Strings.php:675
+msgid "Inside border"
+msgstr "ভেতরের বর্ডার"
+
+#: app/Strings.php:677
+msgid "Even row color"
+msgstr "জোড় রো রঙ"
+
+#: app/Strings.php:678
+msgid "Odd row color"
+msgstr "বিজোড় রো রঙ"
+
+#: app/Strings.php:680
+msgid "Even column color"
+msgstr "জোড় কলাম রঙ"
+
+#: app/Strings.php:681
+msgid "Odd column color"
+msgstr "বিজোড় কলাম রঙ"
+
+#: app/Strings.php:682
+msgid "Outside border type"
+msgstr "বাইরের বর্ডারের ধরন"
+
+#: app/Strings.php:683
+msgid "Outside border"
+msgstr "বাইরের বর্ডার"
+
+#: app/Strings.php:684
+msgid "Solid border"
+msgstr "সলিড বর্ডার"
+
+#: app/Strings.php:685
+msgid "Rounded border"
+msgstr "রাউন্ডেড বর্ডার"
+
+#: app/Strings.php:686
+msgid "Border radius"
+msgstr "বর্ডার রেডিয়াস"
+
+#: app/Strings.php:691
+msgid "Update Theme"
+msgstr "থিম আপডেট করুন"
+
+#: app/Strings.php:692
+msgid "Theme name"
+msgstr "থিমের নাম"
+
+#: app/Strings.php:693
+msgid "Theme colors"
+msgstr "থিমের রঙ"
+
+#: app/Strings.php:694
+msgid "Column color"
+msgstr "কলাম রঙ"
+
+#: app/Strings.php:695
+msgid "Row color"
+msgstr "রো রঙ"
+
+#: app/Strings.php:696 app/Strings.php:954
+msgid "Edit"
+msgstr "এডিট করুন"
+
+#: app/Strings.php:697
+msgid "Yes, Delete"
+msgstr "হ্যাঁ, মুছে ফেলুন"
+
+#: app/Strings.php:698
+msgid "Yes, Reset"
+msgstr "হ্যাঁ, রিসেট করুন"
+
+#: app/Strings.php:699
+msgid "Create Theme"
+msgstr "থিম তৈরি করুন"
+
+#: app/Strings.php:700
+msgid "Can’t delete active theme!"
+msgstr "সক্রিয় থিম মুছে ফেলা যাবে না!"
+
+#: app/Strings.php:701
+msgid ""
+"The theme is active and currently in use. Please select another theme for your table "
+"before deleting this one"
+msgstr ""
+"এই থিমটি বর্তমানে সক্রিয় ও ব্যবহৃত হচ্ছে। এটি মুছে ফেলার আগে আপনার টেবিলের জন্য অন্য একটি থিম "
+"নির্বাচন করুন।"
+
+#: app/Strings.php:702
+msgid "Are you sure to delete theme?"
+msgstr "আপনি কি থিমটি মুছে ফেলতে নিশ্চিত?"
+
+#: app/Strings.php:703
+msgid "This theme wil be deleted and it can not be recovered. Are you sure to delete it?"
+msgstr "এই থিমটি মুছে ফেলা হবে এবং পরে আর পুনরুদ্ধার করা যাবে না। আপনি কি নিশ্চিত?"
+
+#: app/Strings.php:705
+msgid "Are you sure to reset?"
+msgstr "আপনি কি রিসেট করতে নিশ্চিত?"
+
+#: app/Strings.php:706
+msgid "All of your changes & customization will be lost"
+msgstr "আপনার সব পরিবর্তন ও কাস্টমাইজেশন মুছে যাবে"
+
+#: app/Strings.php:709
+msgid "None"
+msgstr "কোনোটিই নয়"
+
+#: app/Strings.php:710
+msgid "Row wise"
+msgstr "রো অনুযায়ী"
+
+#: app/Strings.php:711
+msgid "Column wise"
+msgstr "কলাম অনুযায়ী"
+
+#: app/Strings.php:712
+msgid "Select coloring"
+msgstr "রঙ নির্বাচন করুন"
+
+#: app/Strings.php:713
+msgid "Hover mode"
+msgstr "হোভার মোড"
+
+#: app/Strings.php:714
+msgid "+ New Theme"
+msgstr "+ নতুন থিম"
+
+#: app/Strings.php:716
+msgid "Apply this custom theme to all tables"
+msgstr "এই কাস্টম থিমটি সব টেবিলে প্রয়োগ করুন"
+
+#: app/Strings.php:717
+msgid "Apply this same style for the other table"
+msgstr "এই একই স্টাইল অন্য টেবিলেও প্রয়োগ করুন"
+
+#: app/Strings.php:723
+msgid "Default pagination"
+msgstr "পৃষ্ঠা সংখ্যা লুকান"
+
+#: app/Strings.php:724
+msgid "Modern pagination"
+msgstr "পৃষ্ঠা সংখ্যা লুকান"
+
+#: app/Strings.php:725
+msgid "Minimal pagination"
+msgstr "পৃষ্ঠা সংখ্যা লুকান"
+
+#: app/Strings.php:726
+msgid "Tailwind pagination"
+msgstr "পৃষ্ঠা সংখ্যা লুকান"
+
+#: app/Strings.php:727
+msgid "Outlined pagination"
+msgstr "পৃষ্ঠা সংখ্যা লুকান"
+
+#: app/Strings.php:728
+msgid "Color Picker"
+msgstr "রঙ নির্বাচনকারী"
+
+#: app/Strings.php:729
+msgid "Pagination color will change based on your selected color"
+msgstr "আপনার নির্বাচিত রঙ অনুযায়ী পেজিনেশনের রঙ পরিবর্তন হবে"
+
+#: app/Strings.php:731
+msgid "Pagination Style"
+msgstr "পেজিনেশন স্টাইল"
+
+#: app/Strings.php:732
+msgid "Pagination"
+msgstr "পেজিনেশন"
+
+#: app/Strings.php:733
+msgid "Active pagination color"
+msgstr "সক্রিয় পেজিনেশনের রঙ"
+
+#: app/Strings.php:734
+msgid "Keep pagination in middle"
+msgstr "পেজিনেশন মাঝখানে রাখুন"
+
+#: app/Strings.php:735
+msgid "Confirm"
+msgstr "নিশ্চিত করুন"
+
+#: app/Strings.php:741
+msgid "Basic Display (default)"
+msgstr "বেসিক ডিসপ্লে (ডিফল্ট)"
+
+#: app/Strings.php:742
+msgid "Enable Column-Specific Search"
+msgstr "কলামভিত্তিক সার্চ সক্রিয় করুন"
+
+#: app/Strings.php:744
+msgid "Table will show by default and work accordingly. Nothing special here"
+msgstr "টেবিলটি ডিফল্টভাবে দেখাবে এবং স্বাভাবিকভাবেই কাজ করবে। এখানে বিশেষ কিছু নেই"
+
+#: app/Strings.php:745 app/Strings.php:1017
+msgid ""
+"Turn your table into a powerful search-engine! Visitors will initially see a search box "
+"instead of the table. Based on their input, they will receive filtered data in a "
+"streamlined table view. Ideal for searching both broad and specific ranges of information "
+"from your Google Sheets (e.g., student records, employee info, etc.)."
+msgstr ""
+"আপনার টেবিলকে একটি শক্তিশালী সার্চ ইঞ্জিনে পরিণত করুন! ভিজিটররা শুরুতে টেবিলের পরিবর্তে একটি সার্চ "
+"বক্স দেখবে। তাদের ইনপুট অনুযায়ী ফিল্টার করা ডাটা একটি সহজ টেবিল ভিউতে দেখানো হবে। Google "
+"Sheets থেকে বড় বা নির্দিষ্ট তথ্য খোঁজার জন্য এটি আদর্শ (যেমন: ছাত্রদের রেকর্ড, কর্মচারীর তথ্য "
+"ইত্যাদি)।"
+
+#: app/Strings.php:747
+msgid "Search-Only Display"
+msgstr "শুধু সার্চ ডিসপ্লে"
+
+#: app/Strings.php:748
+msgid "User-Specific Display"
+msgstr "ইউজার-নির্দিষ্ট ডিসপ্লে"
+
+#: app/Strings.php:749
+msgid "Upcoming"
+msgstr "শীঘ্রই আসছে"
+
+#: app/Strings.php:750
+msgid ""
+"Enhance personalization with this mode. It allows the table to be displayed only to the "
+"logged-in users based on their credentials or unique data (e.g., username or email) stored "
+"in the Google Sheets. There will be no search box, preventing anyone from searching other "
+"users' data."
+msgstr ""
+"এই মোডটি ব্যবহার করে ব্যক্তিগতকরণ আরও উন্নত করুন। এতে Google Sheets-এ সংরক্ষিত ইউজারের তথ্য "
+"(যেমন: ইউজারনেম বা ইমেইল) অনুযায়ী শুধু লগইন করা ইউজারদের জন্য টেবিল দেখানো হবে। এখানে কোনো "
+"সার্চ বক্স থাকবে না, ফলে অন্য ইউজারের ডাটা খোঁজা যাবে না।"
+
+#: app/Strings.php:752
+msgid ""
+"This mode adds an extra layer of security to your data. The table is protected by a "
+"password or PIN, ensuring that only authorized users can unlock and see the table "
+"information."
+msgstr ""
+"এই মোডটি আপনার ডাটার জন্য অতিরিক্ত নিরাপত্তা যোগ করে। টেবিলটি পাসওয়ার্ড বা পিন দ্বারা সুরক্ষিত "
+"থাকে, ফলে শুধু অনুমোদিত ইউজাররাই টেবিলের তথ্য দেখতে পারবে।"
+
+#: app/Strings.php:754
+msgid "Protected View"
+msgstr "সুরক্ষিত ভিউ"
+
+#: app/Strings.php:755
+msgid "Loading headers..."
+msgstr "হেডার লোড হচ্ছে..."
+
+#: app/Strings.php:756
+msgid "Choose Search-Result Trigger Option"
+msgstr "সার্চ রেজাল্ট ট্রিগার অপশন নির্বাচন করুন"
+
+#: app/Strings.php:757
+msgid "Show search result once Typing"
+msgstr "টাইপ করার সময়ই সার্চ রেজাল্ট দেখান"
+
+#: app/Strings.php:758
+msgid "Show search result after pressing Search button"
+msgstr "সার্চ বাটন চাপার পর সার্চ রেজাল্ট দেখান"
+
+#: app/Strings.php:759
+msgid ""
+"Select a column to search within its data. Results will only show matches from the "
+"selected column. If no column is selected, the search will apply to all data in the Google "
+"Sheet."
+msgstr ""
+"নির্দিষ্ট কোনো কলামের মধ্যে সার্চ করার জন্য সেটি নির্বাচন করুন। রেজাল্ট শুধুমাত্র সেই কলামের ডাটা "
+"থেকে দেখানো হবে। কোনো কলাম নির্বাচন না করলে Google Sheet-এর সব ডাটার উপর সার্চ প্রযোজ্য হবে।"
+
+#: app/Strings.php:761
+msgid "Unable to access the Sheet! Please follow the instructions below:"
+msgstr "শিটে প্রবেশ করা যাচ্ছে না! অনুগ্রহ করে নিচের নির্দেশনাগুলো অনুসরণ করুন:"
+
+#: app/Strings.php:762
+msgid "On your Google Sheet, click on the"
+msgstr "আপনার Google Sheet-এ উপরের ডান পাশে থাকা"
+
+#: app/Strings.php:763
+msgid "button located at the top-right corner. Then on the popup, choose the"
+msgstr "বাটনে ক্লিক করুন। এরপর পপআপ থেকে নির্বাচন করুন"
+
+#: app/Strings.php:764
+msgid "Anyone with the link"
+msgstr "“লিংক থাকলে যে কেউ”"
+
+#: app/Strings.php:765
+msgid "option under General access"
+msgstr "General access-এর অধীনে থাকা অপশনটি"
+
+#: app/Strings.php:766
+msgid "Click on the"
+msgstr "ক্লিক করুন"
+
+#: app/Strings.php:767
+msgid "icon on the popup and ensure that the option"
+msgstr "পপআপের আইকনে এবং নিশ্চিত করুন যে অপশনটি"
+
+#: app/Strings.php:768
+msgid "Viewers and commenters can see the option to download, print, and copy"
+msgstr "“Viewers and commenters can see the option to download, print, and copy”"
+
+#: app/Strings.php:769
+msgid "is selected"
+msgstr "নির্বাচিত রয়েছে"
+
+#: app/Strings.php:770
+msgid "Share"
+msgstr "শেয়ার"
+
+#: app/Strings.php:771
+msgid "Save the changes by clicking on the"
+msgstr "ক্লিক করে পরিবর্তনগুলো সংরক্ষণ করুন"
+
+#: app/Strings.php:772
+msgid "Done"
+msgstr "ডান"
+
+#: app/Strings.php:773
+msgid "button"
+msgstr "বাটন"
+
+#: app/Strings.php:774
+msgid "General"
+msgstr "সাধারণ"
+
+#: app/Strings.php:775
+msgid "seconds"
+msgstr "সেকেন্ড"
+
+#: app/Strings.php:776
+msgid "Let’s make your first table"
+msgstr "চলুন আপনার প্রথম টেবিল তৈরি করি"
+
+#: app/Strings.php:777
+msgid ""
+"Let us help you with your first table creation. You are just a step away from creating "
+"beautiful tables from your Google Sheets"
+msgstr ""
+"আপনার প্রথম টেবিল তৈরি করতে আমরা সাহায্য করছি। Google Sheets থেকে সুন্দর টেবিল তৈরি করতে আপনি "
+"মাত্র এক ধাপ দূরে।"
+
+#: app/Strings.php:779
+msgid "Day "
+msgstr "দিন "
+
+#: app/Strings.php:780
+msgid "Response Timeout: "
+msgstr "রেসপন্স টাইমআউট: "
+
+#: app/Strings.php:781
+msgid "Timestamp: "
+msgstr "টাইমস্ট্যাম্প: "
+
+#: app/Strings.php:782
+msgid "Choose the maximum response timeout the table need to wait"
+msgstr "টেবিল কতক্ষণ পর্যন্ত রেসপন্সের জন্য অপেক্ষা করবে তা নির্ধারণ করুন"
+
+#: app/Strings.php:783
+msgid "Choose the maximum day to store the cache"
+msgstr "আপনি ট্যাবটি কোথায় দেখাতে চান তা চয়ন করুন৷"
+
+#: app/Strings.php:784
+msgid "the table"
+msgstr "ছক তৈরি কর"
+
+#: app/Strings.php:785
+msgid "Copy shortcode"
+msgstr "শর্টকোড কপি করুন"
+
+#: app/Strings.php:786
+msgid "Edit table"
+msgstr "টেবিলটি প্রিন্ট করুন"
+
+#: app/Strings.php:787
+msgid "Duplicate table"
+msgstr "ছক তৈরি কর"
+
+#: app/Strings.php:788
+msgid "Delete table"
+msgstr "টেবিল ডিলিট করুন"
+
+#: app/Strings.php:789
+msgid "Name already used, please use another name for theme"
+msgstr "এই নামটি ইতিমধ্যে ব্যবহার করা হয়েছে, অনুগ্রহ করে থিমের জন্য অন্য একটি নাম ব্যবহার করুন"
+
+#: app/Strings.php:790
+msgid "Name field can not be empty"
+msgstr "নামের ঘর খালি রাখা যাবে না"
+
+#: app/Strings.php:796
+msgid "AI Table Summary Configuration"
+msgstr "AI টেবিল সারাংশ কনফিগারেশন"
+
+#: app/Strings.php:797
+msgid "Configure OpenAI integration for intelligent table summaries"
+msgstr "স্মার্ট টেবিল সারাংশের জন্য OpenAI ইন্টিগ্রেশন কনফিগার করুন"
+
+#: app/Strings.php:800
+msgid "Engine (AI Provider)"
+msgstr "ইঞ্জিন (AI প্রদানকারী)"
+
+#: app/Strings.php:801
+msgid "Select the AI engine that will generate summaries and answer user queries."
+msgstr "যে AI ইঞ্জিনটি সারাংশ তৈরি করবে এবং ব্যবহারকারীর প্রশ্নের উত্তর দেবে তা নির্বাচন করুন"
+
+#: app/Strings.php:802 app/Strings.php:864
+msgid "Select your preferred AI provider for generating table summaries"
+msgstr "টেবিল সারাংশ তৈরির জন্য আপনার পছন্দের AI প্রদানকারী নির্বাচন করুন"
+
+#: app/Strings.php:803 app/Strings.php:865
+msgid "OpenAI GPT models - industry leading AI with excellent performance"
+msgstr "OpenAI GPT মডেল – উচ্চ পারফরম্যান্সসহ ইন্ডাস্ট্রি-লিডিং AI"
+
+#: app/Strings.php:804 app/Strings.php:866
+msgid "Google Gemini models - fast and efficient AI by Google"
+msgstr "Google Gemini মডেল – Google-এর দ্রুত ও দক্ষ AI"
+
+#: app/Strings.php:805 app/Strings.php:867
+msgid "Checking..."
+msgstr "পরীক্ষা করা হচ্ছে..."
+
+#: app/Strings.php:809 app/Strings.php:871
+msgid "Controls diversity via nucleus sampling. Lower values make output more focused."
+msgstr "নিউক্লিয়াস স্যাম্পলিংয়ের মাধ্যমে বৈচিত্র্য নিয়ন্ত্রণ করে। কম মান আউটপুটকে আরও নির্দিষ্ট করে"
+
+#: app/Strings.php:811 app/Strings.php:873
+msgid "Limits token selection to top K candidates. Lower values are more focused."
+msgstr "টোকেন নির্বাচনকে শীর্ষ K প্রার্থীর মধ্যে সীমাবদ্ধ করে। কম মান বেশি ফোকাসড ফলাফল দেয়"
+
+#: app/Strings.php:812 app/Strings.php:874
+msgid "Precise"
+msgstr "নির্ভুল"
+
+#: app/Strings.php:813 app/Strings.php:875
+msgid "Diverse"
+msgstr "বৈচিত্র্যময়"
+
+#: app/Strings.php:814 app/Strings.php:876
+msgid "Broad"
+msgstr "বিস্তৃত"
+
+#: app/Strings.php:818
+msgid "Your OpenAI API key. Get one from https://platform.openai.com/api-keys"
+msgstr "আপনার OpenAI API কী। এটি সংগ্রহ করুন https://platform.openai.com/api-keys থেকে"
+
+#: app/Strings.php:819
+msgid "Test API"
+msgstr "API পরীক্ষা করুন"
+
+#: app/Strings.php:822
+msgid "AI Model"
+msgstr "AI মডেল"
+
+#: app/Strings.php:823
+msgid ""
+"Choose the OpenAI model for generating summaries. gpt-4o-mini is fast and cost-effective, "
+"gpt-4 is more accurate."
+msgstr ""
+"সারাংশ তৈরির জন্য OpenAI মডেল নির্বাচন করুন। gpt-4o-mini দ্রুত ও কম খরচের, আর gpt-4 আরও নির্ভুল"
+
+#: app/Strings.php:824
+msgid "GPT-4o Mini"
+msgstr "GPT-4o Mini"
+
+#: app/Strings.php:825
+msgid "GPT-3.5 Turbo"
+msgstr "GPT-3.5 Turbo"
+
+#: app/Strings.php:826
+msgid "GPT-4"
+msgstr "GPT-4"
+
+#: app/Strings.php:827
+msgid "GPT-4 Turbo"
+msgstr "GPT-4 Turbo"
+
+#: app/Strings.php:832
+msgid ""
+"Maximum number of tokens for AI response. Higher values allow longer summaries but cost "
+"more."
+msgstr "AI রেসপন্সের জন্য সর্বোচ্চ টোকেন সংখ্যা। বেশি মান দীর্ঘ সারাংশের সুযোগ দেয়, তবে খরচ বেশি হয়"
+
+#: app/Strings.php:833
+msgid "100 (Short)"
+msgstr "১০০ (সংক্ষিপ্ত)"
+
+#: app/Strings.php:834
+msgid "2000 (Long)"
+msgstr "২০০০ (দীর্ঘ)"
+
+#: app/Strings.php:838
+msgid ""
+"Controls randomness in AI responses. Lower values (0.1-0.3) are more focused, higher "
+"values (0.7-1.0) are more creative."
+msgstr ""
+"AI রেসপন্সে এলোমেলোভাব নিয়ন্ত্রণ করে। কম মান (০.১–০.৩) বেশি ফোকাসড, বেশি মান (০.৭–১.০) বেশি "
+"সৃজনশীল"
+
+#: app/Strings.php:839
+msgid "0 (Focused)"
+msgstr "০ (ফোকাসড)"
+
+#: app/Strings.php:840
+msgid "1 (Creative)"
+msgstr "১ (সৃজনশীল)"
+
+#: app/Strings.php:844
+msgid ""
+"Reduces repetition in AI responses. Higher values (0.3-1.0) discourage repetitive text."
+msgstr "AI রেসপন্সে পুনরাবৃত্তি কমায়। বেশি মান (০.৩–১.০) বারবার একই টেক্সট আসা নিরুৎসাহিত করে"
+
+#: app/Strings.php:845
+msgid "0 (Allow Repetition)"
+msgstr "০ (পুনরাবৃত্তি অনুমোদন)"
+
+#: app/Strings.php:846
+msgid "1 (Avoid Repetition)"
+msgstr "১ (পুনরাবৃত্তি এড়ান)"
+
+#: app/Strings.php:849
+msgid "Cache Duration"
+msgstr "ক্যাশের সময়কাল"
+
+#: app/Strings.php:850
+msgid "Duration:"
+msgstr "সময়কাল:"
+
+#: app/Strings.php:851
+msgid "How long to cache AI responses before making new API calls."
+msgstr "নতুন API কল করার আগে কতক্ষণ AI রেসপন্স ক্যাশে রাখা হবে"
+
+#: app/Strings.php:852
+msgid "30 minutes"
+msgstr "৩০ মিনিট"
+
+#: app/Strings.php:853
+msgid "1 hour"
+msgstr "১ ঘণ্টা"
+
+#: app/Strings.php:854
+msgid "2 hours"
+msgstr "২ ঘণ্টা"
+
+#: app/Strings.php:855
+msgid "6 hours"
+msgstr "৬ ঘণ্টা"
+
+#: app/Strings.php:856
+msgid "12 hours"
+msgstr "১২ ঘণ্টা"
+
+#: app/Strings.php:857
+msgid "24 hours"
+msgstr "২৪ ঘণ্টা"
+
+#: app/Strings.php:860
+msgid "Advanced Settings"
+msgstr "অ্যাডভান্সড সেটিংস"
+
+#: app/Strings.php:861
+msgid ""
+"Configure advanced AI model parameters for fine-tuned control over response generation."
+msgstr "রেসপন্স তৈরির উপর আরও নিয়ন্ত্রণের জন্য উন্নত AI মডেল প্যারামিটার কনফিগার করুন"
+
+#: app/Strings.php:879
+msgid ""
+"Choose the AI model that best fits your needs. Different models have varying capabilities "
+"and costs."
+msgstr ""
+"আপনার প্রয়োজন অনুযায়ী উপযুক্ত AI মডেল নির্বাচন করুন। বিভিন্ন মডেলের সক্ষমতা ও খরচ ভিন্ন হতে পারে"
+
+#: app/Strings.php:882
+msgid "Enable AI Table Summary"
+msgstr "AI টেবিল সারাংশ সক্রিয় করুন"
+
+#: app/Strings.php:885 app/Strings.php:934
+msgid "Preview"
+msgstr "আগে"
+
+#: app/Strings.php:887
+msgid "Summary Position"
+msgstr "ট্যাব অবস্থান"
+
+#: app/Strings.php:888
+msgid "Above Table"
+msgstr "টেবিল সংরক্ষণ করুন"
+
+#: app/Strings.php:889
+msgid "Below Table"
+msgstr "টেবিল সংরক্ষণ করুন"
+
+#: app/Strings.php:890
+msgid "Choose whether to display the summary above or below the table"
+msgstr "সারাংশটি টেবিলের উপরে না নিচে দেখাবেন তা নির্বাচন করুন"
+
+#: app/Strings.php:891
+msgid ""
+"Select the position where the AI Table Summary should be displayed relative to the table."
+msgstr "টেবিলের সাথে সম্পর্কিতভাবে AI টেবিল সারাংশ কোথায় দেখানো হবে তা নির্বাচন করুন"
+
+#: app/Strings.php:893
+msgid "min"
+msgstr "মিনিট"
+
+#: app/Strings.php:894
+msgid "Cache time:"
+msgstr "ক্যাশ সময়:"
+
+#: app/Strings.php:895
+msgid "Cache summary for faster loading"
+msgstr "দ্রুত লোডের জন্য সারাংশ ক্যাশ করুন"
+
+#: app/Strings.php:896 app/Strings.php:936
+msgid "Decide where the AI Table Summary will be displayed in relation to your table."
+msgstr "আপনার টেবিলের সাথে সম্পর্কিতভাবে AI টেবিল সারাংশ কোথায় দেখানো হবে তা নির্ধারণ করুন"
+
+#: app/Strings.php:898
+msgid "Instant Summary"
+msgstr "তাৎক্ষণিক সারাংশ"
+
+#: app/Strings.php:900
+msgid "Prompt for Summary"
+msgstr "সারাংশের জন্য প্রম্পট"
+
+#: app/Strings.php:901
+msgid ""
+"You will generate and save the summary in advance. Visitors will see it instantly with no "
+"delay."
+msgstr "আপনি আগেই সারাংশ তৈরি ও সংরক্ষণ করবেন। ভিজিটররা কোনো দেরি ছাড়াই তাৎক্ষণিকভাবে দেখবে।"
+
+#: app/Strings.php:902
+msgid ""
+"Enable to reuse the same summary to reduce load time. Turn off to generate a fresh summary "
+"each time."
+msgstr ""
+"লোড সময় কমাতে একই সারাংশ পুনরায় ব্যবহার করতে চালু করুন। প্রতিবার নতুন সারাংশ তৈরি করতে বন্ধ রাখুন।"
+
+#: app/Strings.php:903
+msgid ""
+"Write the prompt that AI will follow to generate the summary. Visitors trigger this when "
+"they click the summary button."
+msgstr ""
+"AI যে নির্দেশনা অনুসরণ করে সারাংশ তৈরি করবে সেই প্রম্পট লিখুন। ভিজিটররা সারাংশ বাটনে ক্লিক করলে "
+"এটি সক্রিয় হবে।"
+
+#: app/Strings.php:906
+msgid "Show regenerate button in summary modal"
+msgstr "সারাংশ মডালে পুনরায় তৈরি বাটন দেখান"
+
+#: app/Strings.php:907
+msgid ""
+"Allow visitors to regenerate the AI Table Summary with fresh data by clicking the "
+"regenerate button."
+msgstr ""
+"পুনরায় তৈরি বাটনে ক্লিক করে ভিজিটরদের নতুন ডাটার মাধ্যমে AI টেবিল সারাংশ তৈরি করার সুযোগ দিন"
+
+#: app/Strings.php:910
+msgid "Always Show"
+msgstr "সবসময় দেখান"
+
+#: app/Strings.php:911 app/Strings.php:925
+msgid "Collapsed (click to expand)"
+msgstr "সংকুচিত (বিস্তৃত করতে ক্লিক করুন)"
+
+#: app/Strings.php:912
+msgid ""
+"Choose how the summary appears to visitors - always visible or collapsed with click to "
+"expand"
+msgstr ""
+"ভিজিটরদের কাছে সারাংশ কীভাবে দেখাবে তা নির্বাচন করুন—সবসময় দৃশ্যমান বা ক্লিক করে বিস্তৃতযোগ্য"
+
+#: app/Strings.php:913
+msgid "Select how the AI Table Summary should be displayed to your visitors on the frontend."
+msgstr "ফ্রন্টএন্ডে ভিজিটরদের জন্য AI টেবিল সারাংশ কীভাবে দেখানো হবে তা নির্বাচন করুন"
+
+#: app/Strings.php:916
+msgid "Ask AI Placeholder Text"
+msgstr "Ask AI প্লেসহোল্ডার টেক্সট"
+
+#: app/Strings.php:917
+msgid "Ask AI Button Label"
+msgstr "Ask AI বাটনের লেখা"
+
+#: app/Strings.php:918
+msgid "Customize the placeholder text shown in the AI prompt input field"
+msgstr "AI প্রম্পট ইনপুট ফিল্ডে দেখানো প্লেসহোল্ডার টেক্সট কাস্টমাইজ করুন"
+
+#: app/Strings.php:919
+msgid "Customize the text displayed on the AI prompt submit button"
+msgstr "AI প্রম্পট সাবমিট বাটনে দেখানো টেক্সট কাস্টমাইজ করুন"
+
+#: app/Strings.php:922
+msgid "Summary Display"
+msgstr "সারাংশ প্রদর্শন"
+
+#: app/Strings.php:923
+msgid "Decide if visitors see the summary right away or only when they expand it."
+msgstr "ভিজিটররা সারাংশটি সঙ্গে সঙ্গে দেখবে নাকি বিস্তৃত করলে দেখবে তা নির্ধারণ করুন"
+
+#: app/Strings.php:924
+msgid "Always show"
+msgstr "সবসময় দেখান"
+
+#: app/Strings.php:926
+msgid "AI Table Summary Preview"
+msgstr "AI টেবিল সারাংশ প্রিভিউ"
+
+#: app/Strings.php:927
+msgid ""
+"Review the generated summary. This what your visitors will see. Edit and save to finalize."
+msgstr "তৈরি করা সারাংশটি পর্যালোচনা করুন। ভিজিটররা এটিই দেখবে। সম্পাদনা করে সংরক্ষণ করুন।"
+
+#: app/Strings.php:928
+msgid "Ready to create your first summary?"
+msgstr "আপনার প্রথম সারাংশ তৈরি করতে প্রস্তুত?"
+
+#: app/Strings.php:929
+msgid "Add a prompt and click Generate to create one."
+msgstr "একটি প্রম্পট যোগ করুন এবং তৈরি করতে Generate-এ ক্লিক করুন।"
+
+#: app/Strings.php:930
+msgid "Placeholder text"
+msgstr "প্লেসহোল্ডার টেক্সট"
+
+#: app/Strings.php:931
+msgid "What visitors see before typing"
+msgstr "টাইপ করার আগে ভিজিটররা যা দেখবে"
+
+#: app/Strings.php:932
+msgid "Button label"
+msgstr "বাটনের লেখা"
+
+#: app/Strings.php:933
+msgid "Text on your Ask AI button"
+msgstr "Ask AI বাটনের টেক্সট"
+
+#: app/Strings.php:935
+msgid "Turn on AI to create summaries of your table data."
+msgstr "আপনার টেবিল ডাটার সারাংশ তৈরি করতে AI চালু করুন"
+
+#: app/Strings.php:937
+msgid "Customize the text and colors of the summary button to match your site style."
+msgstr "আপনার সাইটের স্টাইলের সাথে মিলিয়ে সারাংশ বাটনের টেক্সট ও রঙ কাস্টমাইজ করুন"
+
+#: app/Strings.php:938
+msgid "Summary Button"
+msgstr "সারাংশ বাটন"
+
+#: app/Strings.php:939
+msgid "Reset prompt"
+msgstr "প্রম্পট রিসেট করুন"
+
+#: app/Strings.php:941
+msgid "Tutorial"
+msgstr "টিউটোরিয়াল"
+
+#: app/Strings.php:942
+msgid "Summary Source"
+msgstr "সারাংশের উৎস"
+
+#: app/Strings.php:943
+msgid ""
+"Visitors will see a button to summarize the table. When they click, AI will create the "
+"summary live using your prompt."
+msgstr ""
+"ভিজিটররা টেবিলের সারাংশ তৈরির জন্য একটি বাটন দেখবে। ক্লিক করলে AI আপনার প্রম্পট অনুযায়ী লাইভ "
+"সারাংশ তৈরি করবে।"
+
+#: app/Strings.php:944
+msgid "Generate on Click"
+msgstr "ক্লিকে তৈরি করুন"
+
+#: app/Strings.php:945
+msgid "Button text"
+msgstr "বাটনের লেখা"
+
+#: app/Strings.php:946
+msgid "Upcomming"
+msgstr "শীঘ্রই আসছে"
+
+#: app/Strings.php:947
+msgid "Allow visitors to ask their own questions about this table."
+msgstr "ভিজিটরদের এই টেবিল সম্পর্কে নিজেদের প্রশ্ন করার সুযোগ দিন"
+
+#: app/Strings.php:948
+msgid "Enable Ask AI"
+msgstr "Ask AI সক্রিয় করুন"
+
+#: app/Strings.php:949
+msgid "AI is analyzing your table..."
+msgstr "AI আপনার টেবিল বিশ্লেষণ করছে..."
+
+#: app/Strings.php:951
+msgid "Save Summary"
+msgstr "সারাংশ সংরক্ষণ করুন"
+
+#: app/Strings.php:952 app/Strings.php:972
+msgid "Update Summary"
+msgstr "সারাংশ আপডেট করুন"
+
+#: app/Strings.php:955
+msgid "Current Stored Summary"
+msgstr "বর্তমানে সংরক্ষিত সারাংশ"
+
+#: app/Strings.php:956
+msgid ""
+"This is exactly how the summary will appear on your frontend table. Click 'Edit Summary' "
+"above to modify it."
+msgstr ""
+"ফ্রন্টএন্ড টেবিলে সারাংশটি ঠিক এভাবেই দেখাবে। পরিবর্তন করতে উপরে \"Edit Summary\"-এ ক্লিক করুন।"
+
+#: app/Strings.php:957 app/Strings.php:967
+msgid "Summary Content"
+msgstr "সারাংশের বিষয়বস্তু"
+
+#: app/Strings.php:958
+msgid "Generated AI Table Summary will appear here..."
+msgstr "তৈরি করা AI টেবিল সারাংশ এখানে দেখা যাবে..."
+
+#: app/Strings.php:960
+msgid "No summary has been generated yet. Click \"Generate Summary\" to create one."
+msgstr "এখনো কোনো সারাংশ তৈরি করা হয়নি। একটি তৈরি করতে \"Generate Summary\"-এ ক্লিক করুন।"
+
+#: app/Strings.php:961
+msgid "Last updated"
+msgstr "সর্বশেষ আপডেট"
+
+#: app/Strings.php:962
+msgid "Keep it"
+msgstr "এটি রাখুন"
+
+#: app/Strings.php:964
+msgid "Are you sure you want to delete this summary?"
+msgstr "আপনি কি এই সারাংশটি মুছে ফেলতে নিশ্চিত?"
+
+#: app/Strings.php:966
+msgid "Edit and modify the AI-generated summary content before saving it to the database."
+msgstr "ডাটাবেজে সংরক্ষণের আগে AI দ্বারা তৈরি সারাংশের বিষয়বস্তু সম্পাদনা ও পরিবর্তন করুন"
+
+#: app/Strings.php:968
+msgid "Enter or edit the summary content here..."
+msgstr "এখানে সারাংশের বিষয়বস্তু লিখুন বা সম্পাদনা করুন..."
+
+#: app/Strings.php:969
+msgid "Regenerate Summary"
+msgstr "সারাংশ পুনরায় তৈরি করুন"
+
+#: app/Strings.php:970
+msgid "Regenerating..."
+msgstr "পুনরায় তৈরি হচ্ছে..."
+
+#: app/Strings.php:971
+msgid "Generate a new AI Table Summary and replace the current content."
+msgstr "একটি নতুন AI টেবিল সারাংশ তৈরি করে বর্তমান বিষয়বস্তু প্রতিস্থাপন করুন"
+
+#: app/Strings.php:974
+msgid "AI Configuration"
+msgstr "AI কনফিগারেশন"
+
+#: app/Strings.php:977
+msgid "AI provider not configured. Please add your API key in settings."
+msgstr "AI প্রদানকারী কনফিগার করা হয়নি। অনুগ্রহ করে সেটিংসে আপনার API কী যোগ করুন।"
+
+#: app/Strings.php:978
+msgid "Configure AI Settings"
+msgstr "AI সেটিংস কনফিগার করুন"
+
+#: app/Strings.php:980
+msgid "Are you sure to delete the summary? "
+msgstr "আপনি কি সারাংশটি মুছে ফেলতে নিশ্চিত?"
+
+#: app/Strings.php:981
+msgid "You are about to delete the summary. This action cannot be undone."
+msgstr "আপনি সারাংশটি মুছে ফেলতে চলেছেন। এই কাজটি পূর্বাবস্থায় ফেরানো যাবে না।"
+
+#: app/Strings.php:983
+msgid "AI Summary Preview"
+msgstr "AI সারাংশ প্রিভিউ"
+
+#: app/Strings.php:984
+msgid "AI Summary Editor"
+msgstr "AI সারাংশ এডিটর"
+
+#: app/Strings.php:985
+msgid "• List"
+msgstr "• তালিকা"
+
+#: app/Strings.php:986
+msgid "1. List"
+msgstr "১. তালিকা"
+
+#: app/Strings.php:987
+msgid "Section Heading"
+msgstr "সেকশন শিরোনাম"
+
+#: app/Strings.php:988
+msgid "Customize the main heading text for the Ask AI section"
+msgstr "Ask AI সেকশনের প্রধান শিরোনামের টেক্সট কাস্টমাইজ করুন"
+
+#: app/Strings.php:989
+msgid "Ask AI Interface"
+msgstr "Ask AI ইন্টারফেস"
+
+#: app/Strings.php:990
+msgid "Enter your question and get AI-powered insights about the table data"
+msgstr "আপনার প্রশ্ন লিখুন এবং টেবিল ডাটা সম্পর্কে AI-চালিত তথ্য পান"
+
+#: app/Strings.php:991
+msgid "Summary Title"
+msgstr "সারাংশের শিরোনাম"
+
+#: app/Strings.php:992
+msgid "quick video"
+msgstr "দ্রুত ভিডিও"
+
+#: app/Strings.php:994
+msgid "OpenAI (GPT)"
+msgstr "OpenAI (GPT)"
+
+#: app/Strings.php:995
+msgid "Google Gemini"
+msgstr "Google Gemini"
+
+#: app/Strings.php:996
+msgid "API Key"
+msgstr "API কী"
+
+#: app/Strings.php:997
+msgid "Get API Key"
+msgstr "API কী সংগ্রহ করুন"
+
+#: app/Strings.php:998
+msgid "Get your API key from your provider dashboard"
+msgstr "আপনার প্রদানকারীর ড্যাশবোর্ড থেকে API কী সংগ্রহ করুন"
+
+#: app/Strings.php:999
+msgid "and paste it here. Your key is stored securely and never shared."
+msgstr "এবং এখানে পেস্ট করুন। আপনার কী নিরাপদে সংরক্ষিত থাকবে এবং কখনো শেয়ার করা হবে না।"
+
+#: app/Strings.php:1000
+msgid "ChatGPT"
+msgstr "ChatGPT"
+
+#: app/Strings.php:1001
+msgid "Google AI Studio"
+msgstr "Google AI Studio"
+
+#: app/Strings.php:1002
+msgid "Model Version"
+msgstr "মডেল ভার্সন"
+
+#: app/Strings.php:1007
+msgid "Update Filter"
+msgstr "ফিল্টার আপডেট করুন"
+
+#: app/Strings.php:1008
+msgid "Add Filter"
+msgstr "ফিল্টার যোগ করুন"
+
+#: app/Strings.php:1009
+msgid "Advanced column filtering with search, select, and multi-select options"
+msgstr "সার্চ, সিলেক্ট ও মাল্টি-সিলেক্ট অপশনসহ উন্নত কলাম ফিল্টারিং"
+
+#: app/Strings.php:1012
+msgid "Basic Display"
+msgstr "বেসিক ডিসপ্লে"
+
+#: app/Strings.php:1013
+msgid "Search Only Display"
+msgstr "শুধু সার্চ ডিসপ্লে"
+
+#: app/Strings.php:1014
+msgid "Filter Wise Display"
+msgstr "ফিল্টারভিত্তিক ডিসপ্লে"
+
+#: app/Strings.php:1020
+msgid "Global Filter Settings"
+msgstr "গ্লোবাল ফিল্টার সেটিংস"
+
+#: app/Strings.php:1021
+msgid "Enable Table Filters"
+msgstr "টেবিল ফিল্টার সক্রিয় করুন"
+
+#: app/Strings.php:1022
+msgid "Select Primary Filter Type"
+msgstr "প্রধান ফিল্টারের ধরন নির্বাচন করুন"
+
+#: app/Strings.php:1023
+msgid "Text Search"
+msgstr "টেক্সট সার্চ"
+
+#: app/Strings.php:1024
+msgid "Single Select"
+msgstr "সিঙ্গেল সিলেক্ট"
+
+#: app/Strings.php:1025
+msgid "Multi Select"
+msgstr "মাল্টি সিলেক্ট"
+
+#: app/Strings.php:1026
+msgid "Mixed Filters (All Types)"
+msgstr "মিক্সড ফিল্টার (সব ধরনের)"
+
+#: app/Strings.php:1029
+msgid "Filter Position"
+msgstr "ফিল্টারের অবস্থান"
+
+#: app/Strings.php:1030
+msgid "Header"
+msgstr "হেডার"
+
+#: app/Strings.php:1031
+msgid "Footer"
+msgstr "ফুটার"
+
+#: app/Strings.php:1034
+msgid "Strict Mode"
+msgstr "স্ট্রিক্ট মোড"
+
+#: app/Strings.php:1035
+msgid "Hide Filter UI"
+msgstr "ফিল্টার UI লুকান"
+
+#: app/Strings.php:1036
+msgid "Auto-Enable Filters for All Columns"
+msgstr "সব কলামের জন্য স্বয়ংক্রিয়ভাবে ফিল্টার চালু করুন"
+
+#: app/Strings.php:1037
+msgid "Load Default Filter Values"
+msgstr "ডিফল্ট ফিল্টার মান লোড করুন"
+
+#: app/Strings.php:1040
+msgid "Column-Specific Filter Configuration"
+msgstr "কলামভিত্তিক ফিল্টার কনফিগারেশন"
+
+#: app/Strings.php:1041
+msgid "Auto-Enable Mode"
+msgstr "অটো-এনেবল মোড"
+
+#: app/Strings.php:1042
+msgid ""
+"All columns automatically have filters using the global settings above.  Add specific "
+"columns below to customize their individual settings, or disable 'Auto-Enable Filters for "
+"All Columns' to only show filters for manually added columns."
+msgstr ""
+"উপরের গ্লোবাল সেটিংস অনুযায়ী সব কলামে স্বয়ংক্রিয়ভাবে ফিল্টার থাকবে। আলাদা সেটিংসের জন্য নিচে "
+"নির্দিষ্ট কলাম যোগ করুন, অথবা শুধু ম্যানুয়ালি যোগ করা কলামের জন্য ফিল্টার দেখাতে 'Auto-Enable "
+"Filters for All Columns' বন্ধ করুন।"
+
+#: app/Strings.php:1043
+msgid "Manual Mode"
+msgstr "ম্যানুয়াল মোড"
+
+#: app/Strings.php:1044
+msgid ""
+"Only columns added below will have filters. Enable 'Auto-Enable Filters for All Columns' "
+"above to automatically show filters for all columns."
+msgstr ""
+"শুধু নিচে যোগ করা কলামগুলোতেই ফিল্টার থাকবে। সব কলামে স্বয়ংক্রিয়ভাবে ফিল্টার দেখাতে উপরের 'Auto-"
+"Enable Filters for All Columns' চালু করুন।"
+
+#: app/Strings.php:1046
+msgid "Add Column Filter"
+msgstr "কলাম ফিল্টার যোগ করুন"
+
+#: app/Strings.php:1047
+msgid "Edit Column Filter"
+msgstr "কলাম ফিল্টার এডিট করুন"
+
+#: app/Strings.php:1049
+msgid "Add columns here to override their global settings"
+msgstr "গ্লোবাল সেটিংস ওভাররাইড করতে এখানে কলাম যোগ করুন"
+
+#: app/Strings.php:1050
+msgid "No column filters configured. Click \"Add Column Filter\" to get started."
+msgstr "কোনো কলাম ফিল্টার কনফিগার করা নেই। শুরু করতে \"Add Column Filter\"-এ ক্লিক করুন।"
+
+#: app/Strings.php:1053
+msgid "Filter Type"
+msgstr "ফিল্টারের ধরন"
+
+#: app/Strings.php:1054
+msgid "Target Column"
+msgstr "টার্গেট কলাম"
+
+#: app/Strings.php:1055
+msgid "Column"
+msgstr "কলাম"
+
+#: app/Strings.php:1056
+msgid "Default Value"
+msgstr "ডিফল্ট মান"
+
+#: app/Strings.php:1057
+msgid "Filter Active"
+msgstr "ফিল্টার সক্রিয়"
+
+#: app/Strings.php:1058
+msgid ""
+"Whether this filter is applied to the table - if unchecked, filter is completely disabled"
+msgstr "এই ফিল্টারটি টেবিলে প্রয়োগ হবে কিনা—বন্ধ থাকলে ফিল্টার সম্পূর্ণভাবে নিষ্ক্রিয় থাকবে"
+
+#: app/Strings.php:1059
+msgid "User Can Modify"
+msgstr "ইউজার পরিবর্তন করতে পারবে"
+
+#: app/Strings.php:1060
+msgid "Allow users to change filter values - if unchecked, filter becomes readonly"
+msgstr "ইউজারদের ফিল্টার মান পরিবর্তনের অনুমতি দিন—বন্ধ থাকলে ফিল্টারটি শুধু পড়ার জন্য হবে"
+
+#: app/Strings.php:1061 app/Strings.php:1088
+msgid "Hide This Filter UI"
+msgstr "এই ফিল্টার UI লুকান"
+
+#: app/Strings.php:1062
+msgid "Hide this specific filter UI but keep it working in background"
+msgstr "এই নির্দিষ্ট ফিল্টার UI লুকান, তবে ব্যাকগ্রাউন্ডে এটি কার্যকর থাকবে"
+
+#: app/Strings.php:1064
+msgid "Strict Mode Override"
+msgstr "স্ট্রিক্ট মোড ওভাররাইড"
+
+#: app/Strings.php:1065
+msgid "Use Global Setting"
+msgstr "সাধারণ সেটিংস"
+
+#: app/Strings.php:1066
+msgid "Enable for this filter"
+msgstr "এই ট্যাবের জন্য টেবিল নির্বাচন করুন।"
+
+#: app/Strings.php:1067
+msgid "Disable for this filter"
+msgstr "এই ট্যাবের জন্য টেবিল নির্বাচন করুন।"
+
+#: app/Strings.php:1068
+msgid ""
+"Global: Follow the \"Strict Mode\" setting above. Enable/Disable: Override for this "
+"specific filter."
+msgstr ""
+"গ্লোবাল: উপরের \"স্ট্রিক্ট মোড\" সেটিং অনুসরণ করবে। চালু/বন্ধ: এই নির্দিষ্ট ফিল্টারের জন্য ওভাররাইড "
+"করবে।"
+
+#: app/Strings.php:1071
+msgid "User-specific Display Settings"
+msgstr "ইউজার-নির্দিষ্ট প্রদর্শন সেটিংস"
+
+#: app/Strings.php:1072
+msgid "Enable User-specific Display"
+msgstr "ইউজার-নির্দিষ্ট প্রদর্শন সক্রিয় করুন"
+
+#: app/Strings.php:1073
+msgid "Strict Mode (Exact Matching)"
+msgstr "স্ট্রিক্ট মোড (হুবহু মিল)"
+
+#: app/Strings.php:1074
+msgid "Hide All User Filter UI"
+msgstr "সব ইউজার ফিল্টার UI লুকান"
+
+#: app/Strings.php:1075
+msgid "User-Specific Filter Configuration"
+msgstr "ইউজার-নির্দিষ্ট ফিল্টার কনফিগারেশন"
+
+#: app/Strings.php:1076
+msgid "User-Based Filtering:"
+msgstr "ইউজার-ভিত্তিক ফিল্টারিং:"
+
+#: app/Strings.php:1077
+msgid ""
+"Configure which columns should be filtered based on logged-in user data. Each filter will "
+"automatically use the user's information (email, username, roles, etc.) to show relevant "
+"rows."
+msgstr ""
+"লগইন করা ইউজারের ডাটার ভিত্তিতে কোন কোন কলাম ফিল্টার হবে তা কনফিগার করুন। প্রতিটি ফিল্টার "
+"স্বয়ংক্রিয়ভাবে ইউজারের তথ্য (ইমেইল, ইউজারনেম, রোল ইত্যাদি) ব্যবহার করে প্রাসঙ্গিক রো দেখাবে।"
+
+#: app/Strings.php:1078
+msgid "Add User Filter"
+msgstr "ইউজার ফিল্টার যোগ করুন"
+
+#: app/Strings.php:1079
+msgid "Configure columns to filter based on user data"
+msgstr "ইউজার ডাটার ভিত্তিতে ফিল্টার করার জন্য কলাম কনফিগার করুন"
+
+#: app/Strings.php:1080
+msgid "User Fields"
+msgstr "ইউজার ফিল্ড"
+
+#: app/Strings.php:1081
+msgid "Enabled"
+msgstr "সক্রিয়"
+
+#: app/Strings.php:1082
+msgid "User Can Change"
+msgstr "ইউজার পরিবর্তন করতে পারবে"
+
+#: app/Strings.php:1083
+msgid "No user filters configured. Click \"Add User Filter\" to get started."
+msgstr "কোনো ইউজার ফিল্টার কনফিগার করা নেই। শুরু করতে \"Add User Filter\"-এ ক্লিক করুন।"
+
+#: app/Strings.php:1084
+msgid "User Fields to Match (Multi-select)"
+msgstr "মিলানোর জন্য ইউজার ফিল্ড (মাল্টি-সিলেক্ট)"
+
+#: app/Strings.php:1085
+msgid ""
+"Hold Ctrl/Cmd to select multiple fields. The filter will match if ANY of the selected "
+"fields match."
+msgstr ""
+"একাধিক ফিল্ড নির্বাচন করতে Ctrl/Cmd ধরে রাখুন। নির্বাচিত যেকোনো একটি ফিল্ড মিললেই ফিল্টার প্রযোজ্য "
+"হবে।"
+
+#: app/Strings.php:1086
+msgid ""
+"Whether this user-based filter is applied - if unchecked, filter is completely disabled"
+msgstr "এই ইউজার-ভিত্তিক ফিল্টার প্রয়োগ হবে কিনা—বন্ধ থাকলে ফিল্টার সম্পূর্ণভাবে নিষ্ক্রিয় থাকবে"
+
+#: app/Strings.php:1087
+msgid "User Can Override"
+msgstr "ইউজার ওভাররাইড করতে পারবে"
+
+#: app/Strings.php:1091
+msgid "Get Help with Table Creation"
+msgstr "ট্যাব সেটিংস"
+
+#: app/Strings.php:1092
+msgid "Create awesome tables from your Google Sheets. Just paste the link and see the magic"
+msgstr "আপনার গুগল শীট থেকে চমৎকার টেবিল তৈরি করুন। শুধু লিঙ্কটি পেস্ট করুন এবং ম্যাজিক দেখুন!"
+
+#: app/Strings.php:1095
+msgid "Get started with table creation"
+msgstr "ট্যাব গ্রুপের শিরোনাম"
+
+#: app/Strings.php:1096
+msgid "Quick Video Tutorial"
+msgstr "চলচ্চিত্র মাধ্যমে শিক্ষা"
+
+#: app/Strings.php:1097
+msgid "Read Documentation"
+msgstr "ডকুমেন্টেশন"
+
+#: app/Strings.php:1098 app/templates/parts/pro_fix_notice.php:42
+msgid "Close"
+msgstr "বন্ধ করুন"
+
+#: app/Strings.php:1099
+msgid "Closing..."
+msgstr "লোড নিচ্ছে...."
+
+#: app/Strings.php:1102
+msgid "🤖 AI Table Summary"
+msgstr "AI টেবিল সারাংশ সক্রিয় করুন"
+
+#: app/Strings.php:1103
+msgid "Turn your data into quick and smart summary"
+msgstr "আপনার ডেটাকে দ্রুত ও স্মার্ট সারাংশে রূপান্তর করুন"
+
+#: app/Strings.php:1104
+msgid "💬 Ask AI"
+msgstr "💬 AI-কে জিজ্ঞাসা করুন"
+
+#: app/Strings.php:1105
+msgid "Lets visitors chat with your table data"
+msgstr "ভিজিটরদের আপনার টেবিলের ডেটার সাথে চ্যাট করার সুযোগ দিন"
+
+#: app/Strings.php:1106
+msgid "Connect AI to Unlock Features"
+msgstr "ফিচার আনলক করতে AI সংযুক্ত করুন"
+
+#: app/Strings.php:1107
+msgid "Set up your preferred provider (like Gemini or OpenAI) to use these AI tools."
+msgstr "এই AI টুলগুলো ব্যবহার করতে আপনার পছন্দের প্রোভাইডার (যেমন Gemini বা OpenAI) সেটআপ করুন।"
+
+#: app/Strings.php:1108
+msgid "Setup AI Provider"
+msgstr "AI প্রোভাইডার সেটআপ করুন"
+
+#: app/Strings.php:1110
+msgid "💡 Not ready? No worries - you can enable AI anytime later."
+msgstr "💡 এখনও প্রস্তুত নন? কোনো সমস্যা নেই — আপনি পরে যেকোনো সময় AI চালু করতে পারবেন।"
+
+#: app/Strings.php:1113
+msgid "Table description holder. Enter your table description here."
+msgstr "টেবিলের বর্ণনার স্থান। এখানে আপনার টেবিলের বিবরণ লিখুন।"
+
+#: app/Strings.php:1116
+msgid "Enter your table description"
+msgstr "আপনার টেবিলের বিবরণ লিখুন"
+
+#: app/Strings.php:1117
+msgid "# # Insert custom CSS code here to modify looks and feel"
+msgstr "## চেহারা ও ডিজাইন পরিবর্তনের জন্য এখানে কাস্টম CSS কোড লিখুন"
+
+#: app/Strings.php:1120
+msgid "Get started with your first table"
+msgstr "আপনার প্রথম টেবিল তৈরি করা শুরু করুন"
+
+#: app/Strings.php:1121
+msgid "Let's create your first table from Google Sheets – it's as easy as pie!"
+msgstr "চলুন Google Sheets থেকে আপনার প্রথম টেবিল তৈরি করি — একদম সহজ!"
+
+#: app/Strings.php:1122
+msgid "Watch a quick tutorial"
+msgstr "একটি সংক্ষিপ্ত টিউটোরিয়াল দেখুন"
+
+#: app/Strings.php:1124
+msgid "Explore helpful resources"
+msgstr "সহায়ক রিসোর্সগুলো দেখুন"
+
+#: app/Strings.php:1125
+msgid "🎁 Get the pro version and unlock endless possibilities"
+msgstr "🎁 প্রো ভার্সন নিন এবং অসীম সম্ভাবনা আনলক করুন"
+
+#: app/Strings.php:1129
+msgid ""
+"Find comprehensive guides and step-by-step instructions to get the most out of FlexTable"
+msgstr "FlexTable থেকে সর্বোচ্চ সুবিধা পেতে বিস্তারিত গাইড ও ধাপে ধাপে নির্দেশনা দেখুন"
+
+#: app/Strings.php:1130
+msgid "Open Docs"
+msgstr "ডকুমেন্টেশন খুলুন"
+
+#: app/Strings.php:1132
+msgid "Video Tutorials"
+msgstr "ভিডিও টিউটোরিয়াল"
+
+#: app/Strings.php:1133
+msgid "Watch detailed video tutorials to learn FlexTable features and best practices"
+msgstr "FlexTable-এর ফিচার ও সেরা ব্যবহার পদ্ধতি শিখতে বিস্তারিত ভিডিও টিউটোরিয়াল দেখুন"
+
+#: app/Strings.php:1134
+msgid "Watch Videos"
+msgstr "ভিডিও দেখুন"
+
+#: app/Strings.php:1136
+msgid "Get Support"
+msgstr "সহায়তা নিন"
+
+#: app/Strings.php:1137
+msgid "Need help? Our support team is ready to assist you with any questions or issues"
+msgstr "সহায়তা দরকার? আমাদের সাপোর্ট টিম আপনার যেকোনো প্রশ্ন বা সমস্যায় সাহায্য করতে প্রস্তুত"
+
+#: app/Strings.php:1138
+msgid "Contact Support"
+msgstr "সাপোর্টের সাথে যোগাযোগ করুন"
+
+#: app/Strings.php:1140
+msgid "Community Forum"
+msgstr "কমিউনিটি ফোরাম"
+
+#: app/Strings.php:1141
+msgid "Join our community to share ideas, get tips, and connect with other FlexTable users"
+msgstr ""
+"আইডিয়া শেয়ার করতে, টিপস পেতে এবং অন্যান্য FlexTable ব্যবহারকারীদের সাথে যুক্ত হতে আমাদের "
+"কমিউনিটিতে যোগ দিন"
+
+#: app/Strings.php:1142
+msgid "Join Forum"
+msgstr "ফোরামে যোগ দিন"
+
+#: app/templates/create_tables.php:45 app/templates/edit_table.php:47
+msgid "Create New"
+msgstr "নতুন বানান"
+
+#: app/templates/create_tables.php:51 app/templates/edit_table.php:53
+msgid "Save Table"
+msgstr "টেবিল সংরক্ষণ করুন"
+
+#: app/templates/create_tables.php:51 app/templates/edit_table.php:53
+msgid "Fetch Data"
+msgstr "ডেটা আনুন"
+
+#: app/templates/create_tables.php:79 app/templates/edit_table.php:80
+msgid "Data Source"
+msgstr "তথ্য সূত্র"
+
+#: app/templates/create_tables.php:130 app/templates/edit_table.php:129
+msgid "Choose Source Type"
+msgstr "সোর্স টাইপ নির্বাচন করুন"
+
+#: app/templates/create_tables.php:134 app/templates/edit_table.php:133
+msgid "Google Spreadsheet"
+msgstr "গুগল স্প্রেডশীট"
+
+#: app/templates/documentation_page.php:31
+msgid "View Demo"
+msgstr "ডেমো দেখুন"
+
+#: app/templates/documentation_page.php:41
+msgid "Welcome to"
+msgstr "স্বাগতম"
+
+#: app/templates/documentation_page.php:57
+msgid "Need more help ?"
+msgstr "আরো সাহায্য প্রয়োজন?"
+
+#: app/templates/documentation_page.php:58
+msgid "We provide professional support to all our users via our ticketing system."
+msgstr ""
+"আমরা আমাদের টিকিট সিস্টেমের মাধ্যমে আমাদের সমস্ত ব্যবহারকারীদের পেশাদার সহায়তা প্রদান করি।"
+
+#: app/templates/documentation_page.php:59
+msgid "Get Help"
+msgstr "সাহায্য পান"
+
+#: app/templates/documentation_page.php:73
+msgid "Get Pro ✨"
+msgstr "প্রো পান ✨"
+
+#: app/templates/documentation_page.php:86
+msgid "Responsive table. The plugin allows collapsing on mobile and tablet screens"
+msgstr "প্রতিক্রিয়াশীল টেবিল। প্লাগইনটি মোবাইল এবং ট্যাবলেট স্ক্রীনে ভেঙে পড়ার অনুমতি দেয়"
+
+#: app/templates/documentation_page.php:94
+msgid "Data Caching feature cache the sheet data & therefore the table will load faster."
+msgstr "ডেটা ক্যাশিং বৈশিষ্ট্য শীট ডেটা ক্যাশ করে এবং তাই টেবিলটি দ্রুত লোড হবে।"
+
+#: app/templates/documentation_page.php:102
+msgid ""
+"Link Support to import links from sheet. All the URL's will be shown as link in table."
+msgstr "শীট থেকে লিঙ্ক আমদানি করতে লিঙ্ক সমর্থন। সমস্ত URL টেবিলে লিঙ্ক হিসাবে দেখানো হবে।"
+
+#: app/templates/documentation_page.php:110
+msgid ""
+"Table Styles. Pre-built amazing table styles. Each styles is different from one another."
+msgstr "টেবিল শৈলী. প্রাক-নির্মিত আশ্চর্যজনক টেবিল শৈলী. প্রতিটি শৈলী একে অপরের থেকে ভিন্ন।"
+
+#: app/templates/documentation_page.php:118
+msgid "Hide your google sheet table column on desktop screen OR mobile screens."
+msgstr "ডেস্কটপ স্ক্রীন বা মোবাইল স্ক্রিনে আপনার গুগল শীট টেবিল কলাম লুকান।"
+
+#: app/templates/documentation_page.php:126
+msgid "Hide Row. Hide your google sheet table rows based on your custom row selection."
+msgstr ""
+"সারি লুকান। আপনার কাস্টম সারি নির্বাচনের উপর ভিত্তি করে আপনার google শীট টেবিলের সারিগুলি লুকান৷"
+
+#: app/templates/documentation_page.php:134
+msgid "Unlimited Row Sync. Fetch unlimited rows from Google spreadsheet"
+msgstr "সীমাহীন সারি সিঙ্ক। Google স্প্রেডশীট থেকে সীমাহীন সারি আনুন"
+
+#: app/templates/documentation_page.php:142
+msgid "And much more."
+msgstr "এবং আরো অনেক কিছু"
+
+#: app/templates/documentation_page.php:143
+msgid "All Pro features"
+msgstr "সমস্ত প্রিমিয়াম বৈশিষ্ট্য"
+
+#: app/templates/documentation_page.php:150
+msgid "Buy Now"
+msgstr "এখনই কিনুন"
+
+#: app/templates/documentation_page.php:180
+msgid "Support Center"
+msgstr "সহায়তা কেন্দ্র"
+
+#: app/templates/general_settings.php:47
+msgid "General Settings"
+msgstr "সাধারণ সেটিংস"
+
+#: app/templates/general_settings.php:52
+msgid "Save Changes"
+msgstr "পরিবর্তনগুলোর সংরক্ষন"
+
+#: app/templates/manage_tables.php:43
+msgid "Delete Selected"
+msgstr "সিলেক্টেড গুলো মুছে ফেলুন"
+
+#: app/templates/manage_tables.php:49
+msgid "Clear Selection"
+msgstr "সিলেক্টেড গুলো সরিয়ে দিন"
+
+#: app/templates/manage_tables.php:72
+msgid "Create Table"
+msgstr "টেবিল বানান"
+
+#: app/templates/manage_tables.php:79
+msgid "Delete Your Table"
+msgstr "টেবিল ডিলিট করুন"
+
+#: app/templates/manage_tables.php:86
+msgid "Yes"
+msgstr "হ্যা"
+
+#: app/templates/manage_tables.php:89
+msgid "No"
+msgstr "না"
+
+#: app/templates/parts/affiliate_notice.php:23
+msgid "Hey! Enjoying the FlexTable plugin? 😍 Join our "
+msgstr "আরে! WP টেবিল লাইভ সিঙ্ক প্লাগইন থেকে শীট উপভোগ করছেন? 😍 আমাদের সাথে যোগ দিন"
+
+#: app/templates/parts/affiliate_notice.php:24
+msgid "Influencer Program "
+msgstr "ইনফ্লুয়েন্সার প্রোগ্রাম"
+
+#: app/templates/parts/affiliate_notice.php:25
+msgid "to make money from your social media content. You can also check our"
+msgstr "আপনার সামাজিক মিডিয়া সামগ্রী থেকে অর্থ উপার্জন করতে। আপনি আমাদের চেক করতে পারেন"
+
+#: app/templates/parts/affiliate_notice.php:26
+msgid "Affiliate Program "
+msgstr "অনুমোদন অনুষ্ঠান"
+
+#: app/templates/parts/affiliate_notice.php:27
+msgid "to get a "
+msgstr "একটি পেতে"
+
+#: app/templates/parts/affiliate_notice.php:28
+msgid "25% commission "
+msgstr "25% কমিশন"
+
+#: app/templates/parts/affiliate_notice.php:29
+msgid "on every sale!"
+msgstr "প্রতিটি বিক্রয়ের উপর!"
+
+#: app/templates/parts/affiliate_notice.php:33
+msgid "Affiliate Program"
+msgstr "অনুমোদন অনুষ্ঠান"
+
+#: app/templates/parts/affiliate_notice.php:34
+msgid "Influencer Program"
+msgstr "ইনফ্লুয়েন্সার প্রোগ্রাম"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "Advance sheets design and many more premium features are available in "
+msgstr "অগ্রিম শীট ডিজাইন এবং আরো অনেক প্রিমিয়াম বৈশিষ্ট্য উপলব্ধ"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "FlexTable Pro"
+msgstr "WP টেবিল লাইভ সিঙ্ক প্রো পত্রক"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "plugin 😍"
+msgstr "প্লাগইন 😍"
+
+#: app/templates/parts/plugin_upgrade_notice.php:25
+msgid "Upgrade Now"
+msgstr "এখন উন্নতি কর"
+
+#: app/templates/parts/popup_modals.php:17
+msgid "Choose Table Style"
+msgstr "টেবিল শৈলী পছন্দ করুন"
+
+#: app/templates/parts/popup_modals.php:29 app/templates/parts/popup_modals.php:77
+msgid "Select"
+msgstr "নির্বাচন করুন"
+
+#: app/templates/parts/popup_modals.php:41
+msgid "Choose Column To Hide"
+msgstr "লুকানোর জন্য কলাম নির্বাচন করুন"
+
+#: app/templates/parts/popup_modals.php:47
+msgid "Hide columns in desktop:"
+msgstr "ডেস্কটপে কলাম লুকান:"
+
+#: app/templates/parts/popup_modals.php:51 app/templates/parts/popup_modals.php:64
+msgid "Choose Column"
+msgstr "কলাম নির্বাচন করুন"
+
+#: app/templates/parts/popup_modals.php:60
+msgid "Hide columns in mobile:"
+msgstr "মোবাইলে কলাম লুকান:"
+
+#: app/templates/parts/popup_modals.php:89
+msgid "Activate Row Hiding Feature"
+msgstr "সারি লুকানোর বৈশিষ্ট্য চালু করুন"
+
+#: app/templates/parts/popup_modals.php:94
+msgid "Hidden Rows:"
+msgstr "লুকানো সারি: "
+
+#: app/templates/parts/popup_modals.php:98
+msgid "Hidden Rows"
+msgstr "লুকানো সারি"
+
+#: app/templates/parts/popup_modals.php:128
+msgid "Activate Cell Hiding Feature"
+msgstr "লুকানো সেল বৈশিষ্ট্য চালু করুন"
+
+#: app/templates/parts/popup_modals.php:133
+msgid "Hidden Cell:"
+msgstr "লুকানো সেল :"
+
+#: app/templates/parts/popup_modals.php:137
+msgid "Hidden Cells"
+msgstr "লুকানো সেল "
+
+#: app/templates/parts/pro_fix_notice.php:17
+msgid "Let's Get Your FlexTable Pro Plugin Updated!"
+msgstr "WP টেবিল লাইভ সিঙ্কে পত্রক - প্রো প্লাগইন"
+
+#: app/templates/parts/pro_fix_notice.php:20
+msgid ""
+"We've noticed a small issue with the pro plugin update process. Just click Fix Now button "
+"to automatically solve the issue, and everything will be back to normal"
+msgstr ""
+"আমরা প্রো প্লাগইনের আপডেট প্রক্রিয়ায় একটি ছোট সমস্যা লক্ষ্য করেছি। সমস্যাটি স্বয়ংক্রিয়ভাবে সমাধান "
+"করতে শুধু “Fix Now” বাটনে ক্লিক করুন, সবকিছু আবার স্বাভাবিক হয়ে যাবে।"
+
+#: app/templates/parts/pro_fix_notice.php:22 app/templates/parts/pro_fix_notice.php:312
+msgid "Learn more about what we fixed"
+msgstr "আমরা কী ঠিক করেছি তা সম্পর্কে আরও জানুন"
+
+#: app/templates/parts/pro_fix_notice.php:31
+#, php-format
+msgid ""
+"This fix resolves a temporary issue on FlexTable Pro plugin that's preventing getting "
+"automatic updates. By clicking \"Fix Now\", the update process will be restored, enabling "
+"future auto updates. You can also download the latest version anytime from %s"
+msgstr ""
+"এই ফিক্সটি FlexTable Pro প্লাগইনের একটি অস্থায়ী সমস্যা সমাধান করে, যার কারণে স্বয়ংক্রিয় আপডেট "
+"কাজ করছিল না। \"Fix Now\"-এ ক্লিক করলে আপডেট প্রক্রিয়া পুনরুদ্ধার হবে এবং ভবিষ্যতে অটো আপডেট চালু "
+"থাকবে। চাইলে আপনি যেকোনো সময় %s থেকে সর্বশেষ ভার্সন ডাউনলোড করতে পারেন।"
+
+#: app/templates/parts/pro_fix_notice.php:32 app/templates/parts/pro_fix_notice.php:59
+msgid "portal.wppool.dev"
+msgstr "portal.wppool.dev"
+
+#: app/templates/parts/pro_fix_notice.php:39
+msgid "Fix Now"
+msgstr "এখনই ঠিক করুন"
+
+#: app/templates/parts/pro_fix_notice.php:53
+msgid "Close without fixing the update?"
+msgstr "আপডেট ঠিক না করেই বন্ধ করবেন?"
+
+#: app/templates/parts/pro_fix_notice.php:58
+#, php-format
+msgid ""
+"You can update the pro plugin anytime manually by downloading the latest version from your "
+"portal at %s"
+msgstr ""
+"%s-এ থাকা আপনার পোর্টাল থেকে সর্বশেষ ভার্সন ডাউনলোড করে যেকোনো সময় ম্যানুয়ালি প্রো প্লাগইন আপডেট "
+"করতে পারেন।"
+
+#: app/templates/parts/pro_fix_notice.php:70
+msgid "Yes, Close at My Risk!"
+msgstr "হ্যাঁ, ঝুঁকি নিয়েই বন্ধ করুন!"
+
+#: app/templates/parts/pro_fix_notice.php:315
+msgid "Show less"
+msgstr "কম দেখান"
+
+#: app/templates/parts/pro_fix_notice.php:331
+msgid "Applying Fix..."
+msgstr "ফিক্স প্রয়োগ করা হচ্ছে..."
+
+#: app/templates/parts/pro_fix_notice.php:343
+msgid "Fixed!"
+msgstr "ঠিক হয়ে গেছে!"
+
+#: app/templates/parts/pro_fix_notice.php:348 app/templates/parts/pro_fix_notice.php:353
+msgid "Auto Fix"
+msgstr "অটো ফিক্স"
+
+#: app/templates/parts/pro_fix_notice.php:349
+msgid "Failed to apply fix. Please try again."
+msgstr "ফিক্স প্রয়োগ করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
+
+#: app/templates/parts/pro_fix_notice.php:354 app/templates/parts/pro_fix_notice.php:388
+#: app/templates/parts/pro_fix_notice.php:393
+msgid "An error occurred. Please try again."
+msgstr "একটি ত্রুটি ঘটেছে। অনুগ্রহ করে আবার চেষ্টা করুন।"
+
+#: app/templates/parts/pro_fix_notice.php:372
+msgid "Processing..."
+msgstr "প্রসেস হচ্ছে..."
+
+#: app/templates/parts/review_notice.php:21
+msgid "Seems like "
+msgstr "দেখে মনে হচ্ছে "
+
+#: app/templates/parts/review_notice.php:21
+msgid " is bringing you value 🥳"
+msgstr " আপনার কাজে বেশ উপকার দিচ্ছে 🥳"
+
+#: app/templates/parts/review_notice.php:23
+msgid ""
+"Hi there! You've been using FlexTable for a while. Would you consider leaving us a 😍 5-"
+"star review? Your feedback will help us to develop better features and spread the word."
+msgstr ""
+"হ্যালো! আপনি কিছুদিন ধরে FlexTable ব্যবহার করছেন। আমাদের জন্য কি একটি 😍 ৫-স্টার রিভিউ দিতে "
+"আগ্রহী? আপনার মতামত আমাদের আরও ভালো ফিচার তৈরি করতে এবং অন্যদের কাছে পৌঁছাতে সাহায্য করবে।"
+
+#: app/templates/parts/review_notice.php:34
+msgid "I already did it"
+msgstr "আমি আগেই করেছি"
+
+#: app/templates/parts/review_notice.php:45
+msgid "Would you like to be remind in the future?"
+msgstr "আপনি কি ভবিষ্যতে এ বিষয়ে মনে করিয়ে দিতে চান?"
+
+#: app/templates/parts/review_notice.php:48
+msgid "Remind Me After:"
+msgstr "এরপর মনে করিয়ে দিন:"
+
+#: app/templates/parts/review_notice.php:50 app/templates/parts/review_notice.php:53
+msgid "7 Days"
+msgstr "৭ দিন"
+
+#: app/templates/parts/review_notice.php:54
+msgid "14 Days"
+msgstr "১৪ দিন"
+
+#: app/templates/parts/review_notice.php:55
+msgid "Remind me never"
+msgstr "আর কখনো মনে করিয়ে দেবেন না"
+
+#: app/templates/parts/review_notice.php:60
+msgid "Ok"
+msgstr "ঠিক আছে"
+
+#: sheets-to-wp-table-live-sync.php:32
+msgid "FlexTable - Pro Plugin"
+msgstr "WP টেবিল লাইভ সিঙ্কে পত্রক - প্রো প্লাগইন"
+
+#: sheets-to-wp-table-live-sync.php:33
+msgid "cannot be activated - requires at least 3.0.0. Plugin automatically deactivated."
+msgstr "সক্রিয় করা যাবে না - কমপক্ষে 3.0.0 প্লাগইন স্বয়ংক্রিয়ভাবে নিষ্ক্রিয় করা প্রয়োজন৷"
+
+#~ msgid "A search field"
+#~ msgstr "একটি সার্চ ফিল্ড"
+
+#~ msgid "Get PRO -sheets-to-wp-table-live-sync"
+#~ msgstr "PRO -শীট-টু-wp-টেবিল-লাইভ-সিঙ্ক পান"
+
+#~ msgid "Get Pro "
+#~ msgstr "প্রো ভার্সন নিন"
+
+#~ msgid ""
+#~ "Help your website visitors spend more time and \n"
+#~ "\t\t\tan eye-pleasing reading experience. Personal preference rules always king. WP "
+#~ "Dark Mode can be a game-changer for your website."
+#~ msgstr ""
+#~ "আপনার ওয়েবসাইটের দর্শকদের আরও বেশি সময় ব্যয় করতে সাহায্য করুন এবং\n"
+#~ "একটি চোখ আনন্দদায়ক পড়ার অভিজ্ঞতা। ব্যক্তিগত পছন্দ নিয়ম সবসময় রাজা. WP ডার্ক মোড আপনার "
+#~ "ওয়েবসাইটের জন্য একটি গেম-চেঞ্জার হতে পারে।"
+
+#~ msgid "Dashboard"
+#~ msgstr "ড্যাশবোর্ড"
+
+#~ msgid ""
+#~ "Stock Sync for WooCommerce with Google Sheet – Easy Stock Management and Inventory "
+#~ "Management System for WooCommerce"
+#~ msgstr ""
+#~ "গুগল শিটের সাথে WooCommerce-এর জন্য স্টক সিঙ্ক – WooCommerce-এর জন্য সহজ স্টক ম্যানেজমেন্ট এবং "
+#~ "ইনভেন্টরি ম্যানেজমেন্ট সিস্টেম"
+
+#~ msgid "Zero BS Accounting"
+#~ msgstr "জিরো বিএস অ্যাকাউন্টিং"
+
+#~ msgid ""
+#~ "WordPress accounting Plugin for people with e zero accounting knowledge. Track your "
+#~ "income and expenses from the WordPress dashboard."
+#~ msgstr ""
+#~ "ওয়ার্ডপ্রেস অ্যাকাউন্টিং প্লাগইন ই শূন্য অ্যাকাউন্টিং জ্ঞান সঙ্গে মানুষের জন্য. ওয়ার্ডপ্রেস ড্যাশবোর্ড "
+#~ "থেকে আপনার আয় এবং খরচ ট্র্যাক করুন।"
+
+#~ msgid "Tables created"
+#~ msgstr "টেবিল তৈরি করা হয়েছে"
+
+#~ msgid "No tables have been created yet"
+#~ msgstr "এখনো কোনো টেবিল তৈরি করা হয়নি"
+
+#~ msgid "Tables will be appeared here once you create them"
+#~ msgstr "আপনি একবার তৈরি করার পরে টেবিলগুলি এখানে উপস্থিত হবে"
+
+#~ msgid "Managing tabs"
+#~ msgstr "ট্যাব পরিচালনা"
+
+#~| msgid "Tab Settings"
+#~ msgid "Tab settings"
+#~ msgstr "ট্যাব সেটিংস"
+
+#~ msgid "Manage Tab"
+#~ msgstr "ট্যাব পরিচালনা করুন"
+
+#~| msgid "Data Source"
+#~ msgid "Data source"
+#~ msgstr "তথ্য সূত্র"
+
+#~| msgid "Table Name"
+#~ msgid "Table theme"
+#~ msgstr "টেবিলের নাম"
+
+#~| msgid "Table customization"
+#~ msgid "Table customization"
+#~ msgstr "টেবিল কাস্টমাইজেশন"
+
+#~| msgid "Hide Rows/Column"
+#~ msgid "Hide Rows/Column"
+#~ msgstr "সারি/কলাম লুকান"
+
+#~ msgid "Get unlimited access"
+#~ msgstr "সীমাহীন অ্যাক্সেস পান"
+
+#~ msgid "Manage new tabs"
+#~ msgstr "নতুন ট্যাব পরিচালনা করুন"
+
+#~ msgid "Tabs created"
+#~ msgstr "ট্যাব তৈরি করা হয়েছে"
+
+#~ msgid "Settings"
+#~ msgstr "সেটিংস"
+
+#~ msgid "Tab position"
+#~ msgstr "ট্যাব অবস্থান"
+
+#~ msgid "Tab groups will appear here once you create them"
+#~ msgstr "আপনি একবার ট্যাব গ্রুপ তৈরি করলে এখানে উপস্থিত হবে"
+
+#~| msgid "Hide tab group title"
+#~ msgid "Show tab group title"
+#~ msgstr "ট্যাব গ্রুপ শিরোনাম লুকান"
+
+#~ msgid "Sheets To Table"
+#~ msgstr "টেবিল থেকে শীট"
+
+#~| msgid "FlexTable"
+#~ msgid "Sheets to WP Table Live"
+#~ msgstr "WP টেবিল লাইভ সিঙ্কে পত্রক"
+
+#~| msgid "Disable sorting"
+#~ msgid "Enable sorting"
+#~ msgstr "বাছাই অক্ষম করুন"
+
+#~ msgid "How to Add Line Breaks in a WP Table?"
+#~ msgstr "কিভাবে একটি WP টেবিলে লাইন ব্রেক যোগ করবেন?"
+
+#~ msgid ""
+#~ "To incorporate a line break within a WordPress table, simply employ the `<span "
+#~ "class='date-format'><code> &lt;br&gt; </code></span>` tag within the content of a "
+#~ "specific cell."
+#~ msgstr ""
+#~ "একটি ওয়ার্ডপ্রেস টেবিলের মধ্যে একটি লাইন বিরতি অন্তর্ভুক্ত করতে, কেবল `<span class='date-"
+#~ "format'><code> &lt;br&gt; </code></span>` একটি নির্দিষ্ট ঘরের বিষয়বস্তুর মধ্যে ট্যাগ।"
+
+#~ msgid "Why my table design breaks?"
+#~ msgstr "কেন আমার টেবিল নকশা বিরতি?"
+
+#~ msgid ""
+#~ "If you encounter design issues in your table, it may be due to the use of  <span "
+#~ "class='date-format'><code>multiline content </code></span>within a single cell in your "
+#~ "Google spreadsheets. To address this, insert the <span class='date-format'><code> "
+#~ "&lt;br&gt; </code></span> tag within the text of the specific cell to create multiline "
+#~ "breaks. Additionally, using comma-separated date formats can disrupt the table cell "
+#~ "layout."
+#~ msgstr ""
+#~ "আপনি যদি আপনার টেবিলে ডিজাইন সংক্রান্ত সমস্যার সম্মুখীন হন, তাহলে এটি আপনার Google "
+#~ "স্প্রেডশীটের একটি কক্ষের মধ্যে <span class='date-format'><code>মাল্টিলাইন কন্টেন্ট </code></"
+#~ "span> ব্যবহারের কারণে হতে পারে। এটির সমাধান করার জন্য, <span class='date-format'><code> "
+#~ "&lt;br&gt; মাল্টিলাইন ব্রেক তৈরি করতে নির্দিষ্ট ঘরের পাঠ্যের মধ্যে </code></span> ট্যাগ। "
+#~ "অতিরিক্তভাবে, কমা দ্বারা পৃথক করা তারিখ বিন্যাসগুলি টেবিলের ঘর বিন্যাসকে ব্যাহত করতে পারে।"
+
+#~| msgid "Display settings"
+#~ msgid "2. Display settings"
+#~ msgstr "প্রদর্শন সেটিং"
+
+#~ msgid "On free plan tables can be created from the first sheet tab only. "
+#~ msgstr "বিনামূল্যে প্ল্যান টেবিল শুধুমাত্র প্রথম শীট ট্যাব থেকে তৈরি করা যেতে পারে."
+
+#~ msgid "Hide entries"
+#~ msgstr "এন্ট্রি লুকান"
+
+#~ msgid "Hidden cells"
+#~ msgstr "লুকানো সেল "
+
+#~ msgid "Hidden rows"
+#~ msgstr "লুকানো সারি"
+
+#~ msgid "Hidden Columns"
+#~ msgstr "লুকানো কলাম"
+
+#~ msgid "25"
+#~ msgstr "২৫ "
+
+#~ msgid ""
+#~ "Sorting feature can’t be used when your sheet contains vertically merged cells and the "
+#~ "Merge Cells feature is active. To use sorting feature, please disable the Merge Cells "
+#~ "feature. To get Merge Cell toggle, go to Table Customization > Style > Merge Cells."
+#~ msgstr ""
+#~ "বাছাই বৈশিষ্ট্য ব্যবহার করা যাবে না যখন আপনার শীটে উল্লম্বভাবে মার্জ করা কক্ষ থাকে এবং একত্রিত "
+#~ "কক্ষ বৈশিষ্ট্য সক্রিয় থাকে। বাছাই বৈশিষ্ট্য ব্যবহার করতে, অনুগ্রহ করে একত্রিত কক্ষ বৈশিষ্ট্য অক্ষম "
+#~ "করুন৷ মার্জ সেল টগল পেতে, টেবিল কাস্টমাইজেশন > স্টাইল > সেল একত্রিত করুন-এ যান।"
+
+#~ msgid "Hi there, it seems like"
+#~ msgstr "হাই, এটা মনে হচ্ছে"
+
+#~ msgid ""
+#~ "is bringing you some value, and that is pretty awesome! Can you please show us some "
+#~ "love and rate"
+#~ msgstr ""
+#~ "এটা কি আপনার কিছু মূল্য জুগিয়েছে এবং এটা খুবই চমৎকার! আপনি আমাদের কিছু ভালবাসা এবং সহযোগিতার "
+#~ "হাত দেখাতে পারেন"
+
+#~ msgid ""
+#~ "on WordPress? It will take two minutes of your time, and will really help us spread the "
+#~ "world."
+#~ msgstr ""
+#~ "ওয়ার্ডপ্রেসে সাইট এ ? এটা আপনার দুই মিনিট সময় লাগবে, এবং সত্যিই আমাদের বিশ্ব ছড়িয়ে সাহায্য "
+#~ "করবে."
+
+#~ msgid "I'd love to help"
+#~ msgstr "আমি সাহায্য করতে পছন্দ করব"
+
+#~ msgid "Not this time"
+#~ msgstr "এখন প্রয়োজন নেই"
+
+#~ msgid "Remind me in 10 days"
+#~ msgstr "আমাকে 10 দিনের মধ্যে মনে করিয়ে দিন"
+
+#~ msgid "Don't remind me about this"
+#~ msgstr "এই সম্পর্কে আমাকে মনে করিয়ে দেবেন না"
+
+#~ msgid "Show _MENU_ entries"
+#~ msgstr "এক্স _MENU_ দেখান"
+
+#~ msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+#~ msgstr "_TOTAL_ এন্ট্রির মধ্যে _START_ থেকে _END_ পর্যন্ত দেখানো হচ্ছে"
+
+#~ msgid "Need more help?"
+#~ msgstr "আরো সাহায্য প্রয়োজন?"
+
+#~ msgid "Choose how you want to connect to us. Select the option convenient for you"
+#~ msgstr ""
+#~ "আপনি আমাদের সাথে সংযোগ করতে চান কিভাবে চয়ন করুন. আপনার জন্য সুবিধাজনক বিকল্প নির্বাচন করুন"

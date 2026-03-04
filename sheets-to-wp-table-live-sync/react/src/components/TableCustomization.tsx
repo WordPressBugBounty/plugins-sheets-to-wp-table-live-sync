@@ -488,7 +488,7 @@ const TableCustomization = ({
 																		'hide-ent'
 																	)}{' '}
 																	<Tooltip
-																		content={`If this is enabled, the box showing number of entries will be hidden for the viewers`}
+																		content={getStrings('tooltip-3')}
 																	/>
 																</label>
 															</div>
@@ -525,7 +525,7 @@ const TableCustomization = ({
 																		'hide-search-box'
 																	)}{' '}
 																	<Tooltip
-																		content={`If enabled, the search box will be hidden for viewers`}
+																		content={getStrings('tooltip-4')}
 																	/>
 																</label>
 															</div>
@@ -684,7 +684,7 @@ const TableCustomization = ({
 																		'hide-entry-info'
 																	)}{' '}
 																	<Tooltip
-																		content={`If enabled the entry info showing number of current entries out of all the entries will be hidden`}
+																		content={getStrings('tooltip-7')}
 																	/>
 																</label>
 															</div>
@@ -721,7 +721,7 @@ const TableCustomization = ({
 																		'hide-pagi'
 																	)}{' '}
 																	<Tooltip
-																		content={`Enable this to hide the pagination for viewers`}
+																		content={getStrings('tooltip-8')}
 																	/>
 																</label>
 															</div>
@@ -875,7 +875,7 @@ const TableCustomization = ({
 															'show-table-title'
 														)}
 														<Tooltip
-															content={`Enable this option to show the table title for the viewers`}
+															content={getStrings('tooltip-5.1')}
 														/>
 													</label>
 												</div>
@@ -961,7 +961,7 @@ const TableCustomization = ({
 														</span>
 														{getStrings('the-table')}
 														<Tooltip
-															content={`Enable this option to show table description for the viewers`}
+															content={getStrings('tooltip-5.2')}
 														/>
 														{
 															// <button className="btn-pro btn-new">
@@ -1814,6 +1814,8 @@ const TableCustomization = ({
 										</span>
 									</div>
 
+
+
 									{tableSettings?.table_settings?.table_img_support && (
 										<div
 											className={`${!isProActive()
@@ -2398,7 +2400,7 @@ const TableCustomization = ({
 														'table-height'
 													)}{' '}
 													<Tooltip
-														content={`Select the table height. If the table height is lower there will be a vertical scrollbar to scroll through the rows`}
+														content={getStrings('tooltip-38')}
 													/>
 												</span>
 												{ /* {!isProActive() && (<button className='btn-pro'>{ProIcon}</button>)} */}

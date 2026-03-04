@@ -208,7 +208,7 @@ function EditTable() {
 						textDecoration: 'none'
 					}}
 				>
-					Help?
+					{getStrings('help-text-tooltip')}
 				</span>
 
 				{/* Place CTAVideoPlayer outside the return  */}
@@ -1839,7 +1839,7 @@ function EditTable() {
 											}
 											className="table-action__save"
 										>
-											Save changes
+											{getStrings('save-changes')}
 										</button>
 
 									</div>
@@ -2180,7 +2180,7 @@ function EditTable() {
 			<CTAVideoPlayer
 				videoUrl={currentVideoUrl}
 				// title={currentVideoTitle} // to make dynamic title if needed 
-				title="Get started with table creation"
+				title={getStrings('cta-notice-get-started')}
 				isOpen={isVideoModalOpen}
 				onClose={() => setIsVideoModalOpen(false)}
 			/>

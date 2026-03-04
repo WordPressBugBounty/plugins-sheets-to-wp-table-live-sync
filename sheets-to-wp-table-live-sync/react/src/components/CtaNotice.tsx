@@ -63,9 +63,9 @@ const CtaNotice: React.FC<CtaNoticeProps> = ({ onDismiss }) => {
 				<div className="gradient-border">
 					<div className="content">
 						<div className="leftside-content">
-							<h6 className="cta-title">Get Help with Table Creation</h6>
+							<h6 className="cta-title">{getStrings('cta-notice-title')}</h6>
 							<p className="cta-description">
-								Create awesome tables from your Google Sheets. Just paste the link and see the magic
+								{getStrings('cta-notice-description')}
 							</p>
 						</div>
 						<div className="rightside-content">
@@ -76,7 +76,7 @@ const CtaNotice: React.FC<CtaNoticeProps> = ({ onDismiss }) => {
 									aria-label="Open quick tutorial video"
 								>
 
-									Quick Tutorial
+									{getStrings('cta-notice-quick-tutorial')}
 
 									{YTiconmini}
 								</button>
@@ -86,7 +86,7 @@ const CtaNotice: React.FC<CtaNoticeProps> = ({ onDismiss }) => {
 									disabled={isDismissing}
 									aria-label="Dismiss this notice"
 								>
-									{isDismissing ? 'Closing...' : 'Close'}
+									{isDismissing ? getStrings('cta-notice-dismissing') : getStrings('cta-notice-close-button-label')}
 								</button>
 							</div>
 						</div>
@@ -99,7 +99,7 @@ const CtaNotice: React.FC<CtaNoticeProps> = ({ onDismiss }) => {
 				<div className="cta-modal-overlay" onClick={handleCloseModal}>
 					<div className="cta-modal-content" onClick={(e) => e.stopPropagation()}>
 						<div className="cta-modal-header">
-							<h3>Get started with table creation</h3>
+							<h3>{getStrings('cta-notice-get-started')}</h3>
 							<button
 								className="cta-modal-close"
 								onClick={handleCloseModal}
@@ -132,7 +132,8 @@ const CtaNotice: React.FC<CtaNoticeProps> = ({ onDismiss }) => {
 										<div className="cta-video-embed">
 											<iframe
 												src="https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT"
-												title="Get started with table creation"
+												// title="Get started with table creation"
+												title={getStrings('cta-notice-get-started')}
 												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 												allowFullScreen
 											></iframe>
@@ -150,14 +151,14 @@ const CtaNotice: React.FC<CtaNoticeProps> = ({ onDismiss }) => {
 										onClick={() => window.open('https://wppool.dev/docs/what-is-sheets-to-wp-table-live-sync/', '_blank', 'noopener,noreferrer')}
 										aria-label="Read documentation - opens in new tab"
 									>
-										Read Documentation
+										{getStrings('cta-notice-read-docs')}
 									</button>
 									<button
 										className="modal-close-button"
 										onClick={handleCloseModal}
 										aria-label="Close modal"
 									>
-										Close
+										{getStrings('cta-notice-close-button-label')}
 									</button>
 								</div>
 							</div>

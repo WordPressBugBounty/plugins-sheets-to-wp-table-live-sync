@@ -86,7 +86,7 @@ const DataSource = ({ tableSettings, setTableSettings, sheetUrlRef }) => {
 					<label htmlFor="google-sheet-url">
 						{getStrings('table-desc')}
 						<Tooltip
-							content={`Table description holder. Enter your table description here.`}
+							content={getStrings('table-description-tooltip')}
 						/>
 						{
 							// <button className="btn-pro btn-new">
@@ -99,7 +99,7 @@ const DataSource = ({ tableSettings, setTableSettings, sheetUrlRef }) => {
 						rows="2"
 						name="table_description"
 						id="table-description"
-						placeholder="Enter your table description"
+						placeholder={getStrings('enter-table-description')}
 						value={
 							tableSettings?.table_settings?.table_description
 						}

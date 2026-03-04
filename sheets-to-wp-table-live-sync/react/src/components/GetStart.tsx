@@ -136,7 +136,7 @@ function Documentation() {
 			<CtaAdd />
 
 			<br />
-			<h3>Explore helpful resources</h3>
+			<h3>{getStrings('get-started-explore-resources')}</h3>
 			<Resource />
 
 			{!isProActive() && (
@@ -144,7 +144,7 @@ function Documentation() {
 
 					<div className="get-pro-promo">
 						<div className="pro-hint-left">
-							<h3>🎁 Get the pro version and unlock endless possibilities</h3>
+							<h3>{getStrings('get-started-pro-version')}</h3>
 
 							<p className="documention-list">
 								{getstartCheckmark} {getStrings('link-supp')}

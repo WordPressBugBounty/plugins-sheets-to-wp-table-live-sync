@@ -66,7 +66,7 @@ class Admin {
 		if ( ! swptls()->helpers->check_pro_plugin_exists() || ! swptls()->helpers->is_pro_active() ) {
 			add_submenu_page(
 				'gswpts-dashboard',
-				__( 'Get PRO -sheets-to-wp-table-live-sync', 'sheets-to-wp-table-live-sync' ),// phpcs:ignore
+				__( 'Get PRO', 'sheets-to-wp-table-live-sync' ),// phpcs:ignore
 				__( '<span style="display: flex; align-items: center; gap: 7px; color: #29be7c; font-weight: 700; text-transform:uppercase; font-size: 12px;"> Upgrade Now <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M11.8012 7.66016L10.0813 4.26172L8.36133 7.66016C8.9104 7.69498 9.48392 7.71466 10.0813 7.71466C10.6786 7.71466 11.2522 7.69498 11.8012 7.66016Z" fill="#34D399"/>
 					<path d="M13.5164 3.93457C12.5221 4.00909 11.4463 4.05114 10.3535 4.05712L12.0518 7.41268L13.5164 3.93457Z" fill="#34D399"/>

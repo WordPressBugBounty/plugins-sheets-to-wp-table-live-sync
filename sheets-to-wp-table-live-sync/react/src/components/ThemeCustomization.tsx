@@ -4095,7 +4095,7 @@ const ThemeCustomization = ({ tableSettings, setTableSettings }) => {
 				<h2 className="theme-customization-heading">
 					{getStrings('customize-theme-options-title')}
 				</h2>
-				<Tooltip content="Customize your theme according to your needs" />
+				<Tooltip content={getStrings('customize-theme-hint')} />
 			</div>
 			<div className="theme-render">
 				<div className="theme-colors">

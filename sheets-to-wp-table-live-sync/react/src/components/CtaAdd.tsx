@@ -22,9 +22,9 @@ const CtaAdd = () => {
 			<div className="gradient-border">
 				<div className="content">
 					<div className="leftside-content">
-						<h6 className="cta-title">Get started with your first table</h6>
+						<h6 className="cta-title">{getStrings('get-started-title')}</h6>
 						<p className="cta-description">
-							Let's create your first table from Google Sheets – it's as easy as pie!
+							{getStrings('get-started-description')}
 						</p>
 						<button
 							className="btn btn-lg cta-button"
@@ -35,7 +35,7 @@ const CtaAdd = () => {
 						</button>
 					</div>
 					<div className="rightside-content">
-						<b className='video-title-text'>Watch a quick tutorial</b>
+						<b className='video-title-text'>{getStrings('get-started-watch-tutorial')}</b>
 						<div className="cta-video-player-container">
 							<div className="cta-video-player-wrapper">
 								<div className="cta-video-thumbnail"
@@ -62,7 +62,7 @@ const CtaAdd = () => {
 
 			<CTAVideoPlayer
 				videoUrl="https://www.youtube.com/embed/1b9QXLg0JdQ?si=xKoYo7HD-wGWevnT"
-				title="Get started with table creation"
+				title={getStrings('cta-notice-get-started')}
 				isOpen={isVideoModalOpen}
 				onClose={() => setIsVideoModalOpen(false)}
 			/>

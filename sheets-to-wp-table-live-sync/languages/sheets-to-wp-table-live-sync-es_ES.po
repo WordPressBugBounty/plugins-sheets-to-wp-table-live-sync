@@ -1,0 +1,5055 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2026-03-03 12:44+0600\n"
+"PO-Revision-Date: 2026-03-03 12:44+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_html\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: assets\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: react/node_modules\n"
+"X-Poedit-SearchPathExcluded-4: lib\n"
+"X-Poedit-SearchPathExcluded-5: .wordpress-org\n"
+"X-Poedit-SearchPathExcluded-6: .vscode\n"
+"X-Poedit-SearchPathExcluded-7: .github\n"
+"X-Poedit-SearchPathExcluded-8: .git\n"
+
+#: app/AI/AIManager.php:111
+msgid "Invalid AI provider"
+msgstr "Proveedor de IA inválido"
+
+#: app/AI/AIManager.php:128 app/AI/AIManager.php:145 app/AI/AIManager.php:220
+msgid "No AI provider configured"
+msgstr "No hay proveedor de IA configurado"
+
+#: app/AI/AIManager.php:224
+msgid "Prompt cannot be empty"
+msgstr "El prompt no puede estar vacío"
+
+#: app/AI/AIProvider.php:302
+#, php-format
+msgid "%1$s API request failed: %2$s"
+msgstr "Falló la solicitud de API de %1$s: %2$s"
+
+#: app/AI/AIProvider.php:317
+#, php-format
+msgid "%1$s API error (%2$d): %3$s"
+msgstr "Error de API de %1$s (%2$d): %3$s"
+
+#: app/AI/GeminiProvider.php:78
+msgid "Google AI API Key"
+msgstr "Clave de API de Google AI"
+
+#: app/AI/GeminiProvider.php:79
+msgid "Your Google AI Studio API key"
+msgstr "Tu clave de API de Google AI Studio"
+
+#: app/AI/GeminiProvider.php:86 app/AI/OpenAIProvider.php:103
+msgid "Model"
+msgstr "Modelo"
+
+#: app/AI/GeminiProvider.php:87
+msgid "Choose the Gemini model to use"
+msgstr "Elige el modelo de Gemini a utilizar"
+
+#: app/AI/GeminiProvider.php:93 app/AI/OpenAIProvider.php:110
+#: app/Strings.php:831
+msgid "Max Tokens"
+msgstr "Tokens Máximos"
+
+#: app/AI/GeminiProvider.php:94 app/AI/OpenAIProvider.php:111
+msgid "Maximum tokens for the response"
+msgstr "Tokens máximos para la respuesta"
+
+#: app/AI/GeminiProvider.php:102 app/AI/OpenAIProvider.php:119
+#: app/Strings.php:837
+msgid "Creativity"
+msgstr "Creatividad"
+
+#: app/AI/GeminiProvider.php:103 app/AI/OpenAIProvider.php:120
+msgid "Controls randomness in responses"
+msgstr "Controla la aleatoriedad en las respuestas"
+
+#: app/AI/GeminiProvider.php:111 app/Strings.php:808 app/Strings.php:870
+msgid "Top P"
+msgstr "Top P"
+
+#: app/AI/GeminiProvider.php:112
+msgid "Controls diversity via nucleus sampling"
+msgstr "Controla la diversidad mediante muestreo de núcleo"
+
+#: app/AI/GeminiProvider.php:120 app/Strings.php:810 app/Strings.php:872
+msgid "Top K"
+msgstr "Top K"
+
+#: app/AI/GeminiProvider.php:121
+msgid "Controls diversity by limiting vocabulary"
+msgstr "Controla la diversidad limitando el vocabulario"
+
+#: app/AI/GeminiProvider.php:144
+msgid "Gemini API key is required"
+msgstr "Se requiere la clave de API de Gemini"
+
+#: app/AI/GeminiProvider.php:148
+msgid "Invalid Gemini API key format"
+msgstr "Formato de clave de API de Gemini inválido"
+
+#: app/AI/GeminiProvider.php:204
+#, php-format
+msgid "Gemini API connection successful! Model: %s"
+msgstr "¡Conexión exitosa a la API de Gemini! Modelo: %s"
+
+#: app/AI/GeminiProvider.php:232 app/AI/OpenAIProvider.php:208
+msgid "API test failed: Invalid response structure"
+msgstr "Prueba de API fallida: Estructura de respuesta inválida"
+
+#: app/AI/GeminiProvider.php:315
+msgid "Response blocked by Gemini safety filters"
+msgstr "Respuesta bloqueada por los filtros de seguridad de Gemini"
+
+#: app/AI/GeminiProvider.php:318
+msgid "Invalid response structure from Gemini API"
+msgstr "Estructura de respuesta inválida de la API de Gemini"
+
+#: app/AI/GeminiProvider.php:356 app/AI/OpenAIProvider.php:296
+#, php-format
+msgid "API returned status code %d"
+msgstr "La API devolvió el código de estado %d"
+
+#: app/AI/OpenAIProvider.php:95 app/Strings.php:817
+msgid "OpenAI API Key"
+msgstr "Clave de API de OpenAI"
+
+#: app/AI/OpenAIProvider.php:96
+msgid "Your OpenAI API key (starts with sk-)"
+msgstr "Tu clave de API de OpenAI (comienza con sk-)"
+
+#: app/AI/OpenAIProvider.php:104
+msgid "Choose the OpenAI model to use"
+msgstr "Elige el modelo de OpenAI a utilizar"
+
+#: app/AI/OpenAIProvider.php:128 app/Strings.php:843
+msgid "Frequency Penalty"
+msgstr "Penalización de Frecuencia"
+
+#: app/AI/OpenAIProvider.php:129
+msgid "Reduces repetition in responses"
+msgstr "Reduce la repetición en las respuestas"
+
+#: app/AI/OpenAIProvider.php:152
+msgid "OpenAI API key is required"
+msgstr "Se requiere la clave de API de OpenAI"
+
+#: app/AI/OpenAIProvider.php:156
+msgid "Invalid OpenAI API key format"
+msgstr "Formato de clave de API de OpenAI inválido"
+
+#: app/AI/OpenAIProvider.php:202
+#, php-format
+msgid "OpenAI API connection successful! Model: %s"
+msgstr "¡Conexión exitosa a la API de OpenAI! Modelo: %s"
+
+#: app/AI/OpenAIProvider.php:265
+msgid "Invalid response structure from OpenAI API"
+msgstr "Estructura de respuesta inválida de la API de OpenAI"
+
+#: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517
+#: app/Divi/DiviModule.php:35 app/Elementor/ElementorWidget.php:58
+#: app/SWPTLS.php:265 app/templates/parts/review_notice.php:21
+msgid "FlexTable"
+msgstr "FlexTable"
+
+#: app/Admin.php:69
+msgid "Get PRO"
+msgstr "Obtener Pro"
+
+#: app/Admin.php:70
+msgid ""
+"<span style=\"display: flex; align-items: center; gap: 7px; color: #29be7c; "
+"font-weight: 700; text-transform:uppercase; font-size: 12px;\"> Upgrade Now "
+"<svg width=\"21\" height=\"17\" viewBox=\"0 0 21 17\" fill=\"none\" "
+"xmlns=\"http://www.w3.org/2000/svg\">\n"
+"\t\t\t\t\t<path d=\"M11.8012 7.66016L10.0813 4.26172L8.36133 7.66016C8.9104 "
+"7.69498 9.48392 7.71466 10.0813 7.71466C10.6786 7.71466 11.2522 7.69498 "
+"11.8012 7.66016Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.5164 3.93457C12.5221 4.00909 11.4463 4.05114 10.3535 "
+"4.05712L12.0518 7.41268L13.5164 3.93457Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M17.655 6.58984C18.9408 6.17882 19.7993 5.76404 20.1634 "
+"5.57337L17.6901 3.27344L16.8496 6.82924C17.1409 6.74883 17.4099 6.6682 "
+"17.655 6.58984Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.8256 4.06055L12.3262 7.62137C13.8894 7.49126 15.2336 "
+"7.24006 16.3194 6.96869L13.8256 4.06055Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.84375 6.96869C4.92956 7.24006 6.27375 7.49126 7.83695 "
+"7.62137L6.33749 4.06055L3.84375 6.96869Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M14.1152 3.88492L16.5346 6.70624L17.3326 3.33008C17.0083 "
+"3.4568 16.4276 3.60162 15.3786 3.74365C14.9823 3.79731 14.5586 3.84437 "
+"14.1152 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M9.8103 4.05712C8.71747 4.0511 7.64174 4.00905 6.64746 "
+"3.93457L8.11206 7.41268L9.8103 4.05712Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M10.0818 3.72428C11.9183 3.72428 13.7348 3.62004 15.1969 "
+"3.43079C16.4383 3.27009 17.054 3.09714 17.3042 2.98362C17.0203 2.8663 "
+"16.3914 2.69009 15.2275 2.52161C13.739 2.30616 11.9115 2.1875 10.0818 "
+"2.1875C8.25205 2.1875 6.42458 2.30616 4.93603 2.52161C3.77219 2.69009 "
+"3.14329 2.8663 2.85938 2.98362C3.10952 3.09718 3.7253 3.27009 4.96671 "
+"3.43079C6.42872 3.62004 8.24524 3.72428 10.0818 3.72428Z\" fill=\"#34D399\"/"
+">\n"
+"\t\t\t\t\t<path d=\"M10.082 8.04847C9.46536 8.04847 8.87357 8.02778 8.30762 "
+"7.99121L10.082 16.352L11.8563 7.99121C11.2904 8.02782 10.6986 8.04847 10.082 "
+"8.04847Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M6.04742 3.88492C5.60405 3.84437 5.18037 3.79731 4.78402 "
+"3.74365C3.73508 3.60167 3.15437 3.4568 2.83008 3.33008L3.62808 "
+"6.70624L6.04742 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M12.2028 7.96734L10.4326 16.3084L16.2509 7.33008C15.1406 "
+"7.59983 13.779 7.84508 12.2028 7.96734Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.7281 7.20887L11.3818 15.4589L19.7314 6.15625C19.2695 "
+"6.36611 18.6125 6.63452 17.7695 6.9046C17.4591 7.00407 17.1111 7.10714 "
+"16.7281 7.20887Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.91211 7.33008L9.73035 16.3084L7.96014 7.96734C6.38399 "
+"7.84504 5.02233 7.59979 3.91211 7.33008Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M2.39357 6.9046C1.55059 6.63452 0.893524 6.36611 "
+"0.431641 6.15625L8.78123 15.4589L3.43499 7.20887C3.05198 7.10714 2.70398 "
+"7.00407 2.39357 6.9046Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.31381 6.8292L2.47334 3.27344L0 5.57332C0.364207 5.764 "
+"1.22261 6.17878 2.50845 6.58979C2.75354 6.66816 3.02249 6.74878 3.31381 "
+"6.8292Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M1.78207 1.06487C1.84142 1.14328 1.88961 1.23343 1.92864 "
+"1.32785C1.96768 1.23347 2.01583 1.14332 2.07522 1.06487C2.21164 0.884688 "
+"2.40578 0.753868 2.57995 0.663923C2.40578 0.573979 2.21164 0.443117 2.07522 "
+"0.262978C2.01583 0.184569 1.96768 0.0943745 1.92864 0C1.88961 0.0943745 "
+"1.84146 0.184528 1.78207 0.262978C1.64565 0.443159 1.45151 0.573979 1.27734 "
+"0.663923C1.45151 0.753868 1.64565 0.884688 1.78207 1.06487Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.8194 12.844C16.76 12.7656 16.7118 12.6754 16.6728 "
+"12.5811C16.6337 12.6754 16.5856 12.7656 16.5262 12.844C16.3898 13.0242 "
+"16.1957 13.155 16.0215 13.245C16.1957 13.3349 16.3898 13.4658 16.5262 "
+"13.6459C16.5856 13.7243 16.6337 13.8145 16.6728 13.9089C16.7118 13.8145 "
+"16.76 13.7243 16.8194 13.6459C16.9558 13.4657 17.1499 13.3349 17.3241 "
+"13.245C17.1499 13.155 16.9557 13.0242 16.8194 12.844Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t</svg>\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t</span>"
+msgstr ""
+"<span style=\"display: flex; align-items: center; gap: 7px; color: #29be7c; "
+"font-weight: 700; text-transform:uppercase; font-size: 12px;\"> Actualizar "
+"Ahora <svg width=\"21\" height=\"17\" viewBox=\"0 0 21 17\" fill=\"none\" "
+"xmlns=\"http://www.w3.org/2000/svg\">\n"
+"\t\t\t\t\t<path d=\"M11.8012 7.66016L10.0813 4.26172L8.36133 7.66016C8.9104 "
+"7.69498 9.48392 7.71466 10.0813 7.71466C10.6786 7.71466 11.2522 7.69498 "
+"11.8012 7.66016Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.5164 3.93457C12.5221 4.00909 11.4463 4.05114 10.3535 "
+"4.05712L12.0518 7.41268L13.5164 3.93457Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M17.655 6.58984C18.9408 6.17882 19.7993 5.76404 20.1634 "
+"5.57337L17.6901 3.27344L16.8496 6.82924C17.1409 6.74883 17.4099 6.6682 "
+"17.655 6.58984Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.8256 4.06055L12.3262 7.62137C13.8894 7.49126 15.2336 "
+"7.24006 16.3194 6.96869L13.8256 4.06055Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.84375 6.96869C4.92956 7.24006 6.27375 7.49126 7.83695 "
+"7.62137L6.33749 4.06055L3.84375 6.96869Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M14.1152 3.88492L16.5346 6.70624L17.3326 3.33008C17.0083 "
+"3.4568 16.4276 3.60162 15.3786 3.74365C14.9823 3.79731 14.5586 3.84437 "
+"14.1152 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M9.8103 4.05712C8.71747 4.0511 7.64174 4.00905 6.64746 "
+"3.93457L8.11206 7.41268L9.8103 4.05712Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M10.0818 3.72428C11.9183 3.72428 13.7348 3.62004 15.1969 "
+"3.43079C16.4383 3.27009 17.054 3.09714 17.3042 2.98362C17.0203 2.8663 "
+"16.3914 2.69009 15.2275 2.52161C13.739 2.30616 11.9115 2.1875 10.0818 "
+"2.1875C8.25205 2.1875 6.42458 2.30616 4.93603 2.52161C3.77219 2.69009 "
+"3.14329 2.8663 2.85938 2.98362C3.10952 3.09718 3.7253 3.27009 4.96671 "
+"3.43079C6.42872 3.62004 8.24524 3.72428 10.0818 3.72428Z\" fill=\"#34D399\"/"
+">\n"
+"\t\t\t\t\t<path d=\"M10.082 8.04847C9.46536 8.04847 8.87357 8.02778 8.30762 "
+"7.99121L10.082 16.352L11.8563 7.99121C11.2904 8.02782 10.6986 8.04847 10.082 "
+"8.04847Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M6.04742 3.88492C5.60405 3.84437 5.18037 3.79731 4.78402 "
+"3.74365C3.73508 3.60167 3.15437 3.4568 2.83008 3.33008L3.62808 "
+"6.70624L6.04742 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M12.2028 7.96734L10.4326 16.3084L16.2509 7.33008C15.1406 "
+"7.59983 13.779 7.84508 12.2028 7.96734Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.7281 7.20887L11.3818 15.4589L19.7314 6.15625C19.2695 "
+"6.36611 18.6125 6.63452 17.7695 6.9046C17.4591 7.00407 17.1111 7.10714 "
+"16.7281 7.20887Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.91211 7.33008L9.73035 16.3084L7.96014 7.96734C6.38399 "
+"7.84504 5.02233 7.59979 3.91211 7.33008Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M2.39357 6.9046C1.55059 6.63452 0.893524 6.36611 "
+"0.431641 6.15625L8.78123 15.4589L3.43499 7.20887C3.05198 7.10714 2.70398 "
+"7.00407 2.39357 6.9046Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.31381 6.8292L2.47334 3.27344L0 5.57332C0.364207 5.764 "
+"1.22261 6.17878 2.50845 6.58979C2.75354 6.66816 3.02249 6.74878 3.31381 "
+"6.8292Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M1.78207 1.06487C1.84142 1.14328 1.88961 1.23343 1.92864 "
+"1.32785C1.96768 1.23347 2.01583 1.14332 2.07522 1.06487C2.21164 0.884688 "
+"2.40578 0.753868 2.57995 0.663923C2.40578 0.573979 2.21164 0.443117 2.07522 "
+"0.262978C2.01583 0.184569 1.96768 0.0943745 1.92864 0C1.88961 0.0943745 "
+"1.84146 0.184528 1.78207 0.262978C1.64565 0.443159 1.45151 0.573979 1.27734 "
+"0.663923C1.45151 0.753868 1.64565 0.884688 1.78207 1.06487Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.8194 12.844C16.76 12.7656 16.7118 12.6754 16.6728 "
+"12.5811C16.6337 12.6754 16.5856 12.7656 16.5262 12.844C16.3898 13.0242 "
+"16.1957 13.155 16.0215 13.245C16.1957 13.3349 16.3898 13.4658 16.5262 "
+"13.6459C16.5856 13.7243 16.6337 13.8145 16.6728 13.9089C16.7118 13.8145 "
+"16.76 13.7243 16.8194 13.6459C16.9558 13.4657 17.1499 13.3349 17.3241 "
+"13.245C17.1499 13.155 16.9557 13.0242 16.8194 12.844Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t</svg>\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t</span>"
+
+#: app/Ajax/Notices.php:40 app/Ajax/Notices.php:127 app/Ajax/Notices.php:161
+#: app/Ajax/Products.php:40 app/Ajax/Settings.php:35 app/Ajax/Settings.php:69
+#: app/Ajax/Tables.php:80 app/Ajax/Tables.php:121 app/Ajax/Tables.php:186
+#: app/Ajax/Tables.php:250 app/Ajax/Tables.php:288 app/Ajax/Tables.php:330
+#: app/Ajax/Tables.php:350 app/Ajax/Tables.php:425 app/Ajax/Tables.php:464
+#: app/Ajax/Tables.php:1074 app/Ajax/Tables.php:1117 app/Ajax/Tables.php:1704
+#: app/Ajax/Tables.php:1731
+msgid "Invalid action"
+msgstr "Acción inválida"
+
+#: app/Ajax/Notices.php:141
+msgid "Pro plugin update has been fixed successfully!"
+msgstr "¡La actualización del plugin Pro se ha reparado exitosamente!"
+
+#: app/Ajax/Notices.php:145
+msgid "Failed to apply the fix. Please try again or contact support."
+msgstr ""
+"No se pudo aplicar la reparación. Por favor intenta de nuevo o contacta a "
+"soporte."
+
+#: app/Ajax/Notices.php:156
+msgid "Fix declined. You will not receive premium plugin updates."
+msgstr "Reparación rechazada. No recibirás actualizaciones del plugin premium."
+
+#: app/Ajax/Products.php:57
+msgid "🛒 Boost your WooCommerce stores functionality"
+msgstr "🛒 Potencia la funcionalidad de tu tienda WooCommerce"
+
+#: app/Ajax/Products.php:58
+msgid ""
+"Discover top plugins to supercharge your store with advanced tools and "
+"improvements"
+msgstr ""
+"Descubre los mejores plugins para potenciar tu tienda con herramientas "
+"avanzadas y mejoras"
+
+#: app/Ajax/Products.php:63
+msgid "🧩 Enhance your WordPress site with powerful tools"
+msgstr "🧩 Mejora tu sitio de WordPress con herramientas potentes"
+
+#: app/Ajax/Products.php:64
+msgid ""
+"We have selected top plugins to improve your site. Explore options tailored "
+"just for you"
+msgstr ""
+"Hemos seleccionado los mejores plugins para mejorar tu sitio. Explora "
+"opciones adaptadas especialmente para ti"
+
+#: app/Ajax/Products.php:123
+msgid ""
+"Stock Sync with Google Sheets for WooCommerce | Product Sync with Google "
+"Sheet, WooCommerce Bulk Edit, Stock Management – FlexStock"
+msgstr ""
+"Sincronización de Stock con Google Sheets para WooCommerce | Sincronización "
+"de Productos con Google Sheet, Edición Masiva de WooCommerce, Gestión de "
+"Inventario – FlexStock"
+
+#: app/Ajax/Products.php:124
+msgid ""
+"Auto-sync WooCommerce products from Google Sheets. An easy and powerful "
+"solution for WooCommerce inventory management."
+msgstr ""
+"Sincronización automática de productos de WooCommerce desde Google Sheets. "
+"Una solución fácil y potente para la gestión de inventario de WooCommerce."
+
+#: app/Ajax/Products.php:142
+msgid "FlexOrder – Manage & Sync Orders with Google Sheets for WooCommerce"
+msgstr ""
+"FlexOrder – Gestiona y Sincroniza Pedidos con Google Sheets para WooCommerce"
+
+#: app/Ajax/Products.php:143
+msgid ""
+"🔥Seamlessly connect WooCommerce with Google Sheets to manage orders, update "
+"statuses in bulk, and simplify your workflow"
+msgstr ""
+"🔥Conecta sin problemas WooCommerce con Google Sheets para gestionar "
+"pedidos, actualizar estados en masa y simplificar tu flujo de trabajo"
+
+#: app/Ajax/Products.php:161
+msgid "ArchiveMaster — Auto Archive and Export Old Orders for WooCommerce"
+msgstr ""
+"ArchiveMaster — Archiva y Exporta Automáticamente Pedidos Antiguos para "
+"WooCommerce"
+
+#: app/Ajax/Products.php:162
+msgid ""
+"Optimize your WooCommerce store and store old data in a local or any remote "
+"database. With ArchiveMaster, easily archive old orders, export order data, "
+"and streamline database performance."
+msgstr ""
+"Optimiza tu tienda WooCommerce y almacena datos antiguos en una base de "
+"datos local o remota. Con ArchiveMaster, archiva fácilmente pedidos "
+"antiguos, exporta datos de pedidos y optimiza el rendimiento de la base de "
+"datos."
+
+#: app/Ajax/Products.php:180
+msgid "EchoRewards — Refer-a-Friend & Referral Program for WooCommerce"
+msgstr "EchoRewards — Programa de Referidos y Recomendaciones para WooCommerce"
+
+#: app/Ajax/Products.php:181
+msgid ""
+"Create your customer referral program with a refer-a-friend plugin for "
+"WordPress. With EchoRewards, automate customer rewards and add a refer-a-"
+"friend program to your WooCommerce store"
+msgstr ""
+"Crea tu programa de referidos de clientes con un plugin de recomendaciones "
+"para WordPress. Con EchoRewards, automatiza las recompensas de clientes y "
+"añade un programa de referidos a tu tienda WooCommerce"
+
+#: app/Ajax/Products.php:200
+msgid "WP Dark Mode"
+msgstr "WP Dark Mode"
+
+#: app/Ajax/Products.php:201
+msgid ""
+"Create a dark mode version of your website without any complicated setup. "
+"Activate the plugin and your site visitors will experience a dark mode or "
+"light mode version of your website as per their preferred operating system "
+"preference."
+msgstr ""
+"Crea una versión en modo oscuro de tu sitio web sin ninguna configuración "
+"complicada. Activa el plugin y los visitantes de tu sitio experimentarán una "
+"versión en modo oscuro o modo claro de tu sitio web según su preferencia del "
+"sistema operativo."
+
+#: app/Ajax/Products.php:219
+msgid ""
+"FormToChat – Connect Contact Form to Chat Apps with Contact Form 7 "
+"Integration"
+msgstr ""
+"FormToChat – Conecta Formularios de Contacto a Aplicaciones de Chat con "
+"Integración de Contact Form 7"
+
+#: app/Ajax/Products.php:220
+msgid ""
+"WhatsApp Chat for WordPress🔥. Connect contact forms to WhatsApp. A WhatsApp "
+"notifications plugin with Contact Form 7 integration."
+msgstr ""
+"Chat de WhatsApp para WordPress🔥. Conecta formularios de contacto a "
+"WhatsApp. Un plugin de notificaciones de WhatsApp con integración de Contact "
+"Form 7."
+
+#: app/Ajax/Products.php:238
+msgid "Webinar and Video Conference with Jitsi Meet"
+msgstr "Webinar y Videoconferencia con Jitsi Meet"
+
+#: app/Ajax/Products.php:239
+msgid ""
+"The best WordPress webinar plugin with branded meetings. Add Jitsi meetings, "
+"host webinars and video conferences on your website."
+msgstr ""
+"El mejor plugin de webinars para WordPress con reuniones personalizadas. "
+"Añade reuniones de Jitsi, organiza webinars y videoconferencias en tu sitio "
+"web."
+
+#: app/Ajax/Products.php:256
+msgid "Easy Video Reviews"
+msgstr "Easy Video Reviews"
+
+#: app/Ajax/Products.php:257
+msgid ""
+"Easy Video Reviews is the best \n"
+"\t\t\tand easiest video review plugin for WordPress, fully compatible with "
+"WooCommerce and Easy Digital Downloads plugins."
+msgstr ""
+"Easy Video Reviews es el mejor \n"
+"\t\t\ty más fácil plugin de reseñas en video para WordPress, totalmente "
+"compatible con los plugins WooCommerce y Easy Digital Downloads."
+
+#: app/Ajax/Products.php:298
+#, php-format
+msgid "By %s"
+msgstr "Por %s"
+
+#: app/Ajax/Products.php:324
+msgid "Install Now"
+msgstr "Instalar Ahora"
+
+#: app/Ajax/Products.php:346
+msgid "Update Now"
+msgstr "Actualizar Ahora"
+
+#: app/Ajax/Products.php:365 app/Strings.php:146
+msgid "Activate"
+msgstr "Activar"
+
+#: app/Ajax/Products.php:378
+msgid "Network Activate"
+msgstr "Activar en Red"
+
+#: app/Ajax/Products.php:409
+#, php-format
+msgid "More information about %s"
+msgstr "Más información sobre %s"
+
+#: app/Ajax/Products.php:411
+msgid "More Details"
+msgstr "Más Detalles"
+
+#: app/Ajax/Products.php:439
+msgid "This plugin doesn&#8217;t work with your versions of WordPress and PHP."
+msgstr "Este plugin no funciona con tus versiones de WordPress y PHP."
+
+#: app/Ajax/Products.php:469
+msgid "This plugin doesn&#8217;t work with your version of WordPress."
+msgstr "Este plugin no funciona con tu versión de WordPress."
+
+#: app/Ajax/Products.php:480
+msgid "This plugin doesn&#8217;t work with your version of PHP."
+msgstr "Este plugin no funciona con tu versión de PHP."
+
+#: app/Ajax/Products.php:537
+#, php-format
+msgid "%s ago"
+msgstr "hace %s"
+
+#: app/Ajax/Products.php:555
+#, php-format
+msgid "%s Active Installations"
+msgstr "%s Instalaciones Activas"
+
+#: app/Ajax/Products.php:561
+msgid "Untested with your version of WordPress"
+msgstr "No probado con tu versión de WordPress"
+
+#: app/Ajax/Settings.php:125
+msgid "Settings saved successfully."
+msgstr "Configuración guardada exitosamente."
+
+#: app/Ajax/Tables.php:90
+msgid "Invalid data to save."
+msgstr "Datos inválidos para guardar."
+
+#: app/Ajax/Tables.php:104
+msgid "Table updated successfully."
+msgstr "Tabla actualizada exitosamente."
+
+#: app/Ajax/Tables.php:160 app/Ajax/Tables.php:225
+msgid "Sorting updated successfully"
+msgstr "Ordenamiento actualizado exitosamente"
+
+#: app/Ajax/Tables.php:164 app/Ajax/Tables.php:229
+msgid "Failed to update sorting"
+msgstr "Fallo al actualizar el ordenamiento"
+
+#: app/Ajax/Tables.php:169 app/Ajax/Tables.php:234
+msgid "Record not found"
+msgstr "Registro no encontrado"
+
+#: app/Ajax/Tables.php:174 app/Ajax/Tables.php:239
+msgid "Invalid ID or sorting value"
+msgstr "ID o valor de ordenamiento inválido"
+
+#: app/Ajax/Tables.php:262
+#, php-format
+msgid "%s table deleted."
+msgstr "Tabla %s eliminada."
+
+#: app/Ajax/Tables.php:269
+#, php-format
+msgid "Failed to delete table with id %d"
+msgstr "Fallo al eliminar la tabla con id %d"
+
+#: app/Ajax/Tables.php:276
+msgid "Invalid table to perform delete."
+msgstr "Tabla inválida para eliminar."
+
+#: app/Ajax/Tables.php:300
+#, php-format
+msgid "%s table copied."
+msgstr "Tabla %s copiada."
+
+#: app/Ajax/Tables.php:307
+#, php-format
+msgid "Failed to copied table with id %d"
+msgstr "Fallo al copiar la tabla con id %d"
+
+#: app/Ajax/Tables.php:314
+msgid "Invalid table to perform copied."
+msgstr "Tabla inválida para copiar."
+
+#: app/Ajax/Tables.php:358
+msgid "Empty or invalid google sheet url."
+msgstr "URL de Google Sheets vacía o inválida."
+
+#: app/Ajax/Tables.php:363 app/Ajax/Tables.php:783
+msgid "Untitled"
+msgstr "Sin título"
+
+#: app/Ajax/Tables.php:367 app/Ajax/Tables.php:787
+msgid "Invalid settings to save."
+msgstr "Configuración inválida para guardar."
+
+#: app/Ajax/Tables.php:375 app/Ajax/Tables.php:826 app/Ajax/Tables.php:869
+msgid ""
+"Copy the Google sheet URL from browser URL bar that includes <i>gid</i> "
+"parameter"
+msgstr ""
+"Copia la URL de Google Sheets de la barra de direcciones del navegador que "
+"incluye el parámetro <i>gid</i>"
+
+#: app/Ajax/Tables.php:376 app/Ajax/Tables.php:827 app/Ajax/Tables.php:870
+msgid "invalid_request"
+msgstr "solicitud_inválida"
+
+#: app/Ajax/Tables.php:385
+msgid ""
+"The spreadsheet is restricted. Please make it public by clicking on share "
+"button at the top of the spreadsheet"
+msgstr ""
+"La hoja de cálculo está restringida. Por favor hazla pública haciendo clic "
+"en el botón compartir en la parte superior de la hoja de cálculo"
+
+#: app/Ajax/Tables.php:413
+msgid "Table created successfully"
+msgstr "Tabla creada exitosamente"
+
+#: app/Ajax/Tables.php:433
+msgid "Invalid table to edit."
+msgstr "Tabla inválida para editar."
+
+#: app/Ajax/Tables.php:442 app/Ajax/Tables.php:654 app/Ajax/Tables.php:712
+#: app/Ajax/Tables.php:1017
+msgid "Request is invalid"
+msgstr "La solicitud es inválida"
+
+#: app/Ajax/Tables.php:497 app/Ajax/Tables.php:688 app/Ajax/Tables.php:745
+msgid ""
+"Please make it public by clicking on share button at the top of spreadsheet"
+msgstr ""
+"Por favor hazla pública haciendo clic en el botón compartir en la parte "
+"superior de la hoja de cálculo"
+
+#: app/Ajax/Tables.php:516 app/Ajax/Tables.php:524 app/Ajax/Tables.php:617
+#: app/Ajax/Tables.php:646 app/Ajax/Tables.php:767
+msgid "Action is invalid"
+msgstr "La acción es inválida"
+
+#: app/Ajax/Tables.php:532
+msgid "Tables fetched successfully."
+msgstr "Tablas obtenidas exitosamente."
+
+#: app/Ajax/Tables.php:551
+msgid "Table ID"
+msgstr "ID de Tabla"
+
+#: app/Ajax/Tables.php:552
+msgid "Type"
+msgstr "Tipo"
+
+#: app/Ajax/Tables.php:553 app/Strings.php:203
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: app/Ajax/Tables.php:554
+msgid "Table Name"
+msgstr "Nombre de Tabla"
+
+#: app/Ajax/Tables.php:555 app/Ajax/Tables.php:594 app/Strings.php:461
+#: app/Strings.php:963
+msgid "Delete"
+msgstr "Eliminar"
+
+#: app/Ajax/Tables.php:627
+msgid "Tab updated successfully"
+msgstr "Pestaña actualizada exitosamente"
+
+#: app/Ajax/Tables.php:632
+msgid "Tab could not be updated. Try again"
+msgstr "La pestaña no pudo ser actualizada. Intenta de nuevo"
+
+#: app/Ajax/Tables.php:663 app/Ajax/Tables.php:721
+msgid "No table found."
+msgstr "No se encontró la tabla."
+
+#: app/Ajax/Tables.php:793 app/Ajax/Tables.php:979
+msgid "Form field is empty. Please fill out the field"
+msgstr "El campo del formulario está vacío. Por favor completa el campo"
+
+#: app/Ajax/Tables.php:836 app/Ajax/Tables.php:879
+msgid ""
+"The spreadsheet is restricted. Please make it public by clicking on share "
+"button at the top of spreadsheet"
+msgstr ""
+"La hoja de cálculo está restringida. Por favor hazla pública haciendo clic "
+"en el botón compartir en la parte superior de la hoja de cálculo"
+
+#: app/Ajax/Tables.php:905
+msgid "This Google sheet already saved. Try creating a new one"
+msgstr "Esta hoja de Google ya está guardada. Intenta crear una nueva"
+
+#: app/Ajax/Tables.php:924
+msgid "Table saved successfully"
+msgstr "Tabla guardada exitosamente"
+
+#: app/Ajax/Tables.php:940
+msgid "Table changes updated successfully"
+msgstr "Cambios de la tabla actualizados exitosamente"
+
+#: app/Ajax/Tables.php:1025
+msgid "Selected tables deleted successfully"
+msgstr "Tablas seleccionadas eliminadas exitosamente"
+
+#: app/Ajax/Tables.php:1040
+msgid "Table name updated successfully"
+msgstr "Nombre de tabla actualizado exitosamente"
+
+#: app/Ajax/Tables.php:1058 app/Ajax/Tabs.php:83
+msgid "Could not update the data."
+msgstr "No se pudieron actualizar los datos."
+
+#: app/Ajax/Tables.php:1084
+msgid "API key is required"
+msgstr "Se requiere la clave de API"
+
+#: app/Ajax/Tables.php:1713
+msgid "CTA notice dismissed successfully"
+msgstr "Aviso de CTA descartado exitosamente"
+
+#: app/Ajax/Tables.php:1717
+msgid "Failed to dismiss CTA notice"
+msgstr "Fallo al descartar el aviso de CTA"
+
+#: app/Ajax/Tables.php:1740
+msgid "CTA notice for tabs dismissed successfully"
+msgstr "Aviso de CTA para pestañas descartado exitosamente"
+
+#: app/Ajax/Tables.php:1744
+msgid "Failed to dismiss CTA notice for tabs"
+msgstr "Fallo al descartar el aviso de CTA para pestañas"
+
+#: app/Ajax/Tabs.php:43
+msgid "Tab deleted successfully"
+msgstr "Pestaña eliminada exitosamente"
+
+#: app/Ajax/Tabs.php:49
+msgid "Unable to delete tab."
+msgstr "No se pudo eliminar la pestaña."
+
+#: app/Ajax/Tabs.php:65
+msgid "Tab name updated successfully"
+msgstr "Nombre de pestaña actualizado exitosamente"
+
+#: app/Assets.php:515
+msgid ""
+"Display Google Spreadsheet data to WordPress table in just a few clicks\n"
+"\t\t\t\tand keep the data always synced. Organize and display all your "
+"spreadsheet data in your WordPress quickly and effortlessly."
+msgstr ""
+"Muestra datos de Google Spreadsheet en tablas de WordPress con solo unos "
+"clics\n"
+"\t\t\t\ty mantén los datos siempre sincronizados. Organiza y muestra todos "
+"tus datos de hojas de cálculo en tu WordPress rápida y fácilmente."
+
+#: app/Divi/DiviModule.php:40
+msgid "Table Selection"
+msgstr "Selección de Tabla"
+
+#: app/Divi/DiviModule.php:49 app/Elementor/ElementorWidget.php:96
+msgid "Choose Table"
+msgstr "Elegir Tabla"
+
+#: app/Divi/DiviModule.php:55
+msgid "Select a table to display."
+msgstr "Selecciona una tabla para mostrar."
+
+#: app/Divi/DiviModule.php:62
+msgid "Select a table"
+msgstr "Selecciona una tabla"
+
+#: app/Divi/DiviModule.php:84
+msgid "Please select a table to display."
+msgstr "Por favor selecciona una tabla para mostrar."
+
+#: app/Elementor/TableSettings.php:80
+msgid "Table Exporting"
+msgstr "Exportación de Tabla"
+
+#: app/Elementor/TableSettings.php:81
+msgid ""
+"Enable this feature in order to allow your user to download your table "
+"content as various format."
+msgstr ""
+"Activa esta función para permitir que tus usuarios descarguen el contenido "
+"de tu tabla en varios formatos."
+
+#: app/Elementor/TableSettings.php:90
+msgid "Table Caching"
+msgstr "Caché de Tabla"
+
+#: app/Elementor/TableSettings.php:91
+msgid ""
+"Enabling this feature would cache the Google sheet data & therefore the "
+"table will load faster than before.\n"
+"                                        Also it will load the updated data "
+"when there is a change in your Google sheet."
+msgstr ""
+"Activar esta función almacenará en caché los datos de Google Sheets y por lo "
+"tanto la tabla se cargará más rápido que antes.\n"
+"                                        También cargará los datos "
+"actualizados cuando haya un cambio en tu hoja de Google."
+
+#: app/Elementor/TableSettings.php:101
+msgid "Hide Column"
+msgstr "Ocultar Columna"
+
+#: app/Elementor/TableSettings.php:102
+msgid "Hide your table columns based on multiple screen sizes."
+msgstr "Oculta las columnas de tu tabla según múltiples tamaños de pantalla."
+
+#: app/Elementor/TableSettings.php:112
+msgid "Hide Column on Mobile"
+msgstr "Ocultar Columna en Móvil"
+
+#: app/Elementor/TableSettings.php:113
+msgid "Hide your table columns based on mobile screen sizes."
+msgstr "Oculta las columnas de tu tabla según tamaños de pantalla móvil."
+
+#: app/Elementor/TableSettings.php:124 app/Elementor/TableSettings.php:135
+msgid "Hide Row's"
+msgstr "Ocultar Filas"
+
+#: app/Elementor/TableSettings.php:125 app/Elementor/TableSettings.php:136
+msgid "Hide your table rows based on your custom selection"
+msgstr "Oculta las filas de tu tabla según tu selección personalizada"
+
+#: app/Elementor/TableSettings.php:147 app/Elementor/TableSettings.php:158
+msgid "Hide Cell"
+msgstr "Ocultar Celda"
+
+#: app/Elementor/TableSettings.php:148 app/Elementor/TableSettings.php:159
+msgid ""
+"Hide your specific table cell that is not going to visibile to your user's."
+msgstr ""
+"Oculta celdas específicas de tu tabla que no serán visibles para tus "
+"usuarios."
+
+#: app/Elementor/TemplateContent.php:502 app/templates/create_tables.php:89
+#: app/templates/edit_table.php:90
+msgid "Display Settings"
+msgstr "Configuración de Visualización"
+
+#: app/Elementor/TemplateContent.php:510 app/templates/create_tables.php:99
+#: app/templates/edit_table.php:100
+msgid "Sort & Filter"
+msgstr "Ordenar y Filtrar"
+
+#: app/Elementor/TemplateContent.php:516 app/templates/create_tables.php:109
+#: app/templates/edit_table.php:110
+msgid "Table Tools"
+msgstr "Herramientas de Tabla"
+
+#: app/Elementor/TemplateContent.php:583 app/Elementor/TemplateContent.php:598
+msgid "Choose any saved table to load data"
+msgstr "Elige cualquier tabla guardada para cargar datos"
+
+#: app/Helpers.php:169
+msgid "You are offline."
+msgstr "Estás desconectado."
+
+#: app/Helpers.php:176
+msgid "Sheet is not public or shared"
+msgstr "La hoja no es pública o no está compartida"
+
+#: app/Helpers.php:235
+msgid "The feature is not compatible or something went wrong"
+msgstr "La función no es compatible o algo salió mal"
+
+#: app/Helpers.php:1201
+msgid "Generate AI-powered summary of this table data"
+msgstr "Generar resumen impulsado por IA de los datos de esta tabla"
+
+#: app/Notices.php:112
+msgid "Plugin"
+msgstr "Plugin"
+
+#: app/Notices.php:113
+msgid ""
+"cannot be activated - requires at least PHP 5.4. Plugin automatically "
+"deactivated."
+msgstr ""
+"no se puede activar - requiere al menos PHP 5.4. Plugin desactivado "
+"automáticamente."
+
+#: app/SWPTLS.php:219
+msgid ""
+"Plugin is missing required dependencies. Please contact support for more "
+"information."
+msgstr ""
+"Al plugin le faltan dependencias requeridas. Por favor contacta a soporte "
+"para más información."
+
+#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+msgid "All Tables"
+msgstr "Todas las Tablas"
+
+#: app/SWPTLS.php:250 app/Strings.php:213
+msgid "Get Pro"
+msgstr "Obtener Pro"
+
+#: app/SWPTLS.php:288
+msgid "Grab Your Treat!"
+msgstr "¡Consigue tu Regalo!"
+
+#: app/SWPTLS.php:295
+msgid "Grab Your Deals!"
+msgstr "¡Consigue tus Ofertas!"
+
+#: app/Settings.php:179
+msgid "Table Title"
+msgstr "Título de Tabla"
+
+#: app/Settings.php:180
+msgid ""
+"Enable this to show the table title in <i>h3</i> tag above the table in your "
+"website front-end"
+msgstr ""
+"Activa esto para mostrar el título de la tabla en etiqueta <i>h3</i> sobre "
+"la tabla en el front-end de tu sitio web"
+
+#: app/Settings.php:187
+msgid "Show info block"
+msgstr "Mostrar bloque de información"
+
+#: app/Settings.php:188
+msgid "Show <i>Showing X to Y of Z entries</i>block below the table"
+msgstr "Mostrar bloque <i>Mostrando X a Y de Z entradas</i> debajo de la tabla"
+
+#: app/Settings.php:196
+msgid "Show X entries"
+msgstr "Mostrar X entradas"
+
+#: app/Settings.php:197
+msgid "<i>Show X entries</i> per page dropdown"
+msgstr "Menú desplegable de <i>Mostrar X entradas</i> por página"
+
+#: app/Settings.php:205
+msgid "Swap Filters"
+msgstr "Intercambiar Filtros"
+
+#: app/Settings.php:206
+msgid "Swap the places of <i> X entries</i> dropdown & search filter input"
+msgstr ""
+"Intercambiar los lugares del menú desplegable <i>X entradas</i> y el campo "
+"de búsqueda"
+
+#: app/Settings.php:214
+msgid "Swap Bottom Elements"
+msgstr "Intercambiar Elementos Inferiores"
+
+#: app/Settings.php:215
+msgid ""
+"Swap the places of <i>Showing X to Y of Z entries</i> with table pagination "
+"filter"
+msgstr ""
+"Intercambiar los lugares de <i>Mostrando X a Y de Z entradas</i> con el "
+"filtro de paginación de tabla"
+
+#: app/Settings.php:223
+msgid "Responsive Style"
+msgstr "Estilo Responsivo"
+
+#: app/Settings.php:224 app/Settings.php:237
+msgid "Allow the table to collapse or scroll on mobile and tablet screen."
+msgstr ""
+"Permitir que la tabla se contraiga o se desplace en pantallas móviles y "
+"tabletas."
+
+#: app/Settings.php:236
+msgid "Link Support"
+msgstr "Soporte de Enlaces"
+
+#: app/Settings.php:249
+msgid "Rows per page"
+msgstr "Filas por página"
+
+#: app/Settings.php:250
+msgid ""
+"This will show rows per page. The feature will allow you how many rows you "
+"want to show to your user by default."
+msgstr ""
+"Esto mostrará filas por página. La función te permitirá configurar cuántas "
+"filas quieres mostrar a tus usuarios por defecto."
+
+#: app/Settings.php:260
+msgid "Table Height"
+msgstr "Altura de Tabla"
+
+#: app/Settings.php:261
+msgid ""
+"Choose the height of the table to scroll vertically. Activating this feature "
+"will allow the table to behave as sticky header"
+msgstr ""
+"Elige la altura de la tabla para desplazarte verticalmente. Activar esta "
+"función permitirá que la tabla se comporte como encabezado fijo"
+
+#: app/Settings.php:272
+msgid "Format Cell"
+msgstr "Formato de Celda"
+
+#: app/Settings.php:273
+msgid ""
+"Format the table cell as like google sheet cell formatting. Format your cell "
+"as Wrap OR Expanded style"
+msgstr ""
+"Formatea la celda de la tabla como el formato de celda de Google Sheets. "
+"Formatea tu celda con estilo Ajustado o Expandido"
+
+#: app/Settings.php:287
+msgid "Link Type"
+msgstr "Tipo de Enlace"
+
+#: app/Settings.php:288
+msgid "Choose the redirection type of all the links in this table."
+msgstr "Elige el tipo de redirección de todos los enlaces en esta tabla."
+
+#: app/Settings.php:301
+msgid "Table Style"
+msgstr "Estilo de Tabla"
+
+#: app/Settings.php:302
+msgid ""
+"Choose your desired table style for this table. This will change the design "
+"& color of this table according to your selected table design"
+msgstr ""
+"Elige tu estilo de tabla deseado para esta tabla. Esto cambiará el diseño y "
+"color de esta tabla según el diseño de tabla que seleccionaste"
+
+#: app/Settings.php:312
+msgid "Import Sheet Styles"
+msgstr "Importar Estilos de Hoja"
+
+#: app/Settings.php:313
+msgid ""
+"Import cell backgorund color & cell font color from google sheet. If you "
+"activate this feature it will overrider <i>Table Style</i> setting"
+msgstr ""
+"Importa el color de fondo de celda y el color de fuente de celda desde "
+"Google Sheets. Si activas esta función, anulará la configuración de "
+"<i>Estilo de Tabla</i>"
+
+#: app/Settings.php:335
+msgid "Allow Sorting"
+msgstr "Permitir Ordenamiento"
+
+#: app/Settings.php:336
+msgid "Enable this feature to sort table data for frontend."
+msgstr "Activa esta función para ordenar los datos de la tabla en el frontend."
+
+#: app/Settings.php:343
+msgid "Search Bar"
+msgstr "Barra de Búsqueda"
+
+#: app/Settings.php:344
+msgid ""
+"Enable this feature to show a search bar in for the table. It will help user "
+"to search data in the table"
+msgstr ""
+"Activa esta función para mostrar una barra de búsqueda para la tabla. "
+"Ayudará al usuario a buscar datos en la tabla"
+
+#: app/Shortcode.php:56 app/Shortcode.php:98
+msgid "Table maybe deleted or can't be loaded."
+msgstr "La tabla puede haber sido eliminada o no se puede cargar."
+
+#: app/Shortcode.php:73 app/templates/create_tables.php:197
+#: app/templates/edit_table.php:198 app/templates/manage_tables.php:60
+msgid "Loading"
+msgstr "Cargando"
+
+#: app/Strings.php:31
+msgid "Create beautiful tables from Google Sheets"
+msgstr "Crea tablas hermosas desde Google Sheets"
+
+#: app/Strings.php:32 app/Strings.php:40
+msgid "Create new table"
+msgstr "Crear nueva tabla"
+
+#: app/Strings.php:33
+msgid "Your Tables"
+msgstr "Tus Tablas"
+
+#: app/Strings.php:34
+msgid "Loading..."
+msgstr "Cargando..."
+
+#: app/Strings.php:36
+msgid "👋 Welcome!"
+msgstr "👋 ¡Bienvenido!"
+
+#: app/Strings.php:37
+msgid "Click the button below to create your first table!"
+msgstr "¡Haz clic en el botón de abajo para crear tu primera tabla!"
+
+#: app/Strings.php:38
+msgid "Need help? Watch a"
+msgstr "¿Necesitas ayuda? Mira un"
+
+#: app/Strings.php:41
+msgid "Need help?"
+msgstr "¿Necesitas ayuda?"
+
+#: app/Strings.php:42
+msgid "Help"
+msgstr "Ayuda"
+
+#: app/Strings.php:43 app/Strings.php:1109
+msgid "Help?"
+msgstr "Ayuda"
+
+#: app/Strings.php:44
+msgid "Watch Now"
+msgstr "Ver Ahora"
+
+#: app/Strings.php:45
+msgid "Search tables"
+msgstr "Buscar tablas"
+
+#: app/Strings.php:46
+msgid "Search items"
+msgstr "Buscar elementos"
+
+#: app/Strings.php:48
+msgid "Search"
+msgstr "Buscar"
+
+#: app/Strings.php:49
+msgid "Clear"
+msgstr "Limpiar"
+
+#: app/Strings.php:51
+#, fuzzy
+#| msgid "Get Help with Table Creation"
+msgid "Get Help with Creating Tab Groups"
+msgstr "1. Creación de Pestaña"
+
+#: app/Strings.php:52
+msgid ""
+"Tabs let you group multiple tables into tabbed views and embed in your pages "
+"or posts"
+msgstr ""
+
+#: app/Strings.php:53 app/Strings.php:1093
+msgid "Quick Tutorial"
+msgstr "Tutorial"
+
+#: app/Strings.php:54
+#, fuzzy
+#| msgid "Get started with tab groups"
+msgid "Get started with Tab Groups"
+msgstr "Comienza con grupos de pestañas"
+
+#: app/Strings.php:55
+#, fuzzy
+#| msgid "Search tables"
+msgid "Search tabs"
+msgstr "Buscar tablas"
+
+#: app/Strings.php:60
+msgid "This title will be shown on the top of your table"
+msgstr "Este título se mostrará en la parte superior de tu tabla"
+
+#: app/Strings.php:61
+msgid ""
+"Copy the URL of your Google Sheet from your browser and paste it in the box "
+"below. Make sure your sheet is public."
+msgstr ""
+"Copia la URL de tu Google Sheet desde tu navegador y pégala en el cuadro de "
+"abajo. Asegúrate de que tu hoja sea pública."
+
+#: app/Strings.php:62
+msgid ""
+"Copy the Google Sheet URL from your browser and paste it here to create "
+"table. Changing this URL will change your table."
+msgstr ""
+"Copia la URL de Google Sheet desde tu navegador y pégala aquí para crear la "
+"tabla. Cambiar esta URL cambiará tu tabla."
+
+#: app/Strings.php:63
+msgid ""
+"If this is enabled, the box showing number of entries will be hidden for the "
+"viewers"
+msgstr ""
+"Si esto está activado, el cuadro que muestra el número de entradas estará "
+"oculto para los espectadores"
+
+#: app/Strings.php:64
+msgid "If enabled, the search box will be hidden for viewers"
+msgstr ""
+"Si está activado, el cuadro de búsqueda estará oculto para los espectadores"
+
+#: app/Strings.php:65
+msgid "Enable this option to hide the table title for the viewers"
+msgstr ""
+"Activa esta opción para ocultar el título de la tabla para los espectadores"
+
+#: app/Strings.php:66
+msgid "Enable this option to show the table title for the viewers"
+msgstr ""
+"Activa esta opción para ocultar el título de la tabla para los espectadores"
+
+#: app/Strings.php:67
+msgid "Enable this option to show table description for the viewers"
+msgstr ""
+"Activa esta opción para ocultar el título de la tabla para los espectadores"
+
+#: app/Strings.php:68
+msgid ""
+"If checked, the sorting option will be enabled for viewers when they view "
+"the table"
+msgstr ""
+"Si está marcado, la opción de ordenamiento estará habilitada para los "
+"espectadores cuando vean la tabla"
+
+#: app/Strings.php:69
+msgid ""
+"If enabled the entry info showing number of current entries out of all the "
+"entries will be hidden"
+msgstr ""
+"Si está activado, la información de entrada que muestra el número de "
+"entradas actuales de todas las entradas estará oculta"
+
+#: app/Strings.php:70
+msgid "Enable this to hide the pagination for viewers"
+msgstr "Activa esto para ocultar la paginación para los espectadores"
+
+#: app/Strings.php:71
+msgid "Display multiple tables using tabs. Just like your google sheets"
+msgstr ""
+"Muestra múltiples tablas usando pestañas. Justo como tus hojas de Google"
+
+#: app/Strings.php:72
+msgid "Title of the tab group"
+msgstr "Título del grupo de pestañas"
+
+#: app/Strings.php:73
+msgid "Enter the title for this tab"
+msgstr "Ingresa el título para esta pestaña"
+
+#: app/Strings.php:74
+msgid ""
+"Select the table which will be shown in this tab from the dropdown below"
+msgstr ""
+"Selecciona la tabla que se mostrará en esta pestaña desde el menú "
+"desplegable de abajo"
+
+#: app/Strings.php:75
+msgid "Enable this to hide the selected columns on mobile"
+msgstr "Activa esto para ocultar las columnas seleccionadas en móvil"
+
+#: app/Strings.php:76
+msgid "Enable this to hide the selected column on desktop"
+msgstr "Activa esto para ocultar la columna seleccionada en escritorio"
+
+#: app/Strings.php:77
+msgid ""
+"This is the list of the hidden columns. Removing a column from this list "
+"will make them visible again"
+msgstr ""
+"Esta es la lista de las columnas ocultas. Eliminar una columna de esta lista "
+"las hará visibles nuevamente"
+
+#: app/Strings.php:78
+msgid ""
+"This is the list of the hidden rows. Removing a row from this list will make "
+"them visible again"
+msgstr ""
+"Esta es la lista de las filas ocultas. Eliminar una fila de esta lista las "
+"hará visibles nuevamente"
+
+#: app/Strings.php:79
+msgid ""
+"This is the list of the hidden cells. Removing a cell from this list will "
+"make them visible again"
+msgstr ""
+"Esta es la lista de las celdas ocultas. Eliminar una celda de esta lista las "
+"hará visibles nuevamente"
+
+#: app/Strings.php:80
+msgid ""
+"Use direct google sheet embed link with text content, More flexiable and "
+"easy to use"
+msgstr ""
+"Usa el enlace de inserción directo de Google Sheet con contenido de texto, "
+"Más flexible y fácil de usar"
+
+#: app/Strings.php:81
+msgid "Use old way [  ] pair to generate link"
+msgstr "Usa la forma antigua [  ] par para generar enlace"
+
+#: app/Strings.php:82
+msgid ""
+"Copy the URL of your Google Sheet from your browser and paste it in the box "
+"below. Make sure your sheet is public.."
+msgstr ""
+"Copia la URL de tu Google Sheet desde tu navegador y pégala en el cuadro de "
+"abajo. Asegúrate de que tu hoja sea pública.."
+
+#: app/Strings.php:83
+msgid "Copy the URL of your Google Sheet and paste it here."
+msgstr "Copia la URL de tu Google Sheet y pégala aquí."
+
+#: app/Strings.php:84
+msgid ""
+"Allows the users to download the table in the format that you select below"
+msgstr ""
+"Permite a los usuarios descargar la tabla en el formato que selecciones abajo"
+
+#: app/Strings.php:85
+msgid ""
+"For the links on the table you can decide what will happen when a link is "
+"clicked"
+msgstr ""
+"Para los enlaces en la tabla puedes decidir qué sucederá cuando se haga clic "
+"en un enlace"
+
+#: app/Strings.php:86
+msgid "The link opens in the same tab where the table is"
+msgstr "El enlace se abre en la misma pestaña donde está la tabla"
+
+#: app/Strings.php:87
+msgid "The link will be opened on a new tab"
+msgstr "El enlace se abrirá en una nueva pestaña"
+
+#: app/Strings.php:88
+msgid ""
+"Allow 'Smart links' to load multiple embeed links with text from Google "
+"Sheet. To use this makesure 'Smart link' support selected from 'link support "
+"mechanism' in 'Settings' menu. However, if there is no embeed links in the "
+"Sheet or your'e using pretty link format, then there is no need to use it, "
+"which will reduces loading time and makes the table load faster."
+msgstr ""
+"Permite que los 'Enlaces inteligentes' carguen múltiples enlaces incrustados "
+"con texto de Google Sheet. Para usar esto asegúrate de que el soporte de "
+"'Enlaces inteligentes' esté seleccionado desde el 'mecanismo de soporte de "
+"enlaces' en el menú 'Configuración'. Sin embargo, si no hay enlaces "
+"incrustados en la hoja o estás usando formato de enlaces bonitos, entonces "
+"no hay necesidad de usarlo, lo que reducirá el tiempo de carga y hará que la "
+"tabla se cargue más rápido."
+
+#: app/Strings.php:89
+msgid ""
+"Allow images to be loaded from sheets. You can use it to import images if "
+"you have them in Google Sheets. However, if there is no image in the Sheet, "
+"there is no need to use it, which will reduces loading time and makes the "
+"table load faster."
+msgstr ""
+"Permite que las imágenes se carguen desde las hojas. Puedes usarlo para "
+"importar imágenes si las tienes en Google Sheets. Sin embargo, si no hay "
+"imagen en la hoja, no hay necesidad de usarlo, lo que reducirá el tiempo de "
+"carga y hará que la tabla se cargue más rápido."
+
+#: app/Strings.php:90
+msgid "If enabled the table will load faster for the viewers"
+msgstr "Si está activado, la tabla se cargará más rápido para los espectadores"
+
+#: app/Strings.php:91
+msgid "Choose how the table cell will look"
+msgstr "Elige cómo se verá la celda de la tabla"
+
+#: app/Strings.php:92
+msgid "Cell will expand according to the content"
+msgstr "La celda se expandirá según el contenido"
+
+#: app/Strings.php:93
+msgid "Cell will be wrapped according to the content"
+msgstr "La celda se ajustará según el contenido"
+
+#: app/Strings.php:94
+msgid "Choose how the table will look on devices with small screens"
+msgstr "Elige cómo se verá la tabla en dispositivos con pantallas pequeñas"
+
+#: app/Strings.php:95
+msgid "Let the browser decide the behavior of the responsiveness"
+msgstr "Deja que el navegador decida el comportamiento de la respuesta"
+
+#: app/Strings.php:96
+msgid "The table rows will be collapse on  each other in one column"
+msgstr "Las filas de la tabla se contraerán una sobre otra en una columna"
+
+#: app/Strings.php:97
+msgid ""
+"A horizontal scrollbar will appear for the users to scroll the table left "
+"and right"
+msgstr ""
+"Aparecerá una barra de desplazamiento horizontal para que los usuarios "
+"desplacen la tabla a izquierda y derecha"
+
+#: app/Strings.php:98
+msgid ""
+"Enable this feature to showcase your Sheet's merged cells seamlessly on the "
+"WordPress frontend table."
+msgstr ""
+"Activa esta función para mostrar las celdas combinadas de tu hoja sin "
+"problemas en la tabla del frontend de WordPress."
+
+#: app/Strings.php:99
+msgid "Select the number of rows to show per page"
+msgstr "Selecciona el número de filas a mostrar por página"
+
+#: app/Strings.php:100
+msgid ""
+"Select the table height. If the table height is lower there will be a "
+"vertical scrollbar to scroll through the rows"
+msgstr ""
+"Selecciona la altura de la tabla. Si la altura de la tabla es menor, habrá "
+"una barra de desplazamiento vertical para desplazarse por las filas"
+
+#: app/Strings.php:101
+msgid "Quickly change your table's look and feel using themes"
+msgstr "Cambia rápidamente la apariencia de tu tabla usando temas"
+
+#: app/Strings.php:102
+msgid ""
+"Enable this feature to import colors and text styles directly from a Google "
+"Sheet, instead of using the predefined theme above"
+msgstr ""
+"Activa esta función para importar colores y estilos de texto directamente "
+"desde Google Sheet, en lugar de usar el tema predefinido anterior"
+
+#: app/Strings.php:103
+msgid ""
+"If this is checked, the tab group title will not be visible in the front end"
+msgstr ""
+"Si esto está marcado, el título del grupo de pestañas no será visible en el "
+"front-end"
+
+#: app/Strings.php:104
+msgid "Choose where you want to show the tab"
+msgstr "Elige dónde quieres mostrar la pestaña"
+
+#: app/Strings.php:105
+msgid "The tabs will be shown first and the table will be shown after it"
+msgstr "Las pestañas se mostrarán primero y la tabla se mostrará después"
+
+#: app/Strings.php:106
+msgid "The table will be shown first and the tab will be shown after it"
+msgstr "La tabla se mostrará primero y la pestaña se mostrará después"
+
+#: app/Strings.php:108
+msgid "Set the cursor behavior on your table"
+msgstr "Establece el comportamiento del cursor en tu tabla"
+
+#: app/Strings.php:109
+msgid "You can easily highlight text for copy-paste"
+msgstr "Puedes resaltar fácilmente texto para copiar y pegar"
+
+#: app/Strings.php:110
+msgid "You can effortlessly move the table horizontally (left-right)."
+msgstr ""
+"Puedes mover la tabla sin esfuerzo horizontalmente (izquierda-derecha)."
+
+#: app/Strings.php:112
+msgid ""
+"Allow checkbox to be loaded from sheets. You can use it to import checkox if "
+"you have them in Google Sheets."
+msgstr ""
+"Permite que las casillas de verificación se carguen desde las hojas. Puedes "
+"usarlo para importar casillas de verificación si las tienes en Google Sheets."
+
+#: app/Strings.php:114 app/Strings.php:708
+msgid "Enable row and column coloring"
+msgstr "Activar coloración de filas y columnas"
+
+#: app/Strings.php:115
+msgid "Choose the column or row to add colors"
+msgstr "Elige la columna o fila para agregar colores"
+
+#: app/Strings.php:116
+msgid "Add color on column"
+msgstr "Agregar color en columna"
+
+#: app/Strings.php:117
+msgid "Add color on row"
+msgstr "Agregar color en fila"
+
+#: app/Strings.php:119
+msgid ""
+"Select which column to sort on load, or keep the format from Google Sheets."
+msgstr ""
+"Selecciona qué columna ordenar al cargar, o mantén el formato de Google "
+"Sheets."
+
+#: app/Strings.php:120
+msgid "Choose the order of sorting for the selected column."
+msgstr "Elige el orden de clasificación para la columna seleccionada."
+
+#: app/Strings.php:122
+msgid ""
+"Specify the maximum time (in seconds) the plugin will wait for a response "
+"from the Google server. A higher timeout allows more time to receive a "
+"complete response, but may delay table loading; a lower timeout can speed up "
+"loading but may result in missing data if the response isn’t fully received. "
+"A setting between 10 and 15 seconds is generally recommended for balanced "
+"performance."
+msgstr ""
+"Especifica el tiempo máximo (en segundos) que el plugin esperará una "
+"respuesta del servidor de Google. Un tiempo de espera mayor permite más "
+"tiempo para recibir una respuesta completa, pero puede retrasar la carga de "
+"la tabla; un tiempo de espera menor puede acelerar la carga pero puede "
+"resultar en datos faltantes si la respuesta no se recibe completamente. Una "
+"configuración entre 10 y 15 segundos se recomienda generalmente para un "
+"rendimiento equilibrado."
+
+#: app/Strings.php:124
+msgid ""
+"Choose how you want to sort your table on load. Select a specific column to "
+"sort by (either ascending or descending), or keep the same format as in "
+"Google Sheets."
+msgstr ""
+"Elige cómo quieres ordenar tu tabla al cargar. Selecciona una columna "
+"específica para ordenar (ya sea ascendente o descendente), o mantén el mismo "
+"formato que en Google Sheets."
+
+#: app/Strings.php:126
+msgid ""
+"Select this to make the custom theme available for all tables. If unchecked, "
+"the theme will only be used for this table."
+msgstr ""
+"Selecciona esto para hacer que el tema personalizado esté disponible para "
+"todas las tablas. Si no está marcado, el tema solo se usará para esta tabla."
+
+#: app/Strings.php:127
+msgid ""
+"If selected, any changes made to your theme will be automatically applied to "
+"all other tables with the same theme, ensuring consistency across them. If "
+"the theme does not exist in other tables, it will be cloned with update "
+"style."
+msgstr ""
+"Si se selecciona, cualquier cambio realizado en tu tema se aplicará "
+"automáticamente a todas las demás tablas con el mismo tema, asegurando "
+"consistencia entre ellas. Si el tema no existe en otras tablas, se clonará "
+"con estilo de actualización."
+
+#: app/Strings.php:129
+msgid ""
+"Adjust the header’s offset to prevent overlap with sticky menus or other "
+"elements at the top of the page."
+msgstr ""
+"Ajusta el desplazamiento del encabezado para evitar superposición con menús "
+"fijos u otros elementos en la parte superior de la página."
+
+#: app/Strings.php:130
+msgid ""
+"Set how many columns from the left side of the table should remain fixed "
+"while scrolling."
+msgstr ""
+"Establece cuántas columnas del lado izquierdo de la tabla deben permanecer "
+"fijas al desplazarse."
+
+#: app/Strings.php:131
+msgid ""
+"Set how many columns from the right side of the table should remain fixed "
+"while scrolling."
+msgstr ""
+"Establece cuántas columnas del lado derecho de la tabla deben permanecer "
+"fijas al desplazarse."
+
+#: app/Strings.php:132
+msgid ""
+"When this option is enabled, the cache won't trigger any API request to "
+"update data from sheets. This helps improve performance and reduce server "
+"load. Important: If this is enabled before turning on features like merged "
+"cells, links, images, or importing table styles from Google Sheets, those "
+"features might not appear until the cache expires. To avoid this, enable all "
+"necessary features first, then active the cache feaure and then turn on this "
+"option. You can also change the cache expiry time in Settings."
+msgstr ""
+"Cuando esta opción está activada, el caché no activará ninguna solicitud de "
+"API para actualizar datos de las hojas. Esto ayuda a mejorar el rendimiento "
+"y reducir la carga del servidor. Importante: Si esto está activado antes de "
+"activar características como celdas combinadas, enlaces, imágenes o importar "
+"estilos de tabla desde Google Sheets, esas características podrían no "
+"aparecer hasta que el caché expire. Para evitar esto, activa todas las "
+"características necesarias primero, luego activa la función de caché y luego "
+"activa esta opción. También puedes cambiar el tiempo de expiración del caché "
+"en Configuración."
+
+#: app/Strings.php:133
+msgid ""
+"Set how many days the cache should be stored in transients. Once the "
+"transient expires, the data will automatically refresh from the connected "
+"Google Sheets with updated data."
+msgstr ""
+"Establece cuántos días debe almacenarse el caché en transitorios. Una vez "
+"que el transitorio expire, los datos se actualizarán automáticamente desde "
+"las Google Sheets conectadas con datos actualizados."
+
+#: app/Strings.php:135
+msgid ""
+"Allow visitors to ask questions about the table. AI scans the data and "
+"returns accurate, easy to understand answers in real time."
+msgstr ""
+"Permite que los visitantes hagan preguntas sobre la tabla. La IA escanea los "
+"datos y devuelve respuestas precisas y fáciles de entender en tiempo real."
+
+#: app/Strings.php:140
+msgid "Add new table"
+msgstr "Agregar nueva tabla"
+
+#: app/Strings.php:145
+msgid "Please activate your license"
+msgstr "Por favor activa tu licencia"
+
+#: app/Strings.php:151
+msgid "What’s new?"
+msgstr "¿Qué hay de nuevo?"
+
+#: app/Strings.php:156
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+#: app/Strings.php:157
+msgid "1. Tab Creation"
+msgstr "1. Creación de Pestaña"
+
+#: app/Strings.php:158
+msgid "2. Tab settings"
+msgstr "2. Configuración de pestaña"
+
+#: app/Strings.php:159
+msgid "Table Settings"
+msgstr "Configuración de Tabla"
+
+#: app/Strings.php:161
+msgid "Create tab view with tables"
+msgstr "Crear vista de pestañas con tablas"
+
+#: app/Strings.php:162
+msgid "Adjust tab appearance and behavior"
+msgstr "Ajustar apariencia y comportamiento de pestañas"
+
+#: app/Strings.php:163
+msgid "Save & go to Manage Tab"
+msgstr "Guardar e ir a Gestionar Pestaña"
+
+#: app/Strings.php:164
+msgid "Save & go to dashboard"
+msgstr "Guardar e ir al panel"
+
+#: app/Strings.php:165
+msgid "Go to Dashboard"
+msgstr "Ir al Panel"
+
+#: app/Strings.php:167
+msgid "COPY EMAL"
+msgstr "COPIAR EMAIL"
+
+#: app/Strings.php:168
+msgid "ID: TB_"
+msgstr "ID: TB_"
+
+#: app/Strings.php:169
+msgid "Copied!"
+msgstr "¡Copiado!"
+
+#: app/Strings.php:170 app/templates/create_tables.php:37
+#: app/templates/edit_table.php:39
+msgid "Back"
+msgstr "Atrás"
+
+#: app/Strings.php:171 app/Strings.php:603
+msgid "Next"
+msgstr "Siguiente"
+
+#: app/Strings.php:172
+msgid "Tab title"
+msgstr "Título de pestaña"
+
+#: app/Strings.php:173 app/Strings.php:582
+msgid "Tab Groups"
+msgstr "Grupos de Pestañas"
+
+#: app/Strings.php:174
+msgid "Organize multiple tables into tabs, just like Google Sheets!"
+msgstr "¡Organiza múltiples tablas en pestañas, justo como Google Sheets!"
+
+#: app/Strings.php:175
+msgid "Get started with tab groups"
+msgstr "Comienza con grupos de pestañas"
+
+#: app/Strings.php:176
+msgid "No tab group found!"
+msgstr "¡No se encontró grupo de pestañas!"
+
+#: app/Strings.php:177
+msgid "No tab group matches to your search term"
+msgstr "Ningún grupo de pestañas coincide con tu término de búsqueda"
+
+#: app/Strings.php:178
+msgid "Select table for Tab 1"
+msgstr "Seleccionar tabla para Pestaña 1"
+
+#: app/Strings.php:184
+msgid "Select Pagination"
+msgstr "Seleccionar Paginación"
+
+#: app/Strings.php:185
+msgid "Customize your theme according to your needs"
+msgstr "Personaliza tu tema según tus necesidades"
+
+#: app/Strings.php:190
+msgid "Name"
+msgstr "Nombre"
+
+#: app/Strings.php:191
+msgid "ID"
+msgstr "ID"
+
+#: app/Strings.php:192
+msgid "Date"
+msgstr "Fecha"
+
+#: app/Strings.php:193 app/Strings.php:493
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: app/Strings.php:194 app/Strings.php:494
+msgid "Descending"
+msgstr "Descendente"
+
+#: app/Strings.php:195
+msgid "above"
+msgstr "arriba"
+
+#: app/Strings.php:196
+msgid "below"
+msgstr "abajo"
+
+#: app/Strings.php:197
+msgid "No tables found!"
+msgstr "¡No se encontraron tablas!"
+
+#: app/Strings.php:198
+msgid "No tables matches to your search term"
+msgstr "Ninguna tabla coincide con tu término de búsqueda"
+
+#: app/Strings.php:204
+msgid "1. Managing tabs"
+msgstr "1. Gestionando pestañas"
+
+#: app/Strings.php:209
+msgid "Create table"
+msgstr "Crear tabla"
+
+#: app/Strings.php:210
+msgid "Create table from URL"
+msgstr "Crear tabla desde URL"
+
+#: app/Strings.php:211
+msgid "Change theme and table style"
+msgstr "Cambiar tema y estilo de tabla"
+
+#: app/Strings.php:212
+msgid ""
+"You can change table theme below. You will find more customization in the "
+"dashboard."
+msgstr ""
+"Puedes cambiar el tema de la tabla abajo. Encontrarás más personalización en "
+"el panel. "
+
+#: app/Strings.php:214
+msgid "PRO"
+msgstr "PRO"
+
+#: app/Strings.php:216
+msgid "to create table from any tab of your Google SpreadSheet."
+msgstr "para crear tabla desde cualquier pestaña de tu Google SpreadSheet."
+
+#: app/Strings.php:217
+msgid "Add your Google Sheet URL to create a table"
+msgstr "Agrega tu URL de Google Sheet para crear una tabla"
+
+#: app/Strings.php:218
+msgid ""
+"Paste the browser URL of your Google Sheet below, and the table will be "
+"created for you to customize"
+msgstr ""
+"Pega la URL del navegador de tu Google Sheet abajo, y la tabla se creará "
+"para que la personalices"
+
+#: app/Strings.php:219
+msgid "Creating new table"
+msgstr "Creando nueva tabla"
+
+#: app/Strings.php:224
+msgid "Create WooCommerce product table easily!"
+msgstr "¡Crea tabla de productos de WooCommerce fácilmente!"
+
+#: app/Strings.php:226
+msgid "Install Stock Sync for WooCommerce"
+msgstr "Instalar Stock Sync para WooCommerce"
+
+#: app/Strings.php:228
+msgid ""
+"and sync your store products to Google Sheets. Use the synced Google Sheet "
+"to create table. It’s easy!"
+msgstr ""
+"y sincroniza los productos de tu tienda con Google Sheets. Usa Google Sheet "
+"sincronizado para crear tabla. ¡Es fácil!"
+
+#: app/Strings.php:230
+msgid "Install now"
+msgstr "Instalar ahora"
+
+#: app/Strings.php:235
+msgid "Table title"
+msgstr "Título de tabla"
+
+#: app/Strings.php:236
+msgid "Please reduce title to save."
+msgstr "Por favor reduce el título para guardar."
+
+#: app/Strings.php:237
+msgid "Google Sheet URL"
+msgstr "URL de Google Sheet"
+
+#: app/Strings.php:242
+msgid "Show Table title"
+msgstr "Mostrar título de tabla"
+
+#: app/Strings.php:243
+msgid "Table top elements"
+msgstr "Elementos superiores de la tabla"
+
+#: app/Strings.php:244
+msgid "Show entries"
+msgstr "Mostrar entradas"
+
+#: app/Strings.php:245
+msgid "Show search box"
+msgstr "Mostrar cuadro de búsqueda"
+
+#: app/Strings.php:246
+msgid "Swap"
+msgstr "Intercambiar"
+
+#: app/Strings.php:247
+msgid "Hide title"
+msgstr "Ocultar título"
+
+#: app/Strings.php:249
+msgid "Allow Table Sorting"
+msgstr "Permitir Ordenamiento de Tabla"
+
+#: app/Strings.php:250
+msgid "Hide sorting controls from table"
+msgstr "Ocultar controles de ordenamiento de la tabla"
+
+#: app/Strings.php:251
+msgid "Set Default Table Sorting on Load"
+msgstr "Establecer Ordenamiento Predeterminado de Tabla al Cargar"
+
+#: app/Strings.php:252
+msgid "Sort By Column"
+msgstr "Ordenar por Columna"
+
+#: app/Strings.php:253
+msgid "Sort By Order"
+msgstr "Ordenar por Orden"
+
+#: app/Strings.php:254
+msgid "Sort By"
+msgstr "Ordenar por"
+
+#: app/Strings.php:256
+msgid "Freeze Table Columns"
+msgstr "Congelar Columnas de Tabla"
+
+#: app/Strings.php:257
+msgid "Left Columns Numbers"
+msgstr "Números de Columnas Izquierdas"
+
+#: app/Strings.php:258
+msgid "Right Columns Numbers"
+msgstr "Números de Columnas Derechas"
+
+#: app/Strings.php:259
+msgid "Freeze Table Header"
+msgstr "Congelar Encabezado de Tabla"
+
+#: app/Strings.php:260
+msgid "Header Offset"
+msgstr "Desplazamiento de Encabezado"
+
+#: app/Strings.php:262
+msgid "Table bottom elements"
+msgstr "Elementos inferiores de tabla"
+
+#: app/Strings.php:263
+msgid "Show entry info"
+msgstr "Mostrar información de entrada"
+
+#: app/Strings.php:264
+msgid "Show pagination"
+msgstr "Mostrar paginación"
+
+#: app/Strings.php:265
+msgid "Swap position"
+msgstr "Intercambiar posición"
+
+#: app/Strings.php:266
+msgid "Swapped position"
+msgstr "Posición intercambiada"
+
+#: app/Strings.php:267
+msgid ""
+"Themes cannot be used when the \"Import colors and text styles from sheet\" "
+"feature is enabled"
+msgstr ""
+"Los temas no se pueden usar cuando la función \"Importar colores y estilos "
+"de texto desde la hoja\" está activada"
+
+#: app/Strings.php:273
+msgid "How does this plugin work?"
+msgstr "¿Cómo funciona este plugin?"
+
+#: app/Strings.php:274
+msgid ""
+"Watch how to <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>get started with FlexTable</a>."
+msgstr ""
+"Mira cómo <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>comenzar con FlexTable</a>."
+
+#: app/Strings.php:276
+msgid "Where can I find tutorials about this plugin?"
+msgstr "¿Dónde puedo encontrar tutoriales sobre este plugin?"
+
+#: app/Strings.php:277
+msgid ""
+"Please visit our <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>Youtube playlist</a>, where we post "
+"tutorials on how you can use different features of the plugin."
+msgstr ""
+"Por favor visita nuestra <a target='_blank' href='https://www.youtube.com/"
+"playlist?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>lista de reproducción de "
+"Youtube</a>, donde publicamos tutoriales sobre cómo puedes usar diferentes "
+"características del plugin."
+
+#: app/Strings.php:279
+msgid "What date format can I use?"
+msgstr "¿Qué formato de fecha puedo usar?"
+
+#: app/Strings.php:280
+msgid ""
+"When working with date formats in your table, you have various options to "
+"choose from. Avoid using a <span class='date-format'><code>comma separator</"
+"code></span>, but consider formats such as <br> e.g. <span class='date-"
+"format'><code>2005-06-07</code> | <code>2005/06/07</code> | <code>2005 06 "
+"07</code> | <code>June 7- 2005</code> | <code>June 7 2005</code> | <code>7th "
+"June 2005</code></span>"
+msgstr ""
+"Cuando trabajes con formatos de fecha en tu tabla, tienes varias opciones "
+"para elegir. Evita usar un <span class='date-format'><code>separador de "
+"coma</code></span>, pero considera formatos como <br> ej. <span class='date-"
+"format'><code>2005-06-07</code> | <code>2005/06/07</code> | <code>2005 06 "
+"07</code> | <code>Junio 7- 2005</code> | <code>Junio 7 2005</code> | <code>7 "
+"de Junio 2005</code></span>"
+
+#: app/Strings.php:282
+msgid "Which one is better for link support?"
+msgstr "¿Cuál es mejor para soporte de enlaces?"
+
+#: app/Strings.php:284
+msgid ""
+"For enhanced link functionality, it's advisable to utilize <span class='date-"
+"format'><code>Smart Link</code></span> over the <span class='date-"
+"format'><code>Pretty Link</code></span>. Smart Link is known for its robust "
+"and user-friendly features."
+msgstr ""
+"Para funcionalidad de enlaces mejorada, es aconsejable utilizar <span "
+"class='date-format'><code>Enlace Inteligente</code></span> sobre el <span "
+"class='date-format'><code>Enlace Bonito</code></span>. El Enlace Inteligente "
+"es conocido por sus características robustas y fáciles de usar."
+
+#: app/Strings.php:286
+msgid "Why my table taking too long to load?"
+msgstr "¿Por qué mi tabla tarda demasiado en cargar?"
+
+#: app/Strings.php:288
+msgid ""
+"If your table is taking too long to load, it may be due to the presence of a "
+"substantial amount of data in Google Sheets, along with images and links. If "
+"your sheet doesn't contain images or links, consider disabling <span "
+"class='date-format'><code>links and Image support</code></span> within the "
+"<span class='date-format'><code>Utility</code></span> settings of Table "
+"Customization to expedite table loading. Utilizing the cache feature can "
+"also improve loading times."
+msgstr ""
+"Si su tabla tarda demasiado en cargar, puede deberse a la presencia de una "
+"cantidad sustancial de datos en Google Sheets, junto con imágenes y enlaces. "
+"Si su hoja no contiene imágenes o enlaces, considere deshabilitar <span "
+"class='date-format'><code>soporte de enlaces e imágenes</code></span> dentro "
+"de la configuración de <span class='date-format'><code>Utilidad</code></"
+"span> de Personalización de Tabla para acelerar la carga de la tabla. "
+"Utilizar la función de caché también puede mejorar los tiempos de carga."
+
+#: app/Strings.php:290
+msgid "How long table data can take to update if Cache is activated?"
+msgstr ""
+"¿Cuánto tiempo pueden tardar los datos de la tabla en actualizarse si el "
+"Caché está activado?"
+
+#: app/Strings.php:292
+msgid ""
+"When the cache feature is active, updates to your table data are not reliant "
+"on your browser's cache. Changes made in your sheet may take approximately "
+"15-40 seconds to reflect. To view the latest updates, simply refresh the "
+"page after this timeframe."
+msgstr ""
+"Cuando la función de caché está activa, las actualizaciones de los datos de "
+"su tabla no dependen del caché de su navegador. Los cambios realizados en su "
+"hoja pueden tardar aproximadamente 15-40 segundos en reflejarse. Para ver "
+"las últimas actualizaciones, simplemente actualice la página después de este "
+"período de tiempo."
+
+#: app/Strings.php:294
+msgid "How do I find tutorials about using the plugin?"
+msgstr "¿Cómo encuentro tutoriales sobre el uso del plugin?"
+
+#: app/Strings.php:296
+msgid ""
+"Please visit our <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube playlist</a>, where we post "
+"tutorials on how you can use different features of the plugin."
+msgstr ""
+"Por favor visite nuestra <a target='_blank' href='https://www.youtube.com/"
+"playlist?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>lista de reproducción de "
+"YouTube</a>, donde publicamos tutoriales sobre cómo puede usar diferentes "
+"características del plugin."
+
+#: app/Strings.php:298
+msgid ""
+"How can I create a table from an imported XLSX file in google spreadsheets?"
+msgstr ""
+"¿Cómo puedo crear una tabla desde un archivo XLSX importado en hojas de "
+"cálculo de Google?"
+
+#: app/Strings.php:300
+msgid ""
+"Make sure to import the XLSX file into Google Spreadsheets in the following "
+"ways. Create a new blank spreadsheet, then navigate to `<span class='date-"
+"format'><code> File > Import > Upload</code></span>` Drag the XLSX files to "
+"import. Then share the spreadsheets from 'General Access'. Please visit our "
+"<a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube playlist</a>, where we post "
+"tutorials on how you can use XLSX file imported in google spreadsheets."
+msgstr ""
+"Asegúrese de importar el archivo XLSX en Hojas de cálculo de Google de las "
+"siguientes maneras. Cree una nueva hoja de cálculo en blanco, luego navegue "
+"a `<span class='date-format'><code> Archivo > Importar > Cargar</code></"
+"span>` Arrastre los archivos XLSX para importar. Luego comparta las hojas de "
+"cálculo desde 'Acceso General'. Por favor visite nuestra <a target='_blank' "
+"href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>lista de reproducción de YouTube</"
+"a>, donde publicamos tutoriales sobre cómo puede usar archivos XLSX "
+"importados en hojas de cálculo de Google."
+
+#: app/Strings.php:303 app/Strings.php:585
+msgid "Get Started"
+msgstr "Comenzar"
+
+#: app/Strings.php:304
+msgid "Let’s get you set up so you can start creating awesome tables"
+msgstr "Vamos a configurarte para que puedas empezar a crear tablas increíbles"
+
+#: app/Strings.php:306 app/Strings.php:1128
+#: app/templates/documentation_page.php:175
+msgid "Documentation"
+msgstr "Documentación"
+
+#: app/Strings.php:307
+msgid "Video Tutorial"
+msgstr "Tutorial en Video"
+
+#: app/Strings.php:308
+msgid "Get professional help via our ticketing system"
+msgstr "Obtenga ayuda profesional a través de nuestro sistema de tickets"
+
+#: app/Strings.php:309
+msgid "Frequently Asked Question"
+msgstr "Preguntas Frecuentes"
+
+#: app/Strings.php:310 app/templates/documentation_page.php:75
+msgid "Get the most out of the plugin. Go Pro!"
+msgstr "¡Obtenga el máximo provecho del plugin. Actualice a Pro!"
+
+#: app/Strings.php:311
+msgid "Unlock all features"
+msgstr "Desbloquear todas las características"
+
+#: app/Strings.php:312
+msgid "Link Support to import links from sheet"
+msgstr "Soporte de Enlaces para importar enlaces desde la hoja"
+
+#: app/Strings.php:313
+msgid ""
+"Pre-built amazing table styles where Each styles is different from one "
+"another"
+msgstr ""
+"Estilos de tabla increíbles preconstruidos donde cada estilo es diferente "
+"del otro"
+
+#: app/Strings.php:314
+msgid "Hide your google sheet table rows based on your custom row selection"
+msgstr ""
+"Oculte las filas de su tabla de hoja de Google según su selección "
+"personalizada de filas"
+
+#: app/Strings.php:315
+msgid "Unlimited Row Sync and fetch unlimited rows from Google spreadsheet"
+msgstr ""
+"Sincronización de Filas Ilimitadas y obtenga filas ilimitadas de la hoja de "
+"cálculo de Google"
+
+#: app/Strings.php:320
+msgid "Export as JSON"
+msgstr "Exportar como JSON"
+
+#: app/Strings.php:321
+msgid "Export as CSV"
+msgstr "Exportar como CSV"
+
+#: app/Strings.php:322
+msgid "Export as PDF"
+msgstr "Exportar como PDF"
+
+#: app/Strings.php:323
+msgid "Export as Excel"
+msgstr "Exportar como Excel"
+
+#: app/Strings.php:324
+msgid "Print Table"
+msgstr "Imprimir Tabla"
+
+#: app/Strings.php:325
+msgid "Copy to Clipboard"
+msgstr "Copiar al Portapapeles"
+
+#: app/Strings.php:327
+msgid "Live sync is limited to 30 rows."
+msgstr "La sincronización en vivo está limitada a 30 filas."
+
+#: app/Strings.php:328
+msgid ""
+"In your free plan, you are limited to creating 10 tables. Upgrade to create "
+"more."
+msgstr ""
+"En su plan gratuito, está limitado a crear 10 tablas. Actualice para crear "
+"más."
+
+#: app/Strings.php:329
+msgid "Upgrade to Pro"
+msgstr "Actualizar a Pro"
+
+#: app/Strings.php:330
+msgid "for showing full google sheet."
+msgstr "para mostrar la hoja de Google completa."
+
+#: app/Strings.php:332
+msgid "1. Data source"
+msgstr "1. Fuente de datos"
+
+#: app/Strings.php:333
+msgid "2. Table theme"
+msgstr "2. Tema de tabla"
+
+#: app/Strings.php:334
+msgid "3. Table customization"
+msgstr "3. Personalización de tabla"
+
+#: app/Strings.php:335
+msgid "4. Hide Rows/Column"
+msgstr "4. Ocultar Filas/Columna"
+
+#: app/Strings.php:336
+msgid "5. Conditional Table View"
+msgstr "5. Vista de Tabla Condicional"
+
+#: app/Strings.php:337
+msgid "6. AI Integration"
+msgstr "6. Integración de IA"
+
+#: app/Strings.php:338
+msgid "Table description"
+msgstr "Descripción de la tabla"
+
+#: app/Strings.php:339
+msgid "Show Table description"
+msgstr "Mostrar descripción de la tabla"
+
+#: app/Strings.php:341
+msgid "Connect your Google Sheet"
+msgstr "Conecte su Hoja de Google "
+
+#: app/Strings.php:342
+msgid "Choose how your table appears"
+msgstr "Elija cómo aparece su tabla"
+
+#: app/Strings.php:343
+msgid "Style and personalize your table’s look"
+msgstr "Diseña y personaliza la apariencia de tu tabla"
+
+#: app/Strings.php:344
+msgid "Show or hide specific rows and columns"
+msgstr "Mostrar u ocultar filas y columnas específicas"
+
+#: app/Strings.php:345
+msgid "Choose how you want to Display the table"
+msgstr "Elija cómo desea mostrar la tabla"
+
+#: app/Strings.php:346
+msgid "Auto-summarize data or let visitors ask questions using AI"
+msgstr ""
+"Resuma datos automáticamente o permita que los visitantes hagan preguntas "
+"usando IA"
+
+#: app/Strings.php:348
+msgid "Save"
+msgstr "Guardar"
+
+#: app/Strings.php:349
+msgid "Loading Preview..."
+msgstr "Cargando Vista Previa..."
+
+#: app/Strings.php:355
+msgid "Upgrade"
+msgstr "Actualizar"
+
+#: app/Strings.php:361 app/Strings.php:638
+msgid "Create tables first to manage tabs"
+msgstr "Cree tablas primero para administrar pestañas"
+
+#: app/Strings.php:362 app/Strings.php:637
+msgid ""
+"Manage tab is not available because you don’t have any tables yet. Please "
+"create tables first"
+msgstr ""
+"La pestaña Gestionar no está disponible porque aún no tienes ninguna tabla. "
+"Por favor, crea tablas primero"
+
+#: app/Strings.php:363
+msgid "Display multiple tables using tabs."
+msgstr "Mostrar múltiples tablas usando pestañas."
+
+#: app/Strings.php:364
+msgid "Create New Tab Group"
+msgstr "Crear Nuevo Grupo de Pestañas"
+
+#: app/Strings.php:365
+msgid "Your Tab Groups"
+msgstr "Sus Grupos de Pestañas"
+
+#: app/Strings.php:366
+msgid "No tabs found with the key"
+msgstr "No se encontraron pestañas con la clave"
+
+#: app/Strings.php:371
+msgid "Select table for this tab"
+msgstr "Seleccione tabla para esta pestaña"
+
+#: app/Strings.php:372
+msgid "Tab Title"
+msgstr "Título de Pestaña"
+
+#: app/Strings.php:373
+msgid "Add tab"
+msgstr "Agregar pestaña"
+
+#: app/Strings.php:374
+msgid "Tab group name"
+msgstr "Nombre del grupo de pestañas"
+
+#: app/Strings.php:379
+msgid "Let’s bring meaning to your data"
+msgstr "Démosle significado a tus datos"
+
+#: app/Strings.php:380
+msgid ""
+"Create beautifully designed tables from Google sheets and customize as you "
+"need."
+msgstr ""
+"Cree tablas bellamente diseñadas desde hojas de Google y personalice según "
+"necesite."
+
+#: app/Strings.php:385
+msgid "Our Other Products"
+msgstr "Nuestros Otros Productos"
+
+#: app/Strings.php:386
+msgid ""
+"Experience remarkable WordPress products with a new level of power, beauty, "
+"and human-centered designs. Think you know WordPress products? Think Deeper!"
+msgstr ""
+"Experimente productos de WordPress notables con un nuevo nivel de poder, "
+"belleza y diseños centrados en el ser humano. ¿Cree que conoce los productos "
+"de WordPress? ¡Piense más profundo!"
+
+#: app/Strings.php:392
+msgid "Hidden Cells on Desktop"
+msgstr "Celdas Ocultas en Escritorio"
+
+#: app/Strings.php:393
+msgid "Hidden Cells on Mobile"
+msgstr "Celdas Ocultas en Móvil"
+
+#: app/Strings.php:395
+msgid "Hide Cells"
+msgstr "Ocultar Celdas"
+
+#: app/Strings.php:398
+msgid "Hidden Rows on Desktop"
+msgstr "Filas Ocultas en Escritorio"
+
+#: app/Strings.php:399
+msgid "Hidden Rows on Mobile"
+msgstr "Filas Ocultas en Móvil"
+
+#: app/Strings.php:401
+msgid "Hide Rows"
+msgstr "Ocultar Filas"
+
+#: app/Strings.php:402
+msgid "Same as desktop"
+msgstr "Igual que escritorio"
+
+#: app/Strings.php:405
+msgid "Hidden Columns on Desktop"
+msgstr "Columnas Ocultas en Escritorio"
+
+#: app/Strings.php:406
+msgid "Hidden Columns on Mobile"
+msgstr "Columnas Ocultas en Móvil"
+
+#: app/Strings.php:407
+msgid "Hide columns on desktop"
+msgstr "Ocultar columnas en escritorio"
+
+#: app/Strings.php:408
+msgid "Hide columns on mobile"
+msgstr "Ocultar columnas en móvil"
+
+#: app/Strings.php:410
+msgid "Hide Columns"
+msgstr "Ocultar Columnas"
+
+#: app/Strings.php:411
+msgid "Hide on Desktop"
+msgstr "Ocultar en Escritorio"
+
+#: app/Strings.php:412
+msgid "Hide on Mobile"
+msgstr "Ocultar en Móvil"
+
+#: app/Strings.php:413
+msgid "Desktop"
+msgstr "Escritorio"
+
+#: app/Strings.php:414
+msgid "Mobile"
+msgstr "Móvil"
+
+#: app/Strings.php:415
+msgid "Click on the cells on the table below that you want to hide"
+msgstr "Haga clic en las celdas de la tabla a continuación que desea ocultar"
+
+#: app/Strings.php:416
+msgid "Click on the rows on the table below that you want to hide"
+msgstr "Haga clic en las filas de la tabla a continuación que desea ocultar"
+
+#: app/Strings.php:417
+msgid "Click on the column on the table below that you want to hide"
+msgstr "Haga clic en la columna de la tabla a continuación que desea ocultar"
+
+#: app/Strings.php:422
+msgid "New"
+msgstr "Nuevo"
+
+#: app/Strings.php:423
+msgid "Save settings"
+msgstr "Guardar configuración"
+
+#: app/Strings.php:424
+msgid "Custom CSS"
+msgstr "CSS Personalizado"
+
+#: app/Strings.php:425 app/Strings.php:828
+msgid "Recommended"
+msgstr "Recomendado"
+
+#: app/Strings.php:426
+msgid "With Pretty link"
+msgstr "Con Enlace Bonito"
+
+#: app/Strings.php:427
+msgid "With Smart link"
+msgstr "Con Enlace Inteligente"
+
+#: app/Strings.php:428
+msgid "Asynchronous loading"
+msgstr "Carga asíncrona"
+
+#: app/Strings.php:430
+msgid ""
+"Enable this feature to load the table faster. The table will load in the "
+"frontend after loading all content with a pre-loader. If this feature is "
+"disabled then the table will load with the reloading of browser every time."
+msgstr ""
+"Habilite esta función para cargar la tabla más rápido. La tabla se cargará "
+"en el frontend después de cargar todo el contenido con un precargador. Si "
+"esta función está deshabilitada, la tabla se cargará con la recarga del "
+"navegador cada vez."
+
+#: app/Strings.php:432
+msgid "Choose your link support mechanism in WP Tables"
+msgstr "Elija su mecanismo de soporte de enlaces en WP Tables"
+
+#: app/Strings.php:433
+msgid ""
+"Write your own custom CSS to design the table or the page itself. Activate "
+"the Pro extension to enable custom CSS option"
+msgstr ""
+"Escriba su propio CSS personalizado para diseñar la tabla o la página misma. "
+"Active la extensión Pro para habilitar la opción de CSS personalizado"
+
+#: app/Strings.php:434
+msgid "Performance"
+msgstr "Rendimiento"
+
+#: app/Strings.php:436
+msgid "Choose how you want to load your table scripts"
+msgstr "Elija cómo desea cargar los scripts de su tabla"
+
+#: app/Strings.php:437
+msgid "Global loading"
+msgstr "Carga global"
+
+#: app/Strings.php:438
+msgid "Load the scripts on all the pages and posts in your website."
+msgstr ""
+"Cargar los scripts en todas las páginas y publicaciones de su sitio web."
+
+#: app/Strings.php:439
+msgid "Optimized loading"
+msgstr "Carga optimizada"
+
+#: app/Strings.php:440
+msgid ""
+"Load scripts only on the relevant pages/posts in your website where the "
+"table is added."
+msgstr ""
+"Cargar scripts solo en las páginas/publicaciones relevantes de su sitio web "
+"donde se agrega la tabla."
+
+#: app/Strings.php:445
+msgid "WPPOOL"
+msgstr "WPPOOL"
+
+#: app/Strings.php:446
+msgid "Powered by"
+msgstr "Desarrollado por"
+
+#: app/Strings.php:447
+msgid "Default Email App"
+msgstr "Aplicación de Correo Predeterminada"
+
+#: app/Strings.php:448
+msgid "Open your default email app"
+msgstr "Abrir su aplicación de correo predeterminada"
+
+#: app/Strings.php:449
+msgid "Copy email address to your clipboard"
+msgstr "Copiar dirección de correo electrónico al portapapeles"
+
+#: app/Strings.php:450
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: app/Strings.php:451
+msgid "Open Yahoo in browser"
+msgstr "Abrir Yahoo en el navegador"
+
+#: app/Strings.php:452
+msgid "Outlook"
+msgstr "Outlook"
+
+#: app/Strings.php:453
+msgid "Open Outlook in browser"
+msgstr "Abrir Outlook en el navegador"
+
+#: app/Strings.php:454
+msgid "Gmail"
+msgstr "Gmail"
+
+#: app/Strings.php:455
+msgid "Open Gmail in browser"
+msgstr "Abrir Gmail en el navegador"
+
+#: app/Strings.php:456
+msgid "Select the convenient option to connect with us"
+msgstr "Seleccione la opción conveniente para conectarse con nosotros"
+
+#: app/Strings.php:462
+msgid ""
+"This Tab Group will be deleted. It will not appear on your website anymore, "
+"if you used it somewhere"
+msgstr ""
+"Este grupo de pestañas será eliminado. Ya no aparecerá en tu sitio web si lo "
+"has utilizado en algún lugar"
+
+#: app/Strings.php:463 app/templates/parts/popup_modals.php:26
+#: app/templates/parts/popup_modals.php:74
+#: app/templates/parts/popup_modals.php:107
+#: app/templates/parts/popup_modals.php:146
+#: app/templates/parts/pro_fix_notice.php:66
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: app/Strings.php:464
+msgid "Are you sure to delete this Tab Group?"
+msgstr "¿Estás seguro de que deseas eliminar este grupo de pestañas?"
+
+#: app/Strings.php:470
+msgid "Utility"
+msgstr "Utilidad"
+
+#: app/Strings.php:471
+msgid "Styling"
+msgstr "Estilización"
+
+#: app/Strings.php:472 app/Strings.php:473
+msgid "Layout"
+msgstr "Diseño"
+
+#: app/Strings.php:474
+msgid "Let user export table"
+msgstr "Permitir al usuario exportar tabla"
+
+#: app/Strings.php:475
+msgid "Excel"
+msgstr "Excel"
+
+#: app/Strings.php:476
+msgid "JSON"
+msgstr "JSON"
+
+#: app/Strings.php:477
+msgid "Copy"
+msgstr "Copiar"
+
+#: app/Strings.php:478
+msgid "CSV"
+msgstr "CSV"
+
+#: app/Strings.php:479
+msgid "PDF"
+msgstr "PDF"
+
+#: app/Strings.php:480
+msgid "Print"
+msgstr "Imprimir"
+
+#: app/Strings.php:481
+msgid "Link redirection behaviour"
+msgstr "Comportamiento de redirección de enlaces"
+
+#: app/Strings.php:482
+msgid "Opens in current window"
+msgstr "Abre en ventana actual"
+
+#: app/Strings.php:483
+msgid "Opens in a new window"
+msgstr "Abre en una nueva ventana"
+
+#: app/Strings.php:485
+msgid "Cursor behavior inside the table"
+msgstr "Comportamiento del cursor dentro de la tabla"
+
+#: app/Strings.php:486
+msgid "Text selection mode"
+msgstr "Modo de selección de texto"
+
+#: app/Strings.php:487
+msgid "Table navigation mode (left-right)"
+msgstr "Modo de navegación de tabla (izquierda-derecha)"
+
+#: app/Strings.php:489
+msgid "Import links from sheet"
+msgstr "Importar enlaces desde la hoja"
+
+#: app/Strings.php:491
+msgid "Import checkbox from sheet"
+msgstr "Importar casilla de verificación desde la hoja"
+
+#: app/Strings.php:492
+msgid "Enable sorting by specific columns in"
+msgstr "Habilitar ordenamiento por columnas específicas en"
+
+#: app/Strings.php:495
+msgid "within the table"
+msgstr "dentro de la tabla"
+
+#: app/Strings.php:497
+msgid "Import images from sheet"
+msgstr "Importar imágenes desde la hoja"
+
+#: app/Strings.php:498
+msgid "Cache table for faster loading time"
+msgstr "Almacenar tabla en caché para tiempos de carga más rápidos"
+
+#: app/Strings.php:499
+msgid "Prevent frequent cache updates for faster table loading"
+msgstr ""
+"Prevenir actualizaciones frecuentes de caché para carga de tabla más rápida"
+
+#: app/Strings.php:500
+msgid ""
+"New changes from Google Sheets will appear only after the cache expires. "
+"Features like links, images, and merged cells may not show until the cache "
+"refreshes. Cache expiry time can be adjusted in Settings —> Performance."
+msgstr ""
+"Los nuevos cambios de Google Sheets aparecerán solo después de que expire el "
+"caché. Características como enlaces, imágenes y celdas combinadas pueden no "
+"mostrarse hasta que el caché se actualice. El tiempo de expiración del caché "
+"se puede ajustar en Configuración —> Rendimiento."
+
+#: app/Strings.php:501
+msgid "Cell formatting style"
+msgstr "Estilo de formato de celda"
+
+#: app/Strings.php:502
+msgid "Expanded"
+msgstr "Expandido"
+
+#: app/Strings.php:503
+msgid "Wrapped"
+msgstr "Ajustado"
+
+#: app/Strings.php:504
+msgid "Responsive style"
+msgstr "Estilo responsivo"
+
+#: app/Strings.php:505
+msgid "Default"
+msgstr "Predeterminado"
+
+#: app/Strings.php:506
+msgid "Collapsible Style"
+msgstr "Estilo Plegable"
+
+#: app/Strings.php:507
+msgid "Scrollable Style"
+msgstr "Estilo Desplazable"
+
+#: app/Strings.php:508
+msgid "Rows to show per page"
+msgstr "Filas a mostrar por página"
+
+#: app/Strings.php:509
+msgid "All"
+msgstr "Todas"
+
+#: app/Strings.php:510
+msgid "100"
+msgstr "100"
+
+#: app/Strings.php:511
+msgid "50"
+msgstr "50"
+
+#: app/Strings.php:512
+msgid "30"
+msgstr "30"
+
+#: app/Strings.php:513
+msgid "15"
+msgstr "15"
+
+#: app/Strings.php:514
+msgid "10"
+msgstr "10"
+
+#: app/Strings.php:515
+msgid "5"
+msgstr "5"
+
+#: app/Strings.php:516
+msgid "1"
+msgstr "1"
+
+#: app/Strings.php:517
+msgid "-1"
+msgstr "-1"
+
+#: app/Strings.php:518
+msgid "The table is limited to 100 rows."
+msgstr "La tabla está limitada a 100 filas."
+
+#: app/Strings.php:519
+msgid "to show the full Google Sheet with awesome customizations."
+msgstr ""
+"para mostrar la hoja de Google completa con personalizaciones increíbles."
+
+#: app/Strings.php:521
+msgid "Upgrade Now →"
+msgstr "Actualizar Ahora →"
+
+#: app/Strings.php:522
+msgid "Table height"
+msgstr "Altura de tabla"
+
+#: app/Strings.php:524
+msgid "Default height"
+msgstr "Altura predeterminada"
+
+#: app/Strings.php:525
+msgid "400px"
+msgstr "400px"
+
+#: app/Strings.php:526
+msgid "500px"
+msgstr "500px"
+
+#: app/Strings.php:527
+msgid "600px"
+msgstr "600px"
+
+#: app/Strings.php:528
+msgid "700px"
+msgstr "700px"
+
+#: app/Strings.php:529
+msgid "800px"
+msgstr "800px"
+
+#: app/Strings.php:530
+msgid "900px"
+msgstr "900px"
+
+#: app/Strings.php:531
+msgid "1000px"
+msgstr "1000px"
+
+#: app/Strings.php:532
+msgid "Select theme"
+msgstr "Seleccionar tema"
+
+#: app/Strings.php:534
+msgid "Import colors and text styles from sheet"
+msgstr "Importar colores y estilos de texto desde la hoja"
+
+#: app/Strings.php:535
+msgid "Unlock"
+msgstr "Desbloquear"
+
+#: app/Strings.php:537
+msgid "Default Style"
+msgstr "Estilo Predeterminado"
+
+#: app/Strings.php:538
+msgid "Simple"
+msgstr "Simple"
+
+#: app/Strings.php:540
+msgid "Dark Table"
+msgstr "Tabla Oscura"
+
+#: app/Strings.php:541
+msgid "Simple on dark"
+msgstr "Simple en oscuro"
+
+#: app/Strings.php:543
+msgid "Stripped Table"
+msgstr "Tabla Rayada"
+
+#: app/Strings.php:544
+msgid "Minimal on dark"
+msgstr "Mínimal en oscuro"
+
+#: app/Strings.php:546
+msgid "Hover Style"
+msgstr "Estilo Hover"
+
+#: app/Strings.php:547
+msgid "Minimal elegant"
+msgstr "Mínimal elegante"
+
+#: app/Strings.php:549
+msgid "Taliwind Style"
+msgstr "Estilo Tailwind"
+
+#: app/Strings.php:550
+msgid "Uppercase heading"
+msgstr "Encabezado en mayúsculas"
+
+#: app/Strings.php:551
+msgid "Table creation successfull"
+msgstr "Creación de tabla exitosa"
+
+#: app/Strings.php:553
+msgid "Colored Column"
+msgstr "Columna Coloreada"
+
+#: app/Strings.php:554
+msgid "Vertical style"
+msgstr "Estilo vertical"
+
+#: app/Strings.php:557
+msgid "Minimal"
+msgstr "Mínimal"
+
+#: app/Strings.php:558
+msgid "Dark knight"
+msgstr "Caballero oscuro"
+
+#: app/Strings.php:559
+msgid "Uppercase elegant"
+msgstr "Mayúsculas elegante"
+
+#: app/Strings.php:561
+msgid "Merge cells"
+msgstr "Combinar celdas"
+
+#: app/Strings.php:562
+msgid "Beta"
+msgstr "Beta"
+
+#: app/Strings.php:563
+msgid ""
+"Sorting feature is disabled. Your sheet contains vertically merged cells, so "
+"you can't use the sorting feature and merge cell feature altogether."
+msgstr ""
+"La función de ordenamiento está desactivada. Tu hoja contiene celdas "
+"combinadas verticalmente, por lo que no puedes usar la función de "
+"ordenamiento y la función de combinar celdas juntas."
+
+#: app/Strings.php:568
+msgid "Are you sure to disable?"
+msgstr "¿Estás seguro de desactivar?"
+
+#: app/Strings.php:569
+msgid ""
+"Colors and text styles from your Google Sheet won’t be imported anymore. A "
+"default theme will be selected for you if you haven’t selected one already"
+msgstr ""
+"Los colores y estilos de texto de tu Google Sheet ya no se importarán. Un "
+"tema predeterminado será seleccionado para ti si aún no has seleccionado uno"
+
+#: app/Strings.php:570
+msgid "Yes, Disable"
+msgstr "Sí, Desactivar"
+
+#: app/Strings.php:572
+msgid "Enable for Faster Loading"
+msgstr "Activar para Carga Más Rápida"
+
+#: app/Strings.php:573
+msgid "Prevent Live Sync?"
+msgstr "¿Prevenir Sincronización en Vivo?"
+
+#: app/Strings.php:574
+msgid ""
+"Table data will only refresh when the cache expires. This improves "
+"performance but may delay content updates. You can adjust the cache expiry "
+"time in Settings → Performance."
+msgstr ""
+"Los datos de la tabla solo se actualizarán cuando expire el caché. Esto "
+"mejora el rendimiento pero puede retrasar las actualizaciones de contenido. "
+"Puedes ajustar el tiempo de expiración del caché en Configuración → "
+"Rendimiento."
+
+#: app/Strings.php:575
+msgid ""
+"Enabling this feature will skip live sync until your cache expires. Make "
+"sure your Google Sheet up to date and you've enabled all necessary features "
+"(images, links, merged cells, etc.) from the settings first."
+msgstr ""
+"Activar esta función omitirá la sincronización en vivo hasta que expire tu "
+"caché. Asegúrate de que tu Google Sheet esté actualizada y hayas activado "
+"todas las características necesarias (imágenes, enlaces, celdas combinadas, "
+"etc.) desde la configuración primero."
+
+#: app/Strings.php:581
+msgid "Manage, create and track all your tables tables in one place"
+msgstr "Gestiona, crea y rastrea todas tus tablas en un solo lugar"
+
+#: app/Strings.php:583
+msgid "Global Settings"
+msgstr "Configuración Global"
+
+#: app/Strings.php:584
+msgid "Configure default settings for all your tables"
+msgstr "Configura ajustes predeterminados para todas tus tablas"
+
+#: app/Strings.php:586
+msgid "Skip"
+msgstr "Omitir"
+
+#: app/Strings.php:587
+msgid "Add Google Sheet URL"
+msgstr "Agregar URL de Google Sheet"
+
+#: app/Strings.php:588
+msgid "Recommended Plugins"
+msgstr "Plugins Recomendados"
+
+#: app/Strings.php:594
+msgid "Show"
+msgstr "Mostrar"
+
+#: app/Strings.php:595
+msgid "entries"
+msgstr "entradas"
+
+#: app/Strings.php:596
+msgid "Search:"
+msgstr "Buscar:"
+
+#: app/Strings.php:598
+msgid "Showing"
+msgstr "Mostrando"
+
+#: app/Strings.php:599
+msgid "to"
+msgstr "a"
+
+#: app/Strings.php:600
+msgid "of"
+msgstr "de"
+
+#: app/Strings.php:601
+msgid "First"
+msgstr "Primero"
+
+#: app/Strings.php:602
+msgid "Previous"
+msgstr "Anterior"
+
+#: app/Strings.php:604
+msgid "PREV"
+msgstr "ANTERIOR"
+
+#: app/Strings.php:605
+msgid "NEXT"
+msgstr "SIGUIENTE"
+
+#: app/Strings.php:606
+msgid "last"
+msgstr "último"
+
+#: app/Strings.php:607
+msgid "No matching records found"
+msgstr "No se encontraron registros coincidentes"
+
+#: app/Strings.php:612
+msgid "Copy Shortcode"
+msgstr "Copiar Shortcode"
+
+#: app/Strings.php:613
+msgid ""
+"Copy the shortcode to use in in any page or post. Gutenberg and Elementor "
+"blocks are also supported"
+msgstr ""
+"Copia el shortcode para usar en cualquier página o entrada. Los bloques de "
+"Gutenberg y Elementor también son compatibles"
+
+#: app/Strings.php:614
+msgid "Are you sure to delete the table? "
+msgstr "¿Estás seguro de eliminar la tabla? "
+
+#: app/Strings.php:615
+msgid ""
+"You are about to delete the table. This will permanently delete the table(s)"
+msgstr ""
+"Estás a punto de eliminar la tabla. Esto eliminará permanentemente la(s) "
+"tabla(s)"
+
+#: app/Strings.php:620
+msgid "Vertical merge found!"
+msgstr "¡Combinación vertical encontrada!"
+
+#: app/Strings.php:621
+msgid ""
+"Please make sure to keep the sorting feature disabled. Google sheet doesn't "
+"filter over a range containing vertical merges."
+msgstr ""
+"Por favor asegúrate de mantener la función de ordenamiento desactivada. "
+"Google Sheets no filtra sobre un rango que contiene combinaciones verticales."
+
+#: app/Strings.php:622 app/templates/parts/pro_fix_notice.php:387
+#: app/templates/parts/pro_fix_notice.php:392
+msgid "OK"
+msgstr "OK"
+
+#: app/Strings.php:623
+msgid ""
+"Your sheet contains vertically merged cells, so you can not use the sorting "
+"feature. Sorting may break the table design and format. Please ensure that "
+"you have enabled either the vertical merge cell feature or the sorting "
+"feature, or confirm that your sheet has no vertical merges. If your table "
+"design still breaks even with sorting disabled, consider reloading the sheet "
+"or clicking save again to reflect the necessary fixes. To get the sorting "
+"feature visit Display settings > Disable sorting"
+msgstr ""
+"Tu hoja contiene celdas combinadas verticalmente, por lo que no puedes usar "
+"la función de ordenamiento. El ordenamiento puede romper el diseño y formato "
+"de la tabla. Por favor asegúrate de que has activado la función de combinar "
+"celdas verticales o la función de ordenamiento, o confirma que tu hoja no "
+"tiene combinaciones verticales. Si el diseño de tu tabla aún se rompe "
+"incluso con el ordenamiento desactivado, considera recargar la hoja o hacer "
+"clic en guardar nuevamente para reflejar las correcciones necesarias. Para "
+"obtener la función de ordenamiento visita Configuración de visualización > "
+"Desactivar ordenamiento"
+
+#: app/Strings.php:628
+#, fuzzy
+#| msgid "Select coloring"
+msgid "Select a column (optional)"
+msgstr "Seleccionar coloración"
+
+#: app/Strings.php:629
+msgid "After the table"
+msgstr "Después de la tabla"
+
+#: app/Strings.php:630
+msgid "Before the table"
+msgstr "Antes de la tabla"
+
+#: app/Strings.php:631
+msgid "Tab position in embedded view"
+msgstr "Posición de pestaña en vista incrustada"
+
+#: app/Strings.php:632
+msgid "Hide tab group title"
+msgstr "Ocultar título de grupo de pestañas"
+
+#: app/Strings.php:639
+msgid "👋 Let's create your first tab groups"
+msgstr "👋 Creemos tus primeros grupos de pestañas"
+
+#: app/Strings.php:640
+msgid "Click the button below to create tab groups"
+msgstr "Haz clic en el botón de abajo para crear grupos de pestañas"
+
+#: app/Strings.php:641
+msgid "Show tab group name in embedded view"
+msgstr "Mostrar nombre de grupo de pestañas en vista incrustada"
+
+#: app/Strings.php:647
+msgid "HEADER COLORS"
+msgstr "COLORES DE ENCABEZADO"
+
+#: app/Strings.php:648
+msgid "TEXT COLORS"
+msgstr "COLORES DE TEXTO"
+
+#: app/Strings.php:649
+msgid "BODY COLORS"
+msgstr "COLORES DE CUERPO"
+
+#: app/Strings.php:650
+msgid "TABLE TEXTS"
+msgstr "TEXTOS DE TABLA"
+
+#: app/Strings.php:651
+msgid "TABLE HOVER"
+msgstr "HOVER DE TABLA"
+
+#: app/Strings.php:652
+msgid "ROW COLORS"
+msgstr "COLORES DE FILA"
+
+#: app/Strings.php:653
+msgid "COLUMN COLORS"
+msgstr "COLORES DE COLUMNA"
+
+#: app/Strings.php:654
+msgid "BORDER COLORS"
+msgstr "COLORES DE BORDE"
+
+#: app/Strings.php:655
+msgid "Customize Theme Options"
+msgstr "Personalizar Opciones de Tema"
+
+#: app/Strings.php:656
+msgid "Border Style"
+msgstr "Estilo de Borde"
+
+#: app/Strings.php:657
+msgid "Reset"
+msgstr "Restablecer"
+
+#: app/Strings.php:659
+msgid "Background color"
+msgstr "Color de fondo"
+
+#: app/Strings.php:660
+msgid "Text color"
+msgstr "Color de texto"
+
+#: app/Strings.php:662
+msgid "First column text color"
+msgstr "Color de texto de primera columna"
+
+#: app/Strings.php:663
+msgid "Rest body text color"
+msgstr "Color de texto del resto del cuerpo"
+
+#: app/Strings.php:664
+msgid "Remaining column text color"
+msgstr "Color de texto de columnas restantes"
+
+#: app/Strings.php:666
+msgid "Hover background color"
+msgstr "Color de fondo al pasar el cursor"
+
+#: app/Strings.php:667
+msgid "Hover text color"
+msgstr "Color de texto al pasar el cursor"
+
+#: app/Strings.php:668
+msgid "Table background color"
+msgstr "Color de fondo de tabla"
+
+#: app/Strings.php:669
+msgid "Table hover color"
+msgstr "Color hover de tabla"
+
+#: app/Strings.php:670
+msgid "Table border color"
+msgstr "Color de borde de tabla"
+
+#: app/Strings.php:671
+msgid "Table text color"
+msgstr "Color de texto de tabla"
+
+#: app/Strings.php:673
+msgid "Border Color"
+msgstr "Color de Borde"
+
+#: app/Strings.php:674
+msgid "Outside body border"
+msgstr "Borde exterior del cuerpo"
+
+#: app/Strings.php:675
+msgid "Inside border"
+msgstr "Borde interior"
+
+#: app/Strings.php:677
+msgid "Even row color"
+msgstr "Color de fila par"
+
+#: app/Strings.php:678
+msgid "Odd row color"
+msgstr "Color de fila impar"
+
+#: app/Strings.php:680
+msgid "Even column color"
+msgstr "Color de columna par"
+
+#: app/Strings.php:681
+msgid "Odd column color"
+msgstr "Color de columna impar"
+
+#: app/Strings.php:682
+msgid "Outside border type"
+msgstr "Tipo de borde exterior"
+
+#: app/Strings.php:683
+msgid "Outside border"
+msgstr "Borde exterior"
+
+#: app/Strings.php:684
+msgid "Solid border"
+msgstr "Borde sólido"
+
+#: app/Strings.php:685
+msgid "Rounded border"
+msgstr "Borde redondeado"
+
+#: app/Strings.php:686
+msgid "Border radius"
+msgstr "Radio de borde"
+
+#: app/Strings.php:691
+msgid "Update Theme"
+msgstr "Actualizar Tema"
+
+#: app/Strings.php:692
+msgid "Theme name"
+msgstr "Nombre del tema"
+
+#: app/Strings.php:693
+msgid "Theme colors"
+msgstr "Colores del tema"
+
+#: app/Strings.php:694
+msgid "Column color"
+msgstr "Color de columna"
+
+#: app/Strings.php:695
+msgid "Row color"
+msgstr "Color de fila"
+
+#: app/Strings.php:696 app/Strings.php:954
+msgid "Edit"
+msgstr "Editar"
+
+#: app/Strings.php:697
+msgid "Yes, Delete"
+msgstr "Sí, Eliminar"
+
+#: app/Strings.php:698
+msgid "Yes, Reset"
+msgstr "Sí, Restablecer"
+
+#: app/Strings.php:699
+msgid "Create Theme"
+msgstr "Crear Tema"
+
+#: app/Strings.php:700
+msgid "Can’t delete active theme!"
+msgstr "¡No se puede eliminar el tema activo!"
+
+#: app/Strings.php:701
+msgid ""
+"The theme is active and currently in use. Please select another theme for "
+"your table before deleting this one"
+msgstr ""
+"El tema está activo y actualmente en uso. Por favor selecciona otro tema "
+"para tu tabla antes de eliminar este"
+
+#: app/Strings.php:702
+msgid "Are you sure to delete theme?"
+msgstr "¿Estás seguro de eliminar el tema?"
+
+#: app/Strings.php:703
+msgid ""
+"This theme wil be deleted and it can not be recovered. Are you sure to "
+"delete it?"
+msgstr ""
+"Este tema será eliminado y no podrá ser recuperado. ¿Estás seguro de "
+"eliminarlo?"
+
+#: app/Strings.php:705
+msgid "Are you sure to reset?"
+msgstr "¿Estás seguro de restablecer?"
+
+#: app/Strings.php:706
+msgid "All of your changes & customization will be lost"
+msgstr "Todos tus cambios y personalizaciones se perderán"
+
+#: app/Strings.php:709
+msgid "None"
+msgstr "Ninguno"
+
+#: app/Strings.php:710
+msgid "Row wise"
+msgstr "Por fila"
+
+#: app/Strings.php:711
+msgid "Column wise"
+msgstr "Por columna"
+
+#: app/Strings.php:712
+msgid "Select coloring"
+msgstr "Seleccionar coloración"
+
+#: app/Strings.php:713
+msgid "Hover mode"
+msgstr "Modo hover"
+
+#: app/Strings.php:714
+msgid "+ New Theme"
+msgstr "+ Nuevo Tema"
+
+#: app/Strings.php:716
+msgid "Apply this custom theme to all tables"
+msgstr "Aplicar este tema personalizado a todas las tablas"
+
+#: app/Strings.php:717
+msgid "Apply this same style for the other table"
+msgstr "Aplicar este mismo estilo para las otras tablas"
+
+#: app/Strings.php:723
+msgid "Default pagination"
+msgstr "Paginación predeterminada"
+
+#: app/Strings.php:724
+msgid "Modern pagination"
+msgstr "Paginación moderna"
+
+#: app/Strings.php:725
+msgid "Minimal pagination"
+msgstr "Paginación mínimal"
+
+#: app/Strings.php:726
+msgid "Tailwind pagination"
+msgstr "Paginación Tailwind"
+
+#: app/Strings.php:727
+msgid "Outlined pagination"
+msgstr "Paginación delineada"
+
+#: app/Strings.php:728
+msgid "Color Picker"
+msgstr "Selector de Color"
+
+#: app/Strings.php:729
+msgid "Pagination color will change based on your selected color"
+msgstr "El color de paginación cambiará según el color que selecciones"
+
+#: app/Strings.php:731
+msgid "Pagination Style"
+msgstr "Estilo de Paginación"
+
+#: app/Strings.php:732
+msgid "Pagination"
+msgstr "Paginación"
+
+#: app/Strings.php:733
+msgid "Active pagination color"
+msgstr "Color de paginación activa"
+
+#: app/Strings.php:734
+msgid "Keep pagination in middle"
+msgstr "Mantener paginación en el centro"
+
+#: app/Strings.php:735
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: app/Strings.php:741
+msgid "Basic Display (default)"
+msgstr "Visualización Básica (predeterminada)"
+
+#: app/Strings.php:742
+msgid "Enable Column-Specific Search"
+msgstr "Activar Búsqueda Específica por Columna"
+
+#: app/Strings.php:744
+msgid "Table will show by default and work accordingly. Nothing special here"
+msgstr ""
+"La tabla se mostrará por defecto y funcionará en consecuencia. Nada especial "
+"aquí"
+
+#: app/Strings.php:745 app/Strings.php:1017
+msgid ""
+"Turn your table into a powerful search-engine! Visitors will initially see a "
+"search box instead of the table. Based on their input, they will receive "
+"filtered data in a streamlined table view. Ideal for searching both broad "
+"and specific ranges of information from your Google Sheets (e.g., student "
+"records, employee info, etc.)."
+msgstr ""
+"¡Convierte tu tabla en un potente motor de búsqueda! Los visitantes verán "
+"inicialmente un cuadro de búsqueda en lugar de la tabla. Según su entrada, "
+"recibirán datos filtrados en una vista de tabla optimizada. Ideal para "
+"buscar rangos amplios y específicos de información de tus Google Sheets "
+"(ej., registros de estudiantes, información de empleados, etc.)."
+
+#: app/Strings.php:747
+msgid "Search-Only Display"
+msgstr "Visualización Solo Búsqueda"
+
+#: app/Strings.php:748
+msgid "User-Specific Display"
+msgstr "Visualización Específica por Usuario"
+
+#: app/Strings.php:749
+msgid "Upcoming"
+msgstr "Próximamente"
+
+#: app/Strings.php:750
+msgid ""
+"Enhance personalization with this mode. It allows the table to be displayed "
+"only to the logged-in users based on their credentials or unique data (e.g., "
+"username or email) stored in the Google Sheets. There will be no search box, "
+"preventing anyone from searching other users' data."
+msgstr ""
+"Mejora la personalización con este modo. Permite que la tabla se muestre "
+"solo a los usuarios que han iniciado sesión según sus credenciales o datos "
+"únicos (ej., nombre de usuario o correo electrónico) almacenados en Google "
+"Sheets. No habrá cuadro de búsqueda, evitando que alguien busque datos de "
+"otros usuarios."
+
+#: app/Strings.php:752
+msgid ""
+"This mode adds an extra layer of security to your data. The table is "
+"protected by a password or PIN, ensuring that only authorized users can "
+"unlock and see the table information."
+msgstr ""
+"Este modo añade una capa adicional de seguridad a tus datos. La tabla está "
+"protegida por una contraseña o PIN, asegurando que solo usuarios autorizados "
+"puedan desbloquear y ver la información de la tabla."
+
+#: app/Strings.php:754
+msgid "Protected View"
+msgstr "Vista Protegida"
+
+#: app/Strings.php:755
+msgid "Loading headers..."
+msgstr "Cargando encabezados..."
+
+#: app/Strings.php:756
+msgid "Choose Search-Result Trigger Option"
+msgstr "Elige Opción de Activación de Resultados de Búsqueda"
+
+#: app/Strings.php:757
+msgid "Show search result once Typing"
+msgstr "Mostrar resultado de búsqueda al escribir"
+
+#: app/Strings.php:758
+msgid "Show search result after pressing Search button"
+msgstr "Mostrar resultado de búsqueda después de presionar el botón Buscar"
+
+#: app/Strings.php:759
+msgid ""
+"Select a column to search within its data. Results will only show matches "
+"from the selected column. If no column is selected, the search will apply to "
+"all data in the Google Sheet."
+msgstr ""
+"Selecciona una columna para buscar dentro de sus datos. Los resultados solo "
+"mostrarán coincidencias de la columna seleccionada. Si no se selecciona "
+"ninguna columna, la búsqueda se aplicará a todos los datos en Google Sheet."
+
+#: app/Strings.php:761
+msgid "Unable to access the Sheet! Please follow the instructions below:"
+msgstr ""
+"¡No se puede acceder a la hoja! Por favor sigue las instrucciones a "
+"continuación:"
+
+#: app/Strings.php:762
+msgid "On your Google Sheet, click on the"
+msgstr "En tu Google Sheet, haz clic en el"
+
+#: app/Strings.php:763
+msgid "button located at the top-right corner. Then on the popup, choose the"
+msgstr ""
+"botón ubicado en la esquina superior derecha. Luego en la ventana emergente, "
+"elige la opción"
+
+#: app/Strings.php:764
+msgid "Anyone with the link"
+msgstr "\"Cualquiera con el enlace\""
+
+#: app/Strings.php:765
+msgid "option under General access"
+msgstr "bajo Acceso general"
+
+#: app/Strings.php:766
+msgid "Click on the"
+msgstr "Haz clic en el"
+
+#: app/Strings.php:767
+msgid "icon on the popup and ensure that the option"
+msgstr "ícono en la ventana emergente y asegúrate de que la opción"
+
+#: app/Strings.php:768
+msgid "Viewers and commenters can see the option to download, print, and copy"
+msgstr ""
+
+#: app/Strings.php:769
+msgid "is selected"
+msgstr "esté seleccionada"
+
+#: app/Strings.php:770
+msgid "Share"
+msgstr "Compartir"
+
+#: app/Strings.php:771
+msgid "Save the changes by clicking on the"
+msgstr "Guarda los cambios haciendo clic en el botón"
+
+#: app/Strings.php:772
+msgid "Done"
+msgstr "Listo"
+
+#: app/Strings.php:773
+msgid "button"
+msgstr "botón"
+
+#: app/Strings.php:774
+msgid "General"
+msgstr "General"
+
+#: app/Strings.php:775
+msgid "seconds"
+msgstr "segundos"
+
+#: app/Strings.php:776
+msgid "Let’s make your first table"
+msgstr "Hagamos tu primera tabla"
+
+#: app/Strings.php:777
+msgid ""
+"Let us help you with your first table creation. You are just a step away "
+"from creating beautiful tables from your Google Sheets"
+msgstr ""
+"Déjanos ayudarte con la creación de tu primera tabla. Estás a solo un paso "
+"de crear tablas hermosas desde tus Google Sheets"
+
+#: app/Strings.php:779
+msgid "Day "
+msgstr "Día "
+
+#: app/Strings.php:780
+msgid "Response Timeout: "
+msgstr "Tiempo de Espera de Respuesta: "
+
+#: app/Strings.php:781
+msgid "Timestamp: "
+msgstr "Marca de Tiempo: "
+
+#: app/Strings.php:782
+msgid "Choose the maximum response timeout the table need to wait"
+msgstr ""
+"Elige el tiempo máximo de espera de respuesta que la tabla debe esperar"
+
+#: app/Strings.php:783
+msgid "Choose the maximum day to store the cache"
+msgstr "Elige el día máximo para almacenar el caché"
+
+#: app/Strings.php:784
+msgid "the table"
+msgstr "la tabla"
+
+#: app/Strings.php:785
+msgid "Copy shortcode"
+msgstr "Copiar shortcode"
+
+#: app/Strings.php:786
+msgid "Edit table"
+msgstr "Editar tabla"
+
+#: app/Strings.php:787
+msgid "Duplicate table"
+msgstr "Duplicar tabla"
+
+#: app/Strings.php:788
+msgid "Delete table"
+msgstr "Eliminar tabla"
+
+#: app/Strings.php:789
+msgid "Name already used, please use another name for theme"
+msgstr "Nombre ya usado, por favor usa otro nombre para el tema"
+
+#: app/Strings.php:790
+msgid "Name field can not be empty"
+msgstr "El campo de nombre no puede estar vacío"
+
+#: app/Strings.php:796
+msgid "AI Table Summary Configuration"
+msgstr "Configuración de Resumen de Tabla con IA"
+
+#: app/Strings.php:797
+msgid "Configure OpenAI integration for intelligent table summaries"
+msgstr ""
+"Configura la integración de OpenAI para resúmenes inteligentes de tablas"
+
+#: app/Strings.php:800
+msgid "Engine (AI Provider)"
+msgstr "Motor (Proveedor de IA)"
+
+#: app/Strings.php:801
+msgid ""
+"Select the AI engine that will generate summaries and answer user queries."
+msgstr ""
+"Selecciona el motor de IA que generará resúmenes y responderá consultas de "
+"usuarios."
+
+#: app/Strings.php:802 app/Strings.php:864
+msgid "Select your preferred AI provider for generating table summaries"
+msgstr ""
+"Selecciona tu proveedor de IA preferido para generar resúmenes de tablas"
+
+#: app/Strings.php:803 app/Strings.php:865
+msgid "OpenAI GPT models - industry leading AI with excellent performance"
+msgstr ""
+"Modelos OpenAI GPT - IA líder en la industria con excelente rendimiento"
+
+#: app/Strings.php:804 app/Strings.php:866
+msgid "Google Gemini models - fast and efficient AI by Google"
+msgstr "Modelos Google Gemini - IA rápida y eficiente de Google"
+
+#: app/Strings.php:805 app/Strings.php:867
+msgid "Checking..."
+msgstr "Verificando..."
+
+#: app/Strings.php:809 app/Strings.php:871
+msgid ""
+"Controls diversity via nucleus sampling. Lower values make output more "
+"focused."
+msgstr ""
+"Controla la diversidad mediante muestreo de núcleo. Valores más bajos hacen "
+"la salida más enfocada."
+
+#: app/Strings.php:811 app/Strings.php:873
+msgid ""
+"Limits token selection to top K candidates. Lower values are more focused."
+msgstr ""
+"Limita la selección de tokens a los primeros K candidatos. Valores más bajos "
+"son más enfocados."
+
+#: app/Strings.php:812 app/Strings.php:874
+msgid "Precise"
+msgstr "Preciso"
+
+#: app/Strings.php:813 app/Strings.php:875
+msgid "Diverse"
+msgstr "Diverso"
+
+#: app/Strings.php:814 app/Strings.php:876
+msgid "Broad"
+msgstr "Amplio"
+
+#: app/Strings.php:818
+msgid "Your OpenAI API key. Get one from https://platform.openai.com/api-keys"
+msgstr ""
+"Tu clave de API de OpenAI. Obtén una de https://platform.openai.com/api-keys"
+
+#: app/Strings.php:819
+msgid "Test API"
+msgstr "Probar API"
+
+#: app/Strings.php:822
+msgid "AI Model"
+msgstr "Modelo de IA"
+
+#: app/Strings.php:823
+msgid ""
+"Choose the OpenAI model for generating summaries. gpt-4o-mini is fast and "
+"cost-effective, gpt-4 is more accurate."
+msgstr ""
+"Elige el modelo de OpenAI para generar resúmenes. gpt-4o-mini es rápido y "
+"rentable, gpt-4 es más preciso."
+
+#: app/Strings.php:824
+msgid "GPT-4o Mini"
+msgstr "GPT-4o Mini"
+
+#: app/Strings.php:825
+msgid "GPT-3.5 Turbo"
+msgstr "GPT-3.5 Turbo"
+
+#: app/Strings.php:826
+msgid "GPT-4"
+msgstr "GPT-4"
+
+#: app/Strings.php:827
+msgid "GPT-4 Turbo"
+msgstr "GPT-4 Turbo"
+
+#: app/Strings.php:832
+msgid ""
+"Maximum number of tokens for AI response. Higher values allow longer "
+"summaries but cost more."
+msgstr ""
+"Número máximo de tokens para respuesta de IA. Valores más altos permiten "
+"resúmenes más largos pero cuestan más."
+
+#: app/Strings.php:833
+msgid "100 (Short)"
+msgstr "100 (Corto)"
+
+#: app/Strings.php:834
+msgid "2000 (Long)"
+msgstr "2000 (Largo)"
+
+#: app/Strings.php:838
+msgid ""
+"Controls randomness in AI responses. Lower values (0.1-0.3) are more "
+"focused, higher values (0.7-1.0) are more creative."
+msgstr ""
+"Controla la aleatoriedad en respuestas de IA. Valores más bajos (0.1-0.3) "
+"son más enfocados, valores más altos (0.7-1.0) son más creativos."
+
+#: app/Strings.php:839
+msgid "0 (Focused)"
+msgstr "0 (Enfocado)"
+
+#: app/Strings.php:840
+msgid "1 (Creative)"
+msgstr "1 (Creativo)"
+
+#: app/Strings.php:844
+msgid ""
+"Reduces repetition in AI responses. Higher values (0.3-1.0) discourage "
+"repetitive text."
+msgstr ""
+"Reduce la repetición en respuestas de IA. Valores más altos (0.3-1.0) "
+"desalientan texto repetitivo."
+
+#: app/Strings.php:845
+msgid "0 (Allow Repetition)"
+msgstr "0 (Permitir Repetición)"
+
+#: app/Strings.php:846
+msgid "1 (Avoid Repetition)"
+msgstr "1 (Evitar Repetición)"
+
+#: app/Strings.php:849
+msgid "Cache Duration"
+msgstr "Duración del Caché"
+
+#: app/Strings.php:850
+msgid "Duration:"
+msgstr "Duración:"
+
+#: app/Strings.php:851
+msgid "How long to cache AI responses before making new API calls."
+msgstr ""
+"Cuánto tiempo almacenar en caché las respuestas de IA antes de hacer nuevas "
+"llamadas a la API."
+
+#: app/Strings.php:852
+msgid "30 minutes"
+msgstr "30 minutos"
+
+#: app/Strings.php:853
+msgid "1 hour"
+msgstr "1 hora"
+
+#: app/Strings.php:854
+msgid "2 hours"
+msgstr "2 horas"
+
+#: app/Strings.php:855
+msgid "6 hours"
+msgstr "6 horas"
+
+#: app/Strings.php:856
+msgid "12 hours"
+msgstr "12 horas"
+
+#: app/Strings.php:857
+msgid "24 hours"
+msgstr "24 horas"
+
+#: app/Strings.php:860
+msgid "Advanced Settings"
+msgstr "Configuración Avanzada"
+
+#: app/Strings.php:861
+msgid ""
+"Configure advanced AI model parameters for fine-tuned control over response "
+"generation."
+msgstr ""
+"Configura parámetros avanzados del modelo de IA para control ajustado sobre "
+"la generación de respuestas."
+
+#: app/Strings.php:879
+msgid ""
+"Choose the AI model that best fits your needs. Different models have varying "
+"capabilities and costs."
+msgstr ""
+"Elige el modelo de IA que mejor se adapte a tus necesidades. Diferentes "
+"modelos tienen capacidades y costos variables."
+
+#: app/Strings.php:882
+msgid "Enable AI Table Summary"
+msgstr "Activar Resumen de Tabla con IA"
+
+#: app/Strings.php:885 app/Strings.php:934
+msgid "Preview"
+msgstr "Vista Previa"
+
+#: app/Strings.php:887
+msgid "Summary Position"
+msgstr "Posición del Resumen"
+
+#: app/Strings.php:888
+msgid "Above Table"
+msgstr "Sobre la Tabla"
+
+#: app/Strings.php:889
+msgid "Below Table"
+msgstr "Debajo de la Tabla"
+
+#: app/Strings.php:890
+msgid "Choose whether to display the summary above or below the table"
+msgstr "Elige si mostrar el resumen encima o debajo de la tabla"
+
+#: app/Strings.php:891
+msgid ""
+"Select the position where the AI Table Summary should be displayed relative "
+"to the table."
+msgstr ""
+"Selecciona la posición donde el Resumen de Tabla con IA debe mostrarse en "
+"relación con la tabla."
+
+#: app/Strings.php:893
+msgid "min"
+msgstr "min"
+
+#: app/Strings.php:894
+msgid "Cache time:"
+msgstr "Tiempo de caché:"
+
+#: app/Strings.php:895
+msgid "Cache summary for faster loading"
+msgstr "Almacenar resumen en caché para carga más rápida"
+
+#: app/Strings.php:896 app/Strings.php:936
+msgid ""
+"Decide where the AI Table Summary will be displayed in relation to your "
+"table."
+msgstr ""
+"Decide dónde se mostrará el Resumen de Tabla con IA en relación con tu tabla."
+
+#: app/Strings.php:898
+msgid "Instant Summary"
+msgstr "Resumen Instantáneo"
+
+#: app/Strings.php:900
+msgid "Prompt for Summary"
+msgstr "Prompt para Resumen"
+
+#: app/Strings.php:901
+msgid ""
+"You will generate and save the summary in advance. Visitors will see it "
+"instantly with no delay."
+msgstr ""
+"Generarás y guardarás el resumen con anticipación. Los visitantes lo verán "
+"instantáneamente sin demora."
+
+#: app/Strings.php:902
+msgid ""
+"Enable to reuse the same summary to reduce load time. Turn off to generate a "
+"fresh summary each time."
+msgstr ""
+"Activa para reutilizar el mismo resumen y reducir el tiempo de carga. "
+"Desactiva para generar un resumen nuevo cada vez."
+
+#: app/Strings.php:903
+msgid ""
+"Write the prompt that AI will follow to generate the summary. Visitors "
+"trigger this when they click the summary button."
+msgstr ""
+"Escribe el prompt que la IA seguirá para generar el resumen. Los visitantes "
+"activan esto cuando hacen clic en el botón de resumen."
+
+#: app/Strings.php:906
+msgid "Show regenerate button in summary modal"
+msgstr "Mostrar botón regenerar en modal de resumen"
+
+#: app/Strings.php:907
+msgid ""
+"Allow visitors to regenerate the AI Table Summary with fresh data by "
+"clicking the regenerate button."
+msgstr ""
+"Permite a los visitantes regenerar el Resumen de Tabla con IA con datos "
+"nuevos haciendo clic en el botón regenerar."
+
+#: app/Strings.php:910
+msgid "Always Show"
+msgstr "Mostrar Siempre"
+
+#: app/Strings.php:911 app/Strings.php:925
+msgid "Collapsed (click to expand)"
+msgstr "Contraído (clic para expandir)"
+
+#: app/Strings.php:912
+msgid ""
+"Choose how the summary appears to visitors - always visible or collapsed "
+"with click to expand"
+msgstr ""
+"Elige cómo aparece el resumen a los visitantes - siempre visible o contraído "
+"con clic para expandir"
+
+#: app/Strings.php:913
+msgid ""
+"Select how the AI Table Summary should be displayed to your visitors on the "
+"frontend."
+msgstr ""
+"Selecciona cómo debe mostrarse el Resumen de Tabla con IA a tus visitantes "
+"en el frontend."
+
+#: app/Strings.php:916
+msgid "Ask AI Placeholder Text"
+msgstr "Texto de Marcador de Posición de Preguntar a IA"
+
+#: app/Strings.php:917
+msgid "Ask AI Button Label"
+msgstr "Etiqueta del Botón Preguntar a IA"
+
+#: app/Strings.php:918
+msgid "Customize the placeholder text shown in the AI prompt input field"
+msgstr ""
+"Personaliza el texto de marcador de posición mostrado en el campo de entrada "
+"del prompt de IA"
+
+#: app/Strings.php:919
+msgid "Customize the text displayed on the AI prompt submit button"
+msgstr "Personaliza el texto mostrado en el botón de enviar del prompt de IA"
+
+#: app/Strings.php:922
+msgid "Summary Display"
+msgstr "Visualización del Resumen"
+
+#: app/Strings.php:923
+msgid ""
+"Decide if visitors see the summary right away or only when they expand it."
+msgstr ""
+"Decide si los visitantes ven el resumen de inmediato o solo cuando lo "
+"expanden."
+
+#: app/Strings.php:924
+msgid "Always show"
+msgstr "Mostrar siempre"
+
+#: app/Strings.php:926
+msgid "AI Table Summary Preview"
+msgstr "Vista Previa del Resumen de Tabla con IA"
+
+#: app/Strings.php:927
+msgid ""
+"Review the generated summary. This what your visitors will see. Edit and "
+"save to finalize."
+msgstr ""
+"Revisa el resumen generado. Esto es lo que verán tus visitantes. Edita y "
+"guarda para finalizar."
+
+#: app/Strings.php:928
+msgid "Ready to create your first summary?"
+msgstr "¿Listo para crear tu primer resumen?"
+
+#: app/Strings.php:929
+msgid "Add a prompt and click Generate to create one."
+msgstr "Agrega un prompt y haz clic en Generar para crear uno."
+
+#: app/Strings.php:930
+msgid "Placeholder text"
+msgstr "Texto de marcador de posición"
+
+#: app/Strings.php:931
+msgid "What visitors see before typing"
+msgstr "Lo que los visitantes ven antes de escribir"
+
+#: app/Strings.php:932
+msgid "Button label"
+msgstr "Etiqueta del botón"
+
+#: app/Strings.php:933
+msgid "Text on your Ask AI button"
+msgstr "Texto en tu botón Preguntar a IA"
+
+#: app/Strings.php:935
+msgid "Turn on AI to create summaries of your table data."
+msgstr "Activa la IA para crear resúmenes de los datos de tu tabla."
+
+#: app/Strings.php:937
+msgid ""
+"Customize the text and colors of the summary button to match your site style."
+msgstr ""
+"Personaliza el texto y colores del botón de resumen para que coincida con el "
+"estilo de tu sitio."
+
+#: app/Strings.php:938
+msgid "Summary Button"
+msgstr "Botón de Resumen"
+
+#: app/Strings.php:939
+msgid "Reset prompt"
+msgstr "Restablecer prompt"
+
+#: app/Strings.php:941
+msgid "Tutorial"
+msgstr "Tutorial"
+
+#: app/Strings.php:942
+msgid "Summary Source"
+msgstr "Fuente del Resumen"
+
+#: app/Strings.php:943
+msgid ""
+"Visitors will see a button to summarize the table. When they click, AI will "
+"create the summary live using your prompt."
+msgstr ""
+"Los visitantes verán un botón para resumir la tabla. Cuando hagan clic, la "
+"IA creará el resumen en vivo usando tu prompt."
+
+#: app/Strings.php:944
+msgid "Generate on Click"
+msgstr "Generar al Hacer Clic"
+
+#: app/Strings.php:945
+msgid "Button text"
+msgstr "Texto del botón"
+
+#: app/Strings.php:946
+msgid "Upcomming"
+msgstr "Próximamente"
+
+#: app/Strings.php:947
+msgid "Allow visitors to ask their own questions about this table."
+msgstr "Permite a los visitantes hacer sus propias preguntas sobre esta tabla."
+
+#: app/Strings.php:948
+msgid "Enable Ask AI"
+msgstr "Activar Preguntar a IA"
+
+#: app/Strings.php:949
+msgid "AI is analyzing your table..."
+msgstr "La IA está analizando tu tabla..."
+
+#: app/Strings.php:951
+msgid "Save Summary"
+msgstr "Guardar Resumen"
+
+#: app/Strings.php:952 app/Strings.php:972
+msgid "Update Summary"
+msgstr "Actualizar Resumen"
+
+#: app/Strings.php:955
+msgid "Current Stored Summary"
+msgstr "Resumen Almacenado Actual"
+
+#: app/Strings.php:956
+msgid ""
+"This is exactly how the summary will appear on your frontend table. Click "
+"'Edit Summary' above to modify it."
+msgstr ""
+"Así es exactamente como aparecerá el resumen en tu tabla del frontend. Haz "
+"clic en \"Editar Resumen\" arriba para modificarlo."
+
+#: app/Strings.php:957 app/Strings.php:967
+msgid "Summary Content"
+msgstr "Contenido del Resumen"
+
+#: app/Strings.php:958
+msgid "Generated AI Table Summary will appear here..."
+msgstr "El Resumen de Tabla con IA generado aparecerá aquí..."
+
+#: app/Strings.php:960
+msgid ""
+"No summary has been generated yet. Click \"Generate Summary\" to create one."
+msgstr ""
+"Aún no se ha generado ningún resumen. Haz clic en \"Generar Resumen\" para "
+"crear uno."
+
+#: app/Strings.php:961
+msgid "Last updated"
+msgstr "Última actualización"
+
+#: app/Strings.php:962
+msgid "Keep it"
+msgstr "Mantenerlo"
+
+#: app/Strings.php:964
+msgid "Are you sure you want to delete this summary?"
+msgstr "¿Estás seguro de que quieres eliminar este resumen?"
+
+#: app/Strings.php:966
+msgid ""
+"Edit and modify the AI-generated summary content before saving it to the "
+"database."
+msgstr ""
+"Edita y modifica el contenido del resumen generado por IA antes de guardarlo "
+"en la base de datos."
+
+#: app/Strings.php:968
+msgid "Enter or edit the summary content here..."
+msgstr "Ingresa o edita el contenido del resumen aquí..."
+
+#: app/Strings.php:969
+msgid "Regenerate Summary"
+msgstr "Regenerar Resumen"
+
+#: app/Strings.php:970
+msgid "Regenerating..."
+msgstr "Regenerando..."
+
+#: app/Strings.php:971
+msgid "Generate a new AI Table Summary and replace the current content."
+msgstr ""
+"Genera un nuevo Resumen de Tabla con IA y reemplaza el contenido actual."
+
+#: app/Strings.php:974
+msgid "AI Configuration"
+msgstr "Configuración de IA"
+
+#: app/Strings.php:977
+msgid "AI provider not configured. Please add your API key in settings."
+msgstr ""
+"Proveedor de IA no configurado. Por favor agrega tu clave de API en la "
+"configuración."
+
+#: app/Strings.php:978
+msgid "Configure AI Settings"
+msgstr "Configurar Ajustes de IA"
+
+#: app/Strings.php:980
+msgid "Are you sure to delete the summary? "
+msgstr "¿Estás seguro de eliminar el resumen? "
+
+#: app/Strings.php:981
+msgid "You are about to delete the summary. This action cannot be undone."
+msgstr ""
+"Estás a punto de eliminar el resumen. Esta acción no se puede deshacer."
+
+#: app/Strings.php:983
+msgid "AI Summary Preview"
+msgstr "Vista Previa del Resumen de IA"
+
+#: app/Strings.php:984
+msgid "AI Summary Editor"
+msgstr "Editor de Resumen de IA"
+
+#: app/Strings.php:985
+msgid "• List"
+msgstr "• Lista"
+
+#: app/Strings.php:986
+msgid "1. List"
+msgstr "1. Lista"
+
+#: app/Strings.php:987
+msgid "Section Heading"
+msgstr "Encabezado de Sección"
+
+#: app/Strings.php:988
+msgid "Customize the main heading text for the Ask AI section"
+msgstr ""
+"Personaliza el texto del encabezado principal para la sección Preguntar a IA"
+
+#: app/Strings.php:989
+msgid "Ask AI Interface"
+msgstr "Interfaz de Preguntar a IA"
+
+#: app/Strings.php:990
+msgid "Enter your question and get AI-powered insights about the table data"
+msgstr ""
+"Ingresa tu pregunta y obtén información impulsada por IA sobre los datos de "
+"la tabla"
+
+#: app/Strings.php:991
+msgid "Summary Title"
+msgstr "Título del Resumen"
+
+#: app/Strings.php:992
+msgid "quick video"
+msgstr "video rápido"
+
+#: app/Strings.php:994
+msgid "OpenAI (GPT)"
+msgstr "OpenAI (GPT)"
+
+#: app/Strings.php:995
+msgid "Google Gemini"
+msgstr "Google Gemini"
+
+#: app/Strings.php:996
+msgid "API Key"
+msgstr "Clave de API"
+
+#: app/Strings.php:997
+msgid "Get API Key"
+msgstr "Obtener Clave de API"
+
+#: app/Strings.php:998
+msgid "Get your API key from your provider dashboard"
+msgstr "Obtén tu clave de API desde el panel de tu proveedor"
+
+#: app/Strings.php:999
+msgid "and paste it here. Your key is stored securely and never shared."
+msgstr ""
+"y pégala aquí. Tu clave se almacena de forma segura y nunca se comparte."
+
+#: app/Strings.php:1000
+msgid "ChatGPT"
+msgstr "ChatGPT"
+
+#: app/Strings.php:1001
+msgid "Google AI Studio"
+msgstr "Google AI Studio"
+
+#: app/Strings.php:1002
+msgid "Model Version"
+msgstr "Versión del Modelo"
+
+#: app/Strings.php:1007
+msgid "Update Filter"
+msgstr "Actualizar Filtro"
+
+#: app/Strings.php:1008
+msgid "Add Filter"
+msgstr "Agregar Filtro"
+
+#: app/Strings.php:1009
+msgid "Advanced column filtering with search, select, and multi-select options"
+msgstr ""
+"Filtrado avanzado de columnas con opciones de búsqueda, selección y "
+"selección múltiple"
+
+#: app/Strings.php:1012
+msgid "Basic Display"
+msgstr "Visualización Básica"
+
+#: app/Strings.php:1013
+msgid "Search Only Display"
+msgstr "Visualización Solo Búsqueda"
+
+#: app/Strings.php:1014
+msgid "Filter Wise Display"
+msgstr "Visualización por Filtros"
+
+#: app/Strings.php:1020
+msgid "Global Filter Settings"
+msgstr "Configuración de Filtros Globales"
+
+#: app/Strings.php:1021
+msgid "Enable Table Filters"
+msgstr "Activar Filtros de Tabla"
+
+#: app/Strings.php:1022
+msgid "Select Primary Filter Type"
+msgstr "Seleccionar Tipo de Filtro Principal"
+
+#: app/Strings.php:1023
+msgid "Text Search"
+msgstr "Búsqueda de Texto"
+
+#: app/Strings.php:1024
+msgid "Single Select"
+msgstr "Selección Simple"
+
+#: app/Strings.php:1025
+msgid "Multi Select"
+msgstr "Selección Múltiple"
+
+#: app/Strings.php:1026
+msgid "Mixed Filters (All Types)"
+msgstr "Filtros Mixtos (Todos los Tipos)"
+
+#: app/Strings.php:1029
+msgid "Filter Position"
+msgstr "Posición del Filtro"
+
+#: app/Strings.php:1030
+msgid "Header"
+msgstr "Encabezado"
+
+#: app/Strings.php:1031
+msgid "Footer"
+msgstr "Pie de página"
+
+#: app/Strings.php:1034
+msgid "Strict Mode"
+msgstr "Modo Estricto"
+
+#: app/Strings.php:1035
+msgid "Hide Filter UI"
+msgstr "Ocultar Interfaz de Filtro"
+
+#: app/Strings.php:1036
+msgid "Auto-Enable Filters for All Columns"
+msgstr "Auto-Activar Filtros para Todas las Columnas"
+
+#: app/Strings.php:1037
+msgid "Load Default Filter Values"
+msgstr "Cargar Valores de Filtro Predeterminados"
+
+#: app/Strings.php:1040
+msgid "Column-Specific Filter Configuration"
+msgstr "Configuración de Filtros Específicos por Columna"
+
+#: app/Strings.php:1041
+msgid "Auto-Enable Mode"
+msgstr "Modo Auto-Activar"
+
+#: app/Strings.php:1042
+msgid ""
+"All columns automatically have filters using the global settings above.  Add "
+"specific columns below to customize their individual settings, or disable "
+"'Auto-Enable Filters for All Columns' to only show filters for manually "
+"added columns."
+msgstr ""
+"Todas las columnas tienen filtros automáticamente usando la configuración "
+"global anterior. Agrega columnas específicas abajo para personalizar su "
+"configuración individual, o desactiva 'Auto-Activar Filtros para Todas las "
+"Columnas' para mostrar solo filtros para columnas agregadas manualmente."
+
+#: app/Strings.php:1043
+msgid "Manual Mode"
+msgstr "Modo Manual"
+
+#: app/Strings.php:1044
+msgid ""
+"Only columns added below will have filters. Enable 'Auto-Enable Filters for "
+"All Columns' above to automatically show filters for all columns."
+msgstr ""
+"Solo las columnas agregadas abajo tendrán filtros. Activa 'Auto-Activar "
+"Filtros para Todas las Columnas' arriba para mostrar automáticamente filtros "
+"para todas las columnas."
+
+#: app/Strings.php:1046
+msgid "Add Column Filter"
+msgstr "Agregar Filtro de Columna"
+
+#: app/Strings.php:1047
+msgid "Edit Column Filter"
+msgstr "Editar Filtro de Columna"
+
+#: app/Strings.php:1049
+msgid "Add columns here to override their global settings"
+msgstr "Agrega columnas aquí para anular su configuración global"
+
+#: app/Strings.php:1050
+msgid ""
+"No column filters configured. Click \"Add Column Filter\" to get started."
+msgstr ""
+"No hay filtros de columna configurados. Haz clic en \"Agregar Filtro de "
+"Columna\" para comenzar."
+
+#: app/Strings.php:1053
+msgid "Filter Type"
+msgstr "Tipo de Filtro"
+
+#: app/Strings.php:1054
+msgid "Target Column"
+msgstr "Columna Objetivo"
+
+#: app/Strings.php:1055
+msgid "Column"
+msgstr "Columna"
+
+#: app/Strings.php:1056
+msgid "Default Value"
+msgstr "Valor Predeterminado"
+
+#: app/Strings.php:1057
+msgid "Filter Active"
+msgstr "Filtro Activo"
+
+#: app/Strings.php:1058
+msgid ""
+"Whether this filter is applied to the table - if unchecked, filter is "
+"completely disabled"
+msgstr ""
+"Si este filtro se aplica a la tabla - si no está marcado, el filtro está "
+"completamente desactivado"
+
+#: app/Strings.php:1059
+msgid "User Can Modify"
+msgstr "Usuario Puede Modificar"
+
+#: app/Strings.php:1060
+msgid ""
+"Allow users to change filter values - if unchecked, filter becomes readonly"
+msgstr ""
+"Permite a los usuarios cambiar valores de filtro - si no está marcado, el "
+"filtro se vuelve solo lectura"
+
+#: app/Strings.php:1061 app/Strings.php:1088
+msgid "Hide This Filter UI"
+msgstr "Ocultar Esta Interfaz de Filtro"
+
+#: app/Strings.php:1062
+msgid "Hide this specific filter UI but keep it working in background"
+msgstr ""
+"Oculta esta interfaz de filtro específica pero mantén su funcionamiento en "
+"segundo plano"
+
+#: app/Strings.php:1064
+msgid "Strict Mode Override"
+msgstr "Anulación de Modo Estricto"
+
+#: app/Strings.php:1065
+msgid "Use Global Setting"
+msgstr "Usar Configuración Global"
+
+#: app/Strings.php:1066
+msgid "Enable for this filter"
+msgstr "Activar para este filtro"
+
+#: app/Strings.php:1067
+msgid "Disable for this filter"
+msgstr "Desactivar para este filtro"
+
+#: app/Strings.php:1068
+msgid ""
+"Global: Follow the \"Strict Mode\" setting above. Enable/Disable: Override "
+"for this specific filter."
+msgstr ""
+"Global: Sigue la configuración de \"Modo Estricto\" anterior. Activar/"
+"Desactivar: Anular para este filtro específico."
+
+#: app/Strings.php:1071
+msgid "User-specific Display Settings"
+msgstr "Configuración de Visualización Específica por Usuario"
+
+#: app/Strings.php:1072
+msgid "Enable User-specific Display"
+msgstr "Activar Visualización Específica por Usuario"
+
+#: app/Strings.php:1073
+msgid "Strict Mode (Exact Matching)"
+msgstr "Modo Estricto (Coincidencia Exacta)"
+
+#: app/Strings.php:1074
+msgid "Hide All User Filter UI"
+msgstr "Ocultar Toda Interfaz de Filtro de Usuario"
+
+#: app/Strings.php:1075
+msgid "User-Specific Filter Configuration"
+msgstr "Configuración de Filtro Específico por Usuario"
+
+#: app/Strings.php:1076
+msgid "User-Based Filtering:"
+msgstr "Filtrado Basado en Usuario:"
+
+#: app/Strings.php:1077
+msgid ""
+"Configure which columns should be filtered based on logged-in user data. "
+"Each filter will automatically use the user's information (email, username, "
+"roles, etc.) to show relevant rows."
+msgstr ""
+"Configura qué columnas deben filtrarse según los datos del usuario que ha "
+"iniciado sesión. Cada filtro usará automáticamente la información del "
+"usuario (correo electrónico, nombre de usuario, roles, etc.) para mostrar "
+"filas relevantes."
+
+#: app/Strings.php:1078
+msgid "Add User Filter"
+msgstr "Agregar Filtro de Usuario"
+
+#: app/Strings.php:1079
+msgid "Configure columns to filter based on user data"
+msgstr "Configura columnas para filtrar según datos de usuario"
+
+#: app/Strings.php:1080
+msgid "User Fields"
+msgstr "Campos de Usuario"
+
+#: app/Strings.php:1081
+msgid "Enabled"
+msgstr "Activado"
+
+#: app/Strings.php:1082
+msgid "User Can Change"
+msgstr "Usuario Puede Cambiar"
+
+#: app/Strings.php:1083
+msgid "No user filters configured. Click \"Add User Filter\" to get started."
+msgstr ""
+"No hay filtros de usuario configurados. Haz clic en \"Agregar Filtro de "
+"Usuario\" para comenzar."
+
+#: app/Strings.php:1084
+msgid "User Fields to Match (Multi-select)"
+msgstr "Campos de Usuario a Coincidir (Selección múltiple)"
+
+#: app/Strings.php:1085
+msgid ""
+"Hold Ctrl/Cmd to select multiple fields. The filter will match if ANY of the "
+"selected fields match."
+msgstr ""
+"Mantén presionado Ctrl/Cmd para seleccionar múltiples campos. El filtro "
+"coincidirá si CUALQUIERA de los campos seleccionados coincide."
+
+#: app/Strings.php:1086
+msgid ""
+"Whether this user-based filter is applied - if unchecked, filter is "
+"completely disabled"
+msgstr ""
+"Si este filtro basado en usuario se aplica - si no está marcado, el filtro "
+"está completamente desactivado"
+
+#: app/Strings.php:1087
+msgid "User Can Override"
+msgstr "Usuario Puede Anular"
+
+#: app/Strings.php:1091
+msgid "Get Help with Table Creation"
+msgstr "1. Creación de Pestaña"
+
+#: app/Strings.php:1092
+msgid ""
+"Create awesome tables from your Google Sheets. Just paste the link and see "
+"the magic"
+msgstr ""
+"Crea tablas increíbles desde tus Google Sheets. Solo pega el enlace y "
+"descubre la magia"
+
+#: app/Strings.php:1095
+msgid "Get started with table creation"
+msgstr "Comienza con grupos de pestañas"
+
+#: app/Strings.php:1096
+msgid "Quick Video Tutorial"
+msgstr "Tutorial en Video"
+
+#: app/Strings.php:1097
+msgid "Read Documentation"
+msgstr "Documentación"
+
+#: app/Strings.php:1098 app/templates/parts/pro_fix_notice.php:42
+msgid "Close"
+msgstr "Cerrar"
+
+#: app/Strings.php:1099
+msgid "Closing..."
+msgstr "Cargando..."
+
+#: app/Strings.php:1102
+msgid "🤖 AI Table Summary"
+msgstr "Activar Resumen de Tabla con IA"
+
+#: app/Strings.php:1103
+msgid "Turn your data into quick and smart summary"
+msgstr "Convierte tus datos en un resumen rápido e inteligente"
+
+#: app/Strings.php:1104
+msgid "💬 Ask AI"
+msgstr "💬 Preguntar a la IA"
+
+#: app/Strings.php:1105
+msgid "Lets visitors chat with your table data"
+msgstr "Permite a los visitantes chatear con los datos de tu tabla"
+
+#: app/Strings.php:1106
+msgid "Connect AI to Unlock Features"
+msgstr "Conecta la IA para desbloquear funciones"
+
+#: app/Strings.php:1107
+msgid ""
+"Set up your preferred provider (like Gemini or OpenAI) to use these AI tools."
+msgstr ""
+"Configura tu proveedor preferido (como Gemini o OpenAI) para usar estas "
+"herramientas de IA."
+
+#: app/Strings.php:1108
+msgid "Setup AI Provider"
+msgstr "Configurar proveedor de IA"
+
+#: app/Strings.php:1110
+msgid "💡 Not ready? No worries - you can enable AI anytime later."
+msgstr ""
+"💡 ¿No estás listo? No te preocupes, puedes activar la IA en cualquier otro "
+"momento."
+
+#: app/Strings.php:1113
+msgid "Table description holder. Enter your table description here."
+msgstr ""
+"Contenedor de descripción de tabla. Introduce aquí la descripción de tu "
+"tabla."
+
+#: app/Strings.php:1116
+msgid "Enter your table description"
+msgstr "Introduce la descripción de tu tabla"
+
+#: app/Strings.php:1117
+msgid "# # Insert custom CSS code here to modify looks and feel"
+msgstr ""
+"# # Inserta código CSS personalizado aquí para modificar el diseño y la "
+"apariencia"
+
+#: app/Strings.php:1120
+msgid "Get started with your first table"
+msgstr "Comienza con tu primera tabla"
+
+#: app/Strings.php:1121
+msgid "Let's create your first table from Google Sheets – it's as easy as pie!"
+msgstr "Vamos a crear tu primera tabla desde Google Sheets. ¡Es pan comido!"
+
+#: app/Strings.php:1122
+msgid "Watch a quick tutorial"
+msgstr "Ver un tutorial rápido"
+
+#: app/Strings.php:1124
+msgid "Explore helpful resources"
+msgstr "Explorar recursos útiles"
+
+#: app/Strings.php:1125
+msgid "🎁 Get the pro version and unlock endless possibilities"
+msgstr "🎁 Consigue la versión Pro y desbloquea infinitas posibilidades"
+
+#: app/Strings.php:1129
+msgid ""
+"Find comprehensive guides and step-by-step instructions to get the most out "
+"of FlexTable"
+msgstr ""
+"Encuentra guías completas e instrucciones paso a paso para aprovechar al "
+"máximo FlexTable"
+
+#: app/Strings.php:1130
+msgid "Open Docs"
+msgstr "Abrir documentación"
+
+#: app/Strings.php:1132
+msgid "Video Tutorials"
+msgstr "Tutoriales en vídeo"
+
+#: app/Strings.php:1133
+msgid ""
+"Watch detailed video tutorials to learn FlexTable features and best practices"
+msgstr ""
+"Mira tutoriales en vídeo detallados para aprender las funciones y mejores "
+"prácticas de FlexTable"
+
+#: app/Strings.php:1134
+msgid "Watch Videos"
+msgstr "Ver vídeos"
+
+#: app/Strings.php:1136
+msgid "Get Support"
+msgstr "Obtener soporte"
+
+#: app/Strings.php:1137
+msgid ""
+"Need help? Our support team is ready to assist you with any questions or "
+"issues"
+msgstr ""
+"¿Necesitas ayuda? Nuestro equipo de soporte está listo para ayudarte con "
+"cualquier duda o problema"
+
+#: app/Strings.php:1138
+msgid "Contact Support"
+msgstr "Contactar con soporte"
+
+#: app/Strings.php:1140
+msgid "Community Forum"
+msgstr "Foro de la comunidad"
+
+#: app/Strings.php:1141
+msgid ""
+"Join our community to share ideas, get tips, and connect with other "
+"FlexTable users"
+msgstr ""
+"Únete a nuestra comunidad para compartir ideas, obtener consejos y conectar "
+"con otros usuarios de FlexTable"
+
+#: app/Strings.php:1142
+msgid "Join Forum"
+msgstr "Unirse al foro"
+
+#: app/templates/create_tables.php:45 app/templates/edit_table.php:47
+msgid "Create New"
+msgstr "Crear Nuevo"
+
+#: app/templates/create_tables.php:51 app/templates/edit_table.php:53
+msgid "Save Table"
+msgstr "Guardar Tabla"
+
+#: app/templates/create_tables.php:51 app/templates/edit_table.php:53
+msgid "Fetch Data"
+msgstr "Obtener Datos"
+
+#: app/templates/create_tables.php:79 app/templates/edit_table.php:80
+msgid "Data Source"
+msgstr "Fuente de Datos"
+
+#: app/templates/create_tables.php:130 app/templates/edit_table.php:129
+msgid "Choose Source Type"
+msgstr "Elegir Tipo de Fuente"
+
+#: app/templates/create_tables.php:134 app/templates/edit_table.php:133
+msgid "Google Spreadsheet"
+msgstr "Hoja de Cálculo de Google"
+
+#: app/templates/documentation_page.php:31
+msgid "View Demo"
+msgstr "Ver Demo"
+
+#: app/templates/documentation_page.php:41
+msgid "Welcome to"
+msgstr "Bienvenido a"
+
+#: app/templates/documentation_page.php:57
+msgid "Need more help ?"
+msgstr "¿Necesitas más ayuda?"
+
+#: app/templates/documentation_page.php:58
+msgid ""
+"We provide professional support to all our users via our ticketing system."
+msgstr ""
+"Proporcionamos soporte profesional a todos nuestros usuarios a través de "
+"nuestro sistema de tickets."
+
+#: app/templates/documentation_page.php:59
+msgid "Get Help"
+msgstr "Obtener Ayuda"
+
+#: app/templates/documentation_page.php:73
+msgid "Get Pro ✨"
+msgstr "Obtener Pro ✨"
+
+#: app/templates/documentation_page.php:86
+msgid ""
+"Responsive table. The plugin allows collapsing on mobile and tablet screens"
+msgstr ""
+"Tabla responsiva. El plugin permite contraerse en pantallas móviles y "
+"tabletas"
+
+#: app/templates/documentation_page.php:94
+msgid ""
+"Data Caching feature cache the sheet data & therefore the table will load "
+"faster."
+msgstr ""
+"La función de Almacenamiento en Caché almacena los datos de la hoja y por lo "
+"tanto la tabla cargará más rápido."
+
+#: app/templates/documentation_page.php:102
+msgid ""
+"Link Support to import links from sheet. All the URL's will be shown as link "
+"in table."
+msgstr ""
+"Soporte de Enlaces para importar enlaces desde la hoja. Todas las URL se "
+"mostrarán como enlaces en la tabla."
+
+#: app/templates/documentation_page.php:110
+msgid ""
+"Table Styles. Pre-built amazing table styles. Each styles is different from "
+"one another."
+msgstr ""
+"Estilos de Tabla. Estilos de tabla increíbles prediseñados. Cada estilo es "
+"diferente de otro."
+
+#: app/templates/documentation_page.php:118
+msgid ""
+"Hide your google sheet table column on desktop screen OR mobile screens."
+msgstr ""
+"Oculta las columnas de tu tabla de Google Sheet en pantalla de escritorio O "
+"pantallas móviles."
+
+#: app/templates/documentation_page.php:126
+msgid ""
+"Hide Row. Hide your google sheet table rows based on your custom row "
+"selection."
+msgstr ""
+"Ocultar Fila. Oculta las filas de tu tabla de Google Sheet según tu "
+"selección de fila personalizada."
+
+#: app/templates/documentation_page.php:134
+msgid "Unlimited Row Sync. Fetch unlimited rows from Google spreadsheet"
+msgstr ""
+"Sincronización Ilimitada de Filas. Obtén filas ilimitadas desde la hoja de "
+"cálculo de Google"
+
+#: app/templates/documentation_page.php:142
+msgid "And much more."
+msgstr "Y mucho más."
+
+#: app/templates/documentation_page.php:143
+msgid "All Pro features"
+msgstr "Todas las características Pro"
+
+#: app/templates/documentation_page.php:150
+msgid "Buy Now"
+msgstr "Comprar Ahora"
+
+#: app/templates/documentation_page.php:180
+msgid "Support Center"
+msgstr "Centro de Soporte"
+
+#: app/templates/general_settings.php:47
+msgid "General Settings"
+msgstr "Configuración General"
+
+#: app/templates/general_settings.php:52
+msgid "Save Changes"
+msgstr "Guardar Cambios"
+
+#: app/templates/manage_tables.php:43
+msgid "Delete Selected"
+msgstr "Eliminar Seleccionados"
+
+#: app/templates/manage_tables.php:49
+msgid "Clear Selection"
+msgstr "Limpiar Selección"
+
+#: app/templates/manage_tables.php:72
+msgid "Create Table"
+msgstr "Crear Tabla"
+
+#: app/templates/manage_tables.php:79
+msgid "Delete Your Table"
+msgstr "Eliminar Tu Tabla"
+
+#: app/templates/manage_tables.php:86
+msgid "Yes"
+msgstr "Sí"
+
+#: app/templates/manage_tables.php:89
+msgid "No"
+msgstr "No"
+
+#: app/templates/parts/affiliate_notice.php:23
+msgid "Hey! Enjoying the FlexTable plugin? 😍 Join our "
+msgstr "¡Hola! ¿Disfrutando el plugin FlexTable? 😍 Únete a nuestro "
+
+#: app/templates/parts/affiliate_notice.php:24
+msgid "Influencer Program "
+msgstr "Programa de Influencers "
+
+#: app/templates/parts/affiliate_notice.php:25
+msgid "to make money from your social media content. You can also check our"
+msgstr ""
+"para ganar dinero con tu contenido de redes sociales. También puedes ver "
+"nuestro"
+
+#: app/templates/parts/affiliate_notice.php:26
+msgid "Affiliate Program "
+msgstr "Programa de Afiliados "
+
+#: app/templates/parts/affiliate_notice.php:27
+msgid "to get a "
+msgstr "para obtener una "
+
+#: app/templates/parts/affiliate_notice.php:28
+msgid "25% commission "
+msgstr "comisión del 25% "
+
+#: app/templates/parts/affiliate_notice.php:29
+msgid "on every sale!"
+msgstr "¡en cada venta!"
+
+#: app/templates/parts/affiliate_notice.php:33
+msgid "Affiliate Program"
+msgstr "Programa de Afiliados"
+
+#: app/templates/parts/affiliate_notice.php:34
+msgid "Influencer Program"
+msgstr "Programa de Influencers"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "Advance sheets design and many more premium features are available in "
+msgstr ""
+"Diseño avanzado de hojas y muchas más características premium están "
+"disponibles en "
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "FlexTable Pro"
+msgstr "FlexTable Pro"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "plugin 😍"
+msgstr "plugin 😍"
+
+#: app/templates/parts/plugin_upgrade_notice.php:25
+msgid "Upgrade Now"
+msgstr "Actualizar Ahora"
+
+#: app/templates/parts/popup_modals.php:17
+msgid "Choose Table Style"
+msgstr "Elegir Estilo de Tabla"
+
+#: app/templates/parts/popup_modals.php:29
+#: app/templates/parts/popup_modals.php:77
+msgid "Select"
+msgstr "Seleccionar"
+
+#: app/templates/parts/popup_modals.php:41
+msgid "Choose Column To Hide"
+msgstr "Elegir Columna a Ocultar"
+
+#: app/templates/parts/popup_modals.php:47
+msgid "Hide columns in desktop:"
+msgstr "Ocultar columnas en escritorio:"
+
+#: app/templates/parts/popup_modals.php:51
+#: app/templates/parts/popup_modals.php:64
+msgid "Choose Column"
+msgstr "Elegir Columna"
+
+#: app/templates/parts/popup_modals.php:60
+msgid "Hide columns in mobile:"
+msgstr "Ocultar columnas en móvil:"
+
+#: app/templates/parts/popup_modals.php:89
+msgid "Activate Row Hiding Feature"
+msgstr "Activar Función de Ocultar Filas"
+
+#: app/templates/parts/popup_modals.php:94
+msgid "Hidden Rows:"
+msgstr "Filas Ocultas:"
+
+#: app/templates/parts/popup_modals.php:98
+msgid "Hidden Rows"
+msgstr "Filas Ocultas"
+
+#: app/templates/parts/popup_modals.php:128
+msgid "Activate Cell Hiding Feature"
+msgstr "Activar Función de Ocultar Celdas"
+
+#: app/templates/parts/popup_modals.php:133
+msgid "Hidden Cell:"
+msgstr "Celda Oculta:"
+
+#: app/templates/parts/popup_modals.php:137
+msgid "Hidden Cells"
+msgstr "Celdas Ocultas"
+
+#: app/templates/parts/pro_fix_notice.php:17
+msgid "Let's Get Your FlexTable Pro Plugin Updated!"
+msgstr "¡Actualicemos Tu Plugin FlexTable Pro!"
+
+#: app/templates/parts/pro_fix_notice.php:20
+msgid ""
+"We've noticed a small issue with the pro plugin update process. Just click "
+"Fix Now button to automatically solve the issue, and everything will be back "
+"to normal"
+msgstr ""
+"Hemos notado un pequeño problema con el proceso de actualización del plugin "
+"pro. Solo haz clic en el botón \"Reparar Ahora\" para resolver "
+"automáticamente el problema, y todo volverá a la normalidad"
+
+#: app/templates/parts/pro_fix_notice.php:22
+#: app/templates/parts/pro_fix_notice.php:312
+msgid "Learn more about what we fixed"
+msgstr "Aprende más sobre lo que reparamos"
+
+#: app/templates/parts/pro_fix_notice.php:31
+#, php-format
+msgid ""
+"This fix resolves a temporary issue on FlexTable Pro plugin that's "
+"preventing getting automatic updates. By clicking \"Fix Now\", the update "
+"process will be restored, enabling future auto updates. You can also "
+"download the latest version anytime from %s"
+msgstr ""
+"Esta reparación resuelve un problema temporal en el plugin FlexTable Pro que "
+"está impidiendo obtener actualizaciones automáticas. Al hacer clic en "
+"\"Reparar Ahora\", el proceso de actualización se restaurará, habilitando "
+"futuras actualizaciones automáticas. También puedes descargar la última "
+"versión en cualquier momento desde %s"
+
+#: app/templates/parts/pro_fix_notice.php:32
+#: app/templates/parts/pro_fix_notice.php:59
+msgid "portal.wppool.dev"
+msgstr "portal.wppool.dev"
+
+#: app/templates/parts/pro_fix_notice.php:39
+msgid "Fix Now"
+msgstr "Reparar Ahora"
+
+#: app/templates/parts/pro_fix_notice.php:53
+msgid "Close without fixing the update?"
+msgstr "¿Cerrar sin reparar la actualización?"
+
+#: app/templates/parts/pro_fix_notice.php:58
+#, php-format
+msgid ""
+"You can update the pro plugin anytime manually by downloading the latest "
+"version from your portal at %s"
+msgstr ""
+"Puedes actualizar el plugin pro manualmente en cualquier momento descargando "
+"la última versión desde tu portal en %s"
+
+#: app/templates/parts/pro_fix_notice.php:70
+msgid "Yes, Close at My Risk!"
+msgstr "¡Sí, Cerrar Bajo Mi Riesgo!"
+
+#: app/templates/parts/pro_fix_notice.php:315
+msgid "Show less"
+msgstr "Mostrar menos"
+
+#: app/templates/parts/pro_fix_notice.php:331
+msgid "Applying Fix..."
+msgstr "Aplicando Reparación..."
+
+#: app/templates/parts/pro_fix_notice.php:343
+msgid "Fixed!"
+msgstr "¡Reparado!"
+
+#: app/templates/parts/pro_fix_notice.php:348
+#: app/templates/parts/pro_fix_notice.php:353
+msgid "Auto Fix"
+msgstr "Reparación Automática"
+
+#: app/templates/parts/pro_fix_notice.php:349
+msgid "Failed to apply fix. Please try again."
+msgstr "No se pudo aplicar la reparación. Por favor intenta de nuevo."
+
+#: app/templates/parts/pro_fix_notice.php:354
+#: app/templates/parts/pro_fix_notice.php:388
+#: app/templates/parts/pro_fix_notice.php:393
+msgid "An error occurred. Please try again."
+msgstr "Ocurrió un error. Por favor intenta de nuevo."
+
+#: app/templates/parts/pro_fix_notice.php:372
+msgid "Processing..."
+msgstr "Procesando..."
+
+#: app/templates/parts/review_notice.php:21
+msgid "Seems like "
+msgstr "Parece que "
+
+#: app/templates/parts/review_notice.php:21
+msgid " is bringing you value 🥳"
+msgstr " te está aportando valor 🥳"
+
+#: app/templates/parts/review_notice.php:23
+msgid ""
+"Hi there! You've been using FlexTable for a while. Would you consider "
+"leaving us a 😍 5-star review? Your feedback will help us to develop better "
+"features and spread the word."
+msgstr ""
+"¡Hola! Has estado usando FlexTable por un tiempo. ¿Considerarías dejarnos "
+"una reseña de 😍 5 estrellas? Tus comentarios nos ayudarán a desarrollar "
+"mejores características y difundir la palabra."
+
+#: app/templates/parts/review_notice.php:34
+msgid "I already did it"
+msgstr "Ya lo hice"
+
+#: app/templates/parts/review_notice.php:45
+msgid "Would you like to be remind in the future?"
+msgstr "¿Te gustaría que te lo recordemos en el futuro?"
+
+#: app/templates/parts/review_notice.php:48
+msgid "Remind Me After:"
+msgstr "Recordármelo Después de:"
+
+#: app/templates/parts/review_notice.php:50
+#: app/templates/parts/review_notice.php:53
+msgid "7 Days"
+msgstr "7 Días"
+
+#: app/templates/parts/review_notice.php:54
+msgid "14 Days"
+msgstr "14 Días"
+
+#: app/templates/parts/review_notice.php:55
+msgid "Remind me never"
+msgstr "No recordar nunca"
+
+#: app/templates/parts/review_notice.php:60
+msgid "Ok"
+msgstr "Ok"
+
+#: sheets-to-wp-table-live-sync.php:32
+msgid "FlexTable - Pro Plugin"
+msgstr "FlexTable - Plugin Pro"
+
+#: sheets-to-wp-table-live-sync.php:33
+msgid ""
+"cannot be activated - requires at least 3.0.0. Plugin automatically "
+"deactivated."
+msgstr ""
+"no se puede activar - requiere al menos 3.0.0. Plugin automáticamente "
+"desactivado."
+
+#~ msgid "A search field"
+#~ msgstr "Un campo de búsqueda"
+
+#~ msgid "Get PRO -sheets-to-wp-table-live-sync"
+#~ msgstr "Obtener PRO -sheets-to-wp-table-live-sync"
+
+#~ msgid "Get Pro "
+#~ msgstr "Obtener Pro "
