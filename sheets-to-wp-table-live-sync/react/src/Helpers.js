@@ -132,33 +132,24 @@ export function getDefaultSettings() {
 		backend_ai_summary: '',
 		backend_summary_exists: false,
 		show_regenerate_button: false,
-		
-		// Legacy/Deprecated (keeping for backward compatibility)
-		enable_backend_ai_trigger: false,
-		edit_summary_content: false,
-		show_summary_in_table: false,
-
 
 		// Column Filtering Settings
 		column_filtering: {
-			enable_column_search: false,
-			enable_column_select: false,
-			enable_column_multi_select: false,
-			search_position: 'footer',
-			strict_mode: false,
+			enable_column_filtering: false,
+			 filter_title: "Filter",
+			filter_display_mode: 'form', // 'inline' | 'horizontal' | 'form'
+			filter_location: 'left_sidebar', // 'above_table' | 'below_table' | 'left_sidebar' | 'right_sidebar'
 			hide_entire_filter_ui: false,
-			load_default_filters: false,
-			enable_all_column_active: false,
-			default_filter_values: []
+			column_filters: [] // Auto-generated for all columns when enabled
 		},
 
 		// User Authentication Filtering Settings
-		user_auth_filtering: {
+		/* user_auth_filtering: {
 			enable_auth_auto_select: false,
 			strict_mode: false,
 			hide_entire_filter_ui: false,
 			auth_filters: []
-		},
+		}, */
 
 		import_styles_theme_colors: {
 			'default-style': {

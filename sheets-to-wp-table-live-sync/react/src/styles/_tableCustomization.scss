@@ -29,6 +29,7 @@
                     background: transparent;
                     border-left: 4px solid transparent;
                     transition: all 0.3s ease;
+                    // display: flex;
 
                     &.active,
                     &:hover {
@@ -573,11 +574,11 @@
                     .edit-form-group {
                         h4 {
                             font-style: normal;
-                            font-weight: 400;
-                            font-size: 16px;
+                            font-weight: 600;
+                            font-size: 14px;
                             line-height: 16px;
-                            color: #666873;
-                            margin: 20px 0 15px 0;
+                            color: #000000;
+                            margin: 10px 0 0px 0;
                             display: flex;
                             align-items: center;
 
@@ -734,18 +735,6 @@
                         }
                     }
 
-                    button.btn-pro.btn-new {
-                        color: white;
-                        background: #008717;
-                        font-weight: bold;
-                        border-radius: 11px;
-                        height: 17px;
-                        font-size: 9px;
-                        display: flex;
-                        text-align: center;
-                        align-items: center;
-                        margin-top: 0;
-                    }
                 }
 
                 .table-customization-layout {
@@ -1238,6 +1227,65 @@
             }
         }
     }
+}
+
+// Filter Feature 
+.edit-form-group.filter-global-settings {
+    label {
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+
+    .filter-settings-item {
+        border-radius: 6px;
+        width: 100%;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+
+
+    }
+
+    input[type=text] {
+        height: 50px;
+        width: 100%;
+        font-weight: 400;
+        font-size: 14px;
+        box-shadow: none;
+        line-height: 19px;
+        color: #1E1E1E;
+        border-radius: 6px;
+        background: #ffffff;
+        border: 1px solid #DEE0E7;
+        padding: 15px 20px 16px 20px;
+    }
+
+    .tags-filter {
+        display: flex;
+        margin-top: -18px;
+
+        .btn-pro.btn-new {
+            outline: 0;
+            gap: 3px;
+            color: #1C6CDB;
+            background-color: #EFF2F7;
+            box-shadow: none;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 14px;
+            padding: 2px 7px 2px 7px;
+            border: 0.5px solid rgba(43, 184, 133, 0.05);
+            box-shadow: none !important;
+            transition: background-color 0.2s, color 0.2s;
+            margin-left: 5px;
+        }
+    }
+
+
 }
 
 .edit-display-settings-wrap {

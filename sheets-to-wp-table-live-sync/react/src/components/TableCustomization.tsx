@@ -22,8 +22,10 @@ const TableCustomization = ({
 	setTableSettings,
 	secondActiveTabs,
 	updateSecondActiveTab,
+	handleTableSettingsSave,
 }) => {
 	const [importModal, setImportModal] = useState<boolean>(false);
+	const [isSaving, setIsSaving] = useState<boolean>(false);
 	const [frequentCacheModal, setFrequentCacheModal] = useState<boolean>(false);
 	const [pendingFrequentCacheValue, setPendingFrequentCacheValue] = useState<boolean>(false);
 	const confirmImportRef = useRef();
@@ -68,6 +70,16 @@ const TableCustomization = ({
 				table_export: [...newExports],
 			},
 		});
+	};
+
+	const handleSaveWithLoader = async (e) => {
+		setIsSaving(true);
+		try {
+			await handleTableSettingsSave(e);
+		} finally {
+			// minimum visual feedback even if save is synchronous
+			setTimeout(() => setIsSaving(false), 800);
+		}
 	};
 
 	//This used when we change the tab alert gone but we need to show this always
@@ -218,9 +230,6 @@ const TableCustomization = ({
 		});
 	};
 
-
-
-
 	const handleSortOrderChange = (e) => {
 		setSortOrder(e.target.value);
 
@@ -343,6 +352,610 @@ const TableCustomization = ({
 		}
 	}, [setTableSettings]);
 
+	// ====================Filter rendering logic =============================//
+
+	/**
+	 * Detect whether column-filter-settings-icon elements are visible in the table preview.
+	 * Runs when: filter tab is active, enable_column_filtering changes, or table preview updates.
+	 */
+	useEffect(() => {
+		if (secondActiveTab !== 'filter') return;
+
+		const checkIconVisibility = () => {
+			const icons = document.querySelectorAll('.column-filter-settings-icon');
+			// An icon is "visible" if it exists and its display is not 'none'
+			const anyVisible = Array.from(icons).some(
+				(icon) => (icon as HTMLElement).style.display !== 'none' && (icon as HTMLElement).offsetParent !== null
+			);
+			setFilterIconsVisible(anyVisible);
+		};
+
+		// Check immediately
+		checkIconVisibility();
+
+		// Also watch for DOM changes in the table preview (icons injected/toggled after render)
+		const wrapper = document.querySelector('.table-preview.wrapper') || document.getElementById('table-preview');
+		if (!wrapper) return;
+
+		const observer = new MutationObserver(() => checkIconVisibility());
+		observer.observe(wrapper, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
+
+		return () => observer.disconnect();
+	}, [
+		secondActiveTab,
+		tableSettings?.table_settings?.column_filtering?.enable_column_filtering,
+	]);
+
+	const getColumnName = (columnIndex) => {
+		const header = tableHeaders.find(h => h.value === columnIndex);
+		return header ? header.label : `Column ${columnIndex}`;
+	};
+
+	// Slide-in modal state for per-column filter configuration
+	const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+	const [selectedColumnIndex, setSelectedColumnIndex] = useState(null);
+	const [showDefaultValueError, setShowDefaultValueError] = useState(false);
+	const [filterIconsVisible, setFilterIconsVisible] = useState(false);
+	const [columnFilterConfig, setColumnFilterConfig] = useState({
+		type: 'select',
+		enabled: true,
+		change_not_allowed: false,
+		hide_filter: false,
+		value: '',
+		strict_mode: false,
+		load_default: false
+	});
+
+	// Load filter config when modal opens or column selection changes
+	useEffect(() => {
+		if (isFilterModalOpen && selectedColumnIndex !== null) {
+			setShowDefaultValueError(false);
+			const currentFilters = tableSettings?.table_settings?.column_filtering?.column_filters || [];
+			const existingConfig = currentFilters.find(f => f.columnIndex === selectedColumnIndex);
+
+			if (existingConfig) {
+				// Load existing configuration
+				const loadedConfig = {
+					type: existingConfig.type || 'text',
+					enabled: existingConfig.enabled !== false,
+					change_not_allowed: existingConfig.change_not_allowed !== false,
+					hide_filter: existingConfig.hide_filter === true,
+					value: existingConfig.value || '',
+					strict_mode: existingConfig.strict_mode === true,
+					load_default: existingConfig.load_default === true
+				};
+				setColumnFilterConfig(loadedConfig);
+			} else {
+				// Default config for new column
+				const defaultConfig = {
+					type: 'text',
+					enabled: true,
+					change_not_allowed: false,
+					hide_filter: false,
+					value: '',
+					strict_mode: false,
+					load_default: false
+				};
+				setColumnFilterConfig(defaultConfig);
+			}
+		}
+	}, [isFilterModalOpen, selectedColumnIndex, tableSettings?.table_settings?.column_filtering?.column_filters]);
+
+	useEffect(() => {
+		const checkTableContainer = () => {
+			const tableContainer = document.getElementById('table-preview');
+			if (!tableContainer) {
+				return false;
+			}
+			return true;
+		};
+
+		// Check for the table and try to extract headers
+		const intervalId = setInterval(() => {
+			if (checkTableContainer()) {
+				const tableHead = document.querySelector(
+					'#create_tables thead'
+				);
+				if (tableHead) {
+					const headers = Array.from(
+						tableHead.querySelectorAll('th')
+					).map((th, index) => ({
+						label: th.textContent.trim(),
+						value: index,
+					}));
+					setTableHeaders(headers);
+					clearInterval(intervalId); // Stop checking once headers are found
+				}
+			}
+		}, 500); // Check every 500ms
+
+		return () => clearInterval(intervalId);
+	}, []); // Empty dependency array ensures this runs once when the component mounts
+
+	/**
+	 * Auto-generate column_filters for all columns with default values
+	 */
+	const generateDefaultColumnFilters = () => {
+		const tableHeadersElements = document.querySelectorAll('#table-preview thead th');
+		const columnCount = tableHeadersElements.length;
+
+		if (columnCount === 0) return [];
+
+		const defaultFilters = [];
+		for (let i = 0; i < columnCount; i++) {
+			defaultFilters.push({
+				columnIndex: i,
+				type: 'text',
+				enabled: true,
+				change_not_allowed: false,
+				hide_filter: false,
+				value: '',
+				strict_mode: false,
+				load_default: false
+			});
+		}
+
+		// console.log('SWPTLS: Generated default filters:', defaultFilters);
+		return defaultFilters;
+	};
+
+	/**
+	 * Initialize column_filters when enabling filtering
+	 * This effect ensures ALL columns have filters, merging with existing ones
+	 */
+	useEffect(() => {
+		const isFilteringEnabled = tableSettings?.table_settings?.column_filtering?.enable_column_filtering;
+		const currentFilters = tableSettings?.table_settings?.column_filtering?.column_filters || [];
+
+
+		if (isFilteringEnabled) {
+			// Wait for table to be ready
+			const checkAndGenerate = () => {
+				const tableHeadersElements = document.querySelectorAll('#table-preview thead th');
+				const columnCount = tableHeadersElements.length;
+
+				// Only proceed if we have columns
+				if (columnCount > 0) {
+					// Check if we need to add missing columns
+					const needsGeneration = currentFilters.length < columnCount;
+
+					if (needsGeneration) {
+						// Generate default filters for ALL columns
+						const allDefaultFilters = generateDefaultColumnFilters();
+
+						// Merge: Keep existing filters, add defaults for missing columns
+						const mergedFilters = allDefaultFilters.map(defaultFilter => {
+							const existingFilter = currentFilters.find(f => f.columnIndex === defaultFilter.columnIndex);
+							return existingFilter ? existingFilter : defaultFilter;
+						});
+
+						// Update tableSettings with merged filters
+						setTableSettings({
+							...tableSettings,
+							table_settings: {
+								...tableSettings.table_settings,
+								column_filtering: {
+									...tableSettings.table_settings?.column_filtering,
+									column_filters: mergedFilters
+								}
+							}
+						});
+					}
+					/* else {
+						console.log('SWPTLS: All columns already have filters, skipping generation');
+					} */
+				}
+			};
+
+			// Try immediately
+			checkAndGenerate();
+			// Also try after delay in case table isn't ready yet
+			const timeoutId = setTimeout(checkAndGenerate, 500);
+			return () => clearTimeout(timeoutId);
+		}
+	}, [tableSettings?.table_settings?.column_filtering?.enable_column_filtering, tableHeaders.length]);
+
+	/**
+	 * Add click handlers to settings icons using event delegation
+	 * Icons are injected from backend HTML
+	 * Event handlers must check current state, not closure values
+	 */
+	useEffect(() => {
+
+		let isCleanedUp = false;
+		let observer = null;
+		let visibilityInterval = null;
+		let iconsFound = false;
+
+		// Update icon visibility - reads current state from DOM/props
+		const updateIconVisibility = () => {
+			if (isCleanedUp) return 0;
+
+			// Read current state at execution time, not from closure
+			const currentFilteringEnabled = tableSettings?.table_settings?.column_filtering?.enable_column_filtering;
+			const currentTab = localStorage.getItem('second_active_tab') || 'layout';
+			const shouldShow = currentFilteringEnabled && currentTab === 'filter';
+
+			const existingIcons = document.querySelectorAll('.column-filter-settings-icon');
+			const iconCount = existingIcons.length;
+
+			// Only log if icon count changed
+			if (iconCount > 0 && !iconsFound) {
+				// Stop the periodic interval once icons are found
+				if (visibilityInterval) {
+					clearInterval(visibilityInterval);
+					visibilityInterval = null;
+				}
+			}
+
+			existingIcons.forEach((icon) => {
+				icon.style.display = shouldShow ? 'inline-flex' : 'none';
+			});
+
+			return iconCount;
+		};
+
+		// Event handlers - CRITICAL: Check current state, not closure values
+		const handleIconClick = (e) => {
+			const icon = e.target.closest('.column-filter-settings-icon');
+			if (!icon) return;
+
+			// Read current state at click time, not from closure
+			const currentFilteringEnabled = tableSettings?.table_settings?.column_filtering?.enable_column_filtering;
+			const currentTab = localStorage.getItem('second_active_tab') || 'layout';
+
+			// Only handle if filtering is enabled and we're on filter tab
+			if (!currentFilteringEnabled || currentTab !== 'filter') {
+				return;
+			}
+
+			e.stopPropagation();
+			const columnIndex = parseInt(icon.getAttribute('data-column-index') || '0');
+			openColumnFilterModal(columnIndex);
+		};
+
+		const handleIconHover = (e) => {
+			const icon = e.target.closest('.column-filter-settings-icon');
+			if (!icon) return;
+
+			if (e.type === 'mouseover') {
+				icon.style.color = '#007bff';
+			} else {
+				icon.style.color = '#666';
+			}
+		};
+
+		// Setup function that attaches event delegation
+		const setupEventDelegation = () => {
+			if (isCleanedUp) return false;
+
+			// Attach to document body - survives table re-renders
+			document.body.addEventListener('click', handleIconClick, true);
+			document.body.addEventListener('mouseover', handleIconHover);
+			document.body.addEventListener('mouseout', handleIconHover);
+			// console.log('SWPTLS: ✅ Event delegation attached');
+
+			// Setup MutationObserver to watch for table changes
+			const wrapper = document.querySelector('.table-preview.wrapper');
+			if (wrapper) {
+				observer = new MutationObserver((mutations) => {
+					if (isCleanedUp) return;
+
+					const hasTableChanges = mutations.some(mutation => mutation.type === 'childList');
+
+					if (hasTableChanges) {
+						// console.log('SWPTLS: Table changed, updating icons');
+						setTimeout(updateIconVisibility, 100);
+					}
+				});
+
+				observer.observe(wrapper, {
+					childList: true,
+					subtree: true
+				});
+			}
+
+			return true;
+		};
+
+		// Initial setup
+		const initialIconCount = updateIconVisibility();
+		setupEventDelegation();
+
+		// console.log('SWPTLS: Initial setup complete - Icons:', initialIconCount);
+
+		// Only run periodic checks if icons not found yet
+		if (initialIconCount === 0) {
+			visibilityInterval = setInterval(() => {
+				if (isCleanedUp || iconsFound) {
+					if (visibilityInterval) {
+						clearInterval(visibilityInterval);
+						visibilityInterval = null;
+					}
+					return;
+				}
+				updateIconVisibility();
+			}, 1000);
+		}
+
+		// Cleanup
+		return () => {
+			isCleanedUp = true;
+
+			if (visibilityInterval) clearInterval(visibilityInterval);
+			if (observer) observer.disconnect();
+
+			document.body.removeEventListener('click', handleIconClick, true);
+			document.body.removeEventListener('mouseover', handleIconHover);
+			document.body.removeEventListener('mouseout', handleIconHover);
+		};
+	}, [
+		tableSettings?.table_settings?.column_filtering?.enable_column_filtering,
+		secondActiveTab
+	]);
+
+	/**
+	 * Open column filter configuration modal
+	 */
+	const openColumnFilterModal = (columnIndex) => {
+		setSelectedColumnIndex(columnIndex);
+		setIsFilterModalOpen(true);
+	};
+
+	/**
+	 * Save column filter configuration
+	 */
+	const saveColumnFilter = () => {
+		const currentFilters = tableSettings?.table_settings?.column_filtering?.column_filters || [];
+
+		// Get total column count
+		const tableHeadersElements = document.querySelectorAll('#table-preview thead th');
+		const columnCount = tableHeadersElements.length;
+
+		// Find if this column already has a filter
+		const filterIndex = currentFilters.findIndex(f => f.columnIndex === selectedColumnIndex);
+
+		// Create new filter object
+		const newFilterConfig = {
+			columnIndex: selectedColumnIndex,
+			type: columnFilterConfig.type,
+			enabled: columnFilterConfig.enabled,
+			change_not_allowed: columnFilterConfig.change_not_allowed,
+			hide_filter: columnFilterConfig.hide_filter,
+			value: columnFilterConfig.value,
+			strict_mode: columnFilterConfig.strict_mode,
+			load_default: columnFilterConfig.load_default
+		};
+
+		// Create updated filters array preserving ALL existing filters
+		let updatedFilters;
+		if (filterIndex >= 0) {
+			// Update existing - create new array with updated item, preserve all others
+			updatedFilters = currentFilters.map((filter, idx) =>
+				idx === filterIndex ? newFilterConfig : { ...filter }
+			);
+
+		} else {
+			// Add new - create new array with new item, preserve all existing
+			updatedFilters = [...currentFilters, newFilterConfig];
+		}
+
+		// Ensure ALL columns have filters (fill in missing ones with defaults)
+		if (columnCount > 0 && updatedFilters.length < columnCount) {
+
+			// Create a complete array with all columns
+			const completeFilters = [];
+			for (let i = 0; i < columnCount; i++) {
+				const existingFilter = updatedFilters.find(f => f.columnIndex === i);
+				if (existingFilter) {
+					completeFilters.push(existingFilter);
+				} else {
+					// Add default filter for missing column
+					completeFilters.push({
+						columnIndex: i,
+						type: 'text',
+						enabled: true,
+						change_not_allowed: false,
+						hide_filter: false,
+						value: '',
+						strict_mode: false,
+						load_default: false
+					});
+				}
+			}
+			updatedFilters = completeFilters;
+		}
+
+
+		// Create completely new tableSettings object
+		const newTableSettings = {
+			...tableSettings,
+			table_settings: {
+				...tableSettings.table_settings,
+				column_filtering: {
+					...tableSettings.table_settings?.column_filtering,
+					column_filters: updatedFilters
+				}
+			}
+		};
+
+		setTableSettings(newTableSettings);
+		setIsFilterModalOpen(false);
+
+	};
+
+	/**
+	 * Clear/Reset column filter configuration to defaults
+	 */
+	const clearColumnFilter = () => {
+		const defaultConfig = {
+			type: 'select',
+			enabled: true,
+			change_not_allowed: false,
+			hide_filter: false,
+			value: '',
+			strict_mode: false,
+			load_default: false
+		};
+		setColumnFilterConfig(defaultConfig);
+		setShowDefaultValueError(false);
+	};
+
+	/**
+	 * Watch for filter_display_mode changes and update filter_location accordingly
+	 */
+	useEffect(() => {
+		const currentMode = tableSettings?.table_settings?.column_filtering?.filter_display_mode;
+		const currentLocation = tableSettings?.table_settings?.column_filtering?.filter_location;
+
+		// If switching to horizontal mode, ensure filter_location is set to 'above_table'
+		if (currentMode === 'horizontal' && currentLocation !== 'above_table') {
+			setTableSettings({
+				...tableSettings,
+				table_settings: {
+					...tableSettings.table_settings,
+					column_filtering: {
+						...tableSettings.table_settings?.column_filtering,
+						filter_location: 'above_table'
+					}
+				}
+			});
+		}
+		// If switching to form mode, ensure filter_location is set to a valid sidebar value
+		else if (currentMode === 'form' && (currentLocation === 'above_table' || currentLocation === 'below_table')) {
+			setTableSettings({
+				...tableSettings,
+				table_settings: {
+					...tableSettings.table_settings,
+					column_filtering: {
+						...tableSettings.table_settings?.column_filtering,
+						filter_location: 'left_sidebar'
+					}
+				}
+			});
+		}
+	}, [tableSettings?.table_settings?.column_filtering?.filter_display_mode]);
+
+	/**
+	 * Render default value input based on filter type
+	 */
+	const renderDefaultValueInput = (config, setConfig, columnIndex) => {
+		switch (config.type) {
+			case 'text':
+				return (
+					<input
+						type="text"
+						value={config.value}
+						onChange={(e) => setConfig({ ...config, value: e.target.value })}
+						placeholder="Enter default search value"
+						style={{
+							width: '100%',
+							padding: '8px 12px',
+							border: '1px solid #ddd',
+							borderRadius: '4px'
+						}}
+					/>
+				);
+			case 'select':
+				return (
+					<select
+						value={config.value}
+						onChange={(e) => setConfig({ ...config, value: e.target.value })}
+						style={{
+							width: '100%',
+							padding: '8px 12px',
+							border: '1px solid #ddd',
+							borderRadius: '4px'
+						}}
+					>
+						<option value="">Select default option</option>
+						{getColumnUniqueValues(columnIndex).map(option => (
+							<option key={option} value={option}>{option}</option>
+						))}
+					</select>
+				);
+			case 'multi_select':
+				return (
+					<select
+						multiple
+						value={Array.isArray(config.value) ? config.value : []}
+						onChange={(e) => {
+							const selectedValues = Array.from(e.target.selectedOptions, option => option.value);
+							setConfig({ ...config, value: selectedValues });
+						}}
+						style={{
+							width: '100%',
+							minHeight: '100px',
+							padding: '8px 12px',
+							border: '1px solid #ddd',
+							borderRadius: '4px'
+						}}
+					>
+						{getColumnUniqueValues(columnIndex).map(option => (
+							<option key={option} value={option}>{option}</option>
+						))}
+					</select>
+				);
+			default:
+				return <input type="text" placeholder="Enter default value" />;
+		}
+	};
+
+	const getColumnUniqueValues = (columnIndex) => {
+		// Try to get actual data from the table preview
+		try {
+			const tableContainer = document.getElementById('table-preview');
+
+			if (tableContainer) {
+				// Try multiple selectors for the table
+				let table = tableContainer.querySelector('#create_tables tbody');
+				if (!table) {
+					table = tableContainer.querySelector('table tbody');
+				}
+				if (!table) {
+					table = tableContainer.querySelector('.dataTables_wrapper tbody');
+				}
+
+				if (table) {
+					const rows = table.querySelectorAll('tr');
+
+
+					const uniqueValues = new Set();
+
+					rows.forEach((row, rowIndex) => {
+						const cells = row.querySelectorAll('td');
+
+						if (cells[columnIndex]) {
+							const cellText = cells[columnIndex].textContent.trim();
+
+							if (cellText && cellText !== '') {
+								uniqueValues.add(cellText);
+							}
+						}
+					});
+
+					const valuesArray = Array.from(uniqueValues);
+
+					if (valuesArray.length > 0) {
+						return valuesArray.slice(0, 20); // Limit to 20 options
+					}
+				}
+				/* else {
+					// If no tbody found, try to find any table and log its structure
+					const anyTable = tableContainer.querySelector('table');
+					if (anyTable) {
+					}
+				} */
+			}
+		} catch (error) {
+			console.warn('Could not extract column values:', error);
+		}
+
+		return [`Column ${columnIndex} Value 1`, `Column ${columnIndex} Value 2`, `Column ${columnIndex} Value 3`];
+	};
+
+	// ========== END FILTERING FEATURE FUNCTIONS ==========
+
 	return (
 		<div>
 
@@ -434,6 +1047,16 @@ const TableCustomization = ({
 								}
 							>
 								{getStrings('Style')}
+							</button>
+							<button
+								className={`${secondActiveTab === 'filter' ? 'active' : ''
+									}`}
+								onClick={() =>
+									handleSecondSetActiveTab('filter')
+								}
+							>
+								{getStrings('filtertab')}
+								{<span className='btn-pro btn-new'>{getStrings('new')}</span>}
 							</button>
 						</div>
 						<div className="table-customization-tab-content">
@@ -1822,7 +2445,6 @@ const TableCustomization = ({
 												? `edit-form-group special-feature lightbox-feature-wrapper swptls-pro-settings`
 												: `edit-form-group special-feature lightbox-feature-wrapper`
 												}`}
-										// style={{ marginLeft: '20px' }}
 										>
 											<label
 												className="cache-table"
@@ -2479,10 +3101,626 @@ const TableCustomization = ({
 									{ /* Merge featre are here berfor  */}
 								</div>
 							)}
+
+
+							{/* 'filter' tab  */}
+							{'filter' === secondActiveTab && (
+								<div className="table-customization-style">
+									<div className={`edit-form-group`}>
+
+										<div className="conditional-filtering-wrapper">
+											{/* <h3 style={{ marginTop: 0 }}>{getStrings('filter-configuration')}</h3> */}
+
+											{/* NEW: Simplified Global Filter Settings */}
+											<div className="edit-form-group filter-global-settings">
+
+												{/* 1. Enable Table Filters - Master Toggle */}
+												<div className={`filter-settings-item ${!isProActive() ? ` swptls-pro-settings` : ``}`}>
+
+													<div className="switch-toggle">
+														<input
+															type="checkbox"
+															id="enable-table-filters"
+															checked={tableSettings?.table_settings?.column_filtering?.enable_column_filtering || false}
+															onChange={(e) => {
+																setTableSettings({
+																	...tableSettings,
+																	table_settings: {
+																		...tableSettings.table_settings,
+																		column_filtering: {
+																			...tableSettings.table_settings?.column_filtering,
+																			enable_column_filtering: e.target.checked
+																		}
+																	}
+																});
+															}}
+															disabled={!isProActive()}
+														/>
+														<label htmlFor="enable-table-filters">
+															{getStrings('enable-table-filters')}
+															<Tooltip content={getStrings('enable-table-filters-tooltip')} />
+														</label>
+													</div>
+
+													<div className="tags-filter">
+														{/* {<button className='btn-pro btn-new cursor-behave'>{getStrings('new')}</button>} */}
+														{!isProActive() && (
+															<button className="btn-pro">
+																{ProIcon}
+															</button>
+														)}
+													</div>
+
+												</div>
+
+												{tableSettings?.table_settings?.column_filtering?.enable_column_filtering && (
+													<>
+														{/* 2. Filter Display Mode */}
+														<div className="filter-type-selection">
+															<label>{getStrings('filter-display-mode')}</label>
+															<div className="utility-checkbox-wrapper">
+																{/* <label
+																	className={`utility-checkboxees${!tableSettings?.table_settings?.column_filtering?.filter_display_mode ||
+																		tableSettings?.table_settings?.column_filtering?.filter_display_mode === 'inline'
+																		? ' active' : ''
+																		}`}
+																>
+																	<input
+																		type="radio"
+																		name="filter-display-mode"
+																		value="inline"
+																		checked={
+																			!tableSettings?.table_settings?.column_filtering?.filter_display_mode ||
+																			tableSettings?.table_settings?.column_filtering?.filter_display_mode === 'inline'
+																		}
+																		onChange={() => {
+																			setTableSettings({
+																				...tableSettings,
+																				table_settings: {
+																					...tableSettings.table_settings,
+																					column_filtering: {
+																						...tableSettings.table_settings?.column_filtering,
+																						filter_display_mode: 'inline'
+																					}
+																				}
+																			});
+																		}}
+																		disabled={!isProActive()}
+																	/>
+																	<span>Inline</span>
+																	<div className={`control__indicator${!tableSettings?.table_settings?.column_filtering?.filter_display_mode ||
+																		tableSettings?.table_settings?.column_filtering?.filter_display_mode === 'inline'
+																		? ' active' : ''
+																		}`}></div>
+																</label> */}
+
+																<label
+																	className={`utility-checkboxees${tableSettings?.table_settings?.column_filtering?.filter_display_mode === 'form'
+																		? ' active' : ''
+																		}`}
+																>
+																	<input
+																		type="radio"
+																		name="filter-display-mode"
+																		value="form"
+																		checked={tableSettings?.table_settings?.column_filtering?.filter_display_mode === 'form'}
+																		onChange={() => {
+																			setTableSettings({
+																				...tableSettings,
+																				table_settings: {
+																					...tableSettings.table_settings,
+																					column_filtering: {
+																						...tableSettings.table_settings?.column_filtering,
+																						filter_display_mode: 'form'
+																					}
+																				}
+																			});
+																		}}
+																		disabled={!isProActive()}
+																	/>
+																	<span>{getStrings('form')}</span>
+																	<div className={`control__indicator${tableSettings?.table_settings?.column_filtering?.filter_display_mode === 'form'
+																		? ' active' : ''
+																		}`}></div>
+																</label>
+
+																<label
+																	className={`utility-checkboxees${tableSettings?.table_settings?.column_filtering?.filter_display_mode === 'horizontal'
+																		? ' active' : ''
+																		}`}
+																>
+																	<input
+																		type="radio"
+																		name="filter-display-mode"
+																		value="horizontal"
+																		checked={tableSettings?.table_settings?.column_filtering?.filter_display_mode === 'horizontal'}
+																		onChange={() => {
+																			setTableSettings({
+																				...tableSettings,
+																				table_settings: {
+																					...tableSettings.table_settings,
+																					column_filtering: {
+																						...tableSettings.table_settings?.column_filtering,
+																						filter_display_mode: 'horizontal',
+																						search_position: 'header'
+																					}
+																				}
+																			});
+																		}}
+																		disabled={!isProActive()}
+																	/>
+																	<span>{getStrings('horizontal')}</span>
+																	<div className={`control__indicator${tableSettings?.table_settings?.column_filtering?.filter_display_mode === 'horizontal'
+																		? ' active' : ''
+																		}`}></div>
+																</label>
+
+															</div>
+														</div>
+
+														{/* 3. Filter Location */}
+														<div className="filter-type-selection">
+															<label>{getStrings('filter-location')}</label>
+															<div className="utility-checkbox-wrapper">
+																<label
+																	className={`utility-checkboxees${!tableSettings?.table_settings?.column_filtering?.filter_location ||
+																		tableSettings?.table_settings?.column_filtering?.filter_location === 'above_table'
+																		? ' active' : ''
+																		}`}
+																>
+																	<input
+																		type="radio"
+																		name="filter-location"
+																		value="above_table"
+																		checked={
+																			!tableSettings?.table_settings?.column_filtering?.filter_location ||
+																			tableSettings?.table_settings?.column_filtering?.filter_location === 'above_table'
+																		}
+																		onChange={() => {
+																			setTableSettings({
+																				...tableSettings,
+																				table_settings: {
+																					...tableSettings.table_settings,
+																					column_filtering: {
+																						...tableSettings.table_settings?.column_filtering,
+																						filter_location: 'above_table'
+																					}
+																				}
+																			});
+																		}}
+																		disabled={!isProActive()}
+																	/>
+																	<span>{getStrings('above-table')}</span>
+																	<div className={`control__indicator${!tableSettings?.table_settings?.column_filtering?.filter_location ||
+																		tableSettings?.table_settings?.column_filtering?.filter_location === 'above_table'
+																		? ' active' : ''
+																		}`}></div>
+																</label>
+																<label
+																	className={`utility-checkboxees${tableSettings?.table_settings?.column_filtering?.filter_location === 'below_table'
+																		? ' active' : ''
+																		}`}
+																>
+																	<input
+																		type="radio"
+																		name="filter-location"
+																		value="below_table"
+																		checked={tableSettings?.table_settings?.column_filtering?.filter_location === 'below_table'}
+																		onChange={() => {
+																			setTableSettings({
+																				...tableSettings,
+																				table_settings: {
+																					...tableSettings.table_settings,
+																					column_filtering: {
+																						...tableSettings.table_settings?.column_filtering,
+																						filter_location: 'below_table'
+																					}
+																				}
+																			});
+																		}}
+																		disabled={!isProActive()}
+																	/>
+																	<span>{getStrings('below-table')}</span>
+																	<div className={`control__indicator${tableSettings?.table_settings?.column_filtering?.filter_location === 'below_table'
+																		? ' active' : ''
+																		}`}></div>
+																</label>
+
+																{/* Show Left/Right Sidebar only when Filter Display Mode is "Form" */}
+																{tableSettings?.table_settings?.column_filtering?.filter_display_mode === 'form' && (
+																	<>
+																		<label
+																			className={`utility-checkboxees${tableSettings?.table_settings?.column_filtering?.filter_location === 'left_sidebar'
+																				? ' active' : ''
+																				}`}
+																		>
+																			<input
+																				type="radio"
+																				name="filter-location"
+																				value="left_sidebar"
+																				checked={tableSettings?.table_settings?.column_filtering?.filter_location === 'left_sidebar'}
+																				onChange={() => {
+																					setTableSettings({
+																						...tableSettings,
+																						table_settings: {
+																							...tableSettings.table_settings,
+																							column_filtering: {
+																								...tableSettings.table_settings?.column_filtering,
+																								filter_location: 'left_sidebar'
+																							}
+																						}
+																					});
+																				}}
+																				disabled={!isProActive()}
+																			/>
+																			<span>{getStrings('left-sidebar')}</span>
+																			<div className={`control__indicator${tableSettings?.table_settings?.column_filtering?.filter_location === 'left_sidebar'
+																				? ' active' : ''
+																				}`}></div>
+																		</label>
+																		<label
+																			className={`utility-checkboxees${tableSettings?.table_settings?.column_filtering?.filter_location === 'right_sidebar'
+																				? ' active' : ''
+																				}`}
+																		>
+																			<input
+																				type="radio"
+																				name="filter-location"
+																				value="right_sidebar"
+																				checked={tableSettings?.table_settings?.column_filtering?.filter_location === 'right_sidebar'}
+																				onChange={() => {
+																					setTableSettings({
+																						...tableSettings,
+																						table_settings: {
+																							...tableSettings.table_settings,
+																							column_filtering: {
+																								...tableSettings.table_settings?.column_filtering,
+																								filter_location: 'right_sidebar'
+																							}
+																						}
+																					});
+																				}}
+																				disabled={!isProActive()}
+																			/>
+																			<span>{getStrings('right-sidebar')}</span>
+																			<div className={`control__indicator${tableSettings?.table_settings?.column_filtering?.filter_location === 'right_sidebar'
+																				? ' active' : ''
+																				}`}></div>
+																		</label>
+																	</>
+																)}
+															</div>
+														</div>
+
+														{/* 4. Filter Title */}
+														<div className="swptls-form-group" style={{ marginBottom: '20px' }}>
+															<label htmlFor="filter-title" style={{ display: 'block', marginBottom: '6px', fontWeight: 500 }}>
+																{getStrings('filter-title-label')}
+															</label>
+															<input
+																type="text"
+																id="filter-title"
+																className="swptls-input"
+																value={tableSettings?.table_settings?.column_filtering?.filter_title || ''}
+																placeholder={getStrings('filter-title-placeholder')}
+																onChange={(e) => {
+																	setTableSettings({
+																		...tableSettings,
+																		table_settings: {
+																			...tableSettings.table_settings,
+																			column_filtering: {
+																				...tableSettings.table_settings?.column_filtering,
+																				filter_title: e.target.value
+																			}
+																		}
+																	});
+																}}
+															/>
+
+														</div>
+
+														{/* 5. Hide Entire Filter UI */}
+														<div className="switch-toggle" style={{ marginBottom: '20px' }}>
+															<input
+																type="checkbox"
+																id="hide-entire-filter-ui"
+																checked={tableSettings?.table_settings?.column_filtering?.hide_entire_filter_ui || false}
+																onChange={(e) => {
+																	setTableSettings({
+																		...tableSettings,
+																		table_settings: {
+																			...tableSettings.table_settings,
+																			column_filtering: {
+																				...tableSettings.table_settings?.column_filtering,
+																				hide_entire_filter_ui: e.target.checked
+																			}
+																		}
+																	});
+																}}
+																disabled={!isProActive()}
+															/>
+															<label htmlFor="hide-entire-filter-ui">
+																{getStrings('hide-filter-ui-label')}
+																<Tooltip content={getStrings('hide-filter-ui-tooltip')} />
+															</label>
+														</div>
+
+														{/* 5. Hide Clear Button */}
+														<div className="switch-toggle" style={{ marginBottom: '20px' }}>
+															<input
+																type="checkbox"
+																id="hide-clear-button"
+																checked={tableSettings?.table_settings?.column_filtering?.hide_clear_button || false}
+																onChange={(e) => {
+																	setTableSettings({
+																		...tableSettings,
+																		table_settings: {
+																			...tableSettings.table_settings,
+																			column_filtering: {
+																				...tableSettings.table_settings?.column_filtering,
+																				hide_clear_button: e.target.checked
+																			}
+																		}
+																	});
+																}}
+																disabled={!isProActive()}
+															/>
+															<label htmlFor="hide-clear-button">
+																{getStrings('hide-clear-button')}
+																<Tooltip content={getStrings('hide-clear-button-tooltip')} />
+															</label>
+														</div>
+
+														{/* Info box about per-column configuration */}
+														<div style={{
+															background: '#EFF2F7',
+															borderRadius: '6px',
+															padding: '16px',
+															marginTop: '24px'
+														}}>
+															<div className="filter-hint">
+																<h4>{getStrings('validate-filter-active-title')}</h4>
+																{filterIconsVisible ? (
+																	<p className='filter-config-title'>
+																		{getStrings('filter-config-tip')}
+																	</p>
+																) : (
+																	<div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px', flexWrap: 'wrap' }}>
+																		<p className='validate-filter-desc'>
+																			{getStrings('validate-filter-active-title-content')}
+																		</p>
+
+																		{handleTableSettingsSave && (
+																			<button
+																				type="button"
+																				className="swptls-button save-btn"
+																				style={{
+																					padding: '6px 14px',
+																					fontSize: '13px',
+																					whiteSpace: 'nowrap',
+																					display: 'inline-flex',
+																					alignItems: 'center',
+																					gap: '6px',
+																				}}
+																				onClick={handleSaveWithLoader}
+																				disabled={isSaving}
+																			>
+																				{isSaving && (
+																					<span
+																						style={{
+																							display: 'inline-block',
+																							width: '12px',
+																							height: '12px',
+																							border: '2px solid currentColor',
+																							borderTopColor: 'transparent',
+																							borderRadius: '50%',
+																							animation: 'spin 0.6s linear infinite',
+																							flexShrink: 0,
+																						}}
+																					/>
+																				)}
+																				{isSaving ? getStrings('saving') : getStrings('save')}
+																			</button>
+																		)}
+																	</div>
+																)}
+															</div>
+														</div>
+													</>
+												)}
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							)}
 						</div>
 					</div>
 				</div>
 			</div>
+
+
+			{/* ========== NEW: Column Filter Slide-in Modal ========== */}
+			{isFilterModalOpen && (
+				<div className="filter-modal-overlay" onClick={() => setIsFilterModalOpen(false)}>
+					<div
+						className={`filter-modal-sidebar ${isFilterModalOpen ? 'slide-in' : ''}`}
+						onClick={(e) => e.stopPropagation()}
+					>
+						<div className="modal-header">
+							<h3>
+								{getStrings('configure-column-filter')} :
+								{selectedColumnIndex !== null && (
+									<span className="column-tag">
+										{getColumnName(selectedColumnIndex)}
+									</span>
+								)}
+							</h3>
+							<button
+								type="button"
+								className="close-btn"
+								onClick={() => setIsFilterModalOpen(false)}
+							>
+								×
+							</button>
+						</div>
+
+						<div className="modal-body filter-modal">
+
+							{/* 1. Filter Active toggle */}
+							<div className="filter-toggle-row">
+								<label className="toggle-switch">
+									<input
+										type="checkbox"
+										id="filter-active-toggle"
+										checked={columnFilterConfig.enabled}
+										onChange={(e) => setColumnFilterConfig({ ...columnFilterConfig, enabled: e.target.checked })}
+									/>
+									<span className="toggle-track"></span>
+								</label>
+								<label htmlFor="filter-active-toggle">{getStrings('filter-active')}</label>
+							</div>
+
+							{/* 2–6. Shown only when Filter Active = ON */}
+							{columnFilterConfig.enabled && (
+								<>
+									{/* 2. Filter Type */}
+									<div className="form-group" style={{ marginTop: '20px' }}>
+										<label>{getStrings('filter-type')}:</label>
+										<select
+											value={columnFilterConfig.type}
+											onChange={(e) => setColumnFilterConfig({ ...columnFilterConfig, type: e.target.value, value: '' })}
+										>
+											<option value="select">{getStrings('single-select')}</option>
+											<option value="multi_select">{getStrings('multi-select')}</option>
+											<option value="text">{getStrings('text-search')}</option>
+										</select>
+									</div>
+
+									{/* 3. Load Default Value toggle + collapsible wrapper */}
+									<div className="form-group">
+										<div className="filter-toggle-row filter-section-toggle-row">
+											<label className="toggle-switch">
+												<input
+													type="checkbox"
+													id="default-value-toggle"
+													checked={columnFilterConfig.load_default}
+													onChange={(e) => {
+														setColumnFilterConfig({ ...columnFilterConfig, load_default: e.target.checked });
+														if (!e.target.checked) setShowDefaultValueError(false);
+													}}
+												/>
+												<span className="toggle-track"></span>
+											</label>
+											<label htmlFor="default-value-toggle">{getStrings('load-default')}</label>
+											<Tooltip content={getStrings('load-default-description')} />
+										</div>
+
+										{columnFilterConfig.load_default && (
+											<div className="filter-default-value-wrapper">
+												<p className="filter-hint-text">{getStrings('pre-select-hint')}</p>
+												{renderDefaultValueInput(columnFilterConfig, setColumnFilterConfig, selectedColumnIndex)}
+												{showDefaultValueError && (
+													<div className="filter-error-alert">
+														<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 1 }}>
+															<circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+														</svg>
+														{getStrings('default-value-required')}
+													</div>
+												)}
+												<label className="filter-lock-checkbox">
+													<input
+														type="checkbox"
+														checked={columnFilterConfig.change_not_allowed}
+														onChange={(e) => setColumnFilterConfig({ ...columnFilterConfig, change_not_allowed: e.target.checked })}
+													/>
+													<span>{getStrings('user-can-change')}</span>
+												</label>
+											</div>
+										)}
+									</div>
+
+									{/* 4. Strict Mode toggle */}
+									<div className="filter-toggle-row">
+										<label className="toggle-switch">
+											<input
+												type="checkbox"
+												id="strict-mode-toggle"
+												checked={columnFilterConfig.strict_mode}
+												onChange={(e) => setColumnFilterConfig({ ...columnFilterConfig, strict_mode: e.target.checked })}
+											/>
+											<span className="toggle-track"></span>
+										</label>
+										<label htmlFor="strict-mode-toggle">{getStrings('strict-mode')}</label>
+										<Tooltip content={getStrings('tooltip-strict-mode')} />
+
+									</div>
+
+									{/* 5. Hide This Filter toggle */}
+									<div className="filter-toggle-row">
+										<label className="toggle-switch">
+											<input
+												type="checkbox"
+												id="hide-filter-toggle"
+												checked={columnFilterConfig.hide_filter}
+												onChange={(e) => setColumnFilterConfig({ ...columnFilterConfig, hide_filter: e.target.checked })}
+											/>
+											<span className="toggle-track"></span>
+										</label>
+										<label htmlFor="hide-filter-toggle">{getStrings('hide-filter')}</label>
+										<Tooltip content={getStrings('hide-filter-hint')} />
+									</div>
+								</>
+							)}
+						</div>
+
+						<div className="modal-footer filter-modal-footer">
+							<button
+								type="button"
+								className={`delete-btn filter-btn-reset${!columnFilterConfig.enabled ? ' is-disabled' : ''}`}
+								onClick={clearColumnFilter}
+								disabled={!columnFilterConfig.enabled}
+								style={{ marginRight: 'auto' }}
+							>
+								<svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+
+									<g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+									<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+									<g id="SVGRepo_iconCarrier"> <g fill="none" fill-rule="evenodd" stroke="#6e6e6e" stroke-linecap="round" stroke-linejoin="round" transform="matrix(0 1 1 0 2.5 2.5)"> <path d="m3.98652376 1.07807068c-2.38377179 1.38514556-3.98652376 3.96636605-3.98652376 6.92192932 0 4.418278 3.581722 8 8 8s8-3.581722 8-8-3.581722-8-8-8" /> <path d="m4 1v4h-4" transform="matrix(1 0 0 -1 0 6)" /> </g> </g>
+								</svg>
+								{getStrings('reset-btn')}
+							</button>
+							<button
+								type="button"
+								className="cancel-btn"
+								onClick={() => setIsFilterModalOpen(false)}
+							>
+								{getStrings('cancel')}
+							</button>
+							<button
+								type="button"
+								className={`save-btn filter-btn-save${!columnFilterConfig.enabled ? ' is-disabled' : ''}`}
+								disabled={!columnFilterConfig.enabled}
+								onClick={() => {
+									if (columnFilterConfig.load_default && !columnFilterConfig.value) {
+										setShowDefaultValueError(true);
+										return;
+									}
+									setShowDefaultValueError(false);
+									saveColumnFilter();
+								}}
+							>
+								{getStrings('save-filter')}
+							</button>
+						</div>
+					</div>
+				</div>
+			)}
+
+			{/* ========== Column Filter Slide-in Modal End  ========== */}
 		</div>
 	);
 };

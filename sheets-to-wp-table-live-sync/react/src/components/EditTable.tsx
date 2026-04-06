@@ -1884,6 +1884,7 @@ function EditTable() {
 										tableSettings={tableSettings}
 										setTableSettings={setTableSettings}
 										secondActiveTabs={secondActiveTabs}
+										handleTableSettingsSave={handleTableSettingsSave}
 										//Next and Prev button update below
 										updateSecondActiveTab={
 											updateSecondActiveTab

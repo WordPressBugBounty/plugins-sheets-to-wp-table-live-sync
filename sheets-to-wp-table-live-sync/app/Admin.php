@@ -800,7 +800,7 @@ class Admin {
 
 		$pro_plugin_file = WP_PLUGIN_DIR . '/sheets-to-wp-table-live-sync-pro/includes/SWPTLS.php';
 
-		if ( ! file_exists( $pro_plugin_file ) ) {	
+		if ( ! file_exists( $pro_plugin_file ) ) {
 			return false;
 		}
 

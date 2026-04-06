@@ -41,7 +41,7 @@ class DiviBase {
 
 	/**
 	 * Register the Divi module.
-	 * 
+	 *
 	 * IMPORTANT: Only require the file - DO NOT instantiate the class.
 	 * Divi's framework will automatically discover and register any class
 	 * that extends ET_Builder_Module.

@@ -973,7 +973,8 @@ class Helpers {
 
 				$cell_data = ( '' === $row_data[ $j ] ) ? '' : $row_data[ $j ];
 
-				/* if ( ! empty($table_data['sheet_images']) ) {
+				/*
+				 if ( ! empty($table_data['sheet_images']) ) {
 					$cell_data = $this->get_organized_image_data($c_index, $table_data['sheet_images'], $cell_data);
 				} */
 

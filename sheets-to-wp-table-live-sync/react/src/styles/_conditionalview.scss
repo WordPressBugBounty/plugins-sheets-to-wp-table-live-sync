@@ -1031,3 +1031,516 @@
     }
 
 }
+
+
+// ========== NEW: Column Filter Slide-in Modal Styles ==========
+
+.filter-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999999999;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter-modal-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 600px; // Increased from 450px
+    max-width: 90vw;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+
+    &.slide-in {
+        transform: translateX(0);
+    }
+
+    .column-tag {
+        display: inline-block;
+        margin-left: 8px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background-color: #ffffff;
+        color: #008717;
+        font-size: 0.9em;
+        font-weight: 500;
+        border: 1px solid #008717;
+
+        // optional subtle effect
+        line-height: 1;
+    }
+
+    .modal-header {
+        padding: 20px 24px;
+        border-bottom: 1px solid #e0e0e0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f8f9fa;
+
+        h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e1e1e;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #666;
+            line-height: 1;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: all 0.2s;
+
+            &:hover {
+                background: #e0e0e0;
+                color: #000;
+            }
+        }
+    }
+
+    .modal-body {
+        flex: 1;
+        padding: 24px;
+        overflow-y: auto;
+
+        .form-group {
+            // margin-bottom: 24px;
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 600;
+                font-size: 14px;
+                color: #374151;
+            }
+
+            select,
+            input[type="text"] {
+                width: 100%;
+                padding: 10px 12px;
+                border: 1px solid #d1d5db;
+                border-radius: 6px;
+                font-size: 14px;
+                transition: border-color 0.2s;
+                margin-bottom: 20px;
+
+                &:focus {
+                    outline: none;
+                    border-color: #007bff;
+                    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+                }
+            }
+
+            select[multiple] {
+                min-height: 120px;
+            }
+        }
+
+        .checkbox-group {
+            .checkbox-item {
+                margin-bottom: 16px;
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+
+                input[type="checkbox"] {
+                    position: relative;
+                    border: 1px solid #bbbdca;
+                    border-radius: 5px;
+                    background: none;
+                    cursor: pointer;
+                    line-height: 0;
+                    margin: 0 0.6em 0 0;
+                    outline: 0;
+                    padding: 0 !important;
+                    vertical-align: text-top;
+                    height: 19px;
+                    width: 19px;
+                    -webkit-appearance: none;
+                    outline: none;
+                    box-shadow: none;
+                    box-sizing: border-box;
+
+                    &:checked {
+                        background-color: #008717;
+                    }
+
+                    &:checked::before {
+                        content: "";
+                        position: absolute;
+                        right: 53%;
+                        top: 50%;
+                        width: 4px;
+                        height: 10px;
+                        border: solid #fff;
+                        border-width: 0 2px 2px 0;
+                        margin: -1px -1px 0 -1px;
+                        transform: rotate(45deg) translate(-53%, -50%);
+                        z-index: 2;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                        border: 1px solid #bbbdca;
+                    }
+                }
+
+                label {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 16px;
+                    color: #1e1e1e;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .modal-footer {
+        padding: 20px 24px;
+        border-top: 1px solid #e0e0e0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+        background: #f8f9fa;
+
+        button {
+            padding: 10px 20px;
+            border: 1px solid #E1E4EA;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+
+            &.delete-btn {
+                border-radius: 6px;
+                background: #FFFFFF;
+
+
+                &:hover {
+                    background: #f3eded;
+                }
+            }
+
+            &.cancel-btn {
+                background: #f5f5f5;
+                color: #333;
+
+                &:hover {
+                    background: #e0e0e0;
+                }
+            }
+
+            &.save-btn {
+                background: #008717;
+                color: white;
+
+                &:hover {
+                    background: #126E22;
+                }
+            }
+        }
+    }
+}
+
+// Column filter settings icon
+.column-filter-settings-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    color: #666;
+    transition: color 0.2s;
+    vertical-align: middle;
+
+    &:hover {
+        color: #007bff;
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+
+button.swptls-button.save-btn {
+    outline: 0;
+    border: 0;
+    z-index: 50;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: none;
+    font-weight: 600;
+    position: relative;
+    text-align: center;
+    font-style: normal;
+    padding: 12px 12px;
+    border-radius: 8px;
+    line-height: normal;
+    transition: all 0.3s ease;
+    background-color: #008717;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+
+    &:hover {
+        background-color: #126E22;
+    }
+}
+
+// ── Configure Column Filter Modal — Redesign ─────────────────────────────────
+
+.filter-modal {
+
+    // Toggle row — shared by all toggles
+    .filter-toggle-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0;
+
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a2e;
+            cursor: pointer;
+            user-select: none;
+            margin-bottom: 0;
+        }
+    }
+
+    // Toggle switch
+    .toggle-switch {
+        position: relative;
+        width: 42px;
+        height: 24px;
+        flex-shrink: 0;
+        cursor: pointer;
+
+        input[type="checkbox"] {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .toggle-track {
+            position: absolute;
+            inset: 0;
+            background: #d1d5db;
+            border-radius: 999px;
+            transition: background 200ms ease;
+            cursor: pointer;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background: #ffffff;
+                top: 3px;
+                left: 3px;
+                transition: transform 200ms ease;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        input:checked+.toggle-track {
+            background: #6c63ff;
+
+            &::after {
+                transform: translateX(18px);
+            }
+        }
+
+        input:focus-visible+.toggle-track {
+            outline: 2px solid #6c63ff;
+            outline-offset: 2px;
+        }
+    }
+
+    // Collapsible default value wrapper
+    .filter-default-value-wrapper {
+        background: #f4f5f7;
+        border-radius: 8px;
+        padding: 14px 16px;
+        margin-top: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        animation: filterSectionFadeIn 180ms ease forwards;
+
+        .filter-hint-text {
+            font-size: 13px;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .filter-lock-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #374151;
+            cursor: pointer;
+            font-weight: 400;
+            margin-bottom: 0;
+
+            input[type="checkbox"] {
+                position: relative;
+                border: 1px solid #bbbdca;
+                border-radius: 3px;
+                background: none;
+                cursor: pointer;
+                line-height: 0;
+                margin: 0 0.6em 0 0;
+                outline: 0;
+                padding: 0 !important;
+                vertical-align: text-top;
+                height: 19px;
+                width: 19px;
+                -webkit-appearance: none;
+                outline: none;
+                box-shadow: none;
+                box-sizing: border-box;
+
+                &:checked {
+                    background-color: #008717;
+                }
+
+                &:checked::before {
+                    content: "";
+                    position: absolute;
+                    right: 53%;
+                    top: 50%;
+                    width: 4px;
+                    height: 10px;
+                    border: solid #fff;
+                    border-width: 0 2px 2px 0;
+                    margin: -1px -1px 0 -1px;
+                    transform: rotate(45deg) translate(-53%, -50%);
+                    z-index: 2;
+                }
+
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                    border: 1px solid #bbbdca;
+                }
+            }
+
+        }
+    }
+
+    // Validation error
+    .filter-error-alert {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: #dc2626;
+        line-height: 1.5;
+        margin-top: -15px;
+
+        svg {
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+    }
+}
+
+// Footer redesign
+.filter-modal-footer {
+    .delete-btn.filter-btn-reset {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+
+        svg {
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        &.is-disabled,
+        &:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+
+    .save-btn.filter-btn-save {
+
+        &.is-disabled,
+        &:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+}
+
+// Fade-in animation for collapsible sections
+@keyframes filterSectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .filter-default-value-wrapper {
+        animation: none;
+    }
+
+    .toggle-switch .toggle-track,
+    .toggle-switch .toggle-track::after {
+        transition: none;
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .filter-modal-sidebar {
+        width: 100%;
+        max-width: 100vw;
+    }
+}

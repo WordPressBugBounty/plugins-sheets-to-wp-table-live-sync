@@ -17,19 +17,11 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 	);
 
 	const dropdownRef = useRef(null); // Create a ref for the dropdown
-	// const [previewGif, setPreviewGif] = useState(true);
-
-	// const [isOpenpopupvideo, setIsOpenpopupvideo] = useState(false);
 
 	// Function to open the modal
 	const openModal = () => {
 		setIsVideoModalOpen(true);
 	};
-
-	// Function to close the modal
-	/* const closeModal = () => {
-		setIsOpenpopupvideo(false);
-	}; */
 
 	const handleColumnSpecificSearchToggle = (e) => {
 		setTableSettings({

@@ -338,7 +338,7 @@ class Assets {
 	 */
 	private function get_user_auth_data() {
 		$current_user = wp_get_current_user();
-		
+
 		if ( ! $current_user->exists() ) {
 			return [
 				'logged_in' => false,

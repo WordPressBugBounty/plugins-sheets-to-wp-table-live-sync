@@ -1,0 +1,5180 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2026-03-03 12:42+0600\n"
+"PO-Revision-Date: 2026-03-03 12:42+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_html\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: assets\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: react/node_modules\n"
+"X-Poedit-SearchPathExcluded-4: lib\n"
+"X-Poedit-SearchPathExcluded-5: .wordpress-org\n"
+"X-Poedit-SearchPathExcluded-6: .vscode\n"
+"X-Poedit-SearchPathExcluded-7: .github\n"
+"X-Poedit-SearchPathExcluded-8: .git\n"
+
+#: app/AI/AIManager.php:111
+msgid "Invalid AI provider"
+msgstr "无效的 AI 提供商"
+
+#: app/AI/AIManager.php:128 app/AI/AIManager.php:145 app/AI/AIManager.php:220
+msgid "No AI provider configured"
+msgstr "未配置AI供应商"
+
+#: app/AI/AIManager.php:224
+msgid "Prompt cannot be empty"
+msgstr "提示不能为空"
+
+#: app/AI/AIProvider.php:302
+#, php-format
+msgid "%1$s API request failed: %2$s"
+msgstr "%1$s API请求失败：%2$s"
+
+#: app/AI/AIProvider.php:317
+#, php-format
+msgid "%1$s API error (%2$d): %3$s"
+msgstr "%1$s API错误 (%2$d)：%3$s"
+
+#: app/AI/GeminiProvider.php:78
+msgid "Google AI API Key"
+msgstr "Google AI API密钥"
+
+#: app/AI/GeminiProvider.php:79
+msgid "Your Google AI Studio API key"
+msgstr "您的Google AI Studio API密钥"
+
+#: app/AI/GeminiProvider.php:86 app/AI/OpenAIProvider.php:103
+msgid "Model"
+msgstr "模型"
+
+#: app/AI/GeminiProvider.php:87
+msgid "Choose the Gemini model to use"
+msgstr "选择要使用的Gemini模型"
+
+#: app/AI/GeminiProvider.php:93 app/AI/OpenAIProvider.php:110
+#: app/Strings.php:831
+msgid "Max Tokens"
+msgstr "最大令牌数"
+
+#: app/AI/GeminiProvider.php:94 app/AI/OpenAIProvider.php:111
+msgid "Maximum tokens for the response"
+msgstr "响应的最大令牌数"
+
+#: app/AI/GeminiProvider.php:102 app/AI/OpenAIProvider.php:119
+#: app/Strings.php:837
+msgid "Creativity"
+msgstr "创造性"
+
+#: app/AI/GeminiProvider.php:103 app/AI/OpenAIProvider.php:120
+msgid "Controls randomness in responses"
+msgstr "控制响应的随机性"
+
+#: app/AI/GeminiProvider.php:111 app/Strings.php:808 app/Strings.php:870
+msgid "Top P"
+msgstr "Top P"
+
+#: app/AI/GeminiProvider.php:112
+msgid "Controls diversity via nucleus sampling"
+msgstr "通过核采样控制多样性"
+
+#: app/AI/GeminiProvider.php:120 app/Strings.php:810 app/Strings.php:872
+msgid "Top K"
+msgstr "Top K"
+
+#: app/AI/GeminiProvider.php:121
+msgid "Controls diversity by limiting vocabulary"
+msgstr "通过限制词汇表控制多样性"
+
+#: app/AI/GeminiProvider.php:144
+msgid "Gemini API key is required"
+msgstr "需要Gemini API密钥"
+
+#: app/AI/GeminiProvider.php:148
+msgid "Invalid Gemini API key format"
+msgstr "无效的Gemini API密钥格式"
+
+#: app/AI/GeminiProvider.php:204
+#, php-format
+msgid "Gemini API connection successful! Model: %s"
+msgstr "Gemini API连接成功！模型：%s"
+
+#: app/AI/GeminiProvider.php:232 app/AI/OpenAIProvider.php:208
+msgid "API test failed: Invalid response structure"
+msgstr "API测试失败：无效的响应结构"
+
+#: app/AI/GeminiProvider.php:315
+msgid "Response blocked by Gemini safety filters"
+msgstr "响应被Gemini安全过滤器阻止"
+
+#: app/AI/GeminiProvider.php:318
+msgid "Invalid response structure from Gemini API"
+msgstr "来自Gemini API的无效响应结构"
+
+#: app/AI/GeminiProvider.php:356 app/AI/OpenAIProvider.php:296
+#, php-format
+msgid "API returned status code %d"
+msgstr "API返回状态码 %d"
+
+#: app/AI/OpenAIProvider.php:95 app/Strings.php:817
+msgid "OpenAI API Key"
+msgstr "OpenAI API密钥"
+
+#: app/AI/OpenAIProvider.php:96
+msgid "Your OpenAI API key (starts with sk-)"
+msgstr "您的OpenAI API密钥（以sk-开头）"
+
+#: app/AI/OpenAIProvider.php:104
+msgid "Choose the OpenAI model to use"
+msgstr "选择要使用的OpenAI模型"
+
+#: app/AI/OpenAIProvider.php:128 app/Strings.php:843
+msgid "Frequency Penalty"
+msgstr "频率惩罚"
+
+#: app/AI/OpenAIProvider.php:129
+msgid "Reduces repetition in responses"
+msgstr "减少响应中的重复"
+
+#: app/AI/OpenAIProvider.php:152
+msgid "OpenAI API key is required"
+msgstr "需要OpenAI API密钥"
+
+#: app/AI/OpenAIProvider.php:156
+msgid "Invalid OpenAI API key format"
+msgstr "无效的OpenAI API密钥格式"
+
+#: app/AI/OpenAIProvider.php:202
+#, php-format
+msgid "OpenAI API connection successful! Model: %s"
+msgstr "OpenAI API连接成功！模型：%s"
+
+#: app/AI/OpenAIProvider.php:265
+msgid "Invalid response structure from OpenAI API"
+msgstr "来自OpenAI API的无效响应结构"
+
+#: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517
+#: app/Divi/DiviModule.php:35 app/Elementor/ElementorWidget.php:58
+#: app/SWPTLS.php:265 app/templates/parts/review_notice.php:21
+msgid "FlexTable"
+msgstr "FlexTable"
+
+#: app/Admin.php:69
+msgid "Get PRO"
+msgstr "获取专业版"
+
+#: app/Admin.php:70
+msgid ""
+"<span style=\"display: flex; align-items: center; gap: 7px; color: #29be7c; "
+"font-weight: 700; text-transform:uppercase; font-size: 12px;\"> Upgrade Now "
+"<svg width=\"21\" height=\"17\" viewBox=\"0 0 21 17\" fill=\"none\" "
+"xmlns=\"http://www.w3.org/2000/svg\">\n"
+"\t\t\t\t\t<path d=\"M11.8012 7.66016L10.0813 4.26172L8.36133 7.66016C8.9104 "
+"7.69498 9.48392 7.71466 10.0813 7.71466C10.6786 7.71466 11.2522 7.69498 "
+"11.8012 7.66016Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.5164 3.93457C12.5221 4.00909 11.4463 4.05114 10.3535 "
+"4.05712L12.0518 7.41268L13.5164 3.93457Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M17.655 6.58984C18.9408 6.17882 19.7993 5.76404 20.1634 "
+"5.57337L17.6901 3.27344L16.8496 6.82924C17.1409 6.74883 17.4099 6.6682 "
+"17.655 6.58984Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.8256 4.06055L12.3262 7.62137C13.8894 7.49126 15.2336 "
+"7.24006 16.3194 6.96869L13.8256 4.06055Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.84375 6.96869C4.92956 7.24006 6.27375 7.49126 7.83695 "
+"7.62137L6.33749 4.06055L3.84375 6.96869Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M14.1152 3.88492L16.5346 6.70624L17.3326 3.33008C17.0083 "
+"3.4568 16.4276 3.60162 15.3786 3.74365C14.9823 3.79731 14.5586 3.84437 "
+"14.1152 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M9.8103 4.05712C8.71747 4.0511 7.64174 4.00905 6.64746 "
+"3.93457L8.11206 7.41268L9.8103 4.05712Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M10.0818 3.72428C11.9183 3.72428 13.7348 3.62004 15.1969 "
+"3.43079C16.4383 3.27009 17.054 3.09714 17.3042 2.98362C17.0203 2.8663 "
+"16.3914 2.69009 15.2275 2.52161C13.739 2.30616 11.9115 2.1875 10.0818 "
+"2.1875C8.25205 2.1875 6.42458 2.30616 4.93603 2.52161C3.77219 2.69009 "
+"3.14329 2.8663 2.85938 2.98362C3.10952 3.09718 3.7253 3.27009 4.96671 "
+"3.43079C6.42872 3.62004 8.24524 3.72428 10.0818 3.72428Z\" fill=\"#34D399\"/"
+">\n"
+"\t\t\t\t\t<path d=\"M10.082 8.04847C9.46536 8.04847 8.87357 8.02778 8.30762 "
+"7.99121L10.082 16.352L11.8563 7.99121C11.2904 8.02782 10.6986 8.04847 10.082 "
+"8.04847Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M6.04742 3.88492C5.60405 3.84437 5.18037 3.79731 4.78402 "
+"3.74365C3.73508 3.60167 3.15437 3.4568 2.83008 3.33008L3.62808 "
+"6.70624L6.04742 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M12.2028 7.96734L10.4326 16.3084L16.2509 7.33008C15.1406 "
+"7.59983 13.779 7.84508 12.2028 7.96734Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.7281 7.20887L11.3818 15.4589L19.7314 6.15625C19.2695 "
+"6.36611 18.6125 6.63452 17.7695 6.9046C17.4591 7.00407 17.1111 7.10714 "
+"16.7281 7.20887Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.91211 7.33008L9.73035 16.3084L7.96014 7.96734C6.38399 "
+"7.84504 5.02233 7.59979 3.91211 7.33008Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M2.39357 6.9046C1.55059 6.63452 0.893524 6.36611 "
+"0.431641 6.15625L8.78123 15.4589L3.43499 7.20887C3.05198 7.10714 2.70398 "
+"7.00407 2.39357 6.9046Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.31381 6.8292L2.47334 3.27344L0 5.57332C0.364207 5.764 "
+"1.22261 6.17878 2.50845 6.58979C2.75354 6.66816 3.02249 6.74878 3.31381 "
+"6.8292Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M1.78207 1.06487C1.84142 1.14328 1.88961 1.23343 1.92864 "
+"1.32785C1.96768 1.23347 2.01583 1.14332 2.07522 1.06487C2.21164 0.884688 "
+"2.40578 0.753868 2.57995 0.663923C2.40578 0.573979 2.21164 0.443117 2.07522 "
+"0.262978C2.01583 0.184569 1.96768 0.0943745 1.92864 0C1.88961 0.0943745 "
+"1.84146 0.184528 1.78207 0.262978C1.64565 0.443159 1.45151 0.573979 1.27734 "
+"0.663923C1.45151 0.753868 1.64565 0.884688 1.78207 1.06487Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.8194 12.844C16.76 12.7656 16.7118 12.6754 16.6728 "
+"12.5811C16.6337 12.6754 16.5856 12.7656 16.5262 12.844C16.3898 13.0242 "
+"16.1957 13.155 16.0215 13.245C16.1957 13.3349 16.3898 13.4658 16.5262 "
+"13.6459C16.5856 13.7243 16.6337 13.8145 16.6728 13.9089C16.7118 13.8145 "
+"16.76 13.7243 16.8194 13.6459C16.9558 13.4657 17.1499 13.3349 17.3241 "
+"13.245C17.1499 13.155 16.9557 13.0242 16.8194 12.844Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t</svg>\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t</span>"
+msgstr ""
+"<span style=\"display: flex; align-items: center; gap: 7px; color: #29be7c; "
+"font-weight: 700; text-transform:uppercase; font-size: 12px;\"> 立即升级 "
+"<svg width=\"21\" height=\"17\" viewBox=\"0 0 21 17\" fill=\"none\" "
+"xmlns=\"http://www.w3.org/2000/svg\">\n"
+"\t\t\t\t\t<path d=\"M11.8012 7.66016L10.0813 4.26172L8.36133 7.66016C8.9104 "
+"7.69498 9.48392 7.71466 10.0813 7.71466C10.6786 7.71466 11.2522 7.69498 "
+"11.8012 7.66016Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.5164 3.93457C12.5221 4.00909 11.4463 4.05114 10.3535 "
+"4.05712L12.0518 7.41268L13.5164 3.93457Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M17.655 6.58984C18.9408 6.17882 19.7993 5.76404 20.1634 "
+"5.57337L17.6901 3.27344L16.8496 6.82924C17.1409 6.74883 17.4099 6.6682 "
+"17.655 6.58984Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M13.8256 4.06055L12.3262 7.62137C13.8894 7.49126 15.2336 "
+"7.24006 16.3194 6.96869L13.8256 4.06055Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.84375 6.96869C4.92956 7.24006 6.27375 7.49126 7.83695 "
+"7.62137L6.33749 4.06055L3.84375 6.96869Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M14.1152 3.88492L16.5346 6.70624L17.3326 3.33008C17.0083 "
+"3.4568 16.4276 3.60162 15.3786 3.74365C14.9823 3.79731 14.5586 3.84437 "
+"14.1152 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M9.8103 4.05712C8.71747 4.0511 7.64174 4.00905 6.64746 "
+"3.93457L8.11206 7.41268L9.8103 4.05712Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M10.0818 3.72428C11.9183 3.72428 13.7348 3.62004 15.1969 "
+"3.43079C16.4383 3.27009 17.054 3.09714 17.3042 2.98362C17.0203 2.8663 "
+"16.3914 2.69009 15.2275 2.52161C13.739 2.30616 11.9115 2.1875 10.0818 "
+"2.1875C8.25205 2.1875 6.42458 2.30616 4.93603 2.52161C3.77219 2.69009 "
+"3.14329 2.8663 2.85938 2.98362C3.10952 3.09718 3.7253 3.27009 4.96671 "
+"3.43079C6.42872 3.62004 8.24524 3.72428 10.0818 3.72428Z\" fill=\"#34D399\"/"
+">\n"
+"\t\t\t\t\t<path d=\"M10.082 8.04847C9.46536 8.04847 8.87357 8.02778 8.30762 "
+"7.99121L10.082 16.352L11.8563 7.99121C11.2904 8.02782 10.6986 8.04847 10.082 "
+"8.04847Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M6.04742 3.88492C5.60405 3.84437 5.18037 3.79731 4.78402 "
+"3.74365C3.73508 3.60167 3.15437 3.4568 2.83008 3.33008L3.62808 "
+"6.70624L6.04742 3.88492Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M12.2028 7.96734L10.4326 16.3084L16.2509 7.33008C15.1406 "
+"7.59983 13.779 7.84508 12.2028 7.96734Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.7281 7.20887L11.3818 15.4589L19.7314 6.15625C19.2695 "
+"6.36611 18.6125 6.63452 17.7695 6.9046C17.4591 7.00407 17.1111 7.10714 "
+"16.7281 7.20887Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.91211 7.33008L9.73035 16.3084L7.96014 7.96734C6.38399 "
+"7.84504 5.02233 7.59979 3.91211 7.33008Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M2.39357 6.9046C1.55059 6.63452 0.893524 6.36611 "
+"0.431641 6.15625L8.78123 15.4589L3.43499 7.20887C3.05198 7.10714 2.70398 "
+"7.00407 2.39357 6.9046Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M3.31381 6.8292L2.47334 3.27344L0 5.57332C0.364207 5.764 "
+"1.22261 6.17878 2.50845 6.58979C2.75354 6.66816 3.02249 6.74878 3.31381 "
+"6.8292Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M1.78207 1.06487C1.84142 1.14328 1.88961 1.23343 1.92864 "
+"1.32785C1.96768 1.23347 2.01583 1.14332 2.07522 1.06487C2.21164 0.884688 "
+"2.40578 0.753868 2.57995 0.663923C2.40578 0.573979 2.21164 0.443117 2.07522 "
+"0.262978C2.01583 0.184569 1.96768 0.0943745 1.92864 0C1.88961 0.0943745 "
+"1.84146 0.184528 1.78207 0.262978C1.64565 0.443159 1.45151 0.573979 1.27734 "
+"0.663923C1.45151 0.753868 1.64565 0.884688 1.78207 1.06487Z\" "
+"fill=\"#34D399\"/>\n"
+"\t\t\t\t\t<path d=\"M16.8194 12.844C16.76 12.7656 16.7118 12.6754 16.6728 "
+"12.5811C16.6337 12.6754 16.5856 12.7656 16.5262 12.844C16.3898 13.0242 "
+"16.1957 13.155 16.0215 13.245C16.1957 13.3349 16.3898 13.4658 16.5262 "
+"13.6459C16.5856 13.7243 16.6337 13.8145 16.6728 13.9089C16.7118 13.8145 "
+"16.76 13.7243 16.8194 13.6459C16.9558 13.4657 17.1499 13.3349 17.3241 "
+"13.245C17.1499 13.155 16.9557 13.0242 16.8194 12.844Z\" fill=\"#34D399\"/>\n"
+"\t\t\t\t\t</svg>\n"
+"\t\t\t\t\t\n"
+"\t\t\t\t</span>"
+
+#: app/Ajax/Notices.php:40 app/Ajax/Notices.php:127 app/Ajax/Notices.php:161
+#: app/Ajax/Products.php:40 app/Ajax/Settings.php:35 app/Ajax/Settings.php:69
+#: app/Ajax/Tables.php:80 app/Ajax/Tables.php:121 app/Ajax/Tables.php:186
+#: app/Ajax/Tables.php:250 app/Ajax/Tables.php:288 app/Ajax/Tables.php:330
+#: app/Ajax/Tables.php:350 app/Ajax/Tables.php:425 app/Ajax/Tables.php:464
+#: app/Ajax/Tables.php:1074 app/Ajax/Tables.php:1117 app/Ajax/Tables.php:1704
+#: app/Ajax/Tables.php:1731
+msgid "Invalid action"
+msgstr "无效的操作"
+
+#: app/Ajax/Notices.php:141
+msgid "Pro plugin update has been fixed successfully!"
+msgstr "专业版插件更新已成功修复！"
+
+#: app/Ajax/Notices.php:145
+msgid "Failed to apply the fix. Please try again or contact support."
+msgstr "应用修复失败。请重试或联系支持。"
+
+#: app/Ajax/Notices.php:156
+msgid "Fix declined. You will not receive premium plugin updates."
+msgstr "修复已拒绝。您将不会收到高级插件更新。"
+
+#: app/Ajax/Products.php:57
+msgid "🛒 Boost your WooCommerce stores functionality"
+msgstr "🛒 提升您的 WooCommerce 商店功能"
+
+#: app/Ajax/Products.php:58
+msgid ""
+"Discover top plugins to supercharge your store with advanced tools and "
+"improvements"
+msgstr "探索顶级插件，利用先进工具和功能升级，让您的商店更加强大"
+
+#: app/Ajax/Products.php:63
+msgid "🧩 Enhance your WordPress site with powerful tools"
+msgstr "🧩 使用强大工具增强您的 WordPress 网站"
+
+#: app/Ajax/Products.php:64
+msgid ""
+"We have selected top plugins to improve your site. Explore options tailored "
+"just for you"
+msgstr "我们精选了优质插件来提升您的网站表现。探索为您量身定制的选项"
+
+#: app/Ajax/Products.php:123
+msgid ""
+"Stock Sync with Google Sheets for WooCommerce | Product Sync with Google "
+"Sheet, WooCommerce Bulk Edit, Stock Management – FlexStock"
+msgstr ""
+"WooCommerce的Google Sheets库存同步 | 产品同步到Google Sheet、WooCommerce批量"
+"编辑、库存管理 – FlexStock"
+
+#: app/Ajax/Products.php:124
+msgid ""
+"Auto-sync WooCommerce products from Google Sheets. An easy and powerful "
+"solution for WooCommerce inventory management."
+msgstr ""
+"从Google Sheets自动同步WooCommerce产品。一个简单而强大的WooCommerce库存管理解"
+"决方案。"
+
+#: app/Ajax/Products.php:142
+msgid "FlexOrder – Manage & Sync Orders with Google Sheets for WooCommerce"
+msgstr "FlexOrder – 管理和同步WooCommerce订单到Google Sheets"
+
+#: app/Ajax/Products.php:143
+msgid ""
+"🔥Seamlessly connect WooCommerce with Google Sheets to manage orders, update "
+"statuses in bulk, and simplify your workflow"
+msgstr ""
+"🔥无缝连接WooCommerce与Google Sheets来管理订单、批量更新状态并简化您的工作流"
+"程"
+
+#: app/Ajax/Products.php:161
+msgid "ArchiveMaster — Auto Archive and Export Old Orders for WooCommerce"
+msgstr "ArchiveMaster — 自动归档和导出WooCommerce旧订单"
+
+#: app/Ajax/Products.php:162
+msgid ""
+"Optimize your WooCommerce store and store old data in a local or any remote "
+"database. With ArchiveMaster, easily archive old orders, export order data, "
+"and streamline database performance."
+msgstr ""
+"优化您的WooCommerce商店，将旧数据存储在本地或任何远程数据库中。使用"
+"ArchiveMaster，轻松归档旧订单、导出订单数据并优化数据库性能。"
+
+#: app/Ajax/Products.php:180
+msgid "EchoRewards — Refer-a-Friend & Referral Program for WooCommerce"
+msgstr "EchoRewards — WooCommerce的推荐朋友和推荐计划"
+
+#: app/Ajax/Products.php:181
+msgid ""
+"Create your customer referral program with a refer-a-friend plugin for "
+"WordPress. With EchoRewards, automate customer rewards and add a refer-a-"
+"friend program to your WooCommerce store"
+msgstr ""
+"使用WordPress的推荐朋友插件创建您的客户推荐计划。使用EchoRewards，自动化客户"
+"奖励并为您的WooCommerce商店添加推荐朋友计划"
+
+#: app/Ajax/Products.php:200
+msgid "WP Dark Mode"
+msgstr "WP深色模式"
+
+#: app/Ajax/Products.php:201
+msgid ""
+"Create a dark mode version of your website without any complicated setup. "
+"Activate the plugin and your site visitors will experience a dark mode or "
+"light mode version of your website as per their preferred operating system "
+"preference."
+msgstr ""
+"无需复杂设置即可创建网站的深色模式版本。激活插件后，您的网站访问者将根据其首"
+"选的操作系统偏好体验网站的深色模式或浅色模式版本。"
+
+#: app/Ajax/Products.php:219
+msgid ""
+"FormToChat – Connect Contact Form to Chat Apps with Contact Form 7 "
+"Integration"
+msgstr "FormToChat – 将联系表单连接到聊天应用，集成Contact Form 7"
+
+#: app/Ajax/Products.php:220
+msgid ""
+"WhatsApp Chat for WordPress🔥. Connect contact forms to WhatsApp. A WhatsApp "
+"notifications plugin with Contact Form 7 integration."
+msgstr ""
+"WordPress的WhatsApp聊天🔥。将联系表单连接到WhatsApp。集成Contact Form 7的"
+"WhatsApp通知插件。"
+
+#: app/Ajax/Products.php:238
+msgid "Webinar and Video Conference with Jitsi Meet"
+msgstr "使用Jitsi Meet进行网络研讨会和视频会议"
+
+#: app/Ajax/Products.php:239
+msgid ""
+"The best WordPress webinar plugin with branded meetings. Add Jitsi meetings, "
+"host webinars and video conferences on your website."
+msgstr ""
+"最佳的WordPress网络研讨会插件，带有品牌会议。添加Jitsi会议，在您的网站上主持"
+"网络研讨会和视频会议。"
+
+#: app/Ajax/Products.php:256
+msgid "Easy Video Reviews"
+msgstr "简易视频评论"
+
+#: app/Ajax/Products.php:257
+msgid ""
+"Easy Video Reviews is the best \n"
+"\t\t\tand easiest video review plugin for WordPress, fully compatible with "
+"WooCommerce and Easy Digital Downloads plugins."
+msgstr ""
+"Easy Video Reviews是WordPress最好和最简单的视频评论插件，完全兼容WooCommerce"
+"和Easy Digital Downloads插件。"
+
+#: app/Ajax/Products.php:298
+#, php-format
+msgid "By %s"
+msgstr "作者：%s"
+
+#: app/Ajax/Products.php:324
+msgid "Install Now"
+msgstr "立即安装"
+
+#: app/Ajax/Products.php:346
+msgid "Update Now"
+msgstr "立即更新"
+
+#: app/Ajax/Products.php:365 app/Strings.php:146
+msgid "Activate"
+msgstr "激活"
+
+#: app/Ajax/Products.php:378
+msgid "Network Activate"
+msgstr "网络激活"
+
+#: app/Ajax/Products.php:409
+#, php-format
+msgid "More information about %s"
+msgstr "关于%s的更多信息"
+
+#: app/Ajax/Products.php:411
+msgid "More Details"
+msgstr "更多详情"
+
+#: app/Ajax/Products.php:439
+msgid "This plugin doesn&#8217;t work with your versions of WordPress and PHP."
+msgstr "此插件不适用于您的WordPress和PHP版本。"
+
+#: app/Ajax/Products.php:469
+msgid "This plugin doesn&#8217;t work with your version of WordPress."
+msgstr "此插件不适用于您的WordPress版本。"
+
+#: app/Ajax/Products.php:480
+msgid "This plugin doesn&#8217;t work with your version of PHP."
+msgstr "此插件不适用于您的PHP版本。"
+
+#: app/Ajax/Products.php:537
+#, php-format
+msgid "%s ago"
+msgstr "%s前"
+
+#: app/Ajax/Products.php:555
+#, php-format
+msgid "%s Active Installations"
+msgstr "%s个活跃安装"
+
+#: app/Ajax/Products.php:561
+msgid "Untested with your version of WordPress"
+msgstr "未在您的WordPress版本上测试"
+
+#: app/Ajax/Settings.php:125
+msgid "Settings saved successfully."
+msgstr "设置保存成功。"
+
+#: app/Ajax/Tables.php:90
+msgid "Invalid data to save."
+msgstr "要保存的数据无效。"
+
+#: app/Ajax/Tables.php:104
+msgid "Table updated successfully."
+msgstr "表格更新成功。"
+
+#: app/Ajax/Tables.php:160 app/Ajax/Tables.php:225
+msgid "Sorting updated successfully"
+msgstr "排序更新成功"
+
+#: app/Ajax/Tables.php:164 app/Ajax/Tables.php:229
+msgid "Failed to update sorting"
+msgstr "排序更新失败"
+
+#: app/Ajax/Tables.php:169 app/Ajax/Tables.php:234
+msgid "Record not found"
+msgstr "未找到记录"
+
+#: app/Ajax/Tables.php:174 app/Ajax/Tables.php:239
+msgid "Invalid ID or sorting value"
+msgstr "无效的ID或排序值"
+
+#: app/Ajax/Tables.php:262
+#, php-format
+msgid "%s table deleted."
+msgstr "%s表格已删除。"
+
+#: app/Ajax/Tables.php:269
+#, php-format
+msgid "Failed to delete table with id %d"
+msgstr "删除ID为%d的表格失败"
+
+#: app/Ajax/Tables.php:276
+msgid "Invalid table to perform delete."
+msgstr "无效的表格，无法执行删除。"
+
+#: app/Ajax/Tables.php:300
+#, php-format
+msgid "%s table copied."
+msgstr "%s表格已复制。"
+
+#: app/Ajax/Tables.php:307
+#, php-format
+msgid "Failed to copied table with id %d"
+msgstr "复制ID为%d的表格失败"
+
+#: app/Ajax/Tables.php:314
+msgid "Invalid table to perform copied."
+msgstr "无效的表格，无法执行复制。"
+
+#: app/Ajax/Tables.php:358
+msgid "Empty or invalid google sheet url."
+msgstr "Google表格URL为空或无效。"
+
+#: app/Ajax/Tables.php:363 app/Ajax/Tables.php:783
+msgid "Untitled"
+msgstr "无标题"
+
+#: app/Ajax/Tables.php:367 app/Ajax/Tables.php:787
+msgid "Invalid settings to save."
+msgstr "要保存的设置无效。"
+
+#: app/Ajax/Tables.php:375 app/Ajax/Tables.php:826 app/Ajax/Tables.php:869
+msgid ""
+"Copy the Google sheet URL from browser URL bar that includes <i>gid</i> "
+"parameter"
+msgstr "从浏览器地址栏复制包含<i>gid</i>参数的Google表格URL"
+
+#: app/Ajax/Tables.php:376 app/Ajax/Tables.php:827 app/Ajax/Tables.php:870
+msgid "invalid_request"
+msgstr "无效请求"
+
+#: app/Ajax/Tables.php:385
+msgid ""
+"The spreadsheet is restricted. Please make it public by clicking on share "
+"button at the top of the spreadsheet"
+msgstr "该电子表格受限制。请点击电子表格顶部的共享按钮将其设为公开"
+
+#: app/Ajax/Tables.php:413
+msgid "Table created successfully"
+msgstr "表格创建成功"
+
+#: app/Ajax/Tables.php:433
+msgid "Invalid table to edit."
+msgstr "无效的表格，无法编辑。"
+
+#: app/Ajax/Tables.php:442 app/Ajax/Tables.php:654 app/Ajax/Tables.php:712
+#: app/Ajax/Tables.php:1017
+msgid "Request is invalid"
+msgstr "请求无效"
+
+#: app/Ajax/Tables.php:497 app/Ajax/Tables.php:688 app/Ajax/Tables.php:745
+msgid ""
+"Please make it public by clicking on share button at the top of spreadsheet"
+msgstr "请点击电子表格顶部的共享按钮将其设为公开"
+
+#: app/Ajax/Tables.php:516 app/Ajax/Tables.php:524 app/Ajax/Tables.php:617
+#: app/Ajax/Tables.php:646 app/Ajax/Tables.php:767
+msgid "Action is invalid"
+msgstr "操作无效"
+
+#: app/Ajax/Tables.php:532
+msgid "Tables fetched successfully."
+msgstr "表格获取成功。"
+
+#: app/Ajax/Tables.php:551
+msgid "Table ID"
+msgstr "表格ID"
+
+#: app/Ajax/Tables.php:552
+msgid "Type"
+msgstr "类型"
+
+#: app/Ajax/Tables.php:553 app/Strings.php:203
+msgid "Shortcode"
+msgstr "短代码"
+
+#: app/Ajax/Tables.php:554
+msgid "Table Name"
+msgstr "表格名称"
+
+#: app/Ajax/Tables.php:555 app/Ajax/Tables.php:594 app/Strings.php:461
+#: app/Strings.php:963
+msgid "Delete"
+msgstr "删除"
+
+#: app/Ajax/Tables.php:627
+msgid "Tab updated successfully"
+msgstr "选项卡更新成功"
+
+#: app/Ajax/Tables.php:632
+msgid "Tab could not be updated. Try again"
+msgstr "选项卡无法更新。请重试"
+
+#: app/Ajax/Tables.php:663 app/Ajax/Tables.php:721
+msgid "No table found."
+msgstr "未找到表格。"
+
+#: app/Ajax/Tables.php:793 app/Ajax/Tables.php:979
+msgid "Form field is empty. Please fill out the field"
+msgstr "表单字段为空。请填写字段"
+
+#: app/Ajax/Tables.php:836 app/Ajax/Tables.php:879
+msgid ""
+"The spreadsheet is restricted. Please make it public by clicking on share "
+"button at the top of spreadsheet"
+msgstr "该电子表格受限制。请点击电子表格顶部的共享按钮将其设为公开"
+
+#: app/Ajax/Tables.php:905
+msgid "This Google sheet already saved. Try creating a new one"
+msgstr "此Google表格已保存。请尝试创建新表格"
+
+#: app/Ajax/Tables.php:924
+msgid "Table saved successfully"
+msgstr "表格保存成功"
+
+#: app/Ajax/Tables.php:940
+msgid "Table changes updated successfully"
+msgstr "表格更改更新成功"
+
+#: app/Ajax/Tables.php:1025
+msgid "Selected tables deleted successfully"
+msgstr "所选表格删除成功"
+
+#: app/Ajax/Tables.php:1040
+msgid "Table name updated successfully"
+msgstr "表格名称更新成功"
+
+#: app/Ajax/Tables.php:1058 app/Ajax/Tabs.php:83
+msgid "Could not update the data."
+msgstr "无法更新数据。"
+
+#: app/Ajax/Tables.php:1084
+msgid "API key is required"
+msgstr "需要API密钥"
+
+#: app/Ajax/Tables.php:1713
+msgid "CTA notice dismissed successfully"
+msgstr "CTA通知已成功关闭"
+
+#: app/Ajax/Tables.php:1717
+msgid "Failed to dismiss CTA notice"
+msgstr "关闭CTA通知失败"
+
+#: app/Ajax/Tables.php:1740
+msgid "CTA notice for tabs dismissed successfully"
+msgstr "选项卡的CTA通知已成功关闭"
+
+#: app/Ajax/Tables.php:1744
+msgid "Failed to dismiss CTA notice for tabs"
+msgstr "关闭选项卡的CTA通知失败"
+
+#: app/Ajax/Tabs.php:43
+msgid "Tab deleted successfully"
+msgstr "选项卡删除成功"
+
+#: app/Ajax/Tabs.php:49
+msgid "Unable to delete tab."
+msgstr "无法删除选项卡。"
+
+#: app/Ajax/Tabs.php:65
+msgid "Tab name updated successfully"
+msgstr "选项卡名称更新成功"
+
+#: app/Assets.php:515
+msgid ""
+"Display Google Spreadsheet data to WordPress table in just a few clicks\n"
+"\t\t\t\tand keep the data always synced. Organize and display all your "
+"spreadsheet data in your WordPress quickly and effortlessly."
+msgstr ""
+"只需点击几下即可将Google电子表格数据显示到WordPress表格中\n"
+"\t\t\t\t并保持数据始终同步。快速轻松地在WordPress中组织和显示所有电子表格数"
+"据。"
+
+#: app/Divi/DiviModule.php:40
+msgid "Table Selection"
+msgstr "表格选择"
+
+#: app/Divi/DiviModule.php:49 app/Elementor/ElementorWidget.php:96
+msgid "Choose Table"
+msgstr "选择表格"
+
+#: app/Divi/DiviModule.php:55
+msgid "Select a table to display."
+msgstr "选择要显示的表格。"
+
+#: app/Divi/DiviModule.php:62
+msgid "Select a table"
+msgstr "选择一个表格"
+
+#: app/Divi/DiviModule.php:84
+msgid "Please select a table to display."
+msgstr "请选择要显示的表格。"
+
+#: app/Elementor/TableSettings.php:80
+msgid "Table Exporting"
+msgstr "表格导出"
+
+#: app/Elementor/TableSettings.php:81
+msgid ""
+"Enable this feature in order to allow your user to download your table "
+"content as various format."
+msgstr "启用此功能以允许您的用户以各种格式下载表格内容。"
+
+#: app/Elementor/TableSettings.php:90
+msgid "Table Caching"
+msgstr "表格缓存"
+
+#: app/Elementor/TableSettings.php:91
+msgid ""
+"Enabling this feature would cache the Google sheet data & therefore the "
+"table will load faster than before.\n"
+"                                        Also it will load the updated data "
+"when there is a change in your Google sheet."
+msgstr ""
+"启用此功能将缓存Google表格数据，因此表格加载速度将比以前更快。\n"
+"                                        当您的Google表格发生更改时，它也会加"
+"载更新的数据。"
+
+#: app/Elementor/TableSettings.php:101
+msgid "Hide Column"
+msgstr "隐藏列"
+
+#: app/Elementor/TableSettings.php:102
+msgid "Hide your table columns based on multiple screen sizes."
+msgstr "根据多个屏幕尺寸隐藏表格列。"
+
+#: app/Elementor/TableSettings.php:112
+msgid "Hide Column on Mobile"
+msgstr "在移动设备上隐藏列"
+
+#: app/Elementor/TableSettings.php:113
+msgid "Hide your table columns based on mobile screen sizes."
+msgstr "根据移动屏幕尺寸隐藏表格列。"
+
+#: app/Elementor/TableSettings.php:124 app/Elementor/TableSettings.php:135
+msgid "Hide Row's"
+msgstr "隐藏行"
+
+#: app/Elementor/TableSettings.php:125 app/Elementor/TableSettings.php:136
+msgid "Hide your table rows based on your custom selection"
+msgstr "根据您的自定义选择隐藏表格行"
+
+#: app/Elementor/TableSettings.php:147 app/Elementor/TableSettings.php:158
+msgid "Hide Cell"
+msgstr "隐藏单元格"
+
+#: app/Elementor/TableSettings.php:148 app/Elementor/TableSettings.php:159
+msgid ""
+"Hide your specific table cell that is not going to visibile to your user's."
+msgstr "隐藏用户看不到的特定表格单元格。"
+
+#: app/Elementor/TemplateContent.php:502 app/templates/create_tables.php:89
+#: app/templates/edit_table.php:90
+msgid "Display Settings"
+msgstr "显示设置"
+
+#: app/Elementor/TemplateContent.php:510 app/templates/create_tables.php:99
+#: app/templates/edit_table.php:100
+msgid "Sort & Filter"
+msgstr "排序和过滤"
+
+#: app/Elementor/TemplateContent.php:516 app/templates/create_tables.php:109
+#: app/templates/edit_table.php:110
+msgid "Table Tools"
+msgstr "表格工具"
+
+#: app/Elementor/TemplateContent.php:583 app/Elementor/TemplateContent.php:598
+msgid "Choose any saved table to load data"
+msgstr "选择任何已保存的表格来加载数据"
+
+#: app/Helpers.php:169
+msgid "You are offline."
+msgstr "您已离线。"
+
+#: app/Helpers.php:176
+msgid "Sheet is not public or shared"
+msgstr "表格未公开或未共享"
+
+#: app/Helpers.php:235
+msgid "The feature is not compatible or something went wrong"
+msgstr "该功能不兼容或出现问题"
+
+#: app/Helpers.php:1201
+msgid "Generate AI-powered summary of this table data"
+msgstr "生成此表格数据的AI驱动摘要"
+
+#: app/Notices.php:112
+msgid "Plugin"
+msgstr "插件"
+
+#: app/Notices.php:113
+msgid ""
+"cannot be activated - requires at least PHP 5.4. Plugin automatically "
+"deactivated."
+msgstr "无法激活 - 至少需要PHP 5.4。插件已自动停用。"
+
+#: app/SWPTLS.php:219
+msgid ""
+"Plugin is missing required dependencies. Please contact support for more "
+"information."
+msgstr "插件缺少必需的依赖项。请联系支持以获取更多信息。"
+
+#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+msgid "All Tables"
+msgstr "所有表格"
+
+#: app/SWPTLS.php:250 app/Strings.php:213
+msgid "Get Pro"
+msgstr "获取专业版"
+
+#: app/SWPTLS.php:288
+msgid "Grab Your Treat!"
+msgstr "获取您的优惠！"
+
+#: app/SWPTLS.php:295
+msgid "Grab Your Deals!"
+msgstr "获取您的优惠！"
+
+#: app/Settings.php:179
+msgid "Table Title"
+msgstr "表格标题"
+
+#: app/Settings.php:180
+msgid ""
+"Enable this to show the table title in <i>h3</i> tag above the table in your "
+"website front-end"
+msgstr "启用此选项可在您网站前端的表格上方以<i>h3</i>标签显示表格标题"
+
+#: app/Settings.php:187
+msgid "Show info block"
+msgstr "显示信息块"
+
+#: app/Settings.php:188
+msgid "Show <i>Showing X to Y of Z entries</i>block below the table"
+msgstr "在表格下方显示<i>显示第X到Y条，共Z条记录</i>块"
+
+#: app/Settings.php:196
+msgid "Show X entries"
+msgstr "显示X条记录"
+
+#: app/Settings.php:197
+msgid "<i>Show X entries</i> per page dropdown"
+msgstr "<i>每页显示X条记录</i>下拉菜单"
+
+#: app/Settings.php:205
+msgid "Swap Filters"
+msgstr "交换过滤器"
+
+#: app/Settings.php:206
+msgid "Swap the places of <i> X entries</i> dropdown & search filter input"
+msgstr "交换<i>X条记录</i>下拉菜单和搜索过滤器输入的位置"
+
+#: app/Settings.php:214
+msgid "Swap Bottom Elements"
+msgstr "交换底部元素"
+
+#: app/Settings.php:215
+msgid ""
+"Swap the places of <i>Showing X to Y of Z entries</i> with table pagination "
+"filter"
+msgstr "交换<i>显示第X到Y条，共Z条记录</i>与表格分页过滤器的位置"
+
+#: app/Settings.php:223
+msgid "Responsive Style"
+msgstr "响应式样式"
+
+#: app/Settings.php:224 app/Settings.php:237
+msgid "Allow the table to collapse or scroll on mobile and tablet screen."
+msgstr "允许表格在移动设备和平板电脑屏幕上折叠或滚动。"
+
+#: app/Settings.php:236
+msgid "Link Support"
+msgstr "链接支持"
+
+#: app/Settings.php:249
+msgid "Rows per page"
+msgstr "每页行数"
+
+#: app/Settings.php:250
+msgid ""
+"This will show rows per page. The feature will allow you how many rows you "
+"want to show to your user by default."
+msgstr "这将显示每页的行数。该功能允许您设置默认向用户显示多少行。"
+
+#: app/Settings.php:260
+msgid "Table Height"
+msgstr "表格高度"
+
+#: app/Settings.php:261
+msgid ""
+"Choose the height of the table to scroll vertically. Activating this feature "
+"will allow the table to behave as sticky header"
+msgstr "选择垂直滚动的表格高度。激活此功能将允许表格表现为固定标题"
+
+#: app/Settings.php:272
+msgid "Format Cell"
+msgstr "格式化单元格"
+
+#: app/Settings.php:273
+msgid ""
+"Format the table cell as like google sheet cell formatting. Format your cell "
+"as Wrap OR Expanded style"
+msgstr ""
+"像Google表格单元格格式一样格式化表格单元格。将单元格格式化为自动换行或展开样"
+"式"
+
+#: app/Settings.php:287
+msgid "Link Type"
+msgstr "链接类型"
+
+#: app/Settings.php:288
+msgid "Choose the redirection type of all the links in this table."
+msgstr "选择此表格中所有链接的重定向类型。"
+
+#: app/Settings.php:301
+msgid "Table Style"
+msgstr "表格样式"
+
+#: app/Settings.php:302
+msgid ""
+"Choose your desired table style for this table. This will change the design "
+"& color of this table according to your selected table design"
+msgstr ""
+"为此表格选择所需的表格样式。这将根据您选择的表格设计更改此表格的设计和颜色"
+
+#: app/Settings.php:312
+msgid "Import Sheet Styles"
+msgstr "导入表格样式"
+
+#: app/Settings.php:313
+msgid ""
+"Import cell backgorund color & cell font color from google sheet. If you "
+"activate this feature it will overrider <i>Table Style</i> setting"
+msgstr ""
+"从Google表格导入单元格背景色和单元格字体颜色。如果您激活此功能，它将覆盖<i>表"
+"格样式</i>设置"
+
+#: app/Settings.php:335
+msgid "Allow Sorting"
+msgstr "允许排序"
+
+#: app/Settings.php:336
+msgid "Enable this feature to sort table data for frontend."
+msgstr "启用此功能以对前端表格数据进行排序。"
+
+#: app/Settings.php:343
+msgid "Search Bar"
+msgstr "搜索栏"
+
+#: app/Settings.php:344
+msgid ""
+"Enable this feature to show a search bar in for the table. It will help user "
+"to search data in the table"
+msgstr "启用此功能以在表格中显示搜索栏。它将帮助用户在表格中搜索数据"
+
+#: app/Shortcode.php:56 app/Shortcode.php:98
+msgid "Table maybe deleted or can't be loaded."
+msgstr "表格可能已删除或无法加载。"
+
+#: app/Shortcode.php:73 app/templates/create_tables.php:197
+#: app/templates/edit_table.php:198 app/templates/manage_tables.php:60
+msgid "Loading"
+msgstr "加载中"
+
+#: app/Strings.php:31
+msgid "Create beautiful tables from Google Sheets"
+msgstr "从Google Sheets创建精美的表格"
+
+#: app/Strings.php:32 app/Strings.php:40
+msgid "Create new table"
+msgstr "创建新表格"
+
+#: app/Strings.php:33
+msgid "Your Tables"
+msgstr "您的表格"
+
+#: app/Strings.php:34
+msgid "Loading..."
+msgstr "加载中..."
+
+#: app/Strings.php:36
+msgid "👋 Welcome!"
+msgstr "👋 欢迎！"
+
+#: app/Strings.php:37
+msgid "Click the button below to create your first table!"
+msgstr "点击下面的按钮创建您的第一个表格！"
+
+#: app/Strings.php:38
+msgid "Need help? Watch a"
+msgstr "需要帮助？观看"
+
+#: app/Strings.php:41
+msgid "Need help?"
+msgstr "需要帮助？"
+
+#: app/Strings.php:42
+msgid "Help"
+msgstr "帮助"
+
+#: app/Strings.php:43 app/Strings.php:1109
+msgid "Help?"
+msgstr "帮助"
+
+#: app/Strings.php:44
+msgid "Watch Now"
+msgstr "立即观看"
+
+#: app/Strings.php:45
+msgid "Search tables"
+msgstr "搜索表格"
+
+#: app/Strings.php:46
+msgid "Search items"
+msgstr "搜索项目"
+
+#: app/Strings.php:48
+msgid "Search"
+msgstr "搜索"
+
+#: app/Strings.php:49
+msgid "Clear"
+msgstr "清除"
+
+#: app/Strings.php:51
+msgid "Get Help with Creating Tab Groups"
+msgstr "1. 选项卡创建"
+
+#: app/Strings.php:52
+msgid ""
+"Tabs let you group multiple tables into tabbed views and embed in your pages "
+"or posts"
+msgstr "选项卡允许您将多个表格分组为选项卡视图，并将其嵌入到您的页面或文章中"
+
+#: app/Strings.php:53 app/Strings.php:1093
+msgid "Quick Tutorial"
+msgstr "教程"
+
+#: app/Strings.php:54
+msgid "Get started with Tab Groups"
+msgstr "开始使用选项卡组"
+
+#: app/Strings.php:55
+msgid "Search tabs"
+msgstr "搜索表格"
+
+#: app/Strings.php:60
+msgid "This title will be shown on the top of your table"
+msgstr "此标题将显示在表格顶部"
+
+#: app/Strings.php:61
+msgid ""
+"Copy the URL of your Google Sheet from your browser and paste it in the box "
+"below. Make sure your sheet is public."
+msgstr ""
+"从浏览器复制Google表格的URL并将其粘贴到下面的框中。确保您的表格是公开的。"
+
+#: app/Strings.php:62
+msgid ""
+"Copy the Google Sheet URL from your browser and paste it here to create "
+"table. Changing this URL will change your table."
+msgstr ""
+"从浏览器复制Google表格URL并将其粘贴到此处以创建表格。更改此URL将更改您的表"
+"格。"
+
+#: app/Strings.php:63
+msgid ""
+"If this is enabled, the box showing number of entries will be hidden for the "
+"viewers"
+msgstr "如果启用此选项，显示记录数的框将对查看者隐藏"
+
+#: app/Strings.php:64
+msgid "If enabled, the search box will be hidden for viewers"
+msgstr "如果启用，搜索框将对查看者隐藏"
+
+#: app/Strings.php:65
+msgid "Enable this option to hide the table title for the viewers"
+msgstr "启用此选项以对查看者隐藏表格标题"
+
+#: app/Strings.php:66
+msgid "Enable this option to show the table title for the viewers"
+msgstr "启用此选项以对查看者隐藏表格标题"
+
+#: app/Strings.php:67
+msgid "Enable this option to show table description for the viewers"
+msgstr "启用此选项以对查看者隐藏表格标题"
+
+#: app/Strings.php:68
+msgid ""
+"If checked, the sorting option will be enabled for viewers when they view "
+"the table"
+msgstr "如果选中，查看者查看表格时将启用排序选项"
+
+#: app/Strings.php:69
+msgid ""
+"If enabled the entry info showing number of current entries out of all the "
+"entries will be hidden"
+msgstr "如果启用，显示当前记录数占所有记录数的信息将被隐藏"
+
+#: app/Strings.php:70
+msgid "Enable this to hide the pagination for viewers"
+msgstr "启用此选项以对查看者隐藏分页"
+
+#: app/Strings.php:71
+msgid "Display multiple tables using tabs. Just like your google sheets"
+msgstr "使用选项卡显示多个表格。就像您的Google表格一样"
+
+#: app/Strings.php:72
+msgid "Title of the tab group"
+msgstr "选项卡组的标题"
+
+#: app/Strings.php:73
+msgid "Enter the title for this tab"
+msgstr "输入此选项卡的标题"
+
+#: app/Strings.php:74
+msgid ""
+"Select the table which will be shown in this tab from the dropdown below"
+msgstr "从下面的下拉菜单中选择将在此选项卡中显示的表格"
+
+#: app/Strings.php:75
+msgid "Enable this to hide the selected columns on mobile"
+msgstr "启用此选项以在移动设备上隐藏所选列"
+
+#: app/Strings.php:76
+msgid "Enable this to hide the selected column on desktop"
+msgstr "启用此选项以在桌面上隐藏所选列"
+
+#: app/Strings.php:77
+msgid ""
+"This is the list of the hidden columns. Removing a column from this list "
+"will make them visible again"
+msgstr "这是隐藏列的列表。从此列表中删除列将使它们再次可见"
+
+#: app/Strings.php:78
+msgid ""
+"This is the list of the hidden rows. Removing a row from this list will make "
+"them visible again"
+msgstr "这是隐藏行的列表。从此列表中删除行将使它们再次可见"
+
+#: app/Strings.php:79
+msgid ""
+"This is the list of the hidden cells. Removing a cell from this list will "
+"make them visible again"
+msgstr "这是隐藏单元格的列表。从此列表中删除单元格将使它们再次可见"
+
+#: app/Strings.php:80
+msgid ""
+"Use direct google sheet embed link with text content, More flexiable and "
+"easy to use"
+msgstr "使用带有文本内容的直接Google表格嵌入链接，更灵活且易于使用"
+
+#: app/Strings.php:81
+msgid "Use old way [  ] pair to generate link"
+msgstr "使用旧方式[  ]对生成链接"
+
+#: app/Strings.php:82
+msgid ""
+"Copy the URL of your Google Sheet from your browser and paste it in the box "
+"below. Make sure your sheet is public.."
+msgstr ""
+"从浏览器复制Google表格的URL并将其粘贴到下面的框中。确保您的表格是公开的。"
+
+#: app/Strings.php:83
+msgid "Copy the URL of your Google Sheet and paste it here."
+msgstr "复制Google表格的URL并将其粘贴到此处。"
+
+#: app/Strings.php:84
+msgid ""
+"Allows the users to download the table in the format that you select below"
+msgstr "允许用户以您在下面选择的格式下载表格"
+
+#: app/Strings.php:85
+msgid ""
+"For the links on the table you can decide what will happen when a link is "
+"clicked"
+msgstr "对于表格上的链接，您可以决定单击链接时会发生什么"
+
+#: app/Strings.php:86
+msgid "The link opens in the same tab where the table is"
+msgstr "链接在表格所在的同一选项卡中打开"
+
+#: app/Strings.php:87
+msgid "The link will be opened on a new tab"
+msgstr "链接将在新选项卡中打开"
+
+#: app/Strings.php:88
+msgid ""
+"Allow 'Smart links' to load multiple embeed links with text from Google "
+"Sheet. To use this makesure 'Smart link' support selected from 'link support "
+"mechanism' in 'Settings' menu. However, if there is no embeed links in the "
+"Sheet or your'e using pretty link format, then there is no need to use it, "
+"which will reduces loading time and makes the table load faster."
+msgstr ""
+"允许\"智能链接\"从Google表格加载带有文本的多个嵌入链接。要使用此功能，请确保"
+"在\"设置\"菜单的\"链接支持机制\"中选择\"智能链接\"支持。但是，如果表格中没有"
+"嵌入链接或您使用的是美化链接格式，则无需使用它，这将减少加载时间并使表格加载"
+"更快。"
+
+#: app/Strings.php:89
+msgid ""
+"Allow images to be loaded from sheets. You can use it to import images if "
+"you have them in Google Sheets. However, if there is no image in the Sheet, "
+"there is no need to use it, which will reduces loading time and makes the "
+"table load faster."
+msgstr ""
+"允许从表格加载图像。如果您在Google Sheets中有图像，可以使用它来导入图像。但"
+"是，如果表格中没有图像，则无需使用它，这将减少加载时间并使表格加载更快。"
+
+#: app/Strings.php:90
+msgid "If enabled the table will load faster for the viewers"
+msgstr "如果启用，表格将为查看者加载更快"
+
+#: app/Strings.php:91
+msgid "Choose how the table cell will look"
+msgstr "选择表格单元格的外观"
+
+#: app/Strings.php:92
+msgid "Cell will expand according to the content"
+msgstr "单元格将根据内容展开"
+
+#: app/Strings.php:93
+msgid "Cell will be wrapped according to the content"
+msgstr "单元格将根据内容自动换行"
+
+#: app/Strings.php:94
+msgid "Choose how the table will look on devices with small screens"
+msgstr "选择表格在小屏幕设备上的外观"
+
+#: app/Strings.php:95
+msgid "Let the browser decide the behavior of the responsiveness"
+msgstr "让浏览器决定响应性的行为"
+
+#: app/Strings.php:96
+msgid "The table rows will be collapse on  each other in one column"
+msgstr "表格行将在一列中相互折叠"
+
+#: app/Strings.php:97
+msgid ""
+"A horizontal scrollbar will appear for the users to scroll the table left "
+"and right"
+msgstr "将出现一个水平滚动条，供用户左右滚动表格"
+
+#: app/Strings.php:98
+msgid ""
+"Enable this feature to showcase your Sheet's merged cells seamlessly on the "
+"WordPress frontend table."
+msgstr "启用此功能可在WordPress前端表格上无缝展示您的表格的合并单元格。"
+
+#: app/Strings.php:99
+msgid "Select the number of rows to show per page"
+msgstr "选择每页显示的行数"
+
+#: app/Strings.php:100
+msgid ""
+"Select the table height. If the table height is lower there will be a "
+"vertical scrollbar to scroll through the rows"
+msgstr "选择表格高度。如果表格高度较低，将出现垂直滚动条以滚动行"
+
+#: app/Strings.php:101
+msgid "Quickly change your table's look and feel using themes"
+msgstr "使用主题快速更改表格的外观和感觉"
+
+#: app/Strings.php:102
+msgid ""
+"Enable this feature to import colors and text styles directly from a Google "
+"Sheet, instead of using the predefined theme above"
+msgstr ""
+"启用此功能可直接从Google表格导入颜色和文本样式，而不是使用上面的预定义主题"
+
+#: app/Strings.php:103
+msgid ""
+"If this is checked, the tab group title will not be visible in the front end"
+msgstr "如果选中此选项，选项卡组标题将在前端不可见"
+
+#: app/Strings.php:104
+msgid "Choose where you want to show the tab"
+msgstr "选择您想要显示选项卡的位置"
+
+#: app/Strings.php:105
+msgid "The tabs will be shown first and the table will be shown after it"
+msgstr "选项卡将首先显示，表格将在其后显示"
+
+#: app/Strings.php:106
+msgid "The table will be shown first and the tab will be shown after it"
+msgstr "表格将首先显示，选项卡将在其后显示"
+
+#: app/Strings.php:108
+msgid "Set the cursor behavior on your table"
+msgstr "设置表格上的光标行为"
+
+#: app/Strings.php:109
+msgid "You can easily highlight text for copy-paste"
+msgstr "您可以轻松高亮显示文本以进行复制粘贴"
+
+#: app/Strings.php:110
+msgid "You can effortlessly move the table horizontally (left-right)."
+msgstr "您可以轻松地水平移动表格（左右）。"
+
+#: app/Strings.php:112
+msgid ""
+"Allow checkbox to be loaded from sheets. You can use it to import checkox if "
+"you have them in Google Sheets."
+msgstr ""
+"允许从表格加载复选框。如果您在Google Sheets中有复选框，可以使用它来导入复选"
+"框。"
+
+#: app/Strings.php:114 app/Strings.php:708
+msgid "Enable row and column coloring"
+msgstr "启用行和列着色"
+
+#: app/Strings.php:115
+msgid "Choose the column or row to add colors"
+msgstr "选择要添加颜色的列或行"
+
+#: app/Strings.php:116
+msgid "Add color on column"
+msgstr "在列上添加颜色"
+
+#: app/Strings.php:117
+msgid "Add color on row"
+msgstr "在行上添加颜色"
+
+#: app/Strings.php:119
+msgid ""
+"Select which column to sort on load, or keep the format from Google Sheets."
+msgstr "选择加载时要排序的列，或保持Google Sheets的格式。"
+
+#: app/Strings.php:120
+msgid "Choose the order of sorting for the selected column."
+msgstr "为所选列选择排序顺序。"
+
+#: app/Strings.php:122
+msgid ""
+"Specify the maximum time (in seconds) the plugin will wait for a response "
+"from the Google server. A higher timeout allows more time to receive a "
+"complete response, but may delay table loading; a lower timeout can speed up "
+"loading but may result in missing data if the response isn’t fully received. "
+"A setting between 10 and 15 seconds is generally recommended for balanced "
+"performance."
+msgstr ""
+"指定插件等待Google服务器响应的最长时间（以秒为单位）。较高的超时时间允许更多"
+"时间接收完整响应，但可能会延迟表格加载；较低的超时时间可以加快加载速度，但如"
+"果未完全接收响应，可能会导致数据丢失。一般建议将设置设为10到15秒之间以实现平"
+"衡性能。"
+
+#: app/Strings.php:124
+msgid ""
+"Choose how you want to sort your table on load. Select a specific column to "
+"sort by (either ascending or descending), or keep the same format as in "
+"Google Sheets."
+msgstr ""
+"选择加载时如何对表格进行排序。选择要排序的特定列（升序或降序），或保持与"
+"Google Sheets中相同的格式。"
+
+#: app/Strings.php:126
+msgid ""
+"Select this to make the custom theme available for all tables. If unchecked, "
+"the theme will only be used for this table."
+msgstr ""
+"选择此选项可使自定义主题适用于所有表格。如果未选中，主题将仅用于此表格。"
+
+#: app/Strings.php:127
+msgid ""
+"If selected, any changes made to your theme will be automatically applied to "
+"all other tables with the same theme, ensuring consistency across them. If "
+"the theme does not exist in other tables, it will be cloned with update "
+"style."
+msgstr ""
+"如果选中，对主题所做的任何更改将自动应用于具有相同主题的所有其他表格，确保它"
+"们之间的一致性。如果主题在其他表格中不存在，它将以更新样式克隆。"
+
+#: app/Strings.php:129
+msgid ""
+"Adjust the header’s offset to prevent overlap with sticky menus or other "
+"elements at the top of the page."
+msgstr "调整标题的偏移量以防止与页面顶部的固定菜单或其他元素重叠。"
+
+#: app/Strings.php:130
+msgid ""
+"Set how many columns from the left side of the table should remain fixed "
+"while scrolling."
+msgstr "设置表格左侧滚动时应保持固定的列数。"
+
+#: app/Strings.php:131
+msgid ""
+"Set how many columns from the right side of the table should remain fixed "
+"while scrolling."
+msgstr "设置表格右侧滚动时应保持固定的列数。"
+
+#: app/Strings.php:132
+msgid ""
+"When this option is enabled, the cache won't trigger any API request to "
+"update data from sheets. This helps improve performance and reduce server "
+"load. Important: If this is enabled before turning on features like merged "
+"cells, links, images, or importing table styles from Google Sheets, those "
+"features might not appear until the cache expires. To avoid this, enable all "
+"necessary features first, then active the cache feaure and then turn on this "
+"option. You can also change the cache expiry time in Settings."
+msgstr ""
+"启用此选项后，缓存不会触发任何API请求来从表格更新数据。这有助于提高性能并减少"
+"服务器负载。重要提示：如果在启用合并单元格、链接、图像或从Google Sheets导入表"
+"格样式等功能之前启用此选项，这些功能可能直到缓存过期才会出现。为避免这种情"
+"况，请先启用所有必要的功能，然后激活缓存功能，然后再启用此选项。您还可以在设"
+"置中更改缓存过期时间。"
+
+#: app/Strings.php:133
+msgid ""
+"Set how many days the cache should be stored in transients. Once the "
+"transient expires, the data will automatically refresh from the connected "
+"Google Sheets with updated data."
+msgstr ""
+"设置缓存应在瞬态中存储多少天。瞬态过期后，数据将自动从连接的Google Sheets刷新"
+"更新的数据。"
+
+#: app/Strings.php:135
+msgid ""
+"Allow visitors to ask questions about the table. AI scans the data and "
+"returns accurate, easy to understand answers in real time."
+msgstr ""
+"允许访问者询问有关表格的问题。AI扫描数据并实时返回准确、易于理解的答案。"
+
+#: app/Strings.php:140
+msgid "Add new table"
+msgstr "添加新表格"
+
+#: app/Strings.php:145
+msgid "Please activate your license"
+msgstr "请激活您的许可证"
+
+#: app/Strings.php:151
+msgid "What’s new?"
+msgstr "有什么新功能？"
+
+#: app/Strings.php:156
+msgid "Save changes"
+msgstr "保存更改"
+
+#: app/Strings.php:157
+msgid "1. Tab Creation"
+msgstr "1. 选项卡创建"
+
+#: app/Strings.php:158
+msgid "2. Tab settings"
+msgstr "2. 选项卡设置"
+
+#: app/Strings.php:159
+msgid "Table Settings"
+msgstr "表格设置"
+
+#: app/Strings.php:161
+msgid "Create tab view with tables"
+msgstr "使用表格创建选项卡视图"
+
+#: app/Strings.php:162
+msgid "Adjust tab appearance and behavior"
+msgstr "调整选项卡外观和行为"
+
+#: app/Strings.php:163
+msgid "Save & go to Manage Tab"
+msgstr "保存并转到管理选项卡"
+
+#: app/Strings.php:164
+msgid "Save & go to dashboard"
+msgstr "保存并转到仪表板"
+
+#: app/Strings.php:165
+msgid "Go to Dashboard"
+msgstr "转到仪表板"
+
+#: app/Strings.php:167
+msgid "COPY EMAL"
+msgstr "复制电子邮件"
+
+#: app/Strings.php:168
+msgid "ID: TB_"
+msgstr "ID: TB_"
+
+#: app/Strings.php:169
+msgid "Copied!"
+msgstr "已复制！"
+
+#: app/Strings.php:170 app/templates/create_tables.php:37
+#: app/templates/edit_table.php:39
+msgid "Back"
+msgstr "返回"
+
+#: app/Strings.php:171 app/Strings.php:603
+msgid "Next"
+msgstr "下一步"
+
+#: app/Strings.php:172
+msgid "Tab title"
+msgstr "选项卡标题"
+
+#: app/Strings.php:173 app/Strings.php:582
+msgid "Tab Groups"
+msgstr "选项卡组"
+
+#: app/Strings.php:174
+msgid "Organize multiple tables into tabs, just like Google Sheets!"
+msgstr "将多个表格组织到选项卡中，就像Google Sheets一样！"
+
+#: app/Strings.php:175
+msgid "Get started with tab groups"
+msgstr "开始使用选项卡组"
+
+#: app/Strings.php:176
+msgid "No tab group found!"
+msgstr "未找到选项卡组！"
+
+#: app/Strings.php:177
+msgid "No tab group matches to your search term"
+msgstr "没有选项卡组与您的搜索词匹配"
+
+#: app/Strings.php:178
+msgid "Select table for Tab 1"
+msgstr "为选项卡1选择表格"
+
+#: app/Strings.php:184
+msgid "Select Pagination"
+msgstr "选择分页"
+
+#: app/Strings.php:185
+msgid "Customize your theme according to your needs"
+msgstr "根据您的需求自定义主题"
+
+#: app/Strings.php:190
+msgid "Name"
+msgstr "名称"
+
+#: app/Strings.php:191
+msgid "ID"
+msgstr "ID"
+
+#: app/Strings.php:192
+msgid "Date"
+msgstr "日期"
+
+#: app/Strings.php:193 app/Strings.php:493
+msgid "Ascending"
+msgstr "升序"
+
+#: app/Strings.php:194 app/Strings.php:494
+msgid "Descending"
+msgstr "降序"
+
+#: app/Strings.php:195
+msgid "above"
+msgstr "上方"
+
+#: app/Strings.php:196
+msgid "below"
+msgstr "下方"
+
+#: app/Strings.php:197
+msgid "No tables found!"
+msgstr "未找到表格！"
+
+#: app/Strings.php:198
+msgid "No tables matches to your search term"
+msgstr "没有表格与您的搜索词匹配"
+
+#: app/Strings.php:204
+msgid "1. Managing tabs"
+msgstr "1. 管理选项卡"
+
+#: app/Strings.php:209
+msgid "Create table"
+msgstr "创建表格"
+
+#: app/Strings.php:210
+msgid "Create table from URL"
+msgstr "从URL创建表格"
+
+#: app/Strings.php:211
+msgid "Change theme and table style"
+msgstr "更改主题和表格样式"
+
+#: app/Strings.php:212
+msgid ""
+"You can change table theme below. You will find more customization in the "
+"dashboard."
+msgstr "您可以在下面更改表格主题。您将在仪表板中找到更多自定义选项。"
+
+#: app/Strings.php:214
+msgid "PRO"
+msgstr "专业版"
+
+#: app/Strings.php:216
+msgid "to create table from any tab of your Google SpreadSheet."
+msgstr "从您的Google电子表格的任何选项卡创建表格。"
+
+#: app/Strings.php:217
+msgid "Add your Google Sheet URL to create a table"
+msgstr "添加您的Google表格URL以创建表格"
+
+#: app/Strings.php:218
+msgid ""
+"Paste the browser URL of your Google Sheet below, and the table will be "
+"created for you to customize"
+msgstr "在下面粘贴您的Google表格的浏览器URL，将为您创建表格以进行自定义"
+
+#: app/Strings.php:219
+msgid "Creating new table"
+msgstr "正在创建新表格"
+
+#: app/Strings.php:224
+msgid "Create WooCommerce product table easily!"
+msgstr "轻松创建WooCommerce产品表格！"
+
+#: app/Strings.php:226
+msgid "Install Stock Sync for WooCommerce"
+msgstr "为WooCommerce安装库存同步"
+
+#: app/Strings.php:228
+msgid ""
+"and sync your store products to Google Sheets. Use the synced Google Sheet "
+"to create table. It’s easy!"
+msgstr ""
+"并将您的商店产品同步到Google Sheets。使用同步的Google Sheet创建表格。很简单！"
+
+#: app/Strings.php:230
+msgid "Install now"
+msgstr "立即安装"
+
+#: app/Strings.php:235
+msgid "Table title"
+msgstr "表格标题"
+
+#: app/Strings.php:236
+msgid "Please reduce title to save."
+msgstr "请缩短标题以保存。"
+
+#: app/Strings.php:237
+msgid "Google Sheet URL"
+msgstr "Google表格URL"
+
+#: app/Strings.php:242
+msgid "Show Table title"
+msgstr "显示表格标题"
+
+#: app/Strings.php:243
+msgid "Table top elements"
+msgstr "表格顶部元素"
+
+#: app/Strings.php:244
+msgid "Show entries"
+msgstr "显示记录"
+
+#: app/Strings.php:245
+msgid "Show search box"
+msgstr "显示搜索框"
+
+#: app/Strings.php:246
+msgid "Swap"
+msgstr "交换"
+
+#: app/Strings.php:247
+msgid "Hide title"
+msgstr "隐藏标题"
+
+#: app/Strings.php:249
+msgid "Allow Table Sorting"
+msgstr "允许表格排序"
+
+#: app/Strings.php:250
+msgid "Hide sorting controls from table"
+msgstr "从表格隐藏排序控件"
+
+#: app/Strings.php:251
+msgid "Set Default Table Sorting on Load"
+msgstr "设置加载时的默认表格排序"
+
+#: app/Strings.php:252
+msgid "Sort By Column"
+msgstr "按列排序"
+
+#: app/Strings.php:253
+msgid "Sort By Order"
+msgstr "按顺序排序"
+
+#: app/Strings.php:254
+msgid "Sort By"
+msgstr "排序依据"
+
+#: app/Strings.php:256
+msgid "Freeze Table Columns"
+msgstr "冻结表格列"
+
+#: app/Strings.php:257
+msgid "Left Columns Numbers"
+msgstr "左侧列数"
+
+#: app/Strings.php:258
+msgid "Right Columns Numbers"
+msgstr "右侧列数"
+
+#: app/Strings.php:259
+msgid "Freeze Table Header"
+msgstr "冻结表格标题"
+
+#: app/Strings.php:260
+msgid "Header Offset"
+msgstr "标题偏移"
+
+#: app/Strings.php:262
+msgid "Table bottom elements"
+msgstr "表格底部元素"
+
+#: app/Strings.php:263
+msgid "Show entry info"
+msgstr "显示记录信息"
+
+#: app/Strings.php:264
+msgid "Show pagination"
+msgstr "显示分页"
+
+#: app/Strings.php:265
+msgid "Swap position"
+msgstr "交换位置"
+
+#: app/Strings.php:266
+msgid "Swapped position"
+msgstr "已交换位置"
+
+#: app/Strings.php:267
+msgid ""
+"Themes cannot be used when the \"Import colors and text styles from sheet\" "
+"feature is enabled"
+msgstr "启用\"从表格导入颜色和文本样式\"功能时无法使用主题"
+
+#: app/Strings.php:273
+msgid "How does this plugin work?"
+msgstr "此插件如何工作？"
+
+#: app/Strings.php:274
+msgid ""
+"Watch how to <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>get started with FlexTable</a>."
+msgstr ""
+"观看如何<a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>开始使用FlexTable</a>。"
+
+#: app/Strings.php:276
+msgid "Where can I find tutorials about this plugin?"
+msgstr "我在哪里可以找到有关此插件的教程？"
+
+#: app/Strings.php:277
+msgid ""
+"Please visit our <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>Youtube playlist</a>, where we post "
+"tutorials on how you can use different features of the plugin."
+msgstr ""
+"请访问我们的<a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>Youtube播放列表</a>，我们在那里发布"
+"有关如何使用插件不同功能的教程。"
+
+#: app/Strings.php:279
+msgid "What date format can I use?"
+msgstr "我可以使用什么日期格式？"
+
+#: app/Strings.php:280
+msgid ""
+"When working with date formats in your table, you have various options to "
+"choose from. Avoid using a <span class='date-format'><code>comma separator</"
+"code></span>, but consider formats such as <br> e.g. <span class='date-"
+"format'><code>2005-06-07</code> | <code>2005/06/07</code> | <code>2005 06 "
+"07</code> | <code>June 7- 2005</code> | <code>June 7 2005</code> | <code>7th "
+"June 2005</code></span>"
+msgstr ""
+"在表格中处理日期格式时，您有多种选项可供选择。避免使用<span class='date-"
+"format'><code>逗号分隔符</code></span>，但可以考虑以下格式<br>例如：<span "
+"class='date-format'><code>2005-06-07</code> | <code>2005/06/07</code> | "
+"<code>2005 06 07</code> | <code>June 7- 2005</code> | <code>June 7 2005</"
+"code> | <code>7th June 2005</code></span>"
+
+#: app/Strings.php:282
+msgid "Which one is better for link support?"
+msgstr "哪种链接支持更好？"
+
+#: app/Strings.php:284
+msgid ""
+"For enhanced link functionality, it's advisable to utilize <span class='date-"
+"format'><code>Smart Link</code></span> over the <span class='date-"
+"format'><code>Pretty Link</code></span>. Smart Link is known for its robust "
+"and user-friendly features."
+msgstr ""
+"为了增强链接功能，建议使用<span class='date-format'><code>智能链接</code></"
+"span>而不是<span class='date-format'><code>美化链接</code></span>。智能链接以"
+"其强大且用户友好的功能而闻名。"
+
+#: app/Strings.php:286
+msgid "Why my table taking too long to load?"
+msgstr "为什么我的表格加载时间过长？"
+
+#: app/Strings.php:288
+msgid ""
+"If your table is taking too long to load, it may be due to the presence of a "
+"substantial amount of data in Google Sheets, along with images and links. If "
+"your sheet doesn't contain images or links, consider disabling <span "
+"class='date-format'><code>links and Image support</code></span> within the "
+"<span class='date-format'><code>Utility</code></span> settings of Table "
+"Customization to expedite table loading. Utilizing the cache feature can "
+"also improve loading times."
+msgstr ""
+"如果您的表格加载时间过长，可能是由于Google Sheets中存在大量数据以及图像和链"
+"接。如果您的表格不包含图像或链接，请考虑在表格自定义的<span class='date-"
+"format'><code>实用工具</code></span>设置中禁用<span class='date-"
+"format'><code>链接和图像支持</code></span>以加快表格加载速度。使用缓存功能也"
+"可以提高加载速度。"
+
+#: app/Strings.php:290
+msgid "How long table data can take to update if Cache is activated?"
+msgstr "如果启用缓存，表格数据更新需要多长时间？"
+
+#: app/Strings.php:292
+msgid ""
+"When the cache feature is active, updates to your table data are not reliant "
+"on your browser's cache. Changes made in your sheet may take approximately "
+"15-40 seconds to reflect. To view the latest updates, simply refresh the "
+"page after this timeframe."
+msgstr ""
+"当缓存功能处于活动状态时，表格数据的更新不依赖于浏览器的缓存。在表格中所做的"
+"更改可能需要大约15-40秒才能反映出来。要查看最新更新，只需在此时间范围后刷新页"
+"面即可。"
+
+#: app/Strings.php:294
+msgid "How do I find tutorials about using the plugin?"
+msgstr "如何找到有关使用此插件的教程？"
+
+#: app/Strings.php:296
+msgid ""
+"Please visit our <a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube playlist</a>, where we post "
+"tutorials on how you can use different features of the plugin."
+msgstr ""
+"请访问我们的<a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube播放列表</a>，我们在那里发布"
+"有关如何使用插件不同功能的教程。"
+
+#: app/Strings.php:298
+msgid ""
+"How can I create a table from an imported XLSX file in google spreadsheets?"
+msgstr "如何从Google电子表格中导入的XLSX文件创建表格？"
+
+#: app/Strings.php:300
+msgid ""
+"Make sure to import the XLSX file into Google Spreadsheets in the following "
+"ways. Create a new blank spreadsheet, then navigate to `<span class='date-"
+"format'><code> File > Import > Upload</code></span>` Drag the XLSX files to "
+"import. Then share the spreadsheets from 'General Access'. Please visit our "
+"<a target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube playlist</a>, where we post "
+"tutorials on how you can use XLSX file imported in google spreadsheets."
+msgstr ""
+"确保按以下方式将XLSX文件导入Google电子表格。创建一个新的空白电子表格，然后导"
+"航到`<span class='date-format'><code>文件 > 导入 > 上传</code></span>`拖动"
+"XLSX文件以导入。然后从\"常规访问权限\"共享电子表格。请访问我们的<a "
+"target='_blank' href='https://www.youtube.com/playlist?"
+"list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP'>YouTube播放列表</a>，我们在那里发布"
+"有关如何使用导入到Google电子表格中的XLSX文件的教程。"
+
+#: app/Strings.php:303 app/Strings.php:585
+msgid "Get Started"
+msgstr "开始使用"
+
+#: app/Strings.php:304
+msgid "Let’s get you set up so you can start creating awesome tables"
+msgstr "让我们为您做好设置，以便您可以开始创建出色的表格"
+
+#: app/Strings.php:306 app/Strings.php:1128
+#: app/templates/documentation_page.php:175
+msgid "Documentation"
+msgstr "文档"
+
+#: app/Strings.php:307
+msgid "Video Tutorial"
+msgstr "视频教程"
+
+#: app/Strings.php:308
+msgid "Get professional help via our ticketing system"
+msgstr "通过我们的工单系统获得专业帮助"
+
+#: app/Strings.php:309
+msgid "Frequently Asked Question"
+msgstr "常见问题"
+
+#: app/Strings.php:310 app/templates/documentation_page.php:75
+msgid "Get the most out of the plugin. Go Pro!"
+msgstr "充分利用插件。升级到专业版！"
+
+#: app/Strings.php:311
+msgid "Unlock all features"
+msgstr "解锁所有功能"
+
+#: app/Strings.php:312
+msgid "Link Support to import links from sheet"
+msgstr "链接支持以从表格导入链接"
+
+#: app/Strings.php:313
+msgid ""
+"Pre-built amazing table styles where Each styles is different from one "
+"another"
+msgstr "预构建的出色表格样式，每种样式彼此不同"
+
+#: app/Strings.php:314
+msgid "Hide your google sheet table rows based on your custom row selection"
+msgstr "根据您的自定义行选择隐藏Google表格行"
+
+#: app/Strings.php:315
+msgid "Unlimited Row Sync and fetch unlimited rows from Google spreadsheet"
+msgstr "无限行同步，从Google电子表格获取无限行"
+
+#: app/Strings.php:320
+msgid "Export as JSON"
+msgstr "导出为JSON"
+
+#: app/Strings.php:321
+msgid "Export as CSV"
+msgstr "导出为CSV"
+
+#: app/Strings.php:322
+msgid "Export as PDF"
+msgstr "导出为PDF"
+
+#: app/Strings.php:323
+msgid "Export as Excel"
+msgstr "导出为Excel"
+
+#: app/Strings.php:324
+msgid "Print Table"
+msgstr "打印表格"
+
+#: app/Strings.php:325
+msgid "Copy to Clipboard"
+msgstr "复制到剪贴板"
+
+#: app/Strings.php:327
+msgid "Live sync is limited to 30 rows."
+msgstr "实时同步限制为30行。"
+
+#: app/Strings.php:328
+msgid ""
+"In your free plan, you are limited to creating 10 tables. Upgrade to create "
+"more."
+msgstr "在您的免费计划中，您仅限于创建10个表格。升级以创建更多。"
+
+#: app/Strings.php:329
+msgid "Upgrade to Pro"
+msgstr "升级到专业版"
+
+#: app/Strings.php:330
+msgid "for showing full google sheet."
+msgstr "以显示完整的Google表格。"
+
+#: app/Strings.php:332
+msgid "1. Data source"
+msgstr "1. 数据源"
+
+#: app/Strings.php:333
+msgid "2. Table theme"
+msgstr "2. 表格主题"
+
+#: app/Strings.php:334
+msgid "3. Table customization"
+msgstr "3. 表格自定义"
+
+#: app/Strings.php:335
+msgid "4. Hide Rows/Column"
+msgstr "4. 隐藏行/列"
+
+#: app/Strings.php:336
+msgid "5. Conditional Table View"
+msgstr "5. 条件表格视图"
+
+#: app/Strings.php:337
+msgid "6. AI Integration"
+msgstr "6. AI集成"
+
+#: app/Strings.php:338
+msgid "Table description"
+msgstr "表格描述"
+
+#: app/Strings.php:339
+msgid "Show Table description"
+msgstr "显示表格描述"
+
+#: app/Strings.php:341
+msgid "Connect your Google Sheet"
+msgstr "连接您的Google表格"
+
+#: app/Strings.php:342
+msgid "Choose how your table appears"
+msgstr "选择表格的显示方式"
+
+#: app/Strings.php:343
+msgid "Style and personalize your table’s look"
+msgstr "样式化并个性化表格的外观"
+
+#: app/Strings.php:344
+msgid "Show or hide specific rows and columns"
+msgstr "显示或隐藏特定行和列"
+
+#: app/Strings.php:345
+msgid "Choose how you want to Display the table"
+msgstr "选择您想要如何显示表格"
+
+#: app/Strings.php:346
+msgid "Auto-summarize data or let visitors ask questions using AI"
+msgstr "自动汇总数据或让访问者使用AI提问"
+
+#: app/Strings.php:348
+msgid "Save"
+msgstr "保存"
+
+#: app/Strings.php:349
+msgid "Loading Preview..."
+msgstr "加载预览中..."
+
+#: app/Strings.php:355
+msgid "Upgrade"
+msgstr "升级"
+
+#: app/Strings.php:361 app/Strings.php:638
+msgid "Create tables first to manage tabs"
+msgstr "首先创建表格以管理选项卡"
+
+#: app/Strings.php:362 app/Strings.php:637
+msgid ""
+"Manage tab is not available because you don’t have any tables yet. Please "
+"create tables first"
+msgstr "管理选项卡不可用，因为您还没有任何表格。请先创建表格"
+
+#: app/Strings.php:363
+msgid "Display multiple tables using tabs."
+msgstr "使用选项卡显示多个表格。"
+
+#: app/Strings.php:364
+msgid "Create New Tab Group"
+msgstr "创建新选项卡组"
+
+#: app/Strings.php:365
+msgid "Your Tab Groups"
+msgstr "您的选项卡组"
+
+#: app/Strings.php:366
+msgid "No tabs found with the key"
+msgstr "未找到与该关键字匹配的选项卡"
+
+#: app/Strings.php:371
+msgid "Select table for this tab"
+msgstr "为此选项卡选择表格"
+
+#: app/Strings.php:372
+msgid "Tab Title"
+msgstr "选项卡标题"
+
+#: app/Strings.php:373
+msgid "Add tab"
+msgstr "添加选项卡"
+
+#: app/Strings.php:374
+msgid "Tab group name"
+msgstr "选项卡组名称"
+
+#: app/Strings.php:379
+msgid "Let’s bring meaning to your data"
+msgstr "让我们为您的数据赋予意义"
+
+#: app/Strings.php:380
+msgid ""
+"Create beautifully designed tables from Google sheets and customize as you "
+"need."
+msgstr "从Google表格创建精美设计的表格，并根据需要进行自定义。"
+
+#: app/Strings.php:385
+msgid "Our Other Products"
+msgstr "我们的其他产品"
+
+#: app/Strings.php:386
+msgid ""
+"Experience remarkable WordPress products with a new level of power, beauty, "
+"and human-centered designs. Think you know WordPress products? Think Deeper!"
+msgstr ""
+"体验具有新水平的力量、美观和以人为本设计的卓越WordPress产品。您认为您了解"
+"WordPress产品吗？再想想！"
+
+#: app/Strings.php:392
+msgid "Hidden Cells on Desktop"
+msgstr "桌面上的隐藏单元格"
+
+#: app/Strings.php:393
+msgid "Hidden Cells on Mobile"
+msgstr "移动设备上的隐藏单元格"
+
+#: app/Strings.php:395
+msgid "Hide Cells"
+msgstr "隐藏单元格"
+
+#: app/Strings.php:398
+msgid "Hidden Rows on Desktop"
+msgstr "桌面上的隐藏行"
+
+#: app/Strings.php:399
+msgid "Hidden Rows on Mobile"
+msgstr "移动设备上的隐藏行"
+
+#: app/Strings.php:401
+msgid "Hide Rows"
+msgstr "隐藏行"
+
+#: app/Strings.php:402
+msgid "Same as desktop"
+msgstr "与桌面相同"
+
+#: app/Strings.php:405
+msgid "Hidden Columns on Desktop"
+msgstr "桌面上的隐藏列"
+
+#: app/Strings.php:406
+msgid "Hidden Columns on Mobile"
+msgstr "移动设备上的隐藏列"
+
+#: app/Strings.php:407
+msgid "Hide columns on desktop"
+msgstr "在桌面上隐藏列"
+
+#: app/Strings.php:408
+msgid "Hide columns on mobile"
+msgstr "在移动设备上隐藏列"
+
+#: app/Strings.php:410
+msgid "Hide Columns"
+msgstr "隐藏列"
+
+#: app/Strings.php:411
+msgid "Hide on Desktop"
+msgstr "在桌面上隐藏"
+
+#: app/Strings.php:412
+msgid "Hide on Mobile"
+msgstr "在移动设备上隐藏"
+
+#: app/Strings.php:413
+msgid "Desktop"
+msgstr "桌面"
+
+#: app/Strings.php:414
+msgid "Mobile"
+msgstr "移动设备"
+
+#: app/Strings.php:415
+msgid "Click on the cells on the table below that you want to hide"
+msgstr "点击下面表格中要隐藏的单元格"
+
+#: app/Strings.php:416
+msgid "Click on the rows on the table below that you want to hide"
+msgstr "点击下面表格中要隐藏的行"
+
+#: app/Strings.php:417
+msgid "Click on the column on the table below that you want to hide"
+msgstr "点击下面表格中要隐藏的列"
+
+#: app/Strings.php:422
+msgid "New"
+msgstr "新建"
+
+#: app/Strings.php:423
+msgid "Save settings"
+msgstr "保存设置"
+
+#: app/Strings.php:424
+msgid "Custom CSS"
+msgstr "自定义CSS"
+
+#: app/Strings.php:425 app/Strings.php:828
+msgid "Recommended"
+msgstr "推荐"
+
+#: app/Strings.php:426
+msgid "With Pretty link"
+msgstr "使用美化链接"
+
+#: app/Strings.php:427
+msgid "With Smart link"
+msgstr "使用智能链接"
+
+#: app/Strings.php:428
+msgid "Asynchronous loading"
+msgstr "异步加载"
+
+#: app/Strings.php:430
+msgid ""
+"Enable this feature to load the table faster. The table will load in the "
+"frontend after loading all content with a pre-loader. If this feature is "
+"disabled then the table will load with the reloading of browser every time."
+msgstr ""
+"启用此功能可更快地加载表格。表格将在使用预加载器加载所有内容后在前端加载。如"
+"果禁用此功能，则表格将在每次重新加载浏览器时加载。"
+
+#: app/Strings.php:432
+msgid "Choose your link support mechanism in WP Tables"
+msgstr "在WP Tables中选择您的链接支持机制"
+
+#: app/Strings.php:433
+msgid ""
+"Write your own custom CSS to design the table or the page itself. Activate "
+"the Pro extension to enable custom CSS option"
+msgstr ""
+"编写您自己的自定义CSS来设计表格或页面本身。激活专业版扩展以启用自定义CSS选项"
+
+#: app/Strings.php:434
+msgid "Performance"
+msgstr "性能"
+
+#: app/Strings.php:436
+msgid "Choose how you want to load your table scripts"
+msgstr "选择您想要如何加载表格脚本"
+
+#: app/Strings.php:437
+msgid "Global loading"
+msgstr "全局加载"
+
+#: app/Strings.php:438
+msgid "Load the scripts on all the pages and posts in your website."
+msgstr "在您网站的所有页面和文章上加载脚本。"
+
+#: app/Strings.php:439
+msgid "Optimized loading"
+msgstr "优化加载"
+
+#: app/Strings.php:440
+msgid ""
+"Load scripts only on the relevant pages/posts in your website where the "
+"table is added."
+msgstr "仅在您网站中添加了表格的相关页面/文章上加载脚本。"
+
+#: app/Strings.php:445
+msgid "WPPOOL"
+msgstr "WPPOOL"
+
+#: app/Strings.php:446
+msgid "Powered by"
+msgstr "技术支持"
+
+#: app/Strings.php:447
+msgid "Default Email App"
+msgstr "默认电子邮件应用"
+
+#: app/Strings.php:448
+msgid "Open your default email app"
+msgstr "打开您的默认电子邮件应用"
+
+#: app/Strings.php:449
+msgid "Copy email address to your clipboard"
+msgstr "将电子邮件地址复制到剪贴板"
+
+#: app/Strings.php:450
+msgid "Yahoo"
+msgstr "雅虎"
+
+#: app/Strings.php:451
+msgid "Open Yahoo in browser"
+msgstr "在浏览器中打开雅虎"
+
+#: app/Strings.php:452
+msgid "Outlook"
+msgstr "Outlook"
+
+#: app/Strings.php:453
+msgid "Open Outlook in browser"
+msgstr "在浏览器中打开Outlook"
+
+#: app/Strings.php:454
+msgid "Gmail"
+msgstr "Gmail"
+
+#: app/Strings.php:455
+msgid "Open Gmail in browser"
+msgstr "在浏览器中打开Gmail"
+
+#: app/Strings.php:456
+msgid "Select the convenient option to connect with us"
+msgstr "选择方便的选项与我们联系"
+
+#: app/Strings.php:462
+msgid ""
+"This Tab Group will be deleted. It will not appear on your website anymore, "
+"if you used it somewhere"
+msgstr "此选项卡组将被删除。如果您在某处使用了它，它将不再出现在您的网站上"
+
+#: app/Strings.php:463 app/templates/parts/popup_modals.php:26
+#: app/templates/parts/popup_modals.php:74
+#: app/templates/parts/popup_modals.php:107
+#: app/templates/parts/popup_modals.php:146
+#: app/templates/parts/pro_fix_notice.php:66
+msgid "Cancel"
+msgstr "取消"
+
+#: app/Strings.php:464
+msgid "Are you sure to delete this Tab Group?"
+msgstr "您确定要删除此选项卡组吗？"
+
+#: app/Strings.php:470
+msgid "Utility"
+msgstr "实用工具"
+
+#: app/Strings.php:471
+msgid "Styling"
+msgstr "样式"
+
+#: app/Strings.php:472 app/Strings.php:473
+msgid "Layout"
+msgstr "布局"
+
+#: app/Strings.php:474
+msgid "Let user export table"
+msgstr "允许用户导出表格"
+
+#: app/Strings.php:475
+msgid "Excel"
+msgstr "Excel"
+
+#: app/Strings.php:476
+msgid "JSON"
+msgstr "JSON"
+
+#: app/Strings.php:477
+msgid "Copy"
+msgstr "复制"
+
+#: app/Strings.php:478
+msgid "CSV"
+msgstr "CSV"
+
+#: app/Strings.php:479
+msgid "PDF"
+msgstr "PDF"
+
+#: app/Strings.php:480
+msgid "Print"
+msgstr "打印"
+
+#: app/Strings.php:481
+msgid "Link redirection behaviour"
+msgstr "链接重定向行为"
+
+#: app/Strings.php:482
+msgid "Opens in current window"
+msgstr "在当前窗口中打开"
+
+#: app/Strings.php:483
+msgid "Opens in a new window"
+msgstr "在新窗口中打开"
+
+#: app/Strings.php:485
+msgid "Cursor behavior inside the table"
+msgstr "表格内的光标行为"
+
+#: app/Strings.php:486
+msgid "Text selection mode"
+msgstr "文本选择模式"
+
+#: app/Strings.php:487
+msgid "Table navigation mode (left-right)"
+msgstr "表格导航模式（左右）"
+
+#: app/Strings.php:489
+msgid "Import links from sheet"
+msgstr "从表格导入链接"
+
+#: app/Strings.php:491
+msgid "Import checkbox from sheet"
+msgstr "从表格导入复选框"
+
+#: app/Strings.php:492
+msgid "Enable sorting by specific columns in"
+msgstr "启用特定列排序"
+
+#: app/Strings.php:495
+msgid "within the table"
+msgstr "在表格中"
+
+#: app/Strings.php:497
+msgid "Import images from sheet"
+msgstr "从表格导入图像"
+
+#: app/Strings.php:498
+msgid "Cache table for faster loading time"
+msgstr "缓存表格以加快加载时间"
+
+#: app/Strings.php:499
+msgid "Prevent frequent cache updates for faster table loading"
+msgstr "防止频繁的缓存更新以加快表格加载速度"
+
+#: app/Strings.php:500
+msgid ""
+"New changes from Google Sheets will appear only after the cache expires. "
+"Features like links, images, and merged cells may not show until the cache "
+"refreshes. Cache expiry time can be adjusted in Settings —> Performance."
+msgstr ""
+"来自Google Sheets的新更改只会在缓存过期后出现。链接、图像和合并单元格等功能可"
+"能直到缓存刷新后才会显示。可以在设置 —> 性能中调整缓存过期时间。"
+
+#: app/Strings.php:501
+msgid "Cell formatting style"
+msgstr "单元格格式样式"
+
+#: app/Strings.php:502
+msgid "Expanded"
+msgstr "展开"
+
+#: app/Strings.php:503
+msgid "Wrapped"
+msgstr "自动换行"
+
+#: app/Strings.php:504
+msgid "Responsive style"
+msgstr "响应式样式"
+
+#: app/Strings.php:505
+msgid "Default"
+msgstr "默认"
+
+#: app/Strings.php:506
+msgid "Collapsible Style"
+msgstr "可折叠样式"
+
+#: app/Strings.php:507
+msgid "Scrollable Style"
+msgstr "可滚动样式"
+
+#: app/Strings.php:508
+msgid "Rows to show per page"
+msgstr "每页显示的行数"
+
+#: app/Strings.php:509
+msgid "All"
+msgstr "全部"
+
+#: app/Strings.php:510
+msgid "100"
+msgstr "100"
+
+#: app/Strings.php:511
+msgid "50"
+msgstr "50"
+
+#: app/Strings.php:512
+msgid "30"
+msgstr "30"
+
+#: app/Strings.php:513
+msgid "15"
+msgstr "15"
+
+#: app/Strings.php:514
+msgid "10"
+msgstr "10"
+
+#: app/Strings.php:515
+msgid "5"
+msgstr "5"
+
+#: app/Strings.php:516
+msgid "1"
+msgstr "1"
+
+#: app/Strings.php:517
+msgid "-1"
+msgstr "-1"
+
+#: app/Strings.php:518
+msgid "The table is limited to 100 rows."
+msgstr "表格限制为100行。"
+
+#: app/Strings.php:519
+msgid "to show the full Google Sheet with awesome customizations."
+msgstr "以显示具有出色自定义的完整Google表格。"
+
+#: app/Strings.php:521
+msgid "Upgrade Now →"
+msgstr "立即升级 →"
+
+#: app/Strings.php:522
+msgid "Table height"
+msgstr "表格高度"
+
+#: app/Strings.php:524
+msgid "Default height"
+msgstr "默认高度"
+
+#: app/Strings.php:525
+msgid "400px"
+msgstr "400px"
+
+#: app/Strings.php:526
+msgid "500px"
+msgstr "500px"
+
+#: app/Strings.php:527
+msgid "600px"
+msgstr "600px"
+
+#: app/Strings.php:528
+msgid "700px"
+msgstr "700px"
+
+#: app/Strings.php:529
+msgid "800px"
+msgstr "800px"
+
+#: app/Strings.php:530
+msgid "900px"
+msgstr "900px"
+
+#: app/Strings.php:531
+msgid "1000px"
+msgstr "1000px"
+
+#: app/Strings.php:532
+msgid "Select theme"
+msgstr "选择主题"
+
+#: app/Strings.php:534
+msgid "Import colors and text styles from sheet"
+msgstr "从表格导入颜色和文本样式"
+
+#: app/Strings.php:535
+msgid "Unlock"
+msgstr "解锁"
+
+#: app/Strings.php:537
+msgid "Default Style"
+msgstr "默认样式"
+
+#: app/Strings.php:538
+msgid "Simple"
+msgstr "简单"
+
+#: app/Strings.php:540
+msgid "Dark Table"
+msgstr "深色表格"
+
+#: app/Strings.php:541
+msgid "Simple on dark"
+msgstr "深色简约"
+
+#: app/Strings.php:543
+msgid "Stripped Table"
+msgstr "条纹表格"
+
+#: app/Strings.php:544
+msgid "Minimal on dark"
+msgstr "深色极简"
+
+#: app/Strings.php:546
+msgid "Hover Style"
+msgstr "悬停样式"
+
+#: app/Strings.php:547
+msgid "Minimal elegant"
+msgstr "极简优雅"
+
+#: app/Strings.php:549
+msgid "Taliwind Style"
+msgstr "Tailwind样式"
+
+#: app/Strings.php:550
+msgid "Uppercase heading"
+msgstr "大写标题"
+
+#: app/Strings.php:551
+msgid "Table creation successfull"
+msgstr "表格创建成功"
+
+#: app/Strings.php:553
+msgid "Colored Column"
+msgstr "彩色列"
+
+#: app/Strings.php:554
+msgid "Vertical style"
+msgstr "垂直样式"
+
+#: app/Strings.php:557
+msgid "Minimal"
+msgstr "极简"
+
+#: app/Strings.php:558
+msgid "Dark knight"
+msgstr "暗黑骑士"
+
+#: app/Strings.php:559
+msgid "Uppercase elegant"
+msgstr "大写优雅"
+
+#: app/Strings.php:561
+msgid "Merge cells"
+msgstr "合并单元格"
+
+#: app/Strings.php:562
+msgid "Beta"
+msgstr "测试版"
+
+#: app/Strings.php:563
+msgid ""
+"Sorting feature is disabled. Your sheet contains vertically merged cells, so "
+"you can't use the sorting feature and merge cell feature altogether."
+msgstr ""
+"排序功能已禁用。您的表格包含垂直合并的单元格，因此您无法同时使用排序功能和合"
+"并单元格功能。"
+
+#: app/Strings.php:568
+msgid "Are you sure to disable?"
+msgstr "您确定要禁用吗？"
+
+#: app/Strings.php:569
+msgid ""
+"Colors and text styles from your Google Sheet won’t be imported anymore. A "
+"default theme will be selected for you if you haven’t selected one already"
+msgstr ""
+"来自您的Google表格的颜色和文本样式将不再导入。如果您尚未选择主题，将为您选择"
+"默认主题"
+
+#: app/Strings.php:570
+msgid "Yes, Disable"
+msgstr "是的，禁用"
+
+#: app/Strings.php:572
+msgid "Enable for Faster Loading"
+msgstr "启用以加快加载速度"
+
+#: app/Strings.php:573
+msgid "Prevent Live Sync?"
+msgstr "阻止实时同步？"
+
+#: app/Strings.php:574
+msgid ""
+"Table data will only refresh when the cache expires. This improves "
+"performance but may delay content updates. You can adjust the cache expiry "
+"time in Settings → Performance."
+msgstr ""
+"表格数据只会在缓存过期时刷新。这可以提高性能，但可能会延迟内容更新。您可以在"
+"设置 → 性能中调整缓存过期时间。"
+
+#: app/Strings.php:575
+msgid ""
+"Enabling this feature will skip live sync until your cache expires. Make "
+"sure your Google Sheet up to date and you've enabled all necessary features "
+"(images, links, merged cells, etc.) from the settings first."
+msgstr ""
+"启用此功能将跳过实时同步，直到您的缓存过期。确保您的Google表格是最新的，并且"
+"您已首先从设置中启用了所有必要的功能（图像、链接、合并单元格等）。"
+
+#: app/Strings.php:581
+msgid "Manage, create and track all your tables tables in one place"
+msgstr "在一个地方管理、创建和跟踪所有表格"
+
+#: app/Strings.php:583
+msgid "Global Settings"
+msgstr "全局设置"
+
+#: app/Strings.php:584
+msgid "Configure default settings for all your tables"
+msgstr "为所有表格配置默认设置"
+
+#: app/Strings.php:586
+msgid "Skip"
+msgstr "跳过"
+
+#: app/Strings.php:587
+msgid "Add Google Sheet URL"
+msgstr "添加Google表格URL"
+
+#: app/Strings.php:588
+msgid "Recommended Plugins"
+msgstr "推荐插件"
+
+#: app/Strings.php:594
+msgid "Show"
+msgstr "显示"
+
+#: app/Strings.php:595
+msgid "entries"
+msgstr "条记录"
+
+#: app/Strings.php:596
+msgid "Search:"
+msgstr "搜索："
+
+#: app/Strings.php:598
+msgid "Showing"
+msgstr "显示"
+
+#: app/Strings.php:599
+msgid "to"
+msgstr "到"
+
+#: app/Strings.php:600
+msgid "of"
+msgstr "共"
+
+#: app/Strings.php:601
+msgid "First"
+msgstr "首页"
+
+#: app/Strings.php:602
+msgid "Previous"
+msgstr "上一页"
+
+#: app/Strings.php:604
+msgid "PREV"
+msgstr "上一页"
+
+#: app/Strings.php:605
+msgid "NEXT"
+msgstr "下一页"
+
+#: app/Strings.php:606
+msgid "last"
+msgstr "尾页"
+
+#: app/Strings.php:607
+msgid "No matching records found"
+msgstr "未找到匹配的记录"
+
+#: app/Strings.php:612
+msgid "Copy Shortcode"
+msgstr "复制短代码"
+
+#: app/Strings.php:613
+msgid ""
+"Copy the shortcode to use in in any page or post. Gutenberg and Elementor "
+"blocks are also supported"
+msgstr "复制短代码以在任何页面或文章中使用。也支持Gutenberg和Elementor块"
+
+#: app/Strings.php:614
+msgid "Are you sure to delete the table? "
+msgstr "您确定要删除表格吗？"
+
+#: app/Strings.php:615
+msgid ""
+"You are about to delete the table. This will permanently delete the table(s)"
+msgstr "您即将删除表格。这将永久删除表格"
+
+#: app/Strings.php:620
+msgid "Vertical merge found!"
+msgstr "发现垂直合并！"
+
+#: app/Strings.php:621
+msgid ""
+"Please make sure to keep the sorting feature disabled. Google sheet doesn't "
+"filter over a range containing vertical merges."
+msgstr "请确保禁用排序功能。Google表格不会过滤包含垂直合并的范围。"
+
+#: app/Strings.php:622 app/templates/parts/pro_fix_notice.php:387
+#: app/templates/parts/pro_fix_notice.php:392
+msgid "OK"
+msgstr "确定"
+
+#: app/Strings.php:623
+msgid ""
+"Your sheet contains vertically merged cells, so you can not use the sorting "
+"feature. Sorting may break the table design and format. Please ensure that "
+"you have enabled either the vertical merge cell feature or the sorting "
+"feature, or confirm that your sheet has no vertical merges. If your table "
+"design still breaks even with sorting disabled, consider reloading the sheet "
+"or clicking save again to reflect the necessary fixes. To get the sorting "
+"feature visit Display settings > Disable sorting"
+msgstr ""
+"您的表格包含垂直合并的单元格，因此您无法使用排序功能。排序可能会破坏表格设计"
+"和格式。请确保您已启用垂直合并单元格功能或排序功能，或确认您的表格没有垂直合"
+"并。如果即使禁用排序表格设计仍然损坏，请考虑重新加载表格或再次点击保存以反映"
+"必要的修复。要获得排序功能，请访问显示设置 > 禁用排序"
+
+#: app/Strings.php:628
+#, fuzzy
+#| msgid "Select coloring"
+msgid "Select a column (optional)"
+msgstr "选择着色"
+
+#: app/Strings.php:629
+msgid "After the table"
+msgstr "在表格之后"
+
+#: app/Strings.php:630
+msgid "Before the table"
+msgstr "在表格之前"
+
+#: app/Strings.php:631
+msgid "Tab position in embedded view"
+msgstr "嵌入视图中的选项卡位置"
+
+#: app/Strings.php:632
+msgid "Hide tab group title"
+msgstr "隐藏选项卡组标题"
+
+#: app/Strings.php:639
+msgid "👋 Let's create your first tab groups"
+msgstr "👋 让我们创建您的第一个选项卡组"
+
+#: app/Strings.php:640
+msgid "Click the button below to create tab groups"
+msgstr "点击下面的按钮创建选项卡组"
+
+#: app/Strings.php:641
+msgid "Show tab group name in embedded view"
+msgstr "在嵌入视图中显示选项卡组名称"
+
+#: app/Strings.php:647
+msgid "HEADER COLORS"
+msgstr "标题颜色"
+
+#: app/Strings.php:648
+msgid "TEXT COLORS"
+msgstr "文本颜色"
+
+#: app/Strings.php:649
+msgid "BODY COLORS"
+msgstr "主体颜色"
+
+#: app/Strings.php:650
+msgid "TABLE TEXTS"
+msgstr "表格文本"
+
+#: app/Strings.php:651
+msgid "TABLE HOVER"
+msgstr "表格悬停"
+
+#: app/Strings.php:652
+msgid "ROW COLORS"
+msgstr "行颜色"
+
+#: app/Strings.php:653
+msgid "COLUMN COLORS"
+msgstr "列颜色"
+
+#: app/Strings.php:654
+msgid "BORDER COLORS"
+msgstr "边框颜色"
+
+#: app/Strings.php:655
+msgid "Customize Theme Options"
+msgstr "自定义主题选项"
+
+#: app/Strings.php:656
+msgid "Border Style"
+msgstr "边框样式"
+
+#: app/Strings.php:657
+msgid "Reset"
+msgstr "重置"
+
+#: app/Strings.php:659
+msgid "Background color"
+msgstr "背景色"
+
+#: app/Strings.php:660
+msgid "Text color"
+msgstr "文本颜色"
+
+#: app/Strings.php:662
+msgid "First column text color"
+msgstr "第一列文本颜色"
+
+#: app/Strings.php:663
+msgid "Rest body text color"
+msgstr "其余主体文本颜色"
+
+#: app/Strings.php:664
+msgid "Remaining column text color"
+msgstr "其余列文本颜色"
+
+#: app/Strings.php:666
+msgid "Hover background color"
+msgstr "悬停背景色"
+
+#: app/Strings.php:667
+msgid "Hover text color"
+msgstr "悬停文本颜色"
+
+#: app/Strings.php:668
+msgid "Table background color"
+msgstr "表格背景色"
+
+#: app/Strings.php:669
+msgid "Table hover color"
+msgstr "表格悬停颜色"
+
+#: app/Strings.php:670
+msgid "Table border color"
+msgstr "表格边框颜色"
+
+#: app/Strings.php:671
+msgid "Table text color"
+msgstr "表格文本颜色"
+
+#: app/Strings.php:673
+msgid "Border Color"
+msgstr "边框颜色"
+
+#: app/Strings.php:674
+msgid "Outside body border"
+msgstr "外部边框"
+
+#: app/Strings.php:675
+msgid "Inside border"
+msgstr "内部边框"
+
+#: app/Strings.php:677
+msgid "Even row color"
+msgstr "偶数行颜色"
+
+#: app/Strings.php:678
+msgid "Odd row color"
+msgstr "奇数行颜色"
+
+#: app/Strings.php:680
+msgid "Even column color"
+msgstr "偶数列颜色"
+
+#: app/Strings.php:681
+msgid "Odd column color"
+msgstr "奇数列颜色"
+
+#: app/Strings.php:682
+msgid "Outside border type"
+msgstr "外部边框类型"
+
+#: app/Strings.php:683
+msgid "Outside border"
+msgstr "外部边框"
+
+#: app/Strings.php:684
+msgid "Solid border"
+msgstr "实线边框"
+
+#: app/Strings.php:685
+msgid "Rounded border"
+msgstr "圆角边框"
+
+#: app/Strings.php:686
+msgid "Border radius"
+msgstr "边框圆角"
+
+#: app/Strings.php:691
+msgid "Update Theme"
+msgstr "更新主题"
+
+#: app/Strings.php:692
+msgid "Theme name"
+msgstr "主题名称"
+
+#: app/Strings.php:693
+msgid "Theme colors"
+msgstr "主题颜色"
+
+#: app/Strings.php:694
+msgid "Column color"
+msgstr "列颜色"
+
+#: app/Strings.php:695
+msgid "Row color"
+msgstr "行颜色"
+
+#: app/Strings.php:696 app/Strings.php:954
+msgid "Edit"
+msgstr "编辑"
+
+#: app/Strings.php:697
+msgid "Yes, Delete"
+msgstr "是的，删除"
+
+#: app/Strings.php:698
+msgid "Yes, Reset"
+msgstr "是的，重置"
+
+#: app/Strings.php:699
+msgid "Create Theme"
+msgstr "创建主题"
+
+#: app/Strings.php:700
+msgid "Can’t delete active theme!"
+msgstr "无法删除活动主题！"
+
+#: app/Strings.php:701
+msgid ""
+"The theme is active and currently in use. Please select another theme for "
+"your table before deleting this one"
+msgstr ""
+"该主题处于活动状态并正在使用中。在删除此主题之前，请为您的表格选择另一个主题"
+
+#: app/Strings.php:702
+msgid "Are you sure to delete theme?"
+msgstr "您确定要删除主题吗？"
+
+#: app/Strings.php:703
+msgid ""
+"This theme wil be deleted and it can not be recovered. Are you sure to "
+"delete it?"
+msgstr "此主题将被删除且无法恢复。您确定要删除它吗？"
+
+#: app/Strings.php:705
+msgid "Are you sure to reset?"
+msgstr "您确定要重置吗？"
+
+#: app/Strings.php:706
+msgid "All of your changes & customization will be lost"
+msgstr "您的所有更改和自定义将丢失"
+
+#: app/Strings.php:709
+msgid "None"
+msgstr "无"
+
+#: app/Strings.php:710
+msgid "Row wise"
+msgstr "按行"
+
+#: app/Strings.php:711
+msgid "Column wise"
+msgstr "按列"
+
+#: app/Strings.php:712
+msgid "Select coloring"
+msgstr "选择着色"
+
+#: app/Strings.php:713
+msgid "Hover mode"
+msgstr "悬停模式"
+
+#: app/Strings.php:714
+msgid "+ New Theme"
+msgstr "+ 新主题"
+
+#: app/Strings.php:716
+msgid "Apply this custom theme to all tables"
+msgstr "将此自定义主题应用于所有表格"
+
+#: app/Strings.php:717
+msgid "Apply this same style for the other table"
+msgstr "将此相同样式应用于其他表格"
+
+#: app/Strings.php:723
+msgid "Default pagination"
+msgstr "默认分页"
+
+#: app/Strings.php:724
+msgid "Modern pagination"
+msgstr "现代分页"
+
+#: app/Strings.php:725
+msgid "Minimal pagination"
+msgstr "极简分页"
+
+#: app/Strings.php:726
+msgid "Tailwind pagination"
+msgstr "Tailwind分页"
+
+#: app/Strings.php:727
+msgid "Outlined pagination"
+msgstr "轮廓分页"
+
+#: app/Strings.php:728
+msgid "Color Picker"
+msgstr "颜色选择器"
+
+#: app/Strings.php:729
+msgid "Pagination color will change based on your selected color"
+msgstr "分页颜色将根据您选择的颜色更改"
+
+#: app/Strings.php:731
+msgid "Pagination Style"
+msgstr "分页样式"
+
+#: app/Strings.php:732
+msgid "Pagination"
+msgstr "分页"
+
+#: app/Strings.php:733
+msgid "Active pagination color"
+msgstr "活动分页颜色"
+
+#: app/Strings.php:734
+msgid "Keep pagination in middle"
+msgstr "将分页保持在中间"
+
+#: app/Strings.php:735
+msgid "Confirm"
+msgstr "确认"
+
+#: app/Strings.php:741
+msgid "Basic Display (default)"
+msgstr "基本显示（默认）"
+
+#: app/Strings.php:742
+msgid "Enable Column-Specific Search"
+msgstr "启用特定列搜索"
+
+#: app/Strings.php:744
+msgid "Table will show by default and work accordingly. Nothing special here"
+msgstr "表格将默认显示并相应工作。没有什么特别的"
+
+#: app/Strings.php:745 app/Strings.php:1017
+msgid ""
+"Turn your table into a powerful search-engine! Visitors will initially see a "
+"search box instead of the table. Based on their input, they will receive "
+"filtered data in a streamlined table view. Ideal for searching both broad "
+"and specific ranges of information from your Google Sheets (e.g., student "
+"records, employee info, etc.)."
+msgstr ""
+"将您的表格变成强大的搜索引擎！访问者最初会看到搜索框而不是表格。根据他们的输"
+"入，他们将在简化的表格视图中接收过滤的数据。非常适合从您的Google Sheets搜索广"
+"泛和特定范围的信息（例如，学生记录、员工信息等）。"
+
+#: app/Strings.php:747
+msgid "Search-Only Display"
+msgstr "仅搜索显示"
+
+#: app/Strings.php:748
+msgid "User-Specific Display"
+msgstr "用户特定显示"
+
+#: app/Strings.php:749
+msgid "Upcoming"
+msgstr "即将推出"
+
+#: app/Strings.php:750
+msgid ""
+"Enhance personalization with this mode. It allows the table to be displayed "
+"only to the logged-in users based on their credentials or unique data (e.g., "
+"username or email) stored in the Google Sheets. There will be no search box, "
+"preventing anyone from searching other users' data."
+msgstr ""
+"使用此模式增强个性化。它允许仅根据存储在Google Sheets中的凭据或唯一数据（例"
+"如，用户名或电子邮件）向登录用户显示表格。将没有搜索框，防止任何人搜索其他用"
+"户的数据。"
+
+#: app/Strings.php:752
+msgid ""
+"This mode adds an extra layer of security to your data. The table is "
+"protected by a password or PIN, ensuring that only authorized users can "
+"unlock and see the table information."
+msgstr ""
+"此模式为您的数据添加了额外的安全层。表格受密码或PIN保护，确保只有授权用户才能"
+"解锁和查看表格信息。"
+
+#: app/Strings.php:754
+msgid "Protected View"
+msgstr "受保护视图"
+
+#: app/Strings.php:755
+msgid "Loading headers..."
+msgstr "加载标题中..."
+
+#: app/Strings.php:756
+msgid "Choose Search-Result Trigger Option"
+msgstr "选择搜索结果触发选项"
+
+#: app/Strings.php:757
+msgid "Show search result once Typing"
+msgstr "输入时显示搜索结果"
+
+#: app/Strings.php:758
+msgid "Show search result after pressing Search button"
+msgstr "按下搜索按钮后显示搜索结果"
+
+#: app/Strings.php:759
+msgid ""
+"Select a column to search within its data. Results will only show matches "
+"from the selected column. If no column is selected, the search will apply to "
+"all data in the Google Sheet."
+msgstr ""
+"选择要在其数据中搜索的列。结果将仅显示所选列中的匹配项。如果未选择列，搜索将"
+"应用于Google表格中的所有数据。"
+
+#: app/Strings.php:761
+msgid "Unable to access the Sheet! Please follow the instructions below:"
+msgstr "无法访问表格！请按照以下说明操作："
+
+#: app/Strings.php:762
+msgid "On your Google Sheet, click on the"
+msgstr "在您的Google表格上，点击"
+
+#: app/Strings.php:763
+msgid "button located at the top-right corner. Then on the popup, choose the"
+msgstr "位于右上角的按钮。然后在弹出窗口中，选择"
+
+#: app/Strings.php:764
+msgid "Anyone with the link"
+msgstr "任何拥有链接的人"
+
+#: app/Strings.php:765
+msgid "option under General access"
+msgstr "常规访问权限下的选项"
+
+#: app/Strings.php:766
+msgid "Click on the"
+msgstr "点击"
+
+#: app/Strings.php:767
+msgid "icon on the popup and ensure that the option"
+msgstr "弹出窗口上的图标并确保选项"
+
+#: app/Strings.php:768
+msgid "Viewers and commenters can see the option to download, print, and copy"
+msgstr "查看者和评论者可以看到下载、打印和复制的选项"
+
+#: app/Strings.php:769
+msgid "is selected"
+msgstr "已选择"
+
+#: app/Strings.php:770
+msgid "Share"
+msgstr "共享"
+
+#: app/Strings.php:771
+msgid "Save the changes by clicking on the"
+msgstr "通过点击来保存更改"
+
+#: app/Strings.php:772
+msgid "Done"
+msgstr "完成"
+
+#: app/Strings.php:773
+msgid "button"
+msgstr "按钮"
+
+#: app/Strings.php:774
+msgid "General"
+msgstr "常规"
+
+#: app/Strings.php:775
+msgid "seconds"
+msgstr "秒"
+
+#: app/Strings.php:776
+msgid "Let’s make your first table"
+msgstr "让我们创建您的第一个表格"
+
+#: app/Strings.php:777
+msgid ""
+"Let us help you with your first table creation. You are just a step away "
+"from creating beautiful tables from your Google Sheets"
+msgstr ""
+"让我们帮助您创建第一个表格。您只需一步即可从Google Sheets创建精美的表格"
+
+#: app/Strings.php:779
+msgid "Day "
+msgstr "天"
+
+#: app/Strings.php:780
+msgid "Response Timeout: "
+msgstr "响应超时："
+
+#: app/Strings.php:781
+msgid "Timestamp: "
+msgstr "时间戳："
+
+#: app/Strings.php:782
+msgid "Choose the maximum response timeout the table need to wait"
+msgstr "选择表格需要等待的最大响应超时时间"
+
+#: app/Strings.php:783
+msgid "Choose the maximum day to store the cache"
+msgstr "选择存储缓存的最大天数"
+
+#: app/Strings.php:784
+msgid "the table"
+msgstr "表格"
+
+#: app/Strings.php:785
+msgid "Copy shortcode"
+msgstr "复制短代码"
+
+#: app/Strings.php:786
+msgid "Edit table"
+msgstr "编辑表格"
+
+#: app/Strings.php:787
+msgid "Duplicate table"
+msgstr "复制表格"
+
+#: app/Strings.php:788
+msgid "Delete table"
+msgstr "删除表格"
+
+#: app/Strings.php:789
+msgid "Name already used, please use another name for theme"
+msgstr "名称已被使用，请为主题使用另一个名称"
+
+#: app/Strings.php:790
+msgid "Name field can not be empty"
+msgstr "名称字段不能为空"
+
+#: app/Strings.php:796
+msgid "AI Table Summary Configuration"
+msgstr "AI表格摘要配置"
+
+#: app/Strings.php:797
+msgid "Configure OpenAI integration for intelligent table summaries"
+msgstr "配置OpenAI集成以实现智能表格摘要"
+
+#: app/Strings.php:800
+msgid "Engine (AI Provider)"
+msgstr "引擎（AI供应商）"
+
+#: app/Strings.php:801
+msgid ""
+"Select the AI engine that will generate summaries and answer user queries."
+msgstr "选择将生成摘要并回答用户查询的AI引擎。"
+
+#: app/Strings.php:802 app/Strings.php:864
+msgid "Select your preferred AI provider for generating table summaries"
+msgstr "选择您首选的AI供应商以生成表格摘要"
+
+#: app/Strings.php:803 app/Strings.php:865
+msgid "OpenAI GPT models - industry leading AI with excellent performance"
+msgstr "OpenAI GPT模型 - 行业领先的AI，性能卓越"
+
+#: app/Strings.php:804 app/Strings.php:866
+msgid "Google Gemini models - fast and efficient AI by Google"
+msgstr "Google Gemini模型 - 由Google提供的快速高效AI"
+
+#: app/Strings.php:805 app/Strings.php:867
+msgid "Checking..."
+msgstr "检查中..."
+
+#: app/Strings.php:809 app/Strings.php:871
+msgid ""
+"Controls diversity via nucleus sampling. Lower values make output more "
+"focused."
+msgstr "通过核采样控制多样性。较低的值使输出更集中。"
+
+#: app/Strings.php:811 app/Strings.php:873
+msgid ""
+"Limits token selection to top K candidates. Lower values are more focused."
+msgstr "将令牌选择限制为前K个候选项。较低的值更集中。"
+
+#: app/Strings.php:812 app/Strings.php:874
+msgid "Precise"
+msgstr "精确"
+
+#: app/Strings.php:813 app/Strings.php:875
+msgid "Diverse"
+msgstr "多样"
+
+#: app/Strings.php:814 app/Strings.php:876
+msgid "Broad"
+msgstr "宽泛"
+
+#: app/Strings.php:818
+msgid "Your OpenAI API key. Get one from https://platform.openai.com/api-keys"
+msgstr "您的OpenAI API密钥。从https://platform.openai.com/api-keys获取"
+
+#: app/Strings.php:819
+msgid "Test API"
+msgstr "测试API"
+
+#: app/Strings.php:822
+msgid "AI Model"
+msgstr "AI模型"
+
+#: app/Strings.php:823
+msgid ""
+"Choose the OpenAI model for generating summaries. gpt-4o-mini is fast and "
+"cost-effective, gpt-4 is more accurate."
+msgstr "选择用于生成摘要的OpenAI模型。gpt-4o-mini快速且经济实惠，gpt-4更准确。"
+
+#: app/Strings.php:824
+msgid "GPT-4o Mini"
+msgstr "GPT-4o Mini"
+
+#: app/Strings.php:825
+msgid "GPT-3.5 Turbo"
+msgstr "GPT-3.5 Turbo"
+
+#: app/Strings.php:826
+msgid "GPT-4"
+msgstr "GPT-4"
+
+#: app/Strings.php:827
+msgid "GPT-4 Turbo"
+msgstr "GPT-4 Turbo"
+
+#: app/Strings.php:832
+msgid ""
+"Maximum number of tokens for AI response. Higher values allow longer "
+"summaries but cost more."
+msgstr "AI响应的最大令牌数。较高的值允许更长的摘要，但成本更高。"
+
+#: app/Strings.php:833
+msgid "100 (Short)"
+msgstr "100（短）"
+
+#: app/Strings.php:834
+msgid "2000 (Long)"
+msgstr "2000（长）"
+
+#: app/Strings.php:838
+msgid ""
+"Controls randomness in AI responses. Lower values (0.1-0.3) are more "
+"focused, higher values (0.7-1.0) are more creative."
+msgstr ""
+"控制AI响应的随机性。较低的值（0.1-0.3）更集中，较高的值（0.7-1.0）更有创意。"
+
+#: app/Strings.php:839
+msgid "0 (Focused)"
+msgstr "0（集中）"
+
+#: app/Strings.php:840
+msgid "1 (Creative)"
+msgstr "1（创意）"
+
+#: app/Strings.php:844
+msgid ""
+"Reduces repetition in AI responses. Higher values (0.3-1.0) discourage "
+"repetitive text."
+msgstr "减少AI响应中的重复。较高的值（0.3-1.0）抑制重复文本。"
+
+#: app/Strings.php:845
+msgid "0 (Allow Repetition)"
+msgstr "0（允许重复）"
+
+#: app/Strings.php:846
+msgid "1 (Avoid Repetition)"
+msgstr "1（避免重复）"
+
+#: app/Strings.php:849
+msgid "Cache Duration"
+msgstr "缓存持续时间"
+
+#: app/Strings.php:850
+msgid "Duration:"
+msgstr "持续时间："
+
+#: app/Strings.php:851
+msgid "How long to cache AI responses before making new API calls."
+msgstr "在进行新API调用之前缓存AI响应的时间。"
+
+#: app/Strings.php:852
+msgid "30 minutes"
+msgstr "30分钟"
+
+#: app/Strings.php:853
+msgid "1 hour"
+msgstr "1小时"
+
+#: app/Strings.php:854
+msgid "2 hours"
+msgstr "2小时"
+
+#: app/Strings.php:855
+msgid "6 hours"
+msgstr "6小时"
+
+#: app/Strings.php:856
+msgid "12 hours"
+msgstr "12小时"
+
+#: app/Strings.php:857
+msgid "24 hours"
+msgstr "24小时"
+
+#: app/Strings.php:860
+msgid "Advanced Settings"
+msgstr "高级设置"
+
+#: app/Strings.php:861
+msgid ""
+"Configure advanced AI model parameters for fine-tuned control over response "
+"generation."
+msgstr "配置高级AI模型参数以微调响应生成的控制。"
+
+#: app/Strings.php:879
+msgid ""
+"Choose the AI model that best fits your needs. Different models have varying "
+"capabilities and costs."
+msgstr "选择最适合您需求的AI模型。不同的模型具有不同的功能和成本。"
+
+#: app/Strings.php:882
+msgid "Enable AI Table Summary"
+msgstr "启用AI表格摘要"
+
+#: app/Strings.php:885 app/Strings.php:934
+msgid "Preview"
+msgstr "预览"
+
+#: app/Strings.php:887
+msgid "Summary Position"
+msgstr "摘要位置"
+
+#: app/Strings.php:888
+msgid "Above Table"
+msgstr "表格上方"
+
+#: app/Strings.php:889
+msgid "Below Table"
+msgstr "表格下方"
+
+#: app/Strings.php:890
+msgid "Choose whether to display the summary above or below the table"
+msgstr "选择是在表格上方还是下方显示摘要"
+
+#: app/Strings.php:891
+msgid ""
+"Select the position where the AI Table Summary should be displayed relative "
+"to the table."
+msgstr "选择AI表格摘要相对于表格应显示的位置。"
+
+#: app/Strings.php:893
+msgid "min"
+msgstr "分钟"
+
+#: app/Strings.php:894
+msgid "Cache time:"
+msgstr "缓存时间："
+
+#: app/Strings.php:895
+msgid "Cache summary for faster loading"
+msgstr "缓存摘要以加快加载速度"
+
+#: app/Strings.php:896 app/Strings.php:936
+msgid ""
+"Decide where the AI Table Summary will be displayed in relation to your "
+"table."
+msgstr "决定AI表格摘要相对于您的表格将显示在何处。"
+
+#: app/Strings.php:898
+msgid "Instant Summary"
+msgstr "即时摘要"
+
+#: app/Strings.php:900
+msgid "Prompt for Summary"
+msgstr "摘要提示"
+
+#: app/Strings.php:901
+msgid ""
+"You will generate and save the summary in advance. Visitors will see it "
+"instantly with no delay."
+msgstr "您将提前生成并保存摘要。访问者将立即看到它，无需延迟。"
+
+#: app/Strings.php:902
+msgid ""
+"Enable to reuse the same summary to reduce load time. Turn off to generate a "
+"fresh summary each time."
+msgstr "启用以重用相同的摘要以减少加载时间。关闭以每次生成新摘要。"
+
+#: app/Strings.php:903
+msgid ""
+"Write the prompt that AI will follow to generate the summary. Visitors "
+"trigger this when they click the summary button."
+msgstr "编写AI将遵循的提示以生成摘要。访问者单击摘要按钮时会触发此操作。"
+
+#: app/Strings.php:906
+msgid "Show regenerate button in summary modal"
+msgstr "在摘要模态框中显示重新生成按钮"
+
+#: app/Strings.php:907
+msgid ""
+"Allow visitors to regenerate the AI Table Summary with fresh data by "
+"clicking the regenerate button."
+msgstr "允许访问者通过单击重新生成按钮使用新数据重新生成AI表格摘要。"
+
+#: app/Strings.php:910
+msgid "Always Show"
+msgstr "始终显示"
+
+#: app/Strings.php:911 app/Strings.php:925
+msgid "Collapsed (click to expand)"
+msgstr "折叠（点击展开）"
+
+#: app/Strings.php:912
+msgid ""
+"Choose how the summary appears to visitors - always visible or collapsed "
+"with click to expand"
+msgstr "选择摘要如何向访问者显示 - 始终可见或折叠并点击展开"
+
+#: app/Strings.php:913
+msgid ""
+"Select how the AI Table Summary should be displayed to your visitors on the "
+"frontend."
+msgstr "选择AI表格摘要应如何在前端向访问者显示。"
+
+#: app/Strings.php:916
+msgid "Ask AI Placeholder Text"
+msgstr "询问AI占位符文本"
+
+#: app/Strings.php:917
+msgid "Ask AI Button Label"
+msgstr "询问AI按钮标签"
+
+#: app/Strings.php:918
+msgid "Customize the placeholder text shown in the AI prompt input field"
+msgstr "自定义AI提示输入字段中显示的占位符文本"
+
+#: app/Strings.php:919
+msgid "Customize the text displayed on the AI prompt submit button"
+msgstr "自定义AI提示提交按钮上显示的文本"
+
+#: app/Strings.php:922
+msgid "Summary Display"
+msgstr "摘要显示"
+
+#: app/Strings.php:923
+msgid ""
+"Decide if visitors see the summary right away or only when they expand it."
+msgstr "决定访问者是立即看到摘要还是仅在展开时看到。"
+
+#: app/Strings.php:924
+msgid "Always show"
+msgstr "始终显示"
+
+#: app/Strings.php:926
+msgid "AI Table Summary Preview"
+msgstr "AI表格摘要预览"
+
+#: app/Strings.php:927
+msgid ""
+"Review the generated summary. This what your visitors will see. Edit and "
+"save to finalize."
+msgstr "查看生成的摘要。这是您的访问者将看到的内容。编辑并保存以完成。"
+
+#: app/Strings.php:928
+msgid "Ready to create your first summary?"
+msgstr "准备好创建您的第一个摘要了吗？"
+
+#: app/Strings.php:929
+msgid "Add a prompt and click Generate to create one."
+msgstr "添加提示并单击生成以创建一个。"
+
+#: app/Strings.php:930
+msgid "Placeholder text"
+msgstr "占位符文本"
+
+#: app/Strings.php:931
+msgid "What visitors see before typing"
+msgstr "访问者输入前看到的内容"
+
+#: app/Strings.php:932
+msgid "Button label"
+msgstr "按钮标签"
+
+#: app/Strings.php:933
+msgid "Text on your Ask AI button"
+msgstr "询问AI按钮上的文本"
+
+#: app/Strings.php:935
+msgid "Turn on AI to create summaries of your table data."
+msgstr "开启AI以创建表格数据的摘要。"
+
+#: app/Strings.php:937
+msgid ""
+"Customize the text and colors of the summary button to match your site style."
+msgstr "自定义摘要按钮的文本和颜色以匹配您的网站样式。"
+
+#: app/Strings.php:938
+msgid "Summary Button"
+msgstr "摘要按钮"
+
+#: app/Strings.php:939
+msgid "Reset prompt"
+msgstr "重置提示"
+
+#: app/Strings.php:941
+msgid "Tutorial"
+msgstr "教程"
+
+#: app/Strings.php:942
+msgid "Summary Source"
+msgstr "摘要来源"
+
+#: app/Strings.php:943
+msgid ""
+"Visitors will see a button to summarize the table. When they click, AI will "
+"create the summary live using your prompt."
+msgstr ""
+"访问者将看到一个汇总表格的按钮。当他们点击时，AI将使用您的提示实时创建摘要。"
+
+#: app/Strings.php:944
+msgid "Generate on Click"
+msgstr "点击生成"
+
+#: app/Strings.php:945
+msgid "Button text"
+msgstr "按钮文本"
+
+#: app/Strings.php:946
+msgid "Upcomming"
+msgstr "即将推出"
+
+#: app/Strings.php:947
+msgid "Allow visitors to ask their own questions about this table."
+msgstr "允许访问者询问有关此表格的自己的问题。"
+
+#: app/Strings.php:948
+msgid "Enable Ask AI"
+msgstr "启用询问AI"
+
+#: app/Strings.php:949
+msgid "AI is analyzing your table..."
+msgstr "AI正在分析您的表格..."
+
+#: app/Strings.php:951
+msgid "Save Summary"
+msgstr "保存摘要"
+
+#: app/Strings.php:952 app/Strings.php:972
+msgid "Update Summary"
+msgstr "更新摘要"
+
+#: app/Strings.php:955
+msgid "Current Stored Summary"
+msgstr "当前存储的摘要"
+
+#: app/Strings.php:956
+msgid ""
+"This is exactly how the summary will appear on your frontend table. Click "
+"'Edit Summary' above to modify it."
+msgstr "这正是摘要将在前端表格上显示的方式。单击上面的\"编辑摘要\"进行修改。"
+
+#: app/Strings.php:957 app/Strings.php:967
+msgid "Summary Content"
+msgstr "摘要内容"
+
+#: app/Strings.php:958
+msgid "Generated AI Table Summary will appear here..."
+msgstr "生成的AI表格摘要将显示在这里..."
+
+#: app/Strings.php:960
+msgid ""
+"No summary has been generated yet. Click \"Generate Summary\" to create one."
+msgstr "尚未生成摘要。单击\"生成摘要\"创建一个。"
+
+#: app/Strings.php:961
+msgid "Last updated"
+msgstr "最后更新"
+
+#: app/Strings.php:962
+msgid "Keep it"
+msgstr "保留它"
+
+#: app/Strings.php:964
+msgid "Are you sure you want to delete this summary?"
+msgstr "您确定要删除此摘要吗？"
+
+#: app/Strings.php:966
+msgid ""
+"Edit and modify the AI-generated summary content before saving it to the "
+"database."
+msgstr "在将AI生成的摘要内容保存到数据库之前进行编辑和修改。"
+
+#: app/Strings.php:968
+msgid "Enter or edit the summary content here..."
+msgstr "在此处输入或编辑摘要内容..."
+
+#: app/Strings.php:969
+msgid "Regenerate Summary"
+msgstr "重新生成摘要"
+
+#: app/Strings.php:970
+msgid "Regenerating..."
+msgstr "重新生成中..."
+
+#: app/Strings.php:971
+msgid "Generate a new AI Table Summary and replace the current content."
+msgstr "生成新的AI表格摘要并替换当前内容。"
+
+#: app/Strings.php:974
+msgid "AI Configuration"
+msgstr "AI配置"
+
+#: app/Strings.php:977
+msgid "AI provider not configured. Please add your API key in settings."
+msgstr "未配置AI供应商。请在设置中添加您的API密钥。"
+
+#: app/Strings.php:978
+msgid "Configure AI Settings"
+msgstr "配置AI设置"
+
+#: app/Strings.php:980
+msgid "Are you sure to delete the summary? "
+msgstr "您确定要删除摘要吗？"
+
+#: app/Strings.php:981
+msgid "You are about to delete the summary. This action cannot be undone."
+msgstr "您即将删除摘要。此操作无法撤消。"
+
+#: app/Strings.php:983
+msgid "AI Summary Preview"
+msgstr "AI摘要预览"
+
+#: app/Strings.php:984
+msgid "AI Summary Editor"
+msgstr "AI摘要编辑器"
+
+#: app/Strings.php:985
+msgid "• List"
+msgstr "• 列表"
+
+#: app/Strings.php:986
+msgid "1. List"
+msgstr "1. 列表"
+
+#: app/Strings.php:987
+msgid "Section Heading"
+msgstr "节标题"
+
+#: app/Strings.php:988
+msgid "Customize the main heading text for the Ask AI section"
+msgstr "自定义询问AI部分的主标题文本"
+
+#: app/Strings.php:989
+msgid "Ask AI Interface"
+msgstr "询问AI界面"
+
+#: app/Strings.php:990
+msgid "Enter your question and get AI-powered insights about the table data"
+msgstr "输入您的问题并获取有关表格数据的AI驱动见解"
+
+#: app/Strings.php:991
+msgid "Summary Title"
+msgstr "摘要标题"
+
+#: app/Strings.php:992
+msgid "quick video"
+msgstr "快速视频"
+
+#: app/Strings.php:994
+msgid "OpenAI (GPT)"
+msgstr "OpenAI (GPT)"
+
+#: app/Strings.php:995
+msgid "Google Gemini"
+msgstr "Google Gemini"
+
+#: app/Strings.php:996
+msgid "API Key"
+msgstr "API密钥"
+
+#: app/Strings.php:997
+msgid "Get API Key"
+msgstr "获取API密钥"
+
+#: app/Strings.php:998
+msgid "Get your API key from your provider dashboard"
+msgstr "从您的供应商仪表板获取API密钥"
+
+#: app/Strings.php:999
+msgid "and paste it here. Your key is stored securely and never shared."
+msgstr "并将其粘贴到此处。您的密钥安全存储，永不共享。"
+
+#: app/Strings.php:1000
+msgid "ChatGPT"
+msgstr "ChatGPT"
+
+#: app/Strings.php:1001
+msgid "Google AI Studio"
+msgstr "Google AI Studio"
+
+#: app/Strings.php:1002
+msgid "Model Version"
+msgstr "模型版本"
+
+#: app/Strings.php:1007
+msgid "Update Filter"
+msgstr "更新过滤器"
+
+#: app/Strings.php:1008
+msgid "Add Filter"
+msgstr "添加过滤器"
+
+#: app/Strings.php:1009
+msgid "Advanced column filtering with search, select, and multi-select options"
+msgstr "具有搜索、选择和多选选项的高级列过滤"
+
+#: app/Strings.php:1012
+msgid "Basic Display"
+msgstr "基本显示"
+
+#: app/Strings.php:1013
+msgid "Search Only Display"
+msgstr "仅搜索显示"
+
+#: app/Strings.php:1014
+msgid "Filter Wise Display"
+msgstr "按过滤器显示"
+
+#: app/Strings.php:1020
+msgid "Global Filter Settings"
+msgstr "全局过滤器设置"
+
+#: app/Strings.php:1021
+msgid "Enable Table Filters"
+msgstr "启用表格过滤器"
+
+#: app/Strings.php:1022
+msgid "Select Primary Filter Type"
+msgstr "选择主过滤器类型"
+
+#: app/Strings.php:1023
+msgid "Text Search"
+msgstr "文本搜索"
+
+#: app/Strings.php:1024
+msgid "Single Select"
+msgstr "单选"
+
+#: app/Strings.php:1025
+msgid "Multi Select"
+msgstr "多选"
+
+#: app/Strings.php:1026
+msgid "Mixed Filters (All Types)"
+msgstr "混合过滤器（所有类型）"
+
+#: app/Strings.php:1029
+msgid "Filter Position"
+msgstr "过滤器位置"
+
+#: app/Strings.php:1030
+msgid "Header"
+msgstr "标题"
+
+#: app/Strings.php:1031
+msgid "Footer"
+msgstr "页脚"
+
+#: app/Strings.php:1034
+msgid "Strict Mode"
+msgstr "严格模式"
+
+#: app/Strings.php:1035
+msgid "Hide Filter UI"
+msgstr "隐藏过滤器UI"
+
+#: app/Strings.php:1036
+msgid "Auto-Enable Filters for All Columns"
+msgstr "自动启用所有列的过滤器"
+
+#: app/Strings.php:1037
+msgid "Load Default Filter Values"
+msgstr "加载默认过滤器值"
+
+#: app/Strings.php:1040
+msgid "Column-Specific Filter Configuration"
+msgstr "列特定过滤器配置"
+
+#: app/Strings.php:1041
+msgid "Auto-Enable Mode"
+msgstr "自动启用模式"
+
+#: app/Strings.php:1042
+msgid ""
+"All columns automatically have filters using the global settings above.  Add "
+"specific columns below to customize their individual settings, or disable "
+"'Auto-Enable Filters for All Columns' to only show filters for manually "
+"added columns."
+msgstr ""
+"所有列自动使用上面的全局设置进行过滤。在下面添加特定列以自定义其各自的设置，"
+"或禁用\"自动启用所有列的过滤器\"以仅显示手动添加列的过滤器。"
+
+#: app/Strings.php:1043
+msgid "Manual Mode"
+msgstr "手动模式"
+
+#: app/Strings.php:1044
+msgid ""
+"Only columns added below will have filters. Enable 'Auto-Enable Filters for "
+"All Columns' above to automatically show filters for all columns."
+msgstr ""
+"只有下面添加的列才会有过滤器。启用上面的\"自动启用所有列的过滤器\"以自动显示"
+"所有列的过滤器。"
+
+#: app/Strings.php:1046
+msgid "Add Column Filter"
+msgstr "添加列过滤器"
+
+#: app/Strings.php:1047
+msgid "Edit Column Filter"
+msgstr "编辑列过滤器"
+
+#: app/Strings.php:1049
+msgid "Add columns here to override their global settings"
+msgstr "在此处添加列以覆盖其全局设置"
+
+#: app/Strings.php:1050
+msgid ""
+"No column filters configured. Click \"Add Column Filter\" to get started."
+msgstr "未配置列过滤器。单击\"添加列过滤器\"开始。"
+
+#: app/Strings.php:1053
+msgid "Filter Type"
+msgstr "过滤器类型"
+
+#: app/Strings.php:1054
+msgid "Target Column"
+msgstr "目标列"
+
+#: app/Strings.php:1055
+msgid "Column"
+msgstr "列"
+
+#: app/Strings.php:1056
+msgid "Default Value"
+msgstr "默认值"
+
+#: app/Strings.php:1057
+msgid "Filter Active"
+msgstr "过滤器激活"
+
+#: app/Strings.php:1058
+msgid ""
+"Whether this filter is applied to the table - if unchecked, filter is "
+"completely disabled"
+msgstr "是否将此过滤器应用于表格 - 如果未选中，则完全禁用过滤器"
+
+#: app/Strings.php:1059
+msgid "User Can Modify"
+msgstr "用户可以修改"
+
+#: app/Strings.php:1060
+msgid ""
+"Allow users to change filter values - if unchecked, filter becomes readonly"
+msgstr "允许用户更改过滤器值 - 如果未选中，过滤器变为只读"
+
+#: app/Strings.php:1061 app/Strings.php:1088
+msgid "Hide This Filter UI"
+msgstr "隐藏此过滤器UI"
+
+#: app/Strings.php:1062
+msgid "Hide this specific filter UI but keep it working in background"
+msgstr "隐藏此特定过滤器UI，但在后台保持其工作"
+
+#: app/Strings.php:1064
+msgid "Strict Mode Override"
+msgstr "严格模式覆盖"
+
+#: app/Strings.php:1065
+msgid "Use Global Setting"
+msgstr "使用全局设置"
+
+#: app/Strings.php:1066
+msgid "Enable for this filter"
+msgstr "为此过滤器启用"
+
+#: app/Strings.php:1067
+msgid "Disable for this filter"
+msgstr "为此过滤器禁用"
+
+#: app/Strings.php:1068
+msgid ""
+"Global: Follow the \"Strict Mode\" setting above. Enable/Disable: Override "
+"for this specific filter."
+msgstr "全局：遵循上面的\"严格模式\"设置。启用/禁用：覆盖此特定过滤器。"
+
+#: app/Strings.php:1071
+msgid "User-specific Display Settings"
+msgstr "用户特定显示设置"
+
+#: app/Strings.php:1072
+msgid "Enable User-specific Display"
+msgstr "启用用户特定显示"
+
+#: app/Strings.php:1073
+msgid "Strict Mode (Exact Matching)"
+msgstr "严格模式（精确匹配）"
+
+#: app/Strings.php:1074
+msgid "Hide All User Filter UI"
+msgstr "隐藏所有用户过滤器UI"
+
+#: app/Strings.php:1075
+msgid "User-Specific Filter Configuration"
+msgstr "用户特定过滤器配置"
+
+#: app/Strings.php:1076
+msgid "User-Based Filtering:"
+msgstr "基于用户的过滤："
+
+#: app/Strings.php:1077
+msgid ""
+"Configure which columns should be filtered based on logged-in user data. "
+"Each filter will automatically use the user's information (email, username, "
+"roles, etc.) to show relevant rows."
+msgstr ""
+"配置应根据登录用户数据过滤哪些列。每个过滤器将自动使用用户的信息（电子邮件、"
+"用户名、角色等）来显示相关行。"
+
+#: app/Strings.php:1078
+msgid "Add User Filter"
+msgstr "添加用户过滤器"
+
+#: app/Strings.php:1079
+msgid "Configure columns to filter based on user data"
+msgstr "配置列以根据用户数据进行过滤"
+
+#: app/Strings.php:1080
+msgid "User Fields"
+msgstr "用户字段"
+
+#: app/Strings.php:1081
+msgid "Enabled"
+msgstr "已启用"
+
+#: app/Strings.php:1082
+msgid "User Can Change"
+msgstr "用户可以更改"
+
+#: app/Strings.php:1083
+msgid "No user filters configured. Click \"Add User Filter\" to get started."
+msgstr "未配置用户过滤器。单击\"添加用户过滤器\"开始。"
+
+#: app/Strings.php:1084
+msgid "User Fields to Match (Multi-select)"
+msgstr "要匹配的用户字段（多选）"
+
+#: app/Strings.php:1085
+msgid ""
+"Hold Ctrl/Cmd to select multiple fields. The filter will match if ANY of the "
+"selected fields match."
+msgstr "按住Ctrl/Cmd选择多个字段。如果任何所选字段匹配，过滤器将匹配。"
+
+#: app/Strings.php:1086
+msgid ""
+"Whether this user-based filter is applied - if unchecked, filter is "
+"completely disabled"
+msgstr "是否应用此基于用户的过滤器 - 如果未选中，则完全禁用过滤器"
+
+#: app/Strings.php:1087
+msgid "User Can Override"
+msgstr "用户可以覆盖"
+
+#: app/Strings.php:1091
+msgid "Get Help with Table Creation"
+msgstr "1. 选项卡创建"
+
+#: app/Strings.php:1092
+msgid ""
+"Create awesome tables from your Google Sheets. Just paste the link and see "
+"the magic"
+msgstr "基于 Google 表格创建出色的图表。只需粘贴链接，即可见证神奇效果。"
+
+#: app/Strings.php:1095
+msgid "Get started with table creation"
+msgstr "开始使用选项卡组"
+
+#: app/Strings.php:1096
+msgid "Quick Video Tutorial"
+msgstr "视频教程"
+
+#: app/Strings.php:1097
+msgid "Read Documentation"
+msgstr "文档"
+
+#: app/Strings.php:1098 app/templates/parts/pro_fix_notice.php:42
+msgid "Close"
+msgstr "关闭"
+
+#: app/Strings.php:1099
+msgid "Closing..."
+msgstr "加载中..."
+
+#: app/Strings.php:1102
+msgid "🤖 AI Table Summary"
+msgstr "🤖 AI 表格摘要"
+
+#: app/Strings.php:1103
+msgid "Turn your data into quick and smart summary"
+msgstr "将您的数据转换为快速且智能的摘要"
+
+#: app/Strings.php:1104
+msgid "💬 Ask AI"
+msgstr "💬 询问 AI"
+
+#: app/Strings.php:1105
+msgid "Lets visitors chat with your table data"
+msgstr "让访客与您的表格数据进行聊天互动"
+
+#: app/Strings.php:1106
+msgid "Connect AI to Unlock Features"
+msgstr "连接 AI 以解锁功能"
+
+#: app/Strings.php:1107
+msgid ""
+"Set up your preferred provider (like Gemini or OpenAI) to use these AI tools."
+msgstr "设置您偏好的服务提供商（如 Gemini 或 OpenAI）以使用这些 AI 工具。"
+
+#: app/Strings.php:1108
+msgid "Setup AI Provider"
+msgstr "设置 AI 提供商"
+
+#: app/Strings.php:1110
+msgid "💡 Not ready? No worries - you can enable AI anytime later."
+msgstr "💡 还没准备好？没关系——您可以随时启用 AI。"
+
+#: app/Strings.php:1113
+msgid "Table description holder. Enter your table description here."
+msgstr "表格描述占位符。在此输入您的表格描述。"
+
+#: app/Strings.php:1116
+msgid "Enter your table description"
+msgstr "输入您的表格描述"
+
+#: app/Strings.php:1117
+msgid "# # Insert custom CSS code here to modify looks and feel"
+msgstr "## 在此插入自定义 CSS 代码以修改外观和样式"
+
+#: app/Strings.php:1120
+msgid "Get started with your first table"
+msgstr "开始创建您的第一个表格"
+
+#: app/Strings.php:1121
+msgid "Let's create your first table from Google Sheets – it's as easy as pie!"
+msgstr "让我们从 Google 表格创建您的第一个表格——非常简单！"
+
+#: app/Strings.php:1122
+msgid "Watch a quick tutorial"
+msgstr "观看快速教程"
+
+#: app/Strings.php:1124
+msgid "Explore helpful resources"
+msgstr "探索有用的资源"
+
+#: app/Strings.php:1125
+msgid "🎁 Get the pro version and unlock endless possibilities"
+msgstr "🎁 获取专业版并解锁无限可能"
+
+#: app/Strings.php:1129
+msgid ""
+"Find comprehensive guides and step-by-step instructions to get the most out "
+"of FlexTable"
+msgstr "查找全面的指南和分步说明，充分发挥 FlexTable 的功能"
+
+#: app/Strings.php:1130
+msgid "Open Docs"
+msgstr "打开文档"
+
+#: app/Strings.php:1132
+msgid "Video Tutorials"
+msgstr "视频教程"
+
+#: app/Strings.php:1133
+msgid ""
+"Watch detailed video tutorials to learn FlexTable features and best practices"
+msgstr "观看详细的视频教程，学习 FlexTable 功能和最佳实践"
+
+#: app/Strings.php:1134
+msgid "Watch Videos"
+msgstr "观看视频"
+
+#: app/Strings.php:1136
+msgid "Get Support"
+msgstr "获取支持"
+
+#: app/Strings.php:1137
+msgid ""
+"Need help? Our support team is ready to assist you with any questions or "
+"issues"
+msgstr "需要帮助？我们的支持团队随时为您解答任何问题或提供协助"
+
+#: app/Strings.php:1138
+msgid "Contact Support"
+msgstr "联系支持"
+
+#: app/Strings.php:1140
+msgid "Community Forum"
+msgstr "社区论坛"
+
+#: app/Strings.php:1141
+msgid ""
+"Join our community to share ideas, get tips, and connect with other "
+"FlexTable users"
+msgstr "加入我们的社区，分享想法、获取技巧，并与其他 FlexTable 用户交流"
+
+#: app/Strings.php:1142
+msgid "Join Forum"
+msgstr "加入论坛"
+
+#: app/templates/create_tables.php:45 app/templates/edit_table.php:47
+msgid "Create New"
+msgstr "新建"
+
+#: app/templates/create_tables.php:51 app/templates/edit_table.php:53
+msgid "Save Table"
+msgstr "保存表格"
+
+#: app/templates/create_tables.php:51 app/templates/edit_table.php:53
+msgid "Fetch Data"
+msgstr "获取数据"
+
+#: app/templates/create_tables.php:79 app/templates/edit_table.php:80
+msgid "Data Source"
+msgstr "数据源"
+
+#: app/templates/create_tables.php:130 app/templates/edit_table.php:129
+msgid "Choose Source Type"
+msgstr "选择源类型"
+
+#: app/templates/create_tables.php:134 app/templates/edit_table.php:133
+msgid "Google Spreadsheet"
+msgstr "Google电子表格"
+
+#: app/templates/documentation_page.php:31
+msgid "View Demo"
+msgstr "查看演示"
+
+#: app/templates/documentation_page.php:41
+msgid "Welcome to"
+msgstr "欢迎使用"
+
+#: app/templates/documentation_page.php:57
+msgid "Need more help ?"
+msgstr "需要更多帮助？"
+
+#: app/templates/documentation_page.php:58
+msgid ""
+"We provide professional support to all our users via our ticketing system."
+msgstr "我们通过工单系统为所有用户提供专业支持。"
+
+#: app/templates/documentation_page.php:59
+msgid "Get Help"
+msgstr "获取帮助"
+
+#: app/templates/documentation_page.php:73
+msgid "Get Pro ✨"
+msgstr "获取专业版 ✨"
+
+#: app/templates/documentation_page.php:86
+msgid ""
+"Responsive table. The plugin allows collapsing on mobile and tablet screens"
+msgstr "响应式表格。该插件允许在移动和平板电脑屏幕上折叠"
+
+#: app/templates/documentation_page.php:94
+msgid ""
+"Data Caching feature cache the sheet data & therefore the table will load "
+"faster."
+msgstr "数据缓存功能缓存表格数据，因此表格加载速度更快。"
+
+#: app/templates/documentation_page.php:102
+msgid ""
+"Link Support to import links from sheet. All the URL's will be shown as link "
+"in table."
+msgstr "链接支持以从表格导入链接。所有URL将在表格中显示为链接。"
+
+#: app/templates/documentation_page.php:110
+msgid ""
+"Table Styles. Pre-built amazing table styles. Each styles is different from "
+"one another."
+msgstr "表格样式。预构建的出色表格样式。每种样式彼此不同。"
+
+#: app/templates/documentation_page.php:118
+msgid ""
+"Hide your google sheet table column on desktop screen OR mobile screens."
+msgstr "在桌面屏幕或移动屏幕上隐藏Google表格列。"
+
+#: app/templates/documentation_page.php:126
+msgid ""
+"Hide Row. Hide your google sheet table rows based on your custom row "
+"selection."
+msgstr "隐藏行。根据您的自定义行选择隐藏Google表格行。"
+
+#: app/templates/documentation_page.php:134
+msgid "Unlimited Row Sync. Fetch unlimited rows from Google spreadsheet"
+msgstr "无限行同步。从Google电子表格获取无限行"
+
+#: app/templates/documentation_page.php:142
+msgid "And much more."
+msgstr "还有更多。"
+
+#: app/templates/documentation_page.php:143
+msgid "All Pro features"
+msgstr "所有专业版功能"
+
+#: app/templates/documentation_page.php:150
+msgid "Buy Now"
+msgstr "立即购买"
+
+#: app/templates/documentation_page.php:180
+msgid "Support Center"
+msgstr "支持中心"
+
+#: app/templates/general_settings.php:47
+msgid "General Settings"
+msgstr "常规设置"
+
+#: app/templates/general_settings.php:52
+msgid "Save Changes"
+msgstr "保存更改"
+
+#: app/templates/manage_tables.php:43
+msgid "Delete Selected"
+msgstr "删除所选"
+
+#: app/templates/manage_tables.php:49
+msgid "Clear Selection"
+msgstr "清除选择"
+
+#: app/templates/manage_tables.php:72
+msgid "Create Table"
+msgstr "创建表格"
+
+#: app/templates/manage_tables.php:79
+msgid "Delete Your Table"
+msgstr "删除您的表格"
+
+#: app/templates/manage_tables.php:86
+msgid "Yes"
+msgstr "是"
+
+#: app/templates/manage_tables.php:89
+msgid "No"
+msgstr "否"
+
+#: app/templates/parts/affiliate_notice.php:23
+msgid "Hey! Enjoying the FlexTable plugin? 😍 Join our "
+msgstr "嘿！喜欢FlexTable插件吗？😍 加入我们的"
+
+#: app/templates/parts/affiliate_notice.php:24
+msgid "Influencer Program "
+msgstr "影响者计划"
+
+#: app/templates/parts/affiliate_notice.php:25
+msgid "to make money from your social media content. You can also check our"
+msgstr "从您的社交媒体内容中赚钱。您还可以查看我们的"
+
+#: app/templates/parts/affiliate_notice.php:26
+msgid "Affiliate Program "
+msgstr "联盟计划"
+
+#: app/templates/parts/affiliate_notice.php:27
+msgid "to get a "
+msgstr "获得"
+
+#: app/templates/parts/affiliate_notice.php:28
+msgid "25% commission "
+msgstr "25%佣金"
+
+#: app/templates/parts/affiliate_notice.php:29
+msgid "on every sale!"
+msgstr "每笔销售！"
+
+#: app/templates/parts/affiliate_notice.php:33
+msgid "Affiliate Program"
+msgstr "联盟计划"
+
+#: app/templates/parts/affiliate_notice.php:34
+msgid "Influencer Program"
+msgstr "影响者计划"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "Advance sheets design and many more premium features are available in "
+msgstr "高级表格设计和更多高级功能可在"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "FlexTable Pro"
+msgstr "FlexTable专业版"
+
+#: app/templates/parts/plugin_upgrade_notice.php:22
+msgid "plugin 😍"
+msgstr "插件中使用 😍"
+
+#: app/templates/parts/plugin_upgrade_notice.php:25
+msgid "Upgrade Now"
+msgstr "立即升级"
+
+#: app/templates/parts/popup_modals.php:17
+msgid "Choose Table Style"
+msgstr "选择表格样式"
+
+#: app/templates/parts/popup_modals.php:29
+#: app/templates/parts/popup_modals.php:77
+msgid "Select"
+msgstr "选择"
+
+#: app/templates/parts/popup_modals.php:41
+msgid "Choose Column To Hide"
+msgstr "选择要隐藏的列"
+
+#: app/templates/parts/popup_modals.php:47
+msgid "Hide columns in desktop:"
+msgstr "在桌面上隐藏列："
+
+#: app/templates/parts/popup_modals.php:51
+#: app/templates/parts/popup_modals.php:64
+msgid "Choose Column"
+msgstr "选择列"
+
+#: app/templates/parts/popup_modals.php:60
+msgid "Hide columns in mobile:"
+msgstr "在移动设备上隐藏列："
+
+#: app/templates/parts/popup_modals.php:89
+msgid "Activate Row Hiding Feature"
+msgstr "激活行隐藏功能"
+
+#: app/templates/parts/popup_modals.php:94
+msgid "Hidden Rows:"
+msgstr "隐藏的行："
+
+#: app/templates/parts/popup_modals.php:98
+msgid "Hidden Rows"
+msgstr "隐藏的行"
+
+#: app/templates/parts/popup_modals.php:128
+msgid "Activate Cell Hiding Feature"
+msgstr "激活单元格隐藏功能"
+
+#: app/templates/parts/popup_modals.php:133
+msgid "Hidden Cell:"
+msgstr "隐藏的单元格："
+
+#: app/templates/parts/popup_modals.php:137
+msgid "Hidden Cells"
+msgstr "隐藏的单元格"
+
+#: app/templates/parts/pro_fix_notice.php:17
+msgid "Let's Get Your FlexTable Pro Plugin Updated!"
+msgstr "让我们更新您的FlexTable专业版插件！"
+
+#: app/templates/parts/pro_fix_notice.php:20
+msgid ""
+"We've noticed a small issue with the pro plugin update process. Just click "
+"Fix Now button to automatically solve the issue, and everything will be back "
+"to normal"
+msgstr ""
+"我们注意到专业版插件更新过程存在一个小问题。只需单击\"立即修复\"按钮即可自动"
+"解决问题，一切都会恢复正常"
+
+#: app/templates/parts/pro_fix_notice.php:22
+#: app/templates/parts/pro_fix_notice.php:312
+msgid "Learn more about what we fixed"
+msgstr "了解更多关于我们修复的内容"
+
+#: app/templates/parts/pro_fix_notice.php:31
+#, php-format
+msgid ""
+"This fix resolves a temporary issue on FlexTable Pro plugin that's "
+"preventing getting automatic updates. By clicking \"Fix Now\", the update "
+"process will be restored, enabling future auto updates. You can also "
+"download the latest version anytime from %s"
+msgstr ""
+"此修复解决了FlexTable专业版插件上阻止获取自动更新的临时问题。通过单击\"立即修"
+"复\"，更新过程将恢复，启用未来的自动更新。您还可以随时从%s下载最新版本"
+
+#: app/templates/parts/pro_fix_notice.php:32
+#: app/templates/parts/pro_fix_notice.php:59
+msgid "portal.wppool.dev"
+msgstr "portal.wppool.dev"
+
+#: app/templates/parts/pro_fix_notice.php:39
+msgid "Fix Now"
+msgstr "立即修复"
+
+#: app/templates/parts/pro_fix_notice.php:53
+msgid "Close without fixing the update?"
+msgstr "关闭而不修复更新？"
+
+#: app/templates/parts/pro_fix_notice.php:58
+#, php-format
+msgid ""
+"You can update the pro plugin anytime manually by downloading the latest "
+"version from your portal at %s"
+msgstr "您可以随时通过从%s的门户下载最新版本手动更新专业版插件"
+
+#: app/templates/parts/pro_fix_notice.php:70
+msgid "Yes, Close at My Risk!"
+msgstr "是的，由我承担风险关闭！"
+
+#: app/templates/parts/pro_fix_notice.php:315
+msgid "Show less"
+msgstr "显示更少"
+
+#: app/templates/parts/pro_fix_notice.php:331
+msgid "Applying Fix..."
+msgstr "应用修复中..."
+
+#: app/templates/parts/pro_fix_notice.php:343
+msgid "Fixed!"
+msgstr "已修复！"
+
+#: app/templates/parts/pro_fix_notice.php:348
+#: app/templates/parts/pro_fix_notice.php:353
+msgid "Auto Fix"
+msgstr "自动修复"
+
+#: app/templates/parts/pro_fix_notice.php:349
+msgid "Failed to apply fix. Please try again."
+msgstr "应用修复失败。请重试。"
+
+#: app/templates/parts/pro_fix_notice.php:354
+#: app/templates/parts/pro_fix_notice.php:388
+#: app/templates/parts/pro_fix_notice.php:393
+msgid "An error occurred. Please try again."
+msgstr "发生错误。请重试。"
+
+#: app/templates/parts/pro_fix_notice.php:372
+msgid "Processing..."
+msgstr "处理中..."
+
+#: app/templates/parts/review_notice.php:21
+msgid "Seems like "
+msgstr "看起来"
+
+#: app/templates/parts/review_notice.php:21
+msgid " is bringing you value 🥳"
+msgstr "正在为您带来价值 🥳"
+
+#: app/templates/parts/review_notice.php:23
+msgid ""
+"Hi there! You've been using FlexTable for a while. Would you consider "
+"leaving us a 😍 5-star review? Your feedback will help us to develop better "
+"features and spread the word."
+msgstr ""
+"您好！您已经使用FlexTable一段时间了。您会考虑给我们留下😍 5星评价吗？您的反馈"
+"将帮助我们开发更好的功能并传播信息。"
+
+#: app/templates/parts/review_notice.php:34
+msgid "I already did it"
+msgstr "我已经做了"
+
+#: app/templates/parts/review_notice.php:45
+msgid "Would you like to be remind in the future?"
+msgstr "您想在将来收到提醒吗？"
+
+#: app/templates/parts/review_notice.php:48
+msgid "Remind Me After:"
+msgstr "在...之后提醒我："
+
+#: app/templates/parts/review_notice.php:50
+#: app/templates/parts/review_notice.php:53
+msgid "7 Days"
+msgstr "7天"
+
+#: app/templates/parts/review_notice.php:54
+msgid "14 Days"
+msgstr "14天"
+
+#: app/templates/parts/review_notice.php:55
+msgid "Remind me never"
+msgstr "永不提醒我"
+
+#: app/templates/parts/review_notice.php:60
+msgid "Ok"
+msgstr "确定"
+
+#: sheets-to-wp-table-live-sync.php:32
+msgid "FlexTable - Pro Plugin"
+msgstr "FlexTable - 专业版插件"
+
+#: sheets-to-wp-table-live-sync.php:33
+msgid ""
+"cannot be activated - requires at least 3.0.0. Plugin automatically "
+"deactivated."
+msgstr "无法激活 - 至少需要3.0.0版本。插件已自动停用。"
+
+#~ msgid "A search field"
+#~ msgstr "搜索字段"
+
+#~ msgid "OpenAI"
+#~ msgstr "OpenAI"
+
+#~ msgid "Model Selection"
+#~ msgstr "模型选择"
+
+#~ msgid "Adjust the randomness of generated summaries"
+#~ msgstr "调整生成摘要的随机性"
+
+#~ msgid ""
+#~ "Control diversity of generated summaries through vocabulary restriction"
+#~ msgstr "通过词汇限制控制生成摘要的多样性"
+
+#~ msgid "Show an AI-generated summary of your table data at the top"
+#~ msgstr "在顶部显示表格数据的AI生成摘要"
+
+#~ msgid "Enable AI Chat Interface"
+#~ msgstr "启用AI聊天界面"
+
+#~ msgid "Allow visitors to ask questions about the table data using AI"
+#~ msgstr "允许访问者使用AI询问有关表格数据的问题"
+
+#~ msgid "Configure AI Provider"
+#~ msgstr "配置AI供应商"
+
+#~ msgid "Set up your AI provider credentials and preferences"
+#~ msgstr "设置您的AI供应商凭据和偏好"
+
+#~ msgid "Test Connection"
+#~ msgstr "测试连接"
+
+#~ msgid "Testing connection..."
+#~ msgstr "测试连接中..."
+
+#~ msgid "Connection successful!"
+#~ msgstr "连接成功！"
+
+#~ msgid "Connection failed. Please check your credentials."
+#~ msgstr "连接失败。请检查您的凭据。"
+
+#~ msgid "Select Model"
+#~ msgstr "选择模型"
+
+#~ msgid "Choose the AI model to use for generating table summaries"
+#~ msgstr "选择用于生成表格摘要的AI模型"
+
+#~ msgid "Maximum length of generated summaries in tokens"
+#~ msgstr "生成摘要的最大令牌长度"
+
+#~ msgid "Default is 1000 tokens (approximately 750 words)"
+#~ msgstr "默认为1000个令牌（大约750个单词）"
+
+#~ msgid "Temperature (Creativity)"
+#~ msgstr "温度（创造性）"
+
+#~ msgid "Higher values make output more random, lower values more focused"
+#~ msgstr "较高的值使输出更随机，较低的值更集中"
+
+#~ msgid "Range: 0.0 to 2.0. Default: 0.7"
+#~ msgstr "范围：0.0到2.0。默认：0.7"
+
+#~ msgid "Top-P (Nucleus Sampling)"
+#~ msgstr "Top-P（核采样）"
+
+#~ msgid "Reduce repetitive phrases in AI responses"
+#~ msgstr "减少AI响应中的重复短语"
+
+#~ msgid "Range: -2.0 to 2.0. Default: 0.0"
+#~ msgstr "范围：-2.0到2.0。默认：0.0"
+
+#~ msgid "Configure your AI settings"
+#~ msgstr "配置您的AI设置"
+
+#~ msgid "Save AI Settings"
+#~ msgstr "保存AI设置"
+
+#~ msgid "AI settings saved successfully!"
+#~ msgstr "AI设置保存成功！"
+
+#~ msgid "Failed to save AI settings"
+#~ msgstr "保存AI设置失败"
+
+#~ msgid "Generate Summary"
+#~ msgstr "生成摘要"
+
+#~ msgid "Generating summary..."
+#~ msgstr "生成摘要中..."
+
+#~ msgid "Summary generated successfully!"
+#~ msgstr "摘要生成成功！"
+
+#~ msgid "Failed to generate summary"
+#~ msgstr "生成摘要失败"
+
+#~ msgid "AI Provider Settings"
+#~ msgstr "AI供应商设置"
+
+#~ msgid "Configure your AI provider"
+#~ msgstr "配置您的AI供应商"
+
+#~ msgid "OpenAI Settings"
+#~ msgstr "OpenAI设置"
+
+#~ msgid "Configure OpenAI API settings"
+#~ msgstr "配置OpenAI API设置"
+
+#~ msgid "Gemini Settings"
+#~ msgstr "Gemini设置"
+
+#~ msgid "Configure Google Gemini API settings"
+#~ msgstr "配置Google Gemini API设置"
+
+#~ msgid "API Configuration"
+#~ msgstr "API配置"
+
+#~ msgid "Enter your API credentials"
+#~ msgstr "输入您的API凭据"
+
+#~ msgid "Fine-tune AI behavior"
+#~ msgstr "微调AI行为"
+
+#~ msgid "Summary Settings"
+#~ msgstr "摘要设置"
+
+#~ msgid "Customize how summaries are generated"
+#~ msgstr "自定义摘要的生成方式"
+
+#~ msgid "Chat Interface Settings"
+#~ msgstr "聊天界面设置"
+
+#~ msgid "Customize the AI chat experience"
+#~ msgstr "自定义AI聊天体验"
+
+#~ msgid "Enable AI Features"
+#~ msgstr "启用AI功能"
+
+#~ msgid "Turn on AI-powered table features"
+#~ msgstr "开启AI驱动的表格功能"
+
+#~ msgid "Configure AI"
+#~ msgstr "配置AI"
+
+#~ msgid "Set up your AI provider and preferences"
+#~ msgstr "设置您的AI供应商和偏好"
+
+#~ msgid "Please configure your AI settings first"
+#~ msgstr "请先配置您的AI设置"
+
+#~ msgid "Go to Settings"
+#~ msgstr "转到设置"
+
+#~ msgid "Ask AI about this table"
+#~ msgstr "询问AI关于此表格"
+
+#~ msgid "Type your question..."
+#~ msgstr "输入您的问题..."
+
+#~ msgid "Ask"
+#~ msgstr "询问"
+
+#~ msgid "AI Summary"
+#~ msgstr "AI摘要"
+
+#~ msgid "Table Summary"
+#~ msgstr "表格摘要"
+
+#~ msgid "Refresh Summary"
+#~ msgstr "刷新摘要"
+
+#~ msgid "Hide Summary"
+#~ msgstr "隐藏摘要"
+
+#~ msgid "Show Summary"
+#~ msgstr "显示摘要"
+
+#~ msgid "This may take a moment"
+#~ msgstr "这可能需要一点时间"
+
+#~ msgid "No API key configured"
+#~ msgstr "未配置API密钥"
+
+#~ msgid "Please add your API key in the settings"
+#~ msgstr "请在设置中添加您的API密钥"
+
+#~ msgid "Error generating summary"
+#~ msgstr "生成摘要时出错"
+
+#~ msgid "Please try again or contact support"
+#~ msgstr "请重试或联系支持"
+
+#~ msgid "Chat History"
+#~ msgstr "聊天历史"
+
+#~ msgid "Clear Chat"
+#~ msgstr "清除聊天"
+
+#~ msgid "AI Response"
+#~ msgstr "AI响应"
+
+#~ msgid "Thinking..."
+#~ msgstr "思考中..."
+
+#~ msgid "Example questions:"
+#~ msgstr "示例问题："
+
+#~ msgid "What's the average of column X?"
+#~ msgstr "列X的平均值是多少？"
+
+#~ msgid "Show me the top 5 values"
+#~ msgstr "显示前5个值"
+
+#~ msgid "What trends do you see?"
+#~ msgstr "您看到了什么趋势？"
+
+#~ msgid "AI Features"
+#~ msgstr "AI功能"
+
+#~ msgid "Enhance your table with AI"
+#~ msgstr "使用AI增强您的表格"
+
+#~ msgid "Learn more about AI features"
+#~ msgstr "了解更多AI功能"
+
+#~ msgid "View Documentation"
+#~ msgstr "查看文档"
+
+#~ msgid "Pro Feature"
+#~ msgstr "专业版功能"
+
+#~ msgid "Upgrade to access AI features"
+#~ msgstr "升级以访问AI功能"
+
+#~ msgid "Duplicate"
+#~ msgstr "复制"
+
+#~ msgid "Export"
+#~ msgstr "导出"
+
+#~ msgid "Settings"
+#~ msgstr "设置"
+
+#~ msgid "Table Actions"
+#~ msgstr "表格操作"
+
+#~ msgid "More options"
+#~ msgstr "更多选项"
+
+#~ msgid "Rename"
+#~ msgstr "重命名"
+
+#~ msgid "Clone"
+#~ msgstr "克隆"
+
+#~ msgid "Are you sure?"
+#~ msgstr "您确定吗？"
+
+#~ msgid "This action cannot be undone"
+#~ msgstr "此操作无法撤消"
+
+#~ msgid "Yes, proceed"
+#~ msgstr "是的，继续"
+
+#~ msgid "No, go back"
+#~ msgstr "不，返回"
+
+#~ msgid "Success!"
+#~ msgstr "成功！"
+
+#~ msgid "Operation completed successfully"
+#~ msgstr "操作成功完成"
+
+#~ msgid "Error!"
+#~ msgstr "错误！"
+
+#~ msgid "Something went wrong"
+#~ msgstr "出了点问题"
+
+#~ msgid "Loading data..."
+#~ msgstr "加载数据中..."
+
+#~ msgid "Please wait"
+#~ msgstr "请稍候"
+
+#~ msgid "No data available"
+#~ msgstr "无可用数据"
+
+#~ msgid "Try adjusting your filters"
+#~ msgstr "尝试调整您的过滤器"
+
+#~ msgid "Page"
+#~ msgstr "页"
+
+#~ msgid "Go to page"
+#~ msgstr "转到页面"
+
+#~ msgid "Items per page"
+#~ msgstr "每页项目数"
+
+#~ msgid "Show items"
+#~ msgstr "显示项目"
+
+#~ msgid "Filter by"
+#~ msgstr "筛选依据"
+
+#~ msgid "Apply filter"
+#~ msgstr "应用过滤器"
+
+#~ msgid "Sort ascending"
+#~ msgstr "升序排序"
+
+#~ msgid "Sort descending"
+#~ msgstr "降序排序"
+
+#~ msgid "Select all"
+#~ msgstr "全选"
+
+#~ msgid "Deselect all"
+#~ msgstr "取消全选"
+
+#~ msgid "Bulk actions"
+#~ msgstr "批量操作"
+
+#~ msgid "Apply to selected"
+#~ msgstr "应用于所选"
+
+#~ msgid "Import"
+#~ msgstr "导入"
+
+#~ msgid "Export data"
+#~ msgstr "导出数据"
+
+#~ msgid "Refresh data"
+#~ msgstr "刷新数据"
+
+#~ msgid "View details"
+#~ msgstr "查看详情"
+
+#~ msgid "Maximize"
+#~ msgstr "最大化"
+
+#~ msgid "Minimize"
+#~ msgstr "最小化"
+
+#~ msgid "Full screen"
+#~ msgstr "全屏"
+
+#~ msgid "Exit full screen"
+#~ msgstr "退出全屏"
+
+#~ msgid "Version"
+#~ msgstr "版本"
+
+#~ msgid "Check for updates"
+#~ msgstr "检查更新"
+
+#~ msgid "Quick actions"
+#~ msgstr "快速操作"
+
+#~ msgid "Recent tables"
+#~ msgstr "最近的表格"
+
+#~ msgid "Favorites"
+#~ msgstr "收藏夹"
+
+#~ msgid "Add to favorites"
+#~ msgstr "添加到收藏夹"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "从收藏夹中删除"
+
+#~ msgid "Mark as favorite"
+#~ msgstr "标记为收藏"
+
+#~ msgid "Share table"
+#~ msgstr "共享表格"
+
+#~ msgid "Copy link"
+#~ msgstr "复制链接"
+
+#~ msgid "Embed code"
+#~ msgstr "嵌入代码"
+
+#~ msgid "Get embed code"
+#~ msgstr "获取嵌入代码"
+
+#~ msgid "Preview table"
+#~ msgstr "预览表格"
+
+#~ msgid "Published"
+#~ msgstr "已发布"
+
+#~ msgid "Draft"
+#~ msgstr "草稿"
+
+#~ msgid "Status"
+#~ msgstr "状态"
+
+#~ msgid "Change status"
+#~ msgstr "更改状态"
+
+#~ msgid "Created"
+#~ msgstr "创建时间"
+
+#~ msgid "Modified"
+#~ msgstr "修改时间"
+
+#~ msgid "Author"
+#~ msgstr "作者"
+
+#~ msgid "Last modified by"
+#~ msgstr "最后修改者"
+
+#~ msgid "Tags"
+#~ msgstr "标签"
+
+#~ msgid "Add tags"
+#~ msgstr "添加标签"
+
+#~ msgid "Categories"
+#~ msgstr "分类"
+
+#~ msgid "Select category"
+#~ msgstr "选择分类"
+
+#~ msgid "Notes"
+#~ msgstr "注释"
+
+#~ msgid "Add note"
+#~ msgstr "添加注释"
+
+#~ msgid "Permissions"
+#~ msgstr "权限"
+
+#~ msgid "Manage permissions"
+#~ msgstr "管理权限"
+
+#~ msgid "Public"
+#~ msgstr "公开"
+
+#~ msgid "Private"
+#~ msgstr "私有"
+
+#~ msgid "Visibility"
+#~ msgstr "可见性"
+
+#~ msgid "Change visibility"
+#~ msgstr "更改可见性"
+
+#~ msgid "Archive"
+#~ msgstr "归档"
+
+#~ msgid "Restore"
+#~ msgstr "恢复"
+
+#~ msgid "Trash"
+#~ msgstr "回收站"
+
+#~ msgid "Move to trash"
+#~ msgstr "移至回收站"
+
+#~ msgid "Permanently delete"
+#~ msgstr "永久删除"
+
+#~ msgid "This cannot be undone"
+#~ msgstr "这无法撤消"

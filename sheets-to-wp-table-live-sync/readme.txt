@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.2
-Stable tag: 3.22.2
+Stable tag: 3.23.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -233,6 +233,12 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 == Changelog ==
 
+= 3.23.0 - 06 Apr 2026 =
+* **New:** Added column-based filtering with multiple filter modes
+* **Fix:** Fixed compatibility issues between the sticky feature and table sorting  
+* **Improvement:** Improved lightbox compatibility with themes  
+* **Improvement:** General UX enhancements and refinements  
+
 = 3.22.2 - 04 Mar 2026 =
 * **Improvement:** Added built-in support for 16 languages, ready to use out of the box: **Bengali, Spanish (Spain), German, French, Portuguese (Brazil), Hindi, Arabic, Chinese (Simplified), Japanese, Italian, Russian, Indonesian, Turkish, Dutch,   Korean, and Polish.**
 
@@ -246,9 +252,5 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 = 3.21.0 - 12 Jan 2026 =
 * **New:** Added full compatibility with Divi page builder
-
-= 3.20.1 - 30 Dec 2025 =
-* **New:** Added hover effects to all table presets with customizable hover background and text colors.
-
 
 For older changelog entries, please see the [additional changelog.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/changelog.txt) delivered with the plugin.

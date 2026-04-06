@@ -19,7 +19,7 @@ class GSWPTS_FlexTable_Module extends ET_Builder_Module {
 	public $slug = 'gswpts_flextable';
 	public $vb_support = 'off';
 	public $icon_path;
-	
+
 	protected $module_credits = array(
 		'module_uri' => 'https://wppool.dev/sheets-to-wp-table-live-sync/',
 		'author'     => 'WPPOOL',
@@ -33,7 +33,7 @@ class GSWPTS_FlexTable_Module extends ET_Builder_Module {
 
 	public function init() {
 		$this->name = esc_html__( 'FlexTable', 'sheetstowptable' );
-		
+
 		$this->settings_modal_toggles = array(
 			'general' => array(
 				'toggles' => array(
@@ -89,17 +89,16 @@ class GSWPTS_FlexTable_Module extends ET_Builder_Module {
 
 		$table_id = absint( $table_id );
 		$this->add_classname( 'gswpts-divi-module' );
-		
+
 		// Get the shortcode output
 		$shortcode_output = do_shortcode( sprintf( '[gswpts_table id="%s"]', $table_id ) );
-		
+
 		return sprintf(
 			'<div class="gswpts-divi-table-container" data-table-id="%d">%s</div>',
 			$table_id,
 			$shortcode_output
 		);
 	}
-
 }
 
 new GSWPTS_FlexTable_Module();
