@@ -5,6 +5,9 @@
 This file contains older changelog entries, so we can keep the size of the standard WordPress readme.txt file reasonable. 
 For the latest changes, please see the "Changelog" section of the [readme.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/readme.txt).
 
+= 3.21.0 - 12 Jan 2026 =
+* **New:** Added full compatibility with Divi page builder
+
 = 3.20.1 - 30 Dec 2025 =
 * **New:** Added hover effects to all table presets with customizable hover background and text colors.
 

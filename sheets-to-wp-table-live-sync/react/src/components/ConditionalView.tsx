@@ -7,6 +7,7 @@ import { lockBTN, ProIcon } from '../icons';
 
 import '../styles/_conditionalview.scss';
 import CTAVideoPlayer from './CTAVideoPlayer';
+import { UserSpecificDisplay } from './UserSpecificDisplay';
 
 const ConditionalView = ({ tableSettings, setTableSettings }) => {
 	const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -336,8 +337,7 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 
 				{ /* User specific  */}
 				<button
-					disabled
-					className={`table-view__item disabled ${tableSettings?.table_settings?.table_view_mode ===
+					className={`table-view__item ${tableSettings?.table_settings?.table_view_mode ===
 						'user-specific-mode'
 						? ' active'
 						: ''
@@ -369,14 +369,17 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 								</svg>
 							</div>
 							<div className="badge-wrap">
-								{ /* <button className="tutorial-badge">
+								{/* <button className="tutorial-badge"
+									onClick={openModal}
+									style={{ cursor: 'pointer' }}
+								>
 									<span className="icon">
 										<svg xmlns="http://www.w3.org/2000/svg" width="6" height="7" viewBox="0 0 6 7" fill="none">
-											<path d="M1.61548 0.633108C1.08519 0.328931 0.655273 0.578117 0.655273 1.18924V5.69903C0.655273 6.31076 1.08519 6.55962 1.61548 6.25573L5.55726 3.99514C6.08772 3.69086 6.08772 3.19787 5.55726 2.89366L1.61548 0.633108Z" fill="#FF0000" />
+											<path d="M1.61548 0.633108C1.08519 0.328931 0.655273 0.578117 0.655273 1.18924V5.69903C0.655273 6.31076 1.08519 6.55962 1.61548 6.25573L5.55726 3.99514C6.08772 3.69086 6.08772 3.19787 5.55726 2.89366L1.61548 0.633108Z" fill="rgb(166, 1, 243)" />
 										</svg>
 									</span>
-									<span className="text-label">Tutorial</span>
-								</button> */ }
+									<span className="text-label">{getStrings('tutorial')}</span>
+								</button> */}
 							</div>
 						</div>
 						<div className="text">
@@ -385,20 +388,26 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 									'displayed-only-to-logged-in-users'
 								)}
 							</p>
+
+						
 						</div>
-						<button className="btn-pro-lock btn-upcooming theme-lock-blur">
-							<span>{getStrings('Upcoming')}</span>
-						</button>
+
+						{!isProActive() && (
+							<button className="btn-pro-lock theme-lock-blur">
+								{lockBTN}
+							</button>
+						)}
 					</div>
 					<div className="table-view__lable">
 						<div className="radio-field"></div>
 						<div className="label-title">
 							{getStrings('user-specific-display')}{' '}
+							<button className="btn-pro btn-new"> { getStrings( 'new' ) }</button> 
 							{/* <Tooltip
-								content={getStrings(
-									'displayed-only-to-logged-in-users'
-								)}
-							/> */}
+										content={getStrings(
+											'displayed-only-to-logged-in-users'
+										)}
+									/> */}
 						</div>
 					</div>
 				</button>
@@ -675,35 +684,20 @@ const ConditionalView = ({ tableSettings, setTableSettings }) => {
 								</div>
 							</div>
 
-							{ /* Preview panel */}
-							{ /* <div className="preview-wrapper">  
-							<div className="preview-title">
-								Preview
-								<span className={`caret ${previewGif === false ? 'rotated' : ''}`} onClick={() => setPreviewGif(!previewGif)}>
-									<svg xmlns="http://www.w3.org/2000/svg" width="11" height="6" viewBox="0 0 11 6" fill="none">
-										<path d="M10.9999 0.995538C11.0003 1.12361 10.9744 1.25016 10.9241 1.36588C10.8738 1.48159 10.8004 1.58354 10.7093 1.66423L5.99542 5.80497C5.85484 5.93107 5.67851 6 5.49654 6C5.31456 6 5.13823 5.93107 4.99765 5.80497L0.283814 1.51849C0.123373 1.37297 0.0224779 1.16387 0.00332422 0.937177C-0.0158295 0.710485 0.0483274 0.484775 0.181681 0.309701C0.315034 0.134626 0.506661 0.024529 0.714405 0.00362822C0.922149 -0.0172725 1.12899 0.0527358 1.28943 0.198252L5.50046 4.03037L9.7115 0.326847C9.82682 0.222014 9.96724 0.155421 10.1162 0.134949C10.2651 0.114478 10.4163 0.140983 10.5518 0.211329C10.6873 0.281675 10.8016 0.392918 10.881 0.531895C10.9604 0.670871 11.0017 0.831765 10.9999 0.995538Z" fill="#1E1E1E" />
-									</svg>
-								</span>
-							</div>
-							{previewGif &&
-
-								<div className="preview-gif">
-									<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1384 1124" width="346" height="281">
-										<path transform="translate(0)" d="m0 0h1384v1124h-1384z" fill="#E0E4EA" />
-										<path transform="translate(562,388)" d="m0 0 10 4 23 12 48 28 26 15 27 16 28 16 24 14 52 30 27 16 22 14 2 4h-2l-2 5-19 12-24 14-52 30-17 10-24 14-26 15-24 14-26 15-24 14-19 11-21 12-6 3h-3l-1-32v-260z" fill="#91A3B0" />
-										<path transform="translate(1371,1118)" d="m0 0h13v6h-1384v-5z" fill="#FAFCFE" />
-										<path transform="translate(623,524)" d="m0 0h10l9 3 6 5 3 5v7l-2 1h-6l-8-7-4-2h-7l-5 4-3 9v24l3 7 5 3h7l6-3 2-2 1-9-10-1-2-1v-9l2-1h20l2 1 1 3v14l-3 9-5 6-8 4h-16l-7-3-6-5-4-9-1-4v-24l3-12 4-6 6-5z" fill="#F6F8FB" />
-										<path transform="translate(689,525)" d="m0 0h43v10l-2 1h-31l1 2 1 18h22l5 1v9l-1 1-16 1-11-1v26l-1 1h-8l-2-1z" fill="#F6F8FB" />
-										<path transform="translate(665,525)" d="m0 0h12v68l-1 1h-9l-2-1z" fill="#F5F7FA" />
-									</svg>
-								</div>
-							}
-						</div> */ }
 						</div>
 
 
 					</div>
 				)}
+
+			{/* User-specific display settings */}
+			{tableSettings?.table_settings?.table_view_mode === 'user-specific-mode' && (
+				<UserSpecificDisplay
+					tableSettings={tableSettings}
+					setTableSettings={setTableSettings}
+					tableHeaders={tableHeaders}
+				/>
+			)}
 		</div>
 	);
 };

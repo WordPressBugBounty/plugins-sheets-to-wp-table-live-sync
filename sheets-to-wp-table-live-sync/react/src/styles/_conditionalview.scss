@@ -34,7 +34,7 @@
 
                     svg {
                         path {
-                            fill: #008717;
+                            // fill: #008717;
                         }
                     }
                 }
@@ -285,7 +285,7 @@
         &__lable {
             gap: 4px;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             position: absolute;
             left: 17px;
             margin-top: 65px;

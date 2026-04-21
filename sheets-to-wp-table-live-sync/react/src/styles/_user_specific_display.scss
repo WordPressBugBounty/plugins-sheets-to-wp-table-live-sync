@@ -1,0 +1,533 @@
+// ============================================================
+// User-Specific Display — Refactored Styles (v2)
+// Scope: .user-specific-settings
+// ============================================================
+
+// ── Variables ────────────────────────────────────────────────
+
+$us-primary:       #008717;
+$us-primary-hover: #126E22;
+$us-primary-light: #E8F5E9;
+$us-danger:        #C62828;
+$us-danger-light:  #FFEBEE;
+$us-danger-hover:  #FFCDD2;
+$us-muted:         #666873;
+$us-text:          #1E1E1E;
+$us-border:        #ECF2F6;
+$us-border-dark:   #D1D5DB;
+$us-bg:            #F7F9FB;
+$us-bg-card:       #FFFFFF;
+$us-active:        #E8F5E9;
+$us-inactive:      #F3F4F6;
+$us-radius-sm:     4px;
+$us-radius:        8px;
+$us-radius-lg:     12px;
+$us-shadow:        0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+$us-shadow-md:     0 4px 16px rgba(0, 0, 0, 0.10);
+$us-transition:    all 0.2s ease;
+
+// ── Pro lock overlay ──────────────────────────────────────────
+
+.user-specific-settings {
+    position: relative;
+
+    .us-section--locked {
+        pointer-events: none;
+        user-select: none;
+        filter: blur(1px);
+        opacity: 0.65;
+    }
+
+    .user-specific__pro-lock {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: $us-radius-lg;
+
+        .pro-lock__inner {
+            text-align: center;
+            padding: 32px 40px;
+            background: $us-bg-card;
+            border-radius: $us-radius-lg;
+            border: 1px solid $us-border;
+            box-shadow: $us-shadow-md;
+            max-width: 320px;
+
+            .pro-lock__icon {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 12px;
+                opacity: 0.5;
+            }
+
+            .pro-lock__text {
+                color: $us-muted;
+                font-size: 14px;
+                line-height: 1.5;
+                margin-bottom: 16px;
+
+                strong { color: $us-text; }
+            }
+
+            .pro-lock__cta {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                padding: 9px 20px;
+                background: $us-primary;
+                color: #fff;
+                border: none;
+                border-radius: $us-radius;
+                font-size: 13px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: $us-transition;
+
+                &:hover { background: $us-primary-hover; }
+            }
+        }
+    }
+
+    // ── Section layout ──────────────────────────────────────────
+
+    .us-section {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .us-section-header {
+        margin-bottom: 0;
+
+        .us-section-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: $us-text !important;
+            margin-bottom: 4px !important;
+        }
+
+        .us-section-desc {
+            font-size: 13px;
+            color: $us-muted;
+            line-height: 1.5;
+            margin: 0;
+        }
+    }
+
+    // ── Toggle row ──────────────────────────────────────────────
+
+    .us-toggle-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        transition: background-color 0.15s ease;
+
+        &--disabled {
+            opacity: 0.45;
+            pointer-events: none;
+        }
+
+        &__label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+
+            label {
+                font-size: 14px;
+                color: $us-text;
+                font-weight: 500;
+                cursor: pointer;
+                margin: 0;
+                line-height: 1.4;
+            }
+        }
+
+        &__control {
+            flex-shrink: 0;
+        }
+    }
+
+    // ── Custom toggle switch ─────────────────────────────────────
+
+    .us-toggle {
+        position: relative;
+        flex-shrink: 0;
+
+        input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        &__track {
+            display: block;
+            width: 42px;
+            height: 24px;
+            background: #D1D5DB;
+            border-radius: 500px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            position: relative;
+            margin: 0;
+        }
+
+        &__thumb {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            border-radius: 500px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+            pointer-events: none;
+        }
+
+        &--on {
+            .us-toggle__track { background: $us-primary; }
+            .us-toggle__thumb { transform: translateX(18px); }
+        }
+
+        input:focus + .us-toggle__track {
+            outline: 2px solid $us-primary;
+            outline-offset: 2px;
+        }
+    }
+
+    // ── Divider ──────────────────────────────────────────────────
+
+    .us-toggles-card__divider {
+        height: 1px;
+        background: $us-border;
+        margin: 4px 0 20px;
+    }
+
+    // ── Filter config ────────────────────────────────────────────
+
+    .us-filter-config {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding-top: 4px;
+    }
+
+    // ── Form groups ──────────────────────────────────────────────
+
+    .us-form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 20px;
+
+        &--no-margin { margin-bottom: 0; }
+
+        &--disabled {
+            opacity: 0.45;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        &__label {
+            font-size: 13px;
+            font-weight: 600;
+            color: $us-text;
+            margin: 0;
+        }
+
+        &__hint {
+            font-size: 12px;
+            color: $us-muted;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        &__error {
+            font-size: 12px;
+            color: $us-danger;
+            margin: 4px 0 0;
+        }
+    }
+
+    // ── Select ───────────────────────────────────────────────────
+
+    .us-select {
+        width: 100%;
+        padding: 9px 12px;
+        background: $us-bg-card;
+        border: 1px solid $us-border-dark;
+        border-radius: $us-radius;
+        font-size: 13px;
+        color: $us-text;
+        cursor: pointer;
+        transition: border-color 0.2s;
+        appearance: auto;
+        width: 225px;
+
+        &:focus {
+            outline: none;
+            border-color: $us-primary;
+            box-shadow: 0 0 0 3px rgba($us-primary, 0.08);
+        }
+
+        &:disabled {
+            background: $us-bg;
+            cursor: not-allowed;
+        }
+    }
+
+    // ── Radio group ───────────────────────────────────────────────
+
+    .us-radio-group {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+        width: 50%;
+    }
+
+    .us-radio-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        border: 1.5px solid $us-border-dark;
+        border-radius: $us-radius;
+        cursor: pointer;
+        transition: $us-transition;
+        font-size: 13px;
+        color: $us-muted;
+        font-weight: 500;
+        user-select: none;
+        flex: 1;
+        min-width: 140px;
+
+        // Hide native radio input
+        input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        &:hover:not(&--disabled) {
+            border-color: $us-primary;
+            color: $us-text;
+            box-shadow: rgb(240, 242, 248) 0px 0px 0px 5px;
+        }
+
+        &--active {
+            border-color: $us-primary;
+            color: $us-primary;
+
+            .us-radio-dot { border-color: $us-primary; }
+            .us-radio-dot-inner { opacity: 1; }
+        }
+
+        &--disabled {
+            opacity: 0.45;
+            pointer-events: none;
+        }
+
+        // Focus ring via keyboard
+        input:focus-visible + .us-radio-dot {
+            outline: 2px solid $us-primary;
+            outline-offset: 2px;
+        }
+    }
+
+    // Custom radio dot
+    .us-radio-dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid $us-border-dark;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color 0.15s;
+    }
+
+    .us-radio-dot-inner {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $us-primary;
+        opacity: 0;
+        transition: opacity 0.15s;
+    }
+
+    // ── Sub panel (login prompt settings) ────────────────────────
+
+    .us-sub-panel {
+        background: #FAFAFA;
+        border: 1px solid $us-border;
+        border-radius: $us-radius;
+        padding: 18px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 12px;
+        animation: us-slide-down 0.2s ease;
+        width: 50%;
+    }
+
+    @keyframes us-slide-down {
+        from { opacity: 0; transform: translateY(-6px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    // ── Sub field ────────────────────────────────────────────────
+
+    .us-sub-field {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        &__label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            color: $us-text;
+            margin: 0;
+
+            svg {
+                color: $us-primary;
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    // ── Input ────────────────────────────────────────────────────
+
+    .us-input {
+        width: 100%;
+        padding: 9px 12px;
+        background: $us-bg-card;
+        border: 1px solid $us-border-dark;
+        border-radius: $us-radius;
+        font-size: 13px;
+        color: $us-text;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        font-family: inherit;
+
+        &::placeholder { color: #B0B7C3; }
+
+        &:focus {
+            outline: none;
+            border-color: $us-primary;
+            box-shadow: 0 0 0 3px rgba($us-primary, 0.08);
+        }
+    }
+
+    // ── Textarea ─────────────────────────────────────────────────
+
+    .us-textarea {
+        width: 100%;
+        padding: 10px 12px;
+        background: $us-bg-card;
+        border: 1px solid $us-border-dark;
+        border-radius: $us-radius;
+        font-size: 13px;
+        color: $us-text;
+        resize: vertical;
+        min-height: 72px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        font-family: inherit;
+        line-height: 1.5;
+
+        &::placeholder { color: #B0B7C3; }
+
+        &:focus {
+            outline: none;
+            border-color: $us-primary;
+            box-shadow: 0 0 0 3px rgba($us-primary, 0.08);
+        }
+    }
+
+    // ── Buttons ─────────────────────────────────────────────────
+
+    .us-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 16px;
+        border-radius: $us-radius;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: $us-transition;
+        border: 1px solid transparent;
+        line-height: 1;
+        white-space: nowrap;
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        &--primary {
+            background: $us-primary;
+            color: #fff;
+            border-color: $us-primary;
+
+            &:hover:not(:disabled) {
+                background: $us-primary-hover;
+                border-color: $us-primary-hover;
+            }
+        }
+
+        &--ghost {
+            background: transparent;
+            color: $us-muted;
+            border-color: $us-border-dark;
+
+            &:hover:not(:disabled) {
+                background: $us-bg;
+                color: $us-text;
+            }
+        }
+    }
+}
+
+// ── Responsive ───────────────────────────────────────────────
+
+@media (max-width: 480px) {
+    .user-specific-settings {
+        .us-radio-group {
+            flex-direction: column;
+        }
+
+        .us-radio-option {
+            flex: unset;
+            width: 100%;
+        }
+    }
+}
+
+// ── Reduced motion ────────────────────────────────────────────
+
+@media (prefers-reduced-motion: reduce) {
+    .user-specific-settings {
+        @keyframes us-slide-down {
+            from { opacity: 1; transform: none; }
+        }
+
+        .us-toggle__track,
+        .us-toggle__thumb,
+        .us-radio-option,
+        .us-btn,
+        .us-sub-panel {
+            transition: none;
+            animation: none;
+        }
+    }
+}

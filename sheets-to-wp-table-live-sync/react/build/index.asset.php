@@ -1,4 +1,4 @@
 <?php return array(
 	'dependencies' => array( 'jquery', 'react', 'react-dom', 'wp-element' ),
-	'version' => '14ee06e5839b0feeb211',
+	'version' => '89b4b2aabc0d88952e56',
 );

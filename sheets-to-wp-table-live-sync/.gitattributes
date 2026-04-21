@@ -16,6 +16,7 @@
 .gitignore export-ignore
 .babelrc export-ignore
 appsero.json export-ignore
+report.txt export-ignore
 package.json export-ignore
 package-lock.json export-ignore
 proder.config.js export-ignore

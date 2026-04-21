@@ -1726,7 +1726,7 @@ function EditTable() {
 						</div>
 
 						<div className="table-action__wrapper">
-							{/* <button
+							<button
 								className={`copy-shortcode btn-shortcode ${!copySuccess ? '' : 'btn-success'
 									}`}
 								onClick={() => handleCopyShortcode(id)}
@@ -1768,7 +1768,7 @@ function EditTable() {
 										{getStrings('tab-short-copy')}
 									</>
 								)}
-							</button> */}
+							</button>
 
 							{/* Table wizards next and back button section  */}
 							<div className="table-action__step">

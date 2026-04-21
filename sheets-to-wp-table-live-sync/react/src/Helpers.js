@@ -144,12 +144,17 @@ export function getDefaultSettings() {
 		},
 
 		// User Authentication Filtering Settings
-		/* user_auth_filtering: {
+		user_auth_filtering: {
 			enable_auth_auto_select: false,
-			strict_mode: false,
-			hide_entire_filter_ui: false,
-			auth_filters: []
-		}, */
+			match_user_by:           '',
+			match_column_index:      0,
+			non_logged_action:       'show_prompt',
+			non_logged_heading:      'Log in to view your information.',
+			non_logged_message:      'This table is available only for signed-in users.',
+			show_login_button:       true,
+			login_button_label:      'Log In',
+			non_logged_login_url:    'wp-admin',
+		},
 
 		import_styles_theme_colors: {
 			'default-style': {

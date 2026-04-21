@@ -260,7 +260,7 @@ function EditTab() {
 				</div>
 
 				<div className="table-action__wrapper">
-					{/* <button
+					<button
 						className={`copy-shortcode btn-shortcode ${!copySuccess ? '' : 'btn-success'
 							}`}
 						onClick={() => handleCopyShortcode(id)}
@@ -302,7 +302,7 @@ function EditTab() {
 								{getStrings('tab-short-copy')}
 							</>
 						)}
-					</button> */}
+					</button>
 					<div className="table-action__step">
 
 						{activeTab !== 'manage_tab' && (

@@ -673,6 +673,28 @@ class Tables {
 		$settings   = null !== $settings ? $settings : unserialize( $table['table_settings'] ); // phpcs:ignore
 		$styles     = [];
 
+		// [track1] Block non-logged-in users when disable_for_non_logged is active (async path, pro only)
+		$disable_for_non_logged = swptls()->helpers->is_pro_active()
+			&& isset( $settings['user_auth_filtering']['disable_for_non_logged'] )
+			&& wp_validate_boolean( $settings['user_auth_filtering']['disable_for_non_logged'] );
+
+		if ( $disable_for_non_logged && ! is_user_logged_in() ) {
+			$non_logged_message = ! empty( $settings['user_auth_filtering']['non_logged_message'] )
+				? wp_kses_post( $settings['user_auth_filtering']['non_logged_message'] )
+				: __( 'This table is only available to logged-in users.', 'sheets-to-wp-table-live-sync' );
+			// [track1] Build login URL from admin-configured path
+			$login_path = ! empty( $settings['user_auth_filtering']['non_logged_login_url'] )
+				? sanitize_text_field( $settings['user_auth_filtering']['non_logged_login_url'] )
+				: '';
+			$login_url = $login_path ? esc_url( trailingslashit( home_url() ) . ltrim( $login_path, '/' ) ) : '';
+			wp_send_json_error([
+				'type'      => 'non_logged_restricted',
+				'message'   => $non_logged_message,
+				'login_url' => $login_url,
+			]);
+		}
+		// [/track1]
+
 		if ( swptls()->helpers->is_pro_active() ) {
 			$table_data = swptlspro()->helpers->load_table_data( $url, $id );
 			$response   = swptlspro()->helpers->generate_html( $name, $settings, $table_data, $from_block, $id );
