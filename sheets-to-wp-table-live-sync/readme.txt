@@ -2,9 +2,9 @@
 Contributors: wppool, devsabbirahmed, mahfuz01, azizultex, wpdarkmode, sahabuddinsgr
 Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 5.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.2
-Stable tag: 3.24.0
+Stable tag: 3.24.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -233,6 +233,10 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 == Changelog ==
 
+= 3.24.1 - 02 June 2026 =
+* **Fix:** Fixed compatibility issues with WP7.0
+* **Fix:** Fixed code quality and Improved security
+
 = 3.24.0 - 21 Apr 2026 =
 * **New:** Introduced user-specific display filtering with matches Google Sheets columns
 
@@ -249,8 +253,5 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 * **Fix:** Updated the "Get Support" and contact page links and Improved UX copy
 * **Fix:** Updated the AI Integration help video
 * **Fix:** Corrected the documentation link  
-
-= 3.22.0 - 02 Feb 2026 =
-* **New:** Lightbox support added for images, allowing users to preview visuals in a focused, full-view experience.
 
 For older changelog entries, please see the [additional changelog.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/changelog.txt) delivered with the plugin.

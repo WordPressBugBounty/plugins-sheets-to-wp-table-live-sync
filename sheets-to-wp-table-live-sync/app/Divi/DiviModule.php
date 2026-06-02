@@ -32,12 +32,12 @@ class GSWPTS_FlexTable_Module extends ET_Builder_Module {
 	}
 
 	public function init() {
-		$this->name = esc_html__( 'FlexTable', 'sheetstowptable' );
+		$this->name = esc_html__( 'FlexTable', 'sheets-to-wp-table-live-sync' );
 
 		$this->settings_modal_toggles = array(
 			'general' => array(
 				'toggles' => array(
-					'main_content' => esc_html__( 'Table Selection', 'sheetstowptable' ),
+					'main_content' => esc_html__( 'Table Selection', 'sheets-to-wp-table-live-sync' ),
 				),
 			),
 		);
@@ -46,20 +46,20 @@ class GSWPTS_FlexTable_Module extends ET_Builder_Module {
 	public function get_fields() {
 		return array(
 			'table_id' => array(
-				'label'           => esc_html__( 'Choose Table', 'sheetstowptable' ),
+				'label'           => esc_html__( 'Choose Table', 'sheets-to-wp-table-live-sync' ),
 				'type'            => 'select',
 				'option_category' => 'basic_option',
 				'options'         => $this->get_tables_list(),
 				'default'         => 'select',
 				'toggle_slug'     => 'main_content',
-				'description'     => esc_html__( 'Select a table to display.', 'sheetstowptable' ),
+				'description'     => esc_html__( 'Select a table to display.', 'sheets-to-wp-table-live-sync' ),
 			),
 		);
 	}
 
 	protected function get_tables_list() {
 		$options = array(
-			'select' => esc_html__( 'Select a table', 'sheetstowptable' ),
+			'select' => esc_html__( 'Select a table', 'sheets-to-wp-table-live-sync' ),
 		);
 
 		if ( function_exists( 'swptls' ) && isset( swptls()->database->table ) ) {
@@ -81,7 +81,7 @@ class GSWPTS_FlexTable_Module extends ET_Builder_Module {
 			if ( function_exists( 'et_core_is_fb_enabled' ) && et_core_is_fb_enabled() ) {
 				return sprintf(
 					'<div class="gswpts-divi-placeholder" style="padding: 20px; text-align: center; background: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px; color: #6c757d;">%s</div>',
-					esc_html__( 'Please select a table to display.', 'sheetstowptable' )
+					esc_html__( 'Please select a table to display.', 'sheets-to-wp-table-live-sync' )
 				);
 			}
 			return '';

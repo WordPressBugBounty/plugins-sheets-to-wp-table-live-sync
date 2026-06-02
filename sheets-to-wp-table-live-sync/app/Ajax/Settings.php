@@ -36,6 +36,12 @@ class Settings {
 			]);
 		}
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
 		wp_send_json_success([
 			'async' => get_option( 'asynchronous_loading', false ),
 			'css'   => get_option( 'css_code_value' ),
@@ -67,6 +73,12 @@ class Settings {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'swptls-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
 				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
 			]);
 		}
 

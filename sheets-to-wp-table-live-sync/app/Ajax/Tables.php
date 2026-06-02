@@ -26,7 +26,6 @@ class Tables {
 	 */
 	public function __construct() {
 		add_action( 'wp_ajax_gswpts_sheet_create', [ $this, 'sheet_creation' ] );
-		add_action( 'wp_ajax_nopriv_gswpts_sheet_create', [ $this, 'sheet_creation' ] );
 		add_action( 'wp_ajax_gswpts_manage_tab_toggle', [ $this, 'tab_name_toggle' ] );
 		add_action( 'wp_ajax_gswpts_ud_table', [ $this, 'update_name' ] );
 
@@ -81,6 +80,12 @@ class Tables {
 			]);
 		}
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
 		$id = ! empty( $_POST['id'] ) ? absint( $_POST['id'] ) : false;
 		$settings = ! empty( $_POST['settings'] ) ? json_decode( sanitize_text_field( wp_unslash( $_POST['settings'] ) ), true ) : false;
 		$settings['table_settings'] = wp_json_encode( $settings['table_settings'] );
@@ -108,10 +113,6 @@ class Tables {
 		]);
 	}
 
-
-
-
-
 	/**
 	 * Sorting disabled BE.
 	 */
@@ -119,6 +120,12 @@ class Tables {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'swptls-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
 				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
 			]);
 		}
 
@@ -131,7 +138,7 @@ class Tables {
 
 			// Fetch the existing table_settings value for the specified ID.
 			$current_settings = $wpdb->get_var( $wpdb->prepare(
-				"SELECT table_settings FROM $table_name WHERE id = %d", // phpcs:ignore
+				"SELECT table_settings FROM `" . esc_sql( $table_name ) . "` WHERE id = %d",
 				$id
 			) );
 
@@ -187,6 +194,12 @@ class Tables {
 			]);
 		}
 
+		if ( ! current_user_can( 'edit_posts' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
 		$id = isset($_POST['id']) ? absint($_POST['id']) : 0;
 		$allow_sorting = isset( $_POST['allow_sorting'] ) ? filter_var( wp_unslash( $_POST['allow_sorting'] ), FILTER_VALIDATE_BOOLEAN ) : false;
 
@@ -196,7 +209,7 @@ class Tables {
 
 			// Fetch the existing table_settings value for the specified ID.
 			$current_settings = $wpdb->get_var( $wpdb->prepare(
-				"SELECT table_settings FROM $table_name WHERE id = %d", // phpcs:ignore
+				"SELECT table_settings FROM `" . esc_sql( $table_name ) . "` WHERE id = %d",
 				$id
 			) );
 
@@ -251,6 +264,12 @@ class Tables {
 			]);
 		}
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
 		$id = ! empty( $_POST['id'] ) ? absint( $_POST['id'] ) : false;
 		$tables = swptls()->database->table->get_all();
 
@@ -286,6 +305,12 @@ class Tables {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] )), 'swptls-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
 				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
 			]);
 		}
 
@@ -331,6 +356,12 @@ class Tables {
 			]);
 		}
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
 		$tables = swptls()->database->table->get_all();
 
 		wp_send_json_success([
@@ -348,6 +379,12 @@ class Tables {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] )), 'swptls-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
 				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
 			]);
 		}
 
@@ -426,6 +463,12 @@ class Tables {
 			]);
 		}
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
 		$table_id = ! empty( $_POST['id'] ) ? absint( $_POST['id'] ) : 0;
 
 		if ( ! $table_id ) {
@@ -462,6 +505,12 @@ class Tables {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] )), 'swptls-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
 				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
 			]);
 		}
 
@@ -617,6 +666,13 @@ class Tables {
 				'output' => __('Action is invalid', 'sheets-to-wp-table-live-sync'),
 			]);
 		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
 		$id = isset($_POST['tabID']) ? sanitize_text_field(wp_unslash($_POST['tabID'])) : '';
 		$name = isset($_POST['show_name']) ? rest_sanitize_boolean(wp_unslash($_POST['show_name'])) : ''; // phpcs:ignore
 		$response = swptls()->database->update_tab_name_toggle( $id, $name );
@@ -1097,6 +1153,12 @@ class Tables {
 			]);
 		}
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
 		$provider = isset( $_POST['provider'] ) ? sanitize_text_field( wp_unslash( $_POST['provider'] ) ) : 'openai';
 		$api_key = isset( $_POST['api_key'] ) ? sanitize_text_field( wp_unslash( $_POST['api_key'] ) ) : '';
 		$model = isset( $_POST['model'] ) ? sanitize_text_field( wp_unslash( $_POST['model'] ) ) : '';
@@ -1137,6 +1199,12 @@ class Tables {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'swptls-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
 				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
 			]);
 		}
 
@@ -1462,6 +1530,10 @@ class Tables {
 			wp_send_json_error( 'Security check failed' );
 		}
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( 'You do not have permission to perform this action.' );
+		}
+
 		$table_id = isset( $_POST['table_id'] ) ? intval( $_POST['table_id'] ) : 0;
 		$current_prompt = isset( $_POST['summary_prompt'] ) ? sanitize_textarea_field( wp_unslash( $_POST['summary_prompt'] ) ) : '';
 
@@ -1578,6 +1650,10 @@ class Tables {
 			wp_send_json_error( 'Security check failed' );
 		}
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( 'You do not have permission to perform this action.' );
+		}
+
 		$table_id = isset( $_POST['table_id'] ) ? intval( $_POST['table_id'] ) : 0;
 		$summary = isset( $_POST['summary'] ) ? sanitize_textarea_field( wp_unslash( $_POST['summary'] ) ) : '';
 
@@ -1640,6 +1716,10 @@ class Tables {
 		// Verify nonce.
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'swptls-admin-app-nonce-action' ) ) {
 			wp_send_json_error( 'Security check failed' );
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( 'You do not have permission to perform this action.' );
 		}
 
 		$table_id = isset( $_POST['table_id'] ) ? intval( $_POST['table_id'] ) : 0;
@@ -1727,6 +1807,12 @@ class Tables {
 			]);
 		}
 
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
 		// Update option to mark CTA notice as dismissed
 		$result = update_option( 'swptls_cta_notice_dismissed', true );
 
@@ -1751,6 +1837,12 @@ class Tables {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'swptls-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
 				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
 			]);
 		}
 

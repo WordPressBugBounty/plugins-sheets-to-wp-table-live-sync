@@ -302,9 +302,9 @@ class Helpers {
 			// Retrieve ALL cached data at once.
 			$cached_data = [
 				'sheet_data' => swptls()->cache->get_saved_sheet_data($table_id),
-				'sheet_merged_data' => $merged_support ? swptls()->cache->get_saved_merge_styles($table_id, null) : null,
-				'sheet_images' => $table_img_support ? swptls()->cache->get_saved_sheet_images($table_id, null) : null,
-				'sheet_links' => $table_link_support ? swptls()->cache->get_saved_sheet_link_styles($table_id, null) : null,
+				'sheet_merged_data' => $merged_support ? swptls()->cache->get_saved_merge_styles($table_id) : null,
+				'sheet_images' => $table_img_support ? swptls()->cache->get_saved_sheet_images($table_id) : null,
+				'sheet_links' => $table_link_support ? swptls()->cache->get_saved_sheet_link_styles($table_id) : null,
 			];
 
 			// Check if we have valid cached data.
@@ -332,9 +332,9 @@ class Helpers {
 				// Retrieve ALL cached data at once.
 				$cached_data = [
 					'sheet_data' => swptls()->cache->get_saved_sheet_data($table_id),
-					'sheet_merged_data' => $merged_support ? swptls()->cache->get_saved_merge_styles($table_id, null) : null,
-					'sheet_images' => $table_img_support ? swptls()->cache->get_saved_sheet_images($table_id, null) : null,
-					'sheet_links' => $table_link_support ? swptls()->cache->get_saved_sheet_link_styles($table_id, null) : null,
+					'sheet_merged_data' => $merged_support ? swptls()->cache->get_saved_merge_styles($table_id) : null,
+					'sheet_images' => $table_img_support ? swptls()->cache->get_saved_sheet_images($table_id) : null,
+					'sheet_links' => $table_link_support ? swptls()->cache->get_saved_sheet_link_styles($table_id) : null,
 				];
 
 				// Check if we have valid cached data.

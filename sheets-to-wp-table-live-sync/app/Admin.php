@@ -135,16 +135,16 @@ class Admin {
 		$swptls_conditional_mode_migrate = get_option('swptls_conditional_mode_migrate', 0);
 
 		// Check if table exists before running any migrations
-		$table_exists = $wpdb->get_var("SHOW TABLES LIKE '$table'") === $table;
+		$table_exists = $wpdb->get_var( $wpdb->prepare( "SHOW TABLES LIKE %s", $wpdb->esc_like( $table ) ) ) === $table;
 
 		if ( ! $table_exists ) {
 			return;
 		}
 
 		if ( 0 === $code_has_run ) {
-			if ( $wpdb->get_var("SHOW TABLES LIKE '$table'") === $table ) {//phpcs:ignore
+			if ( $wpdb->get_var( $wpdb->prepare( "SHOW TABLES LIKE %s", $wpdb->esc_like( $table ) ) ) === $table ) { // phpcs:ignore
 
-				if ( empty($wpdb->get_results("SELECT * FROM $table")) ) {//phpcs:ignore
+				if ( empty( $wpdb->get_results( $wpdb->prepare( "SELECT * FROM %i", $table ) ) ) ) { // phpcs:ignore
 					// The table is empty, set link_support_mode to 'smart_link'.
 					update_option('link_support_mode', 'smart_link');
 					update_option('link_support_code_has_run', 1);

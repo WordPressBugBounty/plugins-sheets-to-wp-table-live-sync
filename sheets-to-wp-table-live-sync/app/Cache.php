@@ -263,35 +263,30 @@ class Cache {
 	/**
 	 * Get saved sheet styles.
 	 *
-	 * @param  int    $table_id The table id.
-	 * @param  string $sheet_url The sheet url.
+	 * @param  int $table_id The table id.
 	 * @return mixed
 	 */
-	public function get_saved_merge_styles( int $table_id, string $sheet_url ) {
+	public function get_saved_merge_styles( int $table_id ) {
 		return $this->get_from_cache($table_id, 'merged');
 	}
 
 	/**
 	 * Get the table images in WordPress transient.
 	 *
-	 * @param int    $table_id The table ID.
-	 *
-	 * @param string $sheet_url The table sheet url.
+	 * @param int $table_id The table ID.
 	 *
 	 * @return mixed
 	 */
-	public function get_saved_sheet_images( $table_id, $sheet_url ) {
+	public function get_saved_sheet_images( $table_id ) {
 		return $this->get_from_cache($table_id, 'images');
 	}
 
 	/**
 	 * Get the table sheet style link from WordPress transient.
 	 *
-	 * @param int    $table_id The table ID.
-	 *
-	 * @param string $sheet_url The table sheet url.
+	 * @param int $table_id The table ID.
 	 */
-	public function get_saved_sheet_link_styles( $table_id, $sheet_url ) {
+	public function get_saved_sheet_link_styles( $table_id ) {
 		return $this->get_from_cache($table_id, 'link');
 	}
 }

@@ -25,7 +25,6 @@ class Notices {
 	 */
 	public function __construct() {
 		add_action( 'wp_ajax_gswpts_notice_action', [ $this, 'manage_notices' ] );
-		add_action( 'wp_ajax_nopriv_gswpts_notice_action', [ $this, 'manage_notices' ] );
 		add_action( 'wp_ajax_gswpts_pro_fix_action', [ $this, 'handle_pro_fix' ] );
 	}
 
@@ -38,6 +37,12 @@ class Notices {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'swptls_notices_nonce' ) ) {
 			wp_send_json_error([
 				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
 			]);
 		}
 
@@ -125,6 +130,12 @@ class Notices {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'swptls_pro_fix_nonce' ) ) {
 			wp_send_json_error([
 				'message' => __( 'Invalid action', 'sheets-to-wp-table-live-sync' ),
+			]);
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error([
+				'message' => __( 'You do not have permission to perform this action.', 'sheets-to-wp-table-live-sync' ),
 			]);
 		}
 
