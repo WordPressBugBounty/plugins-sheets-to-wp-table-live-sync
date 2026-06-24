@@ -5,6 +5,11 @@
 This file contains older changelog entries, so we can keep the size of the standard WordPress readme.txt file reasonable. 
 For the latest changes, please see the "Changelog" section of the [readme.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/readme.txt).
 
+= 3.22.1 - 22 Feb 2026 =
+* **Fix:** Updated the "Get Support" and contact page links and Improved UX copy
+* **Fix:** Updated the AI Integration help video
+* **Fix:** Corrected the documentation link  
+
 = 3.22.0 - 02 Feb 2026 =
 * **New:** Lightbox support added for images, allowing users to preview visuals in a focused, full-view experience.
 
