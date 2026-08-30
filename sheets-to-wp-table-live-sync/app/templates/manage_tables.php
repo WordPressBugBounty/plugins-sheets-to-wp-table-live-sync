@@ -2,7 +2,7 @@
 /**
  * Displays manage tabs template.
  *
- * @package SWPTLS
+ * @package GSWPTS
  */
 
 // If direct access than exit the file.
@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 <?php if ( isset( $_GET['subpage'] ) && 'create-table' === sanitize_text_field( $_GET['subpage'] ) ) { //phpcs:ignore ?>
-	<?php load_template( SWPTLS_BASE_PATH . 'app/templates/create_tables.php' ); ?>
+	<?php load_template( GSWPTS_BASE_PATH . 'app/templates/create_tables.php' ); ?>
 <?php } else { ?>
 <div class="gswpts_manage_table_container">
 
@@ -26,10 +26,10 @@ defined( 'ABSPATH' ) || exit;
 	<div class="child_container mt-4 manage_table_content transition hidden">
 		<div class="row heading_row">
 			<div class="col-12 d-flex justify-content-start p-0 align-items-center">
-				<img src="<?php echo esc_url( SWPTLS_BASE_URL . 'assets/public/images/admin-icon-elementor.svg' ); ?>"
+				<img src="<?php echo esc_url( GSWPTS_BASE_URL . 'assets/public/images/admin-icon-elementor.svg' ); ?>"
 					alt="sheets-logo">
 				<span class="ml-2">
-					<strong><?php echo esc_html( SWPTLS_PLUGIN_NAME ); ?></strong>
+					<strong><?php echo esc_html( GSWPTS_PLUGIN_NAME ); ?></strong>
 				</span>
 				<span class="gswpts_changelogs"></span>
 			</div>
@@ -68,7 +68,7 @@ defined( 'ABSPATH' ) || exit;
 			<!-- Start create table button -->
 			<a class="positive ui button mr-2 float-left transition hidden create_table_btn"
 				style="font-size: 1.03rem; position: relative;top: 0px;"
-				href="<?php echo esc_url( admin_url( 'admin.php?page=gswpts-dashboard&subpage=create-table' ) ); ?>">
+				href="<?php echo esc_url( admin_url( 'admin.php?page=swptls-dashboard&subpage=create-table' ) ); ?>">
 				<?php esc_html_e( 'Create Table', 'sheets-to-wp-table-live-sync' ); ?> &nbsp; <i class="fas fa-plus"></i>
 			</a>
 			<!-- End of create table button -->

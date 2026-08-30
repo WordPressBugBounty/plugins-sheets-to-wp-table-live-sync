@@ -8,13 +8,13 @@ import './../styles/_managingTabs.scss';
 
 const ManagingTabs = ({ currentTab, setCurrentTab }) => {
 	const [activeTab, setActiveTab] = useState(
-		localStorage.getItem('swptls_managing_active_tab') || 1
+		localStorage.getItem('gswpts_managing_active_tab') || 1
 	);
 	const [tables, setTables] = useState([]);
 	const [selectedTables, setSelectedTables] = useState([]);
 
 	const handleActiveTab = (index) => {
-		localStorage.setItem('swptls_managing_active_tab', index);
+		localStorage.setItem('gswpts_managing_active_tab', index);
 		setActiveTab(index);
 	};
 
@@ -63,7 +63,7 @@ const ManagingTabs = ({ currentTab, setCurrentTab }) => {
 	};
 
 	useEffect(() => {
-		wp.ajax.send('swptls_get_tables', {
+		wp.ajax.send('gswpts_get_tables', {
 			data: {
 				nonce: getNonce(),
 			},

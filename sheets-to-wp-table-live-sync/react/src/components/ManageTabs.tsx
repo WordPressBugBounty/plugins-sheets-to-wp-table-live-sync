@@ -35,7 +35,7 @@ const ManageTabs = () => {
 
 	useEffect(() => {
 		if (isProActive()) {
-			wp.ajax.send('swptls_get_tabs', {
+			wp.ajax.send('gswpts_get_tabs', {
 				data: {
 					nonce: getNonce(),
 				},
@@ -75,10 +75,10 @@ const ManageTabs = () => {
 		console.log('CTA Notice Tabs Status:', ctaNoticeTabsStatus);
 
 		if (ctaNoticeTabsStatus === 1 || ctaNoticeTabsStatus === '1' || ctaNoticeTabsStatus === true) {
-			localStorage.setItem('swptls_cta_notice_tabs_dismissed', 'true');
+			localStorage.setItem('gswpts_cta_notice_tabs_dismissed', 'true');
 			setShowCtaNotice(false);
 		} else {
-			localStorage.setItem('swptls_cta_notice_tabs_dismissed', 'false');
+			localStorage.setItem('gswpts_cta_notice_tabs_dismissed', 'false');
 			setShowCtaNotice(true);
 		}
 	}, []);
@@ -101,7 +101,7 @@ const ManageTabs = () => {
 	const handleMovetoDashboards = () => {
 		// Remove the 'current' class from the "Manage Tab" li
 		const manageTabLi = document.querySelector(
-			'#toplevel_page_gswpts-dashboard li.current'
+			'#toplevel_page_swptls-dashboard li.current'
 		);
 		if (manageTabLi) {
 			manageTabLi.classList.remove('current');
@@ -109,7 +109,7 @@ const ManageTabs = () => {
 
 		// Add the 'current' class to the "Dashboard" li with the class "wp-first-item"
 		const dashboardLi = document.querySelector(
-			'#toplevel_page_gswpts-dashboard li.wp-first-item'
+			'#toplevel_page_swptls-dashboard li.wp-first-item'
 		);
 		if (dashboardLi) {
 			dashboardLi.classList.add('current');

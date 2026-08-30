@@ -68,7 +68,7 @@ const SetupWizard = () => {
 
 		setLoader(true);
 
-		wp.ajax.send('swptls_get_table_preview', {
+		wp.ajax.send('gswpts_get_table_preview', {
 			data: {
 				nonce: getNonce(),
 				table_name: 'Untitled',
@@ -93,7 +93,7 @@ const SetupWizard = () => {
 	const handleCreateTable = (e) => {
 		e.preventDefault();
 
-		wp.ajax.send('swptls_create_table', {
+		wp.ajax.send('gswpts_create_table', {
 			data: {
 				nonce: getNonce(),
 				sheet_url: sheetUrl,
@@ -120,7 +120,7 @@ const SetupWizard = () => {
 		}
 
 		setPreviewLoader(true);
-		wp.ajax.send('swptls_get_table_preview', {
+		wp.ajax.send('gswpts_get_table_preview', {
 			data: {
 				nonce: getNonce(),
 				table_name: 'Untitled',

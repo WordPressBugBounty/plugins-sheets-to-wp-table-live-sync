@@ -53,7 +53,7 @@ function CreateTable() {
 
 		setLoader(true);
 
-		wp.ajax.send('swptls_create_table', {
+		wp.ajax.send('gswpts_create_table', {
 			data: {
 				nonce: getNonce(),
 				sheet_url: sheetUrl,

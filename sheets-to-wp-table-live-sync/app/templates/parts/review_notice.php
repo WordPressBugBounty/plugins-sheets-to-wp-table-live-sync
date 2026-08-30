@@ -2,22 +2,22 @@
 /**
  * Displays review notice.
  *
- * @package SWPTLS
+ * @package GSWPTS
  */
 
 // If direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
 
-$rating = SWPTLS_BASE_URL . 'assets/public/icons/top-banner/rating-mode.svg';
+$rating = GSWPTS_BASE_URL . 'assets/public/icons/top-banner/rating-mode.svg';
 ?>
 
-<div class="gswpts-ratting-banner">
+<div class="swptls-ratting-banner">
 	<div class="banner-content" data-value="hide_notice">
-		<span class="gswpts-ratting-open"></span>
-		<div class="gswpts-influencer-image">
-			<img class="gswpts-image-icon" src="<?php echo esc_url($rating); ?>" alt="">
+		<span class="swptls-ratting-open"></span>
+		<div class="swptls-influencer-image">
+			<img class="swptls-image-icon" src="<?php echo esc_url($rating); ?>" alt="">
 		</div>
-		<div class="gswpts-influencer-wrapper">
+		<div class="swptls-influencer-wrapper">
 		<h3 class="rating-heading"><?php esc_html_e('Seems like ', 'sheets-to-wp-table-live-sync'); ?><span class="sheets-plugin-title"><?php esc_html_e('FlexTable', 'sheets-to-wp-table-live-sync'); ?></span><?php esc_html_e(' is bringing you value 🥳', 'sheets-to-wp-table-live-sync'); ?></h3>
 
 			<p class="review-notice"><?php esc_html_e( "Hi there! You've been using FlexTable for a while. Would you consider leaving us a 😍 5-star review? Your feedback will help us to develop better features and spread the word.", 'sheets-to-wp-table-live-sync' ); ?></p>
@@ -125,14 +125,14 @@ jQuery(document).ready(function($) {
 
 
 	// I already did button .
-	$('.gswpts-ratting-banner .hide_notice').click(e => {
+	$('.swptls-ratting-banner .hide_notice').click(e => {
 		e.preventDefault();
 		$.ajax({
 			type: "POST",
 			url: "<?php echo esc_url(admin_url( 'admin-ajax.php' )); ?>",
 			data: {
 				action: 'gswpts_notice_action',
-				nonce: '<?php echo esc_attr( wp_create_nonce( 'swptls_notices_nonce' ) ); ?>',
+				nonce: '<?php echo esc_attr( wp_create_nonce( 'gswpts_notices_nonce' ) ); ?>',
 				info: {
 					type: 'hide_notice'
 				},
@@ -140,7 +140,7 @@ jQuery(document).ready(function($) {
 			},
 			success: response => {
 				if (response.data.response_type === 'success') {
-					$('.gswpts-ratting-banner').slideUp();
+					$('.swptls-ratting-banner').slideUp();
 				}
 			}
 		});
@@ -148,7 +148,7 @@ jQuery(document).ready(function($) {
 	})
 
 	/* Open popup when click the X icon*/
-	$('.gswpts-ratting-open').click(function(e) {
+	$('.swptls-ratting-open').click(function(e) {
 		// Prevent the event from reaching the document.
 		e.stopPropagation(); 
 		$('#popup1').show();
@@ -180,7 +180,7 @@ jQuery(document).ready(function($) {
 			url: "<?php echo esc_url(admin_url( 'admin-ajax.php' )); ?>",
 			data: {
 				action: 'gswpts_notice_action',
-				nonce: '<?php echo esc_attr( wp_create_nonce( 'swptls_notices_nonce' ) ); ?>',
+				nonce: '<?php echo esc_attr( wp_create_nonce( 'gswpts_notices_nonce' ) ); ?>',
 				info: {
 					type: 'reminder',
 					value: dataValue
@@ -189,7 +189,7 @@ jQuery(document).ready(function($) {
 			},
 			success: response => {
 				if (response.data.response_type === 'success') {
-					$('.gswpts-ratting-banner').slideUp();
+					$('.swptls-ratting-banner').slideUp();
 				}
 			}
 		});

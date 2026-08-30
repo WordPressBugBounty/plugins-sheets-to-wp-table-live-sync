@@ -1,0 +1,700 @@
+// =============================================================================
+// GSWPTS Filter System — Design
+// =============================================================================
+
+// --- Palette ---
+$color-primary: #2563eb;
+$color-primary-hover: #1d4ed8;
+$color-primary-ring: rgba(37, 99, 235, 0.25);
+$color-primary-light: #eff6ff;
+
+$color-auth: #0369a1;
+$color-auth-ring: rgba(3, 105, 161, 0.25);
+$color-auth-bg: #f0f9ff;
+$color-auth-border: #7dd3fc;
+$color-auth-accent: #0ea5e9;
+
+$color-danger: #ef4444;
+$color-danger-hover: #dc2626;
+$color-danger-ring: rgba(239, 68, 68, 0.25);
+
+$color-neutral-50: #f9fafb;
+$color-neutral-100: #f3f4f6;
+$color-neutral-200: #e5e7eb;
+$color-neutral-300: #d1d5db;
+$color-neutral-400: #9ca3af;
+$color-neutral-500: #6b7280;
+$color-neutral-600: #4b5563;
+$color-neutral-700: #374151;
+$color-neutral-800: #1f2937;
+$color-neutral-900: #111827;
+$color-white: #ffffff;
+
+// --- Typography ---
+$font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-size-sm: 13px;
+$font-size-base: 15px;
+$font-size-btn: 15px;
+
+// --- Spacing ---
+$gap-xs: 0.375rem;
+$gap-sm: 0.625rem;
+$gap-md: 1rem;
+$gap-lg: 1.25rem;
+$gap-xl: 1.5rem;
+
+// --- Input sizing ---
+$input-padding-y: 0.5625rem;
+$input-padding-x: 0.875rem;
+
+// --- Radius ---
+$radius-sm: 0.375rem;
+$radius-md: 0.5rem;
+$radius-lg: 0.75rem;
+$radius-xl: 1rem;
+
+// --- Transitions ---
+$transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+// --- Shadows ---
+$shadow-card: 0 1px 3px 0 rgba(0, 0, 0, .08), 0 1px 2px -1px rgba(0, 0, 0, .05);
+$shadow-card-focus: 0 4px 6px -1px rgba(0, 0, 0, .07), 0 2px 4px -2px rgba(0, 0, 0, .04);
+$shadow-input: 0 1px 2px 0 rgba(0, 0, 0, .04);
+
+
+// =============================================================================
+// Mixins
+// =============================================================================
+
+@mixin focus-ring($color: $color-primary-ring) {
+    outline: none;
+    box-shadow: $shadow-input, 0 0 0 3px $color;
+}
+
+@mixin control-base {
+    display: block;
+    width: 100%;
+    padding: $input-padding-y $input-padding-x;
+    font-family: $font-sans;
+    font-size: $font-size-base;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $color-neutral-900;
+    background-color: $color-white;
+    border: 1.5px solid $color-neutral-200;
+    border-radius: $radius-md;
+    box-shadow: $shadow-input;
+    box-sizing: border-box;
+    transition:
+        border-color $transition-fast,
+        box-shadow $transition-fast;
+    appearance: none;
+    -webkit-appearance: none;
+
+    &::placeholder {
+        color: $color-neutral-400;
+        font-weight: 400;
+    }
+
+    &:hover:not(:disabled):not([readonly]) {
+        border-color: $color-neutral-400;
+    }
+
+    &:focus {
+        border-color: $color-primary;
+        @include focus-ring($color-primary-ring);
+    }
+
+    &:disabled,
+    &[readonly] {
+        color: $color-neutral-500;
+        background-color: $color-neutral-50;
+        border-color: $color-neutral-200;
+        cursor: not-allowed;
+        box-shadow: none;
+        opacity: 0.7;
+    }
+}
+
+
+// =============================================================================
+// Filter Container — base
+// =============================================================================
+
+.swptls-filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: $gap-md;
+    padding: $gap-lg $gap-xl;
+    background-color: $color-white;
+    border: 1.5px solid $color-neutral-200;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-card;
+    box-sizing: border-box;
+    font-family: $font-sans;
+    transition:
+        box-shadow $transition-base,
+        border-color $transition-base;
+
+    &:focus-within {
+        box-shadow: $shadow-card-focus;
+        border-color: $color-neutral-300;
+    }
+
+    // Position modifiers
+    &--above {
+        margin-bottom: $gap-lg;
+    }
+
+    &--below {
+        margin-top: $gap-lg;
+    }
+}
+
+
+// =============================================================================
+// Form mode — Grid layout (fixes multi-select height bleed)
+// =============================================================================
+
+.swptls-filter-container.swptls-mode-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    align-items: start;
+    gap: $gap-md $gap-lg;
+    padding: $gap-xl;
+    border-radius: $radius-xl;
+    margin-top: 30px;
+
+    .swptls-filter-group {
+        flex: unset;
+        min-width: 0;
+        max-width: none;
+        width: 100%;
+    }
+
+    .swptls-filter-group--clear {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-width: auto;
+    }
+
+    .swptls-btn--clear:focus {
+        background-color: #ffffff;
+        color: #ef4444;
+        border-color: #e5e7eb;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+    }
+}
+
+
+// ---------Filter Title -------------------------------- //
+.swptls-filter-title {
+    width: 100%;
+    padding-bottom: $gap-sm;
+    margin-bottom: $gap-xs;
+    box-sizing: border-box;
+
+    &__text {
+        display: block;
+        font-family: $font-sans;
+        font-size: $font-size-base;
+        font-weight: 700;
+        color: $color-neutral-800;
+        letter-spacing: 0.01em;
+        line-height: 1.4;
+    }
+
+
+    // Auth variant gets the accent color
+    .swptls-auth-filters & {
+        .swptls-filter-title__text {
+            color: $color-auth;
+        }
+    }
+}
+
+// Title immediately before an above container
+.swptls-filter-title+.swptls-filter-container--above {
+    margin-top: 0; // title provides the visual separation already
+}
+
+// Title immediately before a below container  
+.swptls-filter-title+.swptls-filter-container--below {
+    margin-top: $gap-xs;
+}
+
+// ── Sidebar: title stays inside, existing styles apply ──────────────────────
+.swptls-filter-container--sidebar .swptls-filter-title {
+    margin-bottom: $gap-xs;
+}
+
+.swptls-filter-container.swptls-mode-horizontal .swptls-filter-title,
+.swptls-filter-container.swptls-mode-form .swptls-filter-title {
+    flex: 0 0 100%;
+    order: -1;
+}
+
+// ----------------------------------------- //
+
+
+// Tablet: 2 columns
+@media (max-width: 768px) {
+    .swptls-filter-container.swptls-mode-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// Mobile: single column, full-width button
+@media (max-width: 480px) {
+    .swptls-filter-container.swptls-mode-form {
+        grid-template-columns: 1fr;
+        padding: $gap-lg $gap-md;
+        gap: $gap-sm $gap-md;
+
+        .swptls-filter-group--clear {
+            grid-column: 1;
+        }
+
+        .swptls-btn--clear {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}
+
+
+// =============================================================================
+// Horizontal mode
+// =============================================================================
+
+.swptls-filter-container.swptls-mode-horizontal {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    overflow-x: auto;
+    padding: $gap-md $gap-lg;
+    gap: 0;
+    border-radius: $radius-lg;
+    scrollbar-width: thin;
+    scrollbar-color: $color-neutral-200 transparent;
+
+    &::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $color-neutral-300;
+        border-radius: 99px;
+    }
+
+    .swptls-filter-group {
+        padding: 0 $gap-md;
+        border-right: 1.5px solid $color-neutral-100;
+        flex-shrink: 0;
+
+        &:first-child {
+            padding-left: $gap-sm;
+        }
+
+        &:last-child {
+            border-right: none;
+            padding-right: $gap-sm;
+        }
+    }
+}
+
+// Horizontal → wraps gracefully on small screens
+@media (max-width: 600px) {
+    .swptls-filter-container.swptls-mode-horizontal {
+        flex-wrap: wrap;
+        overflow-x: visible;
+
+        .swptls-filter-group {
+            flex: 1 1 140px;
+            border-right: none;
+            padding: 0;
+        }
+    }
+}
+
+
+// =============================================================================
+// Auth variant
+// =============================================================================
+
+.swptls-filter-container.swptls-auth-filters {
+    background: linear-gradient(135deg, $color-auth-bg 0%, $color-white 65%);
+    border-color: $color-auth-border;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, $color-auth-accent 0%, $color-primary 100%);
+    }
+}
+
+
+// =============================================================================
+// Sidebar mode
+// =============================================================================
+
+.swptls-filter-container--sidebar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1.25rem;
+    overflow-y: scroll;
+    white-space: normal;
+    min-width: 203px;
+    max-width: 270px;
+    flex-shrink: 0;
+    height: 650px;
+    align-self: flex-start;
+    border-radius: 0.75rem;
+}
+
+// Sidebar collapses to horizontal strip on mobile
+@media (max-width: 600px) {
+    .swptls-sidebar-layout {
+        flex-direction: column;
+    }
+
+    .swptls-filter-container--sidebar {
+        max-width: 100%;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+
+// =============================================================================
+// Filter Group
+// =============================================================================
+
+.swptls-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+    min-width: 160px;
+    flex-shrink: 0;
+
+    &--auth {
+        position: relative;
+    }
+
+    &--clear {
+        min-width: auto;
+        flex-shrink: 0;
+        justify-content: flex-end;
+        align-self: flex-end;
+    }
+}
+
+
+// =============================================================================
+// Filter Label
+// =============================================================================
+
+.swptls-filter-label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: $font-sans;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: $color-neutral-600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: default;
+    user-select: none;
+    margin-bottom: 2px;
+
+    &__lock {
+        font-size: 0.75rem;
+        opacity: 0.55;
+        flex-shrink: 0;
+    }
+
+    .swptls-filter-group--auth & {
+        color: $color-auth;
+    }
+
+    &--spacer {
+        display: block;
+        visibility: hidden;
+        height: calc(#{$font-size-sm} * 1.5);
+    }
+}
+
+
+// =============================================================================
+// Text Input
+// =============================================================================
+
+.swptls-filter-input {
+    @include control-base;
+
+    &--auth {
+        border-color: $color-auth-border;
+        background-color: $color-auth-bg;
+
+        &:hover:not(:disabled) {
+            border-color: darken($color-auth-border, 10%);
+        }
+
+        &:focus {
+            border-color: $color-auth-accent;
+            @include focus-ring($color-auth-ring);
+        }
+    }
+
+    &--disabled {
+        font-style: italic;
+    }
+}
+
+
+// =============================================================================
+// Select
+// =============================================================================
+
+.swptls-filter-select {
+    @include control-base;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.125rem;
+    padding-right: 2.25rem;
+    padding: $input-padding-y $input-padding-x !important;
+    padding-right: 2.25rem !important;
+    cursor: pointer;
+    width: 100% !important;
+
+    &--auth {
+        border-color: $color-auth-border;
+        background-color: $color-auth-bg;
+
+        &:focus {
+            border-color: $color-auth-accent;
+            @include focus-ring($color-auth-ring);
+        }
+    }
+
+    &--disabled {
+        cursor: not-allowed;
+    }
+}
+
+
+// =============================================================================
+// Multi-Select
+// =============================================================================
+
+.swptls-filter-multi-select {
+    @include control-base;
+    min-height: 5.5rem;
+    padding: 0.25rem;
+    cursor: pointer;
+
+    option {
+        padding: 0.4rem 0.625rem;
+        font-size: $font-size-base;
+        border-radius: $radius-sm;
+        cursor: pointer;
+
+        &:checked {
+            background-color: $color-primary;
+            color: $color-white;
+        }
+    }
+
+    &:focus {
+        border-color: $color-primary;
+        @include focus-ring($color-primary-ring);
+    }
+
+    &--disabled {
+        cursor: not-allowed;
+    }
+}
+
+
+// =============================================================================
+// Clear / Action Button
+// =============================================================================
+
+.swptls-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: $input-padding-y $gap-lg;
+    font-family: $font-sans;
+    font-size: $font-size-btn;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    border: 1.5px solid transparent;
+    border-radius: $radius-md;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+        background-color $transition-fast,
+        border-color $transition-fast,
+        color $transition-fast,
+        box-shadow $transition-fast,
+        transform $transition-fast;
+    user-select: none;
+
+    &:focus-visible {
+        outline: none;
+    }
+
+    &:active {
+        transform: scale(0.975);
+    }
+
+    &--clear {
+        background-color: $color-white;
+        color: $color-danger;
+        border-color: $color-neutral-200;
+        box-shadow: $shadow-input;
+
+        &:hover {
+            background-color: #fef2f2;
+            border-color: #fca5a5;
+            color: $color-danger-hover;
+            box-shadow: 0 1px 3px 0 rgba($color-danger, .12);
+        }
+
+        &:focus-visible {
+            @include focus-ring($color-danger-ring);
+        }
+    }
+
+    &--sm {
+        padding: 0.375rem 0.75rem;
+        font-size: $font-size-sm;
+    }
+
+    &__icon {
+        width: 1rem;
+        height: 1rem;
+        flex-shrink: 0;
+        opacity: 0.75;
+    }
+}
+
+
+// =============================================================================
+// Inline Filter Row
+// =============================================================================
+
+.swptls-inline-filter-row {
+    background-color: $color-neutral-50;
+
+    thead & {
+        border-bottom: 2px solid $color-neutral-200;
+    }
+
+    tfoot & {
+        border-top: 2px solid $color-neutral-200;
+    }
+}
+
+.swptls-inline-filter-cell {
+    padding: 0.5rem 0.5rem;
+    vertical-align: middle;
+
+    .swptls-filter-input,
+    .swptls-filter-select,
+    .swptls-filter-multi-select {
+        width: 100%;
+        min-width: 90px;
+        padding: 0.4rem 0.625rem;
+        font-size: $font-size-sm;
+    }
+
+    &--clear {
+        white-space: nowrap;
+        text-align: right;
+        vertical-align: middle;
+    }
+}
+
+
+// =============================================================================
+// Sidebar Layout
+// =============================================================================
+
+.swptls-sidebar-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: $gap-lg;
+    width: 100%;
+    box-sizing: border-box;
+
+    &__table {
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow: visible;
+    }
+}
+
+
+// =============================================================================
+// Reduced-motion
+// =============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+
+    .swptls-filter-input,
+    .swptls-filter-select,
+    .swptls-filter-multi-select,
+    .swptls-btn {
+        transition: none;
+    }
+}
+
+
+// =============================================================================
+// High-contrast / forced-colors
+// =============================================================================
+
+@media (forced-colors: active) {
+
+    .swptls-filter-input,
+    .swptls-filter-select,
+    .swptls-filter-multi-select {
+        border: 1.5px solid ButtonText;
+    }
+
+    .swptls-btn--clear {
+        background-color: ButtonFace;
+        color: ButtonText;
+        border: 1.5px solid ButtonText;
+    }
+
+    .swptls-filter-container.swptls-auth-filters::before {
+        background: Highlight;
+    }
+}

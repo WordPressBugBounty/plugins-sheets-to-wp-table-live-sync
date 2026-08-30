@@ -449,7 +449,7 @@
         z-index: 99;
         margin-right: 20px;
 
-        .gswpts-hide-modal {
+        .swptls-hide-modal {
             position: absolute;
             margin: auto 20%;
             padding: 15px;
@@ -530,8 +530,8 @@
         }
     }
 
-    .hide-rows-modal-wrapper .gswpts-hide-modal .body,
-    .hide-cell-modal-wrapper .gswpts-hide-modal .body {
+    .hide-rows-modal-wrapper .swptls-hide-modal .body,
+    .hide-cell-modal-wrapper .swptls-hide-modal .body {
         min-height: unset;
         margin-bottom: 15px;
     }

@@ -2,7 +2,7 @@
 /**
  * Displays general settings template.
  *
- * @package SWPTLS
+ * @package GSWPTS
  */
 
 // If direct access than exit the file.
@@ -35,10 +35,10 @@ table {
 
 			<div class="row heading_row">
 				<div class="col-12 d-flex justify-content-start p-0 align-items-center">
-					<img src="<?php echo esc_url( SWPTLS_BASE_URL . 'assets/public/images/admin-icon-elementor.svg' ); ?>"
+					<img src="<?php echo esc_url( GSWPTS_BASE_URL . 'assets/public/images/admin-icon-elementor.svg' ); ?>"
 						alt="sheets-logo">
 					<span class="ml-2">
-						<strong><?php echo esc_html( SWPTLS_PLUGIN_NAME ); ?></strong>
+						<strong><?php echo esc_html( GSWPTS_PLUGIN_NAME ); ?></strong>
 					</span>
 					<span class="gswpts_changelogs"></span>
 				</div>
@@ -60,7 +60,7 @@ table {
 				<div class="col-md-12 pt-2 pb-2 pl-4 pr-4">
 					<div class="gswpts_settings_container">
 						<?php settings_fields( 'gswpts_general_setting' ); ?>
-						<?php do_settings_sections( 'gswpts-general-settings' ); ?>
+						<?php do_settings_sections( 'swptls-general-settings' ); ?>
 					</div>
 				</div>
 			</div>

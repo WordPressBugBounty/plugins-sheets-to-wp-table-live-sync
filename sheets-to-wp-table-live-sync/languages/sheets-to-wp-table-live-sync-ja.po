@@ -165,7 +165,7 @@ msgstr "OpenAI APIからの無効な応答構造です"
 
 #: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517
 #: app/Divi/DiviModule.php:35 app/Elementor/ElementorWidget.php:58
-#: app/SWPTLS.php:265 app/templates/parts/review_notice.php:21
+#: app/GSWPTS.php:265 app/templates/parts/review_notice.php:21
 msgid "FlexTable"
 msgstr "FlexTable"
 
@@ -793,25 +793,25 @@ msgid ""
 "deactivated."
 msgstr "インストールする"
 
-#: app/SWPTLS.php:219
+#: app/GSWPTS.php:219
 msgid ""
 "Plugin is missing required dependencies. Please contact support for more "
 "information."
 msgstr "インストールする"
 
-#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+#: app/GSWPTS.php:237 app/Strings.php:354 app/Strings.php:580
 msgid "All Tables"
 msgstr "インストールする"
 
-#: app/SWPTLS.php:250 app/Strings.php:213
+#: app/GSWPTS.php:250 app/Strings.php:213
 msgid "Get Pro"
 msgstr "インストールする"
 
-#: app/SWPTLS.php:288
+#: app/GSWPTS.php:288
 msgid "Grab Your Treat!"
 msgstr "インストールする"
 
-#: app/SWPTLS.php:295
+#: app/GSWPTS.php:295
 msgid "Grab Your Deals!"
 msgstr "インストールする"
 
@@ -2395,14 +2395,6 @@ msgstr "インストールする"
 
 #: app/Strings.php:517
 msgid "-1"
-msgstr "インストールする"
-
-#: app/Strings.php:518
-msgid "The table is limited to 100 rows."
-msgstr "インストールする"
-
-#: app/Strings.php:519
-msgid "to show the full Google Sheet with awesome customizations."
 msgstr "インストールする"
 
 #: app/Strings.php:521

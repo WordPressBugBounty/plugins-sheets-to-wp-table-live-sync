@@ -1,10 +1,10 @@
 === FlexTable - Data Table Sync with Google Sheets ===
 Contributors: wppool, devsabbirahmed, mahfuz01, azizultex, wpdarkmode, sahabuddinsgr
 Tags: Google Sheets, table plugin, WordPress table, data table, table
-Requires at least: 5.0
-Tested up to: 7.0
+Requires at least: 6.9
+Tested up to: 7.1
 Requires PHP: 7.2
-Stable tag: 3.24.3
+Stable tag: 3.24.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,7 +43,7 @@ To show your spreadsheet data in a WP table, connect your sheet to FlexTable and
 
 == 😍 FlexTable Free Features ==
 
-* **Sync Data with Google Sheets:** Keep your WordPress tables synced with connected Google Sheets spreadsheets. You can update your table from anywhere through the connected sheet without ever needing to enter your website dashboard. Sync up to 100 rows for **FREE**. 
+* **Sync Data with Google Sheets:** Keep your WordPress tables synced with connected Google Sheets spreadsheets. You can update your table from anywhere through the connected sheet without ever needing to enter your website dashboard. 
 * **Gutenberg Table Block & Elementor Table Widget:** The built-in Gutenberg block and Elementor widget will make sure you can create responsive tables with any of your preferred page builders.
 * **Responsive Tables:** Tables made with this plugin are responsive for any device. The plugin allows collapsing on mobile and tablet screens. There are also options to choose between three responsive styles (Default, Collapsible, and Scrollable) and adjust height.
 * **Shortcode Supported:** Place your data-table easily with the shortcode feature. A shortcode will be created with the table created. You can place the code anywhere you want on your page or posts.
@@ -71,9 +71,6 @@ To show your spreadsheet data in a WP table, connect your sheet to FlexTable and
 
 
 == ⚡ Experience the Full Potential with FlexTable Pro ==
-
-* **Unlimited Table Creation:** Create data-tables without limits.
-* **Unlimited Row Sync:** Fetch as many rows as you want to show.
 * **Import Styles from Google Sheets:** Import cell background color & cell font color, font size, font widget, font family & all other styles from connected sheet.
 * **Custom CSS:** Write your own custom CSS to design the table or the page itself. Your custom-written CSS will be applied to the front end of the website.
 * **Export Table:** Exporting via CSV, Excel, PDF, JSON, Print, and Copy is easy on this plugin.
@@ -181,6 +178,67 @@ Try FormyChat | Connect Form to Chat Apps with Contact Form 7, WPForms, Gravity 
 Try EchoRewards | With Echo Reward, you can refer a friend for WooCommerce to launch your customer referral program. Echo Rewards Referral Plugin is a WooCommerce referral plugin to boost your sales. Generate coupons, reward customers, and launch the ideal refer-a-friend program for your store.
 
 
+== External Services ==
+
+This plugin connects to external services only for the features you configure. You supply your own API key for whichever AI provider you choose in Settings, and only that provider is contacted.
+
+**OpenAI**
+- Purpose: Generates table summaries responses and summary for the table.
+- Service URL: https://api.openai.com/v1/
+- Privacy Policy: https://openai.com/privacy/
+- Terms of Service: https://openai.com/policies/row-terms-of-use/
+
+**Google Gemini**
+- Purpose: Generates table summaries responses and summary for the table.
+- Service URL: https://generativelanguage.googleapis.com/
+- Privacy Policy: https://policies.google.com/privacy
+- Terms of Service: https://ai.google.dev/gemini-api/terms
+Full terms of service and privacy policy links for each provider are also available in the plugin's Privacy section under Settings.
+
+**Google Sheets Style Sync (script.google.com)**
+- Purpose: A Google Apps Script web app used to collect cell styles and formatting data (background color, font color, font size, font weight, font family etc.) from connected Google Sheets. This is required for the "Import Sheet Styles" feature to replicate spreadsheet visual formatting in the WordPress table.
+- Data sent: The Google Sheets spreadsheet ID (extracted from the sheet URL you configure) to identify which sheet to read styles from.
+- When it connects: Only when the table is loaded and the "Import Sheet Styles" feature is enabled for that table.
+- Service URL: https://script.google.com/
+- Privacy Policy: https://policies.google.com/privacy
+- Terms of Service: https://policies.google.com/terms
+
+**Headway Changelog Widget (headwayapp.co)**
+- Purpose: Displays plugin changelog and update notifications inside the WordPress admin documentation/help page. This shows what's new in recent plugin versions.
+- Data sent: A plugin identifier to fetch the relevant changelog feed. No personal user data is sent.
+- When it connects: Only when an admin views the plugin's documentation page inside the WordPress dashboard.
+- Service URL: https://headwayapp.co/
+- Privacy Policy: https://headwayapp.co/privacy
+- Terms of Service: https://headwayapp.co/terms
+
+**Appsero Telemetry (appsero.com + icanhazip.com)**
+- Purpose: Appsero SDK collects basic usage telemetry to help with debugging and product improvements. As part of this, it calls icanhazip.com solely to obtain the server's public IP address for the telemetry payload.
+- Data sent: Basic site environment info (WordPress version, PHP version, active plugins list, server IP via icanhazip.com). No personal visitor data is collected.
+- When it connects: Only after the site admin explicitly opts in via the admin notice. No data is sent by default.
+- When it connects: When telemetry tracking is enabled (opt-in), and also when submitting the plugin deactivation feedback form, regardless of tracking opt-in status.
+
+- Appsero URL: https://appsero.com/
+- Appsero Privacy Policy: https://appsero.com/privacy-policy/
+- icanhazip.com URL: https://icanhazip.com/
+- icanhazip.com is a simple public IP lookup service operated by Cloudflare.
+
+
+== Source Code ==
+
+The source files for all compiled/minified JavaScript and CSS are publicly available in the plugin repository:
+
+The following compiled files have human-readable sources in the repository:
+- `assets/public/scripts/frontend/frontend.min.js` → source in `assets/src/scripts/`
+- `assets/public/scripts/backend/admin.min.js` → source in `assets/src/scripts/`
+- `assets/public/scripts/backend/divi.min.js` → source in `assets/src/scripts/`
+- `react/build/index.js` → source in `react/src/`
+
+Build instructions:
+
+1. Run `npm install` in the root to install dependencies.
+2. Run `npm run build` to compile the JavaScript and CSS assets.
+3. The compiled files are output to `assets/public/scripts/` and `react/build/`.
+
 == Privacy Policy ==
 Flex Table uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
 
@@ -202,10 +260,10 @@ Additionally, read the WPPOOL [privacy policy](https://wppool.dev/privacy-policy
 [Watch the video to learn how to add a new table very easily with the plugin](https://youtu.be/Un4ByhNpFRI?si=dWp6EnQlkjavFSau?rel=0)
 
 = How many rows can I sync with the Free version? =
-The free version allows sync of up to 100 rows from Google Sheets.
+FlexTable allows syncing spreadsheet rows from connected Google Sheets.
 
 = How many tables can I create? =
-The Free version allows you to create up to 10 tables.
+FlexTable allows creating data tables to display your spreadsheet content.
 
 = How should I use the Shortcode feature to display my spreadsheet data? =
 [Watch this video to learn how to use the Shortcode to display your spreadsheet data in WP table](https://youtu.be/uGPO8qLUIq0?rel=0)
@@ -233,6 +291,15 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 == Changelog ==
 
+= 3.24.6 - 25 August 2026 =
+* **Fix:** Improved code quality and ensured compatibility with WordPress 7.1
+
+= 3.24.5 - 19 August 2026 =
+* **Fix:** Fixed code quality and Improved security
+
+= 3.24.4 - 09 August 2026 =
+* **Enhancement:** Fixed code quality and Improved security
+
 = 3.24.3 - 02 August 2026 =
 * **Improvement:** Maintenance and stability updates
 
@@ -245,14 +312,5 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 = 3.24.0 - 21 Apr 2026 =
 * **New:** Introduced user-specific display filtering with matches Google Sheets columns
-
-= 3.23.0 - 06 Apr 2026 =
-* **New:** Added column-based filtering with multiple filter modes
-* **Fix:** Fixed compatibility issues between the sticky feature and table sorting  
-* **Improvement:** Improved lightbox compatibility with themes  
-* **Improvement:** General UX enhancements and refinements  
-
-= 3.22.2 - 04 Mar 2026 =
-* **Improvement:** Added built-in support for 16 languages, ready to use out of the box: **Bengali, Spanish (Spain), German, French, Portuguese (Brazil), Hindi, Arabic, Chinese (Simplified), Japanese, Italian, Russian, Indonesian, Turkish, Dutch,   Korean, and Polish.**
 
 For older changelog entries, please see the [additional changelog.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/changelog.txt) delivered with the plugin.

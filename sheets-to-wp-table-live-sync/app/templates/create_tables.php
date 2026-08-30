@@ -2,7 +2,7 @@
 /**
  * Displays create tables template.
  *
- * @package SWPTLS
+ * @package GSWPTS
  */
 
 // If direct access than exit the file.
@@ -23,9 +23,9 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 	<div class="child_container mt-4 create_table_content transition hidden">
 		<div class="row heading_row">
 			<div class="col-12 d-flex justify-content-start p-0 align-iteml-center">
-				<img src="<?php echo esc_url( SWPTLS_BASE_URL . 'assets/public/images/admin-icon-elementor.svg' ); ?>" alt="">
+				<img src="<?php echo esc_url( GSWPTS_BASE_URL . 'assets/public/images/admin-icon-elementor.svg' ); ?>" alt="">
 				<span class="ml-2">
-					<strong><?php echo esc_html( SWPTLS_PLUGIN_NAME ); ?></strong>
+					<strong><?php echo esc_html( GSWPTS_PLUGIN_NAME ); ?></strong>
 				</span>
 				<span class="gswpts_changelogs" style="margin-top: -5px;"></span>
 			</div>
@@ -33,7 +33,7 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 		<div class="row mt-3">
 			<div class="col-12 p-0 d-flex align-items-center">
 				<!-- phpcs:ignore -->
-				<a class="ui violet button" href="<?php echo esc_url(admin_url('admin.php?page=gswpts-dashboard')); ?>">
+				<a class="ui violet button" href="<?php echo esc_url(admin_url('admin.php?page=swptls-dashboard')); ?>">
 					<i class="fas fa-angle-double-left"></i> <?php esc_html_e( 'Back', 'sheets-to-wp-table-live-sync' ); ?>
 				</a>
 
@@ -41,12 +41,12 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 					<button id="create_button"
 						class="positive ui transition button m-0 mr-2 <?php echo isset( $table_id ) && ! empty( $table_id ) ? '' : 'transition hidden'; ?>"
 						style="padding-left: 30px;"
-						data-nonce="<?php echo esc_attr( wp_create_nonce( 'swptls_sheet_creation_nonce' ) ); ?>">
+						data-nonce="<?php echo esc_attr( wp_create_nonce( 'gswpts_sheet_creation_nonce' ) ); ?>">
 						<?php esc_html_e( 'Create New', 'sheets-to-wp-table-live-sync' ); ?> &nbsp; <i class="fas fa-plus"></i>
 					</button>
 					<button class="ui violet button m-0 transition hidden fetch_save_btn" type="button"
 						req-type="<?php echo ! empty( $table_id ) ? 'save' : 'fetch'; ?>"
-						data-nonce="<?php echo esc_attr( wp_create_nonce( 'swptls_sheet_creation_nonce' ) ); ?>">
+						data-nonce="<?php echo esc_attr( wp_create_nonce( 'gswpts_sheet_creation_nonce' ) ); ?>">
 						<span class="btn_text">
 							<?php echo ! empty( $table_id ) ? esc_html__( 'Save Table', 'sheets-to-wp-table-live-sync' ) : esc_html__( 'Fetch Data', 'sheets-to-wp-table-live-sync' ); ?>
 						</span>
@@ -120,7 +120,7 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 								<form id="gswpts_create_table" class="ui form">
 									<input type="hidden" id="gswpts_sheet_nonce" name="gswpts_sheet_nonce"
 										value="<?php echo esc_attr( wp_create_nonce( 'gswpts_sheet_nonce_action' ) ); ?>">
-									<?php swptls()->helpers->nonce_field( 'gswpts_sheet_nonce_action', 'gswpts_sheet_nonce' ); ?>
+									<?php gswpts()->helpers->nonce_field( 'gswpts_sheet_nonce_action', 'gswpts_sheet_nonce' ); ?>
 									<div class="row input_fields">
 										<div class="col-12 col-md-3">
 											<div class="ui fluid search selection dropdown" id="table_type">
@@ -166,19 +166,19 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 						</section>
 						<section id="display_settings">
 							<div class="feature-container">
-								<?php swptls()->settings->display_settingsHTML(); ?>
+								<?php gswpts()->settings->display_settingsHTML(); ?>
 							</div>
 						</section>
 
 						<section id="sort_filter">
 							<div class="feature-container">
-								<?php swptls()->settings->sortAndFilterHTML(); ?>
+								<?php gswpts()->settings->sortAndFilterHTML(); ?>
 							</div>
 						</section>
 
 						<section id="table_tools">
 							<div class="feature-container">
-								<?php swptls()->settings->tableToolsHTML(); ?>
+								<?php gswpts()->settings->tableToolsHTML(); ?>
 							</div>
 						</section>
 					</div>
@@ -216,6 +216,6 @@ $table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0; // phpcs:ignore
 	</div>
 
 	<!-- Load all the modals here -->
-	<?php load_template( SWPTLS_BASE_PATH . 'app/templates/parts/popup_modals.php' ); ?>
+	<?php load_template( GSWPTS_BASE_PATH . 'app/templates/parts/popup_modals.php' ); ?>
 	<!-- End of all modals -->
 </div>

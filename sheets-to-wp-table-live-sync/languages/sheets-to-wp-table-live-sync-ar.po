@@ -163,7 +163,7 @@ msgstr "هيكل استجابة غير صحيح من واجهة برمجة تط�
 
 #: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517
 #: app/Divi/DiviModule.php:35 app/Elementor/ElementorWidget.php:58
-#: app/SWPTLS.php:265 app/templates/parts/review_notice.php:21
+#: app/GSWPTS.php:265 app/templates/parts/review_notice.php:21
 msgid "FlexTable"
 msgstr "FlexTable"
 
@@ -790,7 +790,7 @@ msgstr ""
 "لا يمكن تنشيطها - تتطلب إصدار PHP 5.4 على الأقل. الإضافة تم إلغاء تنشيطها "
 "تلقائيًا."
 
-#: app/SWPTLS.php:219
+#: app/GSWPTS.php:219
 msgid ""
 "Plugin is missing required dependencies. Please contact support for more "
 "information."
@@ -798,19 +798,19 @@ msgstr ""
 "الإضافة تفتقر إلى التبعيات المطلوبة. يرجى الاتصال بالدعم للحصول على مزيد من "
 "المعلومات."
 
-#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+#: app/GSWPTS.php:237 app/Strings.php:354 app/Strings.php:580
 msgid "All Tables"
 msgstr "جميع الجداول"
 
-#: app/SWPTLS.php:250 app/Strings.php:213
+#: app/GSWPTS.php:250 app/Strings.php:213
 msgid "Get Pro"
 msgstr "الحصول على الإصدار الاحترافي"
 
-#: app/SWPTLS.php:288
+#: app/GSWPTS.php:288
 msgid "Grab Your Treat!"
 msgstr "احصل على هديتك!"
 
-#: app/SWPTLS.php:295
+#: app/GSWPTS.php:295
 msgid "Grab Your Deals!"
 msgstr "احصل على عروضك!"
 
@@ -2516,14 +2516,6 @@ msgstr "1"
 #: app/Strings.php:517
 msgid "-1"
 msgstr "-1"
-
-#: app/Strings.php:518
-msgid "The table is limited to 100 rows."
-msgstr "الجدول محدود بـ 100 صف."
-
-#: app/Strings.php:519
-msgid "to show the full Google Sheet with awesome customizations."
-msgstr "لعرض جوجل شيت بالكامل مع التخصيصات الرائعة."
 
 #: app/Strings.php:521
 msgid "Upgrade Now →"

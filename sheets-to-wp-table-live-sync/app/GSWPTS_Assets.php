@@ -1,0 +1,560 @@
+<?php
+/**
+ * Responsible for enqueuing assets.
+ *
+ * @since 2.12.15
+ * @package GSWPTS
+ */
+
+namespace GSWPTS;
+
+// If direct access than exit the file.
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Responsible for enqueuing assets.
+ *
+ * @since 2.12.15
+ * @package GSWPTS
+ */
+class GSWPTS_Assets {
+
+	/**
+	 * Class constructor.
+	 *
+	 * @since 2.12.15
+	 */
+	public function __construct() {
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ], 20 );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'gutenberg_files' ], 20 );
+		add_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ], 20 );
+		add_action( 'init', [ $this, 'detect_conflicting_plugins' ] );
+	}
+
+
+	/**
+	 * Detect conflicting plugins and adjust load order.
+	 *
+	 * @since 2.12.15
+	 */
+	public function detect_conflicting_plugins() {
+		// Check if WP Maps plugin is active.
+		if ( $this->is_wp_maps_active() ) {
+			// Remove our hooks and re-add them with higher priority.
+			remove_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ], 20 );
+
+			// Re-add with much higher priority to load after WP Maps.
+			add_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ], 999 );
+		}
+	}
+
+		/**
+		 * Check if WP Maps plugin is active.
+		 *
+		 * @return bool
+		 */
+	private function is_wp_maps_active() {
+		// Check for WP Maps plugin class or function.
+		return class_exists( 'WPGMP_Model' ) ||
+			   function_exists( 'wpgmp_register_map_frontend_resources' ) ||
+			   is_plugin_active( 'wp-google-map-plugin/wp-google-map-plugin.php' );
+	}
+
+	/**
+	 * Get WP Maps dependencies if available
+	 *
+	 * @return array
+	 */
+	private function get_wp_maps_dependencies() {
+		$dependencies = [];
+
+		// Check if WP Maps scripts are registered.
+		global $wp_scripts;
+
+		$wp_maps_handles = [
+			'wpgmp-backend',
+			'wpgmp-frontend',
+			'wpgmp-map',
+			'wpgmp-google-api',
+		];
+
+		foreach ( $wp_maps_handles as $handle ) {
+			if ( isset( $wp_scripts->registered[ $handle ] ) ) {
+				$dependencies[] = $handle;
+			}
+		}
+
+		return $dependencies;
+	}
+
+
+	/**
+	 * Enqueue backend files.
+	 *
+	 * @param  mixed $hook The page id.
+	 * @since 2.12.15
+	 */
+	public function admin_scripts( $hook ) {
+		$current_screen = get_current_screen();
+
+		if ( 'toplevel_page_swptls-dashboard' === $current_screen->id ) {
+
+			wp_enqueue_script( 'jquery' );
+
+			$this->data_table_scripts();
+
+			$dependencies = require_once GSWPTS_BASE_PATH . 'react/build/index.asset.php';
+			$dependencies['dependencies'][] = 'wp-util';
+
+			wp_enqueue_style(
+				'swptls-admin',
+				GSWPTS_BASE_URL . 'assets/admin.css',
+				'',
+				time(),
+				'all'
+			);
+
+			// PKF
+			wp_enqueue_style(
+				'GSWPTS-style-2',
+				GSWPTS_BASE_URL . 'assets/public/styles/style-2.min.css',
+				[],
+				time(),
+				'all'
+			);
+
+			wp_enqueue_style(
+				'swptls-app',
+				GSWPTS_BASE_URL . 'react/build/index.css',
+				'',
+				time(),
+				'all'
+			);
+
+			wp_enqueue_script(
+				'swptls-app',
+				GSWPTS_BASE_URL . 'react/build/index.js',
+				$dependencies['dependencies'],
+				time(),
+				true
+			);
+
+			do_action( 'gswpts_export_dependency_backend' );
+
+			$icons = apply_filters( 'export_buttons_logo_backend', false );
+
+			$localize = [
+				'nonce'            => wp_create_nonce( 'swptls-admin-app-nonce-action' ),
+				'icons'            => $icons,
+				'strings'            => GSWPTS_Strings::get(),
+				'tables'           => gswpts()->database->table->get_all(),
+				'theme'           => gswpts()->database->table->get_all_theme(),
+				'cta_notice_status' => get_option( 'gswpts_cta_notice_dismissed', false ),
+				'cta_notice_tabs_status' => get_option( 'gswpts_cta_notice_tabs_dismissed', false ),
+				'pro'              => [
+					'installed'   => gswpts()->helpers->check_pro_plugin_exists(),
+					'active'      => gswpts()->helpers->is_pro_active(),
+					'license'     => function_exists( 'swptlspro' ) ? wp_validate_boolean( swptlspro()->license_status ) : false,
+					'license_url' => esc_url( admin_url( 'admin.php?page=sheets_to_wp_table_live_sync_pro_settings' ) ),
+				],
+				'ran_setup_wizard' => wp_validate_boolean( get_option( 'gswpts_ran_setup_wizard', false ) ),
+				'show_get_start_page' => wp_validate_boolean( get_option( 'show_get_start_page', false ) ),
+			];
+
+			// Load tabs feature from pro plugin if user have pro.
+			if ( gswpts()->helpers->is_pro_active() && gswpts()->helpers->is_latest_version() ) {
+				$localize['tabs'] = swptlspro()->database->tab->get_all();
+			}
+
+			wp_localize_script(
+				'swptls-app',
+				'GSWPTS_APP',
+				$localize
+			);
+
+			wp_enqueue_script(
+				'GSWPTS-admin-js',
+				GSWPTS_BASE_URL . 'assets/public/scripts/backend/admin.min.js',
+				[ 'jquery' ],
+				time(),
+				true
+			);
+
+			$this->table_styles_css();
+		}
+
+		 /**
+		 * Banner content & notices.
+		 */
+		$pages = [ 'toplevel_page_swptls-dashboard', 'edit.php', 'plugins.php', 'index.php' ];
+
+		if ( ! in_array($hook, $pages) ) {
+			wp_enqueue_style(
+				'swptls-notice-prevent-css',
+				GSWPTS_BASE_URL . 'assets/swptls-prevent.css',
+				'',
+				time(),
+				'all'
+			);
+			return;
+		}
+
+		if ( 'edit.php' !== $hook || 'product' === get_current_screen()->post_type || in_array($hook, $pages) ) {
+			wp_enqueue_style(
+				'swptls-admin-css',
+				GSWPTS_BASE_URL . 'assets/swptls-notices.css',
+				'',
+				time(),
+				'all'
+			);
+		}
+	}
+
+	/**
+	 * Load assets for shortcode based on shortcode.
+	 */
+	public function fe_scripts() {
+		global $post;
+		$script_support_mode = get_option('script_support_mode');
+		$shortcode = 'gswpts_table';
+		$tab_shortcode = 'gswpts_tab';
+		$should_enqueue = false;
+
+		if ( 'global_loading' === $script_support_mode ) {
+			$this->frontend_scripts();
+			return;
+		}
+
+		if ( isset($post) && ! empty($post->post_content) ) {
+			// Check for [gswpts_table] shortcode.
+			if ( has_shortcode($post->post_content, $shortcode) ) {
+				$should_enqueue = true;
+			}
+
+			// Check for [gswpts_tab] shortcode.
+			if ( has_shortcode($post->post_content, $tab_shortcode) ) {
+				$should_enqueue = true;
+			}
+		}
+
+		// Additional conditions that might require enqueuing scripts.
+		if ( function_exists('get_field') ) {
+			$should_enqueue = true;
+		}
+
+		if ( did_action('elementor/loaded') ) {
+			if ( isset($post) && is_object($post) && property_exists($post, 'ID') && $post->ID ) {
+				$is_built_with_elementor = \Elementor\Plugin::$instance->documents->get($post->ID)->is_built_with_elementor();
+				if ( $is_built_with_elementor ) {
+					if ( has_shortcode($post->post_content, $shortcode) || has_shortcode($post->post_content, $tab_shortcode) ) {
+						$should_enqueue = true;
+					}
+				}
+			}
+		}
+
+		if ( $should_enqueue ) {
+			$this->frontend_scripts();
+		}
+	}
+
+
+	/**
+	 * Enqueue frontend files.
+	 *
+	 * @since 2.12.15
+	 */
+	public function frontend_scripts() {
+		wp_enqueue_script( 'jquery' );
+
+		$wp_maps_deps = $this->get_wp_maps_dependencies();
+
+		$this->frontend_tables_assets( $wp_maps_deps );
+
+		do_action( 'gswpts_export_dependency_frontend' );
+
+		wp_enqueue_style(
+			'GSWPTS-frontend-css',
+			GSWPTS_BASE_URL . 'assets/public/styles/frontend.min.css',
+			[],
+			time(),
+			'all'
+		);
+
+		wp_enqueue_style(
+			'GSWPTS-style-1',
+			GSWPTS_BASE_URL . 'assets/public/styles/style-1.min.css',
+			[],
+			time(),
+			'all'
+		);
+
+		wp_enqueue_style(
+			'GSWPTS-style-2',
+			GSWPTS_BASE_URL . 'assets/public/styles/style-2.min.css',
+			[],
+			time(),
+			'all'
+		);
+
+		$this->table_styles_css();
+
+		// Add WP Maps dependencies to frontend script
+		$frontend_deps = [ 'jquery', 'jquery-ui-draggable' ];
+		if ( ! empty( $wp_maps_deps ) ) {
+			$frontend_deps = array_merge( $frontend_deps, $wp_maps_deps );
+		}
+
+		wp_enqueue_script(
+			'GSWPTS-frontend-js',
+			GSWPTS_BASE_URL . 'assets/public/scripts/frontend/frontend.min.js',
+			$frontend_deps,
+			time(),
+			true
+		);
+
+		$icons_urls = apply_filters( 'export_buttons_logo_frontend', false );
+
+		$frontend_data = [
+			'admin_ajax'           => esc_url( admin_url( 'admin-ajax.php' ) ),
+			'asynchronous_loading' => get_option( 'asynchronous_loading' ) === 'on' ? 'on' : 'off',
+			'isProActive'          => gswpts()->helpers->is_pro_active(),
+			'strings'            => GSWPTS_Strings::get(),
+			'iconsURL'             => $icons_urls,
+			'nonce'                => wp_create_nonce( 'gswpts_sheet_nonce_action' ),
+			'user_auth'            => $this->get_user_auth_data(),
+		];
+		wp_localize_script( 'GSWPTS-frontend-js', 'gswpts_frontend_data', $frontend_data );
+	}
+
+	/**
+	 * Get current user authentication data for filtering
+	 *
+	 * @return array User authentication data
+	 * @since 2.12.15
+	 */
+	private function get_user_auth_data() {
+		$current_user = wp_get_current_user();
+
+		if ( ! $current_user->exists() ) {
+			return [
+				'logged_in' => false,
+				'user_id'   => 0,
+				'username'  => '',
+				'email'     => '',
+				'nickname'  => '',
+				'display_name' => '',
+				'first_name' => '',
+				'last_name' => '',
+				'roles'     => [],
+			];
+		}
+
+		return [
+			'logged_in'    => true,
+			'user_id'      => $current_user->ID,
+			'username'     => $current_user->user_login,
+			'email'        => $current_user->user_email,
+			'nickname'     => $current_user->nickname,
+			'display_name' => $current_user->display_name,
+			'first_name'   => $current_user->first_name,
+			'last_name'    => $current_user->last_name,
+			'roles'        => $current_user->roles,
+		];
+	}
+
+	/**
+	 * Enqueue semantic files.
+	 *
+	 * @since 2.12.15
+	 */
+	public function semantic_files() {
+		wp_enqueue_style(
+			'GSWPTS-semanticui-css',
+			GSWPTS_BASE_URL . 'assets/public/library/semantic/semantic.min.css',
+			[],
+			time(),
+			'all'
+		);
+
+		wp_enqueue_script(
+			'GSWPTS-semantic-js',
+			GSWPTS_BASE_URL . 'assets/public/library/semantic/semantic.min.js',
+			[ 'jquery' ],
+			time(),
+			false
+		);
+	}
+
+	/**
+	 * Enqueue semantic files.
+	 *
+	 * @since 2.12.15
+	 */
+	public function frontend_tables_assets( $additional_deps = [] ) {
+		$base_deps = [ 'jquery' ];
+		$deps = array_merge( $base_deps, $additional_deps );
+
+		wp_enqueue_script('moment');
+
+		// Load all DataTables scripts in footer to avoid conflicts with page builders
+		wp_enqueue_script(
+			'GSWPTS-frontend-table',
+			GSWPTS_BASE_URL . 'assets/public/library/datatables/tables/js/jquery.datatables.min.js',
+			$deps,
+			time(),
+			true
+		);
+
+		wp_enqueue_script(
+			'GSWPTS-frontend-semantic',
+			GSWPTS_BASE_URL . 'assets/public/library/datatables/tables/js/datatables.semanticui.min.js',
+			array_merge( $deps, [ 'GSWPTS-frontend-table' ] ),
+			time(),
+			true
+		);
+		wp_enqueue_script(
+			'datetime-moment-js',
+			GSWPTS_BASE_URL . 'assets/public/scripts/moment/datetime-moment.js',
+			[ 'moment', 'GSWPTS-frontend-table' ],
+			time(),
+			true
+		);
+	}
+
+	/**
+	 * Enqueue data tables scripts.
+	 *
+	 * @since 2.12.15
+	 */
+	public function data_table_scripts() {
+		wp_enqueue_script(
+			'GSWPTS-jquery-dataTable-js',
+			GSWPTS_BASE_URL . 'assets/public/library/datatables/tables/js/jquery.datatables.min.js',
+			[ 'jquery' ],
+			time(),
+			true
+		);
+
+		wp_enqueue_script(
+			'GSWPTS-dataTable-semanticui-js',
+			GSWPTS_BASE_URL . 'assets/public/library/datatables/tables/js/datatables.semanticui.min.js',
+			[ 'jquery' ],
+			time(),
+			true
+		);
+	}
+
+	/**
+	 * Enqueue data tables styles.
+	 *
+	 * @since 2.12.15
+	 */
+	public function data_table_styles() {
+		wp_enqueue_style(
+			'GSWPTS-semanticui-css',
+			GSWPTS_BASE_URL . 'assets/public/library/semantic/semantic.min.css',
+			[],
+			time(),
+			'all'
+		);
+
+		wp_enqueue_style(
+			'GSWPTS-dataTable-semanticui-css',
+			GSWPTS_BASE_URL . 'assets/public/library/datatables/tables/css/datatables.semanticui.min.css',
+			[],
+			time(),
+			'all'
+		);
+	}
+
+	/**
+	 * Enqueue gutenberg files.
+	 *
+	 * @since 2.12.15
+	 */
+	public function gutenberg_files() {
+		wp_enqueue_style(
+			'GSWPTS-gutenberg-css',
+			GSWPTS_BASE_URL . 'assets/public/styles/gutenberg.min.css',
+			[],
+			time(),
+			'all'
+		);
+
+		wp_enqueue_style(
+			'GSWPTS-alert-css',
+			GSWPTS_BASE_URL . 'assets/public/package/alert.min.css',
+			[],
+			time(),
+			'all'
+		);
+
+		wp_enqueue_style(
+			'GSWPTS-fontawesome',
+			GSWPTS_BASE_URL . 'assets/public/icons/fontawesome/css/all.min.css',
+			[],
+			time(),
+			'all'
+		);
+
+		wp_enqueue_script(
+			'swptls-gutenberg',
+			GSWPTS_BASE_URL . 'assets/public/scripts/backend/gutenberg/gutenberg.min.js',
+			[ 'wp-blocks', 'wp-i18n', 'wp-editor', 'wp-element', 'wp-components', 'jquery' ],
+			time(),
+			true
+		);
+
+		register_block_type(
+			'swptls/google-sheets-to-wp-tables',
+			[
+				'description'   => __( 'Display Google Spreadsheet data to WordPress table in just a few clicks
+				and keep the data always synced. Organize and display all your spreadsheet data in your WordPress quickly and effortlessly.', 'sheets-to-wp-table-live-sync' ),
+				'title'         => __( 'FlexTable', 'sheets-to-wp-table-live-sync' ),
+				'editor_script' => 'swptls-gutenberg',
+				'editor_style'  => 'GSWPTS-gutenberg-css',
+			]
+		);
+
+		$this->semantic_files();
+		$this->data_table_styles();
+		$this->data_table_scripts();
+		$this->table_styles_css();
+
+		wp_localize_script(
+			'swptls-gutenberg',
+			'gswpts_gutenberg_block',
+			[
+				'admin_ajax'       => esc_url( admin_url( 'admin-ajax.php' ) ),
+				'table_details'    => gswpts()->database->table->get_all(),
+				'isProActive'      => gswpts()->helpers->is_pro_active(),
+				'nonce'  => wp_create_nonce( 'swptls-admin-app-nonce-action' ),
+				'fetch_nonce'     => wp_create_nonce( 'gswpts_sheet_nonce_action' ),
+			]
+		);
+	}
+
+	/**
+	 * Enqueue table style css.
+	 *
+	 * @return null
+	 */
+	public function table_styles_css() {
+		$styles_array = gswpts()->settings->table_styles_array();
+		$styles_array = apply_filters( 'gswpts_table_styles_path', $styles_array );
+
+		if ( ! $styles_array ) {
+			return;
+		}
+
+		foreach ( $styles_array as $key => $style ) {
+			$table_style_file_url  = isset( $style['cssURL'] ) ? $style['cssURL'] : '';
+			$table_style_file_path = isset( $style['cssPath'] ) ? $style['cssPath'] : '';
+
+			if ( file_exists( $table_style_file_path ) ) {
+				wp_enqueue_style( 'swptlsProTable_' . $key . '', $table_style_file_url, [], time(), 'all' );
+			}
+		}
+	}
+}

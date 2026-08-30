@@ -53,7 +53,7 @@ function Dashboard() {
 	useEffect(() => {
 		setLoader(true);
 
-		wp.ajax.send('swptls_get_tables', {
+		wp.ajax.send('gswpts_get_tables', {
 			data: {
 				nonce: getNonce(),
 			},
@@ -80,15 +80,15 @@ function Dashboard() {
 
 		// Update localStorage based on backend status
 		if (ctaNoticeStatus === 1 || ctaNoticeStatus === '1' || ctaNoticeStatus === true) {
-			localStorage.setItem('swptls_cta_notice_dismissed', 'true');
+			localStorage.setItem('gswpts_cta_notice_dismissed', 'true');
 			setShowCtaNotice(false);
 		} else {
-			localStorage.setItem('swptls_cta_notice_dismissed', 'false');
+			localStorage.setItem('gswpts_cta_notice_dismissed', 'false');
 			setShowCtaNotice(true);
 		}
 
 		// Check if CTA notice should be shown
-		const ctaDismissed = localStorage.getItem('swptls_cta_notice_dismissed');
+		const ctaDismissed = localStorage.getItem('gswpts_cta_notice_dismissed');
 		if (ctaDismissed === 'true') {
 			setShowCtaNotice(false);
 		}
@@ -129,27 +129,10 @@ function Dashboard() {
 		return newUrl;
 	};
 
+
 	const handleCreateTable = () => {
 		const newUrl = constructCreateTableUrl();
-
-		if (isProActive()) {
-			window.location.href = newUrl;
-		} else {
-			if (tableCount >= 10) {
-				// alert("You can't create more than 10 tables.");
-				toast.warning(
-					<>
-						{getStrings('table-10-limited')}{' '}
-						<a target="blank" href="https://go.wppool.dev/DoC">
-							{' '}
-							{getStrings('upgrade-pro')}
-						</a>
-					</>
-				);
-			} else {
-				window.location.href = newUrl;
-			}
-		}
+		window.location.href = newUrl;
 	};
 
 	const handleSortChange = (field, order) => {
@@ -187,7 +170,7 @@ function Dashboard() {
 
 	const handleCtaNoticeDismiss = () => {
 		setShowCtaNotice(false);
-		localStorage.setItem('swptls_cta_notice_dismissed', 'true');
+		localStorage.setItem('gswpts_cta_notice_dismissed', 'true');
 	};
 
 	//
@@ -392,26 +375,16 @@ function Dashboard() {
 								/>
 								<div className="icon">{searchIcon}</div>
 							</div>
-							{tableCount < 10 ? (
-								<Link
-									className="create-table btn btn-md"
-									to="/tables/create"
-								>
-									{getStrings('new-tables')}{' '}
-									{WhitePlusIcon}
-								</Link>
-							) : (
-								<button
-									className={`create-table btn btn-md${!isProActive()
-										? ` swptls-pro-lock`
-										: ``
-										}`}
-									onClick={handleCreateTable}
-								>
-									{getStrings('new-tables')}{' '}
-									{WhitePlusIcon}
-								</button>
-							)}
+							<button
+								className={`create-table btn btn-md${!isProActive()
+									? ` swptls-pro-lock`
+									: ``
+									}`}
+								onClick={handleCreateTable}
+							>
+								{getStrings('new-tables')}{' '}
+								{WhitePlusIcon}
+							</button>
 						</div>
 					</div>
 

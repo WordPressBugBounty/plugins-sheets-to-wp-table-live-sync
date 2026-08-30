@@ -161,7 +161,7 @@ msgid "Invalid response structure from OpenAI API"
 msgstr "ओपनएआई एपीआई से अमान्य प्रतिक्रिया संरचना"
 
 #: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517 app/Divi/DiviModule.php:35
-#: app/Elementor/ElementorWidget.php:58 app/SWPTLS.php:265 app/templates/parts/review_notice.php:21
+#: app/Elementor/ElementorWidget.php:58 app/GSWPTS.php:265 app/templates/parts/review_notice.php:21
 msgid "FlexTable"
 msgstr "फ्लेक्सटेबल"
 
@@ -792,23 +792,23 @@ msgid "cannot be activated - requires at least PHP 5.4. Plugin automatically dea
 msgstr ""
 "सक्रिय नहीं किया जा सकता - कम से कम पीएचपी 5.4 की आवश्यकता है। प्लगइन स्वचालित रूप से निष्क्रिय कर दिया गया।"
 
-#: app/SWPTLS.php:219
+#: app/GSWPTS.php:219
 msgid "Plugin is missing required dependencies. Please contact support for more information."
 msgstr "प्लगइन को आवश्यक निर्भरताएं गुम हैं। अधिक जानकारी के लिए कृपया सहायता से संपर्क करें।"
 
-#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+#: app/GSWPTS.php:237 app/Strings.php:354 app/Strings.php:580
 msgid "All Tables"
 msgstr "सभी तालिकाएं"
 
-#: app/SWPTLS.php:250 app/Strings.php:213
+#: app/GSWPTS.php:250 app/Strings.php:213
 msgid "Get Pro"
 msgstr "प्रो प्राप्त करें"
 
-#: app/SWPTLS.php:288
+#: app/GSWPTS.php:288
 msgid "Grab Your Treat!"
 msgstr "अपना इलाज पकड़ें!"
 
-#: app/SWPTLS.php:295
+#: app/GSWPTS.php:295
 msgid "Grab Your Deals!"
 msgstr "अपने सौदे पकड़ें!"
 
@@ -2437,14 +2437,6 @@ msgstr "1"
 #: app/Strings.php:517
 msgid "-1"
 msgstr "-1"
-
-#: app/Strings.php:518
-msgid "The table is limited to 100 rows."
-msgstr "टेबल 100 पंक्तियों तक सीमित है।"
-
-#: app/Strings.php:519
-msgid "to show the full Google Sheet with awesome customizations."
-msgstr "शानदार कस्टमाइज़ेशन के साथ पूरा गूगल शीट दिखाने के लिए।"
 
 #: app/Strings.php:521
 msgid "Upgrade Now →"

@@ -5,6 +5,15 @@
 This file contains older changelog entries, so we can keep the size of the standard WordPress readme.txt file reasonable. 
 For the latest changes, please see the "Changelog" section of the [readme.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/readme.txt).
 
+= 3.23.0 - 06 Apr 2026 =
+* **New:** Added column-based filtering with multiple filter modes
+* **Fix:** Fixed compatibility issues between the sticky feature and table sorting  
+* **Improvement:** Improved lightbox compatibility with themes  
+* **Improvement:** General UX enhancements and refinements  
+
+= 3.22.2 - 04 Mar 2026 =
+* **Improvement:** Added built-in support for 16 languages, ready to use out of the box: **Bengali, Spanish (Spain), German, French, Portuguese (Brazil), Hindi, Arabic, Chinese (Simplified), Japanese, Italian, Russian, Indonesian, Turkish, Dutch,   Korean, and Polish.**
+
 = 3.22.1 - 22 Feb 2026 =
 * **Fix:** Updated the "Get Support" and contact page links and Improved UX copy
 * **Fix:** Updated the AI Integration help video

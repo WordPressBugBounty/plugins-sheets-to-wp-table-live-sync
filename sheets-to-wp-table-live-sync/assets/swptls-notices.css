@@ -6,9 +6,9 @@
 	margin-top: 30px;
 }
 
-.gswpts-upgrade-banner,
-.gswpts-influencer-banner,
-.gswpts-ratting-banner {
+.swptls-upgrade-banner,
+.swptls-influencer-banner,
+.swptls-ratting-banner {
 	margin: 20px 10px;
 }
 
@@ -19,7 +19,7 @@ p.review-notice {
 	font-family: inter;
 }
 
-.gswpts-image-icon {
+.swptls-image-icon {
 	margin: 20px;
 	padding: 10px;
 	vertical-align: top;
@@ -58,17 +58,17 @@ p.review-notice {
 	z-index: 1000;
 }
 
-.gswpts-upgrade-close,
-.gswpts-influencer-close,
-.gswpts-ratting-open {
+.swptls-upgrade-close,
+.swptls-influencer-close,
+.swptls-ratting-open {
 	position: absolute;
 	right: 35px;
 	cursor: pointer;
 }
 
-.gswpts-upgrade-close::before,
-.gswpts-influencer-close::before,
-.gswpts-ratting-open::before {
+.swptls-upgrade-close::before,
+.swptls-influencer-close::before,
+.swptls-ratting-open::before {
 	content: url("./public/icons/top-banner/cross.svg");
 }
 
@@ -116,7 +116,7 @@ p.review-notice {
 	transition: 0.3s all ease-out;
 }
 
-.gswpts-influencer-banner h3 {
+.swptls-influencer-banner h3 {
 	font-family: inherit;
 	font-weight: 400;
 	font-size: 20px;
@@ -125,18 +125,18 @@ p.review-notice {
 	padding: 0px;
 }
 
-.gswpts-influencer-banner h3 span {
+.swptls-influencer-banner h3 span {
 	font-weight: 600;
 	color: #7c3aed;
 }
 
-.gswpts-influencer-banner .link-wrapper {
+.swptls-influencer-banner .link-wrapper {
 	display: flex;
 	flex-direction: row;
 	margin-top: 20px;
 }
 
-.gswpts-influencer-wrapper {
+.swptls-influencer-wrapper {
 	display: flex;
 	flex-direction: column;
 	justify-content: left;
@@ -144,7 +144,7 @@ p.review-notice {
 	margin-top: 10px;
 }
 
-.gswpts-upgrade-banner {
+.swptls-upgrade-banner {
 	/* display: none; */
 	flex-direction: row;
 	padding: 20px 10px;
@@ -156,14 +156,14 @@ p.review-notice {
 	border-radius: 6px;
 }
 
-.gswpts-upgrade-banner .content {
+.swptls-upgrade-banner .content {
 	display: flex;
 	flex-direction: column;
 	margin: 30px 0px 0px 0px;
 	justify-content: left;
 }
 
-.gswpts-upgrade-banner .content h3 {
+.swptls-upgrade-banner .content h3 {
 	font-family: inherit;
 	font-weight: 400;
 	font-size: 20px;
@@ -172,12 +172,12 @@ p.review-notice {
 	padding: 0px;
 }
 
-.gswpts-upgrade-banner .content span {
+.swptls-upgrade-banner .content span {
 	font-weight: 600;
 }
 
-.gswpts-influencer-banner,
-.gswpts-ratting-banner {
+.swptls-influencer-banner,
+.swptls-ratting-banner {
 	/* display: none; */
 	flex-direction: row;
 	padding: 20px 10px;

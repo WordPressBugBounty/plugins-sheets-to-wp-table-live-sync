@@ -161,7 +161,7 @@ msgid "Invalid response structure from OpenAI API"
 msgstr "OpenAI API থেকে প্রাপ্ত রেসপন্স স্ট্রাকচার সঠিক নয়"
 
 #: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517 app/Divi/DiviModule.php:35
-#: app/Elementor/ElementorWidget.php:58 app/SWPTLS.php:265
+#: app/Elementor/ElementorWidget.php:58 app/GSWPTS.php:265
 #: app/templates/parts/review_notice.php:21
 msgid "FlexTable"
 msgstr "WP টেবিল লাইভ সিঙ্কে পত্রক"
@@ -774,23 +774,23 @@ msgstr "প্লাগিন"
 msgid "cannot be activated - requires at least PHP 5.4. Plugin automatically deactivated."
 msgstr "সক্রিয় করা যাবে না - অন্তত PHP 5.4 প্রয়োজন৷ প্লাগইন স্বয়ংক্রিয়ভাবে নিষ্ক্রিয়."
 
-#: app/SWPTLS.php:219
+#: app/GSWPTS.php:219
 msgid "Plugin is missing required dependencies. Please contact support for more information."
 msgstr "প্লাগইন প্রয়োজনীয় নির্ভরতা অনুপস্থিত. আরো তথ্যের জন্য সমর্থন যোগাযোগ করুন."
 
-#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+#: app/GSWPTS.php:237 app/Strings.php:354 app/Strings.php:580
 msgid "All Tables"
 msgstr "WP টেবিল লাইভ সিঙ্কে পত্রক"
 
-#: app/SWPTLS.php:250 app/Strings.php:213
+#: app/GSWPTS.php:250 app/Strings.php:213
 msgid "Get Pro"
 msgstr "প্রো পান"
 
-#: app/SWPTLS.php:288
+#: app/GSWPTS.php:288
 msgid "Grab Your Treat!"
 msgstr "আপনার উপহারটি নিয়ে নিন!"
 
-#: app/SWPTLS.php:295
+#: app/GSWPTS.php:295
 msgid "Grab Your Deals!"
 msgstr "আপনার অফারটি এখনই নিন!"
 
@@ -2436,14 +2436,6 @@ msgstr "১ "
 #: app/Strings.php:517
 msgid "-1"
 msgstr "-১ "
-
-#: app/Strings.php:518
-msgid "The table is limited to 100 rows."
-msgstr "লাইভ সিঙ্ক 30 সারিতে সীমাবদ্ধ।"
-
-#: app/Strings.php:519
-msgid "to show the full Google Sheet with awesome customizations."
-msgstr "চমৎকার কাস্টমাইজেশনসহ সম্পূর্ণ Google Sheet প্রদর্শনের জন্য।"
 
 #: app/Strings.php:521
 msgid "Upgrade Now →"

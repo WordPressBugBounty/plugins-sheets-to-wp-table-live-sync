@@ -155,9 +155,6 @@ function Documentation() {
 							<p className="documention-list">
 								{getstartCheckmark} {getStrings('hide-row-based-on')}
 							</p>
-							<p className="documention-list">
-								{getstartCheckmark} {getStrings('unlimited-fetch-from-gs')}
-							</p>
 
 							<a
 								href="https://go.wppool.dev/KfVZ"

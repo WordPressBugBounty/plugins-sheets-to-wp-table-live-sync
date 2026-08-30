@@ -6,6 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'SWPTLS\\' => array($baseDir . '/app'),
-    'Appsero\\' => array($vendorDir . '/appsero/client/src'),
+    'GSWPTS\\' => array($baseDir . '/app'),
+    'GSWPTSFree\\Appsero\\' => array($vendorDir . '/appsero/src'),
 );

@@ -164,7 +164,7 @@ msgstr "OpenAI API의 응답 구조가 올바르지 않습니다"
 
 #: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517
 #: app/Divi/DiviModule.php:35 app/Elementor/ElementorWidget.php:58
-#: app/SWPTLS.php:265 app/templates/parts/review_notice.php:21
+#: app/GSWPTS.php:265 app/templates/parts/review_notice.php:21
 msgid "FlexTable"
 msgstr "FlexTable"
 
@@ -806,7 +806,7 @@ msgstr ""
 "활성화할 수 없습니다 - PHP 5.4 이상이 필요합니다. 플러그인이 자동으로 비활성"
 "화되었습니다."
 
-#: app/SWPTLS.php:219
+#: app/GSWPTS.php:219
 msgid ""
 "Plugin is missing required dependencies. Please contact support for more "
 "information."
@@ -814,19 +814,19 @@ msgstr ""
 "플러그인에 필요한 구성 요소가 없습니다. 자세한 내용은 고객 지원에 문의해 주세"
 "요."
 
-#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+#: app/GSWPTS.php:237 app/Strings.php:354 app/Strings.php:580
 msgid "All Tables"
 msgstr "모든 테이블"
 
-#: app/SWPTLS.php:250 app/Strings.php:213
+#: app/GSWPTS.php:250 app/Strings.php:213
 msgid "Get Pro"
 msgstr "Pro 버전 구매"
 
-#: app/SWPTLS.php:288
+#: app/GSWPTS.php:288
 msgid "Grab Your Treat!"
 msgstr "혜택을 받아가세요!"
 
-#: app/SWPTLS.php:295
+#: app/GSWPTS.php:295
 msgid "Grab Your Deals!"
 msgstr "할인 혜택을 받아가세요!"
 
@@ -2542,14 +2542,6 @@ msgstr "1"
 #: app/Strings.php:517
 msgid "-1"
 msgstr "-1"
-
-#: app/Strings.php:518
-msgid "The table is limited to 100 rows."
-msgstr "테이블은 100행으로 제한됩니다."
-
-#: app/Strings.php:519
-msgid "to show the full Google Sheet with awesome customizations."
-msgstr "멋진 사용자 지정 옵션으로 전체 Google 시트를 표시하려면."
 
 #: app/Strings.php:521
 msgid "Upgrade Now →"

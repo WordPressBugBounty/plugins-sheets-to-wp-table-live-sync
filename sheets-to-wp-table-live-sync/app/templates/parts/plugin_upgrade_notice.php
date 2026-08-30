@@ -2,20 +2,20 @@
 /**
  * Displays affiliate notices.
  *
- * @package SWPTLS
+ * @package GSWPTS
  */
 
 // If direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
 
-$pink_diamond = SWPTLS_BASE_URL . 'assets/public/icons/top-banner/pink-diamond.svg';
+$pink_diamond = GSWPTS_BASE_URL . 'assets/public/icons/top-banner/pink-diamond.svg';
 ?>
 
-<div class="gswpts-upgrade-banner">
-	<span class="gswpts-upgrade-close"></span>
+<div class="swptls-upgrade-banner">
+	<span class="swptls-upgrade-close"></span>
 	<div class="banner-content">
 		<div class="image-icon">
-			<img class="gswpts-image-icon" src="<?php echo esc_url($pink_diamond); ?>" alt="">
+			<img class="swptls-image-icon" src="<?php echo esc_url($pink_diamond); ?>" alt="">
 		</div>
 		
 		<div class="content">
@@ -33,7 +33,7 @@ $pink_diamond = SWPTLS_BASE_URL . 'assets/public/icons/top-banner/pink-diamond.s
 
 <script>
 jQuery(document).ready(function($) {
-	$(document).on('click', '.gswpts-upgrade-close', (e) => {
+	$(document).on('click', '.swptls-upgrade-close', (e) => {
 		e.preventDefault();
 
 		let target = $(e.currentTarget);
@@ -44,7 +44,7 @@ jQuery(document).ready(function($) {
 			url: "<?php echo esc_url(admin_url( 'admin-ajax.php' )); ?>", // phpcs:ignore
 			data: {
 				action: 'gswpts_notice_action',
-				nonce: '<?php echo esc_attr( wp_create_nonce( 'swptls_notices_nonce' ) ); ?>',
+				nonce: '<?php echo esc_attr( wp_create_nonce( 'gswpts_notices_nonce' ) ); ?>',
 				info: {
 					type: 'hide_notice',
 					value: dataValue
@@ -53,7 +53,7 @@ jQuery(document).ready(function($) {
 			},
 			success: response => {
 				if (response.data.response_type === 'success') {
-					$('.gswpts-upgrade-banner').slideUp();
+					$('.swptls-upgrade-banner').slideUp();
 				}
 			}
 		});

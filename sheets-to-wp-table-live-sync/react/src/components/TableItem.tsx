@@ -73,7 +73,7 @@ function TableItem({
 	 * @param id Copy Table
 	 */
 	const handleCopyTable = (id) => {
-		wp.ajax.send('swptls_copy_table', {
+		wp.ajax.send('gswpts_copy_table', {
 			data: {
 				nonce: getNonce(),
 				id,
@@ -81,7 +81,7 @@ function TableItem({
 			success() {
 				setLoader(true);
 
-				wp.ajax.send('swptls_get_tables', {
+				wp.ajax.send('gswpts_get_tables', {
 					data: {
 						nonce: getNonce(),
 					},
@@ -109,7 +109,7 @@ function TableItem({
 	};
 
 	const ConfirmDeleteTable = (id) => {
-		wp.ajax.send('swptls_delete_table', {
+		wp.ajax.send('gswpts_delete_table', {
 			data: {
 				nonce: getNonce(),
 				id,
@@ -118,7 +118,7 @@ function TableItem({
 				setDeleteModal(false);
 				setLoader(true);
 
-				wp.ajax.send('swptls_get_tables', {
+				wp.ajax.send('gswpts_get_tables', {
 					data: {
 						nonce: getNonce(),
 					},

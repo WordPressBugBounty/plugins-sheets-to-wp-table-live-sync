@@ -2,7 +2,7 @@
 /**
  * Displays popup modals.
  *
- * @package SWPTLS
+ * @package GSWPTS
  */
 
 // If direct access than exit the file.
@@ -12,13 +12,13 @@ defined( 'ABSPATH' ) || exit;
 <!-- Popup modal for table style -->
 <div class="tableStyleModal">
 	<div class="styleModal transition hidden">
-		<?php require SWPTLS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
+		<?php require GSWPTS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
 		<div class="header">
 			<h4><?php esc_html_e( 'Choose Table Style', 'sheets-to-wp-table-live-sync' ); ?></h4>
 		</div>
 
 		<div class="body">
-			<?php swptls()->settings->tableStylesHtml(); ?>
+			<?php gswpts()->settings->tableStylesHtml(); ?>
 		</div>
 
 		<div class="actions">
@@ -35,8 +35,8 @@ defined( 'ABSPATH' ) || exit;
 
 <!-- Popup modal for Hide Column feature  -->
 <div class="hide-column-modal-wrapper">
-	<div class="gswpts-hide-modal transition hidden">
-		<?php require SWPTLS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
+	<div class="swptls-hide-modal transition hidden">
+		<?php require GSWPTS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
 		<div class="header">
 			<h4><?php esc_html_e( 'Choose Column To Hide', 'sheets-to-wp-table-live-sync' ); ?></h4>
 		</div>
@@ -83,8 +83,8 @@ defined( 'ABSPATH' ) || exit;
 
 <!-- Popup modal for Hide Rows feature  -->
 <div class="hide-rows-modal-wrapper">
-	<div class="gswpts-hide-modal transition hidden">
-		<?php require SWPTLS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
+	<div class="swptls-hide-modal transition hidden">
+		<?php require GSWPTS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
 		<div class="header">
 			<h4><?php esc_html_e( 'Activate Row Hiding Feature', 'sheets-to-wp-table-live-sync' ); ?></h4>
 		</div>
@@ -107,7 +107,7 @@ defined( 'ABSPATH' ) || exit;
 				<span><?php esc_html_e( 'Cancel', 'sheets-to-wp-table-live-sync' ); ?></span>
 			</div>
 			<div class="ui toggle checkbox">
-				<?php $is_pro = swptls()->settings->table_tools_array()['hide_rows']['is_pro']; ?> 
+				<?php $is_pro = gswpts()->settings->table_tools_array()['hide_rows']['is_pro']; ?> 
 				<input
 					type="checkbox"
 					class="<?php echo ( isset( $is_pro ) && $is_pro ) ? 'pro_feature_input' : ''; ?> selectBtn"
@@ -122,8 +122,8 @@ defined( 'ABSPATH' ) || exit;
 
 <!-- Popup modal for Hide Cell feature  -->
 <div class="hide-cell-modal-wrapper">
-	<div class="gswpts-hide-modal transition hidden">
-		<?php require SWPTLS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
+	<div class="swptls-hide-modal transition hidden">
+		<?php require GSWPTS_BASE_PATH . 'assets/public/icons/times-circle-solid.svg'; ?>
 		<div class="header">
 			<h4><?php esc_html_e( 'Activate Cell Hiding Feature', 'sheets-to-wp-table-live-sync' ); ?></h4>
 		</div>
@@ -146,7 +146,7 @@ defined( 'ABSPATH' ) || exit;
 				<?php esc_html_e( 'Cancel', 'sheets-to-wp-table-live-sync' ); ?>
 			</div>
 			<div class="ui toggle checkbox">
-				<?php $is_pro = swptls()->settings->table_tools_array()['hide_cell']['is_pro']; ?>
+				<?php $is_pro = gswpts()->settings->table_tools_array()['hide_cell']['is_pro']; ?>
 				<input type="checkbox"
 					class="<?php echo ( isset( $is_pro ) && $is_pro ) ? 'pro_feature_input' : ''; ?> selectBtn"
 					name="active_hidden_cells" id="active_hidden_cells">

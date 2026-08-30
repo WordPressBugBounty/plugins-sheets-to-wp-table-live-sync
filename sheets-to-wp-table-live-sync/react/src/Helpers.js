@@ -1,4 +1,4 @@
-const config = Object.assign( {}, window.SWPTLS_APP );
+const config = Object.assign( {}, window.GSWPTS_APP );
 
 export function getNonce() {
 	return config.nonce;
@@ -369,7 +369,7 @@ export const setPdfUrl = ( url ) => {
 			pdfBtn.appendChild( span );
 
 			const img = document.createElement( 'img' );
-			img.src = SWPTLS_APP.icons.filePdf;
+			img.src = GSWPTS_APP.icons.filePdf;
 			span.appendChild( img );
 			//Tooltip for pdf.
 			pdfBtn.setAttribute( 'title', getStrings( 'export-pdf' ) );
@@ -402,7 +402,7 @@ export const hideColumnByScreen = ( arrayValues ) => {
 export function getExportButtonOptions( values ) {
 	return [
 		{
-			text: `<img src="${ SWPTLS_APP.iconsURL.curlyBrackets }" />`,
+			text: `<img src="${ GSWPTS_APP.iconsURL.curlyBrackets }" />`,
 			className: 'ui inverted button transition hidden json_btn',
 			action( e, dt, button, config ) {
 				const data = dt.buttons.exportData();
@@ -414,25 +414,25 @@ export function getExportButtonOptions( values ) {
 			},
 		},
 		{
-			text: `<img src="${ SWPTLS_APP.iconsURL.fileCSV }" />`,
+			text: `<img src="${ GSWPTS_APP.iconsURL.fileCSV }" />`,
 			extend: 'csv',
 			className: 'ui inverted button transition hidden csv_btn',
 			title: `${ values.table_name }`,
 		},
 		{
-			text: `<img src="${ SWPTLS_APP.iconsURL.fileExcel }" />`,
+			text: `<img src="${ GSWPTS_APP.iconsURL.fileExcel }" />`,
 			extend: 'excel',
 			className: 'ui inverted button transition hidden excel_btn',
 			title: `${ values.table_name }`,
 		},
 		{
-			text: `<img src="${ SWPTLS_APP.iconsURL.printIcon }" />`,
+			text: `<img src="${ GSWPTS_APP.iconsURL.printIcon }" />`,
 			extend: 'print',
 			className: 'ui inverted button transition hidden print_btn',
 			title: `${ values.table_name }`,
 		},
 		{
-			text: `<img src="${ SWPTLS_APP.iconsURL.copySolid }" />`,
+			text: `<img src="${ GSWPTS_APP.iconsURL.copySolid }" />`,
 			extend: 'copy',
 			className: 'ui inverted button transition hidden copy_btn',
 			title: `${ values.table_name }`,
@@ -842,12 +842,12 @@ export function handleTableAppearance( settings ) {
 		// Detect theme name
 		let themeName = '';
 		const classList = document.getElementById( 'table-preview' ).classList;
-		let gswptsCount = 0;
+		let swptlsCount = 0;
 
 		for ( let className of classList ) {
 			if ( className.startsWith( 'gswpts_' ) ) {
-				gswptsCount++;
-				if ( gswptsCount === 2 ) {
+				swptlsCount++;
+				if ( swptlsCount === 2 ) {
 					// Select the second occurrence
 					themeName = className.replace( 'gswpts_', '' ); // Strip the prefix
 					break;
@@ -1638,12 +1638,12 @@ export function handleTableAppearance( settings ) {
 
 				const classList =
 					document.getElementById( 'table-preview' ).classList;
-				let gswptsCount = 0;
+				let swptlsCount = 0;
 
 				for ( let className of classList ) {
 					if ( className.startsWith( 'gswpts_' ) ) {
-						gswptsCount++;
-						if ( gswptsCount === 2 ) {
+						swptlsCount++;
+						if ( swptlsCount === 2 ) {
 							// Select the second occurrence
 							themeName = className.replace( 'gswpts_', '' ); // Strip the prefix
 							break;
@@ -1758,11 +1758,7 @@ export function handleTableAppearance( settings ) {
 			const selectedValue = event.target.value;
 
 			// Check if the user is not active and the selected value is '100', or '-1'
-			if (
-				! isProActive() &&
-				( selectedValue === '100' || selectedValue === '-1' )
-			) {
-				// If the user is not pro and the selected value is '100', or '-1', prevent the event
+			if (! isProActive() && ( selectedValue === '100' || selectedValue === '-1' )) {
 				event.preventDefault();
 			} else {
 				// Otherwise, set the value of selectElement2 and dispatch the event
@@ -1975,7 +1971,7 @@ export function handleTableAppearance( settings ) {
 			var match = currentURL.match( /\/edit\/(\d+)/ );
 			if ( match ) {
 				var idValue = match[ 1 ];
-				wp.ajax.send( 'swptls_update_sorting', {
+				wp.ajax.send( 'gswpts_update_sorting', {
 					data: {
 						nonce: getNonce(),
 						id: idValue,

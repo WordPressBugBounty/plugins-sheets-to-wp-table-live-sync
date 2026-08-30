@@ -1,0 +1,13 @@
+@import "./parts/loader";
+@import "./parts/variable";
+@import "./parts/dashboard";
+@import "./parts/manage_table";
+@import "./parts/create_table";
+@import "./parts/create_tab";
+@import "./parts/general_settings";
+@import "./layout.scss";
+@import "./parts/core";
+
+.toplevel_page_swptls-dashboard .swptls-table-title {
+	display: none;
+}

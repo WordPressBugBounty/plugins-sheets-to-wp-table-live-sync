@@ -143,7 +143,7 @@ function Settings() {
 			item.addEventListener('click', handleClick);
 		});
 
-		wp.ajax.send('swptls_get_ai_providers', {
+		wp.ajax.send('gswpts_get_ai_providers', {
 			data: {
 				nonce: getNonce(),
 			},
@@ -155,7 +155,7 @@ function Settings() {
 			},
 		});
 
-		wp.ajax.send('swptls_get_settings', {
+		wp.ajax.send('gswpts_get_settings', {
 			data: {
 				nonce: getNonce(),
 			},
@@ -197,7 +197,7 @@ function Settings() {
 	const handleSaveSettings = (e) => {
 		e.preventDefault();
 
-		wp.ajax.send('swptls_save_settings', {
+		wp.ajax.send('gswpts_save_settings', {
 			data: {
 				nonce: getNonce(),
 				settings: JSON.stringify(settings),
@@ -248,7 +248,7 @@ function Settings() {
 
 		setIsTestingAPI(true);
 
-		(window as any).wp.ajax.send('swptls_test_ai_api', {
+		(window as any).wp.ajax.send('gswpts_test_ai_api', {
 			data: {
 				nonce: getNonce(),
 				provider: currentProvider,

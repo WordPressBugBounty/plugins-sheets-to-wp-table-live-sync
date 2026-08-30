@@ -164,7 +164,7 @@ msgstr "Nieprawidłowa struktura odpowiedzi z API OpenAI"
 
 #: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517
 #: app/Divi/DiviModule.php:35 app/Elementor/ElementorWidget.php:58
-#: app/SWPTLS.php:265 app/templates/parts/review_notice.php:21
+#: app/GSWPTS.php:265 app/templates/parts/review_notice.php:21
 msgid "FlexTable"
 msgstr "FlexTable"
 
@@ -820,7 +820,7 @@ msgstr ""
 "nie może zostać aktywowana – wymaga co najmniej PHP 5.4. Wtyczka została "
 "automatycznie dezaktywowana."
 
-#: app/SWPTLS.php:219
+#: app/GSWPTS.php:219
 msgid ""
 "Plugin is missing required dependencies. Please contact support for more "
 "information."
@@ -828,19 +828,19 @@ msgstr ""
 "Wtyczce brakuje wymaganych zależności. Skontaktuj się z pomocą techniczną, "
 "aby uzyskać więcej informacji."
 
-#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+#: app/GSWPTS.php:237 app/Strings.php:354 app/Strings.php:580
 msgid "All Tables"
 msgstr "Wszystkie tabele"
 
-#: app/SWPTLS.php:250 app/Strings.php:213
+#: app/GSWPTS.php:250 app/Strings.php:213
 msgid "Get Pro"
 msgstr "Zdobądź wersję Pro"
 
-#: app/SWPTLS.php:288
+#: app/GSWPTS.php:288
 msgid "Grab Your Treat!"
 msgstr "Skorzystaj z okazji!"
 
-#: app/SWPTLS.php:295
+#: app/GSWPTS.php:295
 msgid "Grab Your Deals!"
 msgstr "Skorzystaj z promocji!"
 
@@ -2610,16 +2610,6 @@ msgstr "1"
 #: app/Strings.php:517
 msgid "-1"
 msgstr "-1"
-
-#: app/Strings.php:518
-msgid "The table is limited to 100 rows."
-msgstr "Tabela jest ograniczona do 100 wierszy."
-
-#: app/Strings.php:519
-msgid "to show the full Google Sheet with awesome customizations."
-msgstr ""
-"aby wyświetlić pełny arkusz Google z niesamowitymi możliwościami "
-"dostosowania."
 
 #: app/Strings.php:521
 msgid "Upgrade Now →"

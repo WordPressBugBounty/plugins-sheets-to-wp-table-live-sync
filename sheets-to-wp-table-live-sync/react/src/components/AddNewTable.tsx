@@ -31,7 +31,7 @@ function AddNewTable() {
 	}, [tableCount]);
 
 	useEffect(() => {
-		wp.ajax.send('swptls_get_tables', {
+		wp.ajax.send('gswpts_get_tables', {
 			data: {
 				nonce: getNonce(),
 			},
@@ -54,50 +54,22 @@ function AddNewTable() {
 		return newUrl;
 	};
 
+
 	const handleCreateTable = () => {
 		const newUrl = constructCreateTableUrl();
-
-		if (isProActive()) {
-			window.location.href = newUrl;
-		} else {
-			if (tableCount >= 10) {
-				// alert("You can't create more than 10 tables.");
-				toast.warning(
-					<>
-						{getStrings('table-10-limited')}{' '}
-						<a target="blank" href="https://go.wppool.dev/DoC">
-							{' '}
-							{getStrings('upgrade-pro')}
-						</a>
-					</>
-				);
-			} else {
-				window.location.href = newUrl;
-			}
-		}
+		window.location.href = newUrl;
 	};
 
 	return (
 		<>
-			{tableCount < 10 ? (
-				<Link
-					to="/tables/create"
-					className="add-new-table btn add-new-table-btn"
-				>
-					{GrayPlusIcon}
-					{getStrings('add-new-table')}
-				</Link>
-			) : (
-				// <button className="add-new-table btn add-new-table-btn" onClick={handleCreateTable}>
-				<button
-					className={`add-new-table btn add-new-table-btn${!isProActive() ? ` swptls-pro-lock` : ``
-						}`}
-					onClick={handleCreateTable}
-				>
-					{GrayPlusIcon}
-					{getStrings('add-new-table')}
-				</button>
-			)}
+			<button
+				className={`add-new-table btn add-new-table-btn${!isProActive() ? ` swptls-pro-lock` : ``
+					}`}
+				onClick={handleCreateTable}
+			>
+				{GrayPlusIcon}
+				{getStrings('add-new-table')}
+			</button>
 		</>
 	);
 }

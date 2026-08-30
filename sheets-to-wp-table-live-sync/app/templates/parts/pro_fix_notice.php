@@ -2,17 +2,17 @@
 /**
  * Displays pro fix notice.
  *
- * @package SWPTLS
+ * @package GSWPTS
  */
 
 // If direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<div class="gswpts-pro-fix-banner">
-	<span class="gswpts-pro-fix-close"></span>
+<div class="swptls-pro-fix-banner">
+	<span class="swptls-pro-fix-close"></span>
 	<div class="banner-content">
-		<div class="gswpts-pro-fix-wrapper">
+		<div class="swptls-pro-fix-wrapper">
 			<h3 class="pro-fix-heading">
 				<?php esc_html_e("Let's Get Your FlexTable Pro Plugin Updated!", 'sheets-to-wp-table-live-sync'); ?>
 			</h3>
@@ -77,7 +77,7 @@ defined( 'ABSPATH' ) || exit;
 </div>
 
 <style>
-.gswpts-pro-fix-banner {
+.swptls-pro-fix-banner {
 	position: relative;
 	background: #fff;
 	border: 1px solid #c3c4c7;
@@ -88,14 +88,14 @@ defined( 'ABSPATH' ) || exit;
 	padding: 1px 12px;
 }
 
-.gswpts-pro-fix-banner .banner-content {
+.swptls-pro-fix-banner .banner-content {
 	display: flex;
 	align-items: center;
 	padding: 15px 0;
 	position: relative;
 }
 
-.gswpts-pro-fix-close {
+.swptls-pro-fix-close {
 	position: absolute;
 	top: 8px;
 	right: 8px;
@@ -108,20 +108,20 @@ defined( 'ABSPATH' ) || exit;
 	z-index: 10;
 }
 
-.gswpts-pro-fix-close:hover {
+.swptls-pro-fix-close:hover {
 	opacity: 1;
 }
 
-.gswpts-pro-fix-image {
+.swptls-pro-fix-image {
 	margin-right: 15px;
 }
 
-.gswpts-pro-fix-image img {
+.swptls-pro-fix-image img {
 	width: 40px;
 	height: 40px;
 }
 
-.gswpts-pro-fix-wrapper {
+.swptls-pro-fix-wrapper {
 	flex: 1;
 }
 
@@ -317,7 +317,7 @@ jQuery(document).ready(function($) {
 	});
 
 	// Close notice when X is clicked
-	$('.gswpts-pro-fix-close').click(function(e) {
+	$('.swptls-pro-fix-close').click(function(e) {
 		e.preventDefault();
 		e.stopPropagation();
 		$('#pro-fix-popup').show();
@@ -335,14 +335,14 @@ jQuery(document).ready(function($) {
 			url: "<?php echo esc_url(admin_url( 'admin-ajax.php' )); ?>",
 			data: {
 				action: 'gswpts_pro_fix_action',
-				nonce: '<?php echo esc_attr( wp_create_nonce( 'swptls_pro_fix_nonce' ) ); ?>',
+				nonce: '<?php echo esc_attr( wp_create_nonce( 'gswpts_pro_fix_nonce' ) ); ?>',
 				action_type: 'apply_fix'
 			},
 			success: function(response) {
 				if (response.success) {
 					$btn.removeClass('loading').text('<?php esc_html_e('Fixed!', 'sheets-to-wp-table-live-sync'); ?>').css('background', '#00a32a');
 					setTimeout(function() {
-						$('.gswpts-pro-fix-banner').slideUp();
+						$('.swptls-pro-fix-banner').slideUp();
 					}, 2000);
 				} else {
 					$btn.removeClass('loading').text('<?php esc_html_e('Auto Fix', 'sheets-to-wp-table-live-sync'); ?>');
@@ -376,13 +376,13 @@ jQuery(document).ready(function($) {
 			url: "<?php echo esc_url(admin_url( 'admin-ajax.php' )); ?>",
 			data: {
 				action: 'gswpts_pro_fix_action',
-				nonce: '<?php echo esc_attr( wp_create_nonce( 'swptls_pro_fix_nonce' ) ); ?>',
+				nonce: '<?php echo esc_attr( wp_create_nonce( 'gswpts_pro_fix_nonce' ) ); ?>',
 				action_type: 'decline_fix'
 			},
 			success: function(response) {
 				if (response.success) {
 					$('#pro-fix-popup').hide();
-					$('.gswpts-pro-fix-banner').slideUp();
+					$('.swptls-pro-fix-banner').slideUp();
 				} else {
 					$btn.removeClass('loading').text('<?php esc_html_e('OK', 'sheets-to-wp-table-live-sync'); ?>');
 					alert(response.data.message || '<?php esc_html_e('An error occurred. Please try again.', 'sheets-to-wp-table-live-sync'); ?>');
@@ -413,7 +413,7 @@ jQuery(document).ready(function($) {
 		if ($('#pro-fix-popup').is(':visible')) {
 			var isInsidePopup = $(event.target).closest('.pro-fix-popup-content').length > 0;
 			var isCancelBtn = $(event.target).is('.cancel-btn') || $(event.target).closest('.cancel-btn').length > 0;
-			var isXIcon = $(event.target).is('.gswpts-pro-fix-close') || $(event.target).closest('.gswpts-pro-fix-close').length > 0;
+			var isXIcon = $(event.target).is('.swptls-pro-fix-close') || $(event.target).closest('.swptls-pro-fix-close').length > 0;
 			
 			console.log('Outside click detected:', {
 				target: event.target.className,

@@ -126,7 +126,7 @@ const MagicWizard = ({ isAIConfigured, tableSettings, setTableSettings }) => {
                     <p>{getStrings('ai-connect-to-unlock-features-description')}</p>
                     <div className="wizard-buttons">
                         <a
-                            href="?page=gswpts-dashboard#/settings-aiconfig"
+                            href="?page=swptls-dashboard#/settings-aiconfig"
                             className="setup-ai-button"
                         >
 

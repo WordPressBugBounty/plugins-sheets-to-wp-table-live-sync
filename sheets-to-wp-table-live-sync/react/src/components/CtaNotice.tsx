@@ -35,7 +35,7 @@ const CtaNotice: React.FC<CtaNoticeProps> = ({ onDismiss }) => {
 					'Content-Type': 'application/x-www-form-urlencoded',
 				},
 				body: new URLSearchParams({
-					action: 'swptls_dismiss_cta_notice',
+					action: 'gswpts_dismiss_cta_notice',
 					nonce: getNonce(),
 				}),
 			});

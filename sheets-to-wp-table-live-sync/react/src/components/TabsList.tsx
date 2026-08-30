@@ -31,7 +31,7 @@ const TabsList = ({ tabs, setTabs, setTabCount }) => {
 	const handleMovetoDashboard = () => {
 		// Remove the 'current' class from the "Manage Tab" li
 		const manageTabLi = document.querySelector(
-			'#toplevel_page_gswpts-dashboard li.current'
+			'#toplevel_page_swptls-dashboard li.current'
 		);
 		if (manageTabLi) {
 			manageTabLi.classList.remove('current');
@@ -39,7 +39,7 @@ const TabsList = ({ tabs, setTabs, setTabCount }) => {
 
 		// Add the 'current' class to the "Dashboard" li with the class "wp-first-item"
 		const dashboardLi = document.querySelector(
-			'#toplevel_page_gswpts-dashboard li.wp-first-item'
+			'#toplevel_page_swptls-dashboard li.wp-first-item'
 		);
 		if (dashboardLi) {
 			dashboardLi.classList.add('current');
@@ -65,7 +65,7 @@ const TabsList = ({ tabs, setTabs, setTabCount }) => {
 	useEffect(() => {
 		setLoader(true);
 		if (isProActive()) {
-			wp.ajax.send('swptls_get_tabs', {
+			wp.ajax.send('gswpts_get_tabs', {
 				data: {
 					nonce: getNonce(),
 				},

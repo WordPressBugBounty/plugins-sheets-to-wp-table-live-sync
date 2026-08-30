@@ -1,0 +1,162 @@
+<?php
+/**
+ * Registering table display elementor widget for the plugin.
+ *
+ * @since 2.13.1
+ * @package GSWPTS
+ */
+
+namespace GSWPTS\Elementor;  // phpcs:ignore
+
+use GSWPTS\Elementor\GSWPTS_TemplateContent;  // phpcs:ignore
+
+// If direct access than exit the file.
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Registering elementor widget.
+ *
+ * @since 2.13.1
+ */
+class GSWPTS_ElementorWidget extends \Elementor\Widget_Base {
+
+	/**
+	 * Class constructor.
+	 *
+	 * @param array $data The widget default data.
+	 * @param array $args The widget default arguments.
+	 * @since 2.13.1
+	 */
+	public function __construct( $data = [], $args = null ) {
+		parent::__construct( $data, $args );
+
+		wp_enqueue_style(
+			'GSWPTS-elementor-table',
+			GSWPTS_BASE_URL . 'assets/public/styles/elementor.min.css',
+			[],
+			GSWPTS_VERSION,
+			'all'
+		);
+		gswpts()->assets->frontend_scripts();
+	}
+
+	/**
+	 * Plugin widget name.
+	 *
+	 * @since 2.13.1
+	 */
+	public function get_name() {
+		return 'sheets-to-wp-table-sync-live';
+	}
+
+	/**
+	 * Plugin widget title.
+	 *
+	 * @since 2.13.1
+	 */
+	public function get_title() {
+		return __( 'FlexTable', 'sheets-to-wp-table-live-sync' );
+	}
+
+	/**
+	 * Plugin widget icon.
+	 *
+	 * @since 2.13.1
+	 */
+	public function get_icon() {
+		return 'gswpts_icon';
+	}
+
+	/**
+	 * Plugin widget categories.
+	 *
+	 * @since 2.13.1
+	 */
+	public function get_categories() {
+		return [ 'basic' ];
+	}
+
+	/**
+	 * Registers widget controls.
+	 *
+	 * @since 2.13.1
+	 */
+	protected function register_controls() {
+		$this->start_controls_section(
+			'table_section',
+			[
+				'label' => 'Tables',
+				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'choose_table',
+			[
+				'label'   => __( 'Choose Table', 'sheets-to-wp-table-live-sync' ),
+				'type'    => \Elementor\Controls_Manager::SELECT,
+				'default' => 'select',
+				'options' => $this->tables_info(),
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Get tables list.
+	 *
+	 * @return array
+	 */
+	protected function tables_info() {
+		$options = [
+			'select' => 'Select a table',
+		];
+
+		$details = gswpts()->database->table->get_all();
+
+		if ( $details ) {
+			foreach ( $details as $table ) {
+				$options[ $table->id ] = $table->table_name;
+			}
+		}
+		return $options;
+	}
+
+	/**
+	 * Render the widget.
+	 *
+	 * @return void
+	 */
+	protected function render() {
+		$settings = $this->get_settings_for_display();
+
+		if ( 'select' === $settings['choose_table'] ) {
+			return;
+		}
+
+		$table_id  = absint( $settings['choose_table'] );
+
+		$shortcode = do_shortcode( sprintf( '[gswpts_table id="%s"]', $table_id ) );
+
+		echo wp_kses_post( $shortcode );
+	}
+
+	/**
+	 * Load the dynamic content template.
+	 *
+	 * @return void
+	 */
+	protected function content_template() {
+		$template = new GSWPTS_TemplateContent();
+
+		?>
+<# if ( settings.choose_table !='select' ) { #>
+		<?php $template->table_container(); ?>
+		<?php $template->render_template_js(); ?>
+	<# } else{ #>
+		<?php $template->init_content(); ?>
+		<# } #>
+			<?php
+	}
+}

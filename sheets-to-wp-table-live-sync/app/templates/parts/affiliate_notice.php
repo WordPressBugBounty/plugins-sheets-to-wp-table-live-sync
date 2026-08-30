@@ -2,24 +2,24 @@
 /**
  * Displays affiliate notices.
  *
- * @package SWPTLS
+ * @package GSWPTS
  */
 
 // If direct access than exit the file.
 defined( 'ABSPATH' ) || exit;
 
-$purple_thumbs_up = SWPTLS_BASE_URL . 'assets/public/icons/top-banner/purple-thumbs-up.svg';
+$purple_thumbs_up = GSWPTS_BASE_URL . 'assets/public/icons/top-banner/purple-thumbs-up.svg';
 ?>
 
-<div class="gswpts-influencer-banner">
+<div class="swptls-influencer-banner">
 			
-	<span class="gswpts-influencer-close"></span>
+	<span class="swptls-influencer-close"></span>
 
 	<div class="banner-content" data-value="hide_notice">
-		<div class="gswpts-influencer-image">
-			<img class="gswpts-image-icon" src="<?php echo esc_url($purple_thumbs_up); ?>" alt="">
+		<div class="swptls-influencer-image">
+			<img class="swptls-image-icon" src="<?php echo esc_url($purple_thumbs_up); ?>" alt="">
 		</div>
-		<div class="gswpts-influencer-wrapper">
+		<div class="swptls-influencer-wrapper">
 			<h3><?php esc_html_e('Hey! Enjoying the FlexTable plugin? 😍 Join our ', 'sheets-to-wp-table-live-sync'); ?>
 			<span><?php printf('<a style="text-decoration:none; color:#7C3AED; font-family:inherit; cursor: pointer;" href="%s" target="_blank">%s</a>', esc_url('https://go.wppool.dev/VggE'), esc_html('Influencer Program ', 'sheets-to-wp-table-live-sync')); ?></span>
 			<?php esc_html_e('to make money from your social media content. You can also check our', 'sheets-to-wp-table-live-sync'); ?>
@@ -40,7 +40,7 @@ $purple_thumbs_up = SWPTLS_BASE_URL . 'assets/public/icons/top-banner/purple-thu
 
 <script>
 jQuery(document).ready(function($) {
-	$(document).on('click', '.gswpts-influencer-close', (e) => {
+	$(document).on('click', '.swptls-influencer-close', (e) => {
 		e.preventDefault();
 
 		let target = $(e.currentTarget);
@@ -51,7 +51,7 @@ jQuery(document).ready(function($) {
 			url: "<?php echo esc_url(admin_url( 'admin-ajax.php' )); ?>", // phpcs:ignore
 			data: {
 				action: 'gswpts_notice_action',
-				nonce: '<?php echo esc_attr( wp_create_nonce( 'swptls_notices_nonce' ) ); ?>',
+				nonce: '<?php echo esc_attr( wp_create_nonce( 'gswpts_notices_nonce' ) ); ?>',
 				info: {
 					// type: 'reminder', // use for review notice
 					type: 'hide_notice',
@@ -61,7 +61,7 @@ jQuery(document).ready(function($) {
 			},
 			success: response => {
 				if (response.data.response_type === 'success') {
-					$('.gswpts-influencer-banner').slideUp();
+					$('.swptls-influencer-banner').slideUp();
 				}
 			}
 		});

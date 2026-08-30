@@ -165,7 +165,7 @@ msgstr ""
 
 #: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517
 #: app/Divi/DiviModule.php:35 app/Elementor/ElementorWidget.php:58
-#: app/SWPTLS.php:265 app/templates/parts/review_notice.php:21
+#: app/GSWPTS.php:265 app/templates/parts/review_notice.php:21
 msgid "FlexTable"
 msgstr ""
 
@@ -684,23 +684,23 @@ msgstr ""
 msgid "cannot be activated - requires at least PHP 5.4. Plugin automatically deactivated."
 msgstr ""
 
-#: app/SWPTLS.php:219
+#: app/GSWPTS.php:219
 msgid "Plugin is missing required dependencies. Please contact support for more information."
 msgstr ""
 
-#: app/SWPTLS.php:237 app/Strings.php:356 app/Strings.php:582
+#: app/GSWPTS.php:237 app/Strings.php:356 app/Strings.php:582
 msgid "All Tables"
 msgstr ""
 
-#: app/SWPTLS.php:250 app/Strings.php:214
+#: app/GSWPTS.php:250 app/Strings.php:214
 msgid "Get Pro"
 msgstr ""
 
-#: app/SWPTLS.php:288
+#: app/GSWPTS.php:288
 msgid "Grab Your Treat!"
 msgstr ""
 
-#: app/SWPTLS.php:295
+#: app/GSWPTS.php:295
 msgid "Grab Your Deals!"
 msgstr ""
 
@@ -2142,14 +2142,6 @@ msgstr ""
 
 #: app/Strings.php:519
 msgid "-1"
-msgstr ""
-
-#: app/Strings.php:520
-msgid "The table is limited to 100 rows."
-msgstr ""
-
-#: app/Strings.php:521
-msgid "to show the full Google Sheet with awesome customizations."
 msgstr ""
 
 #: app/Strings.php:523

@@ -2,11 +2,13 @@
 /**
  * Displays documentation page template.
  *
- * @package SWPTLS
+ * @package GSWPTS
  */
+// If direct access than exit the file.
+defined( 'ABSPATH' ) || exit;
 
 ?>
-<div class="gswpts_dashboard_container" id="toplevel_page_gswpts-dashboard">
+<div class="gswpts_dashboard_container" id="toplevel_page_swptls-dashboard">
 	<div class="ui segment gswpts_loader">
 		<div class="ui active inverted dimmer">
 			<div class="ui massive text loader"></div>
@@ -20,9 +22,9 @@
 		<div class="row heading_row mr-0 ml-0 mb-3">
 			<div class="col-12 p-0 mt-2 d-flex justify-content-between align-items-center">
 				<div class="d-flex justify-content-start p-0 align-items-center">
-					<img src="<?php echo esc_url( SWPTLS_BASE_URL . 'assets/public/images/admin-icon-elementor.svg' ); ?>" alt="">
+					<img src="<?php echo esc_url( GSWPTS_BASE_URL . 'assets/public/images/admin-icon-elementor.svg' ); ?>" alt="">
 					<span class="ml-2">
-						<strong><?php echo esc_html( SWPTLS_PLUGIN_NAME ); ?></strong>
+						<strong><?php echo esc_html( GSWPTS_PLUGIN_NAME ); ?></strong>
 					</span>
 					<span class="gswpts_changelogs"></span>
 				</div>
@@ -38,7 +40,7 @@
 		<div class="gswpts_grid_container">
 			<!-- Start video section -->
 			<div class="video_box dash_boxes" style="display: flex; justify-content: center; flex-direction: column">
-				<?php printf( '<h2 class="p-0 m-t-0 m-b-4">%s <i>%s</i></h2', esc_html__( 'Welcome to', 'sheets-to-wp-table-live-sync' ), esc_html( SWPTLS_PLUGIN_NAME ) ); ?>
+				<?php printf( '<h2 class="p-0 m-t-0 m-b-4">%s <i>%s</i></h2', esc_html__( 'Welcome to', 'sheets-to-wp-table-live-sync' ), esc_html( GSWPTS_PLUGIN_NAME ) ); ?>
 				<p>
 				</p>
 				<iframe style="width: 100%; border-radius: 8px;" height="370"
@@ -59,14 +61,14 @@
 						<a href="https://wppool.dev/google-sheets-to-wordpress-table-live-sync/" target="_blank"><?php esc_html_e( 'Get Help', 'sheets-to-wp-table-live-sync' ); ?></a>
 					</div>
 					<div class="second_col">
-						<img src="<?php echo esc_url( SWPTLS_BASE_URL . 'assets/public/images/need_help.svg' ); ?>"
+						<img src="<?php echo esc_url( GSWPTS_BASE_URL . 'assets/public/images/need_help.svg' ); ?>"
 							alt="need-help">
 					</div>
 				</div>
 			</div>
 			<!-- End of help center -->
 
-			<?php if ( ! swptls()->helpers->check_pro_plugin_exists() ) { ?>
+			<?php if ( ! gswpts()->helpers->check_pro_plugin_exists() ) { ?>
 			<!-- Start Get Pro section -->
 			<div class="gswpts_pro_box dash_boxes">
 				<div class="col-12 p-0 pt-4 m-0 d-flex">
@@ -152,7 +154,7 @@
 							</div>
 						</div>
 						<div class="col-md-12 col-lg-6 p-0 m-0 d-flex align-items-center premium_svg">
-							<img src="<?php echo esc_url( SWPTLS_BASE_URL . 'assets/public/images/premium.svg' ); ?>"
+							<img src="<?php echo esc_url( GSWPTS_BASE_URL . 'assets/public/images/premium.svg' ); ?>"
 								alt="premium">
 						</div>
 					</div>
@@ -164,7 +166,7 @@
 			<!-- Made by section  -->
 			<div class="made_by">
 				<div class="made_by_container">
-					<img src="<?php echo esc_url( SWPTLS_BASE_URL . 'assets/public/images/made-by.svg' ); ?>" alt="">
+					<img src="<?php echo esc_url( GSWPTS_BASE_URL . 'assets/public/images/made-by.svg' ); ?>" alt="">
 					<div class="extras">
 						<span>
 							<a href="https://wppool.dev/" target="_blank">wppool.dev</a>

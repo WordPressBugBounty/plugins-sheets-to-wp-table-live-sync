@@ -50,7 +50,7 @@ function Recommendation() {
 		if (!headerData) {
 			return html;
 		}
-		
+
 		// Split the HTML by plugin-group to process each section independently
 		const sections: string[] = [];
 		let remainingHTML = html;

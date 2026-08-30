@@ -5,7 +5,7 @@
  *
  * * Data WILL BE ONLY SENT IF user allows to send data from Admin Notice manually.
  *
- * @package WPPOOL_PLUGIN
+ * @package GSWPTS_PLUGINSDK
  */
 
 // Exit if accessed directly.
@@ -14,13 +14,13 @@ defined( 'ABSPATH' ) || exit();
 /**
  * Plugin Class
  */
-if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
+if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 	/**
 	 * Handles all the WPPOOL Plugin related functionalities, promotions, etc.
 	 *
 	 * @version 3.0.0
 	 */
-	class WPPOOL_Plugin {
+	class GSWPTS_Pluginsdk {
 		/**
 		 * Contains instance of Plugin.
 		 *
@@ -204,7 +204,7 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 		 * @return array
 		 */
 		public function get_plugins() {
-			return apply_filters( 'wppool_plugins', $this->plugins );
+			return apply_filters( 'gswpts_pluginsdks', $this->plugins );
 		}
 
 		/**
@@ -538,7 +538,7 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 					 * @return {object}
 					 */
 					get data() {
-						const plugin_data = this.name in WPPOOL_Plugins.plugins ? WPPOOL_Plugins.plugins[ this.name ] : null;
+						const plugin_data = this.name in GSWPTS_Pluginsdks.plugins ? GSWPTS_Pluginsdks.plugins[ this.name ] : null;
 		
 						plugin_data.name = this.name || null;
 		
@@ -775,7 +775,7 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 					 * Debug log
 					 */
 					Log: function() {
-						if (typeof(WPPOOL_Plugins) === "undefined" || WPPOOL_Plugins.debug != 1) return;
+						if (typeof(GSWPTS_Pluginsdks) === "undefined" || GSWPTS_Pluginsdks.debug != 1) return;
 		
 						let args = Array.from(arguments);
 						console.log(
@@ -1017,7 +1017,7 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 			wp_register_script( 'wppool-plugins', '', [], time(), true );
 
 			// Localize script.
-			wp_localize_script( 'wppool-plugins', 'WPPOOL_Plugins', [
+			wp_localize_script( 'wppool-plugins', 'GSWPTS_Pluginsdks', [
 				'plugins' => $this->get_plugins(),
 				'debug' => defined( 'WP_DEBUG' ) && WP_DEBUG,
 			] );
@@ -1278,7 +1278,7 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 			$instance = new self( $plugin_id );
 
 			// Add plugin image.
-			add_filter( 'wppool_plugins', function ( $plugins ) use ( $instance, $image_url ) {
+			add_filter( 'gswpts_pluginsdks', function ( $plugins ) use ( $instance, $image_url ) {
 				$plugins[ $instance->plugin_id ]['background_image'] = isset( $image_url ) ? $image_url : $instance->get_plugin_image();
 
 				return $plugins;
@@ -1316,7 +1316,7 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 			}
 
 			// Modify the plugin data to include the campaign image, date range, and button text.
-			add_filter( 'wppool_plugins', function ( $plugins ) use ( $image_url, $to, $from, $button_text, $button_link ) {
+			add_filter( 'gswpts_pluginsdks', function ( $plugins ) use ( $image_url, $to, $from, $button_text, $button_link ) {
 				$plugins[ $this->plugin_id ]['background_image'] = $image_url;
 				$plugins[ $this->plugin_id ]['from'] = $from;
 				$plugins[ $this->plugin_id ]['to'] = $to;
@@ -1333,16 +1333,16 @@ if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 	add_filter( 'appsero_is_local', '__return_false' );
 
 	// Instantiate the class after plugins loaded.
-	add_action( 'plugins_loaded', [ '\WPPOOL_Plugin', 'init_plugin_sdk' ] );
+	add_action( 'plugins_loaded', [ '\GSWPTS_Pluginsdk', 'init_plugin_sdk' ] );
 
 	/**
-	 * If WPPOOL_Plugin function does not exists.
+	 * If GSWPTS_Pluginsdk function does not exists.
 	 *
 	 * @param string $plugin_id The plugin id.
 	 * @param string $image_url The image url.
 	 * @return mixed
 	 */
-	function wppool_plugin_init( $plugin_id = 'wp_dark_mode', $image_url = null ) {
-		return WPPOOL_Plugin::init( $plugin_id, $image_url );
+	function gswpts_pluginsdk_init( $plugin_id = 'wp_dark_mode', $image_url = null ) {
+		return GSWPTS_Pluginsdk::init( $plugin_id, $image_url );
 	}
 }

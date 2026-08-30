@@ -1,0 +1,63 @@
+/**
+ * Use to set current in admin menu
+ */
+document.addEventListener('DOMContentLoaded', function () {
+    var li = document.querySelectorAll('#toplevel_page_swptls-dashboard li a');
+
+    // Function to update the 'current' class based on the current page URL
+    function updateCurrentClass() {
+        var currentPageURL = window.location.href;
+        var currentHash = window.location.hash || '#/doc'; // Default to /doc if no hash
+        
+        // Remove 'current' class from all menu items first
+        document.querySelectorAll('#toplevel_page_swptls-dashboard li').forEach(function (liItem) {
+            liItem.classList.remove('current');
+        });
+
+        var matchFound = false;
+        
+        li.forEach(function (menuItem) {
+            var menuItemURL = menuItem.getAttribute('href');
+            
+            // Extract hash from menu item URL
+            if (menuItemURL && menuItemURL.includes('#')) {
+                var menuHash = menuItemURL.split('#')[1];
+                var currentHashClean = currentHash.replace('#', '');
+                
+                // Exact match for hash routes
+                if (menuHash === currentHashClean) {
+                    menuItem.parentElement.classList.add('current');
+                    matchFound = true;
+                }
+            }
+        });
+
+        // If no match found, set 'Get Started' as default (wp-first-item)
+        if (!matchFound) {
+            var firstMenuItem = document.querySelector('#toplevel_page_swptls-dashboard li.wp-first-item');
+            if (firstMenuItem) {
+                firstMenuItem.classList.add('current');
+            }
+        }
+    }
+
+    // Initially, set the 'current' class based on the current page URL
+    updateCurrentClass();
+
+    // Add click event handlers to update the 'current' class on menu item clicks
+    li.forEach(function (menuItem) {
+        menuItem.addEventListener('click', function () {
+            // Remove the 'current' class from all menu items
+            document.querySelectorAll('#toplevel_page_swptls-dashboard li').forEach(function (liItem) {
+                liItem.classList.remove('current');
+            });
+            // Add the 'current' class to the parent of the clicked menu item
+            menuItem.parentElement.classList.add('current');
+        });
+    });
+
+    // Listen for hash changes (for single-page app navigation)
+    window.addEventListener('hashchange', function() {
+        updateCurrentClass();
+    });
+});

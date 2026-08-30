@@ -3,20 +3,22 @@
  * Responsible for managing uninstall operations.
  *
  * @since 2.12.15
- * @package SWPTLS
+ * @package GSWPTS
  */
 
-// if direct access than exit the file.
-defined( 'ABSPATH' ) || exit;
+// If uninstall not called from WordPress, exit.
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+	exit;
+}
 
-if ( ! class_exists( 'SheetsToWPTableLiveSyncUninstall' ) ) {
+if ( ! class_exists( 'GSWPTS_Uninstall' ) ) {
 
 	/**
 	 * Registering plugin uninstall events.
 	 *
 	 * @since 2.12.15
 	 */
-	class SheetsToWPTableLiveSyncUninstall {
+	class GSWPTS_Uninstall {
 
 		/**
 		 * Class constructor.
@@ -47,10 +49,10 @@ if ( ! class_exists( 'SheetsToWPTableLiveSyncUninstall' ) ) {
 		 */
 		public function delete_options() {
 			$saved_options = [
-				'gswptsActivationTime',
-				'gswptsReviewNotice',
+				'swptlsActivationTime',
+				'swptlsReviewNotice',
 				'deafaultNoticeInterval',
-				'gswptsAffiliateNotice',
+				'swptlsAffiliateNotice',
 				'deafaultAffiliateInterval',
 				'asynchronous_loading',
 				'custom_css',
@@ -63,5 +65,5 @@ if ( ! class_exists( 'SheetsToWPTableLiveSyncUninstall' ) ) {
 		}
 	}
 
-	new SheetsToWPTableLiveSyncUninstall();
+	new GSWPTS_Uninstall();
 }

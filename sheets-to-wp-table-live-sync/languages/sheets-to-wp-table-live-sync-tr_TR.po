@@ -164,7 +164,7 @@ msgstr "OpenAI API'den geçersiz yanıt yapısı"
 
 #: app/Admin.php:44 app/Admin.php:45 app/Assets.php:517
 #: app/Divi/DiviModule.php:35 app/Elementor/ElementorWidget.php:58
-#: app/SWPTLS.php:265 app/templates/parts/review_notice.php:21
+#: app/GSWPTS.php:265 app/templates/parts/review_notice.php:21
 msgid "FlexTable"
 msgstr "FlexTable"
 
@@ -883,7 +883,7 @@ msgstr ""
 "etkinleştirilemiyor - en az PHP 5.4 gerektirir. Eklenti otomatik olarak "
 "devre dışı bırakıldı."
 
-#: app/SWPTLS.php:219
+#: app/GSWPTS.php:219
 msgid ""
 "Plugin is missing required dependencies. Please contact support for more "
 "information."
@@ -891,19 +891,19 @@ msgstr ""
 "Eklentide gerekli bağımlılıklar eksik. Daha fazla bilgi için lütfen destek "
 "ekibiyle iletişime geçin."
 
-#: app/SWPTLS.php:237 app/Strings.php:354 app/Strings.php:580
+#: app/GSWPTS.php:237 app/Strings.php:354 app/Strings.php:580
 msgid "All Tables"
 msgstr "Tüm Tablolar"
 
-#: app/SWPTLS.php:250 app/Strings.php:213
+#: app/GSWPTS.php:250 app/Strings.php:213
 msgid "Get Pro"
 msgstr "Pro Sürümü Edinin"
 
-#: app/SWPTLS.php:288
+#: app/GSWPTS.php:288
 msgid "Grab Your Treat!"
 msgstr "İndiriminizi Yakalayın!"
 
-#: app/SWPTLS.php:295
+#: app/GSWPTS.php:295
 msgid "Grab Your Deals!"
 msgstr "Fırsatları Kaçırmayın!"
 
@@ -2677,14 +2677,6 @@ msgstr "1"
 #: app/Strings.php:517
 msgid "-1"
 msgstr "-1"
-
-#: app/Strings.php:518
-msgid "The table is limited to 100 rows."
-msgstr "Tablo 100 satırla sınırlıdır."
-
-#: app/Strings.php:519
-msgid "to show the full Google Sheet with awesome customizations."
-msgstr "harika özelleştirmelerle tam Google Sheet'i göstermek için."
 
 #: app/Strings.php:521
 msgid "Upgrade Now →"

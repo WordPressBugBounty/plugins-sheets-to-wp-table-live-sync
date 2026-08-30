@@ -28,7 +28,7 @@ const AIView = ({ tableSettings, setTableSettings, tableId }) => {
     useEffect(() => {
         const fetchGlobalAISettings = () => {
             setIsLoadingAISettings(true);
-            wp.ajax.send('swptls_get_settings', {
+            wp.ajax.send('gswpts_get_settings', {
                 data: {
                     nonce: getNonce(),
                 },
@@ -94,7 +94,7 @@ const AIView = ({ tableSettings, setTableSettings, tableId }) => {
 
         try {
             const response: any = await new Promise((resolve, reject) => {
-                wp.ajax.send('swptls_get_backend_summary', {
+                wp.ajax.send('gswpts_get_backend_summary', {
                     data: {
                         nonce: getNonce(),
                         table_id: tableId,
@@ -167,7 +167,7 @@ const AIView = ({ tableSettings, setTableSettings, tableId }) => {
 
         try {
             const response: any = await new Promise((resolve, reject) => {
-                wp.ajax.send('swptls_generate_backend_summary', {
+                wp.ajax.send('gswpts_generate_backend_summary', {
                     data: {
                         nonce: getNonce(),
                         table_id: tableId,
@@ -265,7 +265,7 @@ const AIView = ({ tableSettings, setTableSettings, tableId }) => {
 
         try {
             const response: any = await new Promise((resolve, reject) => {
-                wp.ajax.send('swptls_save_backend_summary', {
+                wp.ajax.send('gswpts_save_backend_summary', {
                     data: {
                         nonce: getNonce(),
                         table_id: tableId,
@@ -348,7 +348,7 @@ const AIView = ({ tableSettings, setTableSettings, tableId }) => {
 
         try {
             const response: any = await new Promise((resolve, reject) => {
-                wp.ajax.send('swptls_save_backend_summary', {
+                wp.ajax.send('gswpts_save_backend_summary', {
                     data: {
                         nonce: getNonce(),
                         table_id: tableId,
@@ -921,7 +921,7 @@ const AIView = ({ tableSettings, setTableSettings, tableId }) => {
                                                     {tableSettings?.table_settings?.enable_ai_cache && (
                                                         <span className="cache-time">
                                                             {getStrings('cachetime')} {globalAISettings?.cache_duration ? Math.round(globalAISettings.cache_duration / 60) : '15'} {getStrings('text-min')}
-                                                            <a href="?page=gswpts-dashboard#/settings-aiconfig" className="adjust-link">(adjust)</a>
+                                                            <a href="?page=swptls-dashboard#/settings-aiconfig" className="adjust-link">(adjust)</a>
                                                         </span>
                                                     )}
 

@@ -119,7 +119,7 @@ function CreateTab() {
 	const navigate = useNavigate();
 
 	const handleCreateTab = () => {
-		wp.ajax.send('swptls_create_tab', {
+		wp.ajax.send('gswpts_create_tab', {
 			data: {
 				nonce: getNonce(),
 				tab: JSON.stringify(currentTab),
@@ -136,7 +136,7 @@ function CreateTab() {
 
 
 	useEffect(() => {
-		wp.ajax.send('swptls_get_tables', {
+		wp.ajax.send('gswpts_get_tables', {
 			data: {
 				nonce: getNonce(),
 			},

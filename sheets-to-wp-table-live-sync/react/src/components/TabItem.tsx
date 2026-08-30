@@ -69,7 +69,7 @@ function TabItem({ tab, setTabs, setTabCount }) {
 	};
 
 	const ConfirmDeleteTab = (id) => {
-		wp.ajax.send('swptls_delete_tab', {
+		wp.ajax.send('gswpts_delete_tab', {
 			data: {
 				nonce: getNonce(),
 				id,
@@ -90,7 +90,7 @@ function TabItem({ tab, setTabs, setTabCount }) {
 	 * @param id Copy Table
 	 */
 	const handleCopyTab = (id) => {
-		wp.ajax.send('swptls_copy_tab', {
+		wp.ajax.send('gswpts_copy_tab', {
 			data: {
 				nonce: getNonce(),
 				id,

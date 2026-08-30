@@ -90,7 +90,7 @@ function EditTab() {
 	};
 
 	useEffect(() => {
-		wp.ajax.send('swptls_get_tab', {
+		wp.ajax.send('gswpts_get_tab', {
 			data: {
 				nonce: getNonce(),
 				id,
@@ -123,7 +123,7 @@ function EditTab() {
 	};
 
 	const handleUpdateTab = () => {
-		wp.ajax.send('swptls_save_tab', {
+		wp.ajax.send('gswpts_save_tab', {
 			data: {
 				nonce: getNonce(),
 				tab: JSON.stringify(currentTab),

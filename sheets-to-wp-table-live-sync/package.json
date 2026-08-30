@@ -1,0 +1,51 @@
+{
+    "name": "google-spreadsheet-to-wp-table-sync",
+    "version": "1.0.0",
+    "description": "This is a WordPress plugin to synchronize google spreadsheet data into wordpress table",
+    "main": "webpack.config.js",
+    "scripts": {
+        "build": "webpack --config webpack.config.js --mode production",
+        "start": "webpack --config webpack.config.js --mode development",
+        "gutenberg": "webpack --config webpack.gutenberg.js",
+        "report": "phpcs . > report.txt",
+        "format": "phpcbf ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/WPPOOL/Spreadsheet-to-WP-Table-Sync"
+    },
+    "author": "Arifur Rahman Arif",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/WPPOOL/Spreadsheet-to-WP-Table-Sync/issues"
+    },
+    "homepage": "https://github.com/WPPOOL/Spreadsheet-to-WP-Table-Sync",
+    "devDependencies": {
+        "@babel/core": "^7.17.2",
+        "@babel/preset-env": "^7.16.11",
+        "@babel/preset-react": "^7.16.7",
+        "@svgr/webpack": "^6.2.1",
+        "babel-loader": "^8.2.3",
+        "browser-sync": "^2.27.7",
+        "browser-sync-webpack-plugin": "^2.3.0",
+        "css-loader": "^6.6.0",
+        "file-loader": "^6.2.0",
+        "glob-all": "^3.2.1",
+        "mini-css-extract-plugin": "^2.5.3",
+        "postcss": "^8.4.6",
+        "postcss-loader": "^6.2.1",
+        "postcss-preset-env": "^7.3.3",
+        "purgecss-webpack-plugin": "^4.1.3",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.49.7",
+        "sass-loader": "^12.6.0",
+        "style-loader": "^3.3.1",
+        "url-loader": "^4.1.1",
+        "webpack": "^5.68.0",
+        "webpack-cli": "^4.9.2"
+    },
+    "dependencies": {
+        "@wordpress/i18n": "^4.45.0",
+        "semantic-ui-react": "^2.1.2"
+    }
+}

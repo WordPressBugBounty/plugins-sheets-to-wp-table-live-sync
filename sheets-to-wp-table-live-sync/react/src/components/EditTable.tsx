@@ -328,7 +328,7 @@ function EditTable() {
 	const getTableData = () => {
 		setLoader(true);
 
-		wp.ajax.send('swptls_edit_table', {
+		wp.ajax.send('gswpts_edit_table', {
 			data: {
 				nonce: getNonce(),
 				id,
@@ -392,7 +392,7 @@ function EditTable() {
 
 	const getTablePreview = (values) => {
 		setPreviewLoader(true);
-		wp.ajax.send('swptls_get_table_preview', {
+		wp.ajax.send('gswpts_get_table_preview', {
 			data: {
 				nonce: getNonce(),
 				...values,
@@ -462,7 +462,7 @@ function EditTable() {
 						},
 						buttons: [
 							{
-								text: `<img src="${SWPTLS_APP.icons.curlyBrackets}" />`,
+								text: `<img src="${GSWPTS_APP.icons.curlyBrackets}" />`,
 								className:
 									'ui inverted button transition hidden json_btn',
 
@@ -491,7 +491,7 @@ function EditTable() {
 								titleAttr: getStrings('export-json'),
 							},
 							{
-								text: `<img src="${SWPTLS_APP.icons.fileCSV}" />`,
+								text: `<img src="${GSWPTS_APP.icons.fileCSV}" />`,
 								extend: 'csv',
 								className:
 									'ui inverted button transition hidden csv_btn',
@@ -499,7 +499,7 @@ function EditTable() {
 								titleAttr: getStrings('export-csv'),
 							},
 							{
-								text: `<img src="${SWPTLS_APP.icons.fileExcel}" />`,
+								text: `<img src="${GSWPTS_APP.icons.fileExcel}" />`,
 								extend: 'excel',
 								className:
 									'ui inverted button transition hidden excel_btn',
@@ -507,7 +507,7 @@ function EditTable() {
 								titleAttr: getStrings('export-excel'),
 							},
 							{
-								text: `<img src="${SWPTLS_APP.icons.printIcon}" />`,
+								text: `<img src="${GSWPTS_APP.icons.printIcon}" />`,
 								extend: 'print',
 								className:
 									'ui inverted button transition hidden print_btn',
@@ -515,7 +515,7 @@ function EditTable() {
 								titleAttr: getStrings('print'),
 							},
 							{
-								text: `<img src="${SWPTLS_APP.icons.copySolid}" />`,
+								text: `<img src="${GSWPTS_APP.icons.copySolid}" />`,
 								extend: 'copy',
 								className:
 									'ui inverted button transition hidden copy_btn',
@@ -637,7 +637,7 @@ function EditTable() {
 		delete tableSettings.table_columns;
 		delete tableSettings.id;
 
-		wp.ajax.send('swptls_save_table', {
+		wp.ajax.send('gswpts_save_table', {
 			data: {
 				nonce: getNonce(),
 				id,
@@ -667,7 +667,7 @@ function EditTable() {
 	// 	delete tableSettings.table_columns;
 	// 	delete tableSettings.id;
 
-	// 	wp.ajax.send('swptls_save_table', {
+	// 	wp.ajax.send('gswpts_save_table', {
 	// 		data: {
 	// 			nonce: getNonce(),
 	// 			id,
@@ -2040,65 +2040,6 @@ function EditTable() {
 								<h2>{getStrings('lp')}</h2>
 							) : (
 								<>
-									{ /* For limitation notice  */}
-
-									{limitedtmessage === true ? (
-										<>
-											<div className="invalid-card has--limit-upgrade">
-												<label
-													className="invalid-upgrade"
-
-												// onClick={() => handleVisit()}
-												>
-													{/* <span className="icon">
-														<svg
-															xmlns="http://www.w3.org/2000/svg"
-															width="16"
-															height="15"
-															viewBox="0 0 16 15"
-															fill="none"
-														>
-															<path
-																d="M1.67982 14.5H14.3202C15.6128 14.5 16.4185 13.1253 15.7722 12.0305L9.45205 1.32111C8.80576 0.226297 7.19424 0.226297 6.54795 1.32111L0.227771 12.0305C-0.418516 13.1253 0.387244 14.5 1.67982 14.5ZM8 8.73784C7.53837 8.73784 7.16067 8.36741 7.16067 7.91467V6.26834C7.16067 5.8156 7.53837 5.44517 8 5.44517C8.46163 5.44517 8.83933 5.8156 8.83933 6.26834V7.91467C8.83933 8.36741 8.46163 8.73784 8 8.73784ZM8.83933 12.0305H7.16067V10.3842H8.83933V12.0305Z"
-																fill="#FF8023"
-															/>
-														</svg>
-													</span> */}
-													<span>
-														{getStrings(
-															'limited-to-msg'
-														)}{' '}
-														<a
-															className="upgrade-now-btn-txt"
-															onClick={() =>
-																handleVisit()
-															}
-														>
-															{getStrings(
-																'upgrade-pro'
-															)}
-														</a>{' '}
-														{getStrings(
-															'limited-to-msg-2'
-														)}
-													</span>
-												</label>
-
-												<button
-													className="btn"
-													onClick={() =>
-														handleVisit()
-													}
-												>
-													{getStrings(
-														'upgrade-now'
-													)}
-												</button>
-											</div>
-										</>
-									) : (
-										<div></div>
-									)}
 
 									{ /* If table is private after create  */}
 									{privatesheetmessage === true ? (

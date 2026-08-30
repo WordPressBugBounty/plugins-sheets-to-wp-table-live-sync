@@ -27,7 +27,7 @@ const CtaNoticeTabs: React.FC<CtaNoticeTabsProps> = ({ onDismiss }) => {
 	const handleDismissNotice = () => {
 		setIsDismissing(true);
 
-		wp.ajax.send('swptls_dismiss_cta_notice_tabs', {
+		wp.ajax.send('gswpts_dismiss_cta_notice_tabs', {
 			data: {
 				nonce: getNonce(),
 			},

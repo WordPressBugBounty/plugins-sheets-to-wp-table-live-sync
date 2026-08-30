@@ -495,7 +495,7 @@ const TableCustomization = ({
 			});
 		}
 
-		// console.log('SWPTLS: Generated default filters:', defaultFilters);
+		// console.log('GSWPTS: Generated default filters:', defaultFilters);
 		return defaultFilters;
 	};
 
@@ -542,7 +542,7 @@ const TableCustomization = ({
 						});
 					}
 					/* else {
-						console.log('SWPTLS: All columns already have filters, skipping generation');
+						console.log('GSWPTS: All columns already have filters, skipping generation');
 					} */
 				}
 			};
@@ -633,7 +633,7 @@ const TableCustomization = ({
 			document.body.addEventListener('click', handleIconClick, true);
 			document.body.addEventListener('mouseover', handleIconHover);
 			document.body.addEventListener('mouseout', handleIconHover);
-			// console.log('SWPTLS: ✅ Event delegation attached');
+			// console.log('GSWPTS: ✅ Event delegation attached');
 
 			// Setup MutationObserver to watch for table changes
 			const wrapper = document.querySelector('.table-preview.wrapper');
@@ -644,7 +644,7 @@ const TableCustomization = ({
 					const hasTableChanges = mutations.some(mutation => mutation.type === 'childList');
 
 					if (hasTableChanges) {
-						// console.log('SWPTLS: Table changed, updating icons');
+						// console.log('GSWPTS: Table changed, updating icons');
 						setTimeout(updateIconVisibility, 100);
 					}
 				});
@@ -662,7 +662,7 @@ const TableCustomization = ({
 		const initialIconCount = updateIconVisibility();
 		setupEventDelegation();
 
-		// console.log('SWPTLS: Initial setup complete - Icons:', initialIconCount);
+		// console.log('GSWPTS: Initial setup complete - Icons:', initialIconCount);
 
 		// Only run periodic checks if icons not found yet
 		if (initialIconCount === 0) {
