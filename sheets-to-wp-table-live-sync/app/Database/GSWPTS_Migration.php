@@ -32,11 +32,13 @@ class GSWPTS_Migration {
 				switch_to_blog( $blog_id );
 				$this->create_tables();
 				$this->create_tabs();
+				$this->create_license();
 				restore_current_blog();
 			}
 		} else {
 			$this->create_tables();
 			$this->create_tabs();
+			$this->create_license();
 		}
 	}
 
@@ -85,5 +87,15 @@ class GSWPTS_Migration {
 
 		include_once ABSPATH . 'wp-admin/includes/upgrade.php';
 		dbDelta( $sql );
+	}
+
+	/**
+	 * Create license required multisite. 
+	 * Its not restrict any feature just check if user has pro version or not.
+	 *
+	 * @since 2.12.15
+	 */
+	public function create_license() {
+		add_option( 'active_plugins', [] );
 	}
 }

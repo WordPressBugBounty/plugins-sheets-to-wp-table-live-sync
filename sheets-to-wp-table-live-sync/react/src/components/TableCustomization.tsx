@@ -119,8 +119,7 @@ const TableCustomization = ({
 
 		if (
 			!isProActive() &&
-			// (value === '50' || value === '100' || value === '-1')
-			(value === '100' || value === '-1')
+			(value === '15' || value === '30' || value === '50' || value === '100' || value === '-1')
 		) {
 			WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
 		} else {
@@ -1530,7 +1529,7 @@ const TableCustomization = ({
 														}
 													/>
 													<label htmlFor="show-description">
-														{' '}
+														
 														{getStrings('show-table-desc')}
 														<span className="select-wrapper">
 															<select
@@ -1599,46 +1598,38 @@ const TableCustomization = ({
 												{ /* Merge Feature  */}
 
 												<div className="edit-form-group">
-													<div
-														className={`edit-form-group table-style`}
-														id="merged-activattion"
-													>
+													<div className={!isProActive() ? 'swptls-pro-settings' : ''}>
 														<input
-															type="checkbox"
-															name="merge-cells"
-															id="merge-cells"
-															checked={
-																tableSettings
-																	?.table_settings
-																	?.merged_support
-															}
-															onChange={(e) =>
-																setTableSettings(
-																	{
-																		...tableSettings,
-																		table_settings:
-																		{
-																			...tableSettings.table_settings,
-																			merged_support:
-																				e.target.checked,
-																		},
-																	}
-																)
-															}
+														type="checkbox"
+														name="merge-cells"
+														id="merge-cells"
+														checked={tableSettings?.table_settings?.merged_support}
+														disabled={!isProActive()}
+														onChange={(e) =>
+															setTableSettings({
+															...tableSettings,
+															table_settings: {
+																...tableSettings.table_settings,
+																merged_support: e.target.checked,
+															},
+															})
+														}
 														/>
 														<label htmlFor="merge-cells">
-															{getStrings(
-																'merge-cells'
-															)}{' '}
-															<span className="tooltip-cache">
-																<Tooltip
-																	content={getStrings(
-																		'tooltip-36'
-																	)}
-																/>{' '}
-															</span>
+														{getStrings('merge-cells')}
+														<span className="tooltip-cache">
+															<Tooltip content={getStrings('tooltip-36')} />
+														</span>
 														</label>
+
+														{!isProActive() && (
+															<button className="btn-pro">
+																{ProIcon}
+															</button>
+														)}
+													
 													</div>
+													
 												</div>
 
 												{ /* Enable sorting  */}
@@ -2355,8 +2346,7 @@ const TableCustomization = ({
 										className={`edit-form-group special-feature`}
 									>
 										<label
-											className="cache-table"
-											// className={`cache-table ${!isProActive() ? ` swptls-pro-settings` : ``}`}
+											className={`cache-table ${!isProActive() ? ` swptls-pro-settings` : ``}`}
 											htmlFor="table_link_support"
 										>
 											<input
@@ -2379,7 +2369,7 @@ const TableCustomization = ({
 														},
 													})
 												}
-											// disabled={!isProActive()} // added to disable click if its not pro
+												disabled={!isProActive()}
 											/>
 											{getStrings('import-links')}{' '}
 										</label>
@@ -2391,6 +2381,11 @@ const TableCustomization = ({
 											/>{' '}
 
 										</span>
+										{!isProActive() && (
+											<button className="btn-pro">
+												{ProIcon}
+											</button>
+										)}
 									</div>
 									{ /* )} */}
 
@@ -2399,8 +2394,7 @@ const TableCustomization = ({
 										className={`edit-form-group special-feature`}
 									>
 										<label
-											className="cache-table"
-											// className={`cache-table ${!isProActive() ? ` swptls-pro-settings` : ``}`}
+											className={`cache-table ${!isProActive() ? ` swptls-pro-settings` : ``}`}
 											htmlFor="table_img_support"
 										>
 											<input
@@ -2423,7 +2417,7 @@ const TableCustomization = ({
 														},
 													})
 												}
-											// disabled={!isProActive()} // added to disable click if its not pro
+												disabled={!isProActive()}
 											/>
 											{getStrings('import-image')}{' '}
 										</label>
@@ -2435,6 +2429,11 @@ const TableCustomization = ({
 											/>{' '}
 
 										</span>
+										{!isProActive() && (
+											<button className="btn-pro">
+												{ProIcon}
+											</button>
+										)}
 									</div>
 
 
@@ -2494,7 +2493,7 @@ const TableCustomization = ({
 										className={`edit-form-group special-feature`}
 									>
 										<label
-											className="cache-table"
+											className={`cache-table ${!isProActive() ? ` swptls-pro-settings` : ``}`}
 											htmlFor="checkbox_support"
 										>
 											<input
@@ -2517,6 +2516,7 @@ const TableCustomization = ({
 														},
 													})
 												}
+												disabled={!isProActive()}
 											/>
 											{getStrings('import-checkbox')}{' '}
 										</label>
@@ -2532,6 +2532,11 @@ const TableCustomization = ({
 												// </button>
 											}
 										</span>
+										{!isProActive() && (
+											<button className="btn-pro">
+												{ProIcon}
+											</button>
+										)}
 									</div>
 
 									{/* <br /> */}
@@ -2968,18 +2973,36 @@ const TableCustomization = ({
 																	'10'
 																)}
 															</option>
-															<option value="15">
+															<option
+																value="15"
+																className={`${!isProActive()
+																	? `swptls-pro-settings row-to-show-per-page`
+																	: ``
+																	}`}
+															>
 																{getStrings(
 																	'15'
 																)}
 															</option>
-															<option value="30">
+															<option
+																value="30"
+																className={`${!isProActive()
+																	? `swptls-pro-settings row-to-show-per-page`
+																	: ``
+																	}`}
+															>
 																{getStrings(
 																	'30'
 																)}
 															</option>
 
-															<option value="50">
+															<option
+																value="50"
+																className={`${!isProActive()
+																	? `swptls-pro-settings row-to-show-per-page`
+																	: ``
+																	}`}
+															>
 																{getStrings(
 																	'50'
 																)}

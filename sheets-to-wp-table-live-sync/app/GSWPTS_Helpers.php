@@ -34,23 +34,9 @@ class GSWPTS_Helpers {
 	 *
 	 * @return boolean
 	 */
+	
 	public function is_pro_active(): bool {
-		if ( is_multisite() ) {
-			$site_id = get_current_blog_id();
-			if ( $site_id ) {
-				// Check if the pro plugin and standard plugin are installed.
-				$is_pro_installed = $this->check_pro_plugin_exists();
-				$is_standard_installed = function_exists('swptls');
-
-				if ( $is_pro_installed && $is_standard_installed ) {
-					return function_exists('swptlspro') && swptlspro()->license_status;
-				}
-			}
-		} else {
-			return function_exists('swptlspro') && swptlspro()->license_status;
-		}
-
-		return false;
+		return function_exists( 'swptlspro' ) && ! empty( swptlspro()->license_status );
 	}
 
 	/**
@@ -223,43 +209,7 @@ class GSWPTS_Helpers {
 	}
 
 
-	/**
-	 * Retrieve merged styles.
-	 *
-	 * @param string $sheet_id The sheet id.
-	 * @param int    $gid The sheet gid.
-	 * @return mixed
-	 */
-	public function get_merged_styles( string $sheet_id, int $gid ) {
-		if ( empty( $sheet_id ) || '' === $gid ) {
-			return new \WP_Error( 'feature_not_compatible', __( 'The feature is not compatible or something went wrong', 'sheets-to-wp-table-live-sync' ) );
-		}
-
-		$timeout = get_option( 'timeout_values', 10 );
-		$timeout = ! empty( $timeout ) ? (int) $timeout : 10;
-
-		$args = array(
-			'timeout' => $timeout,
-		);
-
-		$url = sprintf( 'https://script.google.com/macros/s/AKfycbx1Uj8F5kesVvf98y4sDmCJP9EGcBJhclFSa0zAbuk8dzfPkY6dn-P2AbYOsRaTUAdE9w/exec?sheetID=%1$s&gID=%2$d&action=getMergedCells', $sheet_id, $gid );
-
-		$response = wp_remote_get( $url, $args );
-
-		if ( is_wp_error( $response ) ) {
-			return '';
-		}
-
-		$code     = wp_remote_retrieve_response_code( $response );
-		$body     = wp_remote_retrieve_body( $response );
-
-		return 200 === $code ? json_decode( $body, true ) : $response;
-	}
-
-
-
-
-
+	
 	/**
 	 * Loads data based on the condition.
 	 *
@@ -288,10 +238,6 @@ class GSWPTS_Helpers {
 		$cache_disable_frequent = isset($table_settings['disable_frequent_cache']) ? wp_validate_boolean($table_settings['disable_frequent_cache']) : false;
 
 		$table_cache = isset($table_settings['table_cache']) ? wp_validate_boolean($table_settings['table_cache']) : false;
-		$import_styles = isset($table_settings['import_styles']) ? wp_validate_boolean($table_settings['import_styles']) : false;
-		$merged_support = isset($table_settings['merged_support']) ? wp_validate_boolean($table_settings['merged_support']) : false;
-		$table_img_support = isset($table_settings['table_img_support']) ? wp_validate_boolean($table_settings['table_img_support']) : false;
-		$table_link_support = isset($table_settings['table_link_support']) ? wp_validate_boolean($table_settings['table_link_support']) : false;
 
 		// Get sheet identifiers.
 		$sheet_id = gswpts()->helpers->get_sheet_id($sheet_url);
@@ -302,9 +248,6 @@ class GSWPTS_Helpers {
 			// Retrieve ALL cached data at once.
 			$cached_data = [
 				'sheet_data' => gswpts()->cache->get_saved_sheet_data($table_id),
-				'sheet_merged_data' => $merged_support ? gswpts()->cache->get_saved_merge_styles($table_id) : null,
-				'sheet_images' => $table_img_support ? gswpts()->cache->get_saved_sheet_images($table_id) : null,
-				'sheet_links' => $table_link_support ? gswpts()->cache->get_saved_sheet_link_styles($table_id) : null,
 			];
 
 			// Check if we have valid cached data.
@@ -314,10 +257,7 @@ class GSWPTS_Helpers {
 			if ( $cached_data_exists ) {
 				// Construct response from cached data, filtering out null values. Using cached data (cache disable frequent mode).
 				$response = array_filter([
-					'sheet_data' => $cached_data['sheet_data'],
-					'sheet_merged_data' => $cached_data['sheet_merged_data'],
-					'sheet_images' => $cached_data['sheet_images'],
-					'sheet_links' => $cached_data['sheet_links'],
+					'sheet_data' => $cached_data['sheet_data']
 				]);
 
 				// We successfully used cache and avoided API calls - return early.
@@ -332,9 +272,6 @@ class GSWPTS_Helpers {
 				// Retrieve ALL cached data at once.
 				$cached_data = [
 					'sheet_data' => gswpts()->cache->get_saved_sheet_data($table_id),
-					'sheet_merged_data' => $merged_support ? gswpts()->cache->get_saved_merge_styles($table_id) : null,
-					'sheet_images' => $table_img_support ? gswpts()->cache->get_saved_sheet_images($table_id) : null,
-					'sheet_links' => $table_link_support ? gswpts()->cache->get_saved_sheet_link_styles($table_id) : null,
 				];
 
 				// Check if we have valid cached data.
@@ -346,10 +283,7 @@ class GSWPTS_Helpers {
 					// If sheet is NOT updated, use cached data.
 					if ( ! $is_sheet_updated ) {
 						$response = array_filter([
-							'sheet_data' => $cached_data['sheet_data'],
-							'sheet_merged_data' => $cached_data['sheet_merged_data'],
-							'sheet_images' => $cached_data['sheet_images'],
-							'sheet_links' => $cached_data['sheet_links'],
+							'sheet_data' => $cached_data['sheet_data']
 						]);
 
 						// We successfully used cache and avoided API calls - return early.
@@ -369,34 +303,10 @@ class GSWPTS_Helpers {
 				gswpts()->cache->set_last_updated_time($table_id, $sheet_url);
 			}
 
-			if ( $merged_support ) {
-				$response['sheet_merged_data'] = $this->get_merged_styles($sheet_id, $sheet_gid);
-			}
-
-			if ( $table_img_support ) {
-				$response['sheet_images'] = $this->get_images_data($sheet_id, $sheet_gid);
-			}
-
-			if ( $table_link_support ) {
-				$response['sheet_links'] = $this->get_links_data($sheet_id, $sheet_gid);
-			}
-
 			// If caching is enabled, save all fetched data to cache.
 			if ( $table_cache ) {
 				if ( ! empty($response['sheet_data']) ) {
 					gswpts()->cache->save_sheet_data($table_id, $response['sheet_data']);
-				}
-
-				if ( $merged_support && ! empty($response['sheet_merged_data']) ) {
-					gswpts()->cache->save_merged_styles($table_id, $response['sheet_merged_data']);
-				}
-
-				if ( $table_img_support && ! empty($response['sheet_images']) ) {
-					gswpts()->cache->save_sheet_images($table_id, $response['sheet_images']);
-				}
-
-				if ( $table_link_support && ! empty($response['sheet_links']) ) {
-					gswpts()->cache->save_sheet_link($table_id, $response['sheet_links']);
 				}
 			}
 		}
@@ -633,91 +543,6 @@ class GSWPTS_Helpers {
 		return $string;
 	}
 
-
-	/**
-	 * Get the images from google sheet
-	 *
-	 * @param  string $sheet_id The google sheet id.
-	 * @param number $gid      The google sheet grid id.
-	 * @return array
-	 */
-	public function get_images_data( $sheet_id, $gid ) {
-
-		$timeout = get_option( 'timeout_values', 10 );
-		$timeout = ! empty( $timeout ) ? (int) $timeout : 10;
-
-		$args = array(
-			'timeout' => $timeout,
-		);
-
-		$rest_url = sprintf(
-			'https://script.google.com/macros/s/AKfycbx1Uj8F5kesVvf98y4sDmCJP9EGcBJhclFSa0zAbuk8dzfPkY6dn-P2AbYOsRaTUAdE9w/exec?sheetID=%s&gID=%s&action=getImages',
-			$sheet_id,
-			$gid
-		);
-
-		$response = wp_remote_get( $rest_url, $args );
-
-		return ! is_wp_error( $response ) ? wp_remote_retrieve_body( $response ) : [];
-	}
-
-
-	/**
-	 * Get the sheets embeed links from google sheet
-	 *
-	 * @param  string $sheet_id The google sheet id.
-	 * @param number $gid      The google sheet grid id.
-	 * @return array
-	 */
-	public function get_links_data( $sheet_id, $gid ) {
-
-		$timeout = get_option( 'timeout_values', 10 );
-		$timeout = ! empty( $timeout ) ? (int) $timeout : 10;
-
-		$args = array(
-			'timeout' => $timeout,
-		);
-
-		$rest_url = sprintf(
-			'https://script.google.com/macros/s/AKfycbx1Uj8F5kesVvf98y4sDmCJP9EGcBJhclFSa0zAbuk8dzfPkY6dn-P2AbYOsRaTUAdE9w/exec?sheetID=%s&gID=%s&action=getLinks',
-			$sheet_id,
-			$gid
-		);
-
-		$response = wp_remote_get( $rest_url, $args );
-
-		return ! is_wp_error( $response ) ? wp_remote_retrieve_body( $response ) : [];
-	}
-
-
-	/**
-	 * Get organized images data for each cell.
-	 *
-	 * @param string $index      The string index to pickup the images data.
-	 * @param array  $images_data The images data retrieved from the sheet.
-	 * @param mixed  $cell_data   The current cell data.
-	 */
-	public function get_organized_image_data( $index, $images_data, $cell_data, $table_settings = [] ) {
-		$images_data = ! is_array( $images_data ) ? json_decode( $images_data, 1 ) : null;
-
-		if ( ! $images_data ) {
-			return $cell_data;
-		}
-
-		if ( isset( $images_data[ $index ] ) ) {
-			// Sanitize image URL and dimensions to prevent XSS attacks
-			$img_url = esc_url( $images_data[ $index ]['imgUrl'][0] );
-			$width = floatval( $images_data[ $index ]['width'] ) + 50;
-			$height = floatval( $images_data[ $index ]['height'] ) + 50;
-
-			return '<img src="' . $img_url . '" alt="swptls-image" style="width: ' . esc_attr( $width ) . 'px; height: ' . esc_attr( $height ) . 'px" />';
-
-		}
-
-		return $cell_data;
-	}
-
-
 	/**
 	 * Get organized checkbox data for each cell.
 	 *
@@ -854,11 +679,6 @@ class GSWPTS_Helpers {
 		// Determine what to show based on summary_source
 		$show_frontend_summary_button = $enable_ai_summary && $summary_source === 'generate_on_click';
 
-		$merged_support = ( isset($settings['merged_support']) && wp_validate_boolean($settings['merged_support']) ) ?? false;
-		$checkbox_support = ( isset($settings['checkbox_support']) && wp_validate_boolean($settings['checkbox_support']) ) ?? false;
-
-		$link_support = get_option('link_support_mode', 'smart_link');
-
 		$pagination_center = ( isset($theme_data['pagination_center']) && wp_validate_boolean($theme_data['pagination_center']) ) ?? false;
 		$pagination_acive_btn_color = isset($theme_data['paginationAciveBtnColor']) ? $theme_data['paginationAciveBtnColor'] : '#2F80ED';
 
@@ -907,40 +727,11 @@ class GSWPTS_Helpers {
 		for ( $k = 0; $k < $total_count; $k++ ) {
 			$is_hidden_column = isset($hidden_columns[ $k ]) ? 'hidden-column' : '';
 			$th_style = '';
-			$mergetd = '';
-			$is_merged_cell = false;
-
-			// Header merge.
-			if ( $merged_support && ! empty($table_data['sheet_merged_data']) ) {
-
-				foreach ( $table_data['sheet_merged_data'] as $merged_cell ) {
-					$merged_row = $merged_cell['startRow'];
-					$start_col = $merged_cell['startCol'];
-					$num_rows = $merged_cell['numRows'];
-					$num_cols = $merged_cell['numCols'];
-
-					// Check if the current cell is part of a merged range.
-					$is_merged_cell = (
-						$row_index === $merged_row && $k + 1 === $start_col
-					);
-
-					// If the current cell is part of a merged range.
-					if ( $is_merged_cell ) {
-						// Add classes based on merged cell information.
-						if ( $row_index === $merged_row && $k + 1 === $start_col ) {
-							$mergetd = 'data-merge="[' . $start_col . ',' . $num_cols . ']"';
-						}
-						// Break the loop to prevent duplicated attributes.
-						break;
-					}
-				}
-			}
 
 			$table .= sprintf(
-				'<th style="%s" class="thead-item %s" %s>',
+				'<th style="%s" class="thead-item %s">',
 				$th_style,
-				$is_hidden_column,
-				$mergetd
+				$is_hidden_column
 			);
 
 			$thead_value = $this->transform_boolean_values($this->check_link_exists($thead[ $k ], $settings));
@@ -971,26 +762,7 @@ class GSWPTS_Helpers {
 
 				$cell_data = ( '' === $row_data[ $j ] ) ? '' : $row_data[ $j ];
 
-				/*
-				 if ( ! empty($table_data['sheet_images']) ) {
-					$cell_data = $this->get_organized_image_data($c_index, $table_data['sheet_images'], $cell_data);
-				} */
-
-				if ( ! empty($table_data['sheet_images']) ) {
-					$cell_data = $this->get_organized_image_data($c_index, $table_data['sheet_images'], $cell_data, $settings);
-				}
-
-				if ( 'smart_link' === $link_support ) {
-					if ( ! empty($table_data['sheet_links']) ) {
-						$cell_data = $this->get_transform_simple_link_values($c_index, $table_data['sheet_links'], $cell_data, $settings);
-					}
-				}
-
-				if ( $checkbox_support ) {
-					$cell_data = $this->transform_checkbox_values($this->check_link_exists($cell_data, $settings));
-				} else {
-					$cell_data = $this->transform_boolean_values($this->check_link_exists($cell_data, $settings));
-				}
+				$cell_data = $this->transform_boolean_values($this->check_link_exists($cell_data, $settings));
 
 				$is_hidden_column = isset($settings['hide_column']) && in_array($j, (array) $settings['hide_column']) ? 'hidden-column' : '';
 
@@ -1008,41 +780,8 @@ class GSWPTS_Helpers {
 				}
 
 				$cell_style_attribute = '';
-
-				// Merged support checked.
-				$mergetd = '';
-				$is_merged_cell = false;
-
-				if ( $merged_support && ! empty($table_data['sheet_merged_data']) ) {
-					foreach ( $table_data['sheet_merged_data'] as $merged_cell ) {
-						$merged_row = $merged_cell['startRow'];
-						$merged_col = $merged_cell['startCol'];
-						$num_rows = $merged_cell['numRows'];
-						$num_cols = $merged_cell['numCols'];
-
-						// Check if the current cell is part of a merged range.
-						$is_merged_cell = (
-							$row_index === $merged_row && $j + 1 === $merged_col
-						);
-
-						// If the current cell is part of a merged range.
-						if ( $is_merged_cell ) {
-							// Apply colspan and rowspan attributes.
-							$mergetd .= '  colspan="' . $num_cols . '"';
-							$mergetd .= '  rowspan="' . $num_rows . '"';
-							// Add classes based on merged cell information.
-							if ( $row_index === $merged_row && $j + 1 === $merged_col ) {
-								$mergetd .= ' class=" parentCellstart"';
-								$mergetd .= ' data-merge="[' . $num_cols . ',' . $num_rows . ']"';
-							}
-							// Break the loop to prevent duplicated attributes.
-							break;
-						}
-					}
-				}
-
 				$table .= sprintf(
-					'<td %10$s data-index="%1$s" data-column="%5$s" data-content="%2$s" class="cell_index_%3$s %6$s %7$s %8$s" style="%4$s" data-row="%9$s">',
+					'<td data-index="%1$s" data-column="%5$s" data-content="%2$s" class="cell_index_%3$s %6$s %7$s %8$s" style="%4$s" data-row="%9$s">',
 					$to_check,
 					"$thead[$j]: &nbsp;",
 					( $cell_index ) . '-' . $row_index,
@@ -1051,23 +790,10 @@ class GSWPTS_Helpers {
 					$is_hidden_column,
 					$is_hidden_cell,
 					$responsive_class,
-					$row_index,
-					$mergetd
+					$row_index
 				);
 
-				if ( $is_merged_cell ) {
-					// Check if it's the starting cell.
-					if ( $j + 1 === $merged_col ) {
-						// Starting cell.
-						$table .= '<div class="cell_div mergeCellStart">' . $cell_data . '</div>';
-					} else {
-						// Non-starting cell within a merged range.
-						$table .= '<div class="cell_div">' . $cell_data . '</div>';
-					}
-				} else {
-					// Normal cells.
-					$table .= '<div class="cell_div">' . $cell_data . '</div>';
-				}
+				$table .= '<div class="cell_div">' . $cell_data . '</div>';
 
 				$table .= '</td>';
 			}

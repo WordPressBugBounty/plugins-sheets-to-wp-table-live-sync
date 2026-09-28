@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.2
-Stable tag: 3.24.6
+Stable tag: 3.25.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -290,6 +290,11 @@ Yes, We have tested this plugin in all modern browsers (Safari, Chrome, Firefox,
 No. FlexTable is a very user-friendly and simple plugin. Just download and use it accordingly.
 
 == Changelog ==
+
+= 3.25.0 - 28 September 2026 =
+* **New:** Freemium model executions with unlimited row and table creation 
+* **Fix:** Resolved Multi-Site license activation issues 
+* **Fix:** Improved overall maintenance and stability
 
 = 3.24.6 - 25 August 2026 =
 * **Fix:** Improved code quality and ensured compatibility with WordPress 7.1

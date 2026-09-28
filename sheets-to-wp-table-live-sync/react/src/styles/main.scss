@@ -63,6 +63,18 @@ div#swptls-app-root {
         }
     }
 
+    &.disabled,
+    &:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+        filter: grayscale(30%);
+
+        &:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+    }
+
     &.add-new-table-btn {
         font-style: normal;
         font-weight: 600;
@@ -87,6 +99,20 @@ div#swptls-app-root {
             border: 1px dashed #bdc8c4;
             box-shadow: none;
             outline: none;
+        }
+
+        &.disabled,
+        &:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            border-color: #d1d5db;
+            color: #b0b0b0;
+
+            &:hover {
+                box-shadow: none !important;
+                background-color: white !important;
+                color: #b0b0b0 !important;
+            }
         }
     }
 

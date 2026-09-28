@@ -509,6 +509,7 @@ class GSWPTS_Strings {
 			'15'  => __( '15', 'sheets-to-wp-table-live-sync' ),//phpcs:ignore
 			'10'  => __( '10', 'sheets-to-wp-table-live-sync' ),//phpcs:ignore
 			'5'  => __( '5', 'sheets-to-wp-table-live-sync' ),//phpcs:ignore
+			'1'  => __( '1', 'sheets-to-wp-table-live-sync' ),//phpcs:ignore
 
 			'upgrade-now'  => __( 'Upgrade Now →', 'sheets-to-wp-table-live-sync' ),
 			'table-height'  => __( 'Table height', 'sheets-to-wp-table-live-sync' ),

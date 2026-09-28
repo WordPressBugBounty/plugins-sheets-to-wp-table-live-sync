@@ -15,6 +15,10 @@ export function getTables() {
 	return config.tables;
 }
 
+export function getTableCount() {
+	return config.tables && Array.isArray( config.tables ) ? config.tables.length : 0;
+}
+
 export function getTheme() {
 	return config.theme;
 }

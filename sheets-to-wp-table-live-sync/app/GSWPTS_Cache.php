@@ -225,41 +225,6 @@ class GSWPTS_Cache {
 		return $this->get_from_cache($table_id, 'data');
 	}
 
-
-
-	/**
-	 * Save the table merge in WordPress transient.
-	 *
-	 * @param  int    $table_id The table ID.
-	 * @param  string $sheet_mergedata The sheet merge data.
-	 * @return void
-	 */
-	public function save_merged_styles( int $table_id, $sheet_mergedata ) {
-		return $this->save_to_cache($table_id, $sheet_mergedata, 'merged');
-	}
-
-	/**
-	 * Save sheet images in transient.
-	 *
-	 * @param int    $table_id The table ID.
-	 * @param string $images_data The sheet images data to save.
-	 * @return void
-	 */
-	public function save_sheet_images( int $table_id, $images_data ) {
-		return $this->save_to_cache($table_id, $images_data, 'images');
-	}
-
-	/**
-	 * Save sheet link in transient.
-	 *
-	 * @param int $table_id The table ID.
-	 * @param int $link_data The table link data.
-	 */
-	public function save_sheet_link( int $table_id, $link_data ) {
-		return $this->save_to_cache($table_id, $link_data, 'link');
-	}
-
-
 	/**
 	 * Get saved sheet styles.
 	 *
@@ -268,25 +233,5 @@ class GSWPTS_Cache {
 	 */
 	public function get_saved_merge_styles( int $table_id ) {
 		return $this->get_from_cache($table_id, 'merged');
-	}
-
-	/**
-	 * Get the table images in WordPress transient.
-	 *
-	 * @param int $table_id The table ID.
-	 *
-	 * @return mixed
-	 */
-	public function get_saved_sheet_images( $table_id ) {
-		return $this->get_from_cache($table_id, 'images');
-	}
-
-	/**
-	 * Get the table sheet style link from WordPress transient.
-	 *
-	 * @param int $table_id The table ID.
-	 */
-	public function get_saved_sheet_link_styles( $table_id ) {
-		return $this->get_from_cache($table_id, 'link');
 	}
 }

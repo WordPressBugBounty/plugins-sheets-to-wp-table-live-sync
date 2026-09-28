@@ -155,7 +155,7 @@ class GSWPTS_Assets {
 					'installed'   => gswpts()->helpers->check_pro_plugin_exists(),
 					'active'      => gswpts()->helpers->is_pro_active(),
 					'license'     => function_exists( 'swptlspro' ) ? wp_validate_boolean( swptlspro()->license_status ) : false,
-					'license_url' => esc_url( admin_url( 'admin.php?page=sheets_to_wp_table_live_sync_pro_settings' ) ),
+					'license_url' => esc_url( admin_url( 'admin.php?page=sheets-to-wp-table-live-sync-pro-license' ) ),
 				],
 				'ran_setup_wizard' => wp_validate_boolean( get_option( 'gswpts_ran_setup_wizard', false ) ),
 				'show_get_start_page' => wp_validate_boolean( get_option( 'show_get_start_page', false ) ),

@@ -10,7 +10,7 @@ import '../styles/_settings.scss';
 import '../styles/_ai-settings.scss';
 import ChangesLog from './ChangesLog';
 import Header from './Header';
-import { getNonce, isProActive, getStrings } from './../Helpers';
+import { getNonce, isProActive, displayProPopup, getStrings } from './../Helpers';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 
 // AI Integration Interface for settings
@@ -500,7 +500,10 @@ function Settings() {
 										</button>
 									}
 								</div>
-								<div className="link-modes">
+								<div
+									className={`link-modes${!isProActive() ? ' swptls-pro-settings' : ''}`}
+									onClick={!isProActive() ? displayProPopup : undefined}
+								>
 									<input
 										type="radio"
 										name="link_support"
@@ -510,19 +513,32 @@ function Settings() {
 											settings.link_support ===
 											'pretty_link'
 										}
-										onChange={() =>
+										onChange={() => {
+											if (!isProActive()) {
+												displayProPopup();
+												return;
+											}
 											setSettings({
 												...settings,
 												link_support: 'pretty_link',
-											})
-										}
+											});
+										}}
+										disabled={!isProActive()}
 									/>
-									<label htmlFor="pretty_link">
+									<label
+										htmlFor="pretty_link"
+										style={!isProActive() ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
+									>
 										{getStrings('with-pretty-link')}
 									</label>
 									<Tooltip
 										content={getStrings('tooltip-19')}
 									/>
+									{!isProActive() && (
+										<button className="btn-pro">
+											{ProIcon}
+										</button>
+									)}
 								</div>
 							</div>
 						</div>

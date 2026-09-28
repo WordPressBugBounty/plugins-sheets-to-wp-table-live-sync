@@ -400,14 +400,11 @@ export default class Global_Table_Config {
             
             responsive: true,
             lengthMenu: [
-                [1, 5, 10, 15, 30, 50],
+                [1, 5, 10],
                 [
                     gswpts_frontend_data.strings['1'],
                     gswpts_frontend_data.strings['5'],
-                    gswpts_frontend_data.strings['10'],
-                    gswpts_frontend_data.strings['15'],
-                    gswpts_frontend_data.strings['30'],
-                    gswpts_frontend_data.strings['50'],
+                    gswpts_frontend_data.strings['10']
                 ]
             ],
 

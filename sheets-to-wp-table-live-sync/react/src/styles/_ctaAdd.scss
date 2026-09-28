@@ -102,6 +102,17 @@
                     width: 100%;
                     padding: 14px 20px;
                 }
+
+                &.disabled {
+                    opacity: 0.55;
+                    filter: grayscale(30%);
+                    cursor: pointer;
+
+                    &:hover {
+                        transform: none;
+                        background-color: #008717;
+                    }
+                }
             }
         }
 

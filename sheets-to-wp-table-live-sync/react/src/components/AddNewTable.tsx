@@ -3,32 +3,17 @@ import { Link } from 'react-router-dom';
 import {
 	getNonce,
 	getTables,
+	getTableCount,
 	convertToSlug,
 	getStrings,
 	isProActive,
+	displayProPopup,
 } from './../Helpers';
 import { GrayPlusIcon } from '../icons';
 import { toast } from 'react-toastify';
 
 function AddNewTable() {
-	const [tableCount, setTableCount] = useState(0);
-
-	useEffect(() => {
-		const handleClick = () => {
-			WPPOOL.Popup('sheets_to_wp_table_live_sync').show();
-		};
-
-		const proSettings = document.querySelectorAll('.swptls-pro-lock');
-		proSettings.forEach((item) => {
-			item.addEventListener('click', handleClick);
-		});
-
-		return () => {
-			proSettings.forEach((item) => {
-				item.removeEventListener('click', handleClick);
-			});
-		};
-	}, [tableCount]);
+	const [tableCount, setTableCount] = useState(getTableCount());
 
 	useEffect(() => {
 		wp.ajax.send('gswpts_get_tables', {
@@ -60,12 +45,13 @@ function AddNewTable() {
 		window.location.href = newUrl;
 	};
 
+	const tableLimitReached = !isProActive() && tableCount >= 3;
+
 	return (
 		<>
 			<button
-				className={`add-new-table btn add-new-table-btn${!isProActive() ? ` swptls-pro-lock` : ``
-					}`}
-				onClick={handleCreateTable}
+				className={`add-new-table btn add-new-table-btn${tableLimitReached ? ` disabled swptls-pro-lock` : ``}`}
+				onClick={tableLimitReached ? displayProPopup : handleCreateTable}
 			>
 				{GrayPlusIcon}
 				{getStrings('add-new-table')}
