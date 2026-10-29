@@ -5,22 +5,22 @@
  *
  * * Data WILL BE ONLY SENT IF user allows to send data from Admin Notice manually.
  *
- * @package GSWPTS_PLUGINSDK
+ * @package WPPOOL_PLUGIN
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit();
+defined( 'ABSPATH' ) || exit; // phpcs:ignore
 
 /**
  * Plugin Class
  */
-if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
+if ( ! class_exists( 'WPPOOL_Plugin' ) ) {
 	/**
 	 * Handles all the WPPOOL Plugin related functionalities, promotions, etc.
 	 *
 	 * @version 3.0.0
 	 */
-	class GSWPTS_Pluginsdk {
+	class WPPOOL_Plugin {
 		/**
 		 * Contains instance of Plugin.
 		 *
@@ -80,12 +80,12 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 				'demo_text' => 'Try a FREE demo',
 			],
 			'webinar_and_video_conference_with_jitsi_meet' => [
-				'list_id' => 23,
-				'button_link' => 'https://go.wppool.dev/8iQC',
+				'list_id'     => 23,
+				'button_link' => 'https://lnk.wppool.dev/wJyAh72',
 				'button_text' => 'Get Premium',
-				'color' => '#1D5AE4',
-				'demo_link' => 'https://go.wppool.dev/ajve',
-				'demo_text' => 'Try a FREE demo',
+				'color'       => '#1D5AE4',
+				'demo_link'   => 'https://lnk.wppool.dev/wYceOGZ',
+				'demo_text'   => 'Try a FREE demo',
 			],
 			'zero_bs_accounting' => [
 				'list_id' => 24,
@@ -120,7 +120,7 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 			],
 			'social_contact_form' => [
 				'list_id' => 49,
-				'button_link' => 'https://go.wppool.dev/2rc7',
+				'button_link' => 'https://wppool.dev/formychat-pricing/?utm_source=plugin&utm_medium=promo-panel&utm_campaign=formychat',
 				'button_text' => 'Get Premium',
 				'color' => '#DC4FF3',
 			],
@@ -204,7 +204,7 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 		 * @return array
 		 */
 		public function get_plugins() {
-			return apply_filters( 'gswpts_pluginsdks', $this->plugins );
+			return apply_filters( 'wppool_plugins', $this->plugins );
 		}
 
 		/**
@@ -325,53 +325,53 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 						<!-- countdown  -->
 						<div class="_wppool-popup-countdown" style="display: none">
 							<span class="_wppool-popup-countdown-text">
-								<?php echo esc_html__( 'Deal Ends In', 'sheets-to-wp-table-live-sync' ); ?>
+								<?php echo esc_html__( 'Deal Ends In', 'social-contact-form' ); ?>
 							</span>
 							<div class="_wppool-popup-countdown-time">
 								<div>
 									<span data-counter="days">
-										<?php echo esc_html__( '00', 'sheets-to-wp-table-live-sync' ); ?>
+										<?php echo esc_html__( '00', 'social-contact-form' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Days', 'sheets-to-wp-table-live-sync' ); ?>
+										<?php echo esc_html__( 'Days', 'social-contact-form' ); ?>
 									</span>
 								</div>
 								<span>:</span>
 								<div>
 									<span data-counter="hours">
-										<?php echo esc_html__( '00', 'sheets-to-wp-table-live-sync' ); ?>
+										<?php echo esc_html__( '00', 'social-contact-form' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Hours', 'sheets-to-wp-table-live-sync' ); ?>
+										<?php echo esc_html__( 'Hours', 'social-contact-form' ); ?>
 									</span>
 								</div>
 								<span>:</span>
 								<div>
 									<span data-counter="minutes">
-										<?php echo esc_html__( '00', 'sheets-to-wp-table-live-sync' ); ?>
+										<?php echo esc_html__( '00', 'social-contact-form' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Minutes', 'sheets-to-wp-table-live-sync' ); ?>
+										<?php echo esc_html__( 'Minutes', 'social-contact-form' ); ?>
 									</span>
 								</div>
 								<span>:</span>
 								<div>
 									<span data-counter="seconds">
-										<?php echo esc_html__( '00', 'sheets-to-wp-table-live-sync' ); ?>
+										<?php echo esc_html__( '00', 'social-contact-form' ); ?>
 									</span>
 									<span>
-										<?php echo esc_html__( 'Seconds', 'sheets-to-wp-table-live-sync' ); ?>
+										<?php echo esc_html__( 'Seconds', 'social-contact-form' ); ?>
 									</span>
 								</div>
 							</div>
 						</div>
 						<!-- button  -->
 						<a class="_wppool-popup-button">
-							<?php echo esc_html__( 'Upgrade to Pro', 'sheets-to-wp-table-live-sync' ); ?>
+							<?php echo esc_html__( 'Upgrade to Pro', 'social-contact-form' ); ?>
 						</a>
 
 						<a target="_blank" class="_wppool-popup-demo-link" href="">
-							<?php echo esc_html__( 'Try a free demo', 'sheets-to-wp-table-live-sync' ); ?>
+							<?php echo esc_html__( 'Try a free demo', 'social-contact-form' ); ?>
 						</a>
 					</div>
 				</div>
@@ -538,7 +538,7 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 					 * @return {object}
 					 */
 					get data() {
-						const plugin_data = this.name in GSWPTS_Pluginsdks.plugins ? GSWPTS_Pluginsdks.plugins[ this.name ] : null;
+						const plugin_data = this.name in WPPOOL_Plugins.plugins ? WPPOOL_Plugins.plugins[ this.name ] : null;
 		
 						plugin_data.name = this.name || null;
 		
@@ -694,18 +694,33 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 					 * initCounter
 					 */
 					initCounter(last_date) {
-						const countdown = () => {
-		
-							// system time 
-							const now = new Date().getTime();
-		
-							// set end time to 11:59:59 PM 
+						const data = this.data;
+
+						const getEndTime = (now) => {
+							// recurring cycle: restart every data.repeat ms from data.from_ms, capped at data.to_ms
+							if (data.repeat && data.from_ms && data.to_ms) {
+								if (now < data.from_ms) {
+									return -1;
+								}
+								const cycles = Math.floor((now - data.from_ms) / data.repeat) + 1;
+								return Math.min(data.from_ms + cycles * data.repeat, data.to_ms);
+							}
+
+							// set end time to 11:59:59 PM
 							const endDate = new Date(last_date);
 							endDate.setHours(23);
 							endDate.setMinutes(59);
 							endDate.setSeconds(59);
-		
-							const seconds = Math.floor((endDate.getTime() - now) / 1000);
+
+							return endDate.getTime();
+						};
+
+						const countdown = () => {
+
+							// system time
+							const now = new Date().getTime();
+
+							const seconds = Math.floor((getEndTime(now) - now) / 1000);
 		
 							if (seconds < 0) {
 								return false;
@@ -775,7 +790,7 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 					 * Debug log
 					 */
 					Log: function() {
-						if (typeof(GSWPTS_Pluginsdks) === "undefined" || GSWPTS_Pluginsdks.debug != 1) return;
+						if (typeof(WPPOOL_Plugins) === "undefined" || WPPOOL_Plugins.debug != 1) return;
 		
 						let args = Array.from(arguments);
 						console.log(
@@ -790,7 +805,7 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 		
 				window.WPPOOL = WPPOOL;
 		
-			})(jQuery)';
+			})(jQuery);';
 		}
 
 		/**
@@ -801,209 +816,209 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 		public function get_inline_styles() {
 			$css =
 				':root {
-                --wppool-popup-color: #FF631A;
-            }
-        
-            ._wppool-popup * {
-                all: initial;
-                font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif;
-            }
-        
-            ._wppool-popup {
-                position: fixed;
-                width: 100%;
-                height: 100%;
-                padding: 0;
-                margin: 0;
-                border: 0;
-                top: 0;
-                left: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 99999999 !important;
-            }
-        
-            ._wppool-popup-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.2);
-            }
-        
-            ._wppool-popup-modal {
-                width: 600px;
-                max-width: 600px !important;
-                height: 600px;
-                max-height: 600px !important;
-                color: white;
-                background: #222 url(' . esc_url( $this->get_image_url() ) . ') no-repeat center center;
-                background-position: center;
-                background-size: cover;
-                background-repeat: no-repeat;
-                padding: 0;
-                margin: 0;
-                transform: scale(0.9);
-                display: flex;
-                align-items: flex-end;
-                justify-content: center;
-                border-radius: 3px;
-                box-shadow: 0 0 10px 0 rgb(0 0 0 / 50%);
-            }
+				--wppool-popup-color: #FF631A;
+			}
+		
+			._wppool-popup * {
+				all: initial;
+				font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif;
+			}
+		
+			._wppool-popup {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				padding: 0;
+				margin: 0;
+				border: 0;
+				top: 0;
+				left: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 99999999 !important;
+			}
+		
+			._wppool-popup-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.2);
+			}
+		
+			._wppool-popup-modal {
+				width: 600px;
+				max-width: 600px !important;
+				height: 600px;
+				max-height: 600px !important;
+				color: white;
+				background: #222 url(' . esc_url( $this->get_image_url() ) . ') no-repeat center center;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				padding: 0;
+				margin: 0;
+				transform: scale(0.9);
+				display: flex;
+				align-items: flex-end;
+				justify-content: center;
+				border-radius: 3px;
+				box-shadow: 0 0 10px 0 rgb(0 0 0 / 50%);
+			}
 
-            ._wppool-popup-modal-close {
-                position: absolute;
-                top: 5px;
-                right: 10px;
-                font-size: 50px;
-                cursor: pointer;
-                color: var(--wppool-popup-color);
-                transition: .3s;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 40px;
-                height: 40px;
-                padding: 0;
-                margin: 0;
-                opacity: .5;
-            }
+			._wppool-popup-modal-close {
+				position: absolute;
+				top: 5px;
+				right: 10px;
+				font-size: 50px;
+				cursor: pointer;
+				color: var(--wppool-popup-color);
+				transition: .3s;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 40px;
+				height: 40px;
+				padding: 0;
+				margin: 0;
+				opacity: .5;
+			}
 
-            ._wppool-popup-modal-close:hover {
-                opacity: 1;
-            }
+			._wppool-popup-modal-close:hover {
+				opacity: 1;
+			}
 
-            ._wppool-popup-modal-footer {
-                width: 100%;
-                min-height: 225px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-end;
-                padding: 15px 0;
-                gap: 15px;
-            }
+			._wppool-popup-modal-footer {
+				width: 100%;
+				min-height: 225px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-end;
+				padding: 15px 0;
+				gap: 15px;
+			}
 
-            ._wppool-popup-countdown {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-evenly;
-                gap: 10px;
-                margin-bottom: 10px;
-            }
+			._wppool-popup-countdown {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-evenly;
+				gap: 10px;
+				margin-bottom: 10px;
+			}
 
-            ._wppool-popup-countdown-text {
-                font-size: 14px;
-                font-weight: 600;
-                color: white;
-                position: relative;
-                line-height: 1.4;
-            }
+			._wppool-popup-countdown-text {
+				font-size: 14px;
+				font-weight: 600;
+				color: white;
+				position: relative;
+				line-height: 1.4;
+			}
 
-            ._wppool-popup-countdown-time {
-                display: flex;
-                align-items: center;
-                justify-content: space-evenly;
-                gap: 15px;
-            }
+			._wppool-popup-countdown-time {
+				display: flex;
+				align-items: center;
+				justify-content: space-evenly;
+				gap: 15px;
+			}
 
-            ._wppool-popup-countdown-time>div {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-evenly;
-                gap: 8px;
-            }
+			._wppool-popup-countdown-time>div {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-evenly;
+				gap: 8px;
+			}
 
-            ._wppool-popup-countdown-time>div>span {
-                font-size: 20px;
-                font-weight: 600;
-                color: white;
-            }
+			._wppool-popup-countdown-time>div>span {
+				font-size: 20px;
+				font-weight: 600;
+				color: white;
+			}
 
-            ._wppool-popup-countdown-time>div>span:nth-child(1) {
-                border: 2px solid rgba(255, 255, 255, 0.6);
-                height: 60px;
-                width: 56px;
-                font-size: 26px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 5px;
-            }
+			._wppool-popup-countdown-time>div>span:nth-child(1) {
+				border: 2px solid rgba(255, 255, 255, 0.6);
+				height: 60px;
+				width: 56px;
+				font-size: 26px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 5px;
+			}
 
-            ._wppool-popup-countdown-time>div>span:nth-child(2) {
-                font-size: 12px;
-                font-weight: 500;
-                color: rgb(255, 255, 255 / .8);
-            }
+			._wppool-popup-countdown-time>div>span:nth-child(2) {
+				font-size: 12px;
+				font-weight: 500;
+				color: rgb(255, 255, 255 / .8);
+			}
 
-            ._wppool-popup-countdown-time>span {
-                font-size: 50px;
-                color: white;
-                margin-top: -25px;
-            }
+			._wppool-popup-countdown-time>span {
+				font-size: 50px;
+				color: white;
+				margin-top: -25px;
+			}
 
-            ._wppool-popup-button {
-                height: 60px;
-                background: var(--wppool-popup-color);
-                color: #222;
-                font-size: 18px;
-                font-weight: 600;
-                letter-spacing: 0.5px;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                border: 0;
-                border-radius: 5px;
-                cursor: pointer !important;
-                transition: .3s;
-                color: white;
-                padding: 0 30px;
-                margin: 0;
-                transition: .2s;
-                position: relative;
-            }
+			._wppool-popup-button {
+				height: 60px;
+				background: var(--wppool-popup-color);
+				color: #222;
+				font-size: 18px;
+				font-weight: 600;
+				letter-spacing: 0.5px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				border: 0;
+				border-radius: 5px;
+				cursor: pointer !important;
+				transition: .3s;
+				color: white;
+				padding: 0 30px;
+				margin: 0;
+				transition: .2s;
+				position: relative;
+			}
 
-            ._wppool-popup-button:after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 0%;
-                height: 100%;
-                background: rgba(255, 255, 255, 0.2);
-                transition: .3s;
-            }
+			._wppool-popup-button:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 0%;
+				height: 100%;
+				background: rgba(255, 255, 255, 0.2);
+				transition: .3s;
+			}
 
-            ._wppool-popup-button:hover {
-                color: white;
-            }
+			._wppool-popup-button:hover {
+				color: white;
+			}
 
-            ._wppool-popup-button:hover:after {
-                width: 100%;
-            }
+			._wppool-popup-button:hover:after {
+				width: 100%;
+			}
 
-            @media (max-width: 576px) {
-                ._wppool-popup-countdown {
-                    transform: scale(.99);
-                }
-            }
-            ._wppool-popup-demo-link {
-                color: #ddd;
-                transition: .2s ease-in-out;
-                cursor: pointer;
-                text-decoration: none;
-                padding-bottom: 10px;
-            }
-            ._wppool-popup-demo-link:hover {
-                color: #ddd;
-                opacity: .9;
-            }
-            ';
+			@media (max-width: 576px) {
+				._wppool-popup-countdown {
+					transform: scale(.99);
+				}
+			}
+			._wppool-popup-demo-link {
+				color: #ddd;
+				transition: .2s ease-in-out;
+				cursor: pointer;
+				text-decoration: none;
+				padding-bottom: 10px;
+			}
+			._wppool-popup-demo-link:hover {
+				color: #ddd;
+				opacity: .9;
+			}
+			';
 
 			return apply_filters( 'wppool_inline_styles', $css );
 		}
@@ -1017,7 +1032,7 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 			wp_register_script( 'wppool-plugins', '', [], time(), true );
 
 			// Localize script.
-			wp_localize_script( 'wppool-plugins', 'GSWPTS_Pluginsdks', [
+			wp_localize_script( 'wppool-plugins', 'WPPOOL_Plugins', [
 				'plugins' => $this->get_plugins(),
 				'debug' => defined( 'WP_DEBUG' ) && WP_DEBUG,
 			] );
@@ -1278,7 +1293,7 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 			$instance = new self( $plugin_id );
 
 			// Add plugin image.
-			add_filter( 'gswpts_pluginsdks', function ( $plugins ) use ( $instance, $image_url ) {
+			add_filter( 'wppool_plugins', function ( $plugins ) use ( $instance, $image_url ) {
 				$plugins[ $instance->plugin_id ]['background_image'] = isset( $image_url ) ? $image_url : $instance->get_plugin_image();
 
 				return $plugins;
@@ -1297,9 +1312,12 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 		 * @param string $to End date for the campaign.
 		 * @param string $from Start date for the campaign.
 		 * @param string $button_text The custom CTA text for the button.
+		 * @param string $button_link The CTA button link.
+		 * @param int    $repeat Optional. Countdown cycle length in seconds (e.g. 3 * DAY_IN_SECONDS).
+		 *                       Timer restarts every cycle from $from until $to. 0 counts down to $to.
 		 * @return mixed
 		 */
-		public function set_campaign( $image_url = null, $to = null, $from = null, $button_text = 'Get Premium', $button_link = 'https://go.wppool.dev/Rimc' ) {
+		public function set_campaign( $image_url = null, $to = null, $from = null, $button_text = 'Get Premium', $button_link = 'https://go.wppool.dev/Rimc', $repeat = 0 ) {
 			// Bailout if image url is not valid.
 			if ( ! $image_url ) {
 				return $this;
@@ -1316,12 +1334,21 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 			}
 
 			// Modify the plugin data to include the campaign image, date range, and button text.
-			add_filter( 'gswpts_pluginsdks', function ( $plugins ) use ( $image_url, $to, $from, $button_text, $button_link ) {
+			$repeat = absint( $repeat );
+
+			add_filter( 'wppool_plugins', function ( $plugins ) use ( $image_url, $to, $from, $button_text, $button_link, $repeat, $from_time, $to_time ) {
 				$plugins[ $this->plugin_id ]['background_image'] = $image_url;
 				$plugins[ $this->plugin_id ]['from'] = $from;
 				$plugins[ $this->plugin_id ]['to'] = $to;
 				$plugins[ $this->plugin_id ]['button_text'] = $button_text;
 				$plugins[ $this->plugin_id ]['button_link'] = $button_link;
+
+				// Recurring countdown: timestamps in ms so JS does not parse date strings.
+				if ( $repeat ) {
+					$plugins[ $this->plugin_id ]['repeat'] = $repeat * 1000;
+					$plugins[ $this->plugin_id ]['from_ms'] = $from_time * 1000;
+					$plugins[ $this->plugin_id ]['to_ms'] = $to_time * 1000;
+				}
 
 				return $plugins;
 			} );
@@ -1333,16 +1360,16 @@ if ( ! class_exists( 'GSWPTS_Pluginsdk' ) ) {
 	add_filter( 'appsero_is_local', '__return_false' );
 
 	// Instantiate the class after plugins loaded.
-	add_action( 'plugins_loaded', [ '\GSWPTS_Pluginsdk', 'init_plugin_sdk' ] );
+	add_action( 'plugins_loaded', [ '\WPPOOL_Plugin', 'init_plugin_sdk' ] );
 
 	/**
-	 * If GSWPTS_Pluginsdk function does not exists.
+	 * If WPPOOL_Plugin function does not exists.
 	 *
 	 * @param string $plugin_id The plugin id.
 	 * @param string $image_url The image url.
 	 * @return mixed
 	 */
-	function gswpts_pluginsdk_init( $plugin_id = 'wp_dark_mode', $image_url = null ) {
-		return GSWPTS_Pluginsdk::init( $plugin_id, $image_url );
+	function wppool_plugin_init( $plugin_id = 'wp_dark_mode', $image_url = null ) {
+		return WPPOOL_Plugin::init( $plugin_id, $image_url );
 	}
 }

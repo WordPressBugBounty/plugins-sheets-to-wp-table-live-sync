@@ -276,32 +276,69 @@ namespace GSWPTS { //phpcs:ignore
 		 * @since 2.12.15
 		 */
 		public function load_sdk() {
-			if ( function_exists( 'gswpts_pluginsdk_init' ) ) {
-				$popup_image_url = GSWPTS_BASE_URL . 'lib/wppool/background-image-not-cached.png';
-				$gswpts_plugin = gswpts_pluginsdk_init( 'sheets_to_wp_table_live_sync', $popup_image_url );
+			if ( ! function_exists( 'wppool_plugin_init' ) ) {
+				return;
+			}
 
-				if ( $gswpts_plugin && is_object( $gswpts_plugin ) && method_exists( $gswpts_plugin, 'set_campaign' ) ) {
-					try {
-						$campaign_image = GSWPTS_BASE_URL . 'lib/wppool/halloween.png';
-						$to = '2024-11-05 16:00:00';
-						$from = '2024-10-21 16:00:00';
-						$cta_text = esc_html__( 'Grab Your Treat!', 'sheets-to-wp-table-live-sync' );
-						$gswpts_plugin->set_campaign( $campaign_image, $to, $from, $cta_text );
+			$popup_image_url = GSWPTS_BASE_URL . 'lib/wppool/background-image-not-cached.png';
+			$gswpts_plugin   = wppool_plugin_init( 'sheets_to_wp_table_live_sync', $popup_image_url );
 
-						 // New Special Campaign.
-						 $new_campaign_image = GSWPTS_BASE_URL . 'lib/wppool/special.png';
-						 $new_to = '2026-07-14 17:00:00';
-						 $new_from = '2026-06-24 17:00:00';
-						 $black_friday_cta = esc_html__( 'Save Now💰', 'sheets-to-wp-table-live-sync' );
-						 $black_friday_link = 'https://lnk.wppool.dev/mEQnKPb';
+			if ( ! $gswpts_plugin || ! is_object( $gswpts_plugin ) || ! method_exists( $gswpts_plugin, 'set_campaign' ) ) {
+				return;
+			}
 
-						 $gswpts_plugin->set_campaign( $new_campaign_image, $new_to, $new_from, $black_friday_cta, $black_friday_link );
+			try {
+				/*
+				* Halloween 2024 (kept for reference, not active).
+				*
+				* $campaign_image = GSWPTS_BASE_URL . 'lib/wppool/halloween.png';
+				* $to             = '2024-11-05 16:00:00';
+				* $from           = '2024-10-21 16:00:00';
+				* $cta_text       = esc_html__( 'Grab Your Treat!', 'sheets-to-wp-table-live-sync' );
+				* $gswpts_plugin->set_campaign( $campaign_image, $to, $from, $cta_text );
+				*/
 
-					} catch ( Exception $e ) {// phpcs:ignore
-						// phpcs:ignore
-						// Catch block intentionally left empty. This is because we do not need to take any action on exception.
-					}
+				// BFCM 2026: 9 Nov 5 PM to 5 Dec 5 PM, Bangladesh Standard Time (UTC+6).
+				$campaign_image = GSWPTS_BASE_URL . 'lib/wppool/FlexTable.jpg';
+				$from           = '2026-11-09T17:00:00+06:00';
+				$to             = '2026-12-05T17:00:00+06:00';
+				$cta_text       = esc_html__( 'Claim The Deal →', 'sheets-to-wp-table-live-sync' );
+				$button_link    = 'https://lnk.wppool.dev/WdQ7jnK';
+				$repeat         = 3 * DAY_IN_SECONDS; // Timer shows 3 days and restarts every 3 days until $to.
+
+				$gswpts_plugin->set_campaign( $campaign_image, $to, $from, $cta_text, $button_link, $repeat );
+
+				$now = time();
+
+				if ( $now >= strtotime( $from ) && $now <= strtotime( $to ) ) {
+					// CTA button background (#FFD23F). The SDK also uses this color for the close icon.
+					add_filter(
+						'wppool_plugins',
+						function ( $plugins ) {
+							if ( isset( $plugins['sheets_to_wp_table_live_sync'] ) ) {
+								$plugins['sheets_to_wp_table_live_sync']['color'] = '#FFD23F';
+							}
+							return $plugins;
+						},
+						20
+					);
+
+					// CTA text color (#111111); the SDK hardcodes white.
+					add_action(
+						'admin_enqueue_scripts',
+						function () {
+							if ( ! wp_script_is( 'wppool-plugins', 'enqueued' ) ) {
+								return;
+							}
+
+							$selector = '._wppool-popup[data-plugin="sheets_to_wp_table_live_sync"] ._wppool-popup-button';
+							wp_add_inline_style( 'wppool-plugins', $selector . ', ' . $selector . ':hover { color: #111111; }' );
+						},
+						20
+					);
 				}
+			} catch ( Exception $e ) { // phpcs:ignore
+				// Intentionally empty. No action is needed on exception.
 			}
 		}
 

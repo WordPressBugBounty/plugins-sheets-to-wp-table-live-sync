@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.2
-Stable tag: 3.25.0
+Stable tag: 3.25.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,13 +43,12 @@ To show your spreadsheet data in a WP table, connect your sheet to FlexTable and
 
 == 😍 FlexTable Free Features ==
 
+* **Unlimited Tables & Rows:** Create as many tables as you need and sync every row from your connected sheet.
 * **Sync Data with Google Sheets:** Keep your WordPress tables synced with connected Google Sheets spreadsheets. You can update your table from anywhere through the connected sheet without ever needing to enter your website dashboard. 
 * **Gutenberg Table Block & Elementor Table Widget:** The built-in Gutenberg block and Elementor widget will make sure you can create responsive tables with any of your preferred page builders.
 * **Responsive Tables:** Tables made with this plugin are responsive for any device. The plugin allows collapsing on mobile and tablet screens. There are also options to choose between three responsive styles (Default, Collapsible, and Scrollable) and adjust height.
 * **Shortcode Supported:** Place your data-table easily with the shortcode feature. A shortcode will be created with the table created. You can place the code anywhere you want on your page or posts.
-* **Link Support:** With advanced link support you can import URLs/links from Google Sheets. All the URLs/links will be shown as links instead of text. You can change the link behavior by redirecting your users when they click on those links.
-* **Image Support:** Load images from any URL that contains an image. Just add the image URL to your sheet and it will load that image on your website.
-* **Merge Cells:** If your spreadsheet has merged cells, you can enable this feature to improve the appearance and clarity.
+* **Link Support:** Choose your link support mechanism (Smart Link or Pretty Link) and control how links behave when visitors click them.
 * **Cache Table for Faster Loading:** Enabling this option can improve your table loading speed.
 * **Prevent frequent cache updates for faster table loading:** Optimized caching helps your tables load faster and reduces unnecessary API requests.
 * **Choose the maximum day to store the cache:** With Cache Duration, you decide the duration of Google Sheets checking for updates. Just set it to 1 day, 7 days, 30 days etc, whatever fits your update routine. It helps your tables load quicker and reduces unnecessary API requests
@@ -57,7 +56,7 @@ To show your spreadsheet data in a WP table, connect your sheet to FlexTable and
 * **Duplicate Tables:** Easily generate duplicates without manually recreating them from scratch. Save time and maintain consistency across multiple tables.
 * **Table Description:** Communicate with your site visitors with clear descriptions that describe the purpose of your tables. Easily convey important information through the description.
 * **Cell Formatting Style:** Choose between expanded and wrapped table styles.
-* **Rows to Show Per Page:** Choose the number of rows you want to display per page. 
+* **Rows to Show Per Page:** Show 5 or 10 rows per page.
 * **Table Title:** Enable this feature to show the title in the h3 tag in your website front-end. Rename your tables as you want. 
 * **Show Info Block:** Show Showing X to Y of Z entries block below the table. With this feature, you will get an idea of the data sequence of your table at a glance. The plugin also has an On/Off button on the backend for this feature. 
 * **Allow Sorting:** It allows data sorting on your table in the exact order you need. You can turn off the feature if you want your data not sorted.
@@ -71,6 +70,11 @@ To show your spreadsheet data in a WP table, connect your sheet to FlexTable and
 
 
 == ⚡ Experience the Full Potential with FlexTable Pro ==
+* **Import Links from Sheet:** Import URLs/links from Google Sheets and show them as clickable links instead of text.
+* **Image Support:** Load images from any URL that contains an image. Just add the image URL to your sheet and it will load that image on your website.
+* **Checkbox Support:** Import checkboxes from your Google Sheet and show them in your table.
+* **Merge Cells:** If your spreadsheet has merged cells, you can enable this feature to improve the appearance and clarity.
+* **More Rows Per Page:** Show 5, 10, 15, 30, 50, 100 or all rows per page.
 * **Import Styles from Google Sheets:** Import cell background color & cell font color, font size, font widget, font family & all other styles from connected sheet.
 * **Custom CSS:** Write your own custom CSS to design the table or the page itself. Your custom-written CSS will be applied to the front end of the website.
 * **Export Table:** Exporting via CSV, Excel, PDF, JSON, Print, and Copy is easy on this plugin.
@@ -291,6 +295,9 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 == Changelog ==
 
+= 3.25.1 - 29 September 2026 =
+* **Improvement:** Maintenance and stability updates
+
 = 3.25.0 - 28 September 2026 =
 * **New:** Freemium model executions with unlimited row and table creation 
 * **Fix:** Resolved Multi-Site license activation issues 
@@ -301,21 +308,5 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 = 3.24.5 - 19 August 2026 =
 * **Fix:** Fixed code quality and Improved security
-
-= 3.24.4 - 09 August 2026 =
-* **Enhancement:** Fixed code quality and Improved security
-
-= 3.24.3 - 02 August 2026 =
-* **Improvement:** Maintenance and stability updates
-
-= 3.24.2 - 24 June 2026 =
-* **Enhancement:** Popup module and SDK update.
-
-= 3.24.1 - 02 June 2026 =
-* **Fix:** Fixed compatibility issues with WP7.0
-* **Fix:** Fixed code quality and Improved security
-
-= 3.24.0 - 21 Apr 2026 =
-* **New:** Introduced user-specific display filtering with matches Google Sheets columns
 
 For older changelog entries, please see the [additional changelog.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/changelog.txt) delivered with the plugin.

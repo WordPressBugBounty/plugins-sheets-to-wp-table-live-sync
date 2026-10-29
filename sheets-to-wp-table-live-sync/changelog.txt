@@ -5,6 +5,23 @@
 This file contains older changelog entries, so we can keep the size of the standard WordPress readme.txt file reasonable. 
 For the latest changes, please see the "Changelog" section of the [readme.txt file](https://plugins.svn.wordpress.org/sheets-to-wp-table-live-sync/trunk/readme.txt).
 
+
+= 3.24.4 - 09 August 2026 =
+* **Enhancement:** Fixed code quality and Improved security
+
+= 3.24.3 - 02 August 2026 =
+* **Improvement:** Maintenance and stability updates
+
+= 3.24.2 - 24 June 2026 =
+* **Enhancement:** Popup module and SDK update.
+
+= 3.24.1 - 02 June 2026 =
+* **Fix:** Fixed compatibility issues with WP7.0
+* **Fix:** Fixed code quality and Improved security
+
+= 3.24.0 - 21 Apr 2026 =
+* **New:** Introduced user-specific display filtering with matches Google Sheets columns
+
 = 3.23.0 - 06 Apr 2026 =
 * **New:** Added column-based filtering with multiple filter modes
 * **Fix:** Fixed compatibility issues between the sticky feature and table sorting  
