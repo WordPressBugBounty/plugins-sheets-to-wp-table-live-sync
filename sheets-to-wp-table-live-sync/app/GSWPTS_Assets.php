@@ -159,6 +159,13 @@ class GSWPTS_Assets {
 				],
 				'ran_setup_wizard' => wp_validate_boolean( get_option( 'gswpts_ran_setup_wizard', false ) ),
 				'show_get_start_page' => wp_validate_boolean( get_option( 'show_get_start_page', false ) ),
+				'mcp'              => [
+					'enabled'       => \GSWPTS\MCP\Settings::is_enabled(),
+					'rest_base'     => esc_url_raw( rest_url( \GSWPTS\MCP\MCP::REST_NAMESPACE . '/admin/' ) ),
+					'rest_nonce'    => wp_create_nonce( 'wp_rest' ),
+					'connector_url' => esc_url_raw( \GSWPTS\MCP\MCP::connector_url() ),
+					'username'      => wp_get_current_user()->user_login,
+				],
 			];
 
 			// Load tabs feature from pro plugin if user have pro.

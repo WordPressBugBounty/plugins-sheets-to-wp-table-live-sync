@@ -1,0 +1,1012 @@
+/**
+ * Settings → MCP tab. Uses the same palette as the other settings tabs
+ * (green #008717, titles #1E1E1E, text #666873, borders #d5d6d7).
+ */
+
+$mcp-green: #008717;
+$mcp-green-dark: #126e22;
+$mcp-title: #1e1e1e;
+$mcp-text: #666873;
+$mcp-border: #d5d6d7;
+$mcp-soft: #f6f7f7;
+$mcp-red: #d63638;
+$mcp-amber: #b26200;
+
+.swptls-mcp {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	color: $mcp-title;
+
+	* {
+		box-sizing: border-box;
+	}
+
+	code {
+		font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+		font-size: 13px;
+		background: $mcp-soft;
+		padding: 2px 6px;
+		border-radius: 4px;
+		word-break: break-all;
+	}
+
+	.mcp-muted {
+		margin: 0;
+		color: $mcp-text;
+		font-size: 14px;
+		line-height: 1.6;
+	}
+
+	.mcp-small {
+		font-size: 12px;
+	}
+
+	.mcp-block {
+		display: block;
+	}
+
+	.mcp-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 24px;
+		align-items: start;
+
+		> .mcp-card:only-child {
+			grid-column: 1 / -1;
+		}
+	}
+
+	.mcp-card {
+		background: #fff;
+		border: 1px solid $mcp-border;
+		border-radius: 8px;
+		padding: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		min-width: 0;
+
+		&__title {
+			margin: 0;
+			font-size: 16px;
+			font-weight: 600;
+			color: $mcp-title;
+		}
+
+		&__head {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: 16px;
+
+			> div {
+				display: flex;
+				flex-direction: column;
+				gap: 6px;
+			}
+		}
+	}
+
+	.mcp-hero {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 24px;
+
+		&__text {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			max-width: 760px;
+		}
+	}
+
+	.mcp-title-row {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.mcp-title {
+		margin: 0;
+		font-size: 18px;
+		font-weight: 600;
+		color: $mcp-title;
+	}
+
+	.mcp-pill {
+		display: inline-flex;
+		align-items: center;
+		padding: 3px 10px;
+		border-radius: 999px;
+		font-size: 12px;
+		font-weight: 600;
+		line-height: 1.5;
+		background: $mcp-soft;
+		color: $mcp-text;
+
+		&--ready {
+			background: #e6f4ea;
+			color: $mcp-green;
+		}
+
+		&--connected {
+			background: $mcp-green;
+			color: #fff;
+		}
+
+		&--needs_attention,
+		&--expired {
+			background: #fcf0e3;
+			color: $mcp-amber;
+		}
+	}
+
+	// Toggle switch.
+	.mcp-switch {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		cursor: pointer;
+		flex-shrink: 0;
+		font-weight: 600;
+
+		input {
+			position: absolute;
+			opacity: 0;
+			width: 1px;
+			height: 1px;
+		}
+
+		&__track {
+			width: 46px;
+			height: 26px;
+			border-radius: 26px;
+			background: #c3c4c7;
+			position: relative;
+			transition: background 0.2s ease;
+
+			&::after {
+				content: '';
+				position: absolute;
+				top: 3px;
+				left: 3px;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: #fff;
+				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+				transition: transform 0.2s ease;
+			}
+		}
+
+		input:checked + .mcp-switch__track {
+			background: $mcp-green;
+
+			&::after {
+				transform: translateX(20px);
+			}
+		}
+
+		input:focus-visible + .mcp-switch__track {
+			outline: 2px solid $mcp-green;
+			outline-offset: 2px;
+		}
+
+		&.is-busy {
+			opacity: 0.6;
+			cursor: progress;
+		}
+	}
+
+	// Buttons.
+	.mcp-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 6px;
+		min-height: 38px;
+		padding: 8px 16px;
+		border-radius: 6px;
+		border: 1px solid transparent;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1.2;
+		cursor: pointer;
+		white-space: nowrap;
+		transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+		&:disabled {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
+
+		&--primary {
+			background: $mcp-green;
+			color: #fff;
+
+			&:hover:not(:disabled) {
+				background: $mcp-green-dark;
+			}
+		}
+
+		&--ghost {
+			background: #fff;
+			color: $mcp-title;
+			border-color: $mcp-border;
+
+			&:hover:not(:disabled) {
+				border-color: $mcp-green;
+				color: $mcp-green;
+			}
+		}
+
+		&--danger {
+			background: #fff;
+			color: $mcp-red;
+			border-color: $mcp-red;
+
+			&:hover:not(:disabled) {
+				background: $mcp-red;
+				color: #fff;
+			}
+		}
+
+		&--link-danger {
+			background: none;
+			border: none;
+			color: $mcp-red;
+			padding: 4px 0;
+			min-height: auto;
+			text-decoration: underline;
+		}
+	}
+
+	.mcp-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		justify-content: flex-end;
+
+		&--stack {
+			justify-content: flex-start;
+		}
+	}
+
+	// Inputs.
+	.mcp-input-row {
+		display: flex;
+		gap: 10px;
+
+		.mcp-input {
+			flex: 1;
+			min-width: 0;
+		}
+	}
+
+	.mcp-input,
+	.mcp-select {
+		width: 100%;
+		min-height: 38px;
+		padding: 8px 12px;
+		border: 1px solid #c3c4c7;
+		border-radius: 6px;
+		background: #fff;
+		font-size: 14px;
+		color: $mcp-title;
+
+		&:focus {
+			outline: none;
+			border-color: $mcp-green;
+			box-shadow: 0 0 0 2px rgba(0, 135, 23, 0.15);
+		}
+
+		&--mono {
+			font-family: ui-monospace, SFMono-Regular, Consolas, Menlo, monospace;
+			font-size: 13px;
+			background: $mcp-soft;
+		}
+	}
+
+	.mcp-select {
+		max-width: 320px;
+	}
+
+	.mcp-field {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+
+		label {
+			font-weight: 600;
+			font-size: 14px;
+		}
+
+		small {
+			font-size: 12px;
+		}
+	}
+
+	// Checkbox: same design as Table customization (19px, rounded, green when checked).
+	.mcp-check {
+		display: flex;
+		gap: 10px;
+		align-items: flex-start;
+		cursor: pointer;
+		color: $mcp-title;
+
+		input[type='checkbox'] {
+			position: relative;
+			flex-shrink: 0;
+			width: 19px;
+			height: 19px;
+			margin: 1px 0 0;
+			padding: 0 !important;
+			border: 1px solid #bbbdca;
+			border-radius: 5px;
+			background: #fff;
+			box-shadow: none;
+			outline: none;
+			cursor: pointer;
+			line-height: 0;
+			-webkit-appearance: none;
+			appearance: none;
+			transition: background-color 0.15s ease, border-color 0.15s ease;
+
+			&::before {
+				display: none;
+			}
+
+			&:checked {
+				background-color: $mcp-green;
+				border-color: $mcp-green;
+			}
+
+			&:checked::before {
+				content: '';
+				display: block;
+				position: absolute;
+				right: 50%;
+				top: 50%;
+				width: 4px;
+				height: 10px;
+				margin: -1px -1px 0 -1px;
+				border: solid #fff;
+				border-width: 0 2px 2px 0;
+				transform: rotate(45deg) translate(-50%, -50%);
+				z-index: 2;
+			}
+
+			&:focus-visible {
+				box-shadow: 0 0 0 2px rgba(0, 135, 23, 0.25);
+			}
+
+			&:disabled {
+				cursor: not-allowed;
+				opacity: 0.5;
+			}
+		}
+
+		span {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+			font-size: 15px;
+			line-height: 1.35;
+		}
+
+		strong {
+			font-weight: 500;
+			color: $mcp-title;
+		}
+
+		small {
+			color: $mcp-text;
+			font-size: 13px;
+			line-height: 1.5;
+		}
+	}
+
+	// Notice: same design as FlexTable's info cards (e.g. Theme settings notice).
+	.mcp-notice {
+		display: flex;
+		align-items: flex-start;
+		gap: 8px;
+		margin: 0;
+		padding: 13px 20px;
+		background-color: #eff2f7;
+		color: #1e1e1e;
+		font-size: 14px;
+		line-height: 1.5;
+
+		&__icon {
+			flex-shrink: 0;
+			display: inline-flex;
+			margin-top: 2px;
+
+			svg {
+				display: block;
+			}
+		}
+
+		&__text {
+			min-width: 0;
+		}
+	}
+
+	// FlexTable LoaderIcon in buttons (white arc on the green primary button).
+	.mcp-loader {
+		display: inline-flex;
+		flex-shrink: 0;
+
+		svg {
+			width: 16px;
+			height: 16px;
+		}
+	}
+
+	.mcp-btn--primary .mcp-loader svg circle:first-child {
+		stroke: rgba(255, 255, 255, 0.35);
+	}
+
+	.mcp-btn--primary .mcp-loader svg circle:last-child {
+		stroke: #fff;
+	}
+
+	// Spinner (legacy class).
+	.mcp-spinner {
+		display: inline-block;
+		flex-shrink: 0;
+		width: 14px;
+		height: 14px;
+		border: 2px solid currentColor;
+		border-right-color: transparent;
+		border-radius: 50%;
+		animation: mcp-spin 0.7s linear infinite;
+	}
+
+	// Skeleton loader.
+	.mcp-card--loading {
+		pointer-events: none;
+	}
+
+	.mcp-skeleton {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+
+		&__line {
+			display: block;
+			height: 12px;
+			width: 100%;
+			border-radius: 4px;
+			background: linear-gradient(90deg, #eef0f2 0%, #f7f8f9 40%, #eef0f2 80%);
+			background-size: 200% 100%;
+			animation: mcp-shimmer 1.4s ease-in-out infinite;
+
+			&--title {
+				height: 18px;
+				width: 40%;
+				margin-bottom: 4px;
+			}
+
+			&--short {
+				width: 65%;
+			}
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.mcp-spinner,
+		.mcp-skeleton__line {
+			animation: none;
+		}
+	}
+
+	// Hints and notes.
+	.mcp-hints {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+
+	.mcp-note {
+		margin: 0;
+		font-size: 13px;
+		color: $mcp-text;
+		font-style: italic;
+	}
+
+	.mcp-empty {
+		margin: 0;
+		padding: 18px;
+		text-align: center;
+		color: $mcp-text;
+		background: $mcp-soft;
+		border-radius: 6px;
+	}
+
+	// Connection test.
+	.mcp-result-banner {
+		padding: 10px 14px;
+		border-radius: 6px;
+		font-weight: 600;
+
+		&.is-ok {
+			background: #e6f4ea;
+			color: $mcp-green;
+		}
+
+		&.is-fail {
+			background: #fcf0f1;
+			color: $mcp-red;
+		}
+	}
+
+	.mcp-checklist {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		border: 1px solid $mcp-border;
+		border-radius: 6px;
+		overflow: hidden;
+
+		&__item {
+			display: flex;
+			gap: 12px;
+			align-items: flex-start;
+			padding: 10px 14px;
+			border-top: 1px solid $mcp-border;
+			font-size: 14px;
+
+			&:first-child {
+				border-top: none;
+			}
+
+			> div {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+				min-width: 0;
+			}
+		}
+
+		&__icon {
+			width: 22px;
+			height: 22px;
+			flex-shrink: 0;
+			border-radius: 50%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 12px;
+			font-weight: 700;
+			color: #fff;
+		}
+
+		&__detail {
+			color: $mcp-text;
+			font-size: 13px;
+			word-break: break-word;
+		}
+
+		&__remedy {
+			color: $mcp-amber;
+			font-size: 13px;
+		}
+
+		.is-pass .mcp-checklist__icon {
+			background: $mcp-green;
+		}
+
+		.is-warn .mcp-checklist__icon {
+			background: #dba617;
+		}
+
+		.is-fail .mcp-checklist__icon {
+			background: $mcp-red;
+		}
+
+		.is-info .mcp-checklist__icon {
+			background: #3858e9;
+		}
+	}
+
+	// Connect an AI client.
+	.mcp-tabs {
+		display: flex;
+		gap: 6px;
+		overflow-x: auto;
+		border-bottom: 1px solid $mcp-border;
+		scrollbar-width: thin;
+
+		&__tab {
+			flex-shrink: 0;
+			padding: 10px 14px;
+			border: none;
+			background: none;
+			border-bottom: 3px solid transparent;
+			font-size: 14px;
+			color: $mcp-text;
+			cursor: pointer;
+			margin-bottom: -1px;
+
+			&:hover {
+				color: $mcp-title;
+			}
+
+			&.is-active {
+				color: $mcp-green;
+				border-bottom-color: $mcp-green;
+				font-weight: 600;
+			}
+		}
+	}
+
+	.mcp-connect {
+		display: grid;
+		grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+		gap: 24px;
+		align-items: start;
+
+		&__side {
+			display: flex;
+			flex-direction: column;
+			gap: 14px;
+		}
+
+		&__summary {
+			margin: 0;
+			font-size: 14px;
+			color: $mcp-title;
+		}
+
+		&__prompt {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			min-width: 0;
+		}
+	}
+
+	.mcp-prompt {
+		margin: 0;
+		padding: 16px;
+		max-height: 460px;
+		overflow: auto;
+		background: #1e1e1e;
+		color: #e8e8e8;
+		border-radius: 6px;
+		font-family: ui-monospace, SFMono-Regular, Consolas, Menlo, monospace;
+		font-size: 12.5px;
+		line-height: 1.6;
+		white-space: pre-wrap;
+		word-break: break-word;
+
+		&.is-generated {
+			box-shadow: 0 0 0 3px #dba617;
+		}
+
+		&--schema {
+			max-height: 300px;
+			background: $mcp-soft;
+			color: $mcp-title;
+		}
+	}
+
+	.mcp-once {
+		font-weight: 600;
+	}
+
+	// Tables.
+	.mcp-table-wrap {
+		width: 100%;
+		overflow-x: auto;
+	}
+
+	.mcp-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 14px;
+
+		th,
+		td {
+			padding: 10px 12px;
+			text-align: left;
+			border-bottom: 1px solid $mcp-border;
+			vertical-align: top;
+		}
+
+		th {
+			font-weight: 600;
+			color: $mcp-text;
+			font-size: 13px;
+			background: $mcp-soft;
+		}
+	}
+
+	// Abilities.
+	.mcp-abilities {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border: 1px solid $mcp-border;
+		border-radius: 6px;
+		overflow: hidden;
+	}
+
+	.mcp-ability {
+		border-top: 1px solid $mcp-border;
+
+		&:first-child {
+			border-top: none;
+		}
+
+		&.is-unavailable {
+			background: $mcp-soft;
+
+			.mcp-ability__label {
+				opacity: 0.7;
+			}
+		}
+
+		&__head {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 12px;
+			padding: 12px 14px;
+			border: none;
+			background: none;
+			text-align: left;
+			cursor: pointer;
+		}
+
+		&__name {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+			min-width: 0;
+		}
+
+		&__label {
+			font-size: 13px;
+			color: $mcp-text;
+		}
+
+		&__badges {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 6px;
+			justify-content: flex-end;
+		}
+
+		&__body {
+			padding: 0 14px 14px;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+
+			p {
+				margin: 0;
+				font-size: 13px;
+				line-height: 1.6;
+			}
+		}
+	}
+
+	.mcp-badge {
+		display: inline-flex;
+		padding: 2px 8px;
+		border-radius: 999px;
+		font-size: 11px;
+		font-weight: 600;
+		white-space: nowrap;
+		background: $mcp-soft;
+		color: $mcp-text;
+		margin-left: 6px;
+
+		&--free {
+			background: #e6f4ea;
+			color: $mcp-green;
+		}
+
+		&--pro {
+			background: #f0e9ff;
+			color: #6b3fd6;
+		}
+
+		&--read {
+			background: #e8f0fe;
+			color: #1a5fb4;
+		}
+
+		&--write {
+			background: #fcf9e8;
+			color: $mcp-amber;
+		}
+
+		&--destructive,
+		&--off {
+			background: #fcf0f1;
+			color: $mcp-red;
+		}
+	}
+
+	// Responsive.
+	@media (max-width: 1024px) {
+		.mcp-grid {
+			grid-template-columns: minmax(0, 1fr);
+		}
+
+		.mcp-connect {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+
+	@media (max-width: 782px) {
+		gap: 16px;
+
+		.mcp-card {
+			padding: 16px;
+		}
+
+		.mcp-hero,
+		.mcp-card__head {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.mcp-input-row {
+			flex-direction: column;
+
+			.mcp-btn {
+				width: 100%;
+			}
+		}
+
+		.mcp-select {
+			max-width: none;
+		}
+
+		.mcp-actions {
+			justify-content: stretch;
+
+			.mcp-btn {
+				flex: 1 1 auto;
+			}
+		}
+
+		.mcp-ability__head {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.mcp-ability__badges {
+			justify-content: flex-start;
+
+			.mcp-badge:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+
+	@media (max-width: 480px) {
+		.mcp-notice {
+			padding: 12px 14px;
+			font-size: 13px;
+		}
+
+		// Tables become stacked cards.
+		.mcp-table {
+			thead {
+				display: none;
+			}
+
+			tr {
+				display: block;
+				border: 1px solid $mcp-border;
+				border-radius: 6px;
+				margin-bottom: 10px;
+				padding: 6px 0;
+			}
+
+			td {
+				display: flex;
+				justify-content: space-between;
+				gap: 12px;
+				border-bottom: none;
+				padding: 6px 12px;
+
+				&[data-label]::before {
+					content: attr(data-label);
+					font-weight: 600;
+					color: $mcp-text;
+					font-size: 12px;
+				}
+			}
+		}
+
+		.mcp-prompt {
+			font-size: 12px;
+			padding: 12px;
+		}
+	}
+}
+
+// Confirmation modal (rendered in the portal, outside .swptls-mcp). Uses
+// FlexTable's .delete-table-modal design; only the differences are here.
+.mcp-confirm-modal.delete-table-modal-wrap {
+	height: auto;
+	min-height: 360px;
+	position: relative;
+	border-radius: 8px;
+
+	button.cross_sign {
+		border: 0;
+		background: transparent;
+		box-shadow: none;
+		line-height: 0;
+		padding: 10px;
+
+		&:focus-visible {
+			outline: 2px solid #008717;
+			outline-offset: 2px;
+		}
+	}
+
+	.delete-table-modal {
+		padding: 50px 40px 40px;
+
+		.action-buttons {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 12px;
+
+			button {
+				margin: 0;
+			}
+
+			.swptls-button:disabled {
+				opacity: 0.6;
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	@media screen and (max-width: 575px) {
+		.delete-table-modal {
+			padding: 44px 20px 28px;
+
+			.action-buttons .swptls-button {
+				width: 100%;
+			}
+		}
+	}
+}
+@keyframes mcp-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes mcp-shimmer {
+	0% {
+		background-position: 100% 0;
+	}
+
+	100% {
+		background-position: -100% 0;
+	}
+}

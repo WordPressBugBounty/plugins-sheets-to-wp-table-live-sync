@@ -11,7 +11,7 @@ namespace GSWPTS { //phpcs:ignore
 	// If direct access than exit the file.
 	defined( 'ABSPATH' ) || exit;
 
-	use GSWPTS_Pluginsdk; //phpcs:ignore
+	use WPPOOL_Plugin; //phpcs:ignore
 
 	/**
 	 * Represents as plugin base file.
@@ -133,6 +133,13 @@ namespace GSWPTS { //phpcs:ignore
 		 */
 		public $ai;
 
+		/**
+		 * Contains the MCP (AI client connection) module.
+		 *
+		 * @var \GSWPTS\MCP\MCP
+		 */
+		public $mcp;
+
 
 		/**
 		 * Main Plugin Instance.
@@ -196,6 +203,7 @@ namespace GSWPTS { //phpcs:ignore
 			$this->database    = new \GSWPTS\GSWPTS_Database();
 			$this->ajax        = new \GSWPTS\GSWPTS_Ajax();
 			$this->ai          = new \GSWPTS\AI\GSWPTS_AIManager();
+			$this->mcp         = new \GSWPTS\MCP\MCP();
 		}
 
 		/**

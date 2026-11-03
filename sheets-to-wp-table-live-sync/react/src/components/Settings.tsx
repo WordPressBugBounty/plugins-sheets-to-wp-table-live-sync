@@ -12,6 +12,7 @@ import ChangesLog from './ChangesLog';
 import Header from './Header';
 import { getNonce, isProActive, displayProPopup, getStrings } from './../Helpers';
 import CodeEditor from '@uiw/react-textarea-code-editor';
+import McpSettings from './mcp/McpSettings';
 
 // AI Integration Interface for settings
 interface SettingsType {
@@ -42,6 +43,7 @@ const TAB_URL_MAP: Record<string, string> = {
 	general: '',
 	performance: '-performance',
 	ai_summary: '-aiconfig',
+	mcp: '-mcp',
 	custom_css: '-customcss'
 };
 
@@ -50,6 +52,7 @@ const URL_TAB_MAP: Record<string, string> = {
 	'': 'general',
 	'-performance': 'performance',
 	'-aiconfig': 'ai_summary',
+	'-mcp': 'mcp',
 	'-customcss': 'custom_css'
 };
 
@@ -422,6 +425,19 @@ function Settings() {
 					</button>
 
 					<button
+						className={`setting-tab ${activeTab === 'mcp' ? 'active' : ''
+							}`}
+						onClick={() => handleActiveTab('mcp')}
+					>
+						<span className="icon">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M5.5 1.25a.75.75 0 0 1 .75.75v2.25h3.5V2a.75.75 0 0 1 1.5 0v2.25h.5A1.75 1.75 0 0 1 13.5 6v2.25A4.75 4.75 0 0 1 8.75 13v1.75a.75.75 0 0 1-1.5 0V13A4.75 4.75 0 0 1 2.5 8.25V6a1.75 1.75 0 0 1 1.75-1.75h.5V2a.75.75 0 0 1 .75-.75Zm-1.25 4.5A.25.25 0 0 0 4 6v2.25a3.25 3.25 0 0 0 3.25 3.25h1.5A3.25 3.25 0 0 0 12 8.25V6a.25.25 0 0 0-.25-.25h-7.5Z" fill="#666873" />
+							</svg>
+						</span>
+						<span>{getStrings('mcp-tab') || 'MCP'}</span>
+					</button>
+
+					<button
 						className={`setting-tab ${activeTab === 'custom_css' ? 'active' : ''
 							}`}
 						onClick={() => handleActiveTab('custom_css')}
@@ -443,16 +459,18 @@ function Settings() {
 						<span>{getStrings('custom-css')}</span>
 					</button>
 
-					<button className="save-settings-btn">
-						<div className="btn-box text-right">
-							<button
-								className="btn"
-								onClick={(e) => handleSaveSettings(e)}
-							>
-								{getStrings('save-settings')}
-							</button>
-						</div>
-					</button>
+					{'mcp' !== activeTab && (
+						<button className="save-settings-btn">
+							<div className="btn-box text-right">
+								<button
+									className="btn"
+									onClick={(e) => handleSaveSettings(e)}
+								>
+									{getStrings('save-settings')}
+								</button>
+							</div>
+						</button>
+					)}
 				</div>
 			</div>
 
@@ -1083,6 +1101,8 @@ function Settings() {
 				)}
 
 
+
+				{'mcp' === activeTab && <McpSettings />}
 
 				{'custom_css' === activeTab && (
 					<>

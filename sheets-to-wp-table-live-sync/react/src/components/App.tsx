@@ -81,6 +81,7 @@ function App() {
 							<Route path="/settings" element={<Settings />} />
 							<Route path="/settings-performance" element={<Settings />} />
 							<Route path="/settings-aiconfig" element={<Settings />} />
+							<Route path="/settings-mcp" element={<Settings />} />
 							<Route path="/settings-customcss" element={<Settings />} />
 
 							<Route path="/doc" element={<GetStart />} />
