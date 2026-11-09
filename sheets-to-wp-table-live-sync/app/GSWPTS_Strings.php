@@ -131,7 +131,7 @@ class GSWPTS_Strings {
 			'tooltip-61' => __( 'Set how many columns from the left side of the table should remain fixed while scrolling.', 'sheets-to-wp-table-live-sync' ),
 			'tooltip-62' => __( 'Set how many columns from the right side of the table should remain fixed while scrolling.', 'sheets-to-wp-table-live-sync' ),
 			'tooltip-63' => __( "When this option is enabled, the cache won't trigger any API request to update data from sheets. This helps improve performance and reduce server load. Important: If this is enabled before turning on features like merged cells, links, images, or importing table styles from Google Sheets, those features might not appear until the cache expires. To avoid this, enable all necessary features first, then active the cache feaure and then turn on this option. You can also change the cache expiry time in Settings.", 'sheets-to-wp-table-live-sync' ),
-			'tooltip-64' => __( 'Set how many days the cache should be stored in transients. Once the transient expires, the data will automatically refresh from the connected Google Sheets with updated data.', 'sheets-to-wp-table-live-sync' ),
+			'tooltip-64' => __( 'Set how long (minutes or days) the cache should be stored in transients. Once the transient expires, the data will automatically refresh from the connected Google Sheets with updated data.', 'sheets-to-wp-table-live-sync' ),
 
 			'tooltip-65' => __( 'Allow visitors to ask questions about the table. AI scans the data and returns accurate, easy to understand answers in real time.', 'sheets-to-wp-table-live-sync' ),
 
@@ -773,7 +773,10 @@ class GSWPTS_Strings {
 			  'timeout-label' => __('Response Timeout: ','sheets-to-wp-table-live-sync'),
 			  'timestamp-label' => __('Timestamp: ','sheets-to-wp-table-live-sync'),
 			  'timeout-content' => __('Choose the maximum response timeout the table need to wait','sheets-to-wp-table-live-sync'),
-			  'cache-timestamp' => __('Choose the maximum day to store the cache','sheets-to-wp-table-live-sync'),
+			  'cache-timestamp' => __('Choose how long to store the cache','sheets-to-wp-table-live-sync'),
+			  'cache-minutes' => __('minutes','sheets-to-wp-table-live-sync'),
+			  'cache-day' => __('day','sheets-to-wp-table-live-sync'),
+			  'cache-days' => __('days','sheets-to-wp-table-live-sync'),
 			  'the-table' => __('the table','sheets-to-wp-table-live-sync'),
 			  'copy-shortcode' => __('Copy shortcode','sheets-to-wp-table-live-sync'),
 			  'edit-table' => __('Edit table','sheets-to-wp-table-live-sync'),
@@ -1284,6 +1287,30 @@ class GSWPTS_Strings {
 			'mcp-disable-desc' => __( 'Connected AI clients stop working immediately. You can keep their credentials (they work again when you turn MCP back on) or revoke them all.', 'sheets-to-wp-table-live-sync' ),
 			'mcp-disable-keep' => __( 'Turn off, keep credentials', 'sheets-to-wp-table-live-sync' ),
 			'mcp-disable-revoke' => __( 'Turn off and revoke all', 'sheets-to-wp-table-live-sync' ),
+
+			/**
+			 * Server-side pagination (batch loading).
+			 */
+			'batch-loading-rows'   => __( 'Loading rows', 'sheets-to-wp-table-live-sync' ),
+			'batch-of'             => __( 'of', 'sheets-to-wp-table-live-sync' ),
+			'batch-remaining'      => __( 'remaining', 'sheets-to-wp-table-live-sync' ),
+			'batch-all-loaded'     => __( 'All rows loaded', 'sheets-to-wp-table-live-sync' ),
+			'batch-load-failed'    => __( 'Some rows could not be loaded.', 'sheets-to-wp-table-live-sync' ),
+			'batch-retry'          => __( 'Retry', 'sheets-to-wp-table-live-sync' ),
+			'ssp-title'            => __( 'Server-side pagination (batch loading)', 'sheets-to-wp-table-live-sync' ),
+			'ssp-desc'             => __( 'Shows the first rows instantly and loads the rest of the sheet in the background. Recommended for large Google Sheets.', 'sheets-to-wp-table-live-sync' ),
+			'ssp-batch-size'       => __( 'Batch size', 'sheets-to-wp-table-live-sync' ),
+			'ssp-batch-size-desc'  => __( 'Rows in the first batch. Smaller batches show the table faster; background batches grow automatically.', 'sheets-to-wp-table-live-sync' ),
+			'ssp-rows'             => __( 'rows', 'sheets-to-wp-table-live-sync' ),
+			'ssp-indicator'        => __( 'Loading indicator', 'sheets-to-wp-table-live-sync' ),
+			'ssp-indicator-desc'   => __( 'Show a small progress bar below the table while the remaining rows load.', 'sheets-to-wp-table-live-sync' ),
+			'ssp-show'             => __( 'Show', 'sheets-to-wp-table-live-sync' ),
+			'ssp-hide'             => __( 'Hide', 'sheets-to-wp-table-live-sync' ),
+			'ssp-modal-title'      => __( 'Enable asynchronous loading?', 'sheets-to-wp-table-live-sync' ),
+			'ssp-modal-desc'       => __( 'Server-side pagination loads rows in the background, so it needs asynchronous loading. Continue to turn on both asynchronous loading and server-side pagination.', 'sheets-to-wp-table-live-sync' ),
+			'ssp-async-off-desc'   => __( 'Turning off asynchronous loading also turns off server-side pagination.', 'sheets-to-wp-table-live-sync' ),
+			'ssp-continue'         => __( 'Continue', 'sheets-to-wp-table-live-sync' ),
+			'ssp-cancel'           => __( 'Cancel', 'sheets-to-wp-table-live-sync' ),
 		];
 	}
 }

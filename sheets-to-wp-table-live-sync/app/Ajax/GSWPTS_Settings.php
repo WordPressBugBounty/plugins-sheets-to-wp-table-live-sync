@@ -48,7 +48,10 @@ class GSWPTS_Settings {
 			'link_support'   => get_option( 'link_support_mode', 'pretty_link' ),
 			'script_support'   => get_option( 'script_support_mode', 'global_loading' ),
 			'timeout'   => get_option( 'timeout_values', 10 ),
-			'cache_timestamp'   => get_option( 'cache_timestamp', 30 ),
+			'cache_timestamp'   => \GSWPTS\GSWPTS_Cache::normalize_cache_duration( get_option( 'cache_timestamp', \GSWPTS\GSWPTS_Cache::DEFAULT_CACHE_DURATION ) ),
+			'server_side_pagination' => 'off' !== get_option( 'server_side_pagination', 'on' ) && 'on' === get_option( 'asynchronous_loading' ) ? 'on' : '',
+			'batch_size'             => gswpts()->batch->get_batch_size(),
+			'batch_indicator'        => gswpts()->batch->show_indicator() ? 'show' : 'hide',
 
 			// AI Provider Settings
 			'ai_provider' => get_option( 'gswpts_ai_provider', 'openai' ),
@@ -95,7 +98,23 @@ class GSWPTS_Settings {
 
 		update_option( 'timeout_values', isset( $settings['timeout'] ) ? sanitize_text_field( $settings['timeout'] ) : 10 );
 
-		update_option( 'cache_timestamp', isset( $settings['cache_timestamp'] ) ? sanitize_text_field( $settings['cache_timestamp'] ) : 30 );
+		// Cache duration: minutes ("30m") or days ("1d"), see GSWPTS_Cache::CACHE_DURATIONS.
+		update_option( 'cache_timestamp', \GSWPTS\GSWPTS_Cache::normalize_cache_duration( isset( $settings['cache_timestamp'] ) ? sanitize_text_field( $settings['cache_timestamp'] ) : '' ) );
+
+		// Server-side pagination (batch loading). It needs asynchronous loading.
+		if ( isset( $settings['server_side_pagination'] ) ) {
+			$batch_on = 'on' === $settings['server_side_pagination'] && 'on' === get_option( 'asynchronous_loading' );
+			update_option( 'server_side_pagination', $batch_on ? 'on' : 'off' );
+		}
+
+		if ( isset( $settings['batch_size'] ) ) {
+			$batch_size = absint( $settings['batch_size'] );
+			update_option( 'server_side_batch_size', $batch_size > 0 ? min( $batch_size, \GSWPTS\GSWPTS_Batch::MAX_BATCH_SIZE ) : \GSWPTS\GSWPTS_Batch::DEFAULT_BATCH_SIZE );
+		}
+
+		if ( isset( $settings['batch_indicator'] ) ) {
+			update_option( 'batch_loading_indicator', 'show' === $settings['batch_indicator'] ? 'show' : 'hide' );
+		}
 
 		// Save AI provider settings.
 		if ( isset( $settings['ai_provider'] ) ) {
@@ -140,7 +159,10 @@ class GSWPTS_Settings {
 			'link_support'   => get_option( 'link_support_mode', 'pretty_link' ),
 			'script_support'   => get_option( 'script_support_mode', 'global_loading' ),
 			'timeout'   => get_option( 'timeout_values', 10 ),
-			'cache_timestamp'   => get_option( 'cache_timestamp', 30 ),
+			'cache_timestamp'   => \GSWPTS\GSWPTS_Cache::normalize_cache_duration( get_option( 'cache_timestamp', \GSWPTS\GSWPTS_Cache::DEFAULT_CACHE_DURATION ) ),
+			'server_side_pagination' => 'off' !== get_option( 'server_side_pagination', 'on' ) && 'on' === get_option( 'asynchronous_loading' ) ? 'on' : '',
+			'batch_size'             => gswpts()->batch->get_batch_size(),
+			'batch_indicator'        => gswpts()->batch->show_indicator() ? 'show' : 'hide',
 
 			// AI Provider Settings
 			'ai_provider' => get_option( 'gswpts_ai_provider', 'openai' ),

@@ -173,9 +173,8 @@ jQuery(document).ready(function ($) {
                     table_obj.handleTableWidth($, $(elem).find(".gswpts_tables_container"));
                 } */
 
-                setInterval(function() {
-                    table_obj.handleTableWidth($, $(elem).find(".gswpts_tables_container"));
-                }, 600);
+                // Table width follows draws and container resizes (no polling).
+                table_obj.watchTableWidth($, elem);
 
                 /* $(window).on('resize', function () {
                     table_obj.handleTableWidth($, $(elem).find(".gswpts_tables_container"));

@@ -4,7 +4,7 @@ Tags: Google Sheets, table plugin, WordPress table, data table, table
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.2
-Stable tag: 3.26.1
+Stable tag: 3.27.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -295,11 +295,14 @@ No. FlexTable is a very user-friendly and simple plugin. Just download and use i
 
 == Changelog ==
 
-= 3.26.1 - 15 November 2026 =
+= 3.27.0 - 09 November 2026 =
+* **New:** Added server-side pagination with batch loading to significantly improve table performance and ensure faster data loading, even with large Google Sheets.
+
+= 3.26.1 - 15 October 2026 =
 * **Fix:** MCP now uses the official MCP protocol versions, so AI clients connect reliably.
 * **Improvement:** AI clients that request an unknown protocol version are now offered the newest supported version.
 
-= 3.26.0 - 15 November 2026 =
+= 3.26.0 - 15 October 2026 =
 * **New:** Introduced MCP integrations to enable seamless connectivity with external tools and services
 
 = 3.25.1 - 29 September 2026 =

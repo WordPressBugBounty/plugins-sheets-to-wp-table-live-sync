@@ -605,3 +605,12 @@
         }
     }
 }
+
+// Server-side pagination (batch loading) settings.
+.swptls-performance-settings .swptls-ssp-settings {
+    margin-top: 40px;
+
+    .async_loading label .btn-pro.btn-new {
+        margin-left: 4px;
+    }
+}

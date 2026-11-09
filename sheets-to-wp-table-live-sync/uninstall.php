@@ -29,6 +29,18 @@ if ( ! class_exists( 'GSWPTS_Uninstall' ) ) {
 			$this->delete_tables();
 			$this->delete_options();
 			$this->delete_mcp_data();
+			$this->delete_batch_cache();
+		}
+
+		/**
+		 * Removes the server-side pagination snapshot and feature transients.
+		 *
+		 * @since 3.27.0
+		 */
+		public function delete_batch_cache() {
+			global $wpdb;
+
+			$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_gswpts\_snap%' OR option_name LIKE '\_transient\_timeout\_gswpts\_snap%'" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
 		}
 
 		/**
@@ -101,6 +113,9 @@ if ( ! class_exists( 'GSWPTS_Uninstall' ) ) {
 				'swptlsAffiliateNotice',
 				'deafaultAffiliateInterval',
 				'asynchronous_loading',
+				'server_side_pagination',
+				'server_side_batch_size',
+				'batch_loading_indicator',
 				'custom_css',
 				'css_code_value',
 			];

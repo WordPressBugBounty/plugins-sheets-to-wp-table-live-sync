@@ -298,24 +298,33 @@ class GSWPTS_Shortcode {
 
 		$name     = esc_attr( $table['table_name'] );
 		$url      = esc_url( $table['source_url'] );
-		$sheet_id = gswpts()->helpers->get_sheet_id( $url );
-		$gid      = gswpts()->helpers->get_grid_id( $url );
-		$response = gswpts()->helpers->get_csv_data( $url, $sheet_id, $gid );
-
-		if ( ! $response ) {
-			return $output;
-		}
 
 		$with_style  = wp_validate_boolean( $settings['importStyles'] ?? false );
 		$table_style = $with_style ? 'default-style' : ( ! empty( $settings['table_style'] ) ? 'gswpts_' . $settings['table_style'] : '' );
 
-		// Load Pro classes and functions when Pro is active; otherwise, use the Free implementation.
-		if ( gswpts()->helpers->is_pro_active() ) {
-			$table_data  = swptlspro()->helpers->load_table_data( $url, absint( $table['id'] ) );
-			$response    = swptlspro()->helpers->generate_html( $name, $settings, $table_data, false, absint( $table['id'] ) );
+		// Server-side pagination (page builder editors): render the first batch only,
+		// the asynchronous table script loads the table with all its rows.
+		$first_batch = gswpts()->batch->is_enabled( absint( $table['id'] ) ) ? gswpts()->batch->render_first_batch( $table, (array) $settings, $name ) : null;
+
+		if ( is_array( $first_batch ) ) {
+			$response = $first_batch['html'];
 		} else {
-			$table_data  = gswpts()->helpers->load_table_data( $url, absint( $table['id'] ) );
-			$response    = gswpts()->helpers->generate_html( $name, $settings, $table_data, false, absint( $table['id'] ) );
+			$sheet_id = gswpts()->helpers->get_sheet_id( $url );
+			$gid      = gswpts()->helpers->get_grid_id( $url );
+			$response = gswpts()->helpers->get_csv_data( $url, $sheet_id, $gid );
+
+			if ( ! $response ) {
+				return $output;
+			}
+
+			// Load Pro classes and functions when Pro is active; otherwise, use the Free implementation.
+			if ( gswpts()->helpers->is_pro_active() ) {
+				$table_data  = swptlspro()->helpers->load_table_data( $url, absint( $table['id'] ) );
+				$response    = swptlspro()->helpers->generate_html( $name, $settings, $table_data, false, absint( $table['id'] ) );
+			} else {
+				$table_data  = gswpts()->helpers->load_table_data( $url, absint( $table['id'] ) );
+				$response    = gswpts()->helpers->generate_html( $name, $settings, $table_data, false, absint( $table['id'] ) );
+			}
 		}
 
 		$table      = $response;

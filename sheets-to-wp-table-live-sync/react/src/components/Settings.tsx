@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Route, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Tooltip from './Tooltip';
-import { infoIcon, Unlock, ProIcon } from '../icons';
+import { infoIcon, Unlock, ProIcon, Cross } from '../icons';
 import Modal from './../core/Modal';
 import '../styles/_code.scss';
 import '../styles/_header.scss';
@@ -21,7 +21,10 @@ interface SettingsType {
 	link_support: string;
 	script_support: string;
 	timeout: number;
-	cache_timestamp: number;
+	cache_timestamp: string;
+	server_side_pagination: string;
+	batch_size: number;
+	batch_indicator: string;
 	ai_provider: string;
 	openai_api_key: string;
 	openai_model: string;
@@ -67,7 +70,10 @@ function Settings() {
 		link_support: 'smart_link',
 		script_support: 'global_loading',
 		timeout: 5,
-		cache_timestamp: 30,
+		cache_timestamp: '30d',
+		server_side_pagination: 'on',
+		batch_size: 25,
+		batch_indicator: 'hide',
 
 		// AI Integraion Provider Settings
 		ai_provider: 'openai',
@@ -130,7 +136,33 @@ function Settings() {
 
 
 	const timeoutOptions = [3, 5, 10, 15, 20, 25, 30, 40, 50, 60];
-	const timestampOptions = [1, 2, 3, 5, 10, 15, 20, 25, 30];
+	// Cache duration: minutes ("m") or days ("d"), see GSWPTS_Cache::CACHE_DURATIONS.
+	const timestampOptions = ['5m', '10m', '30m', '60m', '1d', '2d', '3d', '5d', '10d', '15d', '20d', '25d', '30d'];
+	const batchSizeOptions = [25, 50, 100, 250, 500, 1000];
+
+	// Server-side pagination needs asynchronous loading: confirm before enabling both.
+	const [sspModal, setSspModal] = useState<boolean>(false);
+
+	const handleServerSidePaginationToggle = (checked: boolean) => {
+		if (checked && settings.async_loading !== 'on') {
+			setSspModal(true);
+			return;
+		}
+
+		setSettings({
+			...settings,
+			server_side_pagination: checked ? 'on' : '',
+		});
+	};
+
+	const handleConfirmServerSidePagination = () => {
+		setSettings({
+			...settings,
+			async_loading: 'on',
+			server_side_pagination: 'on',
+		});
+		setSspModal(false);
+	};
 
 
 	useEffect(() => {
@@ -162,7 +194,7 @@ function Settings() {
 			data: {
 				nonce: getNonce(),
 			},
-			success({ css, async, link_support, script_support, timeout, cache_timestamp, ai_provider, openai_api_key, openai_model, gemini_api_key, gemini_model, gemini_top_p, gemini_top_k, max_tokens, temperature, frequency_penalty, cache_duration }: any) {
+			success({ css, async, link_support, script_support, timeout, cache_timestamp, server_side_pagination, batch_size, batch_indicator, ai_provider, openai_api_key, openai_model, gemini_api_key, gemini_model, gemini_top_p, gemini_top_k, max_tokens, temperature, frequency_penalty, cache_duration }: any) {
 				setSettings({
 					css_code_value: css,
 					async_loading: async,
@@ -170,6 +202,9 @@ function Settings() {
 					script_support: script_support,
 					timeout: timeout,
 					cache_timestamp: cache_timestamp,
+					server_side_pagination: server_side_pagination,
+					batch_size: parseInt(batch_size) || 25,
+					batch_indicator: batch_indicator || 'hide',
 
 					ai_provider: ai_provider || 'openai',
 					openai_api_key: openai_api_key || '',
@@ -205,7 +240,7 @@ function Settings() {
 				nonce: getNonce(),
 				settings: JSON.stringify(settings),
 			},
-			success({ message, css, async, link_support, script_support, timeout, cache_timestamp, ai_provider, openai_api_key, openai_model, gemini_api_key, gemini_model, gemini_top_p, gemini_top_k, max_tokens, temperature, frequency_penalty, cache_duration }: any) {
+			success({ message, css, async, link_support, script_support, timeout, cache_timestamp, server_side_pagination, batch_size, batch_indicator, ai_provider, openai_api_key, openai_model, gemini_api_key, gemini_model, gemini_top_p, gemini_top_k, max_tokens, temperature, frequency_penalty, cache_duration }: any) {
 				setSettings({
 					css_code_value: css,
 					async_loading: async,
@@ -213,6 +248,9 @@ function Settings() {
 					script_support: script_support,
 					timeout: timeout,
 					cache_timestamp: cache_timestamp,
+					server_side_pagination: server_side_pagination,
+					batch_size: parseInt(batch_size) || 25,
+					batch_indicator: batch_indicator || 'hide',
 
 					ai_provider: ai_provider || 'openai',
 					openai_api_key: openai_api_key || '',
@@ -349,6 +387,38 @@ function Settings() {
 
 	return (
 		<>
+			{ /* Server-side pagination needs asynchronous loading */}
+			{sspModal && (
+				<Modal>
+					<div className="import-style-modal-wrap modal-content">
+						<div
+							className="cross_sign"
+							onClick={() => setSspModal(false)}
+						>
+							{Cross}
+						</div>
+						<div className="import-style-modal">
+							<h2>{getStrings('ssp-modal-title')}</h2>
+							<p>{getStrings('ssp-modal-desc')}</p>
+							<div className="action-buttons">
+								<button
+									className="swptls-button cancel-button"
+									onClick={() => setSspModal(false)}
+								>
+									{getStrings('ssp-cancel')}
+								</button>
+								<button
+									className="swptls-button confirm-button"
+									onClick={handleConfirmServerSidePagination}
+								>
+									{getStrings('ssp-continue')}
+								</button>
+							</div>
+						</div>
+					</div>
+				</Modal>
+			)}
+
 			<Header
 				title={getStrings('global-settings')}
 				description={getStrings('global-settings-content')}
@@ -589,6 +659,10 @@ function Settings() {
 											async_loading: e.target.checked
 												? 'on'
 												: '',
+											// Server-side pagination cannot work without asynchronous loading.
+											server_side_pagination: e.target.checked
+												? settings.server_side_pagination
+												: '',
 										})
 									}
 								/>
@@ -686,6 +760,69 @@ function Settings() {
 								{getStrings('optimized-loading-details')}
 							</p>
 
+							{/* Server-side pagination (batch loading) */}
+							<div className="swptls-async-settings swptls-ssp-settings">
+								<div className="async_loading">
+									<input
+										type="checkbox"
+										name="server_side_pagination"
+										id="server-side-pagination"
+										checked={settings.server_side_pagination === 'on'}
+										onChange={(e) =>
+											handleServerSidePaginationToggle(e.target.checked)
+										}
+									/>
+									<label htmlFor="server-side-pagination">
+										{getStrings('ssp-title')}
+										{<button className='btn-pro btn-new'>{getStrings('new')}</button>}
+									</label>
+								</div>
+								<p>{getStrings('ssp-desc')}</p>
+							</div>
+
+							{settings.server_side_pagination === 'on' && (
+								<>
+									<div className="scripts-modes time-out-settings">
+										<label htmlFor="batch-size-select">{getStrings('ssp-batch-size')} </label>
+										<select
+											id="batch-size-select"
+											value={settings.batch_size}
+											onChange={(e) =>
+												setSettings({
+													...settings,
+													batch_size: parseInt(e.target.value),
+												})
+											}
+										>
+											{batchSizeOptions.map((option) => (
+												<option key={option} value={option}>
+													{option} {getStrings('ssp-rows')}
+												</option>
+											))}
+										</select>
+										<Tooltip content={getStrings('ssp-batch-size-desc')} />
+									</div>
+
+									<div className="scripts-modes time-out-settings">
+										<label htmlFor="batch-indicator-select">{getStrings('ssp-indicator')} </label>
+										<select
+											id="batch-indicator-select"
+											value={settings.batch_indicator}
+											onChange={(e) =>
+												setSettings({
+													...settings,
+													batch_indicator: e.target.value,
+												})
+											}
+										>
+											<option value="hide">{getStrings('ssp-hide')}</option>
+											<option value="show">{getStrings('ssp-show')}</option>
+										</select>
+										<Tooltip content={getStrings('ssp-indicator-desc')} />
+									</div>
+								</>
+							)}
+
 							{/* Timeout Select */}
 							<p className="performance-title">
 								{getStrings('timeout-content')}{<button className='btn-pro btn-new'>{getStrings('new')}</button>}
@@ -730,15 +867,22 @@ function Settings() {
 									onChange={(e) =>
 										setSettings({
 											...settings,
-											cache_timestamp: parseInt(e.target.value),
+											cache_timestamp: e.target.value,
 										})
 									}
 								>
-									{timestampOptions.map((option) => (
-										<option key={option} value={option}>
-											{option} {getStrings('days')}
-										</option>
-									))}
+									{timestampOptions.map((option) => {
+										const amount = parseInt(option);
+										const unit = option.endsWith('m')
+											? getStrings('cache-minutes')
+											: getStrings(1 === amount ? 'cache-day' : 'cache-days');
+
+										return (
+											<option key={option} value={option}>
+												{amount} {unit}
+											</option>
+										);
+									})}
 								</select>
 
 								<Tooltip

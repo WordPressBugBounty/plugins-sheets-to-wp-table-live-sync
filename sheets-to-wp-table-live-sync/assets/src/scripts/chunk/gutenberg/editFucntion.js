@@ -3,6 +3,7 @@ import React from "react";
 import { Dropdown } from "semantic-ui-react";
 
 import { saveChanges, callAlert } from "./parts/helperFunctions";
+import { attachBatchLoader, hideMergedCells } from "../../shared/batch_loader";
 import { formatCellValues, rows_per_page, scrollHeights, redirectionValues, tableStyles, responsive_styles } from "./parts/selectValues";
 
 const { useEffect, useRef, useState } = wp.element;
@@ -10,6 +11,9 @@ const { InspectorControls } = wp.blockEditor;
 const { Panel, PanelBody, PanelRow, SelectControl, ToggleControl } = wp.components;
 
 var $ = jQuery.noConflict();
+
+// Server-side pagination loaders of the tables previewed in the editor, by table id.
+const batchLoaders = {};
 
 export default function editFucntion({ attributes, setAttributes }) {
     // const [gridError, setGridError] = useState(false);
@@ -464,10 +468,17 @@ export default function editFucntion({ attributes, setAttributes }) {
             data: {
                 action: "gswpts_sheet_fetch",
                 id: parseInt(id),
-                nonce: window?.gswpts_gutenberg_block?.fetch_nonce
+                nonce: window?.gswpts_gutenberg_block?.fetch_nonce,
+                // Server-side pagination: preview the first batch, load the rest in the background.
+                batch: window?.gswpts_gutenberg_block?.batch?.server_side_pagination == "on" ? 1 : 0,
             },
             type: "POST",
             beforeSend: () => {
+                if (batchLoaders[id]) {
+                    batchLoaders[id].destroy();
+                    delete batchLoaders[id];
+                }
+
                 setAttributes({ show_settings: false });
                 setAttributes({ table_name: "" });
                 setAttributes({ innerHTML: loader });
@@ -534,6 +545,27 @@ export default function editFucntion({ attributes, setAttributes }) {
 
                         // Intitiale the data table feature in gutenberg table
                         $("#" + id + " #create_tables").DataTable(table_object(defaultRowsPerPage, allowSorting, dom, verticalScroll, hideColumn));
+
+                        let batch = JSON.parse(res.responseText).data.batch;
+
+                        if (batch) {
+                            batchLoaders[id] = attachBatchLoader({
+                                table: $("#" + id + " #create_tables").DataTable(),
+                                container: $("#" + id).get(0),
+                                batch: batch,
+                                tableId: parseInt(id),
+                                ajaxUrl: gswpts_gutenberg_block.admin_ajax,
+                                nonce: gswpts_gutenberg_block.fetch_nonce,
+                                strings: gswpts_gutenberg_block.strings,
+                                onRowsPrepared: (tbody) => {
+                                    hideMergedCells(tbody);
+
+                                    if (isProPluginActive() && redirectionType) {
+                                        $(tbody).find("a").attr("target", redirectionType);
+                                    }
+                                },
+                            });
+                        }
 
                         update_default_attributes(table_settings);
 

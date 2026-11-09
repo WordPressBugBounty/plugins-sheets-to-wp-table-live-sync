@@ -92,6 +92,9 @@ class GSWPTS_Tables {
 		// Save the updated settings.
 		$response = gswpts()->database->table->update( $id, $settings );
 
+		// Server-side pagination: the next load starts from a fresh cached version.
+		gswpts()->batch->clear_table_cache( $id );
+
 		wp_send_json_success([
 			'message' => __( 'Table updated successfully.', 'sheets-to-wp-table-live-sync' ),
 			'table_name'     => esc_attr( $settings['table_name'] ),
@@ -506,6 +509,25 @@ class GSWPTS_Tables {
 		$table_name = isset($_POST['table_name']) ? sanitize_text_field(wp_unslash($_POST['table_name'])) : '';
 		$table_id = isset($_POST['id']) ? absint($_POST['id']) : 0;
 
+		// Server-side pagination: preview the first batch, the editor loads the rest in the background.
+		if ( ! empty( $_POST['batch'] ) && $table_id && gswpts()->batch->is_enabled( $table_id ) ) {
+			$table_row = gswpts()->database->table->get( $table_id );
+
+			// A changed (unsaved) source url is previewed the regular way.
+			if ( $table_row && esc_url_raw( $table_row['source_url'] ) === $sheet_url ) {
+				$first = gswpts()->batch->render_first_batch( $table_row, (array) $settings, $table_name );
+
+				if ( ! is_wp_error( $first ) ) {
+					wp_send_json_success([
+						'html'       => $first['html'],
+						'settings'   => $settings,
+						'is_private' => false,
+						'batch'      => $first['batch'],
+					]);
+				}
+			}
+		}
+
 		$sheet_id   = gswpts()->helpers->get_sheet_id( $sheet_url );
 		$sheet_gid  = gswpts()->helpers->get_grid_id( $sheet_url );
 		$styles     = [];
@@ -738,6 +760,22 @@ class GSWPTS_Tables {
 				'message'   => $non_logged_message,
 				'login_url' => $login_url,
 			]);
+		}
+
+		// Server-side pagination: render the first batch only, the client loads the rest in the background.
+		if ( ! empty( $_POST['batch'] ) && gswpts()->batch->is_enabled( $id ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Verified above.
+			$first = gswpts()->batch->render_first_batch( $table, (array) $settings, $name, $from_block );
+
+			if ( ! is_wp_error( $first ) ) {
+				wp_send_json_success([
+					'output'         => $first['html'],
+					'table_settings' => $settings,
+					'name'           => $name,
+					'source_url'     => $url,
+					'type'           => 'success',
+					'batch'          => $first['batch'],
+				]);
+			}
 		}
 
 		// Load Pro classes and functions when Pro is active; otherwise, use the Free implementation. The Free version remains fully functional; this only selects the implementation to load.

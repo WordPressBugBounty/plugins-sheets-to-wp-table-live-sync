@@ -12,11 +12,48 @@ jQuery(document).ready(function ($) {
             }
         }
         events() {
-            this.get_frontend_table();
+            this.table_count = 0;
+            this.get_frontend_table(this.frontend_table);
+            this.watch_new_tables();
         }
 
-        get_frontend_table() {
-            $.each(this.frontend_table, function (i, elem) {
+        /**
+         * Page builders (e.g. the Divi visual builder) insert table containers
+         * after page load. Load those too, once.
+         */
+        watch_new_tables() {
+            if (typeof MutationObserver === "undefined") {
+                return;
+            }
+
+            let timer = null;
+
+            new MutationObserver(() => {
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    let pending = $(".gswpts_tables_container").filter(function () {
+                        return !$(this).attr("data-swptls-loaded") && $(this).find(".gswpts_table_loader").length;
+                    });
+
+                    if (pending.length) {
+                        this.get_frontend_table(pending);
+                    }
+                }, 200);
+            }).observe(document.body, { childList: true, subtree: true });
+        }
+
+        get_frontend_table(tables) {
+            let self = this;
+
+            $.each(tables, function (index, elem) {
+                if ($(elem).attr("data-swptls-loaded")) {
+                    return;
+                }
+
+                $(elem).attr("data-swptls-loaded", "1");
+
+                // Unique per page, also for tables inserted later.
+                let i = self.table_count++;
                 let id = $(elem).attr("id");
                 $.ajax({
                     url  : gswpts_frontend_data.admin_ajax,
@@ -24,6 +61,8 @@ jQuery(document).ready(function ($) {
                         action : "gswpts_sheet_fetch",
                         id     : id,
                         nonce  : window?.gswpts_frontend_data?.nonce,
+                        // Server-side pagination: ask for the first batch only.
+                        batch  : gswpts_frontend_data.server_side_pagination == "on" ? 1 : 0,
                     },
                     type: "post",
                     success: (res) => {
@@ -240,9 +279,8 @@ jQuery(document).ready(function ($) {
                             tableClass.handleTableWidth($, $(elem).find(".gswpts_tables_container"));
                         } */
 
-                        setInterval(function() {
-                            tableClass.handleTableWidth($, $(elem).find(".gswpts_tables_container"));
-                        }, 600);
+                        // Table width follows draws and container resizes (no polling).
+                        tableClass.watchTableWidth($, elem);
 
                         tableClass.handlePaginations($, elem);
                         // tableClass.defaultThemepaginationStyle($, elem);
@@ -305,20 +343,25 @@ jQuery(document).ready(function ($) {
                                     action : "gswpts_update_sorting_fe",
                                     id     : id,
                                     nonce  : window?.gswpts_frontend_data?.nonce,
-                                    allow_sorting: false,  
+                                    allow_sorting: false,
                                 },
                                 type: "post",
                                 success: (res) => {
-                                    
+
                                 },
                                 error: (err) => {
-                                
+
                                 },
                             });
 
                         }
-                        // END 
-                        
+                        // END
+
+                        // Server-side pagination: load the remaining rows in the background.
+                        if (res.data.batch) {
+                            tableClass.startBatchLoading($, elem, id, res.data.batch, table_settings);
+                        }
+
                     },
                     error: (err) => {
                         alert("Something went wrong");

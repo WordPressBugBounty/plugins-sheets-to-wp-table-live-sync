@@ -11,6 +11,7 @@ import ThemeSettings from './ThemeSettings';
 import TableCustomization from './TableCustomization';
 import RowSettings from './RowSettings';
 import DataTable from 'datatables.net-dt';
+import { attachBatchLoader, hideMergedCells } from '../../../assets/src/scripts/shared/batch_loader';
 import CTAVideoPlayer from './CTAVideoPlayer';
 
 import {
@@ -43,6 +44,8 @@ function EditTable() {
 	const { id } = useParams();
 	const sheetUrlRef = useRef();
 	const verticalModelRef = useRef();
+	// Server-side pagination loader of the current preview.
+	const batchLoaderRef = useRef<any>(null);
 	const [loader, setLoader] = useState<boolean>(false);
 	const [verticalmodal, setVerticalmodal] = useState<boolean>(false);
 	const [previewLoader, setPreviewLoader] = useState<boolean>(false);
@@ -391,6 +394,12 @@ function EditTable() {
 	};
 
 	const getTablePreview = (values) => {
+		// A new preview replaces the rows the previous one was still loading.
+		if (batchLoaderRef.current) {
+			batchLoaderRef.current.destroy();
+			batchLoaderRef.current = null;
+		}
+
 		setPreviewLoader(true);
 		wp.ajax.send('gswpts_get_table_preview', {
 			data: {
@@ -398,6 +407,8 @@ function EditTable() {
 				...values,
 				table_settings: JSON.stringify(values.table_settings),
 				id,
+				// Server-side pagination: preview the first batch, load the rest in the background.
+				batch: GSWPTS_APP?.batch?.server_side_pagination === 'on' ? 1 : 0,
 			},
 			success(response) {
 				setTablePreview({
@@ -599,6 +610,31 @@ function EditTable() {
 					if (isProActive()) {
 						setPdfUrl(values?.source_url);
 					}
+
+					if (response.batch) {
+						batchLoaderRef.current = attachBatchLoader({
+							table: window.swptlsDataTable,
+							container: document.getElementById('table-preview'),
+							batch: response.batch,
+							tableId: id,
+							ajaxUrl: window.ajaxurl,
+							nonce: getNonce(),
+							params: {
+								table_settings: JSON.stringify(values.table_settings),
+								table_name: values.table_name,
+							},
+							strings: GSWPTS_APP?.strings,
+							onRowsPrepared: (tbody) => {
+								hideMergedCells(tbody);
+
+								if (values.table_settings?.redirection_type) {
+									tbody.querySelectorAll('.swptls-table-link').forEach((link) => {
+										link.setAttribute('target', values.table_settings.redirection_type);
+									});
+								}
+							},
+						});
+					}
 				}
 			},
 			error(error) {
@@ -621,6 +657,17 @@ function EditTable() {
 			handleClosePopup();
 		}
 	}
+
+	// Stop background batch loading when leaving the editor.
+	useEffect(() => {
+		return () => {
+			if (batchLoaderRef.current) {
+				batchLoaderRef.current.destroy();
+				batchLoaderRef.current = null;
+			}
+		};
+	}, []);
+
 	useEffect(() => {
 		document.addEventListener('mousedown', handleCancelOutside);
 		return () => {

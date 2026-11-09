@@ -158,6 +158,7 @@ class GSWPTS_Assets {
 					'license_url' => esc_url( admin_url( 'admin.php?page=sheets-to-wp-table-live-sync-pro-license' ) ),
 				],
 				'ran_setup_wizard' => wp_validate_boolean( get_option( 'gswpts_ran_setup_wizard', false ) ),
+				'batch'            => gswpts()->batch->get_client_config(),
 				'show_get_start_page' => wp_validate_boolean( get_option( 'show_get_start_page', false ) ),
 				'mcp'              => [
 					'enabled'       => \GSWPTS\MCP\Settings::is_enabled(),
@@ -331,6 +332,9 @@ class GSWPTS_Assets {
 			'nonce'                => wp_create_nonce( 'gswpts_sheet_nonce_action' ),
 			'user_auth'            => $this->get_user_auth_data(),
 		];
+
+		// Server-side pagination settings: server_side_pagination, batch_size, batch_indicator.
+		$frontend_data = array_merge( $frontend_data, gswpts()->batch->get_client_config() );
 		wp_localize_script( 'GSWPTS-frontend-js', 'gswpts_frontend_data', $frontend_data );
 	}
 
@@ -538,6 +542,8 @@ class GSWPTS_Assets {
 				'isProActive'      => gswpts()->helpers->is_pro_active(),
 				'nonce'  => wp_create_nonce( 'swptls-admin-app-nonce-action' ),
 				'fetch_nonce'     => wp_create_nonce( 'gswpts_sheet_nonce_action' ),
+				'batch'           => gswpts()->batch->get_client_config(),
+				'strings'         => GSWPTS_Strings::get(),
 			]
 		);
 	}

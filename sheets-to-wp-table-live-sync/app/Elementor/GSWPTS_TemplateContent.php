@@ -29,7 +29,7 @@ class GSWPTS_TemplateContent {
 	 */
 	public function render_template_js() {
 		?>
-		<# jQuery(document).ready(function($) { $.ajax({ type: "post" , url: "<?php echo esc_url(admin_url( 'admin-ajax.php' )); ?>" , data: { action: 'gswpts_sheet_fetch' , id: settings.choose_table, nonce: "<?php echo esc_attr( wp_create_nonce( 'gswpts_sheet_nonce_action' ) ); ?>" }, success: ( response )=> {
+		<# jQuery(document).ready(function($) { $.ajax({ type: "post" , url: "<?php echo esc_url(admin_url( 'admin-ajax.php' )); ?>" , data: { action: 'gswpts_sheet_fetch' , id: settings.choose_table, nonce: "<?php echo esc_attr( wp_create_nonce( 'gswpts_sheet_nonce_action' ) ); ?>", batch: <?php echo gswpts()->batch->is_enabled() ? 1 : 0; ?> }, success: ( response )=> {
 			let sheet_container = $($('#elementor-preview-iframe')[0].contentWindow.document.getElementById(settings.choose_table).querySelector("#spreadsheet_container"));
 			if (response.data.type == 'invalid_action' || response.data.type == 'invalid_request') {
 			sheet_container.html(`
@@ -108,6 +108,21 @@ class GSWPTS_TemplateContent {
 					"scrollX": true,
 					"scrollY": table_settings.vertical_scroll != 'default' ? `${table_settings.vertical_scroll}px`: null
 					});
+
+					<!-- Server-side pagination: load the remaining rows in the background -->
+					let batch = JSON.parse(res.responseText).data.batch;
+					let previewWindow = $('#elementor-preview-iframe')[0].contentWindow;
+					if (batch && previewWindow && previewWindow.swptlsAttachBatchLoader) {
+					previewWindow.swptlsAttachBatchLoader({
+					table: table.DataTable(),
+					container: previewWindow.document.getElementById(settings.choose_table),
+					batch: batch,
+					tableId: settings.choose_table,
+					ajaxUrl: "<?php echo esc_url(admin_url( 'admin-ajax.php' )); ?>",
+					nonce: "<?php echo esc_attr( wp_create_nonce( 'gswpts_sheet_nonce_action' ) ); ?>",
+					onRowsPrepared: (tbody) => previewWindow.swptlsHideMergedCells && previewWindow.swptlsHideMergedCells(tbody)
+					});
+					}
 
 					},
 					error: (err) => {

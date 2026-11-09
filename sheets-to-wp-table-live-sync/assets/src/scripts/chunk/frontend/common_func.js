@@ -1,4 +1,6 @@
-// Frontend Data table design and other config applied like pagination, shorting and so on 
+// Frontend Data table design and other config applied like pagination, shorting and so on
+
+import { attachBatchLoader } from "../../shared/batch_loader";
 
 export default class Global_Table_Config {
 
@@ -177,6 +179,113 @@ export default class Global_Table_Config {
             window.swptlsSearchFunctions = new Map();
         }
         window.swptlsSearchFunctions.set(tableId, searchFunction);
+    }
+
+    /**
+     * Server-side pagination: keep loading the remaining rows of a table that
+     * was rendered from its first batch.
+     */
+    startBatchLoading($, elem, id, batch, table_settings) {
+        const dataTable = $(elem).find("#create_tables").DataTable();
+
+        if (!dataTable || !batch) {
+            return null;
+        }
+
+        let filterTimer = null;
+
+        return attachBatchLoader({
+            table: dataTable,
+            container: elem,
+            batch: batch,
+            tableId: id,
+            ajaxUrl: gswpts_frontend_data.admin_ajax,
+            nonce: gswpts_frontend_data.nonce,
+            strings: gswpts_frontend_data.strings,
+            indicator: gswpts_frontend_data.batch_indicator == "show",
+            onRowsPrepared: (tbody) => this.prepareBatchRows($, tbody, table_settings),
+            onHeaderPatched: () => this.handleHeaderMergedCells($, elem),
+            // handleTableWidth() keeps re-applying the width it measured on the first
+            // batch; forget it so the width of the patched rows is measured instead.
+            onBeforeAdjust: () => {
+                if (window.originalTableWidths) {
+                    delete window.originalTableWidths[$(elem).attr("id")];
+                }
+            },
+            onRowsAdded: () => {
+                // Column filter dropdowns list the values of every loaded row.
+                clearTimeout(filterTimer);
+                filterTimer = setTimeout(() => this.refreshFilterOptions($, elem, dataTable), 800);
+            },
+        });
+    }
+
+    /**
+     * Keep the table width (handleTableWidth) right without polling: apply it
+     * once, after every draw (paging, sorting, search, new rows) and whenever
+     * the container's width changes (window resize, tabs, page builders).
+     */
+    watchTableWidth($, elem) {
+        const apply = () => this.handleTableWidth($, $(elem).find(".gswpts_tables_container"));
+
+        apply();
+
+        const table = $(elem).find("#create_tables");
+        if ($.fn.dataTable && $.fn.dataTable.isDataTable(table)) {
+            table.DataTable().on("draw.dt", apply);
+        }
+
+        if (typeof ResizeObserver !== "undefined") {
+            let lastWidth = elem.getBoundingClientRect().width;
+
+            new ResizeObserver((entries) => {
+                const width = entries[0].contentRect.width;
+
+                // Only width matters; height changes as rows load.
+                if (Math.abs(width - lastWidth) > 1) {
+                    lastWidth = width;
+                    apply();
+                }
+            }).observe(elem);
+        }
+    }
+
+    /**
+     * Apply the per-row features that the regular flow applies once on the
+     * initial DOM, to rows of a batch before they are added to the table.
+     */
+    prepareBatchRows($, tbody, table_settings) {
+        if (this.isProPluginActive()) {
+            this.changeRedirectionType(table_settings?.redirection_type, $(tbody).find("a"), $);
+        }
+
+        this.changeCellFormat(table_settings?.cell_format, $(tbody).find("td"), $);
+        this.handleMergedCells($, tbody);
+    }
+
+    /**
+     * Add options for values that appeared in newly loaded rows to the column
+     * filter dropdowns, keeping the current selection.
+     */
+    refreshFilterOptions($, elem, api) {
+        const self = this;
+
+        $(elem).find("select.swptls-filter-select[data-column], select.swptls-filter-multi-select[data-column]").each(function () {
+            const select = $(this);
+            const columnIndex = parseInt(select.attr("data-column"), 10);
+
+            if (Number.isNaN(columnIndex)) {
+                return;
+            }
+
+            const existing = new Set(select.find("option").map(function () { return this.value; }).get());
+
+            self.extractUniqueValues(api.column(columnIndex)).forEach(function (val) {
+                if (!existing.has(val)) {
+                    select.append($("<option></option>").attr("value", val).text(val));
+                }
+            });
+        });
     }
 
     changeRedirectionType(type, links, $) {

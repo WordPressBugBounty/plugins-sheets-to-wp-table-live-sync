@@ -61,16 +61,52 @@ class GSWPTS_Cache {
 	}
 
 	/**
+	 * Cache duration choices of the "cache_timestamp" setting: minutes ("m") or days ("d").
+	 */
+	const CACHE_DURATIONS = [ '5m', '10m', '30m', '60m', '1d', '2d', '3d', '5d', '10d', '15d', '20d', '25d', '30d' ];
+
+	/**
+	 * Default cache duration.
+	 */
+	const DEFAULT_CACHE_DURATION = '30d';
+
+	/**
 	 * Get the dynamic data cache expiration time.
 	 *
 	 * @return int
 	 */
 	public function get_data_cache_ttl() {
-		$minutes = get_option('cache_timestamp', 30);
-		$cache_ttl = ! empty($minutes) ? (int) $minutes : 30;
-		$cache_ttl = $cache_ttl * 60; // Convert minutes to seconds
+		return self::cache_duration_to_seconds( get_option('cache_timestamp', self::DEFAULT_CACHE_DURATION) );
+	}
 
-		return $cache_ttl;
+	/**
+	 * Normalise a "cache_timestamp" value to one of CACHE_DURATIONS.
+	 * Older versions saved a plain number that the settings page showed as days.
+	 *
+	 * @param mixed $value The saved or posted value.
+	 * @return string
+	 */
+	public static function normalize_cache_duration( $value ): string {
+		$value = strtolower( trim( (string) $value ) );
+
+		if ( ctype_digit( $value ) ) {
+			$value .= 'd';
+		}
+
+		return in_array( $value, self::CACHE_DURATIONS, true ) ? $value : self::DEFAULT_CACHE_DURATION;
+	}
+
+	/**
+	 * Convert a "cache_timestamp" value to seconds.
+	 *
+	 * @param mixed $value The saved value, e.g. "30m", "1d" or a legacy number of days.
+	 * @return int
+	 */
+	public static function cache_duration_to_seconds( $value ): int {
+		$value  = self::normalize_cache_duration( $value );
+		$amount = (int) $value;
+
+		return 'm' === substr( $value, -1 ) ? $amount * MINUTE_IN_SECONDS : $amount * DAY_IN_SECONDS;
 	}
 
 	/**

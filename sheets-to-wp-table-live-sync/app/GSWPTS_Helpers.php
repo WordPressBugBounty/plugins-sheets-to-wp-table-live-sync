@@ -21,6 +21,14 @@ defined( 'ABSPATH' ) || exit;
 class GSWPTS_Helpers {
 
 	/**
+	 * Absolute body row offset applied by generate_html() when rendering a
+	 * server-side pagination batch.
+	 *
+	 * @var int
+	 */
+	public $row_offset = 0;
+
+	/**
 	 * Check if the pro plugin exists.
 	 *
 	 * @return boolean
@@ -707,7 +715,12 @@ class GSWPTS_Helpers {
 
 		$table .= '">';
 
-		if ( is_string($table_data['sheet_data']) ) {
+		// Server-side pagination passes the already split lines of a batch.
+		if ( isset($table_data['sheet_lines']) && is_array($table_data['sheet_lines']) ) {
+			$tbody = $table_data['sheet_lines'];
+			$head = array_shift($tbody);
+			$thead = str_getcsv($head, ',');
+		} elseif ( is_string($table_data['sheet_data']) ) {
 			$tbody = str_getcsv($table_data['sheet_data'], "\n");
 			$head = array_shift($tbody);
 			$thead = str_getcsv($head, ',');
@@ -746,7 +759,7 @@ class GSWPTS_Helpers {
 
 		for ( $i = 0; $i < $count; $i++ ) {
 			$row_data = str_getcsv($tbody[ $i ], ',');
-			$row_index = ( $i + 1 );
+			$row_index = ( $i + 1 ) + (int) $this->row_offset;
 
 			$is_hidden_row = isset($settings['hide_rows']) && in_array($row_index, (array) $settings['hide_rows']) ? 'hidden-row' : '';
 

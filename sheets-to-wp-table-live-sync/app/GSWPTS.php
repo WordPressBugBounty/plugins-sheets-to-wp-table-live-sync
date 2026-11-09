@@ -140,6 +140,13 @@ namespace GSWPTS { //phpcs:ignore
 		 */
 		public $mcp;
 
+		/**
+		 * Contains the server-side pagination (batch loading) module.
+		 *
+		 * @var \GSWPTS\GSWPTS_Batch
+		 */
+		public $batch;
+
 
 		/**
 		 * Main Plugin Instance.
@@ -196,6 +203,7 @@ namespace GSWPTS { //phpcs:ignore
 			$this->multisite   = new \GSWPTS\GSWPTS_Multisite();
 			$this->assets      = new \GSWPTS\GSWPTS_Assets();
 			$this->cache       = new \GSWPTS\GSWPTS_Cache();
+			$this->batch       = new \GSWPTS\GSWPTS_Batch();
 			$this->elementor   = new \GSWPTS\Elementor\GSWPTS_ElementorBase();
 			$this->divi        = new \GSWPTS\Divi\GSWPTS_DiviBase();
 			$this->admin       = new \GSWPTS\GSWPTS_Admin();
